@@ -2,14 +2,16 @@
 
 import { useRef, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { useI18n } from '@/lib/i18n'
 
 const technologies = [
-  'React', 'Next.js', 'TypeScript', 'Three.js', 'GSAP',
-  'Framer Motion', 'Tailwind CSS', 'WebGL', 'Node.js',
-  'GraphQL', 'Prisma', 'Docker', 'Kubernetes', 'AWS',
+  'Valorant', 'Fortnite', 'Call of Duty', 'Apex Legends', 'CS2',
+  'League of Legends', 'Overwatch 2', 'Rainbow Six', 'Warzone',
+  'PUBG', 'Rocket League', 'GTA V', 'FIFA 24', 'Minecraft',
 ]
 
 export default function InfiniteScroll() {
+  const { t } = useI18n()
   const scrollRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -46,9 +48,9 @@ export default function InfiniteScroll() {
         className="mb-12 text-center"
       >
         <h2 className="text-3xl md:text-5xl font-display font-bold mb-4">
-          Technologies We Master
+          {t.games.title}
         </h2>
-        <p className="text-gray-400">Powered by cutting-edge tools and frameworks</p>
+        <p className="text-gray-400">{t.games.subtitle}</p>
       </motion.div>
 
       <div

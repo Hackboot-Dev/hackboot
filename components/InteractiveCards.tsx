@@ -2,48 +2,20 @@
 
 import { useState, useRef } from 'react'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
-import { Code, Palette, Rocket, Sparkles, Zap, Globe } from 'lucide-react'
+import { Shield, Zap, Cloud, RotateCw, Headphones, Users } from 'lucide-react'
+import { useI18n } from '@/lib/i18n'
 
-const cards = [
-  {
-    title: 'Innovation',
-    description: 'Pushing the boundaries of whats possible with cutting-edge technology',
-    icon: Rocket,
-    color: 'from-blue-500 to-cyan-500',
-  },
-  {
-    title: 'Design',
-    description: 'Creating beautiful, intuitive experiences that delight users',
-    icon: Palette,
-    color: 'from-purple-500 to-pink-500',
-  },
-  {
-    title: 'Development',
-    description: 'Building robust, scalable solutions with clean, efficient code',
-    icon: Code,
-    color: 'from-green-500 to-emerald-500',
-  },
-  {
-    title: 'Performance',
-    description: 'Optimizing every aspect for lightning-fast experiences',
-    icon: Zap,
-    color: 'from-yellow-500 to-orange-500',
-  },
-  {
-    title: 'Magic',
-    description: 'Adding that special touch that makes experiences unforgettable',
-    icon: Sparkles,
-    color: 'from-pink-500 to-rose-500',
-  },
-  {
-    title: 'Global',
-    description: 'Reaching audiences worldwide with scalable solutions',
-    icon: Globe,
-    color: 'from-indigo-500 to-blue-500',
-  },
+const cardData = [
+  { key: 'security', icon: Shield, color: 'from-blue-500 to-cyan-500' },
+  { key: 'speed', icon: Zap, color: 'from-yellow-500 to-orange-500' },
+  { key: 'cloud', icon: Cloud, color: 'from-purple-500 to-pink-500' },
+  { key: 'updates', icon: RotateCw, color: 'from-green-500 to-emerald-500' },
+  { key: 'support', icon: Headphones, color: 'from-pink-500 to-rose-500' },
+  { key: 'users', icon: Users, color: 'from-indigo-500 to-blue-500' },
 ]
 
-function Card3D({ card, index }: { card: typeof cards[0]; index: number }) {
+function Card3D({ card, index }: { card: typeof cardData[0]; index: number }) {
+  const { t } = useI18n()
   const cardRef = useRef<HTMLDivElement>(null)
   const [isHovered, setIsHovered] = useState(false)
 
@@ -109,8 +81,8 @@ function Card3D({ card, index }: { card: typeof cards[0]; index: number }) {
             <card.icon className="w-12 h-12 text-accent" />
           </motion.div>
 
-          <h3 className="text-2xl font-display font-bold mb-3">{card.title}</h3>
-          <p className="text-gray-400">{card.description}</p>
+          <h3 className="text-2xl font-display font-bold mb-3">{t.features.items[card.key as keyof typeof t.features.items].title}</h3>
+          <p className="text-gray-400">{t.features.items[card.key as keyof typeof t.features.items].description}</p>
         </div>
 
         <motion.div
@@ -137,6 +109,8 @@ function Card3D({ card, index }: { card: typeof cards[0]; index: number }) {
 }
 
 export default function InteractiveCards() {
+  const { t } = useI18n()
+
   return (
     <section className="min-h-screen py-20 px-4">
       <div className="max-w-7xl mx-auto">
@@ -148,15 +122,15 @@ export default function InteractiveCards() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-6xl font-display font-bold mb-4">
-            What We Do
+            {t.features.title}
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-            Crafting digital experiences that inspire, engage, and transform
+            {t.features.subtitle}
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 perspective-1000">
-          {cards.map((card, index) => (
+          {cardData.map((card, index) => (
             <Card3D key={index} card={card} index={index} />
           ))}
         </div>

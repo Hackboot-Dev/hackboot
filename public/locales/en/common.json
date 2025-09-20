@@ -1,0 +1,88 @@
+{
+  "nav": {
+    "home": "Home",
+    "features": "Features",
+    "products": "Products",
+    "contact": "Contact",
+    "clientArea": "Client Area"
+  },
+  "hero": {
+    "badge": "Premium Cloud Gaming Platform",
+    "title": "HACKBOOT",
+    "subtitle": "Experience unparalleled gaming performance with our cutting-edge cloud technology. Professional-grade tools designed for serious gamers who demand the best.",
+    "getStarted": "Get Started",
+    "watchDemo": "Watch Demo"
+  },
+  "sections": {
+    "gaming": {
+      "title": "Next Generation Gaming",
+      "subtitle": "CLOUD GAMING REVOLUTION",
+      "description": "Experience unparalleled gaming excellence with our cutting-edge cloud technology. Professional-grade gaming solutions designed for serious gamers who demand the best performance, zero latency, and instant access to AAA titles."
+    },
+    "security": {
+      "title": "Advanced Security",
+      "subtitle": "UNDETECTABLE TECHNOLOGY",
+      "description": "State-of-the-art protection systems with multiple layers of security. Our cloud infrastructure ensures your gaming sessions are safe, private, and completely undetectable with 0% detection rate across all platforms."
+    },
+    "cloud": {
+      "title": "Cloud Infrastructure",
+      "subtitle": "ENTERPRISE PERFORMANCE",
+      "description": "Powered by enterprise-grade cloud infrastructure ensuring 99.9% uptime and seamless scalability. Experience real-time responsiveness with minimal latency, automatic updates, and 24/7 dedicated support."
+    }
+  },
+  "features": {
+    "title": "Cutting-Edge Technology",
+    "subtitle": "Our platform leverages the most advanced technologies to deliver unmatched performance and security",
+    "items": {
+      "security": {
+        "title": "Advanced Security",
+        "description": "State-of-the-art protection systems with multiple layers of security to ensure your safety and privacy"
+      },
+      "speed": {
+        "title": "Lightning Fast",
+        "description": "Optimized performance with minimal latency. Experience real-time responsiveness like never before"
+      },
+      "cloud": {
+        "title": "Cloud Infrastructure",
+        "description": "Powered by enterprise-grade cloud infrastructure ensuring 99.9% uptime and seamless scalability"
+      },
+      "updates": {
+        "title": "Instant Updates",
+        "description": "Automatic updates delivered in real-time. Always stay ahead with the latest features"
+      },
+      "support": {
+        "title": "24/7 Support",
+        "description": "Round-the-clock dedicated support team ready to assist you whenever you need help"
+      },
+      "users": {
+        "title": "100K+ Active Users",
+        "description": "Join our growing community of gamers experiencing next-generation cloud gaming"
+      }
+    }
+  },
+  "games": {
+    "title": "Supported Games",
+    "subtitle": "Play all your favorite titles with maximum performance"
+  },
+  "products": {
+    "title": "Premium Gaming Solutions",
+    "subtitle": "Professional-grade tools designed for serious gamers who demand excellence",
+    "viewDetails": "View Details",
+    "filter": {
+      "all": "All",
+      "overwatch": "Overwatch",
+      "warzone": "Warzone",
+      "valorant": "Valorant"
+    },
+    "labels": {
+      "features": "Features",
+      "useCases": "Use Cases"
+    }
+  },
+  "footer": {
+    "copyright": "© 2024 HACKBOOT. All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "contact": "Contact"
+  }
+}

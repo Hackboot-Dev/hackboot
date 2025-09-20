@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Github, Twitter, Linkedin, Mail, Heart } from 'lucide-react'
+import { useI18n } from '@/lib/i18n'
 
 const socials = [
   { icon: Github, href: '#', label: 'GitHub' },
@@ -11,6 +12,7 @@ const socials = [
 ]
 
 export default function Footer() {
+  const { t } = useI18n()
   return (
     <footer className="relative py-20 px-4 border-t border-white/10">
       <div className="max-w-7xl mx-auto">
@@ -54,9 +56,7 @@ export default function Footer() {
           className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10"
         >
           <div className="flex items-center gap-2 mb-4 md:mb-0">
-            <span className="text-gray-400">Made with</span>
-            <Heart className="w-4 h-4 text-red-500 animate-pulse" />
-            <span className="text-gray-400">by Hackboot</span>
+            <span className="text-gray-400">{t.footer.copyright}</span>
           </div>
 
           <div className="flex gap-4">

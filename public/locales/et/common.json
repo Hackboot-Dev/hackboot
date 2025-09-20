@@ -1,0 +1,88 @@
+{
+  "nav": {
+    "home": "Avaleht",
+    "features": "Funktsioonid",
+    "products": "Tooted",
+    "contact": "Kontakt",
+    "clientArea": "Kliendi Ala"
+  },
+  "hero": {
+    "badge": "Premium Pilvemängude Platvorm",
+    "title": "HACKBOOT",
+    "subtitle": "Koge võrratut mängukogemust meie tipptasemel pilvetehnoloogiaga. Professionaalsed tööriistad tõsistele mängijatele, kes nõuavad parimat.",
+    "getStarted": "Alusta",
+    "watchDemo": "Vaata Demo"
+  },
+  "sections": {
+    "gaming": {
+      "title": "Uue Põlvkonna Mängimine",
+      "subtitle": "PILVEMÄNGUDE REVOLUTSIOON",
+      "description": "Koge võrratut mängude tipptaset meie tipptasemel pilvetehnoloogiaga. Professionaalsed mängulahendused tõsistele mängijatele: maksimaalne jõudlus, null latentsust, kohene juurdepääs AAA mängudele."
+    },
+    "security": {
+      "title": "Täiustatud Turvalisus",
+      "subtitle": "TUVASTAMATU TEHNOLOOGIA",
+      "description": "Tipptasemel kaitsesüsteemid mitme turvakihiga. Meie pilvetaristu tagab, et teie mängusessioonid on turvalised, privaatsed ja täielikult tuvastamatud 0% avastamismääraga kõigil platvormidel."
+    },
+    "cloud": {
+      "title": "Pilvetaristu",
+      "subtitle": "ETTEVÕTTE TASEMEL JÕUDLUS",
+      "description": "Ettevõtte tasemel pilvetaristu tagab 99.9% tööaja ja sujuva skaleeritavuse. Koge reaalajas reageerimist minimaalse latentsusega, automaatsed värskendused ja 24/7 pühendunud tugi."
+    }
+  },
+  "features": {
+    "title": "Tipptasemel Tehnoloogia",
+    "subtitle": "Meie platvorm kasutab kõige täiustatud tehnoloogiaid võrratu jõudluse ja turvalisuse pakkumiseks",
+    "items": {
+      "security": {
+        "title": "Täiustatud Turvalisus",
+        "description": "Tipptasemel kaitsesüsteemid mitme turvakihiga teie ohutuse ja privaatsuse tagamiseks"
+      },
+      "speed": {
+        "title": "Välgukiire",
+        "description": "Optimeeritud jõudlus minimaalse latentsusega. Koge reaalajas reageerimist nagu kunagi varem"
+      },
+      "cloud": {
+        "title": "Pilvetaristu",
+        "description": "Ettevõtte tasemel pilvetaristu tagab 99.9% tööaja ja sujuva skaleeritavuse"
+      },
+      "updates": {
+        "title": "Kohesed Värskendused",
+        "description": "Automaatsed värskendused reaalajas. Ole alati ees uusimate funktsioonidega"
+      },
+      "support": {
+        "title": "24/7 Tugi",
+        "description": "Ööpäevaringne pühendunud tugimeeskond valmis teid aitama, kui vajate abi"
+      },
+      "users": {
+        "title": "100K+ Aktiivsed Kasutajad",
+        "description": "Liitu meie kasvava mängurite kogukonnaga, kes kogevad uue põlvkonna pilvemänge"
+      }
+    }
+  },
+  "games": {
+    "title": "Toetatud Mängud",
+    "subtitle": "Mängi kõiki oma lemmikuid maksimaalse jõudlusega"
+  },
+  "products": {
+    "title": "Premium Mängulahendused",
+    "subtitle": "Professionaalsed tööriistad tõsistele mängijatele, kes nõuavad tipptaset",
+    "viewDetails": "Vaata Üksikasju",
+    "filter": {
+      "all": "Kõik",
+      "overwatch": "Overwatch",
+      "warzone": "Warzone",
+      "valorant": "Valorant"
+    },
+    "labels": {
+      "features": "Funktsioonid",
+      "useCases": "Kasutusjuhud"
+    }
+  },
+  "footer": {
+    "copyright": "© 2024 HACKBOOT. Kõik õigused kaitstud.",
+    "privacy": "Privaatsus",
+    "terms": "Tingimused",
+    "contact": "Kontakt"
+  }
+}

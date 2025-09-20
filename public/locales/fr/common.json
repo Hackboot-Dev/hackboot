@@ -1,0 +1,88 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "features": "Fonctionnalités",
+    "products": "Produits",
+    "contact": "Contact",
+    "clientArea": "Espace Client"
+  },
+  "hero": {
+    "badge": "Plateforme Cloud Gaming Premium",
+    "title": "HACKBOOT",
+    "subtitle": "Expérience gaming inégalée avec notre technologie cloud de pointe. Outils professionnels conçus pour les gamers exigeants.",
+    "getStarted": "Commencer",
+    "watchDemo": "Voir Démo"
+  },
+  "sections": {
+    "gaming": {
+      "title": "Gaming Nouvelle Génération",
+      "subtitle": "RÉVOLUTION CLOUD GAMING",
+      "description": "Expérience gaming d'excellence avec notre technologie cloud de pointe. Solutions gaming professionnelles pour les gamers exigeants : performances maximales, zéro latence, accès instantané aux titres AAA."
+    },
+    "security": {
+      "title": "Sécurité Avancée",
+      "subtitle": "TECHNOLOGIE INDÉTECTABLE",
+      "description": "Systèmes de protection de pointe avec plusieurs couches de sécurité. Notre infrastructure cloud garantit des sessions de jeu sûres, privées et complètement indétectables avec 0% de détection sur toutes les plateformes."
+    },
+    "cloud": {
+      "title": "Infrastructure Cloud",
+      "subtitle": "PERFORMANCE ENTREPRISE",
+      "description": "Infrastructure cloud de niveau entreprise garantissant 99,9% de disponibilité et évolutivité transparente. Réactivité temps réel avec latence minimale, mises à jour automatiques et support dédié 24/7."
+    }
+  },
+  "features": {
+    "title": "Technologie de Pointe",
+    "subtitle": "Notre plateforme utilise les technologies les plus avancées pour offrir des performances et une sécurité inégalées",
+    "items": {
+      "security": {
+        "title": "Sécurité Avancée",
+        "description": "Systèmes de protection de pointe avec plusieurs couches de sécurité pour garantir votre sécurité et confidentialité"
+      },
+      "speed": {
+        "title": "Ultra Rapide",
+        "description": "Performances optimisées avec latence minimale. Expérience de réactivité temps réel sans précédent"
+      },
+      "cloud": {
+        "title": "Infrastructure Cloud",
+        "description": "Infrastructure cloud de niveau entreprise garantissant 99,9% de disponibilité et évolutivité transparente"
+      },
+      "updates": {
+        "title": "Mises à jour Instantanées",
+        "description": "Mises à jour automatiques livrées en temps réel. Restez toujours en avance avec les dernières fonctionnalités"
+      },
+      "support": {
+        "title": "Support 24/7",
+        "description": "Équipe de support dédiée disponible 24h/24 prête à vous aider quand vous en avez besoin"
+      },
+      "users": {
+        "title": "100K+ Utilisateurs Actifs",
+        "description": "Rejoignez notre communauté grandissante de gamers expérimentant le cloud gaming nouvelle génération"
+      }
+    }
+  },
+  "games": {
+    "title": "Jeux Supportés",
+    "subtitle": "Jouez à tous vos titres favoris avec des performances maximales"
+  },
+  "products": {
+    "title": "Solutions Gaming Premium",
+    "subtitle": "Outils professionnels conçus pour les gamers exigeants qui demandent l'excellence",
+    "viewDetails": "Voir Détails",
+    "filter": {
+      "all": "Tous",
+      "overwatch": "Overwatch",
+      "warzone": "Warzone",
+      "valorant": "Valorant"
+    },
+    "labels": {
+      "features": "Fonctionnalités",
+      "useCases": "Cas d'usage"
+    }
+  },
+  "footer": {
+    "copyright": "© 2024 HACKBOOT. Tous droits réservés.",
+    "privacy": "Confidentialité",
+    "terms": "Conditions",
+    "contact": "Contact"
+  }
+}

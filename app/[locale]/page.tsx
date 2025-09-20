@@ -8,9 +8,10 @@ const Hero = dynamic(() => import('@/components/Hero'), {
   loading: () => <div className="min-h-screen flex items-center justify-center">Loading...</div>
 })
 
-const ParallaxSection = dynamic(() => import('@/components/ParallaxSection'))
+const ParallaxSectionI18n = dynamic(() => import('@/components/ParallaxSectionI18n'))
 const InteractiveCards = dynamic(() => import('@/components/InteractiveCards'))
 const InfiniteScroll = dynamic(() => import('@/components/InfiniteScroll'))
+const ProductsSection = dynamic(() => import('@/components/ProductsSection'))
 const Footer = dynamic(() => import('@/components/Footer'))
 
 export default function Home() {
@@ -20,29 +21,25 @@ export default function Home() {
         <Hero />
       </Suspense>
 
-      <ParallaxSection
-        title="Digital Innovation"
-        subtitle="TRANSFORMING IDEAS"
-        description="We blend creativity with technology to build experiences that captivate audiences and drive results. Our approach combines strategic thinking with flawless execution to deliver solutions that stand out in the digital landscape."
+      <ParallaxSectionI18n
+        sectionKey="gaming"
         imageUrl="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop"
       />
 
       <InteractiveCards />
 
-      <ParallaxSection
-        title="Creative Excellence"
-        subtitle="DESIGN THAT MATTERS"
-        description="Every pixel is crafted with purpose. We create visual experiences that not only look stunning but also serve a strategic purpose, ensuring your brand message resonates with your audience."
+      <ParallaxSectionI18n
+        sectionKey="security"
         imageUrl="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop"
         reverse
       />
 
       <InfiniteScroll />
 
-      <ParallaxSection
-        title="Future Forward"
-        subtitle="NEXT GENERATION"
-        description="Stay ahead of the curve with solutions built for tomorrow. We leverage emerging technologies and innovative approaches to ensure your digital presence remains cutting-edge and impactful."
+      <ProductsSection />
+
+      <ParallaxSectionI18n
+        sectionKey="cloud"
         imageUrl="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop"
       />
 

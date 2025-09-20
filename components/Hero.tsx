@@ -6,6 +6,8 @@ import gsap from 'gsap'
 import { Canvas } from '@react-three/fiber'
 import { Sphere, MeshDistortMaterial, OrbitControls } from '@react-three/drei'
 import { ChevronDown } from 'lucide-react'
+import { useI18n } from '@/lib/i18n'
+import LanguageSelector from '@/components/LanguageSelector'
 
 function AnimatedSphere() {
   return (
@@ -28,6 +30,7 @@ export default function Hero() {
   const { scrollY } = useScroll()
   const y = useTransform(scrollY, [0, 500], [0, 150])
   const opacity = useTransform(scrollY, [0, 300], [1, 0])
+  const { t } = useI18n()
 
   useEffect(() => {
     if (!titleRef.current) return
@@ -94,9 +97,9 @@ export default function Hero() {
           transition={{ duration: 0.5 }}
           className="mb-6 floating-element"
         >
-          <div className="inline-block px-6 py-2 glass-effect rounded-full">
-            <span className="text-sm font-medium gradient-text">
-              Welcome to the Future
+          <div className="inline-block px-8 py-3 glass-effect rounded-full">
+            <span className="text-base md:text-lg font-semibold gradient-text">
+              {t.hero.badge}
             </span>
           </div>
         </motion.div>
@@ -105,7 +108,7 @@ export default function Hero() {
           ref={titleRef}
           className="text-6xl md:text-8xl font-display font-bold mb-6 perspective-1000"
         >
-          HACKBOOT
+          {t.hero.title}
         </h1>
 
         <motion.p
@@ -114,8 +117,7 @@ export default function Hero() {
           transition={{ delay: 1, duration: 0.8 }}
           className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto floating-element"
         >
-          Pushing boundaries through innovative digital experiences
-          and cutting-edge technology solutions
+          {t.hero.subtitle}
         </motion.p>
 
         <motion.div
@@ -125,10 +127,10 @@ export default function Hero() {
           className="flex flex-col sm:flex-row gap-4 justify-center floating-element"
         >
           <button className="px-8 py-4 bg-accent text-white rounded-full hover:bg-accent/80 transition-all hover-lift font-medium">
-            Explore Innovation
+            {t.hero.getStarted}
           </button>
           <button className="px-8 py-4 glass-effect rounded-full hover:bg-white/10 transition-all hover-lift font-medium">
-            Learn More
+            {t.hero.watchDemo}
           </button>
         </motion.div>
       </motion.div>
@@ -144,6 +146,10 @@ export default function Hero() {
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-10 w-64 h-64 bg-accent/20 rounded-full blur-3xl animate-pulse-slow" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse-slow" />
+      </div>
+
+      <div className="absolute top-4 right-4 z-20">
+        <LanguageSelector />
       </div>
     </motion.section>
   )
