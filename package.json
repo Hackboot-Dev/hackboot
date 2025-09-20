@@ -1,0 +1,50 @@
+{
+  "name": "hackboot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hackboot-Dev/hackboot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Hackboot-Dev/hackboot/issues"
+  },
+  "homepage": "https://github.com/Hackboot-Dev/hackboot#readme",
+  "dependencies": {
+    "@gsap/react": "^2.1.2",
+    "@react-three/drei": "^10.7.6",
+    "@react-three/fiber": "^9.3.0",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.23.16",
+    "gsap": "^3.13.0",
+    "lottie-react": "^2.4.1",
+    "lucide-react": "^0.544.0",
+    "next": "^15.5.3",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^3.4.17",
+    "three": "^0.180.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.5.2",
+    "@types/react": "^19.1.13",
+    "@types/react-dom": "^19.1.9",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.36.0",
+    "eslint-config-next": "^15.5.3",
+    "postcss": "^8.5.6",
+    "typescript": "^5.9.2"
+  }
+}
