@@ -1,8 +1,8 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import LanguageSelectorSimplest from '@/components/LanguageSelectorSimplest'
 import Logo from '@/components/Logo'
@@ -12,7 +12,24 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const pathname = usePathname()
-  const { t } = useI18n()
+  const { t, locale: activeLocale } = useI18n()
+  const router = useRouter()
+
+  const locale = useMemo(() => {
+    if (activeLocale) {
+      return activeLocale
+    }
+
+    const segments = pathname?.split('/') ?? []
+    const potentialLocale = segments[1]
+    if (potentialLocale && ['fr', 'en', 'et'].includes(potentialLocale)) {
+      return potentialLocale
+    }
+
+    return 'fr'
+  }, [activeLocale, pathname])
+
+  const basePath = `/${locale}`
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,18 +40,21 @@ const Header = () => {
   }, [])
 
   const navigation = [
-    { name: t?.nav?.home || 'Accueil', href: '/' },
-    { name: t?.nav?.games || 'Jeux', href: '/games' },
-    { name: t?.nav?.services || 'Services', href: '/services' },
-    { name: t?.nav?.about || 'À propos', href: '/about' },
-    { name: t?.nav?.contact || 'Contact', href: '/contact' }
+    { name: t?.nav?.home || 'Accueil', href: basePath },
+    { name: t?.nav?.games || 'Jeux', href: `${basePath}/games` },
+    { name: t?.nav?.services || 'Services', href: `${basePath}/services` },
+    { name: t?.nav?.about || 'À propos', href: `${basePath}/about` },
+    { name: t?.nav?.contact || 'Contact', href: `${basePath}/contact` }
   ]
 
   const isActive = (href: string) => {
-    if (href === '/') {
-      return pathname === '/' || pathname === '/en' || pathname === '/fr'
+    if (!pathname) return false
+
+    if (href === basePath) {
+      return pathname === basePath || pathname === `${basePath}/`
     }
-    return pathname?.includes(href)
+
+    return pathname === href || pathname.startsWith(`${href}/`)
   }
 
   return (
@@ -93,6 +113,7 @@ const Header = () => {
                 className="px-6 py-2 bg-gradient-to-r from-purple-500 to-indigo-600 text-white text-sm font-medium rounded-full hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => router.push(`${basePath}/premium`)}
               >
                 {t?.nav?.getStarted || 'Commencer'}
               </motion.button>
@@ -170,6 +191,10 @@ const Header = () => {
                   className="mt-8 w-full px-6 py-3 bg-gradient-to-r from-purple-500 to-indigo-600 text-white font-medium rounded-full shadow-lg shadow-purple-500/30 hover:shadow-xl hover:shadow-purple-500/40 transition-all duration-300"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
+                  onClick={() => {
+                    setIsMobileMenuOpen(false)
+                    router.push(`${basePath}/premium`)
+                  }}
                 >
                   {t?.nav?.getStarted || 'Commencer'}
                 </motion.button>
