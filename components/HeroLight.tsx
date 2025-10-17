@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useEffect, useRef } from 'react'
-import { motion } from 'framer-motion'
 import { ChevronDown } from 'lucide-react'
 import { useI18n } from '@/lib/i18n-simple'
 import LanguageSelectorSimplest from '@/components/LanguageSelectorSimplest'
@@ -11,94 +10,70 @@ export default function HeroLight() {
   const { t, locale } = useI18n()
 
   useEffect(() => {
-    if (!titleRef.current || !t?.hero?.title) return
+    const title = titleRef.current
+    if (!title) return
 
-    const text = t.hero.title || ''
-    titleRef.current.textContent = ''
-
-    text.split('').forEach((char, i) => {
+    const text = t?.hero?.title || ''
+    title.innerHTML = ''
+    text.split('').forEach((char, index) => {
       const span = document.createElement('span')
       span.textContent = char
       span.style.display = 'inline-block'
+      span.style.transition = 'transform 350ms ease, opacity 350ms ease'
+      span.style.transitionDelay = `${index * 35}ms`
+      span.style.transform = 'translateY(18px)'
       span.style.opacity = '0'
-      span.style.transform = 'translateY(20px)'
-      span.style.transition = `all 0.5s ease ${i * 0.05}s`
-      titleRef.current!.appendChild(span)
-
-      setTimeout(() => {
-        span.style.opacity = '1'
+      title.appendChild(span)
+      requestAnimationFrame(() => {
         span.style.transform = 'translateY(0)'
-      }, 100)
+        span.style.opacity = '1'
+      })
     })
   }, [t?.hero?.title, locale])
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Orbes flottants supplémentaires pour le Hero */}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="absolute top-20 -left-20 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl animate-float" />
-        <div className="absolute bottom-20 -right-20 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-float-delayed" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-16 -left-24 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-12 -right-28 w-[26rem] h-[26rem] bg-purple-500/10 rounded-full blur-3xl animate-float-delayed" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" />
       </div>
 
-      <motion.div
-        className="relative z-10 text-center px-4"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.4 }}
-          className="mb-6"
-        >
-          <div className="inline-block px-8 py-3 glass-effect rounded-full">
-            <span className="text-base md:text-lg font-semibold gradient-text">
-              {t?.hero?.badge || ''}
-            </span>
-          </div>
-        </motion.div>
+      <div className="relative z-10 text-center px-4">
+        <div className="mb-6 inline-flex items-center justify-center px-8 py-3 glass-effect rounded-full border border-white/10">
+          <span className="text-base md:text-lg font-semibold gradient-text">
+            {t?.hero?.badge || ''}
+          </span>
+        </div>
 
         <h1
           ref={titleRef}
-          className="text-6xl md:text-8xl font-display font-bold mb-6"
+          className="text-5xl md:text-7xl font-display font-bold mb-6"
         >
           {t?.hero?.title || ''}
         </h1>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 0.6 }}
-          className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto"
-        >
+        <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto transition-opacity duration-700 delay-200">
           {t?.hero?.subtitle || ''}
-        </motion.p>
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.7, duration: 0.6 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
-        >
-          <button className="px-8 py-4 bg-accent text-white rounded-full hover:bg-accent/80 transition-all font-medium">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <button className="px-8 py-4 bg-accent text-white rounded-full transition-transform duration-300 hover:-translate-y-1 hover:bg-accent/90">
             {t?.hero?.getStarted || ''}
           </button>
-          <button className="px-8 py-4 glass-effect rounded-full hover:bg-white/10 transition-all font-medium">
+          <button className="px-8 py-4 glass-effect rounded-full transition-transform duration-300 hover:-translate-y-1 hover:bg-white/10">
             {t?.hero?.watchDemo || ''}
           </button>
-        </motion.div>
-      </motion.div>
+        </div>
+      </div>
 
-      <motion.div
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 1.5, repeat: Infinity }}
-      >
-        <ChevronDown className="w-8 h-8 text-white/50" />
-      </motion.div>
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/60 animate-bounce">
+        <ChevronDown className="w-8 h-8" />
+      </div>
 
+      <div className="absolute top-6 right-6">
+        <LanguageSelectorSimplest />
+      </div>
     </section>
   )
 }

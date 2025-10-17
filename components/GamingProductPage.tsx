@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { motion } from 'framer-motion'
 import { Star, Shield, Zap, Check, ArrowRight, ChevronLeft } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -41,31 +40,23 @@ export default function GamingProductPage({ product }: GamingProductPageProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           <div className="space-y-4">
-            <motion.div
-              key={selectedVariant.id}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3 }}
-              className="relative"
-            >
-              <div className="relative rounded-2xl overflow-hidden bg-gray-900/50">
-                <img
-                  src={selectedVariant.image}
-                  alt={`${product.name} - ${selectedVariant.name}`}
-                  className="w-full h-auto max-h-[600px] object-contain"
-                />
-                <div className="absolute top-4 left-4 flex flex-wrap gap-2">
-                  {selectedVariant.badges.map((badge, idx) => (
-                    <span
-                      key={idx}
-                      className="px-3 py-1 bg-accent/90 backdrop-blur-sm text-white text-xs font-medium rounded-full"
-                    >
-                      {badge}
-                    </span>
-                  ))}
-                </div>
+            <div key={selectedVariant.id} className="relative rounded-2xl overflow-hidden bg-gray-900/50 transition-transform duration-300">
+              <img
+                src={selectedVariant.image}
+                alt={`${product.name} - ${selectedVariant.name}`}
+                className="w-full h-auto max-h-[600px] object-contain"
+              />
+              <div className="absolute top-4 left-4 flex flex-wrap gap-2">
+                {selectedVariant.badges.map((badge, idx) => (
+                  <span
+                    key={idx}
+                    className="px-3 py-1 bg-accent/90 backdrop-blur-sm text-white text-xs font-medium rounded-full"
+                  >
+                    {badge}
+                  </span>
+                ))}
               </div>
-            </motion.div>
+            </div>
           </div>
 
           <div className="space-y-6">
@@ -198,22 +189,13 @@ export default function GamingProductPage({ product }: GamingProductPageProps) {
         </div>
 
         <div className="mt-16 space-y-16">
-          <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="max-w-4xl mx-auto text-center"
-          >
+          <section className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl font-bold mb-6">À propos de {product.name}</h2>
             <p className="text-lg text-gray-300 leading-relaxed">{product.longDescription}</p>
-          </motion.section>
+          </section>
 
           {product.variants.length > 1 && (
-            <motion.section
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-            >
+            <section>
               <h2 className="text-3xl font-bold mb-8 text-center">Toutes nos versions</h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 {product.variants.map((variant) => (
@@ -233,15 +215,10 @@ export default function GamingProductPage({ product }: GamingProductPageProps) {
                   </div>
                 ))}
               </div>
-            </motion.section>
+            </section>
           )}
 
-          <motion.section
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="text-center py-16"
-          >
+          <section className="text-center py-16">
             <h2 className="text-4xl font-bold mb-6">Prêt à dominer ?</h2>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
               Rejoignez des milliers de joueurs et transformez votre expérience de jeu dès aujourd&apos;hui.
@@ -249,7 +226,7 @@ export default function GamingProductPage({ product }: GamingProductPageProps) {
             <button className="px-8 py-4 bg-accent hover:bg-accent/80 rounded-lg font-medium transition-all">
               Acheter maintenant
             </button>
-          </motion.section>
+          </section>
         </div>
       </div>
     </div>
