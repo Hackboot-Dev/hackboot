@@ -1,9 +1,9 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import React, { useState, useRef, memo } from 'react'
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
 import { Shield, Zap, Cloud, RotateCw, Headphones, Users } from 'lucide-react'
-import { useI18n } from '@/lib/i18n'
+import { useI18n } from '@/lib/i18n-simple'
 
 const cardData = [
   { key: 'security', icon: Shield, color: 'from-blue-500 to-cyan-500' },
@@ -14,7 +14,7 @@ const cardData = [
   { key: 'users', icon: Users, color: 'from-indigo-500 to-blue-500' },
 ]
 
-function Card3D({ card, index }: { card: typeof cardData[0]; index: number }) {
+const Card3D = memo(function Card3D({ card, index }: { card: typeof cardData[0]; index: number }) {
   const { t } = useI18n()
   const cardRef = useRef<HTMLDivElement>(null)
   const [isHovered, setIsHovered] = useState(false)
@@ -106,9 +106,9 @@ function Card3D({ card, index }: { card: typeof cardData[0]; index: number }) {
       </div>
     </motion.div>
   )
-}
+})
 
-export default function InteractiveCards() {
+export default memo(function InteractiveCards() {
   const { t } = useI18n()
 
   return (
@@ -137,4 +137,4 @@ export default function InteractiveCards() {
       </div>
     </section>
   )
-}
+})

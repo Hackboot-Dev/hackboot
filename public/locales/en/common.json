@@ -3,8 +3,12 @@
     "home": "Home",
     "features": "Features",
     "products": "Products",
+    "games": "Games",
+    "services": "Services",
+    "about": "About",
     "contact": "Contact",
-    "clientArea": "Client Area"
+    "clientArea": "Client Area",
+    "getStarted": "Get Started"
   },
   "hero": {
     "badge": "Premium Cloud Gaming Platform",
@@ -66,23 +70,350 @@
   },
   "products": {
     "title": "Premium Gaming Solutions",
-    "subtitle": "Professional-grade tools designed for serious gamers who demand excellence",
+    "subtitle": "High-performance configurations to dominate your favorite games",
     "viewDetails": "View Details",
+    "view": "View",
+    "search": "Search...",
+    "filters": "Filters",
+    "billing": "Billing",
+    "configurations": "configuration",
+    "configurationsPlural": "configurations",
+    "noResults": "No configurations found",
+    "noResultsDescription": "Try modifying your filters or search",
+    "pricing": {
+      "hourly": "Per hour",
+      "monthly": "Per month",
+      "annual": "Per year",
+      "lifetime": "Lifetime",
+      "perHour": "/hr",
+      "perMonth": "/month",
+      "perYear": "/year"
+    },
     "filter": {
       "all": "All",
-      "overwatch": "Overwatch",
-      "warzone": "Warzone",
-      "valorant": "Valorant"
+      "game": "Game",
+      "allGames": "All games",
+      "tier": "Tier",
+      "allTiers": "All tiers",
+      "sortBy": "Sort by",
+      "sortOptions": {
+        "name": "Name (A-Z)",
+        "priceAsc": "Price (ascending)",
+        "priceDesc": "Price (descending)",
+        "gpu": "GPU Performance",
+        "rating": "Rating"
+      }
     },
     "labels": {
       "features": "Features",
-      "useCases": "Use Cases"
-    }
+      "useCases": "Use Cases",
+      "support": "support",
+      "reviews": "reviews"
+    },
+    "applyFilters": "Apply Filters",
+    "resetFilters": "Reset"
   },
   "footer": {
-    "copyright": "© 2024 HACKBOOT. All rights reserved.",
-    "privacy": "Privacy",
-    "terms": "Terms",
-    "contact": "Contact"
+    "description": "Cutting-edge cloud gaming solutions designed for professional gamers.",
+    "sections": {
+      "product": "Product",
+      "company": "Company",
+      "resources": "Resources",
+      "legal": "Legal"
+    },
+    "links": {
+      "features": "Features",
+      "pricing": "Pricing",
+      "security": "Security",
+      "performance": "Performance",
+      "about": "About",
+      "careers": "Careers",
+      "press": "Press",
+      "partners": "Partners",
+      "documentation": "Documentation",
+      "api": "API",
+      "support": "Support",
+      "status": "Status",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "cookies": "Cookies",
+      "compliance": "Compliance"
+    },
+    "copyright": "© {{year}} HACKBOOT. All rights reserved."
+  },
+  "contact": {
+    "badge": "Get in Touch",
+    "title": "Contact Us",
+    "subtitle": "We'd love to hear from you. Send us a message and we'll respond as soon as possible.",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address",
+    "followUs": "Follow Us",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "company": "Company",
+      "subject": "Subject",
+      "selectSubject": "Select a subject",
+      "general": "General Inquiry",
+      "support": "Technical Support",
+      "sales": "Sales",
+      "partnership": "Partnership",
+      "message": "Message",
+      "messagePlaceholder": "Tell us about your project...",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "required": "Required fields",
+      "successMessage": "Message sent successfully!",
+      "errorMessage": "Something went wrong. Please try again."
+    }
+  },
+  "about": {
+    "badge": "VMCloud Group OÜ",
+    "title": "OUR STORY",
+    "subtitle": "Discover the story and vision of Hackboot, Estonian leader in next-generation cloud gaming",
+    "scrollText": "Scroll to discover",
+    "overview": {
+      "title": "Overview",
+      "description": "Hackboot is an innovative technology company specialized in high-performance cloud gaming solutions.",
+      "vmcloud": "Part of VMCloud Group OÜ",
+      "vmcloudDesc": "We are part of the VMCloud Group, a leader in enterprise cloud solutions and innovative technologies.",
+      "established": "Established in 2023",
+      "establishedDesc": "Founded in Estonia with a clear vision: revolutionize the gaming industry through the cloud."
+    },
+    "stats": {
+      "title": "Our numbers speak",
+      "subtitle": "Metrics that demonstrate our commitment to excellence",
+      "founded": "Est. Year",
+      "games": "Games Available",
+      "products": "Core Products",
+      "support": "Support",
+      "activeUsers": "Active users",
+      "support": "Support",
+      "latency": "Average latency"
+    },
+    "timeline": {
+      "title": "Our journey",
+      "subtitle": "From game keys to cloud gaming leader",
+      "event1": {
+        "title": "Hackboot Creation",
+        "description": "Launch of the company with game key sales. First customer base in the gaming market, establishing our reputation."
+      },
+      "event2": {
+        "year": "Late 2023",
+        "title": "Strategic Pivot",
+        "description": "Transition to custom software development in the gaming field. Deep technical expertise and continuous innovation."
+      },
+      "event3": {
+        "title": "Cloud Gaming Revolution",
+        "description": "Launch of our cloud gaming platform with focus on professional tools. Immediate success and exponential growth."
+      },
+      "event4": {
+        "year": "Mid-2025",
+        "title": "VMCloud Expansion",
+        "description": "Integration into VMCloud Group and expansion of generalized cloud services. New era of growth and innovation."
+      }
+    },
+    "vision": {
+      "title": "Our direction",
+      "tab": "Vision",
+      "heading": "Become the Estonian cloud gaming leader",
+      "description": "We aspire to be globally recognized as the reference for professional cloud gaming solutions, offering the best possible services.",
+      "points": [
+        "Constant innovation in cloud technologies",
+        "Excellence in service quality",
+        "Expansion in markets where our activity is legal",
+        "Development of generalized cloud gaming solutions"
+      ]
+    },
+    "mission": {
+      "tab": "Mission",
+      "heading": "Provide ultra-performant infrastructure",
+      "description": "Our mission is to provide ultra-performant, simple and transparent cloud gaming infrastructure, eliminating all technical complexity.",
+      "goals": [
+        {"icon": "⚡", "title": "Performance", "desc": "Minimal latency"},
+        {"icon": "🛡️", "title": "Reliability", "desc": "99.9% uptime"},
+        {"icon": "🚀", "title": "Innovation", "desc": "Cutting-edge tech"},
+        {"icon": "💎", "title": "Quality", "desc": "Premium service"}
+      ]
+    },
+    "values": {
+      "tab": "Values",
+      "heading": "The values that define us",
+      "description": "Our core values guide every decision and action within Hackboot.",
+      "list": [
+        {"icon": "🎯", "title": "Excellence", "description": "We strive for excellence in everything we do"},
+        {"icon": "💡", "title": "Innovation", "description": "Innovation is at the core of our DNA"},
+        {"icon": "🤝", "title": "Transparency", "description": "Open and honest communication with our clients"}
+      ]
+    },
+    "culture": {
+      "title": "Our company culture",
+      "subtitle": "A unique philosophy that fosters passion and excellence",
+      "philosophy": {
+        "title": "Work philosophy",
+        "description": "We recruit on talent and feeling. Passion for development comes first. Total freedom: work from where you want, when you want, as long as the work gets done."
+      },
+      "principles": [
+        {
+          "icon": "🌍",
+          "title": "Remote First",
+          "description": "Work from anywhere in the world",
+          "details": ["100% remote work", "Flexible hours", "Work-life balance"]
+        },
+        {
+          "icon": "🚀",
+          "title": "Total autonomy",
+          "description": "Make your decisions, we trust you",
+          "details": ["No micromanagement", "Creative freedom", "Shared responsibility"]
+        },
+        {
+          "icon": "🔥",
+          "title": "Passion first",
+          "description": "Passion and motivation are our drivers",
+          "details": ["Personal projects encouraged", "Continuous training", "Innovation rewarded"]
+        },
+        {
+          "icon": "⚡",
+          "title": "Maximum efficiency",
+          "description": "No useless meetings, focus on results",
+          "details": ["Async communication", "Optimized processes", "Value focus"]
+        },
+        {
+          "icon": "💎",
+          "title": "Premium quality",
+          "description": "We only do excellence",
+          "details": ["High standards", "Attention to detail", "Continuous improvement"]
+        },
+        {
+          "icon": "🌟",
+          "title": "Personal growth",
+          "description": "We support your development",
+          "details": ["Mentoring available", "Training budget", "Career evolution"]
+        }
+      ],
+      "workStyle": {
+        "title": "Our work style",
+        "items": [
+          {"emoji": "🏠", "title": "100% Remote", "desc": "Work from anywhere"},
+          {"emoji": "⏰", "title": "Flexible hours", "desc": "Manage your time as you wish"},
+          {"emoji": "🎯", "title": "Results oriented", "desc": "Results matter, not hours"},
+          {"emoji": "🚀", "title": "Continuous innovation", "desc": "Always cutting edge"}
+        ]
+      }
+    },
+    "legal": {
+      "badge": "Legal information",
+      "title": "Legal framework & compliance",
+      "subtitle": "Operating under Estonian jurisdiction with full respect for applicable laws",
+      "active": "Active",
+      "pending": "Pending",
+      "jurisdiction": {
+        "title": "Estonian jurisdiction",
+        "description": "In Estonia, the development and use of game modifications are fully legal under current laws.",
+        "benefits": [
+          "Legal framework favorable to technological innovation",
+          "GDPR compliant data protection",
+          "Pro-technology business environment",
+          "European Union member"
+        ]
+      },
+      "market": {
+        "title": "Target markets",
+        "description": "We focus exclusively on markets where our activity is legal and accepted.",
+        "warning": "European expansion is currently impossible due to regulatory differences. We remain focused on the Estonian market and compatible jurisdictions."
+      },
+      "points": [
+        {
+          "icon": "⚖️",
+          "title": "Full compliance",
+          "description": "Strict respect of all Estonian laws",
+          "details": "We work with legal advisors to ensure continuous compliance.",
+          "status": "active"
+        },
+        {
+          "icon": "🔒",
+          "title": "Data protection",
+          "description": "GDPR compliant with maximum security",
+          "details": "End-to-end encryption and secure storage of all data.",
+          "status": "active"
+        },
+        {
+          "icon": "📜",
+          "title": "Licenses & certifications",
+          "description": "All necessary authorizations obtained",
+          "details": "Registered and licensed company in Estonia.",
+          "status": "active"
+        }
+      ],
+      "compliance": {
+        "title": "Compliance standards",
+        "items": [
+          {"icon": "🇪🇺", "title": "GDPR", "desc": "Data protection"},
+          {"icon": "🔐", "title": "ISO 27001", "desc": "Information security"},
+          {"icon": "✅", "title": "PCI DSS", "desc": "Payment security"},
+          {"icon": "🛡️", "title": "SOC 2", "desc": "Security controls"}
+        ]
+      }
+    },
+    "team": {
+      "title": "Our team",
+      "subtitle": "Passionate talents from around the world",
+      "stats": [
+        {"value": "50+", "label": "Team members"},
+        {"value": "15+", "label": "Nationalities"},
+        {"value": "100%", "label": "Remote"},
+        {"value": "24/7", "label": "Global coverage"}
+      ],
+      "members": [
+        {
+          "avatar": "👨‍💻",
+          "name": "Technical Leadership",
+          "role": "Architecture & Innovation",
+          "description": "Cloud computing and gaming experts",
+          "skills": ["Cloud", "Gaming", "Innovation"]
+        },
+        {
+          "avatar": "👩‍💼",
+          "name": "Product Team",
+          "role": "Development & UX",
+          "description": "Creating exceptional experiences",
+          "skills": ["UX/UI", "Product", "Agile"]
+        },
+        {
+          "avatar": "🛡️",
+          "name": "Security & Infrastructure",
+          "role": "DevOps & Security",
+          "description": "Robust and secure infrastructure",
+          "skills": ["Security", "DevOps", "Cloud"]
+        },
+        {
+          "avatar": "🚀",
+          "name": "Innovation Lab",
+          "role": "R&D",
+          "description": "Exploring future technologies",
+          "skills": ["AI/ML", "Research", "Innovation"]
+        },
+        {
+          "avatar": "💬",
+          "name": "Customer Support",
+          "role": "Customer Success",
+          "description": "24/7 multilingual support",
+          "skills": ["Support", "Communication", "Problem Solving"]
+        },
+        {
+          "avatar": "🌍",
+          "name": "International Team",
+          "role": "Global Operations",
+          "description": "Global presence, local expertise",
+          "skills": ["International", "Strategy", "Operations"]
+        }
+      ],
+      "join": {
+        "title": "Join the Hackboot adventure",
+        "description": "We are constantly looking for passionate talents to join our team. If you share our vision, contact us.",
+        "button": "See opportunities"
+      }
+    }
   }
 }

@@ -1,8 +1,9 @@
 'use client'
 
+import React, { memo } from 'react'
 import { motion } from 'framer-motion'
 import { Github, Twitter, Linkedin, Mail, Heart } from 'lucide-react'
-import { useI18n } from '@/lib/i18n'
+import { useI18n } from '@/lib/i18n-simple'
 
 const socials = [
   { icon: Github, href: '#', label: 'GitHub' },
@@ -11,10 +12,12 @@ const socials = [
   { icon: Mail, href: '#', label: 'Email' },
 ]
 
-export default function Footer() {
+export default memo(function Footer() {
   const { t } = useI18n()
+  const currentYear = new Date().getFullYear()
+
   return (
-    <footer className="relative py-20 px-4 border-t border-white/10">
+    <footer className="relative py-12 px-4 border-t border-white/10 mt-auto">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <motion.div
@@ -25,24 +28,31 @@ export default function Footer() {
           >
             <h3 className="text-2xl font-display font-bold mb-4">Hackboot</h3>
             <p className="text-gray-400">
-              Innovating the digital landscape, one project at a time.
+              {t.footer.description}
             </p>
           </motion.div>
 
-          {['Services', 'Company', 'Resources'].map((title, index) => (
+          {[
+            { key: 'product', links: ['features', 'pricing', 'security', 'performance'] },
+            { key: 'company', links: ['about', 'careers', 'press', 'partners'] },
+            { key: 'resources', links: ['documentation', 'api', 'support', 'status'] }
+          ].map(({ key, links }, index) => (
             <motion.div
-              key={title}
+              key={key}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <h4 className="font-semibold mb-4">{title}</h4>
+              <h4 className="font-semibold mb-4">{t.footer.sections[key as keyof typeof t.footer.sections]}</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">About</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Projects</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Contact</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
+                {links.map(link => (
+                  <li key={link}>
+                    <a href="#" className="hover:text-white transition-colors">
+                      {t.footer.links[link as keyof typeof t.footer.links]}
+                    </a>
+                  </li>
+                ))}
               </ul>
             </motion.div>
           ))}
@@ -56,7 +66,7 @@ export default function Footer() {
           className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10"
         >
           <div className="flex items-center gap-2 mb-4 md:mb-0">
-            <span className="text-gray-400">{t.footer.copyright}</span>
+            <span className="text-gray-400">{t.footer.copyright.replace('{{year}}', currentYear.toString())}</span>
           </div>
 
           <div className="flex gap-4">
@@ -77,4 +87,4 @@ export default function Footer() {
       </div>
     </footer>
   )
-}
+})

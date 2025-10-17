@@ -1,17 +1,17 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, Suspense, lazy } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import gsap from 'gsap'
 import { Canvas } from '@react-three/fiber'
 import { Sphere, MeshDistortMaterial, OrbitControls } from '@react-three/drei'
 import { ChevronDown } from 'lucide-react'
-import { useI18n } from '@/lib/i18n'
+import { useI18n } from '@/lib/i18n-simple'
 import LanguageSelector from '@/components/LanguageSelector'
 
-function AnimatedSphere() {
+const AnimatedSphere = React.memo(function AnimatedSphere() {
   return (
-    <Sphere visible args={[1, 100, 200]} scale={2.5}>
+    <Sphere visible args={[1, 32, 16]} scale={2.5}>
       <MeshDistortMaterial
         color="#0066FF"
         attach="material"
@@ -22,7 +22,7 @@ function AnimatedSphere() {
       />
     </Sphere>
   )
-}
+})
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -50,15 +50,13 @@ export default function Hero() {
       '.char',
       {
         opacity: 0,
-        y: 100,
-        rotationX: -90,
+        y: 50,
       },
       {
         opacity: 1,
         y: 0,
-        rotationX: 0,
-        duration: 1.2,
-        ease: 'power4.out',
+        duration: 0.8,
+        ease: 'power3.out',
         stagger: 0.02,
       }
     )
@@ -82,12 +80,18 @@ export default function Hero() {
       style={{ opacity }}
     >
       <div className="absolute inset-0 z-0">
-        <Canvas camera={{ position: [0, 0, 5], fov: 75 }}>
-          <ambientLight intensity={0.5} />
-          <directionalLight position={[10, 10, 5]} intensity={1} />
-          <AnimatedSphere />
-          <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} />
-        </Canvas>
+        <Suspense fallback={<div className="w-full h-full bg-gradient-to-br from-blue-500/10 to-purple-500/10" />}>
+          <Canvas
+            camera={{ position: [0, 0, 5], fov: 75 }}
+            dpr={[1, 1.5]}
+            performance={{ min: 0.5 }}
+          >
+            <ambientLight intensity={0.5} />
+            <directionalLight position={[10, 10, 5]} intensity={1} />
+            <AnimatedSphere />
+            <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} enablePan={false} enableRotate={false} />
+          </Canvas>
+        </Suspense>
       </div>
 
       <motion.div className="relative z-10 text-center px-4" style={{ y }}>

@@ -1,9 +1,9 @@
 'use client'
 
-import { useRef } from 'react'
+import React, { useRef, memo } from 'react'
 import Image from 'next/image'
 import { motion, useScroll, useTransform } from 'framer-motion'
-import { useI18n } from '@/lib/i18n'
+import { useI18n } from '@/lib/i18n-simple'
 
 interface ParallaxSectionProps {
   sectionKey: 'gaming' | 'security' | 'cloud'
@@ -11,7 +11,7 @@ interface ParallaxSectionProps {
   reverse?: boolean
 }
 
-export default function ParallaxSectionI18n({
+export default memo(function ParallaxSectionI18n({
   sectionKey,
   imageUrl,
   reverse = false
@@ -91,7 +91,8 @@ export default function ParallaxSectionI18n({
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"
-                priority
+                loading="lazy"
+                quality={75}
               />
               <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-purple-500/20 mix-blend-overlay" />
             </div>
@@ -113,4 +114,4 @@ export default function ParallaxSectionI18n({
       </div>
     </motion.section>
   )
-}
+})

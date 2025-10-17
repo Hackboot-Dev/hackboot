@@ -1,8 +1,8 @@
 'use client'
 
-import { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, memo } from 'react'
 import { motion } from 'framer-motion'
-import { useI18n } from '@/lib/i18n'
+import { useI18n } from '@/lib/i18n-simple'
 
 const technologies = [
   'Valorant', 'Fortnite', 'Call of Duty', 'Apex Legends', 'CS2',
@@ -10,7 +10,7 @@ const technologies = [
   'PUBG', 'Rocket League', 'GTA V', 'FIFA 24', 'Minecraft',
 ]
 
-export default function InfiniteScroll() {
+export default memo(function InfiniteScroll() {
   const { t } = useI18n()
   const scrollRef = useRef<HTMLDivElement>(null)
 
@@ -25,16 +25,22 @@ export default function InfiniteScroll() {
     scrollContainer.appendChild(clone)
 
     let scrollPos = 0
+    let animationId: number
+
     const scroll = () => {
-      scrollPos += 1
+      scrollPos += 0.5  // Réduit la vitesse de défilement
       if (scrollPos >= scrollContent.offsetWidth) {
         scrollPos = 0
       }
       scrollContainer.scrollLeft = scrollPos
-      requestAnimationFrame(scroll)
+      animationId = requestAnimationFrame(scroll)
     }
 
-    const animationId = requestAnimationFrame(scroll)
+    // Démarrer seulement si l'utilisateur préfère les animations
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    if (!prefersReducedMotion) {
+      animationId = requestAnimationFrame(scroll)
+    }
     return () => cancelAnimationFrame(animationId)
   }, [])
 
@@ -77,4 +83,4 @@ export default function InfiniteScroll() {
       </div>
     </section>
   )
-}
+})

@@ -1,36 +1,48 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect, memo, useCallback, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Shield, Zap, Crown, Check, ChevronRight } from 'lucide-react'
-import productsData from '@/products.json'
-import { useI18n } from '@/lib/i18n'
+import { useI18n } from '@/lib/i18n-simple'
+import { usePathname, useRouter } from 'next/navigation'
+import { getAllProducts, type Product } from '@/lib/products'
 
-type Product = {
-  usage: string
-  description: string
-  use_cases: string[]
-  features: string[]
-  target_audience: string
-  highlight: string
-}
 
-function ProductCard({
+const ProductCard = memo(function ProductCard({
   product,
-  productKey,
   index
 }: {
   product: Product
-  productKey: string
   index: number
 }) {
   const { t } = useI18n()
   const [isHovered, setIsHovered] = useState(false)
   const [showDetails, setShowDetails] = useState(false)
+  const [productImage, setProductImage] = useState<string | null>(null)
+  const router = useRouter()
+  const pathname = usePathname()
+  const locale = pathname.split('/')[1]
 
-  const getIcon = (key: string) => {
-    if (key.includes('phantom') || key.includes('reaper')) return Shield
-    if (key.includes('dominion') || key.includes('oblivion')) return Zap
+  useEffect(() => {
+    const fetchProductImage = async () => {
+      try {
+        const response = await fetch(`/api/products/${product.slug}/images`)
+        const data = await response.json()
+
+        if (data.images && data.images.length > 0) {
+          setProductImage(data.images[0]) // Prend la première image (main si elle existe)
+        }
+      } catch (error) {
+        console.error('Error fetching product image:', error)
+      }
+    }
+
+    fetchProductImage()
+  }, [product.slug])
+
+  const getIcon = (slug: string) => {
+    if (slug.includes('alpha')) return Shield
+    if (slug.includes('beta')) return Zap
     return Crown
   }
 
@@ -46,10 +58,8 @@ function ProductCard({
     return gradients[index % gradients.length]
   }
 
-  const Icon = getIcon(productKey)
+  const Icon = getIcon(product.slug)
   const gradient = getGradient(index)
-  const gameName = productKey.split('-')[1].toUpperCase()
-  const productName = productKey.split('-')[2].charAt(0).toUpperCase() + productKey.split('-')[2].slice(1)
 
   return (
     <motion.div
@@ -65,22 +75,39 @@ function ProductCard({
 
         <div className={`absolute inset-0 bg-gradient-to-br ${gradient} opacity-5 group-hover:opacity-10 transition-opacity duration-500`} />
 
-        <motion.div
-          className="absolute -inset-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-          animate={{ rotate: isHovered ? 360 : 0 }}
-          transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-        >
-          <div className={`absolute inset-0 bg-gradient-to-r ${gradient} rounded-2xl blur-xl opacity-30`} />
-        </motion.div>
+        {isHovered && (
+          <motion.div
+            className="absolute -inset-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <div className={`absolute inset-0 bg-gradient-to-r ${gradient} rounded-2xl blur-xl opacity-30`} />
+          </motion.div>
+        )}
 
         <div className="relative z-10">
+          {productImage && (
+            <div className="relative w-full mb-4 rounded-lg overflow-hidden">
+              <img
+                src={productImage}
+                alt={product.name}
+                className="w-full h-auto object-contain"
+              />
+              {product.discount.active && (
+                <span className="absolute top-2 right-2 px-2 py-1 bg-red-500 text-white text-xs font-bold rounded">
+                  -{product.discount.percentage}%
+                </span>
+              )}
+            </div>
+          )}
           <div className="flex items-start justify-between mb-4">
             <div>
               <div className="flex items-center gap-2 mb-2">
                 <Icon className="w-6 h-6 text-accent" />
-                <span className="text-xs font-medium text-gray-400">{gameName}</span>
+                <span className="text-xs font-medium text-gray-400">{product.category.toUpperCase()}</span>
               </div>
-              <h3 className="text-2xl font-display font-bold mb-1">{productName}</h3>
+              <h3 className="text-2xl font-display font-bold mb-1">{product.name}</h3>
               <p className="text-sm text-accent font-medium">{product.usage}</p>
             </div>
           </div>
@@ -135,6 +162,10 @@ function ProductCard({
             className="mt-4 w-full py-2 px-4 bg-gradient-to-r from-accent to-accent/80 rounded-lg font-medium text-sm flex items-center justify-center gap-2 hover:from-accent/90 hover:to-accent/70 transition-all"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
+            onClick={(e) => {
+              e.stopPropagation()
+              router.push(`/${locale}/products/${product.slug}`)
+            }}
           >
             {t.products.viewDetails}
             <ChevronRight className="w-4 h-4" />
@@ -143,21 +174,24 @@ function ProductCard({
       </div>
     </motion.div>
   )
-}
+})
 
-export default function ProductsSection() {
+export default memo(function ProductsSection() {
   const { t } = useI18n()
-  const [products, setProducts] = useState<Record<string, Product>>({})
+  const [products, setProducts] = useState<Product[]>([])
   const [filter, setFilter] = useState('all')
 
   useEffect(() => {
-    setProducts(productsData as Record<string, Product>)
+    setProducts(getAllProducts())
   }, [])
 
-  const filteredProducts = Object.entries(products).filter(([key]) => {
-    if (filter === 'all') return true
-    return key.includes(filter)
-  })
+  const filteredProducts = useMemo(
+    () => products.filter((product) => {
+      if (filter === 'all') return true
+      return product.category === filter || product.slug.includes(filter)
+    }),
+    [products, filter]
+  )
 
   const games = ['all', 'overwatch', 'warzone', 'valorant']
 
@@ -189,7 +223,7 @@ export default function ProductsSection() {
                     : 'glass-effect hover:bg-white/10'
                 }`}
               >
-                {t.products.filter[game as keyof typeof t.products.filter]}
+                {String(t.products.filter[game as keyof typeof t.products.filter])}
               </button>
             ))}
           </div>
@@ -197,11 +231,10 @@ export default function ProductsSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <AnimatePresence mode="wait">
-            {filteredProducts.map(([key, product], index) => (
+            {filteredProducts.map((product, index) => (
               <ProductCard
-                key={key}
+                key={product.id}
                 product={product}
-                productKey={key}
                 index={index}
               />
             ))}
@@ -210,4 +243,4 @@ export default function ProductsSection() {
       </div>
     </section>
   )
-}
+})

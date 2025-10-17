@@ -1,18 +1,21 @@
 'use client'
 
-import { useState, useRef, useEffect } from 'react'
-import { useI18n } from '@/lib/i18n'
+import React, { useState, useRef, useEffect, memo } from 'react'
+import { useI18n } from '@/lib/i18n-simple'
+import { useRouter, usePathname } from 'next/navigation'
 import { Globe, ChevronDown } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const languages = [
-  { code: 'fr', name: 'Français', flag: '🇫🇷' },
-  { code: 'en', name: 'English', flag: '🇬🇧' },
-  { code: 'et', name: 'Eesti', flag: '🇪🇪' },
+  { code: 'fr', name: 'Français' },
+  { code: 'en', name: 'English' },
+  { code: 'et', name: 'Eesti' },
 ]
 
-export default function LanguageSelector() {
-  const { locale, setLocale } = useI18n()
+export default memo(function LanguageSelector() {
+  const { locale } = useI18n()
+  const router = useRouter()
+  const pathname = usePathname()
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
@@ -32,14 +35,14 @@ export default function LanguageSelector() {
   return (
     <div ref={dropdownRef} className="relative z-50">
       <motion.button
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center gap-2 px-4 py-2 glass-effect rounded-lg hover:bg-white/10 transition-all"
       >
         <Globe className="w-4 h-4" />
         <span className="text-sm font-medium">
-          {currentLang.flag} {currentLang.code.toUpperCase()}
+          {currentLang.code.toUpperCase()}
         </span>
         <ChevronDown className={`w-3 h-3 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
       </motion.button>
@@ -57,14 +60,14 @@ export default function LanguageSelector() {
               <button
                 key={lang.code}
                 onClick={() => {
-                  setLocale(lang.code as 'fr' | 'en' | 'et')
+                  const newPath = pathname?.replace(/^\/(fr|en|et)(\/|$)/, `/${lang.code}$2`) || `/${lang.code}`
+                  router.push(newPath)
                   setIsOpen(false)
                 }}
                 className={`w-full px-4 py-3 flex items-center gap-3 hover:bg-white/10 transition-all text-left ${
                   locale === lang.code ? 'bg-white/5' : ''
                 }`}
               >
-                <span className="text-lg">{lang.flag}</span>
                 <div className="flex-1">
                   <p className="text-sm font-medium">{lang.name}</p>
                   <p className="text-xs text-gray-400">{lang.code.toUpperCase()}</p>
@@ -79,4 +82,4 @@ export default function LanguageSelector() {
       </AnimatePresence>
     </div>
   )
-}
+})

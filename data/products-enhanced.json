@@ -1,0 +1,482 @@
+{
+  "gaming-overwatch-phantom": {
+    "id": "gaming-overwatch-phantom",
+    "slug": "gaming-overwatch-phantom",
+    "name": "Overwatch Phantom",
+    "category": "overwatch",
+    "price": "59.99",
+    "currency": "EUR",
+    "usage": "ESP & Aimbot",
+    "description": "Solution professionnelle ESP et aimbot pour Overwatch 2 avec assistance visuelle avancée.",
+    "longDescription": "Overwatch Phantom est une solution complète d'assistance de jeu développée pour Overwatch 2. Cette suite professionnelle intègre des technologies de pointe pour améliorer votre expérience de jeu. Conçu avec une attention particulière aux détails, Phantom offre une interface intuitive et des fonctionnalités personnalisables qui s'adaptent à votre style de jeu. Notre équipe d'experts travaille continuellement pour maintenir la compatibilité et l'efficacité optimales avec les dernières mises à jour du jeu.",
+    "use_cases": [
+      "Montée compétitive",
+      "Amélioration de la visée",
+      "Tracking d'ennemis",
+      "Avantage stratégique",
+      "Domination en ranked"
+    ],
+    "features": [
+      "Aimbot fluide personnalisable",
+      "ESP boxes 3D",
+      "Barres de vie et noms",
+      "Radar hack",
+      "Triggerbot",
+      "Mode stream-proof",
+      "Mises à jour instantanées"
+    ],
+    "specifications": {
+      "compatibility": "Windows 10/11 x64",
+      "ram": "8GB DDR4 minimum",
+      "storage": "500MB espace libre",
+      "processor": "Intel Core i5-8400 ou équivalent",
+      "network": "Connexion stable requise"
+    },
+    "target_audience": "Joueurs FPS compétitifs",
+    "highlight": "Indétecté depuis le lancement",
+    "images": {
+      "main": "/images/products/overwatch/phantom/main.png",
+      "gallery": []
+    },
+    "videos": {
+      "demo": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "tutorial": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    },
+    "reviews": {
+      "average": 4.7,
+      "count": 3421,
+      "testimonials": [
+        {
+          "author": "OW_Pro_Player",
+          "rating": 5,
+          "comment": "Fonctionne parfaitement, très fluide et naturel."
+        },
+        {
+          "author": "CompetitiveGamer",
+          "rating": 5,
+          "comment": "Le meilleur investissement pour Overwatch 2."
+        }
+      ]
+    },
+    "seo": {
+      "title": "Overwatch Phantom - Solution Gaming Avancée | HACKBOOT",
+      "metaDescription": "Découvrez Overwatch Phantom, solution professionnelle d'assistance gaming pour Overwatch 2. Technologies avancées, support 24/7, mises à jour régulières.",
+      "keywords": ["overwatch", "phantom", "gaming", "assistance", "fps", "competitive", "hackboot"],
+      "ogImage": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1200",
+      "canonical": "/products/gaming-overwatch-phantom"
+    },
+    "pricing": {
+      "monthly": "59.99",
+      "quarterly": "161.99",
+      "yearly": "575.99",
+      "lifetime": "1199.99"
+    },
+    "badges": ["Best Seller", "Premium", "Undetected"],
+    "stock": true,
+    "discount": {
+      "active": true,
+      "percentage": 20,
+      "code": "PHANTOM20"
+    }
+  },
+  "gaming-overwatch-dominion": {
+    "id": "gaming-overwatch-dominion",
+    "slug": "gaming-overwatch-dominion",
+    "name": "Overwatch Dominion",
+    "category": "overwatch",
+    "price": "89.99",
+    "currency": "EUR",
+    "usage": "Suite avancée",
+    "description": "Suite de cheat avancée pour Overwatch 2 avec silent aim et ESP complet.",
+    "longDescription": "Overwatch Dominion représente l'évolution ultime des outils d'assistance pour Overwatch 2. Cette suite avancée intègre les technologies les plus sophistiquées du marché, incluant un système de silent aim révolutionnaire et un ESP complet avec tracking en temps réel. Développé par notre équipe d'élite, Dominion offre une expérience sans compromis avec des performances optimales et une discrétion absolue. L'interface personnalisable permet une adaptation totale à votre environnement de jeu.",
+    "use_cases": [
+      "Classement Top 500",
+      "Jeu en tournoi",
+      "Services de carry",
+      "Démonstration de skill",
+      "Création de contenu"
+    ],
+    "features": [
+      "Technologie silent aim",
+      "Système ESP avancé",
+      "Triggerbot intelligent",
+      "Tracker d'ultimates",
+      "Cooldowns des capacités",
+      "Canal de support prioritaire",
+      "Mises à jour de sécurité instantanées"
+    ],
+    "specifications": {
+      "compatibility": "Windows 10/11 x64",
+      "ram": "16GB DDR4 recommandé",
+      "storage": "1GB espace libre",
+      "processor": "Intel Core i7-9700K ou équivalent",
+      "network": "Fibre optique recommandée"
+    },
+    "target_audience": "Joueurs professionnels, Boosters",
+    "highlight": "Technologie silent aim",
+    "images": {
+      "main": "/images/products/overwatch/dominion/main.png",
+      "gallery": []
+    },
+    "videos": {
+      "demo": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "tutorial": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    },
+    "reviews": {
+      "average": 4.9,
+      "count": 2156,
+      "testimonials": [
+        {
+          "author": "Top500Player",
+          "rating": 5,
+          "comment": "Silent aim incroyable, totalement indétectable."
+        },
+        {
+          "author": "ProBooster",
+          "rating": 5,
+          "comment": "Parfait pour le boosting professionnel."
+        }
+      ]
+    },
+    "seo": {
+      "title": "Overwatch Dominion - Suite Gaming Elite | HACKBOOT",
+      "metaDescription": "Overwatch Dominion offre la suite d'assistance gaming la plus avancée pour Overwatch 2. Silent aim, ESP complet, support VIP.",
+      "keywords": ["overwatch", "dominion", "silent aim", "esp", "elite gaming", "hackboot"],
+      "ogImage": "https://images.unsplash.com/photo-1616588589676-62b3bd4ff6d2?w=1200",
+      "canonical": "/products/gaming-overwatch-dominion"
+    },
+    "pricing": {
+      "monthly": "89.99",
+      "quarterly": "242.99",
+      "yearly": "863.99",
+      "lifetime": "1799.99"
+    },
+    "badges": ["Elite", "Silent Aim", "VIP"],
+    "stock": true,
+    "discount": {
+      "active": false,
+      "percentage": 0,
+      "code": ""
+    }
+  },
+  "gaming-overwatch-godmode": {
+    "id": "gaming-overwatch-godmode",
+    "slug": "gaming-overwatch-godmode",
+    "name": "Overwatch GodMode",
+    "category": "overwatch",
+    "price": "149.99",
+    "currency": "EUR",
+    "usage": "Build privé",
+    "description": "Package ultime Overwatch 2 avec build privé et spoofer matériel inclus.",
+    "longDescription": "Overwatch GodMode est le summum de l'excellence en matière d'assistance gaming pour Overwatch 2. Ce package exclusif comprend un build privé personnalisé, développé spécifiquement pour un nombre limité d'utilisateurs VIP. Avec son spoofer matériel intégré et sa protection kernel-level, GodMode offre une sécurité sans précédent. L'accès à notre équipe de support dédiée 24/7 et les mises à jour prioritaires garantissent une expérience premium continue. Chaque build est unique et adapté à votre configuration matérielle.",
+    "use_cases": [
+      "Gaming professionnel",
+      "Boost de compte",
+      "Stream en sécurité",
+      "Préparation tournoi",
+      "Performance maximale"
+    ],
+    "features": [
+      "Build privé personnalisé",
+      "Toutes les fonctionnalités incluses",
+      "HWID spoofer",
+      "Protection kernel",
+      "Configurations personnalisées",
+      "Support setup 1-on-1",
+      "Mises à jour à vie"
+    ],
+    "specifications": {
+      "compatibility": "Windows 10/11 x64 (TPM 2.0)",
+      "ram": "32GB DDR5 recommandé",
+      "storage": "2GB espace libre",
+      "processor": "Intel Core i9-12900K ou équivalent",
+      "network": "Connexion gigabit requise"
+    },
+    "target_audience": "Équipes pro, Joueurs high-stakes",
+    "highlight": "Build privé avec spoofer",
+    "images": {
+      "main": "/images/products/overwatch/godmode/main.png",
+      "gallery": []
+    },
+    "videos": {
+      "demo": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "tutorial": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    },
+    "reviews": {
+      "average": 5.0,
+      "count": 847,
+      "testimonials": [
+        {
+          "author": "ProTeamManager",
+          "rating": 5,
+          "comment": "Le build privé fait toute la différence."
+        },
+        {
+          "author": "EliteGamer",
+          "rating": 5,
+          "comment": "Spoofer parfait, aucun problème depuis 6 mois."
+        }
+      ]
+    },
+    "seo": {
+      "title": "Overwatch GodMode - Build Privé Exclusif | HACKBOOT",
+      "metaDescription": "Overwatch GodMode, le package ultime avec build privé, spoofer HWID et support VIP pour Overwatch 2. Sécurité maximale garantie.",
+      "keywords": ["overwatch", "godmode", "build privé", "spoofer", "hwid", "vip", "hackboot"],
+      "ogImage": "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=1200",
+      "canonical": "/products/gaming-overwatch-godmode"
+    },
+    "pricing": {
+      "monthly": "149.99",
+      "quarterly": "404.99",
+      "yearly": "1439.99",
+      "lifetime": "2999.99"
+    },
+    "badges": ["Exclusive", "Private Build", "Lifetime"],
+    "stock": true,
+    "discount": {
+      "active": true,
+      "percentage": 15,
+      "code": "GODMODE15"
+    }
+  },
+  "gaming-warzone-reaper": {
+    "id": "gaming-warzone-reaper",
+    "slug": "gaming-warzone-reaper",
+    "name": "Warzone Reaper",
+    "category": "warzone",
+    "price": "69.99",
+    "currency": "EUR",
+    "usage": "Assistant combat",
+    "description": "Cheat professionnel Warzone avec assistance au combat et ESP avancé.",
+    "longDescription": "Warzone Reaper est l'outil d'assistance ultime pour dominer dans Call of Duty: Warzone. Développé avec les technologies les plus avancées, Reaper offre une assistance au combat complète avec un aimbot hautement personnalisable et un système ESP détaillé. Notre équipe travaille sans relâche pour maintenir la compatibilité avec toutes les mises à jour du jeu. L'interface intuitive permet une configuration rapide et une personnalisation poussée pour s'adapter à tous les styles de jeu.",
+    "use_cases": [
+      "Victoires Battle Royale",
+      "Amélioration du K/D",
+      "Montée en ranked",
+      "Carry d'équipe",
+      "Clips highlights"
+    ],
+    "features": [
+      "Aimbot fluide",
+      "ESP ennemis",
+      "ESP loot",
+      "No recoil/spread",
+      "Radar hack",
+      "Accès Discord VIP",
+      "Mises à jour de sécurité quotidiennes"
+    ],
+    "specifications": {
+      "compatibility": "Windows 10/11 x64",
+      "ram": "12GB DDR4 minimum",
+      "storage": "750MB espace libre",
+      "processor": "Intel Core i5-10400 ou équivalent",
+      "network": "Connexion stable 50Mbps+"
+    },
+    "target_audience": "Passionnés de Warzone, Créateurs de contenu",
+    "highlight": "Meilleur aimbot Warzone",
+    "images": {
+      "main": "/images/products/warzone/reaper/main.png",
+      "gallery": []
+    },
+    "videos": {
+      "demo": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "tutorial": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    },
+    "reviews": {
+      "average": 4.8,
+      "count": 4567,
+      "testimonials": [
+        {
+          "author": "WarzoneKing",
+          "rating": 5,
+          "comment": "ESP loot game changer, je trouve tout instantanément."
+        },
+        {
+          "author": "BRChampion",
+          "rating": 5,
+          "comment": "20+ victoires depuis que j'utilise Reaper."
+        }
+      ]
+    },
+    "seo": {
+      "title": "Warzone Reaper - Assistant Combat Premium | HACKBOOT",
+      "metaDescription": "Warzone Reaper offre l'assistance gaming la plus complète pour Call of Duty Warzone. Aimbot, ESP, support VIP inclus.",
+      "keywords": ["warzone", "reaper", "cod", "battle royale", "aimbot", "esp", "hackboot"],
+      "ogImage": "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200",
+      "canonical": "/products/gaming-warzone-reaper"
+    },
+    "pricing": {
+      "monthly": "69.99",
+      "quarterly": "188.99",
+      "yearly": "671.99",
+      "lifetime": "1399.99"
+    },
+    "badges": ["Popular", "Battle Tested", "24/7 Support"],
+    "stock": true,
+    "discount": {
+      "active": true,
+      "percentage": 25,
+      "code": "REAPER25"
+    }
+  },
+  "gaming-warzone-reaper2": {
+    "id": "gaming-warzone-reaper2",
+    "slug": "gaming-warzone-reaper2",
+    "name": "Warzone Reaper II",
+    "category": "warzone",
+    "price": "99.99",
+    "currency": "EUR",
+    "usage": "Package élite",
+    "description": "Package élite Warzone avec aimbot avancé et HWID spoofer inclus.",
+    "longDescription": "Warzone Reaper II est l'évolution ultime de notre solution gaming pour Call of Duty: Warzone. Ce package élite intègre toutes les fonctionnalités de Reaper standard avec des améliorations significatives, notamment un aimbot à prédiction avancée et un HWID spoofer intégré pour une sécurité maximale. Le système de visée prédictive calcule les trajectoires en temps réel pour une précision inégalée. L'ESP 3D offre une vision complète du champ de bataille avec des informations détaillées sur chaque élément.",
+    "use_cases": [
+      "Jeu professionnel",
+      "Stream en sécurité",
+      "Domination en tournoi",
+      "Services de compte",
+      "K/D maximum"
+    ],
+    "features": [
+      "Aimbot à prédiction avancée",
+      "ESP bounding box 3D",
+      "Aimbot véhicules",
+      "HWID spoofer inclus",
+      "ESP loadout",
+      "Support assistant personnel",
+      "Mises à jour protection temps réel"
+    ],
+    "specifications": {
+      "compatibility": "Windows 10/11 x64",
+      "ram": "16GB DDR4 recommandé",
+      "storage": "1.5GB espace libre",
+      "processor": "Intel Core i7-11700K ou équivalent",
+      "network": "Connexion fibre recommandée"
+    },
+    "target_audience": "Joueurs professionnels, Streamers",
+    "highlight": "Inclut HWID spoofer",
+    "images": {
+      "main": "/images/products/warzone/reaper2/main.png",
+      "gallery": []
+    },
+    "videos": {
+      "demo": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "tutorial": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    },
+    "reviews": {
+      "average": 4.9,
+      "count": 2891,
+      "testimonials": [
+        {
+          "author": "StreamerPro",
+          "rating": 5,
+          "comment": "HWID spoofer fonctionne parfaitement, aucun ban."
+        },
+        {
+          "author": "CompetitivePlayer",
+          "rating": 5,
+          "comment": "L'aimbot prédictif est incroyablement précis."
+        }
+      ]
+    },
+    "seo": {
+      "title": "Warzone Reaper II - Package Elite avec Spoofer | HACKBOOT",
+      "metaDescription": "Warzone Reaper II, le package élite pour COD Warzone avec aimbot prédictif, ESP 3D et HWID spoofer inclus. Sécurité maximale.",
+      "keywords": ["warzone", "reaper 2", "elite", "spoofer", "hwid", "prediction", "hackboot"],
+      "ogImage": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200",
+      "canonical": "/products/gaming-warzone-reaper2"
+    },
+    "pricing": {
+      "monthly": "99.99",
+      "quarterly": "269.99",
+      "yearly": "959.99",
+      "lifetime": "1999.99"
+    },
+    "badges": ["Elite", "HWID Spoofer", "Premium"],
+    "stock": true,
+    "discount": {
+      "active": false,
+      "percentage": 0,
+      "code": ""
+    }
+  },
+  "gaming-valorant-oblivion": {
+    "id": "gaming-valorant-oblivion",
+    "slug": "gaming-valorant-oblivion",
+    "name": "Valorant Oblivion",
+    "category": "valorant",
+    "price": "79.99",
+    "currency": "EUR",
+    "usage": "Suite indétectée",
+    "description": "Suite de cheat Valorant indétectée avec aimbot, ESP et skin changer.",
+    "longDescription": "Valorant Oblivion est la solution gaming la plus sophistiquée disponible pour Valorant. Conçue pour contourner le système anti-cheat Vanguard, Oblivion utilise des techniques de dissimulation avancées pour rester totalement indétectable. L'aimbot humanisé reproduit des mouvements naturels pour une discrétion maximale. Le skin changer intégré vous permet de prévisualiser et d'utiliser tous les skins du jeu. Notre équipe de développement travaille 24/7 pour maintenir la compatibilité avec les dernières mises à jour de sécurité.",
+    "use_cases": [
+      "Classement Radiant",
+      "Avantage compétitif",
+      "Amélioration de skill",
+      "Boost de compte",
+      "Aperçu des skins"
+    ],
+    "features": [
+      "Aimbot humanisé",
+      "ESP joueurs",
+      "ESP capacités",
+      "Skinchanger toutes armes",
+      "Triggerbot",
+      "Équipe support élite",
+      "Système de mise à jour furtif"
+    ],
+    "specifications": {
+      "compatibility": "Windows 10/11 x64 (Secure Boot désactivé)",
+      "ram": "8GB DDR4 minimum",
+      "storage": "600MB espace libre",
+      "processor": "Intel Core i5-9400 ou équivalent",
+      "network": "Connexion stable requise"
+    },
+    "target_audience": "Joueurs compétitifs Valorant",
+    "highlight": "Contourne l'anti-cheat Vanguard",
+    "images": {
+      "main": "/images/products/valorant/oblivion/main.png",
+      "gallery": []
+    },
+    "videos": {
+      "demo": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "tutorial": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    },
+    "reviews": {
+      "average": 4.8,
+      "count": 3782,
+      "testimonials": [
+        {
+          "author": "RadiantPlayer",
+          "rating": 5,
+          "comment": "Fonctionne parfaitement malgré Vanguard."
+        },
+        {
+          "author": "ValorantPro",
+          "rating": 5,
+          "comment": "Skin changer incroyable, tous les skins disponibles!"
+        }
+      ]
+    },
+    "seo": {
+      "title": "Valorant Oblivion - Suite Gaming Indétectable | HACKBOOT",
+      "metaDescription": "Valorant Oblivion, la suite gaming indétectable pour Valorant. Aimbot humanisé, ESP, skin changer. Contourne Vanguard en toute sécurité.",
+      "keywords": ["valorant", "oblivion", "vanguard", "undetected", "skin changer", "aimbot", "hackboot"],
+      "ogImage": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200",
+      "canonical": "/products/gaming-valorant-oblivion"
+    },
+    "pricing": {
+      "monthly": "79.99",
+      "quarterly": "215.99",
+      "yearly": "767.99",
+      "lifetime": "1599.99"
+    },
+    "badges": ["Undetected", "Skin Changer", "Anti-Vanguard"],
+    "stock": true,
+    "discount": {
+      "active": true,
+      "percentage": 30,
+      "code": "OBLIVION30"
+    }
+  }
+}

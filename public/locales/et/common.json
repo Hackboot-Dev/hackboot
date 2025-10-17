@@ -3,8 +3,12 @@
     "home": "Avaleht",
     "features": "Funktsioonid",
     "products": "Tooted",
+    "games": "Mängud",
+    "services": "Teenused",
+    "about": "Meist",
     "contact": "Kontakt",
-    "clientArea": "Kliendi Ala"
+    "clientArea": "Kliendi Ala",
+    "getStarted": "Alusta"
   },
   "hero": {
     "badge": "Premium Pilvemängude Platvorm",
@@ -66,23 +70,350 @@
   },
   "products": {
     "title": "Premium Mängulahendused",
-    "subtitle": "Professionaalsed tööriistad tõsistele mängijatele, kes nõuavad tipptaset",
+    "subtitle": "Kõrge jõudlusega konfiguratsioonid teie lemmikutmängude domineerimiseks",
     "viewDetails": "Vaata Üksikasju",
+    "view": "Vaata",
+    "search": "Otsi...",
+    "filters": "Filtrid",
+    "billing": "Arveldus",
+    "configurations": "konfiguratsioon",
+    "configurationsPlural": "konfiguratsiooni",
+    "noResults": "Konfiguratsioone ei leitud",
+    "noResultsDescription": "Proovige muuta filtreid või otsingut",
+    "pricing": {
+      "hourly": "Tunni kohta",
+      "monthly": "Kuu kohta",
+      "annual": "Aasta kohta",
+      "lifetime": "Eluaeg",
+      "perHour": "/h",
+      "perMonth": "/kuu",
+      "perYear": "/aasta"
+    },
     "filter": {
       "all": "Kõik",
-      "overwatch": "Overwatch",
-      "warzone": "Warzone",
-      "valorant": "Valorant"
+      "game": "Mäng",
+      "allGames": "Kõik mängud",
+      "tier": "Tase",
+      "allTiers": "Kõik tasemed",
+      "sortBy": "Sorteeri",
+      "sortOptions": {
+        "name": "Nimi (A-Z)",
+        "priceAsc": "Hind (tõusev)",
+        "priceDesc": "Hind (kahanev)",
+        "gpu": "GPU jõudlus",
+        "rating": "Hinnang"
+      }
     },
     "labels": {
       "features": "Funktsioonid",
-      "useCases": "Kasutusjuhud"
-    }
+      "useCases": "Kasutusjuhud",
+      "support": "tugi",
+      "reviews": "arvustust"
+    },
+    "applyFilters": "Rakenda filtrid",
+    "resetFilters": "Lähtesta"
   },
   "footer": {
-    "copyright": "© 2024 HACKBOOT. Kõik õigused kaitstud.",
-    "privacy": "Privaatsus",
-    "terms": "Tingimused",
-    "contact": "Kontakt"
+    "description": "Tipptasemel pilvemängude lahendused professionaalsetele mängijatele.",
+    "sections": {
+      "product": "Toode",
+      "company": "Ettevõte",
+      "resources": "Ressursid",
+      "legal": "Õiguslik"
+    },
+    "links": {
+      "features": "Funktsioonid",
+      "pricing": "Hinnad",
+      "security": "Turvalisus",
+      "performance": "Jõudlus",
+      "about": "Meist",
+      "careers": "Karjäär",
+      "press": "Ajakirjandus",
+      "partners": "Partnerid",
+      "documentation": "Dokumentatsioon",
+      "api": "API",
+      "support": "Tugi",
+      "status": "Olek",
+      "privacy": "Privaatsus",
+      "terms": "Tingimused",
+      "cookies": "Küpsised",
+      "compliance": "Vastavus"
+    },
+    "copyright": "© {{year}} HACKBOOT. Kõik õigused kaitstud."
+  },
+  "contact": {
+    "badge": "Võtke ühendust",
+    "title": "Kontakt",
+    "subtitle": "Meil oleks hea meel teist kuulda. Saatke meile sõnum ja vastame esimesel võimalusel.",
+    "email": "E-post",
+    "phone": "Telefon",
+    "address": "Aadress",
+    "followUs": "Jälgi meid",
+    "form": {
+      "name": "Nimi",
+      "email": "E-post",
+      "company": "Ettevõte",
+      "subject": "Teema",
+      "selectSubject": "Valige teema",
+      "general": "Üldine päring",
+      "support": "Tehniline tugi",
+      "sales": "Müük",
+      "partnership": "Partnerlus",
+      "message": "Sõnum",
+      "messagePlaceholder": "Rääkige meile oma projektist...",
+      "send": "Saada sõnum",
+      "sending": "Saatmine...",
+      "required": "Kohustuslikud väljad",
+      "successMessage": "Sõnum edukalt saadetud!",
+      "errorMessage": "Midagi läks valesti. Palun proovige uuesti."
+    }
+  },
+  "about": {
+    "badge": "VMCloud Group OÜ",
+    "title": "MEIE LUGU",
+    "subtitle": "Avasta Hackbooti lugu ja visioon, Eesti liider uue põlvkonna pilvmängudes",
+    "scrollText": "Keri edasi avastamiseks",
+    "overview": {
+      "title": "Ülevaade",
+      "description": "Hackboot on innovatiivne tehnoloogiaettevõte, mis on spetsialiseerunud kõrge jõudlusega pilvmängude lahendustele.",
+      "vmcloud": "VMCloud Group OÜ osa",
+      "vmcloudDesc": "Oleme osa VMCloud Group'ist, ettevõtte pilvlahendustes ja innovaatilistes tehnoloogiates liider.",
+      "established": "Asutatud 2023",
+      "establishedDesc": "Asutatud Eestis selge visiooniga: revolutsiooniliselt muuta mängutööstust pilve kaudu."
+    },
+    "stats": {
+      "title": "Meie numbrid räägivad",
+      "subtitle": "Näitajad, mis tõendavad meie pühendumist tipptasemele",
+      "founded": "Asutatud",
+      "games": "Mänge saadaval",
+      "products": "Põhitooted",
+      "support": "Tugi",
+      "activeUsers": "Aktiivsed kasutajad",
+      "support": "Tugi",
+      "latency": "Keskmine latentsus"
+    },
+    "timeline": {
+      "title": "Meie teekond",
+      "subtitle": "Mänguvõtmetest pilvmängude liidrini",
+      "event1": {
+        "title": "Hackbooti loomine",
+        "description": "Ettevõtte käivitamine mänguvõtmete müügiga. Esimene klientuur mänguturul, maine loomine."
+      },
+      "event2": {
+        "year": "2023 lõpp",
+        "title": "Strateegiline pööre",
+        "description": "Üleminek kohandatud tarkvaraarendusele mänguvaldkonnas. Sügav tehniline ekspertiis ja pidev innovatsioon."
+      },
+      "event3": {
+        "title": "Pilvmängude revolutsioon",
+        "description": "Meie pilvmängude platvormi käivitamine fookusega professionaalsetele tööriistadele. Kohene edu ja eksponentsiaalne kasv."
+      },
+      "event4": {
+        "year": "2025 keskpaik",
+        "title": "VMCloud laienemine",
+        "description": "Integratsioon VMCloud Group'iga ja üldistatud pilvteenuste laiendamine. Uus kasvu ja innovatsiooni ajastu."
+      }
+    },
+    "vision": {
+      "title": "Meie suund",
+      "tab": "Visioon",
+      "heading": "Saada Eesti pilvmängude liidriks",
+      "description": "Püüdleme ülemaailmse tunnustuse poole professionaalsete pilvmängude lahenduste etaloonina, pakkudes parimaid võimalikke teenuseid.",
+      "points": [
+        "Pidev innovatsioon pilvetehnoloogiates",
+        "Tipptase teenuse kvaliteedis",
+        "Laienemine turgudele, kus meie tegevus on seaduslik",
+        "Üldistatud pilvmängude lahenduste arendamine"
+      ]
+    },
+    "mission": {
+      "tab": "Missioon",
+      "heading": "Pakkuda ülikõrge jõudlusega infrastruktuuri",
+      "description": "Meie missioon on pakkuda ülikõrge jõudlusega, lihtsat ja läbipaistvat pilvmängude infrastruktuuri, kõrvaldades kogu tehnilise keerukuse.",
+      "goals": [
+        {"icon": "⚡", "title": "Jõudlus", "desc": "Minimaalne latentsus"},
+        {"icon": "🛡️", "title": "Usaldusväärsus", "desc": "99.9% tööaeg"},
+        {"icon": "🚀", "title": "Innovatsioon", "desc": "Tipptasemel tehnoloogia"},
+        {"icon": "💎", "title": "Kvaliteet", "desc": "Preemium teenus"}
+      ]
+    },
+    "values": {
+      "tab": "Väärtused",
+      "heading": "Väärtused, mis meid määratlevad",
+      "description": "Meie põhiväärtused juhivad iga otsust ja tegevust Hackbootis.",
+      "list": [
+        {"icon": "🎯", "title": "Tipptase", "description": "Püüdleme tipptaseme poole kõiges, mida teeme"},
+        {"icon": "💡", "title": "Innovatsioon", "description": "Innovatsioon on meie DNA südamikus"},
+        {"icon": "🤝", "title": "Läbipaistvus", "description": "Avatud ja aus suhtlus meie klientidega"}
+      ]
+    },
+    "culture": {
+      "title": "Meie ettevõttekultuur",
+      "subtitle": "Unikaalne filosoofia, mis soodustab kirge ja tipptaset",
+      "philosophy": {
+        "title": "Tööfilosoofia",
+        "description": "Värbame talendi ja tunde järgi. Kirg arendamise vastu tuleb esimesena. Täielik vabadus: tööta kust tahad, millal tahad, kuni töö saab tehtud."
+      },
+      "principles": [
+        {
+          "icon": "🌍",
+          "title": "Remote First",
+          "description": "Tööta kõikjalt maailmas",
+          "details": ["100% kaug töö", "Paindlikud tunnid", "Töö-elu tasakaal"]
+        },
+        {
+          "icon": "🚀",
+          "title": "Täielik autonoomia",
+          "description": "Tee oma otsused, me usaldame sind",
+          "details": ["Ei mikrohaldust", "Loov vabadus", "Jagatud vastutus"]
+        },
+        {
+          "icon": "🔥",
+          "title": "Kirg eelkõige",
+          "description": "Kirg ja motivatsioon on meie mootorid",
+          "details": ["Isiklikud projektid julgustatud", "Pidev koolitus", "Innovatsioon tasustatud"]
+        },
+        {
+          "icon": "⚡",
+          "title": "Maksimaalne efektiivsus",
+          "description": "Ei kasutuid koosolekuid, fookus tulemustel",
+          "details": ["Asünkroonne suhtlus", "Optimeeritud protsessid", "Väärtuse fookus"]
+        },
+        {
+          "icon": "💎",
+          "title": "Preemium kvaliteet",
+          "description": "Teeme ainult tipptaset",
+          "details": ["Kõrged standardid", "Tähelepanu detailidele", "Pidev täiustamine"]
+        },
+        {
+          "icon": "🌟",
+          "title": "Isiklik kasv",
+          "description": "Toetame teie arengut",
+          "details": ["Mentorlus saadaval", "Koolituseelarve", "Karjääri areng"]
+        }
+      ],
+      "workStyle": {
+        "title": "Meie tööstiil",
+        "items": [
+          {"emoji": "🏠", "title": "100% Remote", "desc": "Tööta kõikjalt"},
+          {"emoji": "⏰", "title": "Paindlikud tunnid", "desc": "Halda oma aega nagu soovid"},
+          {"emoji": "🎯", "title": "Tulemusele orienteeritud", "desc": "Tulemused loevad, mitte tunnid"},
+          {"emoji": "🚀", "title": "Pidev innovatsioon", "desc": "Alati tipptasemel"}
+        ]
+      }
+    },
+    "legal": {
+      "badge": "Õigusteave",
+      "title": "Õiguslik raamistik ja vastavus",
+      "subtitle": "Tegutseme Eesti jurisdiktsiooni all täieliku austusega kohaldatavate seaduste suhtes",
+      "active": "Aktiivne",
+      "pending": "Ootel",
+      "jurisdiction": {
+        "title": "Eesti jurisdiktsioon",
+        "description": "Eestis on mängumodifikatsioonide arendamine ja kasutamine täielikult seaduslik kehtivate seaduste alusel.",
+        "benefits": [
+          "Tehnoloogilisele innovatsioonile soodne õiguslik raamistik",
+          "GDPR-iga vastavuses andmekaitse",
+          "Tehnoloogiasoodne ärikeskkond",
+          "Euroopa Liidu liige"
+        ]
+      },
+      "market": {
+        "title": "Sihtturud",
+        "description": "Keskendume eranditult turgudele, kus meie tegevus on seaduslik ja aktsepteeritud.",
+        "warning": "Euroopa laienemine on praegu võimatu regulatiivsete erinevuste tõttu. Jääme keskendunuks Eesti turule ja ühilduvatele jurisdiktsioonidele."
+      },
+      "points": [
+        {
+          "icon": "⚖️",
+          "title": "Täielik vastavus",
+          "description": "Kõigi Eesti seaduste range järgimine",
+          "details": "Töötame õigusnõustajatega pideva vastavuse tagamiseks.",
+          "status": "active"
+        },
+        {
+          "icon": "🔒",
+          "title": "Andmekaitse",
+          "description": "GDPR-iga vastavuses maksimaalse turvalisusega",
+          "details": "Otsast otsani krüpteerimine ja kõigi andmete turvaline säilitamine.",
+          "status": "active"
+        },
+        {
+          "icon": "📜",
+          "title": "Litsentsid ja sertifikaadid",
+          "description": "Kõik vajalikud load saadud",
+          "details": "Registreeritud ja litsentseeritud ettevõte Eestis.",
+          "status": "active"
+        }
+      ],
+      "compliance": {
+        "title": "Vastavusstandardid",
+        "items": [
+          {"icon": "🇪🇺", "title": "GDPR", "desc": "Andmekaitse"},
+          {"icon": "🔐", "title": "ISO 27001", "desc": "Infoturve"},
+          {"icon": "✅", "title": "PCI DSS", "desc": "Makseturve"},
+          {"icon": "🛡️", "title": "SOC 2", "desc": "Turvakontrollid"}
+        ]
+      }
+    },
+    "team": {
+      "title": "Meie meeskond",
+      "subtitle": "Kirglikud talendid kogu maailmast",
+      "stats": [
+        {"value": "50+", "label": "Meeskonna liikmed"},
+        {"value": "15+", "label": "Rahvused"},
+        {"value": "100%", "label": "Remote"},
+        {"value": "24/7", "label": "Globaalne kate"}
+      ],
+      "members": [
+        {
+          "avatar": "👨‍💻",
+          "name": "Tehniline juhtimine",
+          "role": "Arhitektuur ja innovatsioon",
+          "description": "Pilvandmetöötluse ja mängude eksperdid",
+          "skills": ["Pilv", "Mängud", "Innovatsioon"]
+        },
+        {
+          "avatar": "👩‍💼",
+          "name": "Tootemeeskond",
+          "role": "Arendus ja UX",
+          "description": "Erakordsete kogemuste loomine",
+          "skills": ["UX/UI", "Toode", "Agile"]
+        },
+        {
+          "avatar": "🛡️",
+          "name": "Turvalisus ja infrastruktuur",
+          "role": "DevOps ja turvalisus",
+          "description": "Tugev ja turvaline infrastruktuur",
+          "skills": ["Turvalisus", "DevOps", "Pilv"]
+        },
+        {
+          "avatar": "🚀",
+          "name": "Innovatsiooni labor",
+          "role": "R&D",
+          "description": "Tuleviku tehnoloogiate uurimine",
+          "skills": ["AI/ML", "Uurimine", "Innovatsioon"]
+        },
+        {
+          "avatar": "💬",
+          "name": "Klienditoetus",
+          "role": "Kliendi edu",
+          "description": "24/7 mitmekeelne tugi",
+          "skills": ["Tugi", "Suhtlus", "Probleemide lahendamine"]
+        },
+        {
+          "avatar": "🌍",
+          "name": "Rahvusvaheline meeskond",
+          "role": "Globaalsed operatsioonid",
+          "description": "Globaalne kohalolek, kohalik ekspertiis",
+          "skills": ["Rahvusvaheline", "Strateegia", "Operatsioonid"]
+        }
+      ],
+      "join": {
+        "title": "Liitu Hackbooti seiklusega",
+        "description": "Otsime pidevalt kirglikke talente meie meeskonnaga liitumiseks. Kui jagad meie visiooni, võta meiega ühendust.",
+        "button": "Vaata võimalusi"
+      }
+    }
   }
 }

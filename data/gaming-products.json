@@ -1,0 +1,179 @@
+[
+  {
+    "id": "gaming-overwatch",
+    "slug": "gaming-overwatch",
+    "name": "Overwatch 2",
+    "game": "Overwatch 2",
+    "category": "gaming",
+    "description": "Package ultime Overwatch 2 avec build privé et spoofer matériel inclus",
+    "longDescription": "Overwatch 2 God Mode est notre offre premium ultime. Équipé d'une RTX 4090, 128GB de RAM DDR5 et du processeur Intel i9-13900K le plus récent, ce système offre des performances inégalées. Inclut un build privé personnalisé avec HWID spoofer et mises à jour à vie.",
+    "status": "ACTIVE",
+    "variants": [
+      {
+        "id": "godmode",
+        "name": "God Mode",
+        "tier": "premium",
+        "gpu": "RTX 4090",
+        "ram": "128 GB DDR5",
+        "cpu": "Intel i9-13900K",
+        "usage": "Build privé",
+        "description": "Package ultime Overwatch 2 avec build privé et spoofer matériel inclus",
+        "use_cases": [
+          "Gaming professionnel",
+          "Boost de compte",
+          "Stream en sécurité",
+          "Préparation tournoi",
+          "Performance maximale"
+        ],
+        "features": [
+          "Build privé personnalisé",
+          "Toutes les fonctionnalités incluses",
+          "HWID spoofer",
+          "Protection kernel",
+          "Configurations personnalisées",
+          "Support setup 1-on-1",
+          "Mises à jour à vie"
+        ],
+        "target_audience": "Équipes pro, Joueurs high-stakes",
+        "highlight": "Build privé avec spoofer",
+        "protection": "Undetectable",
+        "updates": "Custom builds",
+        "pricing": {
+          "hourly": 2.13,
+          "monthly": 850
+        },
+        "sla": "99.999%",
+        "support_level": "enterprise",
+        "badges": ["Ultimate", "Exclusive", "Best Performance"],
+        "image": "/images/products/overwatch/godmode/main.png"
+      }
+    ],
+    "reviews": {
+      "average": 4.8,
+      "count": 479
+    },
+    "discount": {
+      "active": false,
+      "percentage": 0,
+      "code": ""
+    }
+  },
+  {
+    "id": "gaming-warzone",
+    "slug": "gaming-warzone",
+    "name": "Call of Duty: Warzone",
+    "game": "Call of Duty: Warzone",
+    "category": "gaming",
+    "description": "Package élite Warzone avec aimbot avancé et HWID spoofer inclus",
+    "longDescription": "Warzone Reaper 2 est l'évolution enterprise de notre solution Warzone. Équipé d'une RTX 4070 Ti, 64GB de RAM et d'un Intel i9-12900K, il offre des fonctionnalités avancées comme l'aimbot pour véhicules, ESP 3D et HWID spoofer hardware inclus.",
+    "status": "ACTIVE",
+    "variants": [
+      {
+        "id": "reaper2",
+        "name": "Reaper 2",
+        "tier": "enterprise",
+        "gpu": "RTX 4070 Ti",
+        "ram": "64 GB DDR5",
+        "cpu": "Intel i9-12900K",
+        "usage": "Package élite",
+        "description": "Package élite Warzone avec aimbot avancé et HWID spoofer inclus",
+        "use_cases": [
+          "Jeu professionnel",
+          "Stream en sécurité",
+          "Domination en tournoi",
+          "Services de compte",
+          "K/D maximum"
+        ],
+        "features": [
+          "Aimbot à prédiction avancée",
+          "ESP bounding box 3D",
+          "Aimbot véhicules",
+          "HWID spoofer inclus",
+          "ESP loadout",
+          "Support assistant personnel",
+          "Mises à jour protection temps réel"
+        ],
+        "target_audience": "Joueurs professionnels, Streamers",
+        "highlight": "Inclut HWID spoofer",
+        "protection": "Hardware spoofer included",
+        "updates": "Real-time updates",
+        "pricing": {
+          "hourly": 2.25,
+          "monthly": 900
+        },
+        "sla": "99.99%",
+        "support_level": "enterprise",
+        "badges": ["Next Gen", "Enterprise", "Vehicle Support"],
+        "image": "/images/products/warzone/reaper2/main.png"
+      }
+    ],
+    "reviews": {
+      "average": 4.8,
+      "count": 510
+    },
+    "discount": {
+      "active": false,
+      "percentage": 0,
+      "code": ""
+    }
+  },
+  {
+    "id": "gaming-valorant",
+    "slug": "gaming-valorant",
+    "name": "Valorant",
+    "game": "Valorant",
+    "category": "gaming",
+    "description": "Suite de cheat Valorant indétectée avec aimbot, ESP et skin changer",
+    "longDescription": "Valorant Oblivion est spécialement conçu pour contourner Vanguard. Ce système offre un aimbot humanisé, ESP, skinchanger et triggerbot, le tout avec des mises à jour stealth pour rester indétectable.",
+    "status": "ACTIVE",
+    "variants": [
+      {
+        "id": "oblivion",
+        "name": "Oblivion",
+        "tier": "enterprise",
+        "gpu": "RTX 3080 Ti",
+        "ram": "32 GB DDR5",
+        "cpu": "AMD Ryzen 9 5950X",
+        "usage": "Suite indétectée",
+        "description": "Suite de cheat Valorant indétectée avec aimbot, ESP et skin changer",
+        "use_cases": [
+          "Classement Radiant",
+          "Avantage compétitif",
+          "Amélioration de skill",
+          "Boost de compte",
+          "Aperçu des skins"
+        ],
+        "features": [
+          "Aimbot humanisé",
+          "ESP joueurs",
+          "ESP capacités",
+          "Skinchanger toutes armes",
+          "Triggerbot",
+          "Équipe support élite",
+          "Système de mise à jour furtif"
+        ],
+        "target_audience": "Joueurs compétitifs Valorant",
+        "highlight": "Contourne l'anti-cheat Vanguard",
+        "protection": "Vanguard bypass",
+        "updates": "Stealth updates",
+        "pricing": {
+          "hourly": 1.13,
+          "monthly": 450
+        },
+        "sla": "99.99%",
+        "support_level": "enterprise",
+        "badges": ["Valorant Pro", "Vanguard Bypass", "Humanized"],
+        "image": "/images/products/valorant/oblivion/main.png"
+      }
+    ],
+    "reviews": {
+      "average": 4.8,
+      "count": 267
+    },
+    "discount": {
+      "active": false,
+      "percentage": 0,
+      "code": ""
+    }
+  }
+]

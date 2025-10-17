@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
+import { createContext, useContext, useState, useEffect, ReactNode, useMemo, useCallback } from 'react'
 import { useRouter, usePathname } from 'next/navigation'
 import frTranslations from '@/public/locales/fr/common.json'
 import enTranslations from '@/public/locales/en/common.json'
@@ -42,17 +42,22 @@ export function I18nProvider({
     }
   }, [pathname])
 
-  const setLocale = (newLocale: Locale) => {
+  const setLocale = useCallback((newLocale: Locale) => {
     setLocaleState(newLocale)
     // Navigate to new locale URL
     const newPathname = pathname.replace(/^\/[a-z]{2}/, `/${newLocale}`)
     router.push(newPathname)
-  }
+  }, [pathname, router])
 
   const t = translations[locale]
 
+  const value = useMemo(
+    () => ({ locale, setLocale, t }),
+    [locale, setLocale, t]
+  )
+
   return (
-    <I18nContext.Provider value={{ locale, setLocale, t }}>
+    <I18nContext.Provider value={value}>
       {children}
     </I18nContext.Provider>
   )

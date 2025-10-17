@@ -1,4 +1,4 @@
-import { I18nProvider } from '@/lib/i18n'
+import { I18nProvider } from '@/lib/i18n-simple'
 
 export async function generateStaticParams() {
   return [{ locale: 'fr' }, { locale: 'en' }, { locale: 'et' }]
