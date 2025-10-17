@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useParams } from 'next/navigation'
 import {
@@ -351,10 +352,13 @@ export default function PremiumPage() {
                 Rejoignez l&apos;élite du gaming avec un accès illimité à toutes nos fonctionnalités
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <button className="px-8 py-4 bg-gradient-to-r from-amber-500 to-yellow-600 text-black text-lg font-bold rounded-full hover:scale-105 transition-transform flex items-center justify-center gap-2">
+                <Link
+                  href={`/${locale}/premium/signup`}
+                  className="px-8 py-4 bg-gradient-to-r from-amber-500 to-yellow-600 text-black text-lg font-bold rounded-full hover:scale-105 transition-transform flex items-center justify-center gap-2"
+                >
                   Commencer maintenant
                   <ArrowRight className="w-5 h-5" />
-                </button>
+                </Link>
                 <button className="px-8 py-4 glass-effect rounded-full text-lg font-medium hover:bg-white/10 transition-all">
                   Comparer les offres
                 </button>

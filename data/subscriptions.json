@@ -1,0 +1,47 @@
+{
+  "plans": [
+    {
+      "id": "essentiel",
+      "name": "Pack Essentiel",
+      "price": 19.99,
+      "currency": "EUR",
+      "billing": "par mois",
+      "description": "Performances fiables et accès complet au configurateur pour démarrer immédiatement.",
+      "features": [
+        "Accès à l'infrastructure cloud standard",
+        "Support communautaire",
+        "Mises à jour de sécurité régulières",
+        "Catalogue de jeux populaire inclus"
+      ]
+    },
+    {
+      "id": "avantage",
+      "name": "Pack Avantage",
+      "price": 35.0,
+      "currency": "EUR",
+      "billing": "par mois",
+      "description": "Puissance supplémentaire et support prioritaire pour une expérience optimisée.",
+      "features": [
+        "Performances GPU avancées",
+        "Support prioritaire 24/7",
+        "Accès aux configurations premium",
+        "Tableau de bord analytique en temps réel"
+      ]
+    },
+    {
+      "id": "élite",
+      "name": "Pack Élite",
+      "price": 60.0,
+      "currency": "EUR",
+      "billing": "par mois",
+      "description": "Infrastructure dédiée et sécurité maximale pour les besoins les plus exigeants.",
+      "features": [
+        "Machine virtuelle dédiée RTX 4090",
+        "HWID Spoofer illimité",
+        "Consultant technique personnel",
+        "Mises à jour et patchs instantanés"
+      ],
+      "popular": true
+    }
+  ]
+}
