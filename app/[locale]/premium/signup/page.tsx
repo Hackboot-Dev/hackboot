@@ -5,7 +5,6 @@ import { useParams } from 'next/navigation'
 import Link from 'next/link'
 import HeaderFixed from '@/components/HeaderFixed'
 import { getSubscriptionPlans, type SubscriptionPlan } from '@/lib/subscriptions'
-import { motion, AnimatePresence } from 'framer-motion'
 import { Check, ArrowRight, Shield, Sparkles } from 'lucide-react'
 
 const plans = getSubscriptionPlans()
@@ -22,7 +21,10 @@ export default function PremiumSignupPage() {
   const locale = (params?.locale as string) || 'fr'
   const [selectedPlanId, setSelectedPlanId] = useState<string>(plans.find((plan) => plan.popular)?.id || plans[0].id)
 
-  const selectedPlan = useMemo(() => plans.find((plan) => plan.id === selectedPlanId) ?? plans[0], [selectedPlanId])
+  const selectedPlan = useMemo(
+    () => plans.find((plan) => plan.id === selectedPlanId) ?? plans[0],
+    [selectedPlanId]
+  )
 
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
@@ -40,12 +42,7 @@ export default function PremiumSignupPage() {
 
       <main className="relative pt-28 pb-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
+          <div className="text-center mb-16">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 text-sm font-semibold uppercase tracking-[0.2em] text-purple-300 bg-white/5 border border-purple-500/40 rounded-full">
               <Shield className="w-4 h-4" />
               Inscription configurateur
@@ -56,22 +53,20 @@ export default function PremiumSignupPage() {
             <p className="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
               Choisis une formule, crée ton compte et démarre immédiatement sur l&apos;infrastructure la plus performante du marché.
             </p>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-16">
             {plans.map((plan) => (
-              <motion.button
+              <button
                 key={plan.id}
                 type="button"
                 onClick={() => setSelectedPlanId(plan.id)}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-                className={`relative p-6 rounded-3xl border transition-all text-left flex flex-col gap-6 ${
+                className={`group relative p-6 rounded-3xl border transition-all text-left flex flex-col gap-6 ${
                   selectedPlanId === plan.id
                     ? 'border-purple-500/80 bg-gradient-to-br from-purple-600/20 via-purple-500/10 to-transparent shadow-lg shadow-purple-900/40'
                     : 'border-white/10 bg-white/5 hover:border-purple-500/50 hover:bg-white/10'
                 }`}
+                aria-pressed={selectedPlanId === plan.id}
               >
                 {plan.popular && (
                   <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-purple-500 text-xs font-semibold rounded-full">
@@ -96,9 +91,13 @@ export default function PremiumSignupPage() {
                 </ul>
                 <div className="flex items-center justify-between text-sm font-medium">
                   <span className="text-purple-300">Sélectionner</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight
+                    className={`w-4 h-4 transition-transform duration-300 ${
+                      selectedPlanId === plan.id ? 'translate-x-1' : 'group-hover:translate-x-1'
+                    }`}
+                  />
                 </div>
-              </motion.button>
+              </button>
             ))}
           </div>
 
@@ -186,7 +185,7 @@ export default function PremiumSignupPage() {
 
                   <button
                     type="submit"
-                    className="w-full px-6 py-4 rounded-xl bg-gradient-to-r from-purple-500 via-purple-600 to-indigo-500 font-semibold text-white hover:shadow-lg hover:shadow-purple-900/40 transition-all flex items-center justify-center gap-2"
+                    className="w-full px-6 py-4 rounded-xl bg-gradient-to-r from-purple-500 via-purple-600 to-indigo-500 font-semibold text-white hover:shadow-lg hover:shadow-purple-900/40 transition-transform duration-300 hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2"
                   >
                     Valider mon inscription
                     <Sparkles className="w-5 h-5" />
@@ -194,38 +193,29 @@ export default function PremiumSignupPage() {
                 </form>
               </div>
 
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={selectedPlan.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.2 }}
-                  className="glass-effect rounded-2xl bg-black/60 border border-white/10 p-6"
-                >
-                  <div className="flex items-center justify-between mb-6">
-                    <div>
-                      <p className="text-sm text-gray-400">Formule sélectionnée</p>
-                      <h3 className="text-2xl font-bold">{selectedPlan.name}</h3>
-                    </div>
-                    <div className="text-right">
-                      <p className="text-3xl font-black text-white">{formatPrice(selectedPlan)}</p>
-                      <p className="text-xs text-gray-500 uppercase tracking-wider">{selectedPlan.billing}</p>
-                    </div>
+              <div className="glass-effect rounded-2xl bg-black/60 border border-white/10 p-6 transition-colors duration-300">
+                <div className="flex items-center justify-between mb-6">
+                  <div>
+                    <p className="text-sm text-gray-400">Formule sélectionnée</p>
+                    <h3 className="text-2xl font-bold">{selectedPlan.name}</h3>
                   </div>
-                  <ul className="space-y-3 text-sm text-gray-300">
-                    {selectedPlan.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-2">
-                        <Check className="w-4 h-4 text-purple-400 mt-0.5 flex-shrink-0" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="mt-8 text-xs text-gray-500">
-                    En cliquant sur « Valider mon inscription », un conseiller te contactera pour finaliser l&apos;accès à ton espace premium.
+                  <div className="text-right">
+                    <p className="text-3xl font-black text-white">{formatPrice(selectedPlan)}</p>
+                    <p className="text-xs text-gray-500 uppercase tracking-wider">{selectedPlan.billing}</p>
                   </div>
-                </motion.div>
-              </AnimatePresence>
+                </div>
+                <ul className="space-y-3 text-sm text-gray-300">
+                  {selectedPlan.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-2">
+                      <Check className="w-4 h-4 text-purple-400 mt-0.5 flex-shrink-0" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-8 text-xs text-gray-500">
+                  En cliquant sur « Valider mon inscription », un conseiller te contactera pour finaliser l&apos;accès à ton espace premium.
+                </div>
+              </div>
             </div>
           </div>
 
