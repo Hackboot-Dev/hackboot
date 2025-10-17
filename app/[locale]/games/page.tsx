@@ -9,6 +9,7 @@ import { Search, X, Gamepad2, ArrowRight } from 'lucide-react'
 import dynamic from 'next/dynamic'
 import { useI18n } from '@/lib/i18n-simple'
 import ProductImage from '@/components/ProductImage'
+import HeaderFixed from '@/components/HeaderFixed'
 
 const Footer = dynamic(() => import('@/components/Footer'), {
   loading: () => <div className="h-32 bg-black" />,
@@ -45,6 +46,7 @@ export default function GamesPage() {
 
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden">
+      <HeaderFixed />
 
       {/* Background gradient */}
       <div className="fixed inset-0 opacity-[0.03] pointer-events-none">
