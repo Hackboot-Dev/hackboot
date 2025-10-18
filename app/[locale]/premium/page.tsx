@@ -1,26 +1,25 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import Link from 'next/link'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useParams } from 'next/navigation'
 import {
-  Crown,
-  Zap,
-  Cpu,
-  Gamepad2,
-  MonitorPlay,
-  Shield,
-  ArrowRight,
-  CheckCircle,
-  Infinity as InfinityIcon,
+  X, Crown, Zap, Cpu, Gamepad2,
+  MonitorPlay, Shield, ArrowRight,
+  CheckCircle
 } from 'lucide-react'
 import dynamic from 'next/dynamic'
 import { useI18n } from '@/lib/i18n-simple'
-import HeaderFixed from '@/components/HeaderFixed'
 
 const Footer = dynamic(() => import('@/components/Footer'), {
   loading: () => <div className="h-32 bg-black" />,
-  ssr: false,
+  ssr: false
+})
+
+const HeaderFixed = dynamic(() => import('@/components/HeaderFixed'), {
+  loading: () => <div className="h-20 bg-black" />,
+  ssr: false
 })
 
 interface Feature {
@@ -29,7 +28,10 @@ interface Feature {
   title: string
   subtitle: string
   description: string
-  stats: { label: string; value: string }[]
+  stats: {
+    label: string
+    value: string
+  }[]
   highlights: string[]
   gradient: string
   iconColor: string
@@ -37,282 +39,381 @@ interface Feature {
 
 export default function PremiumPage() {
   const params = useParams()
-  const locale = (params?.locale as string) || 'fr'
+  const locale = params?.locale as string || 'fr'
   const { t } = useI18n()
 
-  const features: Feature[] = [
+  const [selectedFeature, setSelectedFeature] = useState<Feature | null>(null)
+
+  const features = useMemo<Feature[]>(() => [
     {
       id: 'performance',
       icon: Cpu,
-      title: 'Performances Exceptionnelles',
-      subtitle: 'Puissance maximale',
-      description:
-        'Machines virtuelles équipées des dernières technologies pour des performances gaming optimales. RTX 4090, processeurs dernière génération et RAM DDR5 pour une expérience fluide.',
+      title: "Performances Exceptionnelles",
+      subtitle: "Puissance maximale",
+      description: "Machines virtuelles équipées des dernières technologies pour des performances gaming optimales. RTX 4090, processeurs dernière génération et RAM DDR5 pour une expérience fluide.",
       stats: [
-        { label: 'GPU', value: 'RTX 4090' },
-        { label: 'RAM', value: '128GB DDR5' },
-        { label: 'CPU', value: 'i9-13900K' },
-        { label: 'FPS', value: '240+ FPS' },
+        { label: "GPU", value: "RTX 4090" },
+        { label: "RAM", value: "128GB DDR5" },
+        { label: "CPU", value: "i9-13900K" },
+        { label: "FPS", value: "240+ FPS" }
       ],
       highlights: [
-        'RTX 4090 dernière génération',
-        'Ray tracing temps réel',
-        'DLSS 3.0 activé',
-        '128GB RAM DDR5',
-        'Processeur i9-13900K',
-        'SSD NVMe ultra-rapide',
+        "RTX 4090 dernière génération",
+        "Ray tracing temps réel",
+        "DLSS 3.0 activé",
+        "128GB RAM DDR5",
+        "Processeur i9-13900K",
+        "SSD NVMe ultra-rapide"
       ],
-      gradient: 'from-purple-500 via-violet-500 to-purple-600',
-      iconColor: 'text-purple-400',
+      gradient: "from-purple-500 via-violet-500 to-purple-600",
+      iconColor: "text-purple-400"
     },
     {
       id: 'games',
       icon: Gamepad2,
-      title: 'Catalogue Complet',
-      subtitle: 'Tous les jeux',
-      description:
-        "Accès illimité à l'intégralité de notre catalogue de jeux. Valorant, Apex Legends, Overwatch, Fortnite et bien plus encore, sans supplément.",
+      title: "Catalogue Complet",
+      subtitle: "Tous les jeux",
+      description: "Accès illimité à l'intégralité de notre catalogue de jeux. Valorant, Apex Legends, Overwatch, Fortnite et bien plus encore, sans supplément.",
       stats: [
-        { label: 'Jeux', value: '10+' },
-        { label: 'Mises à jour', value: '24/7' },
-        { label: 'Nouveautés', value: 'Chaque mois' },
-        { label: 'Support', value: 'Tous jeux' },
+        { label: "Jeux", value: "10+" },
+        { label: "Mises à jour", value: "24/7" },
+        { label: "Nouveautés", value: "Chaque mois" },
+        { label: "Support", value: "Tous jeux" }
       ],
       highlights: [
-        'Valorant',
-        'Apex Legends',
-        'Overwatch 2',
-        'Fortnite',
-        'Call of Duty Warzone',
-        'CS2',
-        'Rainbow Six Siege',
-        'PUBG',
-        'Rust',
-        'Nouveaux titres ajoutés régulièrement',
+        "Valorant",
+        "Apex Legends",
+        "Overwatch 2",
+        "Fortnite",
+        "Call of Duty Warzone",
+        "CS2",
+        "Rainbow Six Siege",
+        "PUBG",
+        "Rust",
+        "Nouveaux titres ajoutés régulièrement"
       ],
-      gradient: 'from-blue-500 via-indigo-500 to-blue-600',
-      iconColor: 'text-blue-400',
+      gradient: "from-blue-500 via-indigo-500 to-blue-600",
+      iconColor: "text-blue-400"
     },
     {
       id: 'technology',
       icon: Zap,
-      title: 'Technologies Récentes',
-      subtitle: 'Innovation permanente',
-      description:
-        'Infrastructure cloud mise à jour en continu avec les dernières innovations. Architecture optimisée pour la latence minimale et la performance maximale.',
+      title: "Technologies Récentes",
+      subtitle: "Innovation permanente",
+      description: "Infrastructure cloud mise à jour en continu avec les dernières innovations. Architecture optimisée pour la latence minimale et la performance maximale.",
       stats: [
-        { label: 'Latence', value: '<5ms' },
-        { label: 'Uptime', value: '99.9%' },
-        { label: 'Bande passante', value: '10Gbps' },
-        { label: 'Update', value: 'Temps réel' },
+        { label: "Latence", value: "<5ms" },
+        { label: "Uptime", value: "99.9%" },
+        { label: "Bande passante", value: "10Gbps" },
+        { label: "Update", value: "Temps réel" }
       ],
       highlights: [
-        'Serveurs dernière génération',
-        'Infrastructure redondante',
-        'CDN global multi-régions',
-        'Optimisation réseau automatique',
-        'Mises à jour instantanées',
-        'Monitoring 24/7',
+        "Serveurs dernière génération",
+        "Infrastructure redondante",
+        "CDN global multi-régions",
+        "Optimisation réseau automatique",
+        "Mises à jour instantanées",
+        "Monitoring 24/7"
       ],
-      gradient: 'from-cyan-500 via-sky-500 to-cyan-600',
-      iconColor: 'text-cyan-400',
+      gradient: "from-cyan-500 via-sky-500 to-cyan-600",
+      iconColor: "text-cyan-400"
     },
     {
       id: 'instant',
       icon: MonitorPlay,
-      title: 'Install to Play',
-      subtitle: 'Prêt instantanément',
-      description:
-        "Plus besoin de télécharger ou installer quoi que ce soit. Connectez-vous à votre machine virtuelle et jouez immédiatement. Tout est préconfiguré et optimisé.",
+      title: "Install to Play",
+      subtitle: "Prêt instantanément",
+      description: "Plus besoin de télécharger ou installer quoi que ce soit. Connectez-vous à votre machine virtuelle et jouez immédiatement. Tout est préconfiguré et optimisé.",
       stats: [
-        { label: 'Installation', value: '0 min' },
-        { label: 'Setup', value: 'Automatique' },
-        { label: 'Config', value: 'Préconfigurée' },
-        { label: 'Connexion', value: 'Instantanée' },
+        { label: "Installation", value: "0 min" },
+        { label: "Setup", value: "Automatique" },
+        { label: "Config", value: "Préconfigurée" },
+        { label: "Connexion", value: "Instantanée" }
       ],
       highlights: [
-        'Aucun téléchargement requis',
-        'Environnement préconfiguré',
-        'Jeux pré-installés',
-        'Paramètres optimisés',
-        'Connexion en 1 clic',
-        'Multi-dispositifs',
+        "Aucun téléchargement requis",
+        "Environnement préconfiguré",
+        "Jeux pré-installés",
+        "Paramètres optimisés",
+        "Connexion en 1 clic",
+        "Multi-dispositifs"
       ],
-      gradient: 'from-teal-500 via-emerald-500 to-teal-600',
-      iconColor: 'text-teal-400',
+      gradient: "from-teal-500 via-emerald-500 to-teal-600",
+      iconColor: "text-teal-400"
     },
     {
       id: 'price',
       icon: Crown,
-      title: 'Prix Unique',
-      subtitle: 'Tout inclus',
-      description:
-        "Un seul abonnement pour accéder à l'intégralité des fonctionnalités et tous les jeux. Pas de frais cachés, pas de supplément. Simplicité totale.",
+      title: "Prix Unique",
+      subtitle: "Tout inclus",
+      description: "Un seul abonnement pour accéder à l'intégralité des fonctionnalités et tous les jeux. Pas de frais cachés, pas de supplément. Simplicité totale.",
       stats: [
-        { label: 'Formule', value: 'Unique' },
-        { label: 'Jeux inclus', value: 'Tous' },
-        { label: 'Features', value: '100%' },
-        { label: 'Frais cachés', value: '0€' },
+        { label: "Formule", value: "Unique" },
+        { label: "Jeux inclus", value: "Tous" },
+        { label: "Features", value: "100%" },
+        { label: "Frais cachés", value: "0€" }
       ],
       highlights: [
-        'Un seul prix transparent',
-        'Tous les jeux inclus',
-        'Toutes les fonctionnalités',
-        'Mises à jour gratuites',
-        'Support premium inclus',
-        'Sans engagement',
+        "Un seul prix transparent",
+        "Tous les jeux inclus",
+        "Toutes les fonctionnalités",
+        "Mises à jour gratuites",
+        "Support premium inclus",
+        "Sans engagement"
       ],
-      gradient: 'from-amber-500 via-yellow-500 to-amber-600',
-      iconColor: 'text-amber-400',
+      gradient: "from-amber-500 via-yellow-500 to-amber-600",
+      iconColor: "text-amber-400"
     },
     {
       id: 'security',
       icon: Shield,
-      title: 'Sécurité Maximale',
-      subtitle: 'Protection totale',
-      description:
-        'Protection multi-couches indétectable avec HWID spoofer intégré. Technologie kernel-level pour une sécurité maximale et une tranquillité d’esprit totale.',
+      title: "Sécurité Maximale",
+      subtitle: "Protection totale",
+      description: "Protection multi-couches indétectable avec HWID spoofer intégré. Technologie kernel-level pour une sécurité maximale et une tranquillité d'esprit totale.",
       stats: [
-        { label: 'Protection', value: 'Kernel-level' },
-        { label: 'Détection', value: '0%' },
-        { label: 'HWID Spoofer', value: 'Inclus' },
-        { label: 'Chiffrement', value: 'E2E' },
+        { label: "Protection", value: "Kernel-level" },
+        { label: "Détection", value: "0%" },
+        { label: "HWID Spoofer", value: "Inclus" },
+        { label: "Chiffrement", value: "E2E" }
       ],
       highlights: [
-        'Protection kernel-level',
-        'HWID spoofer intégré',
-        'Bypass EAC/BE',
-        'Stream-proof',
-        'Chiffrement bout en bout',
-        'Indétectable',
+        "Protection kernel-level",
+        "HWID spoofer intégré",
+        "Bypass EAC/BE",
+        "Stream-proof",
+        "Chiffrement bout en bout",
+        "Indétectable"
       ],
-      gradient: 'from-green-500 via-emerald-500 to-green-600',
-      iconColor: 'text-green-400',
-    },
-  ]
+      gradient: "from-green-500 via-emerald-500 to-green-600",
+      iconColor: "text-green-400"
+    }
+  ], [])
 
-  const [selectedFeature, setSelectedFeature] = useState<Feature>(features[0])
-
-  const benefits = [
-    'Accès illimité à tous les jeux',
-    'Performances GPU RTX 4090',
-    'Pas de téléchargement requis',
-    'Support prioritaire 24/7',
-    'Mises à jour gratuites à vie',
-    'HWID Spoofer inclus',
-  ]
+  const benefits = useMemo(() => [
+    "Accès illimité à tous les jeux",
+    "Performances GPU RTX 4090",
+    "Pas de téléchargement requis",
+    "Support prioritaire 24/7",
+    "Mises à jour gratuites à vie",
+    "HWID Spoofer inclus"
+  ], [])
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white overflow-hidden">
       <HeaderFixed />
-      <main className="pt-24">
-        <section className="container mx-auto px-6 py-16">
-          <div className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 px-4 py-2 glass-effect rounded-full border border-white/10 text-sm font-semibold gradient-text">
-              {t.premium?.badge || 'Accès premium Hackboot'}
-            </span>
-            <h1 className="text-4xl md:text-6xl font-display font-bold mt-6 mb-4">
-              {t.premium?.title || 'Une seule offre, tout compris'}
+      {/* Background grid */}
+      <div className="fixed inset-0 opacity-[0.03] pointer-events-none">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `linear-gradient(rgba(139, 92, 246, 0.3) 1px, transparent 1px),
+                           linear-gradient(90deg, rgba(139, 92, 246, 0.3) 1px, transparent 1px)`,
+          backgroundSize: '50px 50px'
+        }} />
+      </div>
+
+      {/* Floating orbs */}
+      <div className="fixed inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl animate-float-delayed" />
+      </div>
+
+      <div className="relative pt-32 pb-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="text-center mb-20">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-amber-500/20 to-yellow-500/20 border border-amber-500/30 rounded-full mb-6">
+              <Crown className="w-4 h-4 text-amber-400" />
+              <span className="text-sm font-medium text-amber-300">Abonnement Exclusif</span>
+            </div>
+
+            <h1 className="text-6xl md:text-8xl font-black mb-6">
+              <span className="text-white">PREMIUM</span><br />
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-600">
+                UNLIMITED
+              </span>
             </h1>
-            <p className="text-lg text-gray-300 max-w-2xl">
-              {t.premium?.subtitle || 'La configuration ultime pour les joueurs qui veulent tout sans compromis.'}
+
+            <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-12">
+              L&apos;expérience gaming ultime.<br />
+              Performances maximales, catalogue complet, prix unique.
             </p>
-            <div className="flex flex-wrap gap-3 text-sm text-gray-300 mt-6">
-              {benefits.map((benefit) => (
-                <span key={benefit} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10">
-                  <CheckCircle className="w-4 h-4 text-accent" />
-                  {benefit}
-                </span>
+
+            {/* Benefits Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+              {benefits.map((benefit, idx) => (
+                <div
+                  key={idx}
+                  className="flex items-center gap-3 glass-effect rounded-xl px-4 py-3"
+                >
+                  <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                  <span className="text-sm text-gray-300">{benefit}</span>
+                </div>
               ))}
             </div>
-            <div className="flex flex-wrap gap-4 mt-10">
-              <Link
-                href={`/${locale}/premium/signup`}
-                className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white rounded-full text-sm font-semibold"
-              >
-                {t.premium?.cta || 'Commencer maintenant'}
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link
-                href={`/${locale}/contact`}
-                className="inline-flex items-center gap-2 px-6 py-3 glass-effect rounded-full text-sm"
-              >
-                {t.premium?.contact || 'Parler à un expert'}
-              </Link>
-            </div>
           </div>
-        </section>
 
-        <section className="container mx-auto px-6 pb-20 grid lg:grid-cols-[1.2fr_1fr] gap-10">
-          <div className="grid sm:grid-cols-2 gap-6">
+          {/* Features Title */}
+          <div className="text-center mb-12">
+            <h2 className="text-4xl md:text-6xl font-black mb-4">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
+                AVANTAGES RÉSERVÉS
+              </span>
+            </h2>
+            <p className="text-xl text-gray-400">
+              Découvrez ce qui rend notre offre Premium exceptionnelle
+            </p>
+          </div>
+
+          {/* Features Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
             {features.map((feature) => {
               const Icon = feature.icon as React.ComponentType<{ className?: string }>
-              const isActive = selectedFeature.id === feature.id
               return (
-                <button
+                <div
                   key={feature.id}
                   onClick={() => setSelectedFeature(feature)}
-                  className={`text-left rounded-2xl border transition-colors p-6 bg-black/70 ${
-                    isActive ? 'border-accent' : 'border-white/10 hover:border-white/20'
-                  }`}
+                  className="group glass-effect rounded-2xl p-6 cursor-pointer hover:border-purple-500/50 hover:scale-[1.03] transition-all"
                 >
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center">
-                      <Icon className={`w-6 h-6 ${feature.iconColor}`} />
-                    </div>
-                    <div>
-                      <p className="text-xs uppercase tracking-wide text-gray-400">{feature.subtitle}</p>
-                      <h3 className="text-xl font-semibold">{feature.title}</h3>
-                    </div>
+                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                    <Icon className="w-7 h-7 text-white" />
                   </div>
-                  <p className="text-sm text-gray-300 leading-relaxed">
-                    {feature.description}
+
+                  <h3 className={`text-2xl font-black mb-2 ${feature.iconColor}`}>
+                    {feature.title}
+                  </h3>
+                  <p className="text-sm text-gray-400 mb-4">
+                    {feature.subtitle}
                   </p>
-                </button>
+
+                  {/* Stats Preview */}
+                  <div className="grid grid-cols-2 gap-2">
+                    {feature.stats.slice(0, 2).map((stat, idx) => (
+                      <div key={idx} className="bg-white/5 rounded-lg p-2">
+                        <div className="text-xs text-gray-500">{stat.label}</div>
+                        <div className="text-sm font-bold text-white">{stat.value}</div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-4 flex items-center gap-2 text-purple-400 text-sm font-medium">
+                    <span>En savoir plus</span>
+                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
               )
             })}
           </div>
 
-          <aside className="glass-effect rounded-3xl border border-white/10 p-8 space-y-6">
-            <div className="flex items-start gap-3">
-              <div className="w-12 h-12 rounded-xl bg-white/5 flex items-center justify-center">
-                {(() => {
-                  const Icon = selectedFeature.icon as React.ComponentType<{ className?: string }>
-                  return <Icon className={`w-6 h-6 ${selectedFeature.iconColor}`} />
-                })()}
+          {/* CTA */}
+          <div className="text-center">
+            <div className="glass-effect rounded-3xl p-12 bg-gradient-to-br from-purple-500/10 to-amber-500/10 border-2 border-purple-500/20">
+              <Crown className="w-16 h-16 text-amber-400 mx-auto mb-6" />
+              <h2 className="text-4xl md:text-5xl font-black mb-4">
+                Prêt à passer Premium ?
+              </h2>
+              <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                Rejoignez l&apos;élite du gaming avec un accès illimité à toutes nos fonctionnalités
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <Link
+                  href={`/${locale}/premium/signup`}
+                  className="px-8 py-4 bg-gradient-to-r from-amber-500 to-yellow-600 text-black text-lg font-bold rounded-full hover:scale-105 transition-transform flex items-center justify-center gap-2"
+                >
+                  Commencer maintenant
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+                <button className="px-8 py-4 glass-effect rounded-full text-lg font-medium hover:bg-white/10 transition-all">
+                  Comparer les offres
+                </button>
               </div>
-              <div>
-                <p className="text-xs uppercase tracking-wide text-gray-400">
-                  {selectedFeature.subtitle}
-                </p>
-                <h2 className="text-2xl font-semibold">{selectedFeature.title}</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Modal */}
+      <AnimatePresence mode="wait">
+        {selectedFeature && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedFeature(null)}
+              className="fixed inset-0 bg-black/90 backdrop-blur-sm z-[100]"
+            />
+
+            {/* Modal Content */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 50 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 50 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="fixed inset-4 md:inset-auto md:top-1/2 md:left-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:w-full md:max-w-4xl md:max-h-[90vh] bg-gradient-to-br from-gray-900 to-black border border-white/10 rounded-3xl overflow-y-auto z-[101]"
+            >
+              <div className="sticky top-0 bg-gradient-to-b from-gray-900 to-gray-900/95 backdrop-blur-xl border-b border-white/10 p-6 z-10">
+                <button
+                  onClick={() => setSelectedFeature(null)}
+                  className="absolute top-4 right-4 p-2 hover:bg-white/10 rounded-full transition-colors"
+                >
+                  <X className="w-6 h-6 text-gray-400" />
+                </button>
+
+                <div className="flex items-start gap-4">
+                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${selectedFeature.gradient} flex items-center justify-center flex-shrink-0`}>
+                    {(() => {
+                      const ModalIcon = selectedFeature.icon as React.ComponentType<{ className?: string }>
+                      return <ModalIcon className="w-8 h-8 text-white" />
+                    })()}
+                  </div>
+                  <div className="flex-1">
+                    <h3 className={`text-3xl font-black mb-2 ${selectedFeature.iconColor}`}>
+                      {selectedFeature.title}
+                    </h3>
+                    <p className="text-gray-400">
+                      {selectedFeature.description}
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
 
-            <p className="text-sm text-gray-300 leading-relaxed">
-              {selectedFeature.description}
-            </p>
-
-            <div className="grid grid-cols-2 gap-4">
-              {selectedFeature.stats.map((stat) => (
-                <div key={stat.label} className="rounded-xl bg-white/5 border border-white/10 p-4">
-                  <p className="text-xs text-gray-400 uppercase tracking-wide">{stat.label}</p>
-                  <p className="text-lg font-semibold text-white">{stat.value}</p>
+              <div className="p-6 space-y-8">
+                {/* Stats */}
+                <div>
+                  <h4 className="text-lg font-bold text-white mb-4">Statistiques</h4>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    {selectedFeature.stats.map((stat, idx) => (
+                      <div key={idx} className="glass-effect rounded-xl p-4 text-center">
+                        <div className="text-sm text-gray-400 mb-1">{stat.label}</div>
+                        <div className={`text-2xl font-black ${selectedFeature.iconColor}`}>
+                          {stat.value}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              ))}
-            </div>
 
-            <div className="space-y-2">
-              {selectedFeature.highlights.map((highlight) => (
-                <div key={highlight} className="flex items-center gap-2 text-sm text-gray-300">
-                  <InfinityIcon className="w-4 h-4 text-accent" />
-                  <span>{highlight}</span>
+                {/* Highlights */}
+                <div>
+                  <h4 className="text-lg font-bold text-white mb-4">Fonctionnalités incluses</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {selectedFeature.highlights.map((highlight, idx) => (
+                      <div
+                        key={idx}
+                        className="flex items-center gap-3 glass-effect rounded-lg px-4 py-3"
+                      >
+                        <CheckCircle className={`w-5 h-5 ${selectedFeature.iconColor} flex-shrink-0`} />
+                        <span className="text-sm text-gray-300">{highlight}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              ))}
-            </div>
-          </aside>
-        </section>
-      </main>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+
       <Footer />
     </div>
   )

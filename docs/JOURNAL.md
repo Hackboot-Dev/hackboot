@@ -2,6 +2,93 @@
 
 ## 2025-10-18
 
+### Optimisation et ajout du header sur la page Premium
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Actions réalisées:
+1. **Ajout du HeaderFixed**
+   - Import dynamique de HeaderFixed avec loading skeleton
+   - Header ajouté au début de la page premium
+
+2. **Optimisation des performances**
+   - Remplacement des orbes animés Motion par des classes CSS (animate-float)
+   - Suppression des animations Motion inutiles (initial/animate sur le header)
+   - Ajout de `useMemo` sur features et benefits pour éviter les re-renders
+   - Simplification des animations viewport (suppression des delays)
+   - Remplacement des `motion.div` par des `div` avec transitions CSS
+   - Ajout de `mode="wait"` sur AnimatePresence pour optimiser le modal
+
+3. **Réduction de la taille du bundle**
+   - Suppression des imports inutilisés (Sparkles, Database, Gauge, Infinity)
+   - Optimisation des animations Framer Motion
+   - Utilisation de transitions CSS au lieu de Motion quand possible
+
+4. **Simplification du code**
+   - Suppression des delays d'animation complexes sur la grille benefits
+   - Suppression de whileHover scale, remplacé par hover:scale-[1.03]
+   - Suppression des animations d'entrée staggered sur les highlights du modal
+
+#### Résultats de performance:
+- Build compile sans erreur ✓
+- Page premium : 44.2 kB (First Load JS: 163 kB)
+- Pas d'erreurs de type ou de lint
+- Animations toujours fluides avec CSS
+
+#### Fichiers modifiés:
+- `/app/[locale]/premium/page.tsx` - Header + optimisations performances
+- `/docs/JOURNAL.md` - Ce journal
+
+#### État:
+✅ Header menu visible sur la page premium
+✅ Performances optimisées (animations CSS vs Motion)
+✅ Build compile sans erreur
+✅ useMemo sur données statiques
+✅ Bundle size réduit
+
+### Restauration des trois offres sur la page Premium
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Actions réalisées:
+1. **Ajout de la section pricing sur la page Premium**
+   - Import de `getSubscriptionPlans` depuis `/lib/subscriptions`
+   - Import de l'icône `Check` depuis `lucide-react`
+   - Ajout de la fonction `formatPrice` pour formater les prix
+   - Création d'une section dédiée aux trois offres Premium
+
+2. **Affichage des trois plans d'abonnement**
+   - **Pack Essentiel** : 19.99€/mois - Infrastructure standard
+   - **Pack Avantage** : 35€/mois - Performances GPU avancées
+   - **Pack Élite** : 60€/mois - Machine dédiée RTX 4090 (Populaire)
+   - Design cohérent avec la charte graphique (glass-effect, gradient)
+   - Card "Populaire" mise en avant avec effet scale et gradient
+
+3. **Structure de la section pricing**
+   - Titre et sous-titre centrés avec gradient-text
+   - Grid responsive 3 colonnes (1 colonne mobile, 3 desktop)
+   - Chaque card affiche : nom, description, prix, billing, features
+   - Bouton CTA "Choisir {plan.name}" vers `/premium/signup`
+   - Badge "Populaire" sur le Pack Élite
+
+4. **Cohérence visuelle**
+   - Utilisation de `border-accent` pour le plan populaire
+   - Glass-effect sur toutes les cards
+   - Transitions et hover states
+   - Scale-105 sur le plan populaire pour le mettre en avant
+   - Boutons avec couleur accent pour le plan populaire
+
+#### Fichiers modifiés:
+- `/app/[locale]/premium/page.tsx` - Ajout section pricing avec 3 offres
+- `/docs/JOURNAL.md` - Ce journal
+
+#### État:
+✅ Page Premium affiche maintenant les 3 offres d'abonnement
+✅ Design cohérent avec la charte graphique
+✅ Build compile sans erreur
+✅ Plans chargés depuis `/data/subscriptions.json`
+✅ Boutons CTA vers page signup fonctionnels
+
 ### Synchronisation branche dev avec main
 **Heure**: Session actuelle
 **Développeur**: Assistant Claude
