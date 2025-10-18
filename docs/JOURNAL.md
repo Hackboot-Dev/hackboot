@@ -2,6 +2,42 @@
 
 ## 2025-10-18
 
+### Fix: Correction du positionnement du modal sur la page Premium
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Problème:
+- Modal des features ne s'affichait pas au centre de l'écran
+- Positionnement complexe avec `md:inset-auto md:top-1/2 md:left-1/2` ne fonctionnait pas correctement
+- Pas responsive sur mobile
+
+#### Actions réalisées:
+1. **Refonte du positionnement du modal**
+   - Ajout de `flex items-center justify-center` sur le backdrop pour centrer automatiquement
+   - Simplification du modal : `w-full max-w-4xl max-h-[90vh]`
+   - Suppression des classes de positionnement complexes (md:inset-auto, md:top-1/2, etc.)
+   - Modal maintenant à l'intérieur du backdrop au lieu d'être un sibling
+
+2. **Amélioration de la structure**
+   - Ajout de `onClick={(e) => e.stopPropagation()}` sur le modal pour empêcher la fermeture au clic
+   - Padding `p-4` sur le backdrop pour espacement responsive
+   - Modal centré verticalement et horizontalement automatiquement avec flexbox
+
+3. **Responsive design**
+   - Modal s'adapte à toutes les tailles d'écran
+   - Padding automatique sur mobile grâce au `p-4` du backdrop
+   - Hauteur maximum de 90vh pour éviter le débordement
+
+#### Fichiers modifiés:
+- `/app/[locale]/premium/page.tsx` - Correction positionnement modal
+- `/docs/JOURNAL.md` - Ce journal
+
+#### État:
+✅ Modal centré au milieu de l'écran
+✅ Responsive sur mobile et desktop
+✅ Animations fonctionnent correctement
+✅ Build compile sans erreur
+
 ### Fix: Ajout de framer-motion comme dépendance
 **Heure**: Session actuelle
 **Développeur**: Assistant Claude
