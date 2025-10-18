@@ -2,6 +2,33 @@
 
 ## 2025-10-18
 
+### Fix: Ajout de framer-motion comme dépendance
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Problème:
+- Build Netlify échouait avec l'erreur "Module not found: Can't resolve 'framer-motion'"
+- framer-motion était utilisé dans la page premium mais n'était pas installé
+
+#### Actions réalisées:
+1. **Installation de framer-motion**
+   - Ajout de `framer-motion@^12.23.24` dans dependencies
+   - Exécution de `npm install framer-motion`
+
+2. **Vérification du build**
+   - Build local compile sans erreur ✓
+   - Toutes les pages génèrent correctement
+
+#### Fichiers modifiés:
+- `/package.json` - Ajout de framer-motion dans dependencies
+- `/package-lock.json` - Mise à jour automatique
+- `/docs/JOURNAL.md` - Ce journal
+
+#### État:
+✅ framer-motion installé comme dépendance
+✅ Build compile sans erreur
+✅ Prêt pour déploiement Netlify
+
 ### Optimisation et ajout du header sur la page Premium
 **Heure**: Session actuelle
 **Développeur**: Assistant Claude

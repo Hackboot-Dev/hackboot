@@ -23,6 +23,7 @@
   "homepage": "https://github.com/Hackboot-Dev/hackboot#readme",
   "dependencies": {
     "clsx": "^2.1.1",
+    "framer-motion": "^12.23.24",
     "i18next": "^25.5.2",
     "lucide-react": "^0.544.0",
     "next": "^15.5.3",
