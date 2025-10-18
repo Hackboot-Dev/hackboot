@@ -80,6 +80,13 @@
     "configurationsPlural": "konfiguratsiooni",
     "noResults": "Konfiguratsioone ei leitud",
     "noResultsDescription": "Proovige muuta filtreid või otsingut",
+    "home": {
+      "title": "Premium Mängulahendused",
+      "subtitle": "Kõrge jõudlusega konfiguratsioonid teie lemmikutmängude domineerimiseks",
+      "filters": {
+        "all": "Kõik"
+      }
+    },
     "pricing": {
       "hourly": "Tunni kohta",
       "monthly": "Kuu kohta",

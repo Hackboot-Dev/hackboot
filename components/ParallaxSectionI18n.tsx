@@ -1,8 +1,7 @@
 'use client'
 
-import React, { useRef, memo } from 'react'
+import React, { memo } from 'react'
 import Image from 'next/image'
-import { motion, useScroll, useTransform } from 'framer-motion'
 import { useI18n } from '@/lib/i18n-simple'
 
 interface ParallaxSectionProps {
@@ -16,74 +15,31 @@ export default memo(function ParallaxSectionI18n({
   imageUrl,
   reverse = false
 }: ParallaxSectionProps) {
-  const containerRef = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start end', 'end start']
-  })
-
   const { t } = useI18n()
   const section = t.sections[sectionKey]
 
-  const y = useTransform(scrollYProgress, [0, 1], [100, -100])
-  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0])
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 0.8])
-
   return (
-    <motion.section
-      ref={containerRef}
-      className="min-h-screen flex items-center py-20 px-4"
-      style={{ opacity }}
-    >
+    <section className="min-h-[70vh] flex items-center py-16 px-4">
       <div className="max-w-7xl mx-auto w-full">
-        <motion.div
-          className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${
-            reverse ? 'lg:flex-row-reverse' : ''
-          }`}
-          style={{ scale }}
+        <div
+          className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ${reverse ? 'lg:[&>*:first-child]:order-last' : ''}`}
         >
-          <motion.div className={`space-y-6 ${reverse ? 'lg:order-2' : ''}`}>
-            <motion.div
-              initial={{ opacity: 0, x: reverse ? 50 : -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
-            >
-              <span className="text-accent font-medium tracking-wider">
-                {section.subtitle}
-              </span>
-              <h2 className="text-5xl md:text-7xl font-display font-bold mt-2 mb-6">
-                {section.title}
-              </h2>
-            </motion.div>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="text-lg text-gray-300 leading-relaxed"
-            >
+          <div className="space-y-6">
+            <span className="text-accent font-medium tracking-wider uppercase">
+              {section.subtitle}
+            </span>
+            <h2 className="text-4xl md:text-6xl font-display font-bold mt-2 mb-6">
+              {section.title}
+            </h2>
+            <p className="text-lg text-gray-300 leading-relaxed">
               {section.description}
-            </motion.p>
-
-            <motion.button
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              viewport={{ once: true }}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-6 py-3 bg-accent text-white rounded-full hover:bg-accent/80 transition-all"
-            >
+            </p>
+            <button className="px-6 py-3 bg-accent text-white rounded-full transition-transform duration-300 hover:-translate-y-1 hover:bg-accent/90">
               {t.hero.getStarted}
-            </motion.button>
-          </motion.div>
+            </button>
+          </div>
 
-          <motion.div
-            className={`relative ${reverse ? 'lg:order-1' : ''}`}
-            style={{ y }}
-          >
+          <div className="relative">
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden glass-effect">
               <Image
                 src={imageUrl}
@@ -96,22 +52,10 @@ export default memo(function ParallaxSectionI18n({
               />
               <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-purple-500/20 mix-blend-overlay" />
             </div>
-
-            <motion.div
-              className="absolute -bottom-4 -right-4 w-32 h-32 bg-accent/20 rounded-full blur-3xl"
-              animate={{
-                scale: [1, 1.2, 1],
-                opacity: [0.3, 0.5, 0.3],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
-            />
-          </motion.div>
-        </motion.div>
+            <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-accent/20 rounded-full blur-3xl transition-opacity duration-700" />
+          </div>
+        </div>
       </div>
-    </motion.section>
+    </section>
   )
 })
