@@ -80,6 +80,13 @@
     "configurationsPlural": "configurations",
     "noResults": "No configurations found",
     "noResultsDescription": "Try modifying your filters or search",
+    "home": {
+      "title": "Premium Gaming Solutions",
+      "subtitle": "High-performance configurations to dominate your favorite games",
+      "filters": {
+        "all": "All"
+      }
+    },
     "pricing": {
       "hourly": "Per hour",
       "monthly": "Per month",
