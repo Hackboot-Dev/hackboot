@@ -2,35 +2,35 @@
 
 ## 2025-10-18
 
-### Reset branche dev avec contenu de main
+### Synchronisation branche dev avec main
 **Heure**: Session actuelle
 **Développeur**: Assistant Claude
 
 #### Actions réalisées:
-1. **Écrasement complet de la branche dev**
+1. **Synchronisation complète dev avec main**
    - Récupération des dernières modifications de origin/main
    - Reset hard de dev vers origin/main (`git reset --hard origin/main`)
-   - La branche dev reflète maintenant exactement le contenu de main
+   - Merge de origin/main dans dev (déjà à jour)
+   - Push force vers origin/dev (`git push --force origin dev`)
 
 2. **État après l'opération**
-   - HEAD pointant sur commit a418dcc9 (Merge pull request #3)
-   - Branche dev en avance de 8 commits sur origin/dev (ancien contenu)
+   - Branche locale dev synchronisée avec origin/dev
+   - Branche distante origin/dev synchronisée avec origin/main
+   - HEAD pointant sur commit 5fc66eba (docs: Update JOURNAL.md)
    - Working tree propre, aucune modification en attente
 
-#### Commits récents sur dev (après reset):
+#### Commits récents sur dev:
+- 5fc66eba - docs: Update JOURNAL.md with dev branch reset
 - a418dcc9 - Merge pull request #3 from Hackboot-Dev/fix-missing-header-on-games-page
 - a758228d - Merge pull request #4 from Hackboot-Dev/fix-uncaught-typeerror-in-script
 - 1a7a7863 - Fix product translations and update manifest icons
 - abb767ff - Replace heavy animations with lightweight layouts
-- aaca3c88 - Simplify header animations and lighten premium signup
 
 #### État:
-✅ Branche dev écrasée avec succès
-✅ Contenu identique à origin/main
-⚠️ Push force nécessaire pour mettre à jour origin/dev
-
-#### Prochaines étapes suggérées:
-- Décider si on pousse en force vers origin/dev (`git push --force origin dev`)
+✅ Branche locale dev synchronisée avec origin/main
+✅ Branche distante origin/dev synchronisée avec origin/main
+✅ Source de vérité : origin/main
+✅ Toutes les branches alignées
 
 ## 2025-10-05
 
