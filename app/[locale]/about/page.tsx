@@ -76,10 +76,10 @@ export default function AboutPage() {
   ]
 
   return (
-    <div className="bg-black text-white min-h-screen">
+    <div className="bg-black text-white min-h-screen animate-fade-in">
       <SiteHeader />
       <main className="pt-24">
-        <section className="relative overflow-hidden">
+        <section className="relative overflow-hidden animate-scale-in">
           <div className="absolute inset-0 opacity-60 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.15)_0%,_transparent_55%)]" />
           <div className="container mx-auto px-6 py-24 relative">
             <div className="max-w-3xl">
@@ -96,7 +96,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="container mx-auto px-6 py-16">
+        <section className="container mx-auto px-6 py-16 animate-slide-up">
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <h2 className="text-3xl font-display font-bold mb-4 gradient-text">
@@ -132,7 +132,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="bg-white/5 py-16">
+        <section className="bg-white/5 py-16 animate-fade-in">
           <div className="container mx-auto px-6">
             <h2 className="text-3xl font-display font-bold mb-10 text-center">
               {t.about?.timeline?.title || 'Timeline'}
@@ -154,7 +154,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <section className="container mx-auto px-6 py-16">
+        <section className="container mx-auto px-6 py-16 animate-scale-in">
           <h2 className="text-3xl font-display font-bold mb-10 text-center gradient-text">
             {t.about?.values?.title || 'Our values'}
           </h2>

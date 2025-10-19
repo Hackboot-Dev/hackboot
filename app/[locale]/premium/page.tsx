@@ -233,7 +233,7 @@ export default function PremiumPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-hidden">
+    <div className="min-h-screen bg-black text-white overflow-hidden animate-fade-in">
       <SiteHeader />
       {/* Background grid */}
       <div className="fixed inset-0 opacity-[0.03] pointer-events-none">
@@ -250,10 +250,10 @@ export default function PremiumPage() {
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl animate-float-delayed" />
       </div>
 
-      <div className="relative pt-32 pb-20">
+      <div className="relative pt-32 pb-20 animate-scale-in">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
-          <div className="text-center mb-20">
+          <div className="text-center mb-20 animate-scale-in">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-amber-500/20 to-yellow-500/20 border border-amber-500/30 rounded-full mb-6">
               <Crown className="w-4 h-4 text-amber-400" />
               <span className="text-sm font-medium text-amber-300">{heroBadge}</span>
@@ -285,7 +285,7 @@ export default function PremiumPage() {
           </div>
 
           {/* Features Title */}
-          <div className="text-center mb-12">
+          <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-4xl md:text-6xl font-black mb-4">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
                 {featuresHeading.title}
@@ -297,7 +297,7 @@ export default function PremiumPage() {
           </div>
 
           {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20 animate-slide-up">
             {features.map((feature) => {
               const Icon = feature.icon as React.ComponentType<{ className?: string }>
               return (
@@ -337,7 +337,7 @@ export default function PremiumPage() {
           </div>
 
           {/* CTA */}
-          <div className="text-center">
+          <div className="text-center animate-scale-in">
             <div className="glass-effect rounded-3xl p-12 bg-gradient-to-br from-purple-500/10 to-amber-500/10 border-2 border-purple-500/20">
               <Crown className="w-16 h-16 text-amber-400 mx-auto mb-6" />
               <h2 className="text-4xl md:text-5xl font-black mb-4">

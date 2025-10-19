@@ -112,10 +112,10 @@ export default function ServicesPage() {
   ]
 
   return (
-    <div className="bg-black text-white min-h-screen">
+    <div className="bg-black text-white min-h-screen animate-fade-in">
       <SiteHeader />
       <main className="pt-24">
-        <section className="container mx-auto px-6 py-20">
+        <section className="container mx-auto px-6 py-20 animate-scale-in">
           <div className="max-w-3xl">
             <span className="inline-flex items-center px-4 py-2 glass-effect rounded-full text-sm font-semibold gradient-text">
               {t.services?.badge || 'Services premium Hackboot'}
@@ -129,7 +129,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        <section className="container mx-auto px-6 pb-20">
+        <section className="container mx-auto px-6 pb-20 animate-slide-up">
           <div className="grid gap-8 md:grid-cols-2">
             {services.map((service) => {
               const Icon = service.icon as React.ComponentType<{ className?: string }>
@@ -170,7 +170,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        <section className="bg-white/5 py-16">
+        <section className="bg-white/5 py-16 animate-fade-in">
           <div className="container mx-auto px-6">
             <h2 className="text-3xl font-display font-bold mb-10 text-center">
               {t.services?.guarantees?.title || 'Nos garanties'}
@@ -188,7 +188,7 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        <section className="container mx-auto px-6 py-16">
+        <section className="container mx-auto px-6 py-16 animate-scale-in">
           <div className="glass-effect rounded-3xl border border-white/5 p-10">
             <div className="flex flex-col lg:flex-row gap-10 items-start">
               <div className="flex-1 space-y-4">

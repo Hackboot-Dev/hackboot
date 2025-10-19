@@ -63,9 +63,9 @@ export default function ContactPage() {
   return (
     <>
       <SiteHeader />
-      <main className="min-h-screen pt-32 pb-20 bg-black text-white">
+      <main className="min-h-screen pt-32 pb-20 bg-black text-white animate-fade-in">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 animate-scale-in">
             <span className="inline-block px-4 py-2 glass-effect rounded-full text-sm font-medium mb-4 gradient-text">
               {t?.contact?.badge || 'Get in touch'}
             </span>
@@ -77,8 +77,8 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            <aside className="space-y-6">
+          <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto animate-slide-up">
+            <aside className="space-y-6 animate-fade-in">
               {contactInfo.map((item) => (
                 <a
                   key={item.title}
@@ -96,7 +96,7 @@ export default function ContactPage() {
               ))}
             </aside>
 
-            <section className="lg:col-span-2">
+            <section className="lg:col-span-2 animate-scale-in">
               <form onSubmit={handleSubmit} className="glass-effect rounded-3xl border border-white/10 p-8 space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>

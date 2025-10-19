@@ -2,6 +2,37 @@
 
 ## 2025-10-18
 
+### Enhancement: Animations fluides du menu et des pages
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Adoucir l'ouverture et la fermeture du menu mobile du header unifié.
+- Apporter des animations d'apparition cohérentes et dynamiques sur l'ensemble des pages publiques.
+
+#### Actions réalisées:
+1. **Menu mobile avec transitions**
+   - Ajout d'un état de rendu différé pour permettre les animations d'entrée/sortie du panneau.
+   - Application d'une translation horizontale et d'un fondu progressif sur l'overlay.
+   - Fermeture centralisée du menu pour éviter les duplications de logique.
+2. **Animations d'apparition par page**
+   - Ajout de classes `animate-fade-in`, `animate-scale-in` et `animate-slide-up` sur les sections clés des pages Accueil, Premium, Premium Signup, Services, Jeux, Contact et À propos.
+   - Harmonisation des effets pour conserver une identité premium tout en différenciant chaque section.
+
+#### Fichiers modifiés:
+- `/components/SiteHeader.tsx` – Gestion des transitions du menu mobile.
+- `/app/[locale]/page.tsx` – Animations d'apparition sur les blocs dynamiques.
+- `/app/[locale]/premium/page.tsx` – Effets de mise en scène sur le héro, la grille et le CTA.
+- `/app/[locale]/premium/signup/page.tsx` – Animations sur la sélection de plan et le formulaire.
+- `/app/[locale]/services/page.tsx` – Animations des sections services, garanties et expertise.
+- `/app/[locale]/games/page.tsx` – Animations de la recherche et de la grille des jeux.
+- `/app/[locale]/contact/page.tsx` – Animations sur les blocs de contact et le formulaire.
+- `/app/[locale]/about/page.tsx` – Animations sur le héro, les valeurs et la timeline.
+
+#### État:
+✅ Menu mobile fluide avec transition de panneau
+✅ Pages publiques dotées d'animations d'apparition homogènes
+
 ### Refactor: Uniformisation du header global
 **Heure**: Session actuelle
 **Développeur**: Assistant Claude

@@ -47,10 +47,10 @@ export default function GamesPage() {
   }, [searchQuery, games])
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-black text-white animate-fade-in">
       <SiteHeader />
       <main className="pt-24">
-        <section className="container mx-auto px-6 py-20 text-center">
+        <section className="container mx-auto px-6 py-20 text-center animate-scale-in">
           <div className="inline-flex items-center gap-2 px-4 py-2 glass-effect rounded-full border border-white/10 mb-6">
             <Gamepad2 className="w-4 h-4 text-purple-400" />
             <span className="text-sm font-medium text-purple-200">{t.games?.badge || 'Jeux disponibles'}</span>
@@ -86,7 +86,7 @@ export default function GamesPage() {
           </div>
         </section>
 
-        <section className="container mx-auto px-6 pb-20">
+        <section className="container mx-auto px-6 pb-20 animate-slide-up">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredGames.map((game) => (
               <Link key={game.id} href={`/${locale}/games/${game.slug}`} className="group glass-effect rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/40 transition-all duration-300">

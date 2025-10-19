@@ -23,6 +23,7 @@ const isSupportedLocale = (value: string | undefined): value is SupportedLocale 
 const SiteHeader = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [shouldRenderMobileMenu, setShouldRenderMobileMenu] = useState(false)
   const pathname = usePathname()
   const router = useRouter()
   const { t, locale: activeLocale } = useI18n()
@@ -80,6 +81,20 @@ const SiteHeader = () => {
     router.push(buildHref('/premium'))
   }, [buildHref, router])
 
+  const toggleMobileMenu = useCallback(() => {
+    setIsMobileMenuOpen((open) => {
+      const next = !open
+      if (next) {
+        setShouldRenderMobileMenu(true)
+      }
+      return next
+    })
+  }, [])
+
+  const closeMobileMenu = useCallback(() => {
+    setIsMobileMenuOpen(false)
+  }, [])
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 16)
@@ -92,6 +107,19 @@ const SiteHeader = () => {
   useEffect(() => {
     setIsMobileMenuOpen(false)
   }, [pathname])
+
+  useEffect(() => {
+    if (!isMobileMenuOpen && shouldRenderMobileMenu) {
+      const timeout = window.setTimeout(() => {
+        setShouldRenderMobileMenu(false)
+      }, 320)
+      return () => window.clearTimeout(timeout)
+    }
+    if (isMobileMenuOpen) {
+      setShouldRenderMobileMenu(true)
+    }
+    return undefined
+  }, [isMobileMenuOpen, shouldRenderMobileMenu])
 
   const ctaLabel = t?.nav?.getStarted ?? 'Commencer'
 
@@ -139,7 +167,7 @@ const SiteHeader = () => {
           <button
             type="button"
             className="md:hidden relative flex h-11 w-11 flex-col items-center justify-center rounded-xl border border-white/20 bg-white/10 backdrop-blur-xl transition-all"
-            onClick={() => setIsMobileMenuOpen((open) => !open)}
+            onClick={toggleMobileMenu}
             aria-expanded={isMobileMenuOpen}
             aria-controls="mobile-site-menu"
             aria-label="Toggle navigation"
@@ -163,17 +191,21 @@ const SiteHeader = () => {
         </nav>
       </header>
 
-      {isMobileMenuOpen && (
+      {shouldRenderMobileMenu && (
         <>
           <button
             type="button"
-            className="fixed inset-0 z-40 bg-black/80 backdrop-blur-xl md:hidden"
-            onClick={() => setIsMobileMenuOpen(false)}
+            className={`fixed inset-0 z-40 bg-black/80 backdrop-blur-xl transition-opacity duration-300 ease-out md:hidden ${
+              isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+            }`}
+            onClick={closeMobileMenu}
             aria-label="Close navigation"
           />
           <div
             id="mobile-site-menu"
-            className="fixed top-0 right-0 bottom-0 z-50 w-80 max-w-full overflow-y-auto border-l border-white/10 bg-black/95 px-6 pb-12 pt-20 shadow-2xl shadow-purple-900/40 md:hidden"
+            className={`fixed top-0 right-0 bottom-0 z-50 w-80 max-w-full overflow-y-auto border-l border-white/10 bg-black/95 px-6 pb-12 pt-20 shadow-2xl shadow-purple-900/40 transition-transform duration-300 ease-out md:hidden ${
+              isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
+            }`}
           >
             <div className="mb-8">
               <LanguageSelectorSimplest />
@@ -187,7 +219,7 @@ const SiteHeader = () => {
                   className={`block rounded-xl px-4 py-3 text-base font-medium transition-colors duration-200 ${
                     isActive(item.href) ? 'bg-white/10 text-white' : 'text-gray-300 hover:bg-white/10'
                   }`}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={closeMobileMenu}
                 >
                   {item.label}
                 </Link>
@@ -197,7 +229,7 @@ const SiteHeader = () => {
             <button
               type="button"
               onClick={() => {
-                setIsMobileMenuOpen(false)
+                closeMobileMenu()
                 handleStart()
               }}
               className="mt-10 w-full rounded-full bg-gradient-to-r from-purple-500 to-indigo-600 px-5 py-3 text-base font-semibold text-white shadow-lg shadow-purple-500/30"

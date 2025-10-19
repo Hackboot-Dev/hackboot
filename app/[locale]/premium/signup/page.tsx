@@ -72,7 +72,7 @@ export default function PremiumSignupPage() {
   const contactLinkLabel = contactContent.link ?? 'Connecte-toi ici'
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden">
+    <div className="min-h-screen bg-black text-white overflow-x-hidden animate-fade-in">
       <SiteHeader />
 
       <div className="fixed inset-0 opacity-[0.05] pointer-events-none">
@@ -85,9 +85,9 @@ export default function PremiumSignupPage() {
         />
       </div>
 
-      <main className="relative pt-28 pb-24">
+      <main className="relative pt-28 pb-24 animate-scale-in">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
+          <div className="text-center mb-16 animate-scale-in">
             <span className="inline-flex items-center gap-2 px-4 py-1.5 text-sm font-semibold uppercase tracking-[0.2em] text-purple-300 bg-white/5 border border-purple-500/40 rounded-full">
               <Shield className="w-4 h-4" />
               {badgeLabel}
@@ -100,7 +100,7 @@ export default function PremiumSignupPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-16 animate-slide-up">
             {plans.map((plan) => {
               const planContent = planTranslations[plan.id] ?? {}
               const planName = planContent.name ?? plan.name
@@ -156,7 +156,7 @@ export default function PremiumSignupPage() {
             })}
           </div>
 
-          <div className="glass-effect rounded-3xl border border-white/10 bg-white/5 p-8 md:p-12">
+          <div className="glass-effect rounded-3xl border border-white/10 bg-white/5 p-8 md:p-12 animate-fade-in">
             <div className="grid grid-cols-1 lg:grid-cols-[2fr,1fr] gap-12">
               <div>
                 <h2 className="text-3xl font-bold mb-6">{formTitle}</h2>
@@ -274,7 +274,7 @@ export default function PremiumSignupPage() {
             </div>
           </div>
 
-          <div className="mt-16 text-center text-sm text-gray-500">
+          <div className="mt-16 text-center text-sm text-gray-500 animate-fade-in">
             <p>
               {contactText}{' '}
               <Link href={`/${locale}/login`} className="text-purple-300 hover:text-purple-200 underline underline-offset-4">
