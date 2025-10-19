@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic'
 import { Suspense, lazy } from 'react'
-import HeaderFixed from '@/components/HeaderFixed'
+import SiteHeader from '@/components/SiteHeader'
 
 // Hero léger par défaut, 3D optionnelle
 const HeroLight = dynamic(() => import('@/components/HeroLight'), {
@@ -60,7 +60,7 @@ const Footer = dynamic(
 export default function Home() {
   return (
     <main className="relative">
-      <HeaderFixed />
+      <SiteHeader />
 
       <Suspense fallback={<div className="min-h-screen" />}>
         <HeroLight />

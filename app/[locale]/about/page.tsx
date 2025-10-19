@@ -19,7 +19,7 @@ import {
   FileText,
   Award,
 } from 'lucide-react'
-import HeaderFixed from '@/components/HeaderFixed'
+import SiteHeader from '@/components/SiteHeader'
 
 const Footer = dynamic(() => import('@/components/Footer'), {
   loading: () => <div className="h-32 bg-black" />,
@@ -77,7 +77,7 @@ export default function AboutPage() {
 
   return (
     <div className="bg-black text-white min-h-screen">
-      <HeaderFixed />
+      <SiteHeader />
       <main className="pt-24">
         <section className="relative overflow-hidden">
           <div className="absolute inset-0 opacity-60 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.15)_0%,_transparent_55%)]" />

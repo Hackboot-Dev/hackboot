@@ -22,7 +22,7 @@ import {
   Rocket,
   Monitor,
 } from 'lucide-react'
-import HeaderFixed from '@/components/HeaderFixed'
+import SiteHeader from '@/components/SiteHeader'
 
 const Footer = dynamic(() => import('@/components/Footer'), {
   loading: () => <div className="h-32 bg-black" />,
@@ -113,7 +113,7 @@ export default function ServicesPage() {
 
   return (
     <div className="bg-black text-white min-h-screen">
-      <HeaderFixed />
+      <SiteHeader />
       <main className="pt-24">
         <section className="container mx-auto px-6 py-20">
           <div className="max-w-3xl">

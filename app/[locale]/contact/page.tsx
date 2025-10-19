@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react'
 import { useI18n } from '@/lib/i18n-simple'
-import HeaderFixed from '@/components/HeaderFixed'
+import SiteHeader from '@/components/SiteHeader'
 import Footer from '@/components/Footer'
 
 export default function ContactPage() {
@@ -62,7 +62,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <HeaderFixed />
+      <SiteHeader />
       <main className="min-h-screen pt-32 pb-20 bg-black text-white">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">

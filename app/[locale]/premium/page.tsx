@@ -12,14 +12,10 @@ import {
 } from 'lucide-react'
 import dynamic from 'next/dynamic'
 import { useI18n } from '@/lib/i18n-simple'
+import SiteHeader from '@/components/SiteHeader'
 
 const Footer = dynamic(() => import('@/components/Footer'), {
   loading: () => <div className="h-32 bg-black" />,
-  ssr: false
-})
-
-const HeaderFixed = dynamic(() => import('@/components/HeaderFixed'), {
-  loading: () => <div className="h-20 bg-black" />,
   ssr: false
 })
 
@@ -238,7 +234,7 @@ export default function PremiumPage() {
 
   return (
     <div className="min-h-screen bg-black text-white overflow-hidden">
-      <HeaderFixed />
+      <SiteHeader />
       {/* Background grid */}
       <div className="fixed inset-0 opacity-[0.03] pointer-events-none">
         <div className="absolute inset-0" style={{

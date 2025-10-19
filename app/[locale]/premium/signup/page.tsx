@@ -3,7 +3,7 @@
 import { useMemo, useState, useCallback } from 'react'
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
-import HeaderFixed from '@/components/HeaderFixed'
+import SiteHeader from '@/components/SiteHeader'
 import { getSubscriptionPlans, type SubscriptionPlan } from '@/lib/subscriptions'
 import { Check, ArrowRight, Shield, Sparkles } from 'lucide-react'
 import { useI18n } from '@/lib/i18n-simple'
@@ -73,7 +73,7 @@ export default function PremiumSignupPage() {
 
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden">
-      <HeaderFixed />
+      <SiteHeader />
 
       <div className="fixed inset-0 opacity-[0.05] pointer-events-none">
         <div

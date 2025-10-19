@@ -2,6 +2,41 @@
 
 ## 2025-10-18
 
+### Refactor: Uniformisation du header global
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Fournir un header unique sur toutes les pages desktop et mobile.
+- Garantir l’accès constant au sélecteur de langue et au CTA premium.
+- Résoudre les conflits d’affichage du menu mobile sur la page d’accueil.
+
+#### Actions réalisées:
+1. **Nouveau composant `SiteHeader`**
+   - Refactorisation complète de l’ancien `HeaderFixed` en un header réutilisable avec détection de locale robuste.
+   - Harmonisation du rendu desktop (navigation, CTA, surlignage actif) et menu burger mobile avec overlay.
+2. **Remplacement généralisé**
+   - Adoption de `SiteHeader` sur toutes les pages localisées (accueil, services, jeux, contact, à propos, premium et signup).
+   - Suppression du chargement dynamique spécifique sur Premium pour conserver un comportement identique partout.
+3. **Nettoyage du Hero d’accueil**
+   - Retrait du sélecteur de langue redondant intégré au hero afin d’éviter les chevauchements mobiles.
+
+#### Fichiers modifiés:
+- `/components/SiteHeader.tsx` – Nouveau header mutualisé.
+- `/app/[locale]/page.tsx` – Intégration du header unifié.
+- `/app/[locale]/games/page.tsx` – Intégration du header unifié.
+- `/app/[locale]/services/page.tsx` – Intégration du header unifié.
+- `/app/[locale]/contact/page.tsx` – Intégration du header unifié.
+- `/app/[locale]/about/page.tsx` – Intégration du header unifié.
+- `/app/[locale]/premium/page.tsx` – Suppression du chargement dynamique et adoption du header commun.
+- `/app/[locale]/premium/signup/page.tsx` – Intégration du header unifié.
+- `/components/HeroLight.tsx` – Retrait du sélecteur de langue redondant.
+
+#### État:
+✅ Header uniforme sur toutes les pages
+✅ Menu mobile fonctionnel sans chevauchement
+✅ Sélecteur de langue centralisé dans le header
+
 ### Feat: Localisation complète des parcours Premium
 **Heure**: Session actuelle
 **Développeur**: Assistant Claude

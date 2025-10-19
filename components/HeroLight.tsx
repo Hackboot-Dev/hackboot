@@ -4,7 +4,6 @@ import React, { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { ChevronDown } from 'lucide-react'
 import { useI18n } from '@/lib/i18n-simple'
-import LanguageSelectorSimplest from '@/components/LanguageSelectorSimplest'
 
 export default function HeroLight() {
   const titleRef = useRef<HTMLHeadingElement>(null)
@@ -75,9 +74,6 @@ export default function HeroLight() {
         <ChevronDown className="w-8 h-8" />
       </div>
 
-      <div className="absolute top-6 right-6">
-        <LanguageSelectorSimplest />
-      </div>
     </section>
   )
 }
