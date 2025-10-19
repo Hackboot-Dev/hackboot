@@ -181,20 +181,22 @@ export default function ContactPage() {
                   className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-white rounded-full text-sm font-semibold disabled:opacity-60"
                 >
                   <Send className="w-4 h-4" />
-                  {isSubmitting ? t?.contact?.form?.sending || 'Envoi en cours...' : t?.contact?.form?.submit || 'Envoyer'}
+                  {isSubmitting
+                    ? t?.contact?.form?.sending || 'Envoi en cours...'
+                    : t?.contact?.form?.send || 'Envoyer'}
                 </button>
 
                 {submitStatus === 'success' && (
                   <div className="flex items-center gap-2 text-green-400 text-sm">
                     <CheckCircle className="w-4 h-4" />
-                    {t?.contact?.form?.success || 'Message envoyé avec succès !'}
+                    {t?.contact?.form?.successMessage || 'Message envoyé avec succès !'}
                   </div>
                 )}
 
                 {submitStatus === 'error' && (
                   <div className="flex items-center gap-2 text-red-400 text-sm">
                     <AlertCircle className="w-4 h-4" />
-                    {t?.contact?.form?.error || "Une erreur est survenue, réessayez."}
+                    {t?.contact?.form?.errorMessage || "Une erreur est survenue, réessayez."}
                   </div>
                 )}
               </form>

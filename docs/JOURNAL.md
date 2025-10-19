@@ -501,3 +501,29 @@
 ✅ VMCloud Group OÜ avec nom complet
 ✅ Section équipe avec vraies données
 ✅ Cartes Overview centrées
+
+### Fix: Alignement des traductions des CTA
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Corriger les textes absents sur les boutons de contact causés par des clés de traduction inconsistantes.
+- Assurer la disponibilité des libellés Services et À propos dans chaque langue supportée.
+
+#### Actions réalisées:
+1. **Bouton d'envoi rebranché sur les bonnes clés**
+   - Utilisation des champs `send`, `successMessage` et `errorMessage` existants pour l'état du formulaire de contact.
+   - Ajout du placeholder de sujet manquant dans les trois locales.
+2. **Données de traduction enrichies**
+   - Ajout des sections `services`, `about.highlights` et `about.values` dans les fichiers FR/EN/ET.
+   - Harmonisation des contenus (badge, CTA, descriptions) pour refléter les textes affichés côté interface.
+
+#### Fichiers modifiés:
+- `/app/[locale]/contact/page.tsx`
+- `/public/locales/fr/common.json`
+- `/public/locales/en/common.json`
+- `/public/locales/et/common.json`
+
+#### État:
+✅ CTA contact fonctionnel sur toutes les locales
+✅ Sections Services et À propos localisées

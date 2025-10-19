@@ -161,6 +161,7 @@
       "email": "Email",
       "company": "Entreprise",
       "subject": "Sujet",
+      "subjectPlaceholder": "Projet, question, etc.",
       "selectSubject": "Sélectionner un sujet",
       "general": "Demande générale",
       "support": "Support technique",
@@ -186,7 +187,15 @@
       "vmcloud": "Filiale de VMCloud Group OÜ",
       "vmcloudDesc": "Nous faisons partie du groupe VMCloud, leader dans les solutions cloud d'entreprise et les technologies innovantes.",
       "established": "Établie en 2023",
-      "establishedDesc": "Fondée en Estonie avec une vision claire : révolutionner l'industrie du gaming à travers le cloud."
+      "establishedDesc": "Fondée en Estonie avec une vision claire : révolutionner l'industrie du gaming à travers le cloud.",
+      "mission": "Nous construisons des expériences gaming premium avec une sécurité sans compromis.",
+      "vision": "Un écosystème de confiance pour les joueurs compétitifs et les créateurs."
+    },
+    "highlights": {
+      "security": "Sécurité absolue",
+      "community": "Communauté de confiance",
+      "performance": "Performances maximales",
+      "vision": "Vision claire"
     },
     "stats": {
       "title": "Nos chiffres parlent",
@@ -263,6 +272,13 @@
       "tab": "Valeurs",
       "heading": "Les valeurs qui nous définissent",
       "description": "Nos valeurs fondamentales guident chaque décision et action au sein de Hackboot.",
+      "title": "Nos valeurs",
+      "transparency": "Transparence", 
+      "growth": "Esprit de croissance",
+      "quality": "Obsédés par la qualité",
+      "responsibility": "Responsables par conception",
+      "compliance": "Conformes par défaut",
+      "excellence": "Excellence opérationnelle",
       "list": [
         {
           "icon": "🎯",
@@ -540,6 +556,24 @@
         "description": "Nous recherchons constamment des talents passionnés pour rejoindre notre équipe. Si vous partagez notre vision, contactez-nous.",
         "button": "Voir les opportunités"
       }
+    }
+  },
+  "services": {
+    "badge": "Services premium Hackboot",
+    "title": "Infrastructure & sécurité au niveau pro",
+    "subtitle": "Des services sur-mesure pour les joueurs et équipes qui exigent la perfection.",
+    "cta": "Parler à un expert",
+    "guarantees": {
+      "title": "Nos garanties"
+    },
+    "expertise": {
+      "title": "Exécution technique maîtrisée",
+      "description": "Nous opérons sur des infrastructures bare-metal optimisées avec un monitoring en temps réel et un pipeline de déploiement continu."
+    },
+    "contact": {
+      "title": "Prendre rendez-vous",
+      "description": "Nos équipes vous répondent sous 24h pour évaluer vos besoins et préparer un plan de déploiement.",
+      "cta": "Planifier un call"
     }
   },
   "premium": {

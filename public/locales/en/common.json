@@ -161,6 +161,7 @@
       "email": "Email",
       "company": "Company",
       "subject": "Subject",
+      "subjectPlaceholder": "Project, question, etc.",
       "selectSubject": "Select a subject",
       "general": "General Inquiry",
       "support": "Technical Support",
@@ -186,7 +187,15 @@
       "vmcloud": "Part of VMCloud Group OÜ",
       "vmcloudDesc": "We are part of the VMCloud Group, a leader in enterprise cloud solutions and innovative technologies.",
       "established": "Established in 2023",
-      "establishedDesc": "Founded in Estonia with a clear vision: revolutionize the gaming industry through the cloud."
+      "establishedDesc": "Founded in Estonia with a clear vision: revolutionize the gaming industry through the cloud.",
+      "mission": "We build premium gaming experiences with uncompromising security.",
+      "vision": "A trusted ecosystem for competitive players and creators."
+    },
+    "highlights": {
+      "security": "Security first",
+      "community": "Trusted community",
+      "performance": "High performance",
+      "vision": "Clear vision"
     },
     "stats": {
       "title": "Our numbers speak",
@@ -263,6 +272,13 @@
       "tab": "Values",
       "heading": "The values that define us",
       "description": "Our core values guide every decision and action within Hackboot.",
+      "title": "Our values",
+      "transparency": "Transparency",
+      "growth": "Growth mindset",
+      "quality": "Quality obsessed",
+      "responsibility": "Responsible by design",
+      "compliance": "Compliance ready",
+      "excellence": "Operational excellence",
       "list": [
         {
           "icon": "🎯",
@@ -540,6 +556,24 @@
         "description": "We are constantly looking for passionate talents to join our team. If you share our vision, contact us.",
         "button": "See opportunities"
       }
+    }
+  },
+  "services": {
+    "badge": "Hackboot premium services",
+    "title": "Infrastructure & pro-level security",
+    "subtitle": "Tailored services for players and teams who demand perfection.",
+    "cta": "Talk to an expert",
+    "guarantees": {
+      "title": "Our guarantees"
+    },
+    "expertise": {
+      "title": "Mastered technical execution",
+      "description": "We operate on optimized bare-metal infrastructure with real-time monitoring and a continuous deployment pipeline."
+    },
+    "contact": {
+      "title": "Book a meeting",
+      "description": "Our teams get back to you within 24 hours to assess your needs and prepare a deployment plan.",
+      "cta": "Schedule a call"
     }
   },
   "premium": {

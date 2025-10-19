@@ -161,6 +161,7 @@
       "email": "E-post",
       "company": "Ettevõte",
       "subject": "Teema",
+      "subjectPlaceholder": "Projekt, küsimus jne.",
       "selectSubject": "Valige teema",
       "general": "Üldine päring",
       "support": "Tehniline tugi",
@@ -186,7 +187,15 @@
       "vmcloud": "VMCloud Group OÜ osa",
       "vmcloudDesc": "Oleme osa VMCloud Group'ist, ettevõtte pilvlahendustes ja innovaatilistes tehnoloogiates liider.",
       "established": "Asutatud 2023",
-      "establishedDesc": "Asutatud Eestis selge visiooniga: revolutsiooniliselt muuta mängutööstust pilve kaudu."
+      "establishedDesc": "Asutatud Eestis selge visiooniga: revolutsiooniliselt muuta mängutööstust pilve kaudu.",
+      "mission": "Loome tipptasemel mängukogemusi ilma turvalisust ohverdamata.",
+      "vision": "Usaldusväärne ökosüsteem võistlejatele ja loojatele."
+    },
+    "highlights": {
+      "security": "Turvalisus ennekõike",
+      "community": "Usaldusväärne kogukond",
+      "performance": "Kõrge jõudlus",
+      "vision": "Selge visioon"
     },
     "stats": {
       "title": "Meie numbrid räägivad",
@@ -263,6 +272,13 @@
       "tab": "Väärtused",
       "heading": "Väärtused, mis meid määratlevad",
       "description": "Meie põhiväärtused juhivad iga otsust ja tegevust Hackbootis.",
+      "title": "Meie väärtused",
+      "transparency": "Läbipaistvus",
+      "growth": "Kasvule suunatud mõtteviis",
+      "quality": "Kvaliteet igal sammul",
+      "responsibility": "Vastutustundlik disain",
+      "compliance": "Vastavus valmis",
+      "excellence": "Tipptegutsemine",
       "list": [
         {
           "icon": "🎯",
@@ -540,6 +556,24 @@
         "description": "Otsime pidevalt kirglikke talente meie meeskonnaga liitumiseks. Kui jagad meie visiooni, võta meiega ühendust.",
         "button": "Vaata võimalusi"
       }
+    }
+  },
+  "services": {
+    "badge": "Hackbooti premium-teenused",
+    "title": "Taristu ja turvalisus pro tasemel",
+    "subtitle": "Rätseplahendused mänguritele ja tiimidele, kes nõuavad täiuslikkust.",
+    "cta": "Räägi eksperdiga",
+    "guarantees": {
+      "title": "Meie garantiid"
+    },
+    "expertise": {
+      "title": "Läbimõeldud tehniline teostus",
+      "description": "Töötame optimeeritud bare-metal taristul reaalajas monitooringu ja pideva juurutustoruga."
+    },
+    "contact": {
+      "title": "Broneeri kohtumine",
+      "description": "Meie tiim võtab sinuga 24 tunni jooksul ühendust, et hinnata vajadusi ja valmistada juurutusplaan.",
+      "cta": "Plaani kõne"
     }
   },
   "premium": {
