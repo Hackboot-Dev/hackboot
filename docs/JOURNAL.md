@@ -2,6 +2,41 @@
 
 ## 2025-10-18
 
+### Feat: Localisation complète des parcours Premium
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Rediriger le CTA "Commencer" de la page d’accueil vers la page Premium.
+- Localiser intégralement les pages Premium et Premium Signup dans toutes les langues supportées (FR, EN, ET).
+- Corriger les contenus obsolètes indiquant un prix unique alors que trois formules existent.
+
+#### Actions réalisées:
+1. **Navigation CTA d’accueil**
+   - Conversion du bouton "Commencer" en lien Next.js dynamique basé sur la locale active.
+   - Vérification du comportement côté client via le composant `HeroLight`.
+2. **Internationalisation de la page Premium**
+   - Ajout de nouvelles clés de traduction pour les sections héros, bénéfices, fonctionnalités, CTA et modale.
+   - Injection des traductions FR/EN/ET dans `public/locales/*/common.json` avec contenus adaptés (notamment la section offres multiples).
+   - Refactor du composant pour consommer dynamiquement les textes localisés avec fallbacks sûrs.
+3. **Internationalisation de Premium Signup**
+   - Ajout des traductions complètes (titres, formulaire, résumé, plans) pour chaque langue supportée.
+   - Mise à jour du composant afin d’utiliser `useI18n` pour tous les labels, placeholders et contenus de plans.
+   - Formatage des montants en fonction de la locale.
+
+#### Fichiers modifiés:
+- `/components/HeroLight.tsx` – CTA redirigé vers la page Premium.
+- `/app/[locale]/premium/page.tsx` – Consommation des traductions, corrections de contenu pricing.
+- `/app/[locale]/premium/signup/page.tsx` – Localisation complète du formulaire d’inscription premium.
+- `/public/locales/fr/common.json` – Ajout des sections `premium` et `premiumSignup`.
+- `/public/locales/en/common.json` – Ajout des sections `premium` et `premiumSignup`.
+- `/public/locales/et/common.json` – Ajout des sections `premium` et `premiumSignup`.
+
+#### État:
+✅ CTA d’accueil mène correctement vers `/[locale]/premium`
+✅ Contenus Premium localisés en FR/EN/ET
+✅ Pages Premium et Signup reflètent les trois offres disponibles
+
 ### Fix: Correction du positionnement du modal sur la page Premium
 **Heure**: Session actuelle
 **Développeur**: Assistant Claude

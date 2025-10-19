@@ -196,7 +196,6 @@
       "products": "Produits principaux",
       "support": "Support",
       "activeUsers": "Utilisateurs actifs",
-      "support": "Support",
       "latency": "Latence moyenne"
     },
     "timeline": {
@@ -238,10 +237,26 @@
       "heading": "Fournir une infrastructure ultra-performante",
       "description": "Notre mission est de fournir une infrastructure cloud gaming ultra performante, simple et transparente, éliminant toute complexité technique.",
       "goals": [
-        {"icon": "⚡", "title": "Performance", "desc": "Latence minimale"},
-        {"icon": "🛡️", "title": "Fiabilité", "desc": "99.9% uptime"},
-        {"icon": "🚀", "title": "Innovation", "desc": "Technologie de pointe"},
-        {"icon": "💎", "title": "Qualité", "desc": "Service premium"}
+        {
+          "icon": "⚡",
+          "title": "Performance",
+          "desc": "Latence minimale"
+        },
+        {
+          "icon": "🛡️",
+          "title": "Fiabilité",
+          "desc": "99.9% uptime"
+        },
+        {
+          "icon": "🚀",
+          "title": "Innovation",
+          "desc": "Technologie de pointe"
+        },
+        {
+          "icon": "💎",
+          "title": "Qualité",
+          "desc": "Service premium"
+        }
       ]
     },
     "values": {
@@ -249,9 +264,21 @@
       "heading": "Les valeurs qui nous définissent",
       "description": "Nos valeurs fondamentales guident chaque décision et action au sein de Hackboot.",
       "list": [
-        {"icon": "🎯", "title": "Excellence", "description": "Nous visons l'excellence dans tout ce que nous faisons"},
-        {"icon": "💡", "title": "Innovation", "description": "L'innovation est au cœur de notre ADN"},
-        {"icon": "🤝", "title": "Transparence", "description": "Communication ouverte et honnête avec nos clients"}
+        {
+          "icon": "🎯",
+          "title": "Excellence",
+          "description": "Nous visons l'excellence dans tout ce que nous faisons"
+        },
+        {
+          "icon": "💡",
+          "title": "Innovation",
+          "description": "L'innovation est au cœur de notre ADN"
+        },
+        {
+          "icon": "🤝",
+          "title": "Transparence",
+          "description": "Communication ouverte et honnête avec nos clients"
+        }
       ]
     },
     "culture": {
@@ -266,46 +293,86 @@
           "icon": "🌍",
           "title": "Remote First",
           "description": "Travaillez d'où vous voulez dans le monde",
-          "details": ["100% télétravail", "Horaires flexibles", "Équilibre vie pro/perso"]
+          "details": [
+            "100% télétravail",
+            "Horaires flexibles",
+            "Équilibre vie pro/perso"
+          ]
         },
         {
           "icon": "🚀",
           "title": "Autonomie totale",
           "description": "Prenez vos décisions, nous vous faisons confiance",
-          "details": ["Pas de micromanagement", "Liberté créative", "Responsabilité partagée"]
+          "details": [
+            "Pas de micromanagement",
+            "Liberté créative",
+            "Responsabilité partagée"
+          ]
         },
         {
           "icon": "🔥",
           "title": "Passion avant tout",
           "description": "La passion et la motivation sont nos moteurs",
-          "details": ["Projets personnels encouragés", "Formation continue", "Innovation récompensée"]
+          "details": [
+            "Projets personnels encouragés",
+            "Formation continue",
+            "Innovation récompensée"
+          ]
         },
         {
           "icon": "⚡",
           "title": "Efficacité maximale",
           "description": "Pas de réunions inutiles, focus sur le résultat",
-          "details": ["Communication asynchrone", "Processus optimisés", "Focus sur la valeur"]
+          "details": [
+            "Communication asynchrone",
+            "Processus optimisés",
+            "Focus sur la valeur"
+          ]
         },
         {
           "icon": "💎",
           "title": "Qualité premium",
           "description": "Nous ne faisons que de l'excellence",
-          "details": ["Standards élevés", "Attention aux détails", "Amélioration continue"]
+          "details": [
+            "Standards élevés",
+            "Attention aux détails",
+            "Amélioration continue"
+          ]
         },
         {
           "icon": "🌟",
           "title": "Croissance personnelle",
           "description": "Nous accompagnons votre développement",
-          "details": ["Mentorat disponible", "Budget formation", "Évolution de carrière"]
+          "details": [
+            "Mentorat disponible",
+            "Budget formation",
+            "Évolution de carrière"
+          ]
         }
       ],
       "workStyle": {
         "title": "Notre style de travail",
         "items": [
-          {"emoji": "🏠", "title": "100% Remote", "desc": "Travaillez d'où vous voulez"},
-          {"emoji": "⏰", "title": "Horaires flexibles", "desc": "Gérez votre temps comme vous voulez"},
-          {"emoji": "🎯", "title": "Orienté résultats", "desc": "Le résultat compte, pas les heures"},
-          {"emoji": "🚀", "title": "Innovation continue", "desc": "Toujours à la pointe"}
+          {
+            "emoji": "🏠",
+            "title": "100% Remote",
+            "desc": "Travaillez d'où vous voulez"
+          },
+          {
+            "emoji": "⏰",
+            "title": "Horaires flexibles",
+            "desc": "Gérez votre temps comme vous voulez"
+          },
+          {
+            "emoji": "🎯",
+            "title": "Orienté résultats",
+            "desc": "Le résultat compte, pas les heures"
+          },
+          {
+            "emoji": "🚀",
+            "title": "Innovation continue",
+            "desc": "Toujours à la pointe"
+          }
         ]
       }
     },
@@ -356,10 +423,26 @@
       "compliance": {
         "title": "Standards de conformité",
         "items": [
-          {"icon": "🇪🇺", "title": "RGPD", "desc": "Protection des données"},
-          {"icon": "🔐", "title": "ISO 27001", "desc": "Sécurité de l'information"},
-          {"icon": "✅", "title": "PCI DSS", "desc": "Sécurité des paiements"},
-          {"icon": "🛡️", "title": "SOC 2", "desc": "Contrôles de sécurité"}
+          {
+            "icon": "🇪🇺",
+            "title": "RGPD",
+            "desc": "Protection des données"
+          },
+          {
+            "icon": "🔐",
+            "title": "ISO 27001",
+            "desc": "Sécurité de l'information"
+          },
+          {
+            "icon": "✅",
+            "title": "PCI DSS",
+            "desc": "Sécurité des paiements"
+          },
+          {
+            "icon": "🛡️",
+            "title": "SOC 2",
+            "desc": "Contrôles de sécurité"
+          }
         ]
       }
     },
@@ -367,10 +450,22 @@
       "title": "Notre équipe",
       "subtitle": "Des talents passionnés venus du monde entier",
       "stats": [
-        {"value": "50+", "label": "Membres de l'équipe"},
-        {"value": "15+", "label": "Nationalités"},
-        {"value": "100%", "label": "Remote"},
-        {"value": "24/7", "label": "Couverture globale"}
+        {
+          "value": "50+",
+          "label": "Membres de l'équipe"
+        },
+        {
+          "value": "15+",
+          "label": "Nationalités"
+        },
+        {
+          "value": "100%",
+          "label": "Remote"
+        },
+        {
+          "value": "24/7",
+          "label": "Couverture globale"
+        }
       ],
       "members": [
         {
@@ -378,48 +473,373 @@
           "name": "Direction technique",
           "role": "Architecture & Innovation",
           "description": "Experts en cloud computing et gaming",
-          "skills": ["Cloud", "Gaming", "Innovation"]
+          "skills": [
+            "Cloud",
+            "Gaming",
+            "Innovation"
+          ]
         },
         {
           "avatar": "👩‍💼",
           "name": "Équipe produit",
           "role": "Développement & UX",
           "description": "Création d'expériences exceptionnelles",
-          "skills": ["UX/UI", "Product", "Agile"]
+          "skills": [
+            "UX/UI",
+            "Product",
+            "Agile"
+          ]
         },
         {
           "avatar": "🛡️",
           "name": "Sécurité & Infrastructure",
           "role": "DevOps & Security",
           "description": "Infrastructure robuste et sécurisée",
-          "skills": ["Security", "DevOps", "Cloud"]
+          "skills": [
+            "Security",
+            "DevOps",
+            "Cloud"
+          ]
         },
         {
           "avatar": "🚀",
           "name": "Innovation Lab",
           "role": "R&D",
           "description": "Exploration des technologies futures",
-          "skills": ["AI/ML", "Research", "Innovation"]
+          "skills": [
+            "AI/ML",
+            "Research",
+            "Innovation"
+          ]
         },
         {
           "avatar": "💬",
           "name": "Support Client",
           "role": "Customer Success",
           "description": "Support 24/7 multilingue",
-          "skills": ["Support", "Communication", "Problem Solving"]
+          "skills": [
+            "Support",
+            "Communication",
+            "Problem Solving"
+          ]
         },
         {
           "avatar": "🌍",
           "name": "Équipe internationale",
           "role": "Global Operations",
           "description": "Présence mondiale, expertise locale",
-          "skills": ["International", "Strategy", "Operations"]
+          "skills": [
+            "International",
+            "Strategy",
+            "Operations"
+          ]
         }
       ],
       "join": {
         "title": "Rejoignez l'aventure Hackboot",
         "description": "Nous recherchons constamment des talents passionnés pour rejoindre notre équipe. Si vous partagez notre vision, contactez-nous.",
         "button": "Voir les opportunités"
+      }
+    }
+  },
+  "premium": {
+    "badge": "Abonnement Exclusif",
+    "title": "PREMIUM",
+    "highlight": "UNLIMITED",
+    "description": "L'expérience gaming ultime. Performances maximales, catalogue complet, offres flexibles.",
+    "benefits": [
+      "Accès illimité à tous les jeux",
+      "Performances GPU RTX 4090",
+      "Trois formules adaptées à vos besoins",
+      "Support prioritaire 24/7",
+      "Mises à jour gratuites à vie",
+      "HWID Spoofer inclus"
+    ],
+    "featuresHeading": {
+      "title": "AVANTAGES RÉSERVÉS",
+      "subtitle": "Découvrez ce qui rend notre offre Premium exceptionnelle"
+    },
+    "learnMore": "En savoir plus",
+    "features": {
+      "performance": {
+        "title": "Performances Exceptionnelles",
+        "subtitle": "Puissance maximale",
+        "description": "Machines virtuelles équipées des dernières technologies pour des performances gaming optimales. RTX 4090, processeurs dernière génération et RAM DDR5 pour une expérience fluide.",
+        "stats": [
+          {
+            "label": "GPU",
+            "value": "RTX 4090"
+          },
+          {
+            "label": "RAM",
+            "value": "128GB DDR5"
+          },
+          {
+            "label": "CPU",
+            "value": "i9-13900K"
+          },
+          {
+            "label": "FPS",
+            "value": "240+ FPS"
+          }
+        ],
+        "highlights": [
+          "RTX 4090 dernière génération",
+          "Ray tracing temps réel",
+          "DLSS 3.0 activé",
+          "128GB RAM DDR5",
+          "Processeur i9-13900K",
+          "SSD NVMe ultra-rapide"
+        ]
+      },
+      "games": {
+        "title": "Catalogue Complet",
+        "subtitle": "Tous les jeux",
+        "description": "Accès illimité à l'intégralité de notre catalogue de jeux. Valorant, Apex Legends, Overwatch, Fortnite et bien plus encore, sans supplément.",
+        "stats": [
+          {
+            "label": "Jeux",
+            "value": "10+"
+          },
+          {
+            "label": "Mises à jour",
+            "value": "24/7"
+          },
+          {
+            "label": "Nouveautés",
+            "value": "Chaque mois"
+          },
+          {
+            "label": "Support",
+            "value": "Tous jeux"
+          }
+        ],
+        "highlights": [
+          "Valorant",
+          "Apex Legends",
+          "Overwatch 2",
+          "Fortnite",
+          "Call of Duty Warzone",
+          "CS2",
+          "Rainbow Six Siege",
+          "PUBG",
+          "Rust",
+          "Nouveaux titres ajoutés régulièrement"
+        ]
+      },
+      "technology": {
+        "title": "Technologies Récentes",
+        "subtitle": "Innovation permanente",
+        "description": "Infrastructure cloud mise à jour en continu avec les dernières innovations. Architecture optimisée pour la latence minimale et la performance maximale.",
+        "stats": [
+          {
+            "label": "Latence",
+            "value": "<5ms"
+          },
+          {
+            "label": "Uptime",
+            "value": "99.9%"
+          },
+          {
+            "label": "Bande passante",
+            "value": "10Gbps"
+          },
+          {
+            "label": "Update",
+            "value": "Temps réel"
+          }
+        ],
+        "highlights": [
+          "Serveurs dernière génération",
+          "Infrastructure redondante",
+          "CDN global multi-régions",
+          "Optimisation réseau automatique",
+          "Mises à jour instantanées",
+          "Monitoring 24/7"
+        ]
+      },
+      "instant": {
+        "title": "Install to Play",
+        "subtitle": "Prêt instantanément",
+        "description": "Plus besoin de télécharger ou installer quoi que ce soit. Connectez-vous à votre machine virtuelle et jouez immédiatement. Tout est préconfiguré et optimisé.",
+        "stats": [
+          {
+            "label": "Installation",
+            "value": "0 min"
+          },
+          {
+            "label": "Setup",
+            "value": "Automatique"
+          },
+          {
+            "label": "Config",
+            "value": "Préconfigurée"
+          },
+          {
+            "label": "Connexion",
+            "value": "Instantanée"
+          }
+        ],
+        "highlights": [
+          "Aucun téléchargement requis",
+          "Environnement préconfiguré",
+          "Jeux pré-installés",
+          "Paramètres optimisés",
+          "Connexion en 1 clic",
+          "Multi-dispositifs"
+        ]
+      },
+      "price": {
+        "title": "Formules flexibles",
+        "subtitle": "Trois niveaux adaptés",
+        "description": "Choisissez parmi trois formules pour accéder à l'intégralité des fonctionnalités et s'adapter à votre usage. Sans frais cachés, sans surprise.",
+        "stats": [
+          {
+            "label": "Formules",
+            "value": "3 niveaux"
+          },
+          {
+            "label": "Essai",
+            "value": "Immersion immédiate"
+          },
+          {
+            "label": "Support",
+            "value": "Prioritaire"
+          },
+          {
+            "label": "Engagement",
+            "value": "Sans"
+          }
+        ],
+        "highlights": [
+          "Trois offres modulables",
+          "Toutes les fonctionnalités incluses",
+          "Support premium 24/7",
+          "Upgrade à tout moment",
+          "Sans frais cachés",
+          "Paiement sécurisé"
+        ]
+      },
+      "security": {
+        "title": "Sécurité Maximale",
+        "subtitle": "Protection totale",
+        "description": "Protection multi-couches indétectable avec HWID spoofer intégré. Technologie kernel-level pour une sécurité maximale et une tranquillité d'esprit totale.",
+        "stats": [
+          {
+            "label": "Protection",
+            "value": "Kernel-level"
+          },
+          {
+            "label": "Détection",
+            "value": "0%"
+          },
+          {
+            "label": "HWID Spoofer",
+            "value": "Inclus"
+          },
+          {
+            "label": "Chiffrement",
+            "value": "E2E"
+          }
+        ],
+        "highlights": [
+          "Protection kernel-level",
+          "HWID spoofer intégré",
+          "Bypass EAC/BE",
+          "Stream-proof",
+          "Chiffrement bout en bout",
+          "Indétectable"
+        ]
+      }
+    },
+    "cta": {
+      "title": "Prêt à passer Premium ?",
+      "description": "Rejoignez l'élite du gaming avec un accès illimité à toutes nos fonctionnalités",
+      "primary": "Commencer maintenant",
+      "secondary": "Comparer les offres"
+    },
+    "modal": {
+      "stats": "Statistiques",
+      "highlights": "Fonctionnalités incluses"
+    }
+  },
+  "premiumSignup": {
+    "badge": "Inscription configurateur",
+    "title": "Active ton accès premium",
+    "description": "Choisis une formule, crée ton compte et démarre immédiatement sur l'infrastructure la plus performante du marché.",
+    "labels": {
+      "popular": "Populaire",
+      "select": "Sélectionner"
+    },
+    "form": {
+      "title": "Complète ton inscription",
+      "description": "Tu es à un pas de rejoindre la communauté Hackboot. Renseigne tes informations pour générer ton accès sécurisé.",
+      "fields": {
+        "firstname": {
+          "label": "Prénom",
+          "placeholder": "Alex"
+        },
+        "lastname": {
+          "label": "Nom",
+          "placeholder": "Dupont"
+        },
+        "email": {
+          "label": "Email professionnel",
+          "placeholder": "alex@hackboot.gg"
+        },
+        "password": {
+          "label": "Mot de passe",
+          "placeholder": "••••••••"
+        },
+        "confirmPassword": {
+          "label": "Confirmer le mot de passe",
+          "placeholder": "••••••••"
+        }
+      },
+      "terms": "J'accepte les conditions générales et la politique de confidentialité.",
+      "submit": "Valider mon inscription",
+      "disclaimer": "En cliquant sur « Valider mon inscription », un conseiller te contactera pour finaliser l'accès à ton espace premium."
+    },
+    "summary": {
+      "selected": "Formule sélectionnée"
+    },
+    "contact": {
+      "text": "Déjà client ?",
+      "link": "Connecte-toi ici"
+    },
+    "plans": {
+      "essentiel": {
+        "name": "Pack Essentiel",
+        "description": "Performances fiables et accès complet au configurateur pour démarrer immédiatement.",
+        "billing": "par mois",
+        "features": [
+          "Accès à l'infrastructure cloud standard",
+          "Support communautaire",
+          "Mises à jour de sécurité régulières",
+          "Catalogue de jeux populaire inclus"
+        ]
+      },
+      "avantage": {
+        "name": "Pack Avantage",
+        "description": "Puissance supplémentaire et support prioritaire pour une expérience optimisée.",
+        "billing": "par mois",
+        "features": [
+          "Performances GPU avancées",
+          "Support prioritaire 24/7",
+          "Accès aux configurations premium",
+          "Tableau de bord analytique en temps réel"
+        ]
+      },
+      "élite": {
+        "name": "Pack Élite",
+        "description": "Infrastructure dédiée et sécurité maximale pour les besoins les plus exigeants.",
+        "billing": "par mois",
+        "features": [
+          "Machine virtuelle dédiée RTX 4090",
+          "HWID Spoofer illimité",
+          "Consultant technique personnel",
+          "Mises à jour et patchs instantanés"
+        ]
       }
     }
   }
