@@ -559,21 +559,111 @@
     }
   },
   "services": {
-    "badge": "Hackboot premium services",
-    "title": "Infrastructure & pro-level security",
-    "subtitle": "Tailored services for players and teams who demand perfection.",
+    "badge": "Hackboot Pro Services",
+    "title": "Enterprise-grade infrastructure & security",
+    "subtitle": "Tailored services for players and teams that demand perfection.",
     "cta": "Talk to an expert",
-    "guarantees": {
-      "title": "Our guarantees"
+    "metrics": [
+      { "id": "uptime", "value": "99.9%", "label": "Guaranteed uptime" },
+      { "id": "clients", "value": "120+", "label": "Active pro clients" },
+      { "id": "regions", "value": "8", "label": "Regions covered" }
+    ],
+    "pillarsHeading": {
+      "title": "Core pillars",
+      "subtitle": "End-to-end coverage from infrastructure rollout to daily operations."
     },
-    "expertise": {
-      "title": "Mastered technical execution",
-      "description": "We operate on optimized bare-metal infrastructure with real-time monitoring and a continuous deployment pipeline."
+    "pillars": [
+      {
+        "id": "security",
+        "title": "Proactive security",
+        "description": "Multi-layer protection, continuous audits and anti-cheat supervision to stay undetected.",
+        "bullets": [
+          "24/7 anti-cheat monitoring",
+          "In-house kernel shield",
+          "Always-on E2E encryption"
+        ]
+      },
+      {
+        "id": "performance",
+        "title": "Calibrated performance",
+        "description": "Bare-metal clusters, frame-level GPU tuning and CI/CD pipelines built for competition.",
+        "bullets": [
+          "Dedicated bare-metal clusters",
+          "Frame-by-frame GPU tuning",
+          "Live latency monitoring"
+        ]
+      },
+      {
+        "id": "partnership",
+        "title": "Dedicated partnership",
+        "description": "Senior account manager, custom playbooks and instant support on our private channels.",
+        "bullets": [
+          "Assigned senior account manager",
+          "Custom operational playbooks",
+          "Instant escalation on Discord"
+        ]
+      }
+    ],
+    "solutions": {
+      "title": "Modules aligned with your goals",
+      "subtitle": "Combine our building blocks for a seamless journey from launch to daily assistance.",
+      "items": [
+        {
+          "id": "cloud",
+          "title": "Cloud Ops & Scaling",
+          "description": "Automated provisioning, multi-region footprint and CI/CD pipelines built for competitive play.",
+          "linkLabel": "View plans"
+        },
+        {
+          "id": "competitive",
+          "title": "Anti-Cheat Labs",
+          "description": "Ongoing reverse engineering, day-zero patches and audit protocols to remain undetected.",
+          "linkLabel": "Explore the catalog"
+        },
+        {
+          "id": "custom",
+          "title": "Coaching & Integrations",
+          "description": "1:1 sessions, live assistance and bespoke integrations with your existing tools.",
+          "linkLabel": "Book a call"
+        }
+      ]
+    },
+    "process": {
+      "title": "A proven framework",
+      "subtitle": "We guide you from discovery to steady-state operations with zero downtime.",
+      "steps": [
+        {
+          "id": "discover",
+          "title": "Kick-off & audit",
+          "description": "Map requirements, performance goals and security constraints."
+        },
+        {
+          "id": "prototype",
+          "title": "Guided prototype",
+          "description": "Spin up a test environment with presets tailored to your roster."
+        },
+        {
+          "id": "deploy",
+          "title": "Orchestrated rollout",
+          "description": "Progressive activation, shared supervision and reference documentation."
+        },
+        {
+          "id": "optimize",
+          "title": "Continuous optimisation",
+          "description": "Monthly reviews, benchmarks and proactive adjustments from field feedback."
+        }
+      ]
     },
     "contact": {
-      "title": "Book a meeting",
-      "description": "Our teams get back to you within 24 hours to assess your needs and prepare a deployment plan.",
-      "cta": "Schedule a call"
+      "title": "Schedule a session",
+      "description": "Our teams reply within 24h to scope your needs and build the right deployment plan.",
+      "cta": "Book a call",
+      "metrics": [
+        { "id": "sla", "value": "<5 min", "label": "Average response time" },
+        { "id": "coverage", "value": "24/7", "label": "Global support" },
+        { "id": "satisfaction", "value": "98%", "label": "Client satisfaction" }
+      ],
+      "note": "A priority Discord & WhatsApp channel is activated as soon as the contract is signed."
     }
   },
   "premium": {

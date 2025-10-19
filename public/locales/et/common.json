@@ -559,21 +559,111 @@
     }
   },
   "services": {
-    "badge": "Hackbooti premium-teenused",
-    "title": "Taristu ja turvalisus pro tasemel",
+    "badge": "Hackbooti pro teenused",
+    "title": "Ettevõtte tasemel taristu ja turvalisus",
     "subtitle": "Rätseplahendused mänguritele ja tiimidele, kes nõuavad täiuslikkust.",
     "cta": "Räägi eksperdiga",
-    "guarantees": {
-      "title": "Meie garantiid"
+    "metrics": [
+      { "id": "uptime", "value": "99,9 %", "label": "Tagatud töökindlus" },
+      { "id": "clients", "value": "120+", "label": "Aktiivset pro klienti" },
+      { "id": "regions", "value": "8", "label": "Kaetud piirkonda" }
+    ],
+    "pillarsHeading": {
+      "title": "Meie tugisambad",
+      "subtitle": "Katame kogu teekonna esmasest juurutusest igapäevase toeni."
     },
-    "expertise": {
-      "title": "Läbimõeldud tehniline teostus",
-      "description": "Töötame optimeeritud bare-metal taristul reaalajas monitooringu ja pideva juurutustoruga."
+    "pillars": [
+      {
+        "id": "security",
+        "title": "Proaktiivne turvalisus",
+        "description": "Mitmekihiline kaitse, pidevad auditid ja anti-cheat järelevalve, et püsida nähtamatu.",
+        "bullets": [
+          "24/7 anti-cheat seire",
+          "Oma kernel-kilp",
+          "Pidev otsast lõpuni krüpteerimine"
+        ]
+      },
+      {
+        "id": "performance",
+        "title": "Häälestatud jõudlus",
+        "description": "Bare-metal klastrid, kaadri täpsusega GPU tuunimine ja võistluskesksed CI/CD torud.",
+        "bullets": [
+          "Pühendatud bare-metal klastrid",
+          "GPU häälestus kaader-kaadrilt",
+          "Reaalajas latentsuse monitooring"
+        ]
+      },
+      {
+        "id": "partnership",
+        "title": "Pühendunud partnerlus",
+        "description": "Senior account manager, kohandatud playbookid ja kohene tugi meie privaatkanalites.",
+        "bullets": [
+          "Pühendatud account manager",
+          "Kohandatud playbookid",
+          "Kohene eskalatsioon Discordis"
+        ]
+      }
+    ],
+    "solutions": {
+      "title": "Moodulid sinu eesmärkide jaoks",
+      "subtitle": "Kombineeri meie plokid, et liikumine juurutusest igapäevase toeni oleks katkematu.",
+      "items": [
+        {
+          "id": "cloud",
+          "title": "Cloud Ops & Scaling",
+          "description": "Automaatne provisioneerimine, mitme regiooni haare ja CI/CD torud, mis on ehitatud võistlusmängude jaoks.",
+          "linkLabel": "Vaata pakette"
+        },
+        {
+          "id": "competitive",
+          "title": "Anti-Cheat Labs",
+          "description": "Pidev reverse engineering, nullpäeva paigad ja auditi protokollid, et jääda märkamatuks.",
+          "linkLabel": "Uuri kataloogi"
+        },
+        {
+          "id": "custom",
+          "title": "Coaching & Integrations",
+          "description": "1:1 sessioonid, live-tugi ja sinu tööriistadega sobivad erilahendused.",
+          "linkLabel": "Broneeri kõne"
+        }
+      ]
+    },
+    "process": {
+      "title": "Tõestatud raamistik",
+      "subtitle": "Saadame sind avastamisest kuni stabiilse igapäevase tööni ilma katkestusteta.",
+      "steps": [
+        {
+          "id": "discover",
+          "title": "Kick-off ja audit",
+          "description": "Kaardistame vajadused, jõudluseesmärgid ja turvanõuded."
+        },
+        {
+          "id": "prototype",
+          "title": "Juhendatud prototüüp",
+          "description": "Seadistame testkeskkonna sinu tiimi jaoks sobivate eelseadistustega."
+        },
+        {
+          "id": "deploy",
+          "title": "Orkestreeritud juurutus",
+          "description": "Järk-järguline aktiveerimine, ühine järelevalve ja referentsdokumentatsioon."
+        },
+        {
+          "id": "optimize",
+          "title": "Pidev optimeerimine",
+          "description": "Igakuised ülevaated, benchmarkid ja proaktiivsed muudatused pärisandmete põhjal."
+        }
+      ]
     },
     "contact": {
-      "title": "Broneeri kohtumine",
-      "description": "Meie tiim võtab sinuga 24 tunni jooksul ühendust, et hinnata vajadusi ja valmistada juurutusplaan.",
-      "cta": "Plaani kõne"
+      "title": "Broneeri sessioon",
+      "description": "Meie tiim vastab 24 tunni jooksul, et kaardistada vajadused ja koostada juurutusplaan.",
+      "cta": "Plaani kõne",
+      "metrics": [
+        { "id": "sla", "value": "<5 min", "label": "Keskmine reageerimisaeg" },
+        { "id": "coverage", "value": "24/7", "label": "Tugi üle maailma" },
+        { "id": "satisfaction", "value": "98 %", "label": "Kliendirahulolu" }
+      ],
+      "note": "Prioriteetne Discordi ja WhatsAppi kanal aktiveeritakse kohe pärast lepingu sõlmimist."
     }
   },
   "premium": {

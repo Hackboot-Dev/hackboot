@@ -551,3 +551,26 @@
 #### État:
 ✅ Plus d'appel réseau vers une route 404 depuis la page Jeux
 ✅ Badges lisibles sur toutes les pages concernées
+
+### Feat: Refonte complète de la page Services
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Harmoniser la page Services avec la nouvelle direction visuelle des pages marketing.
+- Offrir un contenu localisé couvrant piliers, modules et parcours d'accompagnement.
+
+#### Actions réalisées:
+1. Refonte du hero, des cartes piliers, de la timeline process et du CTA final avec effets glass et animations homogènes.
+2. Ajout d'un catalogue de solutions modulaires et d'indicateurs quantifiés avec fallbacks robustes.
+3. Localisation complète des nouveaux contenus (metrics, piliers, process, callouts) en FR/EN/ET.
+
+#### Fichiers modifiés:
+- `/app/[locale]/services/page.tsx`
+- `/public/locales/fr/common.json`
+- `/public/locales/en/common.json`
+- `/public/locales/et/common.json`
+
+#### État:
+✅ Section Services alignée sur la charte visuelle
+✅ Contenus FR/EN/ET enrichis et synchronisés

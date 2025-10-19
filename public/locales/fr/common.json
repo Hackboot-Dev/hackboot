@@ -563,17 +563,107 @@
     "title": "Infrastructure & sécurité au niveau pro",
     "subtitle": "Des services sur-mesure pour les joueurs et équipes qui exigent la perfection.",
     "cta": "Parler à un expert",
-    "guarantees": {
-      "title": "Nos garanties"
+    "metrics": [
+      { "id": "uptime", "value": "99,9 %", "label": "Disponibilité garantie" },
+      { "id": "clients", "value": "120+", "label": "Clients pro actifs" },
+      { "id": "regions", "value": "8", "label": "Régions couvertes" }
+    ],
+    "pillarsHeading": {
+      "title": "Nos piliers",
+      "subtitle": "Une couverture complète du déploiement technique à l’accompagnement quotidien."
     },
-    "expertise": {
-      "title": "Exécution technique maîtrisée",
-      "description": "Nous opérons sur des infrastructures bare-metal optimisées avec un monitoring en temps réel et un pipeline de déploiement continu."
+    "pillars": [
+      {
+        "id": "security",
+        "title": "Sécurité proactive",
+        "description": "Protection multi-couches, audits continus et supervision anti-cheat pour rester indétectable.",
+        "bullets": [
+          "Surveillance anti-cheat 24/7",
+          "Kernel shield propriétaire",
+          "Chiffrement E2E permanent"
+        ]
+      },
+      {
+        "id": "performance",
+        "title": "Performance calibrée",
+        "description": "Clusters bare-metal, tuning GPU frame-by-frame et pipelines CI/CD pensés pour le compétitif.",
+        "bullets": [
+          "Clusters bare-metal dédiés",
+          "Optimisation GPU à la frame",
+          "Monitoring de latence en direct"
+        ]
+      },
+      {
+        "id": "partnership",
+        "title": "Partenariat dédié",
+        "description": "Account manager senior, playbooks sur-mesure et support instantané sur nos canaux privés.",
+        "bullets": [
+          "Account manager dédié",
+          "Playbooks personnalisés",
+          "Escalade instantanée sur Discord"
+        ]
+      }
+    ],
+    "solutions": {
+      "title": "Des modules alignés sur vos objectifs",
+      "subtitle": "Combinez nos briques pour un parcours fluide du déploiement initial à l’assistance quotidienne.",
+      "items": [
+        {
+          "id": "cloud",
+          "title": "Cloud Ops & Scaling",
+          "description": "Provisionnement automatisé, régions multiples et pipelines CI/CD pensés pour le jeu compétitif.",
+          "linkLabel": "Voir les offres"
+        },
+        {
+          "id": "competitive",
+          "title": "Labs Anti-Cheat",
+          "description": "Reverse engineering continu, correctifs jour 0 et protocoles d’audit pour rester indétectable.",
+          "linkLabel": "Explorer le catalogue"
+        },
+        {
+          "id": "custom",
+          "title": "Coaching & Integrations",
+          "description": "Sessions 1:1, assistance en direct et intégrations personnalisées à vos outils existants.",
+          "linkLabel": "Planifier un call"
+        }
+      ]
+    },
+    "process": {
+      "title": "Un cadre éprouvé",
+      "subtitle": "Notre équipe vous accompagne de la découverte au maintien opérationnel sans rupture.",
+      "steps": [
+        {
+          "id": "discover",
+          "title": "Kick-off & audit",
+          "description": "Cartographie des besoins, objectifs de performance et contraintes de sécurité."
+        },
+        {
+          "id": "prototype",
+          "title": "Prototype guidé",
+          "description": "Mise en place d’un environnement test avec préconfigurations adaptées à votre roster."
+        },
+        {
+          "id": "deploy",
+          "title": "Déploiement orchestré",
+          "description": "Activation progressive, supervision conjointe et documentation de référence."
+        },
+        {
+          "id": "optimize",
+          "title": "Optimisation continue",
+          "description": "Revues mensuelles, benchmarks et ajustements proactifs basés sur les retours terrain."
+        }
+      ]
     },
     "contact": {
       "title": "Prendre rendez-vous",
       "description": "Nos équipes vous répondent sous 24h pour évaluer vos besoins et préparer un plan de déploiement.",
-      "cta": "Planifier un call"
+      "cta": "Planifier un call",
+      "metrics": [
+        { "id": "sla", "value": "<5 min", "label": "Temps de réponse moyen" },
+        { "id": "coverage", "value": "24/7", "label": "Support global" },
+        { "id": "satisfaction", "value": "98 %", "label": "Satisfaction client" }
+      ],
+      "note": "Un canal prioritaire Discord & WhatsApp est activé dès la signature."
     }
   },
   "premium": {
