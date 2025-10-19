@@ -83,8 +83,10 @@ export default function AboutPage() {
           <div className="absolute inset-0 opacity-60 bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.15)_0%,_transparent_55%)]" />
           <div className="container mx-auto px-6 py-24 relative">
             <div className="max-w-3xl">
-              <span className="inline-flex items-center px-4 py-2 glass-effect rounded-full text-sm font-semibold gradient-text">
-                {t.about?.badge || 'VMCloud Group OÜ'}
+              <span className="inline-flex items-center px-4 py-2 glass-effect rounded-full text-sm font-semibold">
+                <span className="gradient-text block">
+                  {t.about?.badge || 'VMCloud Group OÜ'}
+                </span>
               </span>
               <h1 className="text-4xl md:text-6xl font-display font-bold mt-6 mb-4">
                 {t.about?.title || 'Our story'}

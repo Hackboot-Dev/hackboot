@@ -527,3 +527,27 @@
 #### État:
 ✅ CTA contact fonctionnel sur toutes les locales
 ✅ Sections Services et À propos localisées
+
+### Fix: Navigation jeux et lisibilité des badges
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Supprimer les erreurs 404 générées depuis la galerie Jeux.
+- Rendre visibles les libellés des badges malgré l'effet verre.
+
+#### Actions réalisées:
+1. **Correction du lien catalogue jeux**
+   - Les cartes redirigent désormais vers la page produit correspondante (`/products/[slug]`) plutôt qu'une route inexistante.
+2. **Ajustement des pastilles dégradées**
+   - Encapsulation du texte gradient dans un span dédié pour éviter l'écrasement par l'arrière-plan "glass-effect" sur Contact, Services et À propos.
+
+#### Fichiers modifiés:
+- `/app/[locale]/games/page.tsx`
+- `/app/[locale]/contact/page.tsx`
+- `/app/[locale]/services/page.tsx`
+- `/app/[locale]/about/page.tsx`
+
+#### État:
+✅ Plus d'appel réseau vers une route 404 depuis la page Jeux
+✅ Badges lisibles sur toutes les pages concernées

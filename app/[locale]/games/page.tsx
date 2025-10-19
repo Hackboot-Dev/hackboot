@@ -89,7 +89,11 @@ export default function GamesPage() {
         <section className="container mx-auto px-6 pb-20 animate-slide-up">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredGames.map((game) => (
-              <Link key={game.id} href={`/${locale}/games/${game.slug}`} className="group glass-effect rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/40 transition-all duration-300">
+              <Link
+                key={game.id}
+                href={`/${locale}/products/${game.slug}`}
+                className="group glass-effect rounded-2xl overflow-hidden border border-white/10 hover:border-purple-500/40 transition-all duration-300"
+              >
                 <div className="aspect-[3/4] relative bg-gradient-to-br from-purple-900/20 to-indigo-900/20">
                   <ProductImage
                     productSlug={game.slug}

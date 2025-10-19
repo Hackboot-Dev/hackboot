@@ -117,8 +117,10 @@ export default function ServicesPage() {
       <main className="pt-24">
         <section className="container mx-auto px-6 py-20 animate-scale-in">
           <div className="max-w-3xl">
-            <span className="inline-flex items-center px-4 py-2 glass-effect rounded-full text-sm font-semibold gradient-text">
-              {t.services?.badge || 'Services premium Hackboot'}
+            <span className="inline-flex items-center px-4 py-2 glass-effect rounded-full text-sm font-semibold">
+              <span className="gradient-text block">
+                {t.services?.badge || 'Services premium Hackboot'}
+              </span>
             </span>
             <h1 className="text-4xl md:text-6xl font-display font-bold mt-6 mb-4">
               {t.services?.title || 'Infrastructure & sécurité au niveau pro'}

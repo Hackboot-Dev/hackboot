@@ -66,8 +66,10 @@ export default function ContactPage() {
       <main className="min-h-screen pt-32 pb-20 bg-black text-white animate-fade-in">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16 animate-scale-in">
-            <span className="inline-block px-4 py-2 glass-effect rounded-full text-sm font-medium mb-4 gradient-text">
-              {t?.contact?.badge || 'Get in touch'}
+            <span className="inline-block px-4 py-2 glass-effect rounded-full text-sm font-medium mb-4">
+              <span className="gradient-text block">
+                {t?.contact?.badge || 'Get in touch'}
+              </span>
             </span>
             <h1 className="text-4xl md:text-6xl font-display font-bold mb-6">
               {t?.contact?.title || 'Contactez-nous'}
