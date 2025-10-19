@@ -14,6 +14,23 @@
     "badge": "Plateforme Cloud Gaming Premium",
     "title": "HACKBOOT",
     "subtitle": "Expérience gaming inégalée avec notre technologie cloud de pointe. Outils professionnels conçus pour les gamers exigeants.",
+    "metrics": [
+      {
+        "id": "latency",
+        "value": "<5ms",
+        "label": "Latence moyenne mondiale"
+      },
+      {
+        "id": "uptime",
+        "value": "99.9%",
+        "label": "Disponibilité garantie"
+      },
+      {
+        "id": "deploy",
+        "value": "45 sec",
+        "label": "Déploiement moyen"
+      }
+    ],
     "getStarted": "Commencer",
     "watchDemo": "Voir Démo"
   },
@@ -65,8 +82,57 @@
     }
   },
   "games": {
-    "title": "Jeux Supportés",
-    "subtitle": "Jouez à tous vos titres favoris avec des performances maximales"
+    "badge": "Catalogue gaming",
+    "title": "Jeux optimisés",
+    "subtitle": "Jouez à tous vos titres favoris avec des performances maximales",
+    "description": "Sélectionnez un environnement calibré pour dominer vos scrims, vos ranked ou vos lans. Chaque build est maintenu à jour et sécurisé par nos équipes.",
+    "search": "Rechercher un jeu...",
+    "clear": "Effacer",
+    "results": {
+      "singular": "jeu disponible",
+      "plural": "jeux disponibles"
+    },
+    "metrics": [
+      {
+        "id": "catalog",
+        "value": "45+",
+        "label": "Environnements optimisés"
+      },
+      {
+        "id": "latency",
+        "value": "<5ms",
+        "label": "Latence moyenne UE"
+      },
+      {
+        "id": "uptime",
+        "value": "99.9%",
+        "label": "Disponibilité prouvée"
+      }
+    ],
+    "highlights": [
+      {
+        "id": "ranked",
+        "title": "Rank Ready",
+        "description": "Configurations calibrées pour les parties classées avec monitoring en direct."
+      },
+      {
+        "id": "secure",
+        "title": "Indétectable",
+        "description": "Protections multi-couches, HWID safe et mises à jour automatiques sur chaque patch."
+      },
+      {
+        "id": "global",
+        "title": "Multi-régions",
+        "description": "Réseau mondial pour jouer avec une latence minimale où que soit votre team."
+      }
+    ],
+    "cta": {
+      "title": "Besoin d’un setup custom ?",
+      "description": "Nos architectes peuvent préparer un environnement dédié avec vos jeux, mods et outils préférés en moins de 24h.",
+      "primary": "Parler à un expert",
+      "secondary": "Explorer Premium"
+    },
+    "available": "Disponible"
   },
   "products": {
     "title": "Solutions Gaming Premium",
@@ -671,6 +737,23 @@
     "title": "PREMIUM",
     "highlight": "UNLIMITED",
     "description": "L'expérience gaming ultime. Performances maximales, catalogue complet, offres flexibles.",
+    "metrics": [
+      {
+        "id": "uptime",
+        "value": "99.9%",
+        "label": "Disponibilité garantie"
+      },
+      {
+        "id": "latency",
+        "value": "<5ms",
+        "label": "Latence mesurée UE"
+      },
+      {
+        "id": "response",
+        "value": "30min",
+        "label": "Temps de réponse support"
+      }
+    ],
     "benefits": [
       "Accès illimité à tous les jeux",
       "Performances GPU RTX 4090",

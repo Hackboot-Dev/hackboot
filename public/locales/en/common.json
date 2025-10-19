@@ -14,6 +14,23 @@
     "badge": "Premium Cloud Gaming Platform",
     "title": "HACKBOOT",
     "subtitle": "Experience unparalleled gaming performance with our cutting-edge cloud technology. Professional-grade tools designed for serious gamers who demand the best.",
+    "metrics": [
+      {
+        "id": "latency",
+        "value": "<5ms",
+        "label": "Global average latency"
+      },
+      {
+        "id": "uptime",
+        "value": "99.9%",
+        "label": "Guaranteed uptime"
+      },
+      {
+        "id": "deploy",
+        "value": "45 sec",
+        "label": "Average deployment"
+      }
+    ],
     "getStarted": "Get Started",
     "watchDemo": "Watch Demo"
   },
@@ -65,8 +82,57 @@
     }
   },
   "games": {
-    "title": "Supported Games",
-    "subtitle": "Play all your favorite titles with maximum performance"
+    "badge": "Game catalog",
+    "title": "Optimized games",
+    "subtitle": "Play all your favorite titles with maximum performance",
+    "description": "Pick a calibrated environment to dominate scrims, ranked matches or LAN events. Every build is maintained and secured by our team.",
+    "search": "Search a game...",
+    "clear": "Clear",
+    "results": {
+      "singular": "game available",
+      "plural": "games available"
+    },
+    "metrics": [
+      {
+        "id": "catalog",
+        "value": "45+",
+        "label": "Optimized environments"
+      },
+      {
+        "id": "latency",
+        "value": "<5ms",
+        "label": "Average latency EU"
+      },
+      {
+        "id": "uptime",
+        "value": "99.9%",
+        "label": "Verified availability"
+      }
+    ],
+    "highlights": [
+      {
+        "id": "ranked",
+        "title": "Rank Ready",
+        "description": "Calibrated builds for ranked play with live monitoring."
+      },
+      {
+        "id": "secure",
+        "title": "Undetectable",
+        "description": "Multi-layer protection, HWID-safe and auto updates for every patch."
+      },
+      {
+        "id": "global",
+        "title": "Global network",
+        "description": "Worldwide routing so your squad plays with minimal latency."
+      }
+    ],
+    "cta": {
+      "title": "Need a custom setup?",
+      "description": "Our architects can prepare a dedicated environment with your games, mods and tools in under 24 hours.",
+      "primary": "Talk to an expert",
+      "secondary": "Explore Premium"
+    },
+    "available": "Available"
   },
   "products": {
     "title": "Premium Gaming Solutions",
@@ -671,6 +737,23 @@
     "title": "PREMIUM",
     "highlight": "UNLIMITED",
     "description": "The ultimate gaming experience. Maximum performance, full catalog, flexible plans.",
+    "metrics": [
+      {
+        "id": "uptime",
+        "value": "99.9%",
+        "label": "Guaranteed availability"
+      },
+      {
+        "id": "latency",
+        "value": "<5ms",
+        "label": "Measured latency EU"
+      },
+      {
+        "id": "response",
+        "value": "30min",
+        "label": "Average support response"
+      }
+    ],
     "benefits": [
       "Unlimited access to every game",
       "RTX 4090 GPU performance",

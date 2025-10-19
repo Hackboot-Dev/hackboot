@@ -14,6 +14,23 @@
     "badge": "Premium Pilvemängude Platvorm",
     "title": "HACKBOOT",
     "subtitle": "Koge võrratut mängukogemust meie tipptasemel pilvetehnoloogiaga. Professionaalsed tööriistad tõsistele mängijatele, kes nõuavad parimat.",
+    "metrics": [
+      {
+        "id": "latency",
+        "value": "<5ms",
+        "label": "Globaalne keskmine latentsus"
+      },
+      {
+        "id": "uptime",
+        "value": "99.9%",
+        "label": "Tagatud töökindlus"
+      },
+      {
+        "id": "deploy",
+        "value": "45 sek",
+        "label": "Keskmine juurutusaeg"
+      }
+    ],
     "getStarted": "Alusta",
     "watchDemo": "Vaata Demo"
   },
@@ -65,8 +82,57 @@
     }
   },
   "games": {
-    "title": "Toetatud Mängud",
-    "subtitle": "Mängi kõiki oma lemmikuid maksimaalse jõudlusega"
+    "badge": "Mängukataloog",
+    "title": "Optimeeritud mängud",
+    "subtitle": "Mängi kõiki oma lemmikuid maksimaalse jõudlusega",
+    "description": "Vali kalibreeritud keskkond, et domineerida scrimidel, ranked mängudes või LAN-turniiridel. Iga build on meie meeskonna poolt hooldatud ja turvatud.",
+    "search": "Otsi mängu...",
+    "clear": "Tühjenda",
+    "results": {
+      "singular": "mäng saadaval",
+      "plural": "mängu saadaval"
+    },
+    "metrics": [
+      {
+        "id": "catalog",
+        "value": "45+",
+        "label": "Optimeeritud keskkonnad"
+      },
+      {
+        "id": "latency",
+        "value": "<5ms",
+        "label": "Keskmine latentsus EL"
+      },
+      {
+        "id": "uptime",
+        "value": "99.9%",
+        "label": "Kinnitatud töökindlus"
+      }
+    ],
+    "highlights": [
+      {
+        "id": "ranked",
+        "title": "Rank valmis",
+        "description": "Kalibreeritud seadistused ranked mängudeks koos reaalajas jälgimisega."
+      },
+      {
+        "id": "secure",
+        "title": "Tuvastamatu",
+        "description": "Mitmekihiline kaitse, HWID-sõbralik ja automaatsed värskendused igal patchil."
+      },
+      {
+        "id": "global",
+        "title": "Globaalne võrk",
+        "description": "Maailmatasemel marsruutimine, et su meeskond mängiks minimaalse latentsusega."
+      }
+    ],
+    "cta": {
+      "title": "Vajad kohandatud seadistust?",
+      "description": "Meie arhitektid saavad vähem kui 24 tunniga valmistada keskkonna koos sinu mängude, modide ja tööriistadega.",
+      "primary": "Räägi eksperdiga",
+      "secondary": "Avasta Premium"
+    },
+    "available": "Saadaval"
   },
   "products": {
     "title": "Premium Mängulahendused",
@@ -671,6 +737,23 @@
     "title": "PREMIUM",
     "highlight": "PIIRAMATU",
     "description": "Ülim mängukogemus. Maksimaalne jõudlus, täielik kataloog ja paindlikud paketid.",
+    "metrics": [
+      {
+        "id": "uptime",
+        "value": "99.9%",
+        "label": "Tagatud töökindlus"
+      },
+      {
+        "id": "latency",
+        "value": "<5ms",
+        "label": "Mõõdetud latentsus EL"
+      },
+      {
+        "id": "response",
+        "value": "30min",
+        "label": "Keskmine toe reageerimisaeg"
+      }
+    ],
     "benefits": [
       "Piiramatu ligipääs kõigile mängudele",
       "RTX 4090 GPU võimsus",

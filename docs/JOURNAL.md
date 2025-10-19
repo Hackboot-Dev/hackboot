@@ -574,3 +574,34 @@
 #### État:
 ✅ Section Services alignée sur la charte visuelle
 ✅ Contenus FR/EN/ET enrichis et synchronisés
+
+### Feat: Harmonisation des pages Accueil, Jeux et Premium
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Unifier la direction artistique des pages publiques clés en réutilisant un fond animé commun et des composants d'intro structurés.
+- Moderniser les sections héro/CTA des pages Accueil, Jeux et Premium pour refléter la nouvelle charte services.
+- Étendre les traductions FR/EN/ET afin de couvrir les nouvelles métriques, highlights et contenus CTA.
+
+#### Actions réalisées:
+1. Création du composant `DesignBackdrop` pour mutualiser grille, orbes et animations de fond, et intégration sur Accueil, Jeux et Premium.
+2. Refonte de `HeroLight` avec métriques animées et CTA dégradé, et ajout d'un fond harmonisé sur l'Accueil.
+3. Restructuration complète de la page Jeux : nouveau hero à deux colonnes, statistiques localisées, cartes highlights, grille produit enrichie et CTA final cohérent.
+4. Rework du hero Premium avec métriques, cartes plans dynamiques et CTA graduel, en conservant le modal d'insight.
+5. Mise à jour exhaustive des traductions FR/EN/ET pour les métriques home/premium, le contenu Jeux (badge, descriptions, highlights, CTA) et libellés auxiliaires.
+
+#### Fichiers modifiés:
+- `/components/DesignBackdrop.tsx`
+- `/components/HeroLight.tsx`
+- `/app/[locale]/page.tsx`
+- `/app/[locale]/games/page.tsx`
+- `/app/[locale]/premium/page.tsx`
+- `/public/locales/fr/common.json`
+- `/public/locales/en/common.json`
+- `/public/locales/et/common.json`
+
+#### État:
+✅ Pages Accueil/Jeux/Premium alignées visuellement avec Services
+✅ Contenu localisé synchronisé sur les trois langues
+✅ Factorisation du fond animé pour faciliter les évolutions futures
