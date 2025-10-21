@@ -108,16 +108,6 @@ export interface GamingProduct {
         ultra: number
       }
     }>
-    systemRequirements?: Array<{
-      resolution: string
-      minimumCpu: string
-      recommendedCpu: string
-      minimumGpu: string
-      recommendedGpu: string
-      ram: string
-      vram: string
-      storage: string
-    }>
     fpsThresholds?: Array<{
       resolution: string
       above30: number
@@ -178,21 +168,6 @@ export interface GamingProduct {
       kda: number
       winRate: number
     }>
-    benchmarks?: {
-      competitorComparison: Array<{
-        metric: string
-        hackboot: number
-        competitor1: number
-        competitor2: number
-        competitor3: number
-      }>
-      rankProgression: Array<{
-        rank: string
-        avgGamesTo: number
-        winRate: number
-        avgTime: string
-      }>
-    }
     updateHistory?: {
       totalUpdates: number
       lastUpdateDate: string

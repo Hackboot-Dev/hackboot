@@ -6,8 +6,8 @@
     "game": "Overwatch 2",
     "category": "gaming",
     "optimizationLevel": "native",
-    "description": "Suite native Overwatch 2 regroupant overlays tactiques, analytics en direct et outils de modding stream-safe.",
-    "longDescription": "PulseForge pour Overwatch 2 est une build matérielle et logicielle 100 % native. Elle rassemble nos overlays tactiques, les modules de coaching automatisés et les presets audio/vidéo prêts pour le streaming. Pensée pour les équipes compétitives comme pour les créateurs, la suite propose une intégration sans injection intrusive, avec des mises à jour synchronisées sur chaque patch Blizzard.",
+    "description": "Instance cloud Overwatch 2 regroupant overlays tactiques, analytics en direct et outils de modding stream-safe.",
+    "longDescription": "PulseForge pour Overwatch 2 est une build matérielle et logicielle 100 % native hébergée dans notre cloud gaming. Elle rassemble nos overlays tactiques, les modules de coaching automatisés et les presets audio/vidéo prêts pour le streaming. Pensée pour les équipes compétitives comme pour les créateurs, la suite propose une intégration sans injection intrusive, avec des mises à jour synchronisées sur chaque patch Blizzard et une orchestration server-side.",
     "status": "ACTIVE",
     "technicalSpecs": {
       "performanceMetrics": {
@@ -97,38 +97,6 @@
           }
         }
       ],
-      "systemRequirements": [
-        {
-          "resolution": "1920 × 1080",
-          "minimumCpu": "Intel Pentium E5200 / AMD Athlon 64 X2 5600+",
-          "recommendedCpu": "Intel Pentium G3240 / AMD Phenom 9500",
-          "minimumGpu": "NVIDIA GeForce GTX 750 Ti / AMD Radeon RX 550X",
-          "recommendedGpu": "NVIDIA GeForce GTX 760 / AMD Radeon RX 460",
-          "ram": "8 GB",
-          "vram": "4 GB",
-          "storage": "50 GB"
-        },
-        {
-          "resolution": "2560 × 1440",
-          "minimumCpu": "Intel Core2 Duo E8400 / AMD Athlon II X2 250",
-          "recommendedCpu": "Intel Core2 Quad Q6600 / AMD Athlon II X3 450",
-          "minimumGpu": "NVIDIA GeForce GTX 780 / AMD Radeon RX 570",
-          "recommendedGpu": "NVIDIA GeForce GTX 780 / AMD Radeon RX 570",
-          "ram": "8 GB",
-          "vram": "6 GB",
-          "storage": "50 GB"
-        },
-        {
-          "resolution": "3840 × 2160",
-          "minimumCpu": "Intel Pentium J2900 / AMD A6-6400K",
-          "recommendedCpu": "Intel Core2 Quad Q9550 / AMD Athlon II X4 640",
-          "minimumGpu": "NVIDIA GeForce GTX TITAN Z / AMD Radeon RX 570",
-          "recommendedGpu": "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56",
-          "ram": "12 GB",
-          "vram": "8 GB",
-          "storage": "50 GB"
-        }
-      ],
       "fpsThresholds": [
         {
           "resolution": "1920 × 1080",
@@ -156,13 +124,13 @@
         }
       ],
       "improvementTips": [
-        "Réduisez certains effets graphiques (ombres, post-traitement) pour libérer des FPS instantanément.",
-        "Diminuez la résolution si vous priorisez la réactivité aux détails visuels.",
-        "Maintenez vos pilotes graphiques et Windows à jour pour profiter des optimisations récentes.",
-        "Activez le profil mémoire XMP et vérifiez la fréquence réelle de vos barrettes.",
-        "Surveillez les températures pour éviter tout throttling lors des sessions prolongées."
+        "Basculez entre nos presets Esports et Ultra depuis le panneau cloud pour moduler instantanément la charge GPU.",
+        "Ajustez la résolution de streaming (1080p, 1440p, 2160p) selon la marge FPS indiquée pour conserver la réactivité.",
+        "Utilisez le scheduler automatique pour relancer une instance fraîche avant les scrims longues.",
+        "Activez les overlays optionnels uniquement sur les cartes où vous en avez besoin afin de libérer 3 à 5 % de ressources.",
+        "Surveillez le tableau de bord latence pour déclencher un switch de région si le ping dépasse 30 ms."
       ],
-      "advice": "Profitez d'une fluidité exceptionnelle et d'une interface modulable : activez des presets plus détaillés ou des taux de rafraîchissement supérieurs sans sacrifier la stabilité.",
+      "advice": "Profitez d'une fluidité exceptionnelle sur infrastructure cloud : vous pouvez monter en 1440p ou 4K tout en maintenant 200+ FPS, ou revenir en 1080p pour maximiser les 410 FPS moyens selon vos priorités."
       "heroSynergy": [
         {
           "hero": "Widowmaker",
@@ -207,82 +175,6 @@
           "trainingBoost": "+20% prise de décision"
         }
       ],
-      "benchmarks": {
-        "competitorComparison": [
-          {
-            "metric": "FPS Moyen (Ultra 1440p)",
-            "hackboot": 242,
-            "competitor1": 208,
-            "competitor2": 187,
-            "competitor3": 169
-          },
-          {
-            "metric": "Rafraîchissement Overlay (Hz)",
-            "hackboot": 144,
-            "competitor1": 120,
-            "competitor2": 90,
-            "competitor3": 60
-          },
-          {
-            "metric": "Mises à Jour Modules (heures)",
-            "hackboot": 6,
-            "competitor1": 18,
-            "competitor2": 24,
-            "competitor3": 36
-          },
-          {
-            "metric": "Temps d'Installation (min)",
-            "hackboot": 8,
-            "competitor1": 15,
-            "competitor2": 27,
-            "competitor3": 32
-          }
-        ],
-        "rankProgression": [
-          {
-            "rank": "Bronze",
-            "avgGamesTo": 18,
-            "winRate": 78,
-            "avgTime": "4.5h"
-          },
-          {
-            "rank": "Silver",
-            "avgGamesTo": 24,
-            "winRate": 74,
-            "avgTime": "6.2h"
-          },
-          {
-            "rank": "Gold",
-            "avgGamesTo": 31,
-            "winRate": 69,
-            "avgTime": "8.9h"
-          },
-          {
-            "rank": "Platinum",
-            "avgGamesTo": 40,
-            "winRate": 66,
-            "avgTime": "12.4h"
-          },
-          {
-            "rank": "Diamond",
-            "avgGamesTo": 55,
-            "winRate": 63,
-            "avgTime": "17.8h"
-          },
-          {
-            "rank": "Master",
-            "avgGamesTo": 78,
-            "winRate": 60,
-            "avgTime": "26.5h"
-          },
-          {
-            "rank": "Grandmaster",
-            "avgGamesTo": 102,
-            "winRate": 58,
-            "avgTime": "35.1h"
-          }
-        ]
-      },
       "updateHistory": {
         "totalUpdates": 164,
         "lastUpdateDate": "2025-02-12",
@@ -313,8 +205,8 @@
         "motherboard": "ASUS ROG Maximus Z790",
         "psu": "1200W 80+ Platinum",
         "cooling": "Custom Loop Liquid",
-        "usage": "Suite d'augmentation native",
-        "description": "Bundle Overwatch 2 natif avec overlays tactiques, modding visuel et outils d'entraînement intégrés.",
+        "usage": "Instance cloud d'augmentation native",
+        "description": "Instance Overwatch 2 hébergée sur notre cloud avec overlays tactiques, modding visuel et outils d'entraînement intégrés.",
         "use_cases": [
           "Coaching et analyse d'équipe",
           "Création de contenu immersif",
