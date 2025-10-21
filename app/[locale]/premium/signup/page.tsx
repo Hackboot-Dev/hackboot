@@ -5,7 +5,7 @@ import { useParams } from 'next/navigation'
 import Link from 'next/link'
 import SiteHeader from '@/components/SiteHeader'
 import { getSubscriptionPlans, type SubscriptionPlan } from '@/lib/subscriptions'
-import { Check, ArrowRight, Shield, Sparkles } from 'lucide-react'
+import { Check, ArrowRight, Shield, Sparkles, Loader2, AlertCircle } from 'lucide-react'
 import { useI18n } from '@/lib/i18n-simple'
 
 const plans = getSubscriptionPlans()
@@ -34,6 +34,8 @@ export default function PremiumSignupPage() {
     [numberFormatLocale]
   )
   const [selectedPlanId, setSelectedPlanId] = useState<string>(plans.find((plan) => plan.popular)?.id || plans[0].id)
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   const selectedPlan = useMemo(
     () => plans.find((plan) => plan.id === selectedPlanId) ?? plans[0],
@@ -70,6 +72,17 @@ export default function PremiumSignupPage() {
   const contactContent = premiumSignup.contact ?? {}
   const contactText = contactContent.text ?? 'Déjà client ?'
   const contactLinkLabel = contactContent.link ?? 'Connecte-toi ici'
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsLoading(true)
+    setError(null)
+
+    setTimeout(() => {
+      setIsLoading(false)
+      setError('Une erreur est survenue lors du traitement de votre paiement. Veuillez réessayer.')
+    }, 3000)
+  }
 
   return (
     <div className="min-h-screen bg-black text-white overflow-x-hidden animate-fade-in">
@@ -163,7 +176,7 @@ export default function PremiumSignupPage() {
                 <p className="text-gray-300 mb-8">
                   {formDescription}
                 </p>
-                <form className="space-y-6">
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label className="block text-sm text-gray-400 mb-2" htmlFor="firstname">
@@ -231,6 +244,53 @@ export default function PremiumSignupPage() {
                     </div>
                   </div>
 
+                  <div className="border-t border-white/10 pt-6">
+                    <h3 className="text-xl font-semibold mb-4">Informations de paiement</h3>
+
+                    <div>
+                      <label className="block text-sm text-gray-400 mb-2" htmlFor="cardNumber">
+                        Numéro de carte
+                      </label>
+                      <input
+                        id="cardNumber"
+                        name="cardNumber"
+                        type="text"
+                        maxLength={19}
+                        className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 focus:border-purple-500 focus:outline-none"
+                        placeholder="1234 5678 9012 3456"
+                      />
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                      <div>
+                        <label className="block text-sm text-gray-400 mb-2" htmlFor="expiryDate">
+                          Date d&apos;expiration
+                        </label>
+                        <input
+                          id="expiryDate"
+                          name="expiryDate"
+                          type="text"
+                          maxLength={5}
+                          className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 focus:border-purple-500 focus:outline-none"
+                          placeholder="MM/AA"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-sm text-gray-400 mb-2" htmlFor="cvv">
+                          CVV
+                        </label>
+                        <input
+                          id="cvv"
+                          name="cvv"
+                          type="text"
+                          maxLength={3}
+                          className="w-full px-4 py-3 rounded-xl bg-black/40 border border-white/10 focus:border-purple-500 focus:outline-none"
+                          placeholder="123"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
                   <div className="flex items-start gap-3">
                     <input id="terms" name="terms" type="checkbox" className="mt-1 w-4 h-4 rounded border-white/20 bg-black/40" />
                     <label htmlFor="terms" className="text-sm text-gray-400">
@@ -238,12 +298,29 @@ export default function PremiumSignupPage() {
                     </label>
                   </div>
 
+                  {error && (
+                    <div className="flex items-start gap-3 p-4 rounded-xl bg-red-500/10 border border-red-500/30">
+                      <AlertCircle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
+                      <p className="text-sm text-red-200">{error}</p>
+                    </div>
+                  )}
+
                   <button
                     type="submit"
-                    className="w-full px-6 py-4 rounded-xl bg-gradient-to-r from-purple-500 via-purple-600 to-indigo-500 font-semibold text-white hover:shadow-lg hover:shadow-purple-900/40 transition-transform duration-300 hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2"
+                    disabled={isLoading}
+                    className="w-full px-6 py-4 rounded-xl bg-gradient-to-r from-purple-500 via-purple-600 to-indigo-500 font-semibold text-white hover:shadow-lg hover:shadow-purple-900/40 transition-transform duration-300 hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                   >
-                    {submitText}
-                    <Sparkles className="w-5 h-5" />
+                    {isLoading ? (
+                      <>
+                        <Loader2 className="w-5 h-5 animate-spin" />
+                        Traitement en cours...
+                      </>
+                    ) : (
+                      <>
+                        {submitText}
+                        <Sparkles className="w-5 h-5" />
+                      </>
+                    )}
                   </button>
                 </form>
               </div>

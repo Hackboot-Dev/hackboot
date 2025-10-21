@@ -194,10 +194,10 @@ export default function AboutPage() {
         gradient: 'from-cyan-500 to-blue-600',
       },
       {
-        icon: Trophy,
-        title: 'Satisfaction Client',
-        value: '98%',
-        description: 'Note moyenne sur +500 avis vérifiés',
+        icon: Gamepad2,
+        title: 'Jeux Supportés',
+        value: '100+',
+        description: 'Catalogue complet des jeux les plus populaires',
         gradient: 'from-pink-500 to-rose-600',
       },
       {

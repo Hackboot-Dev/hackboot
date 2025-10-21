@@ -35,11 +35,16 @@ function StatCard({ stat, index }: { stat: Stat; index: number }) {
   useEffect(() => {
     if (!isInView) return
 
-    const numericValue = parseInt(stat.value.replace(/\D/g, ''))
+    const cleanValue = stat.value.replace(/[^\d.]/g, '')
+    const numericValue = parseFloat(cleanValue)
+
     if (isNaN(numericValue)) {
       setDisplayValue(stat.value)
       return
     }
+
+    const hasDecimal = cleanValue.includes('.')
+    const decimalPlaces = hasDecimal ? cleanValue.split('.')[1]?.length || 0 : 0
 
     const duration = 2000
     const startTime = Date.now()
@@ -48,8 +53,13 @@ function StatCard({ stat, index }: { stat: Stat; index: number }) {
       const elapsed = Date.now() - startTime
       const progress = Math.min(elapsed / duration, 1)
 
-      const currentValue = Math.floor(numericValue * progress)
-      setDisplayValue(currentValue.toString())
+      const currentValue = numericValue * progress
+
+      if (hasDecimal) {
+        setDisplayValue(currentValue.toFixed(decimalPlaces))
+      } else {
+        setDisplayValue(Math.floor(currentValue).toString())
+      }
 
       if (progress < 1) {
         requestAnimationFrame(animate)

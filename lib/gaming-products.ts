@@ -1,4 +1,5 @@
-import gamingProductsData from '@/data/gaming-products.json'
+import nativeProductsData from '@/data/gaming-products.json'
+import communityProductsData from '@/data/gaming-products-community.json'
 
 export interface ProductVariant {
   id: string
@@ -7,6 +8,10 @@ export interface ProductVariant {
   gpu: string
   ram: string
   cpu: string
+  storage?: string
+  motherboard?: string
+  psu?: string
+  cooling?: string
   description: string
   features: string[]
   protection: string
@@ -27,6 +32,7 @@ export interface GamingProduct {
   name: string
   game: string
   category: string
+  optimizationLevel: 'native' | 'community'
   description: string
   longDescription: string
   variants: ProductVariant[]
@@ -40,9 +46,122 @@ export interface GamingProduct {
     code: string
   }
   status: string
+  gallery?: string[]
+  gfnData?: {
+    playType: string
+    minimumTier: string
+    stores: string[]
+    iconUrl: string
+    logoUrl: string
+  }
+  technicalSpecs?: {
+    performanceMetrics?: {
+      avgFps: number
+      minFps: number
+      maxFps: number
+      latency: number
+      inputLag: number
+      frameTime: number
+      cpuUsage: number
+      gpuUsage: number
+      ramUsage: number
+      vramUsage: number
+      powerDraw: number
+      thermalCpu: number
+      thermalGpu: number
+    }
+    aimbotStats?: {
+      predictionAccuracy: number
+      smoothness: number
+      fov: number
+      targetSwitchTime: number
+      headShotRate: number
+      reactionTime: number
+      boneSelection: string[]
+      weaponSupport: number
+    }
+    espCapabilities?: {
+      maxDistance: number
+      updateRate: number
+      playerTracking: boolean
+      healthBars: boolean
+      ultimateTracking: boolean
+      abilityTracking: boolean
+      distanceIndicators: boolean
+      snapLines: boolean
+      boxESP: boolean
+      skeletonESP: boolean
+      nameESP: boolean
+      rankESP: boolean
+    }
+    securityMetrics?: {
+      detectionRate: number
+      banRate: number
+      uptimePercentage: number
+      avgResponseTime: number
+      incidentsLastMonth: number
+      securityUpdatesPerWeek: number
+      encryptionLevel: string
+      obfuscationLayers: number
+      antiDebug: boolean
+      antiVM: boolean
+      kernelProtection: boolean
+    }
+    networkStats?: {
+      serverLocations: number
+      avgPing: number
+      maxBandwidth: number
+      packetLoss: number
+      jitter: number
+      ddosProtection: boolean
+      encryption: string
+    }
+    compatibilityMatrix?: Array<{
+      hero: string
+      effectiveness: number
+      headShotRate: number
+      kda: number
+      winRate: number
+    }>
+    benchmarks?: {
+      competitorComparison: Array<{
+        metric: string
+        hackboot: number
+        competitor1: number
+        competitor2: number
+        competitor3: number
+      }>
+      rankProgression: Array<{
+        rank: string
+        avgGamesTo: number
+        winRate: number
+        avgTime: string
+      }>
+    }
+    updateHistory?: {
+      totalUpdates: number
+      lastUpdateDate: string
+      avgUpdatesPerMonth: number
+      criticalPatches: number
+      securityPatches: number
+      featureUpdates: number
+      bugFixes: number
+    }
+    userStats?: {
+      totalUsers: number
+      activeUsersLast30Days: number
+      avgSessionDuration: number
+      avgGamesPerDay: number
+      satisfactionScore: number
+      recommendationRate: number
+    }
+  }
 }
 
-export const gamingProducts: GamingProduct[] = gamingProductsData as GamingProduct[]
+export const gamingProducts: GamingProduct[] = [
+  ...(nativeProductsData as GamingProduct[]),
+  ...(communityProductsData as GamingProduct[])
+]
 
 export function getAllGamingProducts(): GamingProduct[] {
   return gamingProducts

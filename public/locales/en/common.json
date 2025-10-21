@@ -65,8 +65,23 @@
     }
   },
   "games": {
+    "badge": "Available games",
     "title": "Supported Games",
-    "subtitle": "Play all your favorite titles with maximum performance"
+    "subtitle": "Play all your favorite titles with maximum performance",
+    "search": "Search for a game...",
+    "clear": "Clear",
+    "available": "Available",
+    "results": {
+      "singular": "game available",
+      "plural": "games available"
+    },
+    "nativeBadge": "Hackboot Optimized",
+    "nativeTitle": "Natively Supported Games",
+    "nativeDescription": "Fully supported and 100% optimized games by Hackboot. Private builds, premium support, and guaranteed updates.",
+    "nativeLabel": "Premium",
+    "communityBadge": "Extended Catalog",
+    "communityTitle": "Community Games",
+    "communityDescription": "Large catalog of supported games with standard cloud configurations. Community support and regular updates."
   },
   "products": {
     "title": "Premium Gaming Solutions",

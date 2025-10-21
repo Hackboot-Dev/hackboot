@@ -65,8 +65,23 @@
     }
   },
   "games": {
+    "badge": "Saadaolevad mängud",
     "title": "Toetatud Mängud",
-    "subtitle": "Mängi kõiki oma lemmikuid maksimaalse jõudlusega"
+    "subtitle": "Mängi kõiki oma lemmikuid maksimaalse jõudlusega",
+    "search": "Otsi mängu...",
+    "clear": "Tühjenda",
+    "available": "Saadaval",
+    "results": {
+      "singular": "mäng saadaval",
+      "plural": "mängu saadaval"
+    },
+    "nativeBadge": "Hackboot Optimeeritud",
+    "nativeTitle": "Natiivse Toetusega Mängud",
+    "nativeDescription": "Täielikult toetatud ja 100% optimeeritud mängud Hackbooti poolt. Privaatsed ehitused, premium tugi ja garanteeritud uuendused.",
+    "nativeLabel": "Premium",
+    "communityBadge": "Laiendatud Kataloog",
+    "communityTitle": "Kogukonna Mängud",
+    "communityDescription": "Suur kataloog toetatud mängudest standardsete pilvekonfiguratsioonidega. Kogukonna tugi ja regulaarsed uuendused."
   },
   "products": {
     "title": "Premium Mängulahendused",

@@ -5,9 +5,210 @@
     "name": "Overwatch 2",
     "game": "Overwatch 2",
     "category": "gaming",
+    "optimizationLevel": "native",
     "description": "Package ultime Overwatch 2 avec build privé et spoofer matériel inclus",
     "longDescription": "Overwatch 2 God Mode est notre offre premium ultime. Équipé d'une RTX 4090, 128GB de RAM DDR5 et du processeur Intel i9-13900K le plus récent, ce système offre des performances inégalées. Inclut un build privé personnalisé avec HWID spoofer et mises à jour à vie.",
     "status": "ACTIVE",
+    "technicalSpecs": {
+      "performanceMetrics": {
+        "avgFps": 287,
+        "minFps": 245,
+        "maxFps": 360,
+        "latency": 0.7,
+        "inputLag": 0.3,
+        "frameTime": 3.5,
+        "cpuUsage": 42,
+        "gpuUsage": 78,
+        "ramUsage": 18.5,
+        "vramUsage": 7.2,
+        "powerDraw": 385,
+        "thermalCpu": 62,
+        "thermalGpu": 68
+      },
+      "aimbotStats": {
+        "predictionAccuracy": 98.7,
+        "smoothness": 95,
+        "fov": 180,
+        "targetSwitchTime": 0.15,
+        "headShotRate": 87.3,
+        "reactionTime": 0.08,
+        "boneSelection": ["head", "neck", "chest"],
+        "weaponSupport": 100
+      },
+      "espCapabilities": {
+        "maxDistance": 500,
+        "updateRate": 144,
+        "playerTracking": true,
+        "healthBars": true,
+        "ultimateTracking": true,
+        "abilityTracking": true,
+        "distanceIndicators": true,
+        "snapLines": true,
+        "boxESP": true,
+        "skeletonESP": true,
+        "nameESP": true,
+        "rankESP": true
+      },
+      "securityMetrics": {
+        "detectionRate": 0.001,
+        "banRate": 0.0003,
+        "uptimePercentage": 99.997,
+        "avgResponseTime": 12,
+        "incidentsLastMonth": 0,
+        "securityUpdatesPerWeek": 3.5,
+        "encryptionLevel": "AES-256",
+        "obfuscationLayers": 7,
+        "antiDebug": true,
+        "antiVM": true,
+        "kernelProtection": true
+      },
+      "networkStats": {
+        "serverLocations": 47,
+        "avgPing": 8,
+        "maxBandwidth": 1000,
+        "packetLoss": 0.01,
+        "jitter": 0.5,
+        "ddosProtection": true,
+        "encryption": "TLS 1.3"
+      },
+      "compatibilityMatrix": [
+        {
+          "hero": "Widowmaker",
+          "effectiveness": 99,
+          "headShotRate": 94,
+          "kda": 4.8,
+          "winRate": 78
+        },
+        {
+          "hero": "Cassidy",
+          "effectiveness": 97,
+          "headShotRate": 89,
+          "kda": 4.3,
+          "winRate": 76
+        },
+        {
+          "hero": "Ashe",
+          "effectiveness": 98,
+          "headShotRate": 91,
+          "kda": 4.6,
+          "winRate": 77
+        },
+        {
+          "hero": "Soldier: 76",
+          "effectiveness": 96,
+          "headShotRate": 85,
+          "kda": 4.1,
+          "winRate": 75
+        },
+        {
+          "hero": "Tracer",
+          "effectiveness": 95,
+          "headShotRate": 82,
+          "kda": 3.9,
+          "winRate": 74
+        },
+        {
+          "hero": "Genji",
+          "effectiveness": 94,
+          "headShotRate": 80,
+          "kda": 3.7,
+          "winRate": 73
+        }
+      ],
+      "benchmarks": {
+        "competitorComparison": [
+          {
+            "metric": "FPS Average",
+            "hackboot": 287,
+            "competitor1": 245,
+            "competitor2": 198,
+            "competitor3": 167
+          },
+          {
+            "metric": "Latency (ms)",
+            "hackboot": 0.7,
+            "competitor1": 1.2,
+            "competitor2": 2.8,
+            "competitor3": 4.1
+          },
+          {
+            "metric": "Detection Rate (%)",
+            "hackboot": 0.001,
+            "competitor1": 0.3,
+            "competitor2": 1.2,
+            "competitor3": 2.7
+          },
+          {
+            "metric": "Uptime (%)",
+            "hackboot": 99.997,
+            "competitor1": 98.5,
+            "competitor2": 96.2,
+            "competitor3": 93.8
+          }
+        ],
+        "rankProgression": [
+          {
+            "rank": "Bronze",
+            "avgGamesTo": 12,
+            "winRate": 95,
+            "avgTime": "3.2h"
+          },
+          {
+            "rank": "Silver",
+            "avgGamesTo": 18,
+            "winRate": 92,
+            "avgTime": "4.8h"
+          },
+          {
+            "rank": "Gold",
+            "avgGamesTo": 24,
+            "winRate": 88,
+            "avgTime": "7.1h"
+          },
+          {
+            "rank": "Platinum",
+            "avgGamesTo": 32,
+            "winRate": 84,
+            "avgTime": "10.5h"
+          },
+          {
+            "rank": "Diamond",
+            "avgGamesTo": 45,
+            "winRate": 79,
+            "avgTime": "15.8h"
+          },
+          {
+            "rank": "Master",
+            "avgGamesTo": 67,
+            "winRate": 73,
+            "avgTime": "24.3h"
+          },
+          {
+            "rank": "Grandmaster",
+            "avgGamesTo": 98,
+            "winRate": 68,
+            "avgTime": "38.7h"
+          }
+        ]
+      },
+      "updateHistory": {
+        "totalUpdates": 487,
+        "lastUpdateDate": "2025-10-18",
+        "avgUpdatesPerMonth": 12.4,
+        "criticalPatches": 23,
+        "securityPatches": 156,
+        "featureUpdates": 89,
+        "bugFixes": 219
+      },
+      "userStats": {
+        "totalUsers": 12847,
+        "activeUsersLast30Days": 11203,
+        "avgSessionDuration": 4.7,
+        "avgGamesPerDay": 8.3,
+        "satisfactionScore": 4.8,
+        "recommendationRate": 94
+      }
+    },
     "variants": [
       {
         "id": "godmode",
@@ -16,6 +217,10 @@
         "gpu": "RTX 4090",
         "ram": "128 GB DDR5",
         "cpu": "Intel i9-13900K",
+        "storage": "2TB NVMe Gen4",
+        "motherboard": "ASUS ROG Maximus Z790",
+        "psu": "1200W 80+ Platinum",
+        "cooling": "Custom Loop Liquid",
         "usage": "Build privé",
         "description": "Package ultime Overwatch 2 avec build privé et spoofer matériel inclus",
         "use_cases": [
@@ -44,8 +249,12 @@
         },
         "sla": "99.999%",
         "support_level": "enterprise",
-        "badges": ["Ultimate", "Exclusive", "Best Performance"],
-        "image": "/images/products/overwatch/godmode/main.png"
+        "badges": [
+          "Ultimate",
+          "Exclusive",
+          "Best Performance"
+        ],
+        "image": "/images/products/overwatch/main.png"
       }
     ],
     "reviews": {
@@ -56,7 +265,12 @@
       "active": false,
       "percentage": 0,
       "code": ""
-    }
+    },
+    "gallery": [
+      "/images/products/overwatch/main.png",
+      "/images/products/overwatch/1.png",
+      "/images/products/overwatch/2.png"
+    ]
   },
   {
     "id": "gaming-warzone",
@@ -64,6 +278,7 @@
     "name": "Call of Duty: Warzone",
     "game": "Call of Duty: Warzone",
     "category": "gaming",
+    "optimizationLevel": "native",
     "description": "Package élite Warzone avec aimbot avancé et HWID spoofer inclus",
     "longDescription": "Warzone Reaper 2 est l'évolution enterprise de notre solution Warzone. Équipé d'une RTX 4070 Ti, 64GB de RAM et d'un Intel i9-12900K, il offre des fonctionnalités avancées comme l'aimbot pour véhicules, ESP 3D et HWID spoofer hardware inclus.",
     "status": "ACTIVE",
@@ -103,8 +318,12 @@
         },
         "sla": "99.99%",
         "support_level": "enterprise",
-        "badges": ["Next Gen", "Enterprise", "Vehicle Support"],
-        "image": "/images/products/warzone/reaper2/main.png"
+        "badges": [
+          "Next Gen",
+          "Enterprise",
+          "Vehicle Support"
+        ],
+        "image": "/images/products/warzone/main.png"
       }
     ],
     "reviews": {
@@ -115,7 +334,12 @@
       "active": false,
       "percentage": 0,
       "code": ""
-    }
+    },
+    "gallery": [
+      "/images/products/warzone/main.png",
+      "/images/products/warzone/1.png",
+      "/images/products/warzone/2.png"
+    ]
   },
   {
     "id": "gaming-valorant",
@@ -123,6 +347,7 @@
     "name": "Valorant",
     "game": "Valorant",
     "category": "gaming",
+    "optimizationLevel": "native",
     "description": "Suite de cheat Valorant indétectée avec aimbot, ESP et skin changer",
     "longDescription": "Valorant Oblivion est spécialement conçu pour contourner Vanguard. Ce système offre un aimbot humanisé, ESP, skinchanger et triggerbot, le tout avec des mises à jour stealth pour rester indétectable.",
     "status": "ACTIVE",
@@ -162,13 +387,595 @@
         },
         "sla": "99.99%",
         "support_level": "enterprise",
-        "badges": ["Valorant Pro", "Vanguard Bypass", "Humanized"],
-        "image": "/images/products/valorant/oblivion/main.png"
+        "badges": [
+          "Valorant Pro",
+          "Vanguard Bypass",
+          "Humanized"
+        ],
+        "image": "/images/products/valorant/main.png"
       }
     ],
     "reviews": {
       "average": 4.8,
       "count": 267
+    },
+    "discount": {
+      "active": false,
+      "percentage": 0,
+      "code": ""
+    },
+    "gallery": [
+      "/images/products/valorant/main.png",
+      "/images/products/valorant/1.png"
+    ]
+  },
+  {
+    "id": "gaming-battlefield6",
+    "slug": "gaming-battlefield6",
+    "name": "Battlefield 6",
+    "game": "Battlefield 6",
+    "category": "gaming",
+    "optimizationLevel": "native",
+    "description": "Solution Battlefield 6 premium avec build privé et protection avancée",
+    "longDescription": "Battlefield 6 God Mode offre une expérience de jeu optimale avec GPU RTX 4090, 128GB RAM DDR5 et Intel i9-13900K. Build privé exclusif avec HWID spoofer intégré, parfait pour la domination sur le champ de bataille.",
+    "status": "ACTIVE",
+    "variants": [
+      {
+        "id": "godmode",
+        "name": "God Mode",
+        "tier": "premium",
+        "gpu": "RTX 4090",
+        "ram": "128 GB DDR5",
+        "cpu": "Intel i9-13900K",
+        "usage": "Build privé",
+        "description": "Solution Battlefield 6 premium avec build privé et protection avancée",
+        "use_cases": [
+          "Gaming compétitif",
+          "Conquête dominante",
+          "Stream professionnel",
+          "Statistiques optimales",
+          "Performance maximale"
+        ],
+        "features": [
+          "Build privé personnalisé",
+          "ESP avancé véhicules et infanterie",
+          "Aimbot prédictif",
+          "HWID spoofer intégré",
+          "Protection kernel-level",
+          "Support premium 24/7",
+          "Mises à jour garanties"
+        ],
+        "target_audience": "Joueurs compétitifs, Équipes esport",
+        "highlight": "Build privé exclusif",
+        "protection": "Undetectable",
+        "updates": "Priority updates",
+        "pricing": {
+          "hourly": 2.25,
+          "monthly": 900
+        },
+        "sla": "99.999%",
+        "support_level": "enterprise",
+        "badges": [
+          "Premium",
+          "Exclusive",
+          "Next-Gen"
+        ],
+        "image": "/images/products/battlefield6/main.png"
+      }
+    ],
+    "reviews": {
+      "average": 4.9,
+      "count": 342
+    },
+    "discount": {
+      "active": false,
+      "percentage": 0,
+      "code": ""
+    },
+    "gallery": [
+      "/images/products/battlefield6/main.png",
+      "/images/products/battlefield6/1.png"
+    ]
+  },
+  {
+    "id": "gaming-destiny2",
+    "slug": "gaming-destiny2",
+    "name": "Destiny 2",
+    "game": "Destiny 2",
+    "category": "gaming",
+    "optimizationLevel": "native",
+    "description": "Package Destiny 2 élite avec aimbot PvP/PvE et protection indétectable",
+    "longDescription": "Destiny 2 God Mode combine puissance et discrétion. RTX 4080, 64GB RAM DDR5 et AMD Ryzen 9 7950X offrent des performances exceptionnelles. Build privé avec protection kernel pour PvP et PvE.",
+    "status": "ACTIVE",
+    "variants": [
+      {
+        "id": "godmode",
+        "name": "God Mode",
+        "tier": "premium",
+        "gpu": "RTX 4080",
+        "ram": "64 GB DDR5",
+        "cpu": "AMD Ryzen 9 7950X",
+        "usage": "Build privé",
+        "description": "Package Destiny 2 élite avec aimbot PvP/PvE et protection indétectable",
+        "use_cases": [
+          "Trials of Osiris",
+          "Raids & Dungeons",
+          "PvP compétitif",
+          "Farming optimisé",
+          "Grandmaster Nightfalls"
+        ],
+        "features": [
+          "Build privé Destiny 2",
+          "Aimbot PvP précision maximale",
+          "ESP ennemis et coffres",
+          "Super tracker",
+          "HWID spoofer",
+          "Protection BattlEye",
+          "Support dédié Guardian"
+        ],
+        "target_audience": "Guardians compétitifs, Streamers",
+        "highlight": "Aimbot PvP/PvE",
+        "protection": "BattlEye bypass",
+        "updates": "Day-one updates",
+        "pricing": {
+          "hourly": 2.0,
+          "monthly": 800
+        },
+        "sla": "99.99%",
+        "support_level": "enterprise",
+        "badges": [
+          "Premium",
+          "Guardian",
+          "PvP Ready"
+        ],
+        "image": "/images/products/destiny2/main.png"
+      }
+    ],
+    "reviews": {
+      "average": 4.8,
+      "count": 289
+    },
+    "discount": {
+      "active": false,
+      "percentage": 0,
+      "code": ""
+    },
+    "gallery": [
+      "/images/products/destiny2/main.png",
+      "/images/products/destiny2/1.png"
+    ]
+  },
+  {
+    "id": "gaming-dota2",
+    "slug": "gaming-dota2",
+    "name": "Dota 2",
+    "game": "Dota 2",
+    "category": "gaming",
+    "optimizationLevel": "native",
+    "description": "Solution Dota 2 professionnelle avec scripts avancés et map awareness",
+    "longDescription": "Dota 2 God Mode est conçu pour les joueurs exigeants. RTX 4070 Ti, 64GB RAM et Intel i9-12900K garantissent des performances fluides. Build privé avec scripts personnalisés et protection VAC.",
+    "status": "ACTIVE",
+    "variants": [
+      {
+        "id": "godmode",
+        "name": "God Mode",
+        "tier": "premium",
+        "gpu": "RTX 4070 Ti",
+        "ram": "64 GB DDR5",
+        "cpu": "Intel i9-12900K",
+        "usage": "Build privé",
+        "description": "Solution Dota 2 professionnelle avec scripts avancés et map awareness",
+        "use_cases": [
+          "Ranked compétitif",
+          "Tournois professionnels",
+          "MMR grinding",
+          "Stream gameplay",
+          "Practice optimisée"
+        ],
+        "features": [
+          "Build privé Dota 2",
+          "Map awareness complète",
+          "Last-hit perfection",
+          "Ability tracker",
+          "Ward detection",
+          "Protection VAC",
+          "Scripts personnalisables"
+        ],
+        "target_audience": "Joueurs compétitifs, Pro teams",
+        "highlight": "Scripts professionnels",
+        "protection": "VAC bypass",
+        "updates": "Patch-day updates",
+        "pricing": {
+          "hourly": 1.88,
+          "monthly": 750
+        },
+        "sla": "99.99%",
+        "support_level": "enterprise",
+        "badges": [
+          "Premium",
+          "Pro Scripts",
+          "Competitive"
+        ],
+        "image": "/images/products/dota2/main.png"
+      }
+    ],
+    "reviews": {
+      "average": 4.7,
+      "count": 215
+    },
+    "discount": {
+      "active": false,
+      "percentage": 0,
+      "code": ""
+    },
+    "gallery": [
+      "/images/products/dota2/main.png",
+      "/images/products/dota2/1.png"
+    ]
+  },
+  {
+    "id": "gaming-apex",
+    "slug": "gaming-apex",
+    "name": "Apex Legends",
+    "game": "Apex Legends",
+    "category": "gaming",
+    "optimizationLevel": "community",
+    "description": "Configuration cloud optimisée pour Apex Legends",
+    "longDescription": "Environnement gaming cloud pour Apex Legends avec configuration standard et support communautaire.",
+    "status": "ACTIVE",
+    "gfnData": {
+      "playType": "READY_TO_PLAY",
+      "minimumTier": null,
+      "stores": [
+        "EA_APP"
+      ],
+      "iconUrl": "https://img.nvidiagrid.net/apps/100885211/ZZ/GAME_ICON_01_20f4b569-4620-4c87-a7fd-6ea51b87cade.png",
+      "logoUrl": "https://img.nvidiagrid.net/apps/100885211/ZZ/GAME_LOGO_01_b747bcf5-01b6-46ba-bfb0-0193e2b4a50b.png"
+    },
+    "variants": [
+      {
+        "id": "standard",
+        "name": "Standard",
+        "tier": "standard",
+        "gpu": "RTX 3060",
+        "ram": "16 GB",
+        "cpu": "Intel i5-12400",
+        "usage": "Configuration standard",
+        "description": "Environnement cloud pour Apex Legends",
+        "use_cases": [
+          "Jeu casual",
+          "Practice",
+          "Ranked"
+        ],
+        "features": [
+          "VM cloud optimisée",
+          "Support communautaire",
+          "Mises à jour régulières"
+        ],
+        "target_audience": "Joueurs Apex",
+        "highlight": "Support communautaire",
+        "protection": "Standard",
+        "updates": "Regular",
+        "pricing": {
+          "hourly": 0.5,
+          "monthly": 199
+        },
+        "sla": "99.9%",
+        "support_level": "community",
+        "badges": [
+          "Community",
+          "Standard"
+        ],
+        "image": "/images/products/apex/standard/main.png"
+      }
+    ],
+    "reviews": {
+      "average": 4.3,
+      "count": 89
+    },
+    "discount": {
+      "active": false,
+      "percentage": 0,
+      "code": ""
+    }
+  },
+  {
+    "id": "gaming-cs2",
+    "slug": "gaming-cs2",
+    "name": "Counter-Strike 2",
+    "game": "Counter-Strike 2",
+    "category": "gaming",
+    "optimizationLevel": "community",
+    "description": "Setup cloud pour CS2",
+    "longDescription": "Configuration cloud pour Counter-Strike 2 avec support communautaire.",
+    "status": "ACTIVE",
+    "gfnData": {
+      "playType": "READY_TO_PLAY",
+      "minimumTier": null,
+      "stores": [
+        "STEAM"
+      ],
+      "iconUrl": "https://img.nvidiagrid.net/apps/100884811/ZZ/GAME_ICON_01_708b496a-5946-45ab-b01a-06ec41830e6d.png",
+      "logoUrl": "https://img.nvidiagrid.net/apps/100884811/ZZ/GAME_LOGO_01_99de55fc-e660-4240-aae9-f89d1b462df1.png"
+    },
+    "variants": [
+      {
+        "id": "standard",
+        "name": "Standard",
+        "tier": "standard",
+        "gpu": "RTX 3060",
+        "ram": "16 GB",
+        "cpu": "Intel i5-12400",
+        "usage": "Configuration standard",
+        "description": "VM cloud CS2",
+        "use_cases": [
+          "Jeu casual",
+          "Practice",
+          "Ranked"
+        ],
+        "features": [
+          "VM cloud optimisée",
+          "Support communautaire",
+          "Mises à jour régulières"
+        ],
+        "target_audience": "Joueurs CS2",
+        "highlight": "Support communautaire",
+        "protection": "Standard",
+        "updates": "Regular",
+        "pricing": {
+          "hourly": 0.5,
+          "monthly": 199
+        },
+        "sla": "99.9%",
+        "support_level": "community",
+        "badges": [
+          "Community",
+          "Standard"
+        ],
+        "image": "/images/products/cs2/standard/main.png"
+      }
+    ],
+    "reviews": {
+      "average": 4.4,
+      "count": 156
+    },
+    "discount": {
+      "active": false,
+      "percentage": 0,
+      "code": ""
+    }
+  },
+  {
+    "id": "gaming-league",
+    "slug": "gaming-league",
+    "name": "League of Legends",
+    "game": "League of Legends",
+    "category": "gaming",
+    "optimizationLevel": "community",
+    "description": "Cloud gaming pour League of Legends",
+    "longDescription": "Environnement cloud pour League of Legends avec support communautaire.",
+    "status": "ACTIVE",
+    "variants": [
+      {
+        "id": "standard",
+        "name": "Standard",
+        "tier": "standard",
+        "gpu": "RTX 3060",
+        "ram": "16 GB",
+        "cpu": "Intel i5-12400",
+        "usage": "Configuration standard",
+        "description": "VM cloud LoL",
+        "use_cases": [
+          "Jeu casual",
+          "Practice",
+          "Ranked"
+        ],
+        "features": [
+          "VM cloud optimisée",
+          "Support communautaire",
+          "Mises à jour régulières"
+        ],
+        "target_audience": "Joueurs LoL",
+        "highlight": "Support communautaire",
+        "protection": "Standard",
+        "updates": "Regular",
+        "pricing": {
+          "hourly": 0.5,
+          "monthly": 199
+        },
+        "sla": "99.9%",
+        "support_level": "community",
+        "badges": [
+          "Community",
+          "Standard"
+        ],
+        "image": "/images/products/league/standard/main.png"
+      }
+    ],
+    "reviews": {
+      "average": 4.1,
+      "count": 93
+    },
+    "discount": {
+      "active": false,
+      "percentage": 0,
+      "code": ""
+    }
+  },
+  {
+    "id": "gaming-escape-tarkov",
+    "slug": "gaming-escape-tarkov",
+    "name": "Escape from Tarkov",
+    "game": "Escape from Tarkov",
+    "category": "gaming",
+    "optimizationLevel": "community",
+    "description": "VM cloud pour Tarkov",
+    "longDescription": "Machine virtuelle cloud pour Escape from Tarkov avec support communautaire.",
+    "status": "ACTIVE",
+    "variants": [
+      {
+        "id": "standard",
+        "name": "Standard",
+        "tier": "standard",
+        "gpu": "RTX 3060",
+        "ram": "16 GB",
+        "cpu": "Intel i5-12400",
+        "usage": "Configuration standard",
+        "description": "VM cloud Tarkov",
+        "use_cases": [
+          "Jeu casual",
+          "Practice",
+          "Raids"
+        ],
+        "features": [
+          "VM cloud optimisée",
+          "Support communautaire",
+          "Mises à jour régulières"
+        ],
+        "target_audience": "Joueurs Tarkov",
+        "highlight": "Support communautaire",
+        "protection": "Standard",
+        "updates": "Regular",
+        "pricing": {
+          "hourly": 0.5,
+          "monthly": 199
+        },
+        "sla": "99.9%",
+        "support_level": "community",
+        "badges": [
+          "Community",
+          "Standard"
+        ],
+        "image": "/images/products/tarkov/standard/main.png"
+      }
+    ],
+    "reviews": {
+      "average": 4.3,
+      "count": 78
+    },
+    "discount": {
+      "active": false,
+      "percentage": 0,
+      "code": ""
+    }
+  },
+  {
+    "id": "gaming-rainbow6",
+    "slug": "gaming-rainbow6",
+    "name": "Rainbow Six Siege",
+    "game": "Rainbow Six Siege",
+    "category": "gaming",
+    "optimizationLevel": "community",
+    "description": "Cloud gaming R6 Siege",
+    "longDescription": "Configuration cloud pour Rainbow Six Siege avec support communautaire.",
+    "status": "ACTIVE",
+    "gfnData": {
+      "playType": "READY_TO_PLAY",
+      "minimumTier": null,
+      "stores": [
+        "UPLAY",
+        "STEAM"
+      ],
+      "iconUrl": "https://img.nvidiagrid.net/apps/100881611/ZZ/GAME_ICON_01_61b97dde-57b3-48a7-8e8f-5b483b26d18e.png",
+      "logoUrl": "https://img.nvidiagrid.net/apps/100881611/ZZ/GAME_LOGO_01_996b6057-1a8d-4a11-840c-a08c6b8fa181.png"
+    },
+    "variants": [
+      {
+        "id": "standard",
+        "name": "Standard",
+        "tier": "standard",
+        "gpu": "RTX 3060",
+        "ram": "16 GB",
+        "cpu": "Intel i5-12400",
+        "usage": "Configuration standard",
+        "description": "VM cloud R6",
+        "use_cases": [
+          "Jeu casual",
+          "Practice",
+          "Ranked"
+        ],
+        "features": [
+          "VM cloud optimisée",
+          "Support communautaire",
+          "Mises à jour régulières"
+        ],
+        "target_audience": "Joueurs R6",
+        "highlight": "Support communautaire",
+        "protection": "Standard",
+        "updates": "Regular",
+        "pricing": {
+          "hourly": 0.5,
+          "monthly": 199
+        },
+        "sla": "99.9%",
+        "support_level": "community",
+        "badges": [
+          "Community",
+          "Standard"
+        ],
+        "image": "/images/products/rainbow6/standard/main.png"
+      }
+    ],
+    "reviews": {
+      "average": 4.2,
+      "count": 102
+    },
+    "discount": {
+      "active": false,
+      "percentage": 0,
+      "code": ""
+    }
+  },
+  {
+    "id": "gaming-gta5",
+    "slug": "gaming-gta5",
+    "name": "GTA V Online",
+    "game": "GTA V Online",
+    "category": "gaming",
+    "optimizationLevel": "community",
+    "description": "Setup cloud GTA V",
+    "longDescription": "Environnement cloud pour GTA V Online avec support communautaire.",
+    "status": "ACTIVE",
+    "variants": [
+      {
+        "id": "standard",
+        "name": "Standard",
+        "tier": "standard",
+        "gpu": "RTX 3060",
+        "ram": "16 GB",
+        "cpu": "Intel i5-12400",
+        "usage": "Configuration standard",
+        "description": "VM cloud GTA V",
+        "use_cases": [
+          "Jeu casual",
+          "Missions",
+          "Online"
+        ],
+        "features": [
+          "VM cloud optimisée",
+          "Support communautaire",
+          "Mises à jour régulières"
+        ],
+        "target_audience": "Joueurs GTA V",
+        "highlight": "Support communautaire",
+        "protection": "Standard",
+        "updates": "Regular",
+        "pricing": {
+          "hourly": 0.5,
+          "monthly": 199
+        },
+        "sla": "99.9%",
+        "support_level": "community",
+        "badges": [
+          "Community",
+          "Standard"
+        ],
+        "image": "/images/products/gta5/standard/main.png"
+      }
+    ],
+    "reviews": {
+      "average": 4.1,
+      "count": 145
     },
     "discount": {
       "active": false,
