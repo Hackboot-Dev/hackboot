@@ -1946,3 +1946,28 @@ if (hasDecimal) {
 #### État:
 ✅ Section Services alignée sur la charte visuelle
 ✅ Contenus FR/EN/ET enrichis et synchronisés
+
+### Fix: Localisation complète des pages produits cloud
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Garantir la disponibilité des contenus Overwatch PulseForge en français, anglais et estonien.
+- Uniformiser la page produit communautaire avec les systèmes de traduction existants.
+
+#### Actions réalisées:
+1. Ajout d'une copie estonienne détaillée pour la page native Overwatch (métriques, CTA, plans, conseils techniques).
+2. Internationalisation de la page produit communautaire avec récupération des traductions depuis `common.json` et override des abonnements.
+3. Extension des fichiers de langue FR/EN/ET avec les nouvelles clés `communityProductPage`.
+
+#### Fichiers modifiés:
+- `/components/NativeGamingProductPage.tsx`
+- `/components/CommunityGamingProductPage.tsx`
+- `/public/locales/fr/common.json`
+- `/public/locales/en/common.json`
+- `/public/locales/et/common.json`
+- `/next-i18next.config.js`
+
+#### État:
+✅ Page native Overwatch disponible en FR/EN/ET
+✅ Page produit communautaire alignée sur les traductions globales

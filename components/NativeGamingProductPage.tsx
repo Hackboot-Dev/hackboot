@@ -735,10 +735,375 @@ const englishCopy: LocaleContent = {
   }
 }
 
+const estonianCopy: LocaleContent = {
+  breadcrumbs: { home: 'Avaleht', games: 'Mängud' },
+  reviewsLabel: 'arvustust',
+  optimizationBadge: 'NATIIVSELT OPTIMEERITUD',
+  nativeAdvantages: [
+    {
+      icon: Code,
+      title: 'Natiivne integratsioon',
+      description: 'Moodulid on kalibreeritud Overwatch 2 jaoks ja sünkroniseeritakse pärast iga Blizzardi värskendust'
+    },
+    {
+      icon: Shield,
+      title: 'Täielik vastavus',
+      description: 'Voogedastuseks turvalised overlayd, mis järgivad e-spordi juhiseid ilma pealetükkiva injektsioonita'
+    },
+    {
+      icon: Gauge,
+      title: 'Häälestatud jõudlus',
+      description: 'Stabiilsed 400+ FPS ja kontrollitud latentsus tänu meie kohandatud serveriprofiilile'
+    },
+    {
+      icon: Trophy,
+      title: 'Loominguline tugi',
+      description: 'Pühendunud saatja aitab seadistada coaching’u, striimi ja LAN-presette'
+    }
+  ],
+  quickStats: {
+    avgFps: 'Keskmine FPS',
+    onePercentLow: '1% madal (4K Ultra)',
+    latency: 'Süsteemi latentsus',
+    inputLag: 'Sisendviivitus'
+  },
+  subscription: {
+    title: 'Vali oma tellimus',
+    popular: 'Kõige populaarsem',
+    viewDetails: 'Vaata üksikasju'
+  },
+  metrics: {
+    badge: 'JÕUDLUSMÕÕDIKUD',
+    title: 'Kalibreeritud jõudlus Overwatch 2 jaoks',
+    description:
+      'Meie PulseForge’i instantsi sisemised mõõtmised: 410 FPS keskmiselt 1080p e-spordi eelseadistusel, 242 FPS 1440p juures ja 131 FPS 4K-s. 1% madal langeb 84 FPS-ni 4K Ultra stsenaariumis koos täiskomplekti overlaididega, jättes rohkelt varu ka äärmusliku koormuse korral.',
+    statCards: {
+      maxFps: 'Maksimaalne täheldatud FPS',
+      onePercentLow: '1% madal (4K Ultra)',
+      inputLag: 'Keskmine sisendviivitus'
+    },
+    allocationTitle: 'PulseForge’i serveri eraldus',
+    datacenterTitle: 'Andmekeskuse stabiilsus',
+    usage: {
+      cpu: 'CPU kasutus',
+      gpu: 'GPU kasutus',
+      ram: 'RAM kasutus',
+      vram: 'VRAM kasutus'
+    },
+    thermals: {
+      cpu: 'CPU temperatuur',
+      gpu: 'GPU temperatuur',
+      power: 'Võimsustarve'
+    },
+    stabilityNote: 'Temperatuurid püsivad kontrolli all ja termiline varu säilib'
+  },
+  fpsTable: {
+    title: 'FPS resolutsiooni järgi',
+    description:
+      'Meie pilveprofiilid häälestavad ressursid automaatselt: siin on FPS tase, kui suurendad või vähendad resolutsiooni keskmiste seadistustega.',
+    headers: {
+      resolution: 'Resolutsioon',
+      avg: 'Keskmine FPS',
+      min: 'Min',
+      max: 'Maks',
+      playability: 'Mängitavus',
+      bottleneck: 'Pudelkits'
+    },
+    footnote: 'Sisemised Overwatch 2 profiili benchmarkid (keskmine eelseadistus, peamised võistluskaardid).'
+  },
+  quality: {
+    title: 'FPS graafikaseadistuste kaupa',
+    description: 'Kasuta pilvekontrollerit, et valida vajalik eelseadistus ja jääda näidatud FPS vahemikku.',
+    badge: 'bench'
+  },
+  resolution: {
+    title: 'Kuidas pilvest resolutsiooni reguleerida',
+    description:
+      'Meie sisemised mõõtmised näitavad tegelikku FPS varu, kui tõstad või langetad eraldusvõimet PulseForge’i paneelist.',
+    windowLabel: 'Täheldatud vahemik',
+    footnote: 'Väärtused põhinevad meie Overwatch 2 stsenaariumidel keskmise ja ultra eelseadistusega ning overlayd sisse lülitatud.',
+    avgLabel: 'Keskmine FPS'
+  },
+  experience: {
+    title: 'PulseForge’i pilvekogemus',
+    description: (productName: string, latency: number) =>
+      `${productName} töötab täielikult meie pilveinfrastruktuuril: puudub kohalik seadistus, kohene ettevalmistus ja keskmine latentsus hoitakse ${latency} ms juures.`,
+    bullets: [
+      'Overlayd, modid ja värskendused rakendatakse serveripoolselt ilma sinu arvutit puutumata.',
+      'Lülitu 1080p, 1440p või 4K vahel pilvepaneelist, säilitades näidatud FPS varu.',
+      'Pidev jälgimine: vaheta regiooni, kui ping ületab 30 ms, et kontroll säiliks.'
+    ],
+    profileLabel: 'E-spordi profiil',
+    profileSubtitle: 'Keskmine mõõdetud 1080p juures',
+    lowLabel: '1% madal 4K Ultra',
+    lowSubtitle: 'Äärmusliku koormuse stsenaarium'
+  },
+  improvement: {
+    tipsTitle: 'Vihjed FPS-i tõstmiseks',
+    adviceTitle: 'Kasutussoovitus'
+  },
+  augmentation: {
+    badge: 'PULSEFORGE’I ABISUITE',
+    title: 'Reaalajas taktikamoodulid',
+    description: 'Kontekstuaalsed overlayd, kohanduv coaching ja pro taseme teadmised otse sinu HUD-is.',
+    modulesTitle: 'Kaasa kuuluvad põhimoodulid',
+    reactivityTitle: 'Reageerimisvõime ja katvus',
+    overlayLabel: 'Overlay värskendus',
+    modulesLabel: 'Aktiivsed moodulid',
+    coachingLabel: 'Kohanduv coaching',
+    reactionLabel: 'Keskmine reaktsiooniaeg',
+    motionNote: 'Naturaliseeritud liikumised sujuva ja ergonoomilise tunde jaoks',
+    awarenessLabel: 'Teadlikkuse indeks',
+    focusLabel: 'Taktikaline fookus'
+  },
+  legacyPrecision: {
+    badge: 'ARENENUD TÄPSUSSÜSTEEM',
+    title: 'Profi tasemel abistatud jälgimine',
+    description: 'Tark jälgimise häälestus ja ergonoomiline abi loomuliku tunnetuse jaoks.',
+    stats: {
+      tracking: 'Jälgimise täpsus',
+      smoothness: 'Sujuvus',
+      fov: 'Dünaamiline vaateväli',
+      switchTime: 'Lülitusaeg'
+    },
+    advancedTitle: 'Täiustatud statistika',
+    metrics: {
+      priority: 'Prioriteetne sihtimine',
+      weapon: 'Relvade ühilduvus',
+      reaction: 'Reaktsiooniaeg'
+    },
+    focusTitle: 'Fookuspunktid'
+  },
+  hero: {
+    badge: 'KANGELASPROFIILID',
+    title: 'Pühendatud optimeerimised',
+    description: 'Iga moodul sisaldab eelseadistust, mis on kalibreeritud Overwatch 2 põhiklasside ja kangelaste jaoks.',
+    headers: {
+      hero: 'Kangelane',
+      overlay: 'Overlay fookus',
+      clarity: 'Visuaalne selgus',
+      preset: 'Soovitatud eelseadistus',
+      notes: 'Coaching’u märkmed'
+    },
+    fallbackTitle: 'Kangelaste jõudlus',
+    fallbackDescription: (game: string) => `Spetsiifilised optimeerimised iga ${game} kangelase jaoks`,
+    fallbackHeaders: {
+      optimization: 'Optimeerimine',
+      critRate: 'Kriitiline määr',
+      efficiency: 'Tõhususindeks',
+      impact: 'Võidumõju'
+    }
+  },
+  reliability: {
+    badge: 'USALDUSVÄÄRSUS JA HOOLDUS',
+    title: 'Ettevõtte tasemel teenus',
+    description: 'Proaktiivne järelevalve, kiired parandused ja voogedastuse vastavus rahulikuks kogemuseks.',
+    cards: {
+      detection: 'Kriitiliste juhtumite määr',
+      detectionFootnote: 'Jätkuv järelevalve',
+      uptime: 'Töökindlus',
+      uptimeFootnote: 'Kõrge kättesaadavusega infrastruktuur',
+      response: 'Toe reageerimisaeg',
+      responseFootnote: 'Pühendunud meeskond 24/7'
+    },
+    maintenanceTitle: 'Proaktiivne hooldus',
+    encryption: 'Krüptimine',
+    isolation: 'Isolatsioonikihid',
+    updates: 'Hoolduse värskendused / nädal',
+    incidents: 'Intsidentide arv (30p)',
+    surveillanceTitle: 'Automaatne järelevalve',
+    surveillanceToggles: {
+      antiDebug: 'Tervikluse jälgimine',
+      antiVM: 'Virtuaalkeskkondade kontroll',
+      kernel: 'Optimeeritud kerneli teenus'
+    },
+    protectionNote: 'Täielik kaitse tarkvarakonfliktide ja draiverihälvete vastu'
+  },
+  network: {
+    badge: 'PILVEINFRASTRUKTUUR',
+    title: 'Ülikiire globaalne võrk',
+    description: (serverCount: number) =>
+      `${serverCount} teenuspunkti on sünkroonitud, et hoida overlay ja voogedastuse reageerimisvõimet.`,
+    cards: {
+      servers: 'Serverid',
+      ping: 'Keskmine ping',
+      loss: 'Paketikadu',
+      jitter: 'Jitter'
+    },
+    bandwidthLabel: 'Maksimaalne ribalaius',
+    bandwidthSubtitle: 'Ühenduse kohta',
+    encryptionLabel: 'Krüptimine',
+    encryptionSubtitle: 'Maksimaalne turvalisus',
+    ddos: 'Aktiivne DDoS-kaitse'
+  },
+  user: {
+    badge: 'KOGUKOND JA RAHULOLU',
+    title: (total: string) => `Usaldusväärne ${total} mängija poolt`,
+    subtitle: 'Aktiivne ja rahulolev kogukond, mis kinnitab meie kvaliteeti',
+    cards: {
+      total: 'Kasutajaid kokku',
+      active: 'Aktiivsed (30p)',
+      session: 'Keskmine sessioon',
+      games: 'Mänge päevas'
+    },
+    ratingLabel: 'Rahuloluhinne',
+    recommendationLabel: 'Soovituse määr'
+  },
+  nativeReasons: {
+    title: 'Miks valida meie natiivne build?',
+    description: (game: string) => `Läbivalt ${game} jaoks optimeeritud, mõõdetud jõudluse ja pühendunud toe abil.`
+  },
+  featuresTitle: 'Kaasa kuuluvad funktsioonid',
+  cta: {
+    title: (game: string) => `Valmis oma ${game} kogemust tõstma?`,
+    description: 'Aktiveeri PulseForge’i komplekt ja ava coaching’u, striimimise ja võistluste jaoks loodud tööriistad.',
+    button: 'Vali minu pakett'
+  },
+  subscriptionPlans: {
+    essentiel: {
+      name: 'Essential pakett',
+      description: 'Usaldusväärne jõudlus ja täielik konfiguratori ligipääs koheseks alustamiseks.',
+      billing: 'kuus',
+      features: [
+        'Juurdepääs standardsele pilveinfrastruktuurile',
+        'Kogukonna tugi',
+        'Regulaarsed turvauuendused',
+        'Populaarsete mängude kataloog kaasas'
+      ]
+    },
+    avantage: {
+      name: 'Advantage pakett',
+      description: 'Rohkem võimsust ja prioriteetne tugi sujuvaks kogemuseks.',
+      billing: 'kuus',
+      features: [
+        'Täiendatud GPU jõudlus',
+        'Prioriteetne tugi 24/7',
+        'Ligipääs premium konfiguratsioonidele',
+        'Reaalajas analüütika töölaud'
+      ]
+    },
+    élite: {
+      name: 'Elite pakett',
+      description: 'Pühendatud infrastruktuur ja maksimaalne turvalisus kõige nõudlikumatele vajadustele.',
+      billing: 'kuus',
+      features: [
+        'Pühendatud RTX 4090 virtuaalmasin',
+        'Piiramatu HWID Spoofer',
+        'Isiklik tehniline konsultant',
+        'Hetkelised uuendused ja paigad'
+      ]
+    }
+  },
+  product: {
+    description: 'Pilvepõhine Overwatch 2 instants, mis koondab taktikaliselt overlayd, reaalajas analüütika ja stream-safe modding tööriistad.',
+    longDescription:
+      'PulseForge Overwatch 2 jaoks on täielikult natiivne riist- ja tarkvarapakett, mis on majutatud meie pilvemängu platvormil. See koondab meie taktikalised overlayd, automatiseeritud coaching’u moodulid ning striimiks valmis audio-/videopresetid. Mõeldud nii võistkondadele kui loojatele, pakkudes mittepealetükkivat integreerimist värskendustega, mis sünkroonitakse iga Blizzardi patchiga ja serveripoolse orkestreerimisega.',
+    variants: {
+      godmode: {
+        name: 'PulseForge Creator',
+        usage: 'Natiivne pilvepõhine augmentatsiooni instants',
+        description: 'Pilvepõhine Overwatch 2 instants taktikaliste overlayde, visuaalse modimise ja integreeritud treeningtööriistadega.',
+        use_cases: [
+          'Meeskonna coaching ja analüütika',
+          'Elamuslik sisuloomine',
+          'LAN- ja online-võistlused',
+          'Mugavusmakrode optimeerimine',
+          'Mitme ekraani kogemused'
+        ],
+        features: [
+          'Rollipõhiselt kalibreeritud modulaarsed overlayd',
+          'Matši järelanalüüsi moodulid ekspordiga',
+          'Metaga sünkroonis koosseisunõustaja',
+          'Stream-safe visuaalse modimise profiilid',
+          'Turniirikindlad ergonoomilised makrod',
+          'Mitme sisendi tugi (MKB/pult)',
+          'Jätkuvad koostööl põhinevad uuendused'
+        ],
+        target_audience: 'Treenerid, loojad, võistlusmängijad',
+        highlight: 'Metaga sünkroonis natiivne suite',
+        protection: 'Turniiri ja striimi nõuetele vastavus',
+        updates: 'Prioriteetne OTA töövoog'
+      }
+    }
+  },
+  technical: {
+    fpsByResolution: [
+      { playability: 'Väga sujuv', bottleneck: 'Pudelkits puudub (0%)' },
+      { playability: 'Väga sujuv', bottleneck: 'Pudelkits puudub (0%)' },
+      { playability: 'Väga sujuv', bottleneck: 'GPU pudelkits (18%)' }
+    ],
+    resolutionGuidance: [
+      {
+        refreshAdvice: 'Ideaalne 240–360 Hz võistlusmänguks',
+        description:
+          '1080p e-spordi profiil: hoiame 410 FPS keskmiselt võistluseelsedistusel täis overlay komplektiga. Keskmisele lülitudes saad 375 FPS ja Ultra annab 201 FPS filmilisteks seanssideks.',
+        note: 'Hoia seda profiili, kui prioriteediks on maksimaalne reageerimisvõime.'
+      },
+      {
+        refreshAdvice: 'Sobib 165/240 Hz paneelidele teravama pildiga',
+        description:
+          '1440p-le liikumine tasakaalustab selguse ja sujuvuse: 242 FPS mõõdetud keskmistel seadistustel ja endiselt 130 FPS Ultra režiimis kõigi overlaydega.',
+        note: 'Eelista seda režiimi suure eraldusvõimega striimimiseks või detailsete VOD-analüüside jaoks.'
+      },
+      {
+        refreshAdvice: 'Stabiilne üle 120 Hz konkurentsivõimeliseks 4K-ks',
+        description:
+          '4K juures hoiab platvorm 131 FPS keskmiselt keskmisel eelseadistusel ja 70 FPS Ultra režiimis. Piirang tuleneb GPU-st, kuid säilib 120 Hz jaoks vajalik puhver.',
+        note: 'Kasuta seda profiili showcase-sisu või 4K ekraanil mängimise jaoks ilma suuremate kompromissideta.'
+      }
+    ],
+    improvementTips: [
+      'Lülitu meie Esports- ja Ultra-eelseadistuste vahel pilvepaneelist, et GPU koormust hetkega kohandada.',
+      'Reguleeri oma voogedastuse resolutsiooni (1080p, 1440p, 2160p) vastavalt märgitud FPS-varule, et hoida reageerimisvõimet.',
+      'Kasuta automaatset ajastajat, et käivitada enne pikki treeninguid värske instants.',
+      'Luba valikulised overlayd ainult kaartidel, kus neid vajad, et vabastada 3–5% ressursse.',
+      'Jälgi latentsusdashi ja vaheta regiooni, kui ping ületab 30 ms.'
+    ],
+    advice:
+      'Naudi erakordset sujuvust meie pilveinfrastruktuuril: 410 FPS 1080p e-spordis, 242 FPS 1440p juures ja 131 FPS 4K-s. Kohanda resolutsiooni, et leida endale sobiv kvaliteedi ja reaktsioonivõime tasakaal.',
+    augmentationSuite: {
+      modules: [
+        'Dünaamiline taktikaline overlay',
+        'Reaalajas võimete analüütika',
+        'Meeskonna koosseisu assistent',
+        'Kalibreeritud ruumilise heli profiil',
+        'Automatiseeritud mikrocoaching'
+      ],
+      notes: 'Sünkroonib automaatselt ametlike patchnote’ide ja e-spordi profiilidega.'
+    },
+    heroSynergy: [
+      {
+        preset: 'Snaipri fookus',
+        coachingNotes: '144 Hz overlay hoiab pikad vaatejooned ja koordineerib positsioonikutsed.'
+      },
+      {
+        preset: 'Täpsus sihtimine',
+        coachingNotes: 'Ajastusassistendid keskmise kauguse duellideks ja cooldown’i meeldetuletused.'
+      },
+      {
+        preset: 'Duelist',
+        coachingNotes: 'Nähtavuse tippude jälgimine ja BOB-i monitooring rünnakute sünkroniseerimiseks.'
+      },
+      {
+        preset: 'Rünnak',
+        coachingNotes: 'Sprintitsoonide jälgimine ja sihtimisaknad Helix Rocketi jaoks.'
+      },
+      {
+        preset: 'Liikuvus',
+        coachingNotes: 'Optimaalsed marsruudid ja tervisepakettide jälgimine, et Recalli ümber mängida.'
+      },
+      {
+        preset: 'Käbedus',
+        coachingNotes: 'Dragonblade’i ajajoon koos hoiatustega võtmevastaste ressursside kohta.'
+      }
+    ]
+  }
+}
+
 const copyByLocale: Record<'fr' | 'en' | 'et', LocaleContent> = {
   fr: frenchCopy,
   en: englishCopy,
-  et: englishCopy
+  et: estonianCopy
 }
 
 type LocaleKey = keyof typeof copyByLocale
