@@ -6,6 +6,8 @@ import { usePathname } from 'next/navigation'
 import type { GamingProduct, ProductVariant } from '@/lib/gaming-products'
 import { getSubscriptionPlans } from '@/lib/subscriptions'
 import ProductImage from './ProductImage'
+import SiteHeader from '@/components/SiteHeader'
+import Footer from '@/components/Footer'
 
 interface CommunityGamingProductPageProps {
   product: GamingProduct
@@ -19,9 +21,11 @@ export default function CommunityGamingProductPage({ product }: CommunityGamingP
   const variant = product.variants[0]
 
   return (
-    <div className="min-h-screen bg-black text-white pt-20">
-      {/* Breadcrumb */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div className="min-h-screen bg-black text-white flex flex-col">
+      <SiteHeader />
+      <main className="flex-1 pt-28 pb-24">
+        {/* Breadcrumb */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <nav className="flex items-center space-x-2 text-sm">
           <Link href={`/${locale}`} className="text-gray-400 hover:text-white transition">
             Accueil
@@ -35,8 +39,8 @@ export default function CommunityGamingProductPage({ product }: CommunityGamingP
         </nav>
       </div>
 
-      {/* Hero Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        {/* Hero Section */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Image */}
           <div className="space-y-4">
@@ -233,6 +237,8 @@ export default function CommunityGamingProductPage({ product }: CommunityGamingP
           </Link>
         </div>
       </div>
-    </div>
+    </main>
+    <Footer />
+  </div>
   )
 }

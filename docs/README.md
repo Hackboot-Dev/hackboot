@@ -31,6 +31,7 @@ Bienvenue dans la documentation du projet Hackboot. Ce fichier sert d'index prin
 - **[FEATURES.md](./FEATURES.md)** - Liste des fonctionnalités (à créer)
 - **[DOCUMENTATION_FEATURES.md](./DOCUMENTATION_FEATURES.md)** - Index des documentations détaillées (à créer)
 - **[features/](./features/)** - Dossier contenant les documentations détaillées par feature
+- **[PRODUCT_PAGES.md](./PRODUCT_PAGES.md)** - Structure et traduction des pages produits gaming
 
 ### 🐛 Maintenance
 
