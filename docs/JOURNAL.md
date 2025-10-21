@@ -1,5 +1,24 @@
 # Journal des Actions - Hackboot
 
+## 2025-10-22
+
+### Docs: Intégration de la documentation des pages produits dans README
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Respecter la consigne de ne plus créer de nouveaux fichiers de documentation tout en conservant la traçabilité du fonctionnement des pages produits.
+
+#### Actions réalisées:
+1. Suppression de `docs/PRODUCT_PAGES.md` afin de se conformer à la directive utilisateur.
+2. Migration du contenu vers une nouvelle section "Pages produits gaming" dans `docs/README.md` avec l'ensemble des informations (données, traductions, construction des pages, checklist).
+3. Mise à jour du présent journal pour documenter l'opération.
+
+#### État:
+✅ Documentation centralisée dans un fichier existant
+✅ Consigne "pas de nouveau fichier docs" respectée
+✅ Processus produit toujours documenté
+
 ## 2025-10-21
 
 ### Feature: Refonte complète page produits natifs avec données techniques et graphiques
