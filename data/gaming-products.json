@@ -2,217 +2,309 @@
   {
     "id": "gaming-overwatch",
     "slug": "gaming-overwatch",
-    "name": "Overwatch 2",
+    "name": "Overwatch 2 PulseForge",
     "game": "Overwatch 2",
     "category": "gaming",
     "optimizationLevel": "native",
-    "description": "Package ultime Overwatch 2 avec build privé et spoofer matériel inclus",
-    "longDescription": "Overwatch 2 God Mode est notre offre premium ultime. Équipé d'une RTX 4090, 128GB de RAM DDR5 et du processeur Intel i9-13900K le plus récent, ce système offre des performances inégalées. Inclut un build privé personnalisé avec HWID spoofer et mises à jour à vie.",
+    "description": "Suite native Overwatch 2 regroupant overlays tactiques, analytics en direct et outils de modding stream-safe.",
+    "longDescription": "PulseForge pour Overwatch 2 est une build matérielle et logicielle 100 % native. Elle rassemble nos overlays tactiques, les modules de coaching automatisés et les presets audio/vidéo prêts pour le streaming. Pensée pour les équipes compétitives comme pour les créateurs, la suite propose une intégration sans injection intrusive, avec des mises à jour synchronisées sur chaque patch Blizzard.",
     "status": "ACTIVE",
     "technicalSpecs": {
       "performanceMetrics": {
-        "avgFps": 287,
-        "minFps": 245,
-        "maxFps": 360,
-        "latency": 0.7,
-        "inputLag": 0.3,
-        "frameTime": 3.5,
-        "cpuUsage": 42,
-        "gpuUsage": 78,
-        "ramUsage": 18.5,
-        "vramUsage": 7.2,
-        "powerDraw": 385,
-        "thermalCpu": 62,
-        "thermalGpu": 68
+        "avgFps": 410,
+        "minFps": 318,
+        "maxFps": 432,
+        "onePercentLow": 84,
+        "latency": 0.9,
+        "inputLag": 0.28,
+        "frameTime": 2.4,
+        "cpuUsage": 41,
+        "gpuUsage": 79,
+        "ramUsage": 19.2,
+        "vramUsage": 8.4,
+        "powerDraw": 360,
+        "thermalCpu": 63,
+        "thermalGpu": 69
       },
-      "aimbotStats": {
-        "predictionAccuracy": 98.7,
-        "smoothness": 95,
-        "fov": 180,
-        "targetSwitchTime": 0.15,
-        "headShotRate": 87.3,
-        "reactionTime": 0.08,
-        "boneSelection": ["head", "neck", "chest"],
-        "weaponSupport": 100
+      "augmentationSuite": {
+        "awarenessIndex": 96,
+        "overlayRefresh": 144,
+        "adaptiveCoaching": 92,
+        "reactionTimeMs": 45,
+        "moduleCoverage": 18,
+        "tacticalFocus": 88,
+        "modules": [
+          "Overlay tactique dynamique",
+          "Analyse de capacités en temps réel",
+          "Assistant de composition d'équipe",
+          "Profil audio spatial calibré",
+          "Coach de micro-gestion automatisé"
+        ],
+        "notes": "Synchronisation automatique avec les patchnotes officiels et profils e-sport."
       },
-      "espCapabilities": {
-        "maxDistance": 500,
-        "updateRate": 144,
-        "playerTracking": true,
-        "healthBars": true,
-        "ultimateTracking": true,
-        "abilityTracking": true,
-        "distanceIndicators": true,
-        "snapLines": true,
-        "boxESP": true,
-        "skeletonESP": true,
-        "nameESP": true,
-        "rankESP": true
-      },
-      "securityMetrics": {
-        "detectionRate": 0.001,
-        "banRate": 0.0003,
-        "uptimePercentage": 99.997,
-        "avgResponseTime": 12,
-        "incidentsLastMonth": 0,
-        "securityUpdatesPerWeek": 3.5,
-        "encryptionLevel": "AES-256",
-        "obfuscationLayers": 7,
-        "antiDebug": true,
-        "antiVM": true,
-        "kernelProtection": true
-      },
-      "networkStats": {
-        "serverLocations": 47,
-        "avgPing": 8,
-        "maxBandwidth": 1000,
-        "packetLoss": 0.01,
-        "jitter": 0.5,
-        "ddosProtection": true,
-        "encryption": "TLS 1.3"
-      },
-      "compatibilityMatrix": [
+      "fpsByResolution": [
+        {
+          "resolution": "1920 × 1080",
+          "avgFps": 375,
+          "minFps": 318,
+          "maxFps": 431,
+          "playability": "Très fluide",
+          "bottleneck": "Aucun goulot (0%)"
+        },
+        {
+          "resolution": "2560 × 1440",
+          "avgFps": 242,
+          "minFps": 206,
+          "maxFps": 278,
+          "playability": "Très fluide",
+          "bottleneck": "Aucun goulot (0%)"
+        },
+        {
+          "resolution": "3840 × 2160",
+          "avgFps": 131,
+          "minFps": 111,
+          "maxFps": 150,
+          "playability": "Très fluide",
+          "bottleneck": "Limite GPU (18%)"
+        }
+      ],
+      "qualityBreakdown": [
+        {
+          "resolution": "1920 × 1080",
+          "presets": {
+            "low": 432,
+            "medium": 375,
+            "high": 322,
+            "ultra": 201
+          }
+        },
+        {
+          "resolution": "2560 × 1440",
+          "presets": {
+            "low": 279,
+            "medium": 242,
+            "high": 208,
+            "ultra": 130
+          }
+        },
+        {
+          "resolution": "3840 × 2160",
+          "presets": {
+            "low": 151,
+            "medium": 131,
+            "high": 112,
+            "ultra": 70
+          }
+        }
+      ],
+      "systemRequirements": [
+        {
+          "resolution": "1920 × 1080",
+          "minimumCpu": "Intel Pentium E5200 / AMD Athlon 64 X2 5600+",
+          "recommendedCpu": "Intel Pentium G3240 / AMD Phenom 9500",
+          "minimumGpu": "NVIDIA GeForce GTX 750 Ti / AMD Radeon RX 550X",
+          "recommendedGpu": "NVIDIA GeForce GTX 760 / AMD Radeon RX 460",
+          "ram": "8 GB",
+          "vram": "4 GB",
+          "storage": "50 GB"
+        },
+        {
+          "resolution": "2560 × 1440",
+          "minimumCpu": "Intel Core2 Duo E8400 / AMD Athlon II X2 250",
+          "recommendedCpu": "Intel Core2 Quad Q6600 / AMD Athlon II X3 450",
+          "minimumGpu": "NVIDIA GeForce GTX 780 / AMD Radeon RX 570",
+          "recommendedGpu": "NVIDIA GeForce GTX 780 / AMD Radeon RX 570",
+          "ram": "8 GB",
+          "vram": "6 GB",
+          "storage": "50 GB"
+        },
+        {
+          "resolution": "3840 × 2160",
+          "minimumCpu": "Intel Pentium J2900 / AMD A6-6400K",
+          "recommendedCpu": "Intel Core2 Quad Q9550 / AMD Athlon II X4 640",
+          "minimumGpu": "NVIDIA GeForce GTX TITAN Z / AMD Radeon RX 570",
+          "recommendedGpu": "NVIDIA GeForce GTX 1070 / AMD Radeon RX Vega 56",
+          "ram": "12 GB",
+          "vram": "8 GB",
+          "storage": "50 GB"
+        }
+      ],
+      "fpsThresholds": [
+        {
+          "resolution": "1920 × 1080",
+          "above30": 100,
+          "above60": 100,
+          "above90": 94,
+          "above120": 67,
+          "above144": 50
+        },
+        {
+          "resolution": "2560 × 1440",
+          "above30": 100,
+          "above60": 97,
+          "above90": 66,
+          "above120": 35,
+          "above144": 20
+        },
+        {
+          "resolution": "3840 × 2160",
+          "above30": 99,
+          "above60": 59,
+          "above90": 19,
+          "above120": 11,
+          "above144": 5
+        }
+      ],
+      "improvementTips": [
+        "Réduisez certains effets graphiques (ombres, post-traitement) pour libérer des FPS instantanément.",
+        "Diminuez la résolution si vous priorisez la réactivité aux détails visuels.",
+        "Maintenez vos pilotes graphiques et Windows à jour pour profiter des optimisations récentes.",
+        "Activez le profil mémoire XMP et vérifiez la fréquence réelle de vos barrettes.",
+        "Surveillez les températures pour éviter tout throttling lors des sessions prolongées."
+      ],
+      "advice": "Profitez d'une fluidité exceptionnelle et d'une interface modulable : activez des presets plus détaillés ou des taux de rafraîchissement supérieurs sans sacrifier la stabilité.",
+      "heroSynergy": [
         {
           "hero": "Widowmaker",
-          "effectiveness": 99,
-          "headShotRate": 94,
-          "kda": 4.8,
-          "winRate": 78
+          "overlayFocus": 98,
+          "clarityBoost": 95,
+          "preset": "Sniper Focus",
+          "trainingBoost": "+32% réactivité"
         },
         {
           "hero": "Cassidy",
-          "effectiveness": 97,
-          "headShotRate": 89,
-          "kda": 4.3,
-          "winRate": 76
+          "overlayFocus": 96,
+          "clarityBoost": 92,
+          "preset": "Precision Aim",
+          "trainingBoost": "+27% cohérence"
         },
         {
           "hero": "Ashe",
-          "effectiveness": 98,
-          "headShotRate": 91,
-          "kda": 4.6,
-          "winRate": 77
+          "overlayFocus": 97,
+          "clarityBoost": 93,
+          "preset": "Duelliste",
+          "trainingBoost": "+29% suivi"
         },
         {
           "hero": "Soldier: 76",
-          "effectiveness": 96,
-          "headShotRate": 85,
-          "kda": 4.1,
-          "winRate": 75
+          "overlayFocus": 95,
+          "clarityBoost": 90,
+          "preset": "Assaut",
+          "trainingBoost": "+24% stabilité"
         },
         {
           "hero": "Tracer",
-          "effectiveness": 95,
-          "headShotRate": 82,
-          "kda": 3.9,
-          "winRate": 74
+          "overlayFocus": 93,
+          "clarityBoost": 88,
+          "preset": "Mobilité",
+          "trainingBoost": "+22% timing"
         },
         {
           "hero": "Genji",
-          "effectiveness": 94,
-          "headShotRate": 80,
-          "kda": 3.7,
-          "winRate": 73
+          "overlayFocus": 92,
+          "clarityBoost": 87,
+          "preset": "Agilité",
+          "trainingBoost": "+20% prise de décision"
         }
       ],
       "benchmarks": {
         "competitorComparison": [
           {
-            "metric": "FPS Average",
-            "hackboot": 287,
-            "competitor1": 245,
-            "competitor2": 198,
-            "competitor3": 167
+            "metric": "FPS Moyen (Ultra 1440p)",
+            "hackboot": 242,
+            "competitor1": 208,
+            "competitor2": 187,
+            "competitor3": 169
           },
           {
-            "metric": "Latency (ms)",
-            "hackboot": 0.7,
-            "competitor1": 1.2,
-            "competitor2": 2.8,
-            "competitor3": 4.1
+            "metric": "Rafraîchissement Overlay (Hz)",
+            "hackboot": 144,
+            "competitor1": 120,
+            "competitor2": 90,
+            "competitor3": 60
           },
           {
-            "metric": "Detection Rate (%)",
-            "hackboot": 0.001,
-            "competitor1": 0.3,
-            "competitor2": 1.2,
-            "competitor3": 2.7
+            "metric": "Mises à Jour Modules (heures)",
+            "hackboot": 6,
+            "competitor1": 18,
+            "competitor2": 24,
+            "competitor3": 36
           },
           {
-            "metric": "Uptime (%)",
-            "hackboot": 99.997,
-            "competitor1": 98.5,
-            "competitor2": 96.2,
-            "competitor3": 93.8
+            "metric": "Temps d'Installation (min)",
+            "hackboot": 8,
+            "competitor1": 15,
+            "competitor2": 27,
+            "competitor3": 32
           }
         ],
         "rankProgression": [
           {
             "rank": "Bronze",
-            "avgGamesTo": 12,
-            "winRate": 95,
-            "avgTime": "3.2h"
+            "avgGamesTo": 18,
+            "winRate": 78,
+            "avgTime": "4.5h"
           },
           {
             "rank": "Silver",
-            "avgGamesTo": 18,
-            "winRate": 92,
-            "avgTime": "4.8h"
+            "avgGamesTo": 24,
+            "winRate": 74,
+            "avgTime": "6.2h"
           },
           {
             "rank": "Gold",
-            "avgGamesTo": 24,
-            "winRate": 88,
-            "avgTime": "7.1h"
+            "avgGamesTo": 31,
+            "winRate": 69,
+            "avgTime": "8.9h"
           },
           {
             "rank": "Platinum",
-            "avgGamesTo": 32,
-            "winRate": 84,
-            "avgTime": "10.5h"
+            "avgGamesTo": 40,
+            "winRate": 66,
+            "avgTime": "12.4h"
           },
           {
             "rank": "Diamond",
-            "avgGamesTo": 45,
-            "winRate": 79,
-            "avgTime": "15.8h"
+            "avgGamesTo": 55,
+            "winRate": 63,
+            "avgTime": "17.8h"
           },
           {
             "rank": "Master",
-            "avgGamesTo": 67,
-            "winRate": 73,
-            "avgTime": "24.3h"
+            "avgGamesTo": 78,
+            "winRate": 60,
+            "avgTime": "26.5h"
           },
           {
             "rank": "Grandmaster",
-            "avgGamesTo": 98,
-            "winRate": 68,
-            "avgTime": "38.7h"
+            "avgGamesTo": 102,
+            "winRate": 58,
+            "avgTime": "35.1h"
           }
         ]
       },
       "updateHistory": {
-        "totalUpdates": 487,
-        "lastUpdateDate": "2025-10-18",
-        "avgUpdatesPerMonth": 12.4,
-        "criticalPatches": 23,
-        "securityPatches": 156,
-        "featureUpdates": 89,
-        "bugFixes": 219
+        "totalUpdates": 164,
+        "lastUpdateDate": "2025-02-12",
+        "avgUpdatesPerMonth": 6.5,
+        "criticalPatches": 12,
+        "securityPatches": 54,
+        "featureUpdates": 58,
+        "bugFixes": 40
       },
       "userStats": {
-        "totalUsers": 12847,
-        "activeUsersLast30Days": 11203,
-        "avgSessionDuration": 4.7,
-        "avgGamesPerDay": 8.3,
-        "satisfactionScore": 4.8,
-        "recommendationRate": 94
+        "totalUsers": 8421,
+        "activeUsersLast30Days": 7134,
+        "avgSessionDuration": 3.8,
+        "avgGamesPerDay": 6.7,
+        "satisfactionScore": 4.7,
+        "recommendationRate": 91
       }
     },
     "variants": [
       {
         "id": "godmode",
-        "name": "God Mode",
+        "name": "PulseForge Creator",
         "tier": "premium",
         "gpu": "RTX 4090",
         "ram": "128 GB DDR5",
@@ -221,44 +313,44 @@
         "motherboard": "ASUS ROG Maximus Z790",
         "psu": "1200W 80+ Platinum",
         "cooling": "Custom Loop Liquid",
-        "usage": "Build privé",
-        "description": "Package ultime Overwatch 2 avec build privé et spoofer matériel inclus",
+        "usage": "Suite d'augmentation native",
+        "description": "Bundle Overwatch 2 natif avec overlays tactiques, modding visuel et outils d'entraînement intégrés.",
         "use_cases": [
-          "Gaming professionnel",
-          "Boost de compte",
-          "Stream en sécurité",
-          "Préparation tournoi",
-          "Performance maximale"
+          "Coaching et analyse d'équipe",
+          "Création de contenu immersif",
+          "Compétitions LAN et online",
+          "Optimisation des macros confort",
+          "Expériences multi-écrans"
         ],
         "features": [
-          "Build privé personnalisé",
-          "Toutes les fonctionnalités incluses",
-          "HWID spoofer",
-          "Protection kernel",
-          "Configurations personnalisées",
-          "Support setup 1-on-1",
-          "Mises à jour à vie"
+          "Overlays modulaires calibrés par rôle",
+          "Modules d'analyse post-match avec export",
+          "Assistant de composition synchronisé à la méta",
+          "Profils de modding visuel stream-safe",
+          "Macros ergonomiques certifiées tournois",
+          "Support d'intégration multi-input (MKB/pad)",
+          "Mises à jour collaboratives en continu"
         ],
-        "target_audience": "Équipes pro, Joueurs high-stakes",
-        "highlight": "Build privé avec spoofer",
-        "protection": "Undetectable",
-        "updates": "Custom builds",
+        "target_audience": "Coachs, créateurs, joueurs compétitifs",
+        "highlight": "Suite native synchronisée à la méta",
+        "protection": "Conformité tournois & stream",
+        "updates": "Flux OTA prioritaire",
         "pricing": {
-          "hourly": 2.13,
-          "monthly": 850
+          "hourly": 1.95,
+          "monthly": 640
         },
-        "sla": "99.999%",
+        "sla": "99.98%",
         "support_level": "enterprise",
         "badges": [
-          "Ultimate",
-          "Exclusive",
-          "Best Performance"
+          "Overlay Pro",
+          "Creator Ready",
+          "Meta Sync"
         ],
         "image": "/images/products/overwatch/main.png"
       }
     ],
     "reviews": {
-      "average": 4.8,
+      "average": 4.7,
       "count": 479
     },
     "discount": {

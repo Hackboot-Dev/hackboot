@@ -59,6 +59,7 @@ export interface GamingProduct {
       avgFps: number
       minFps: number
       maxFps: number
+      onePercentLow?: number
       latency: number
       inputLag: number
       frameTime: number
@@ -70,6 +71,16 @@ export interface GamingProduct {
       thermalCpu: number
       thermalGpu: number
     }
+    augmentationSuite?: {
+      awarenessIndex: number
+      overlayRefresh: number
+      adaptiveCoaching: number
+      reactionTimeMs: number
+      moduleCoverage: number
+      tacticalFocus: number
+      modules: string[]
+      notes?: string
+    }
     aimbotStats?: {
       predictionAccuracy: number
       smoothness: number
@@ -80,6 +91,50 @@ export interface GamingProduct {
       boneSelection: string[]
       weaponSupport: number
     }
+    fpsByResolution?: Array<{
+      resolution: string
+      avgFps: number
+      minFps: number
+      maxFps: number
+      playability: string
+      bottleneck: string
+    }>
+    qualityBreakdown?: Array<{
+      resolution: string
+      presets: {
+        low: number
+        medium: number
+        high: number
+        ultra: number
+      }
+    }>
+    systemRequirements?: Array<{
+      resolution: string
+      minimumCpu: string
+      recommendedCpu: string
+      minimumGpu: string
+      recommendedGpu: string
+      ram: string
+      vram: string
+      storage: string
+    }>
+    fpsThresholds?: Array<{
+      resolution: string
+      above30: number
+      above60: number
+      above90: number
+      above120: number
+      above144: number
+    }>
+    improvementTips?: string[]
+    advice?: string
+    heroSynergy?: Array<{
+      hero: string
+      overlayFocus: number
+      clarityBoost: number
+      preset: string
+      trainingBoost: string
+    }>
     espCapabilities?: {
       maxDistance: number
       updateRate: number

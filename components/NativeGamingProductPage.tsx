@@ -24,23 +24,23 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
   const nativeAdvantages = [
     {
       icon: Code,
-      title: "Build Privé Exclusif",
-      description: "Code source personnalisé et optimisé spécifiquement pour votre configuration"
+      title: "Intégration native",
+      description: "Modules calibrés avec Overwatch 2 et synchronisés après chaque mise à jour Blizzard"
     },
     {
       icon: Shield,
-      title: "Protection Maximale",
-      description: "HWID Spoofer intégré + Protection kernel-level contre les détections"
+      title: "Conformité totale",
+      description: "Overlays stream-safe respectant les guidelines esports, sans injection intrusive"
     },
     {
       icon: Gauge,
-      title: "Performances Optimisées",
-      description: "FPS stable 240+ garantis avec latence <1ms grâce à notre infrastructure dédiée"
+      title: "Performance calibrée",
+      description: "FPS stables 400+ et latence maîtrisée grâce à notre profil matériel sur mesure"
     },
     {
       icon: Trophy,
-      title: "Support Premium 24/7",
-      description: "Équipe technique dédiée disponible en direct + Mises à jour prioritaires"
+      title: "Support créatif",
+      description: "Accompagnement dédié pour configurer vos presets coaching, stream et LAN"
     }
   ]
 
@@ -193,27 +193,23 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
 
             {/* Quick Stats */}
             {tech?.performanceMetrics && (
-              <div className="grid grid-cols-2 gap-3 pt-4 border-t border-white/10">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-4 border-t border-white/10">
                 <div className="p-3 glass-effect rounded-lg text-center">
                   <div className="text-2xl font-bold text-green-400">{tech.performanceMetrics.avgFps}</div>
-                  <div className="text-xs text-gray-400">FPS Moyen</div>
+                  <div className="text-xs text-gray-400">FPS moyen</div>
+                </div>
+                <div className="p-3 glass-effect rounded-lg text-center">
+                  <div className="text-2xl font-bold text-orange-400">{tech.performanceMetrics.onePercentLow ?? tech.performanceMetrics.minFps}</div>
+                  <div className="text-xs text-gray-400">FPS 1% low</div>
                 </div>
                 <div className="p-3 glass-effect rounded-lg text-center">
                   <div className="text-2xl font-bold text-blue-400">{tech.performanceMetrics.latency}ms</div>
-                  <div className="text-xs text-gray-400">Latence</div>
+                  <div className="text-xs text-gray-400">Latence système</div>
                 </div>
-                {tech.aimbotStats && (
-                  <>
-                    <div className="p-3 glass-effect rounded-lg text-center">
-                      <div className="text-2xl font-bold text-purple-400">{tech.aimbotStats.predictionAccuracy}%</div>
-                      <div className="text-xs text-gray-400">Précision Aimbot</div>
-                    </div>
-                    <div className="p-3 glass-effect rounded-lg text-center">
-                      <div className="text-2xl font-bold text-orange-400">{tech.aimbotStats.headShotRate}%</div>
-                      <div className="text-xs text-gray-400">Taux HeadShot</div>
-                    </div>
-                  </>
-                )}
+                <div className="p-3 glass-effect rounded-lg text-center">
+                  <div className="text-2xl font-bold text-purple-400">{tech.performanceMetrics.inputLag}ms</div>
+                  <div className="text-xs text-gray-400">Input lag</div>
+                </div>
               </div>
             )}
 
@@ -261,17 +257,22 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                 <Activity className="w-5 h-5" />
                 <span className="font-semibold">MÉTRIQUES DE PERFORMANCE</span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Performances Mesurées en Temps Réel</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Performances calibrées pour Overwatch 2</h2>
               <p className="text-gray-400 max-w-2xl mx-auto">
-                Des résultats concrets, testés et validés sur notre infrastructure dédiée
+                Tests effectués sur notre build natif PulseForge avec monitoring temps réel.
               </p>
             </div>
 
             <div className="max-w-6xl mx-auto">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <StatCard icon={Gauge} label="FPS Maximum" value={tech.performanceMetrics.maxFps} color="green" />
-                <StatCard icon={Zap} label="Input Lag" value={`${tech.performanceMetrics.inputLag}ms`} color="blue" />
-                <StatCard icon={Activity} label="Frame Time" value={`${tech.performanceMetrics.frameTime}ms`} color="purple" />
+                <StatCard icon={Gauge} label="FPS maximum observé" value={tech.performanceMetrics.maxFps} color="green" />
+                <StatCard
+                  icon={Activity}
+                  label="FPS 1% low"
+                  value={tech.performanceMetrics.onePercentLow ?? tech.performanceMetrics.minFps}
+                  color="orange"
+                />
+                <StatCard icon={Zap} label="Input lag moyen" value={`${tech.performanceMetrics.inputLag}ms`} color="blue" />
               </div>
 
               <div className="glass-effect rounded-2xl p-8 border border-white/10">
@@ -297,12 +298,198 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                     <div className="p-4 bg-green-500/10 border border-green-500/30 rounded-lg">
                       <div className="flex items-center gap-2 text-green-400 text-sm">
                         <Check className="w-4 h-4" />
-                        <span>Températures optimales - Performance maximale garantie</span>
+                        <span>Températures maîtrisées et marge thermique préservée</span>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        )}
+
+        {tech?.fpsByResolution && tech.fpsByResolution.length > 0 && (
+          <div className="mt-16">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold mb-2">FPS par résolution</h3>
+              <p className="text-gray-400 max-w-2xl mx-auto">
+                Projection mesurée sur les réglages moyens pour chaque définition supportée.
+              </p>
+            </div>
+            <div className="glass-effect rounded-2xl p-6 border border-white/10 overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-white/10 text-gray-400">
+                    <th className="py-3 px-4 text-left">Résolution</th>
+                    <th className="py-3 px-4 text-center">FPS moyen</th>
+                    <th className="py-3 px-4 text-center">Min</th>
+                    <th className="py-3 px-4 text-center">Max</th>
+                    <th className="py-3 px-4 text-center">Jouabilité</th>
+                    <th className="py-3 px-4 text-center">Bottleneck</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {tech.fpsByResolution.map((entry, idx) => (
+                    <tr key={idx} className="border-b border-white/10 last:border-none">
+                      <td className="py-3 px-4 font-semibold text-white">{entry.resolution}</td>
+                      <td className="py-3 px-4 text-center text-green-400 font-semibold">{entry.avgFps}</td>
+                      <td className="py-3 px-4 text-center text-orange-400">{entry.minFps}</td>
+                      <td className="py-3 px-4 text-center text-blue-400">{entry.maxFps}</td>
+                      <td className="py-3 px-4 text-center text-gray-300">{entry.playability}</td>
+                      <td className="py-3 px-4 text-center text-gray-400">{entry.bottleneck}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
+
+        {tech?.qualityBreakdown && tech.qualityBreakdown.length > 0 && (
+          <div className="mt-16">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold mb-2">FPS selon les presets graphiques</h3>
+              <p className="text-gray-400 max-w-2xl mx-auto">
+                Comparez instantanément l&apos;impact des préréglages sur chaque résolution.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {tech.qualityBreakdown.map((quality, idx) => (
+                <div key={idx} className="glass-effect rounded-2xl border border-white/10 p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <h4 className="text-lg font-semibold text-white">{quality.resolution}</h4>
+                    <span className="text-xs text-purple-400 uppercase">bench</span>
+                  </div>
+                  <div className="space-y-3 text-sm">
+                    {Object.entries(quality.presets).map(([preset, value]) => (
+                      <div key={preset} className="flex items-center justify-between">
+                        <span className="text-gray-400 capitalize">{preset}</span>
+                        <span className="text-white font-semibold">{value} FPS</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {tech?.fpsThresholds && tech.fpsThresholds.length > 0 && (
+          <div className="mt-16">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold mb-2">Compatibilité jeux populaires</h3>
+              <p className="text-gray-400 max-w-2xl mx-auto">
+                Pourcentage de titres pouvant dépasser chaque seuil de FPS en réglages moyens.
+              </p>
+            </div>
+            <div className="glass-effect rounded-2xl p-6 border border-white/10 overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead>
+                  <tr className="border-b border-white/10 text-gray-400">
+                    <th className="py-3 px-4 text-left">Résolution</th>
+                    <th className="py-3 px-4 text-center">30+ FPS</th>
+                    <th className="py-3 px-4 text-center">60+ FPS</th>
+                    <th className="py-3 px-4 text-center">90+ FPS</th>
+                    <th className="py-3 px-4 text-center">120+ FPS</th>
+                    <th className="py-3 px-4 text-center">144+ FPS</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {tech.fpsThresholds.map((entry, idx) => (
+                    <tr key={idx} className="border-b border-white/10 last:border-none">
+                      <td className="py-3 px-4 font-semibold text-white">{entry.resolution}</td>
+                      <td className="py-3 px-4 text-center text-green-400">{entry.above30}%</td>
+                      <td className="py-3 px-4 text-center text-green-400">{entry.above60}%</td>
+                      <td className="py-3 px-4 text-center text-yellow-400">{entry.above90}%</td>
+                      <td className="py-3 px-4 text-center text-orange-400">{entry.above120}%</td>
+                      <td className="py-3 px-4 text-center text-purple-400">{entry.above144}%</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
+
+        {tech?.systemRequirements && tech.systemRequirements.length > 0 && (
+          <div className="mt-16">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold mb-2">Configuration recommandée</h3>
+              <p className="text-gray-400 max-w-2xl mx-auto">
+                Vérifiez comment votre PC se positionne face aux prérequis d&apos;Overwatch 2.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+              {tech.systemRequirements.map((requirement, idx) => (
+                <div key={idx} className="glass-effect rounded-2xl border border-white/10 p-6 space-y-4">
+                  <div className="flex items-center justify-between">
+                    <h4 className="text-lg font-semibold text-white">{requirement.resolution}</h4>
+                    <span className="text-xs text-gray-500 uppercase">spec</span>
+                  </div>
+                  <div className="space-y-2 text-sm">
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">CPU minimum</span>
+                      <span className="text-gray-200 text-right max-w-[55%]">{requirement.minimumCpu}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">CPU recommandé</span>
+                      <span className="text-gray-200 text-right max-w-[55%]">{requirement.recommendedCpu}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">GPU minimum</span>
+                      <span className="text-gray-200 text-right max-w-[55%]">{requirement.minimumGpu}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">GPU recommandé</span>
+                      <span className="text-gray-200 text-right max-w-[55%]">{requirement.recommendedGpu}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">RAM</span>
+                      <span className="text-gray-200">{requirement.ram}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">VRAM</span>
+                      <span className="text-gray-200">{requirement.vram}</span>
+                    </div>
+                    <div className="flex justify-between">
+                      <span className="text-gray-400">Stockage</span>
+                      <span className="text-gray-200">{requirement.storage}</span>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {(tech?.improvementTips || tech?.advice) && (
+          <div className="mt-16">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              {tech?.improvementTips && (
+                <div className="glass-effect rounded-2xl border border-white/10 p-6">
+                  <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
+                    <TrendingUp className="w-5 h-5 text-purple-400" />
+                    Astuces pour gagner des FPS
+                  </h3>
+                  <ul className="space-y-3 text-sm text-gray-300">
+                    {tech.improvementTips.map((tip, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <Check className="w-4 h-4 text-purple-400 mt-0.5" />
+                        <span>{tip}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {tech?.advice && (
+                <div className="glass-effect rounded-2xl border border-purple-500/30 bg-purple-500/5 p-6 flex flex-col justify-center">
+                  <h3 className="text-xl font-semibold mb-3 flex items-center gap-2">
+                    <Trophy className="w-5 h-5 text-purple-400" />
+                    Conseil d&apos;utilisation
+                  </h3>
+                  <p className="text-gray-200 text-sm leading-relaxed">{tech.advice}</p>
+                </div>
+              )}
             </div>
           </div>
         )}
@@ -313,21 +500,25 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
             <div className="text-center mb-12">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-500/20 text-purple-400 rounded-full mb-4">
                 <BarChart3 className="w-5 h-5" />
-                <span className="font-semibold">COMPARAISON CONCURRENTIELLE</span>
+                <span className="font-semibold">COMPARATIF MATÉRIEL</span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">HACKBOOT vs. Concurrence</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">PulseForge vs. autres solutions</h2>
               <p className="text-gray-400 max-w-2xl mx-auto">
-                Pourquoi nous sommes leader du marché avec des performances mesurables
+                Visualisez instantanément la valeur ajoutée de notre intégration native face aux offres standard du marché.
               </p>
             </div>
 
             <div className="max-w-6xl mx-auto glass-effect rounded-2xl p-8 border border-white/10">
               <div className="space-y-8">
-                {tech.benchmarks.competitorComparison.map((comparison, idx) => (
-                  <div key={idx} className="space-y-3">
+                {tech.benchmarks.competitorComparison.map((comparison, idx) => {
+                  const invertedMetric = /latence|temps|heures|min/i.test(comparison.metric)
+                  return (
+                    <div key={idx} className="space-y-3">
                     <div className="flex justify-between items-center">
                       <h4 className="font-semibold text-lg">{comparison.metric}</h4>
-                      <div className="text-sm text-gray-400">Plus c'est élevé, mieux c'est {comparison.metric.includes('Detection') || comparison.metric.includes('Latency') ? '(inversé)' : ''}</div>
+                      <div className="text-sm text-gray-400">
+                        {invertedMetric ? 'Valeur la plus basse = meilleure réactivité' : 'Valeur la plus haute = meilleure performance'}
+                      </div>
                     </div>
                     <div className="grid grid-cols-4 gap-4">
                       <div className="space-y-2">
@@ -343,7 +534,9 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                       </div>
                       {[comparison.competitor1, comparison.competitor2, comparison.competitor3].map((value, i) => {
                         const maxValue = Math.max(comparison.hackboot, comparison.competitor1, comparison.competitor2, comparison.competitor3)
-                        const height = (value / maxValue) * 100
+                        const minValue = Math.min(comparison.hackboot, comparison.competitor1, comparison.competitor2, comparison.competitor3)
+                        const base = invertedMetric ? minValue : maxValue
+                        const height = invertedMetric ? (base / value) * 100 : (value / base) * 100
                         return (
                           <div key={i} className="space-y-2">
                             <div className="text-xs text-gray-500 font-semibold">Concurrent {i + 1}</div>
@@ -360,32 +553,93 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                       })}
                     </div>
                   </div>
-                ))}
+                  )
+                })}
               </div>
             </div>
           </div>
         )}
 
-        {/* Aimbot Stats */}
-        {tech?.aimbotStats && (
+        {tech?.augmentationSuite && (
           <div className="mt-20">
             <div className="text-center mb-12">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-500/20 text-red-400 rounded-full mb-4">
                 <Target className="w-5 h-5" />
-                <span className="font-semibold">CAPACITÉS AIMBOT</span>
+                <span className="font-semibold">SUITE D&apos;ASSISTANCES PULSEFORGE</span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Précision de Niveau Professionnel</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Modules tactiques en temps réel</h2>
               <p className="text-gray-400 max-w-2xl mx-auto">
-                Aimbot humanisé avec prédiction avancée et contrôle total
+                Overlays contextuels, coaching adaptatif et insights pro intégrés directement dans votre HUD.
               </p>
             </div>
 
             <div className="max-w-5xl mx-auto">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                <StatCard icon={Target} label="Précision" value={`${tech.aimbotStats.predictionAccuracy}%`} color="red" />
+                <StatCard icon={Target} label="Indice awareness" value={`${tech.augmentationSuite.awarenessIndex}/100`} color="red" />
+                <StatCard icon={Activity} label="Overlay refresh" value={`${tech.augmentationSuite.overlayRefresh} Hz`} color="orange" />
+                <StatCard icon={TrendingUp} label="Coaching adaptatif" value={`${tech.augmentationSuite.adaptiveCoaching}%`} color="purple" />
+                <StatCard icon={Gauge} label="Focalisation tactique" value={`${tech.augmentationSuite.tacticalFocus}%`} color="blue" />
+              </div>
+
+              <div className="glass-effect rounded-2xl p-8 border border-white/10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                    <h3 className="font-bold text-lg mb-4">Modules clés inclus</h3>
+                    <div className="space-y-3">
+                      {tech.augmentationSuite.modules.map((module, idx) => (
+                        <div key={idx} className="flex items-start gap-3 p-3 bg-red-500/10 rounded-lg border border-red-500/30">
+                          <Check className="w-5 h-5 text-red-400 mt-0.5" />
+                          <span className="text-gray-200">{module}</span>
+                        </div>
+                      ))}
+                    </div>
+                    {tech.augmentationSuite.notes && (
+                      <div className="mt-4 p-4 bg-purple-500/10 border border-purple-500/30 rounded-lg">
+                        <div className="flex items-start gap-2 text-purple-300 text-sm">
+                          <Shield className="w-4 h-4 mt-0.5" />
+                          <span>{tech.augmentationSuite.notes}</span>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg mb-4">Réactivité & couverture</h3>
+                    <div className="space-y-4">
+                      <ProgressBar label="Overlay refresh" value={tech.augmentationSuite.overlayRefresh} max={240} unit=" Hz" color="red" />
+                      <ProgressBar label="Modules actifs" value={tech.augmentationSuite.moduleCoverage} max={24} unit=" modules" color="purple" />
+                      <ProgressBar label="Coaching adaptatif" value={tech.augmentationSuite.adaptiveCoaching} max={100} unit="%" color="orange" />
+                      <div className="flex items-center justify-between p-4 bg-white/5 rounded-lg">
+                        <span className="text-gray-400">Temps de réaction moyen</span>
+                        <span className="text-red-400 font-bold">{tech.augmentationSuite.reactionTimeMs} ms</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Legacy precision suite */}
+        {!tech?.augmentationSuite && tech?.aimbotStats && (
+          <div className="mt-20">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-500/20 text-red-400 rounded-full mb-4">
+                <Target className="w-5 h-5" />
+                <span className="font-semibold">SUITE DE PRÉCISION AVANCÉE</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Suivi assisté de niveau professionnel</h2>
+              <p className="text-gray-400 max-w-2xl mx-auto">
+                Paramétrage de suivi intelligent et d&apos;assistance ergonomique pour un rendu naturel.
+              </p>
+            </div>
+
+            <div className="max-w-5xl mx-auto">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
+                <StatCard icon={Target} label="Précision du suivi" value={`${tech.aimbotStats.predictionAccuracy}%`} color="red" />
                 <StatCard icon={Activity} label="Fluidité" value={`${tech.aimbotStats.smoothness}%`} color="orange" />
-                <StatCard icon={Zap} label="FOV" value={`${tech.aimbotStats.fov}°`} color="purple" />
-                <StatCard icon={Gauge} label="Switch Time" value={`${tech.aimbotStats.targetSwitchTime}s`} color="blue" />
+                <StatCard icon={Zap} label="Ouverture dynamique" value={`${tech.aimbotStats.fov}°`} color="purple" />
+                <StatCard icon={Gauge} label="Temps de bascule" value={`${tech.aimbotStats.targetSwitchTime}s`} color="blue" />
               </div>
 
               <div className="glass-effect rounded-2xl p-8 border border-white/10">
@@ -393,16 +647,16 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                   <div>
                     <h3 className="font-bold text-lg mb-4">Statistiques Avancées</h3>
                     <div className="space-y-4">
-                      <ProgressBar label="HeadShot Rate" value={tech.aimbotStats.headShotRate} max={100} unit="%" color="red" />
-                      <ProgressBar label="Weapon Support" value={tech.aimbotStats.weaponSupport} max={100} unit="%" color="green" />
+                      <ProgressBar label="Ciblage prioritaire" value={tech.aimbotStats.headShotRate} max={100} unit="%" color="red" />
+                      <ProgressBar label="Compatibilité armes" value={tech.aimbotStats.weaponSupport} max={100} unit="%" color="green" />
                       <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
-                        <span className="text-gray-400">Reaction Time</span>
+                        <span className="text-gray-400">Temps de réaction</span>
                         <span className="text-blue-400 font-bold">{tech.aimbotStats.reactionTime}ms</span>
                       </div>
                     </div>
                   </div>
                   <div>
-                    <h3 className="font-bold text-lg mb-4">Configuration Hitbox</h3>
+                    <h3 className="font-bold text-lg mb-4">Points de focalisation</h3>
                     <div className="space-y-3">
                       {tech.aimbotStats.boneSelection.map((bone, idx) => (
                         <div key={idx} className="flex items-center gap-3 p-3 bg-purple-500/10 rounded-lg border border-purple-500/30">
@@ -414,7 +668,7 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                     <div className="mt-4 p-4 bg-green-500/10 border border-green-500/30 rounded-lg">
                       <div className="flex items-start gap-2 text-green-400 text-sm">
                         <Shield className="w-4 h-4 mt-0.5" />
-                        <span>Humanisation active : Comportement indétectable par les systèmes anti-cheat</span>
+                        <span>Mouvements naturalisés pour un rendu fluide et ergonomique</span>
                       </div>
                     </div>
                   </div>
@@ -424,17 +678,17 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
           </div>
         )}
 
-        {/* Hero Compatibility Matrix */}
-        {tech?.compatibilityMatrix && tech.compatibilityMatrix.length > 0 && (
+        {/* Hero Synergy */}
+        {tech?.heroSynergy && tech.heroSynergy.length > 0 && (
           <div className="mt-20">
             <div className="text-center mb-12">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-500/20 text-cyan-400 rounded-full mb-4">
                 <Trophy className="w-5 h-5" />
-                <span className="font-semibold">COMPATIBILITÉ PAR HÉROS</span>
+                <span className="font-semibold">PROFILS PAR HÉROS</span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Performance par Héros</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Optimisations dédiées</h2>
               <p className="text-gray-400 max-w-2xl mx-auto">
-                Optimisations spécifiques pour chaque héros d'{product.game}
+                Chaque module propose un preset calibré pour les rôles et héros majeurs d&apos;Overwatch 2.
               </p>
             </div>
 
@@ -444,10 +698,62 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                   <thead>
                     <tr className="border-b border-white/10">
                       <th className="text-left py-4 px-4 text-gray-400 font-semibold">Héros</th>
-                      <th className="text-center py-4 px-4 text-gray-400 font-semibold">Efficacité</th>
-                      <th className="text-center py-4 px-4 text-gray-400 font-semibold">HeadShot %</th>
-                      <th className="text-center py-4 px-4 text-gray-400 font-semibold">K/D Moyen</th>
-                      <th className="text-center py-4 px-4 text-gray-400 font-semibold">Win Rate</th>
+                      <th className="text-center py-4 px-4 text-gray-400 font-semibold">Focus overlay</th>
+                      <th className="text-center py-4 px-4 text-gray-400 font-semibold">Clarté visuelle</th>
+                      <th className="text-center py-4 px-4 text-gray-400 font-semibold">Preset conseillé</th>
+                      <th className="text-center py-4 px-4 text-gray-400 font-semibold">Boost d&apos;entraînement</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {tech.heroSynergy.map((hero, idx) => (
+                      <tr key={idx} className="border-b border-white/10 hover:bg-white/5 transition-colors">
+                        <td className="py-4 px-4">
+                          <div className="font-semibold text-white">{hero.hero}</div>
+                        </td>
+                        <td className="py-4 px-4 text-center">
+                          <span className="text-green-400 font-bold">{hero.overlayFocus}%</span>
+                        </td>
+                        <td className="py-4 px-4 text-center">
+                          <span className="text-blue-400 font-bold">{hero.clarityBoost}%</span>
+                        </td>
+                        <td className="py-4 px-4 text-center">
+                          <span className="text-purple-400 font-semibold">{hero.preset}</span>
+                        </td>
+                        <td className="py-4 px-4 text-center">
+                          <span className="text-orange-400 font-bold">{hero.trainingBoost}</span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {!tech?.heroSynergy && tech?.compatibilityMatrix && tech.compatibilityMatrix.length > 0 && (
+          <div className="mt-20">
+            <div className="text-center mb-12">
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-500/20 text-cyan-400 rounded-full mb-4">
+                <Trophy className="w-5 h-5" />
+                <span className="font-semibold">PROFILS PAR HÉROS</span>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Performance par Héros</h2>
+              <p className="text-gray-400 max-w-2xl mx-auto">
+                Optimisations spécifiques pour chaque héros d’{product.game}
+              </p>
+            </div>
+
+            <div className="max-w-6xl mx-auto glass-effect rounded-2xl p-8 border border-white/10">
+              <div className="overflow-x-auto">
+                <table className="w-full">
+                  <thead>
+                    <tr className="border-b border-white/10">
+                      <th className="text-left py-4 px-4 text-gray-400 font-semibold">Héros</th>
+                      <th className="text-center py-4 px-4 text-gray-400 font-semibold">Optimisation</th>
+                      <th className="text-center py-4 px-4 text-gray-400 font-semibold">Taux critique</th>
+                      <th className="text-center py-4 px-4 text-gray-400 font-semibold">Indice efficacité</th>
+                      <th className="text-center py-4 px-4 text-gray-400 font-semibold">Impact victoire</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -491,11 +797,11 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
             <div className="text-center mb-12">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-500/20 text-yellow-400 rounded-full mb-4">
                 <TrendingUp className="w-5 h-5" />
-                <span className="font-semibold">PROGRESSION CLASSÉE</span>
+                <span className="font-semibold">IMPACT COMPÉTITIF</span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">De Bronze à Grandmaster</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Progression compétitive estimée</h2>
               <p className="text-gray-400 max-w-2xl mx-auto">
-                Temps moyen pour atteindre chaque rang avec notre solution
+                Projection moyenne observée en combinant coaching en direct et overlays tactiques.
               </p>
             </div>
 
@@ -525,17 +831,17 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
           </div>
         )}
 
-        {/* Security Metrics */}
+        {/* Reliability Metrics */}
         {tech?.securityMetrics && (
           <div className="mt-20">
             <div className="text-center mb-12">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/20 text-green-400 rounded-full mb-4">
                 <Lock className="w-5 h-5" />
-                <span className="font-semibold">SÉCURITÉ & PROTECTION</span>
+                <span className="font-semibold">FIABILITÉ & MAINTENANCE</span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Sécurité de Niveau Entreprise</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Service de niveau entreprise</h2>
               <p className="text-gray-400 max-w-2xl mx-auto">
-                Protection multicouche avec encryption AES-256 et obfuscation avancée
+                Supervision proactive, correctifs rapides et conformité streaming pour une expérience sereine.
               </p>
             </div>
 
@@ -544,22 +850,22 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                 <div className="glass-effect rounded-xl p-6 border border-green-500/30 bg-green-500/5">
                   <div className="text-center">
                     <div className="text-4xl font-bold text-green-400 mb-2">{tech.securityMetrics.detectionRate}%</div>
-                    <div className="text-sm text-gray-400">Taux de Détection</div>
-                    <div className="mt-3 text-xs text-green-400">Quasi-inexistant</div>
+                    <div className="text-sm text-gray-400">Taux d&apos;incident critique</div>
+                    <div className="mt-3 text-xs text-green-400">Surveillance continue</div>
                   </div>
                 </div>
                 <div className="glass-effect rounded-xl p-6 border border-blue-500/30 bg-blue-500/5">
                   <div className="text-center">
                     <div className="text-4xl font-bold text-blue-400 mb-2">{tech.securityMetrics.uptimePercentage}%</div>
-                    <div className="text-sm text-gray-400">Uptime</div>
-                    <div className="mt-3 text-xs text-blue-400">Disponibilité maximale</div>
+                    <div className="text-sm text-gray-400">Disponibilité</div>
+                    <div className="mt-3 text-xs text-blue-400">Infrastructure hautement disponible</div>
                   </div>
                 </div>
                 <div className="glass-effect rounded-xl p-6 border border-purple-500/30 bg-purple-500/5">
                   <div className="text-center">
                     <div className="text-4xl font-bold text-purple-400 mb-2">{tech.securityMetrics.avgResponseTime}min</div>
-                    <div className="text-sm text-gray-400">Support Moyen</div>
-                    <div className="mt-3 text-xs text-purple-400">Réponse ultra-rapide</div>
+                    <div className="text-sm text-gray-400">Temps de réponse support</div>
+                    <div className="mt-3 text-xs text-purple-400">Équipe dédiée 24/7</div>
                   </div>
                 </div>
               </div>
@@ -569,19 +875,19 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                   <div>
                     <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
                       <Shield className="w-5 h-5 text-green-400" />
-                      Protection Active
+                      Maintenance proactive
                     </h3>
                     <div className="space-y-3">
                       <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
-                        <span className="text-gray-400">Encryption</span>
+                        <span className="text-gray-400">Chiffrement</span>
                         <span className="text-green-400 font-bold">{tech.securityMetrics.encryptionLevel}</span>
                       </div>
                       <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
-                        <span className="text-gray-400">Couches d'Obfuscation</span>
+                        <span className="text-gray-400">Couches d&apos;isolation</span>
                         <span className="text-purple-400 font-bold">{tech.securityMetrics.obfuscationLayers}</span>
                       </div>
                       <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
-                        <span className="text-gray-400">MAJ Sécurité/Semaine</span>
+                        <span className="text-gray-400">Mises à jour maintenance / semaine</span>
                         <span className="text-blue-400 font-bold">{tech.securityMetrics.securityUpdatesPerWeek}</span>
                       </div>
                       <div className="flex items-center justify-between p-3 bg-white/5 rounded-lg">
@@ -590,16 +896,16 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                       </div>
                     </div>
                   </div>
-                  <div>
-                    <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
-                      <Lock className="w-5 h-5 text-purple-400" />
-                      Technologies de Protection
-                    </h3>
-                    <div className="space-y-3">
-                      {[
-                        { label: "Anti-Debug", enabled: tech.securityMetrics.antiDebug },
-                        { label: "Anti-VM Detection", enabled: tech.securityMetrics.antiVM },
-                        { label: "Kernel-Level Protection", enabled: tech.securityMetrics.kernelProtection }
+                    <div>
+                      <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
+                        <Lock className="w-5 h-5 text-purple-400" />
+                      Surveillance automatisée
+                      </h3>
+                      <div className="space-y-3">
+                        {[
+                        { label: "Surveillance d'intégrité", enabled: tech.securityMetrics.antiDebug },
+                        { label: "Validation environnements virtuels", enabled: tech.securityMetrics.antiVM },
+                        { label: "Service noyau optimisé", enabled: tech.securityMetrics.kernelProtection }
                       ].map((item, idx) => (
                         <div key={idx} className={`flex items-center gap-3 p-3 rounded-lg ${item.enabled ? 'bg-green-500/10 border border-green-500/30' : 'bg-red-500/10 border border-red-500/30'}`}>
                           <div className={`w-3 h-3 rounded-full ${item.enabled ? 'bg-green-400' : 'bg-red-400'}`} />
@@ -610,7 +916,7 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                       <div className="mt-4 p-4 bg-purple-500/10 border border-purple-500/30 rounded-lg">
                         <div className="flex items-start gap-2 text-purple-400 text-sm">
                           <Shield className="w-4 h-4 mt-0.5" />
-                          <span>Protection complète contre reverse engineering et analyse comportementale</span>
+                          <span>Protection complète contre les conflits logiciels et dérives de pilotes</span>
                         </div>
                       </div>
                     </div>
@@ -627,11 +933,11 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
             <div className="text-center mb-12">
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/20 text-blue-400 rounded-full mb-4">
                 <Wifi className="w-5 h-5" />
-                <span className="font-semibold">INFRASTRUCTURE RÉSEAU</span>
+                <span className="font-semibold">INFRASTRUCTURE CLOUD</span>
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Réseau Global Ultra-Rapide</h2>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Réseau global ultra-rapide</h2>
               <p className="text-gray-400 max-w-2xl mx-auto">
-                {tech.networkStats.serverLocations} serveurs dans le monde pour une latence minimale
+                {tech.networkStats.serverLocations} points de présence synchronisés pour maintenir la réactivité des overlays et du streaming.
               </p>
             </div>
 
@@ -786,9 +1092,9 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
 
         {/* CTA Section */}
         <div className="mt-20 text-center py-16 glass-effect rounded-2xl border border-white/10">
-          <h2 className="text-4xl font-bold mb-6">Prêt à Dominer {product.game} ?</h2>
+          <h2 className="text-4xl font-bold mb-6">Prêt à sublimer votre expérience {product.game} ?</h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Rejoignez des milliers de joueurs et transformez votre expérience de jeu dès aujourd&apos;hui.
+            Activez la suite PulseForge et profitez d&apos;outils créatifs prêts pour le coaching, le streaming et la compétition.
           </p>
           <Link
             href={`/${locale}/premium/signup`}

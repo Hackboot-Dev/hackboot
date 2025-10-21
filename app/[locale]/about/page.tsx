@@ -332,9 +332,9 @@ export default function AboutPage() {
                 Pourquoi Nous Existons
               </span>
             </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              Notre raison d'être et la direction que nous prenons
-            </p>
+              <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+                Notre raison d’être et la direction que nous prenons
+              </p>
           </div>
 
           <MissionVision mission={mission} vision={vision} manifesto={manifesto} />
@@ -396,9 +396,9 @@ export default function AboutPage() {
         <section className="container mx-auto px-6 py-20">
           <div className="glass-effect rounded-3xl p-12 bg-gradient-to-br from-purple-500/10 to-cyan-500/10 border-2 border-purple-500/20 text-center">
             <Target className="w-16 h-16 text-purple-400 mx-auto mb-6" />
-            <h2 className="text-4xl md:text-5xl font-black mb-4">
-              Rejoignez l'Aventure
-            </h2>
+              <h2 className="text-4xl md:text-5xl font-black mb-4">
+                Rejoignez l’Aventure
+              </h2>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
               Faites partie de la révolution cloud gaming. Plus de 1500 joueurs nous font déjà confiance.
             </p>
