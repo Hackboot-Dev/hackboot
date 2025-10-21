@@ -108,13 +108,13 @@ export interface GamingProduct {
         ultra: number
       }
     }>
-    fpsThresholds?: Array<{
+    resolutionGuidance?: Array<{
       resolution: string
-      above30: number
-      above60: number
-      above90: number
-      above120: number
-      above144: number
+      avgFps: number
+      fpsWindow: string
+      refreshAdvice: string
+      description: string
+      note?: string
     }>
     improvementTips?: string[]
     advice?: string
@@ -123,7 +123,7 @@ export interface GamingProduct {
       overlayFocus: number
       clarityBoost: number
       preset: string
-      trainingBoost: string
+      coachingNotes: string
     }>
     espCapabilities?: {
       maxDistance: number

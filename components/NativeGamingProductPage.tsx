@@ -35,7 +35,7 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
     {
       icon: Gauge,
       title: "Performance calibrée",
-      description: "FPS stables 400+ et latence maîtrisée grâce à notre profil matériel sur mesure"
+      description: "FPS stables 400+ et latence maîtrisée grâce à notre profil serveur sur mesure"
     },
     {
       icon: Trophy,
@@ -259,7 +259,7 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">Performances calibrées pour Overwatch 2</h2>
               <p className="text-gray-400 max-w-2xl mx-auto">
-                Tests réalisés sur notre instance cloud PulseForge (preset Esports 1080p) avec monitoring temps réel : 410 FPS de moyenne en mode compétitif et 84 FPS relevés sur le 1% low lors du scénario 4K Ultra avec overlays complets.
+                Mesures internes sur notre instance PulseForge : 410 FPS de moyenne sur le preset Esports 1080p, 242 FPS en 1440p et 131 FPS en 4K. Le 1% low descend à 84 FPS dans le scénario 4K Ultra avec overlays complets, garantissant une marge confortable même sur les charges extrêmes.
               </p>
             </div>
 
@@ -280,7 +280,7 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                   <div className="space-y-4">
                     <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
                       <Cpu className="w-5 h-5 text-purple-400" />
-                      Utilisation Système
+                      Allocation serveur PulseForge
                     </h3>
                     <ProgressBar label="CPU Usage" value={tech.performanceMetrics.cpuUsage} max={100} unit="%" color="purple" />
                     <ProgressBar label="GPU Usage" value={tech.performanceMetrics.gpuUsage} max={100} unit="%" color="green" />
@@ -290,7 +290,7 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                   <div className="space-y-4">
                     <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
                       <Activity className="w-5 h-5 text-orange-400" />
-                      Températures & Puissance
+                      Stabilité datacenter
                     </h3>
                     <ProgressBar label="CPU Temperature" value={tech.performanceMetrics.thermalCpu} max={100} unit="°C" color="orange" />
                     <ProgressBar label="GPU Temperature" value={tech.performanceMetrics.thermalGpu} max={100} unit="°C" color="orange" />
@@ -377,43 +377,43 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
           </div>
         )}
 
-        {tech?.fpsThresholds && tech.fpsThresholds.length > 0 && (
+        {tech?.resolutionGuidance && tech.resolutionGuidance.length > 0 && (
           <div className="mt-16">
             <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold mb-2">Réserve de performances multi-jeux</h3>
+              <h3 className="text-2xl font-bold mb-2">Comment ajuster la résolution côté cloud</h3>
               <p className="text-gray-400 max-w-2xl mx-auto">
-                Quand vous basculez vers d&apos;autres titres populaires, voici la part du top 100 qui reste au-dessus de chaque seuil de FPS à cette résolution (réglages moyens PulseForge).
+                Nos mesures internes traduisent la marge FPS réelle quand vous augmentez ou réduisez la définition depuis le panneau PulseForge.
               </p>
             </div>
-            <div className="glass-effect rounded-2xl p-6 border border-white/10 overflow-x-auto">
-              <table className="w-full text-sm">
-                <thead>
-                  <tr className="border-b border-white/10 text-gray-400">
-                    <th className="py-3 px-4 text-left">Résolution</th>
-                    <th className="py-3 px-4 text-center">Jeux &gt;30 FPS</th>
-                    <th className="py-3 px-4 text-center">Jeux &gt;60 FPS</th>
-                    <th className="py-3 px-4 text-center">Jeux &gt;90 FPS</th>
-                    <th className="py-3 px-4 text-center">Jeux &gt;120 FPS</th>
-                    <th className="py-3 px-4 text-center">Jeux &gt;144 FPS</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {tech.fpsThresholds.map((entry, idx) => (
-                    <tr key={idx} className="border-b border-white/10 last:border-none">
-                      <td className="py-3 px-4 font-semibold text-white">{entry.resolution}</td>
-                      <td className="py-3 px-4 text-center text-green-400">{entry.above30}%</td>
-                      <td className="py-3 px-4 text-center text-green-400">{entry.above60}%</td>
-                      <td className="py-3 px-4 text-center text-yellow-400">{entry.above90}%</td>
-                      <td className="py-3 px-4 text-center text-orange-400">{entry.above120}%</td>
-                      <td className="py-3 px-4 text-center text-purple-400">{entry.above144}%</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-              <p className="text-xs text-gray-500 mt-4">
-                Données multi-titres issues de nos benchmarks cloud (top 100 jeux simultanés).
-              </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {tech.resolutionGuidance.map((entry, idx) => (
+                <div key={idx} className="glass-effect rounded-2xl p-6 border border-white/10 flex flex-col h-full">
+                  <div className="flex items-start justify-between gap-4">
+                    <div>
+                      <h4 className="text-xl font-semibold text-white">{entry.resolution}</h4>
+                      <p className="text-sm text-gray-400 mt-1">{entry.refreshAdvice}</p>
+                    </div>
+                    <div className="text-right">
+                      <div className="text-3xl font-bold text-green-400">{entry.avgFps}</div>
+                      <div className="text-xs text-gray-500 uppercase tracking-wider">FPS moyen</div>
+                    </div>
+                  </div>
+                  <div className="mt-4 p-3 bg-white/5 border border-white/10 rounded-lg text-sm text-gray-300 flex items-center justify-between">
+                    <span>Fenêtre relevée</span>
+                    <span className="text-white font-semibold">{entry.fpsWindow}</span>
+                  </div>
+                  <p className="mt-4 text-sm text-gray-300 leading-relaxed">{entry.description}</p>
+                  {entry.note && (
+                    <div className="mt-4 p-3 bg-purple-500/10 border border-purple-500/30 rounded-lg text-xs text-purple-200">
+                      {entry.note}
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
+            <p className="text-xs text-gray-500 mt-6 text-center">
+              Les valeurs correspondent à nos scénarios Overwatch 2 sur presets Moyen et Ultra avec overlays actifs.
+            </p>
           </div>
         )}
 
@@ -634,7 +634,7 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                       <th className="text-center py-4 px-4 text-gray-400 font-semibold">Focus overlay</th>
                       <th className="text-center py-4 px-4 text-gray-400 font-semibold">Clarté visuelle</th>
                       <th className="text-center py-4 px-4 text-gray-400 font-semibold">Preset conseillé</th>
-                      <th className="text-center py-4 px-4 text-gray-400 font-semibold">Boost d&apos;entraînement</th>
+                      <th className="text-center py-4 px-4 text-gray-400 font-semibold">Notes coaching</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -653,7 +653,7 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                           <span className="text-purple-400 font-semibold">{hero.preset}</span>
                         </td>
                         <td className="py-4 px-4 text-center">
-                          <span className="text-orange-400 font-bold">{hero.trainingBoost}</span>
+                          <span className="text-orange-300 text-sm leading-relaxed">{hero.coachingNotes}</span>
                         </td>
                       </tr>
                     ))}

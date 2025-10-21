@@ -97,30 +97,30 @@
           }
         }
       ],
-      "fpsThresholds": [
+      "resolutionGuidance": [
         {
           "resolution": "1920 × 1080",
-          "above30": 100,
-          "above60": 100,
-          "above90": 94,
-          "above120": 67,
-          "above144": 50
+          "avgFps": 410,
+          "fpsWindow": "318 – 431 FPS",
+          "refreshAdvice": "Idéal pour viser 240 à 360 Hz en compétitif",
+          "description": "Profil Esports 1080p : nous maintenons 410 FPS de moyenne sur le preset compétition avec overlays complets. En basculant sur le preset Moyen, comptez 375 FPS et 201 FPS en Ultra pour les sessions cinématiques.",
+          "note": "Conservez ce profil si la priorité est la réactivité maximale."
         },
         {
           "resolution": "2560 × 1440",
-          "above30": 100,
-          "above60": 97,
-          "above90": 66,
-          "above120": 35,
-          "above144": 20
+          "avgFps": 242,
+          "fpsWindow": "206 – 278 FPS",
+          "refreshAdvice": "Parfait pour des écrans 165/240 Hz avec rendu plus net",
+          "description": "Le passage en 1440p équilibre netteté et fluidité : 242 FPS mesurés en réglages moyens et encore 130 FPS en Ultra avec tous les overlays actifs.",
+          "note": "À privilégier pour le streaming haute définition ou les VOD détaillées."
         },
         {
           "resolution": "3840 × 2160",
-          "above30": 99,
-          "above60": 59,
-          "above90": 19,
-          "above120": 11,
-          "above144": 5
+          "avgFps": 131,
+          "fpsWindow": "111 – 150 FPS",
+          "refreshAdvice": "Stable au-delà de 120 Hz pour la 4K compétitive",
+          "description": "En 4K, la plateforme conserve 131 FPS en moyenne sur preset Moyen et 70 FPS en Ultra. La limitation provient du GPU mais reste suffisamment haute pour un affichage 120 Hz constant.",
+          "note": "Utilisez ce mode pour des contenus showcase ou pour jouer sur écran 4K sans compromis majeurs."
         }
       ],
       "improvementTips": [
@@ -130,49 +130,49 @@
         "Activez les overlays optionnels uniquement sur les cartes où vous en avez besoin afin de libérer 3 à 5 % de ressources.",
         "Surveillez le tableau de bord latence pour déclencher un switch de région si le ping dépasse 30 ms."
       ],
-      "advice": "Profitez d'une fluidité exceptionnelle sur infrastructure cloud : vous pouvez monter en 1440p ou 4K tout en maintenant 200+ FPS, ou revenir en 1080p pour maximiser les 410 FPS moyens selon vos priorités."
+      "advice": "Profitez d'une fluidité exceptionnelle sur infrastructure cloud : 410 FPS en 1080p Esports, 242 FPS en 1440p et 131 FPS en 4K. Ajustez la résolution selon le compromis qualité/réactivité que vous visez.",
       "heroSynergy": [
         {
           "hero": "Widowmaker",
           "overlayFocus": 98,
           "clarityBoost": 95,
           "preset": "Sniper Focus",
-          "trainingBoost": "+32% réactivité"
+          "coachingNotes": "Overlay à 144 Hz pour sécuriser les lignes de vue longues et les callouts de position."
         },
         {
           "hero": "Cassidy",
           "overlayFocus": 96,
           "clarityBoost": 92,
           "preset": "Precision Aim",
-          "trainingBoost": "+27% cohérence"
+          "coachingNotes": "Assistants de timings pour les duels à moyenne portée et rappels de cooldowns."
         },
         {
           "hero": "Ashe",
           "overlayFocus": 97,
           "clarityBoost": 93,
           "preset": "Duelliste",
-          "trainingBoost": "+29% suivi"
+          "coachingNotes": "Suivi des pics de visibilité et tracking de Bob pour caler les engagements."
         },
         {
           "hero": "Soldier: 76",
           "overlayFocus": 95,
           "clarityBoost": 90,
           "preset": "Assaut",
-          "trainingBoost": "+24% stabilité"
+          "coachingNotes": "Monitoring des zones de sprint et rappel des fenêtres visées pour Helix Rocket."
         },
         {
           "hero": "Tracer",
           "overlayFocus": 93,
           "clarityBoost": 88,
           "preset": "Mobilité",
-          "trainingBoost": "+22% timing"
+          "coachingNotes": "Indications de routes optimales et suivi des packs de soin pour jouer autour du recall."
         },
         {
           "hero": "Genji",
           "overlayFocus": 92,
           "clarityBoost": 87,
           "preset": "Agilité",
-          "trainingBoost": "+20% prise de décision"
+          "coachingNotes": "Timeline Dragonblade avec alertes sur les ressources ennemies clés."
         }
       ],
       "updateHistory": {
