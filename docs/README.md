@@ -79,7 +79,7 @@ Cette section résume le fonctionnement des pages produits cloud gaming : où so
 - Les fiches sont définies dans [`data/gaming-products.json`](../data/gaming-products.json).
   - Chaque entrée précise l'identifiant, le `slug`, le niveau d'optimisation (`native` ou `community`), la description marketing et les métriques de performance.
   - Les tableaux `resolutionGuidance` et `technicalSpecs` exposent les FPS, la latence et les informations réseau injectées telles quelles dans l'interface.
-  - Les variantes peuvent embarquer `featureHighlights`, `featureGroups` (titre, description, éléments) et `implementationNotes` pour décrire les suites PulseForge ; ces blocs sont traduits via les overrides de `copyByLocale.product.variants`.
+- Les variantes peuvent embarquer `featureHighlights`, `featureGroups` (titre, description, éléments) et `implementationNotes` pour décrire les suites PulseForge ; le rendu se base maintenant sur un sélecteur interactif qui affiche un groupe à la fois pour limiter le scroll. Ces blocs sont traduits via les overrides de `copyByLocale.product.variants`.
 - Les utilitaires d'accès et les types associés vivent dans [`lib/gaming-products.ts`](../lib/gaming-products.ts).
   - `getAllGamingProducts()` et `getGamingProductBySlug()` alimentent les routes dynamiques.
 
@@ -94,7 +94,7 @@ Cette section résume le fonctionnement des pages produits cloud gaming : où so
   - `optimizationLevel === 'native'` ⟶ [`NativeGamingProductPage`](../components/NativeGamingProductPage.tsx)
   - sinon ⟶ [`CommunityGamingProductPage`](../components/CommunityGamingProductPage.tsx)
 - Les deux vues encapsulent le contenu dans `<SiteHeader />`, `<main className="pt-28 pb-24">` et `<Footer />` afin de conserver la navigation cohérente.
-- Les animations d’apparition, de remplissage des jauges et des CTA reposent sur `framer-motion`. Réutiliser les presets `inViewFadeProps`, `inViewSlideProps`, `inViewScaleProps`, `inViewTiltProps` ainsi que `fadeTransition` pour toute nouvelle section afin de garder un rythme cohérent.
+- Les animations d’apparition, de remplissage des jauges et des CTA reposent sur `framer-motion`. Réutiliser les presets `inViewFadeProps`, `inViewSlideProps`, `inViewScaleProps`, `inViewTiltProps` ainsi que `fadeTransition` pour toute nouvelle section afin de garder un rythme cohérent. Les listes de fonctionnalités natives utilisent en complément `AnimatePresence` pour la transition entre onglets.
 - Les effets au survol doivent rester légers : privilégier les helpers `hoverLiftProps` et `hoverGlowProps` déjà présents pour appliquer translation, légère mise à l’échelle et halo lumineux sur les cartes interactives.
 
 ### ➕ Ajouter ou mettre à jour un produit
@@ -104,7 +104,7 @@ Cette section résume le fonctionnement des pages produits cloud gaming : où so
 4. Compléter les traductions génériques dans `public/locales/<locale>/common.json` si besoin.
 5. Lancer `npm run lint` pour valider les schémas avant de publier.
 
-**Dernière action:** Harmonisation des animations framer-motion sur les pages native & communautaire (24/10/2025)
+**Dernière action:** Sélecteur d’onglets pour les fonctionnalités PulseForge et transition AnimatePresence (24/10/2025)
 
 ---
 

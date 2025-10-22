@@ -2058,3 +2058,25 @@ if (hasDecimal) {
 #### État:
 ✅ Animations variées et cohérentes avec l’identité PulseForge
 ✅ Interactions hover légères sur les cartes et CTA
+
+### Enhancement: Navigation compacte des fonctionnalités PulseForge
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Réduire la hauteur de scroll de la section « Fonctionnalités incluses » malgré la multiplication des modules PulseForge.
+- Proposer des animations rapides sans retard de texte afin de rendre la lecture instantanée.
+- Aligner la documentation centrale avec le nouveau sélecteur d’onglets et l’usage d’`AnimatePresence`.
+
+#### Actions réalisées:
+1. Introduction d’un état local `activeFeatureGroupIndex` dans `NativeGamingProductPage` pour piloter un sélecteur horizontal des groupes de fonctionnalités.
+2. Remplacement de l’empilement vertical par un carrousel d’onglets animé (`AnimatePresence`) avec cartes bi-colonnes et délais limités pour afficher immédiatement les descriptions.
+3. Mise à jour de `docs/README.md` afin de décrire le nouveau rendu compact et consigner l’usage d’`AnimatePresence` pour la transition entre onglets.
+
+#### Fichiers modifiés:
+- `/components/NativeGamingProductPage.tsx`
+- `/docs/README.md`
+
+#### État:
+✅ Section « Fonctionnalités incluses » plus compacte et lisible
+✅ Documentation synchronisée avec le nouveau pattern

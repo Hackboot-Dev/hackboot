@@ -1453,6 +1453,16 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
   const performanceLatency = tech?.performanceMetrics?.latency ?? 0
   const featureHighlights = selectedVariant?.featureHighlights ?? []
   const featureGroups = selectedVariant?.featureGroups ?? []
+  const [activeFeatureGroupIndex, setActiveFeatureGroupIndex] = useState(0)
+  useEffect(() => {
+    setActiveFeatureGroupIndex(0)
+  }, [selectedVariant?.id])
+  useEffect(() => {
+    if (activeFeatureGroupIndex >= featureGroups.length && featureGroups.length > 0) {
+      setActiveFeatureGroupIndex(0)
+    }
+  }, [activeFeatureGroupIndex, featureGroups.length])
+  const activeFeatureGroup = featureGroups[activeFeatureGroupIndex] ?? null
   const implementationNotes = selectedVariant?.implementationNotes ?? []
 
   const ProgressBar = ({ label, value, max, color = "purple", unit = "" }: { label: string, value: number, max: number, color?: string, unit?: string }) => {
@@ -2508,36 +2518,88 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
 
             {featureGroups.length > 0 ? (
               <div className="space-y-6">
-                {featureGroups.map((group, idx) => (
-                  <motion.div
-                    key={idx}
-                    className="glass-effect rounded-2xl p-8 border border-white/10"
-                    {...inViewSlideProps}
-                    transition={{ ...fadeTransition, delay: 0.25 + idx * 0.05 }}
-                    {...hoverLiftProps}
-                  >
-                    <div>
-                      <h3 className="text-xl font-semibold text-white">{group.title}</h3>
-                      {group.description && <p className="text-sm text-gray-400 mt-2">{group.description}</p>}
-                    </div>
-                    <div className="mt-4 space-y-3">
-                      {group.items.map((item, itemIdx) => (
-                        <motion.div
-                          key={itemIdx}
-                          className="flex items-start gap-3"
-                          initial={{ opacity: 0, x: -14, rotateY: -8 }}
-                          whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
-                          viewport={{ once: true, amount: 0.3 }}
-                          transition={{ duration: 0.35, ease: 'easeOut', delay: itemIdx * 0.04 }}
-                          whileHover={{ x: 4 }}
+                <div className="-mx-4 md:mx-0">
+                  <div className="flex gap-3 overflow-x-auto px-4 md:px-0 pb-2">
+                    {featureGroups.map((group, idx) => {
+                      const isActive = idx === activeFeatureGroupIndex
+                      return (
+                        <motion.button
+                          key={`${group.title}-${idx}`}
+                          type="button"
+                          className={`relative flex min-w-[220px] flex-col rounded-2xl border px-5 py-4 text-left transition-all md:min-w-[200px] ${
+                            isActive
+                              ? 'border-purple-400/60 bg-purple-500/15 text-white shadow-lg shadow-purple-500/20'
+                              : 'border-white/10 bg-white/5 text-gray-300 hover:border-purple-400/40 hover:text-white'
+                          }`}
+                          onClick={() => setActiveFeatureGroupIndex(idx)}
+                          whileHover={{ y: -4 }}
+                          whileTap={{ scale: 0.98 }}
+                          transition={{ type: 'spring', stiffness: 260, damping: 20 }}
                         >
-                          <Check className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" />
-                          <span className="text-gray-300">{item}</span>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </motion.div>
-                ))}
+                          <span className="text-sm font-semibold md:text-base">{group.title}</span>
+                          {group.description && (
+                            <span className="mt-1 text-xs text-gray-300/80 md:text-sm">
+                              {group.description}
+                            </span>
+                          )}
+                          <span className="mt-3 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-purple-200/80">
+                            <Check className="h-3.5 w-3.5" />
+                            {group.items.length}
+                          </span>
+                        </motion.button>
+                      )
+                    })}
+                  </div>
+                </div>
+
+                <AnimatePresence mode="wait">
+                  {activeFeatureGroup && (
+                    <motion.div
+                      key={activeFeatureGroup.title}
+                      className="glass-effect rounded-2xl border border-white/10 p-8"
+                      initial={{ opacity: 0, y: 24 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -16 }}
+                      transition={{ duration: 0.35, ease: 'easeOut' }}
+                    >
+                      <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+                        <div>
+                          <h3 className="text-2xl font-semibold text-white">{activeFeatureGroup.title}</h3>
+                          {activeFeatureGroup.description && (
+                            <p className="mt-2 text-sm text-gray-400 md:text-base md:leading-relaxed">
+                              {activeFeatureGroup.description}
+                            </p>
+                          )}
+                        </div>
+                        <motion.span
+                          className="inline-flex items-center gap-2 rounded-full border border-purple-500/40 bg-purple-500/10 px-4 py-2 text-sm font-medium text-purple-100"
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.3, ease: 'easeOut', delay: 0.05 }}
+                        >
+                          <Shield className="h-4 w-4" />
+                          {activeFeatureGroup.items.length}
+                        </motion.span>
+                      </div>
+
+                      <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-2">
+                        {activeFeatureGroup.items.map((item, itemIdx) => (
+                          <motion.div
+                            key={`${activeFeatureGroup.title}-${itemIdx}`}
+                            className="flex items-start gap-3 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-left transition-colors hover:border-purple-400/40"
+                            initial={{ opacity: 0, y: 12 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.28, ease: 'easeOut', delay: Math.min(itemIdx * 0.03, 0.12) }}
+                            whileHover={{ y: -2 }}
+                          >
+                            <Check className="mt-1 h-5 w-5 flex-shrink-0 text-purple-400" />
+                            <span className="text-sm leading-relaxed text-gray-200 md:text-base">{item}</span>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             ) : (
               <motion.div className="glass-effect rounded-2xl p-8 border border-white/10" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.25 }}>
