@@ -2080,3 +2080,26 @@ if (hasDecimal) {
 #### État:
 ✅ Section « Fonctionnalités incluses » plus compacte et lisible
 ✅ Documentation synchronisée avec le nouveau pattern
+
+### Feature: PulseForge Warzone native build
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Remplacer l’ancienne fiche Warzone orientée cheat par une offre PulseForge native alignée avec l’expérience cloud gaming.
+- Intégrer les métriques Battle Royale (FPS multi-résolutions, option CPU Boost, guidance résolution) fournies par le rapport interne.
+- Garantir une localisation complète FR/EN/ET, y compris pour les variantes PulseForge et les notes de conformité.
+
+#### Actions réalisées:
+1. Réécriture de `gaming-warzone` dans `data/gaming-products.json` avec les performances calibrées, la suite d’assistances BR et le variant `PulseForge Warzone Operator`.
+2. Ajout de `localeOverridesByProduct` dans `NativeGamingProductPage.tsx` pour fusionner les textes spécifiques Warzone (métriques, expérience cloud, fonctionnalités) dans chaque langue.
+3. Mise à jour de `docs/README.md` afin de documenter l’arrivée de l’offre Warzone et le rôle des overrides de localisation.
+
+#### Fichiers modifiés:
+- `/data/gaming-products.json`
+- `/components/NativeGamingProductPage.tsx`
+- `/docs/README.md`
+
+#### État:
+✅ Offre Warzone alignée avec PulseForge et métriques fournies
+✅ Localisation FR/EN/ET opérationnelle via overrides

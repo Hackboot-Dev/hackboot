@@ -65,6 +65,61 @@ const progressPalette = {
   cyan: 'bg-cyan-500'
 } as const
 
+type DeepPartial<T> = {
+  [P in keyof T]?: T[P] extends (...args: any[]) => any
+    ? T[P]
+    : T[P] extends Array<infer U>
+      ? Array<DeepPartial<U>>
+      : T[P] extends object
+        ? DeepPartial<T[P]>
+        : T[P]
+}
+
+function mergeDeep<T>(base: T, override?: DeepPartial<T>): T {
+  if (!override) {
+    return base
+  }
+
+  if (Array.isArray(base)) {
+    return (override as unknown as T) ?? base
+  }
+
+  if (typeof base === 'object' && base !== null) {
+    const result: any = { ...(base as any) }
+
+    for (const key of Object.keys(override) as Array<keyof T>) {
+      const overrideValue = override[key]
+      if (overrideValue === undefined) {
+        continue
+      }
+
+      const baseValue = (base as any)[key]
+
+      if (Array.isArray(baseValue) || Array.isArray(overrideValue)) {
+        result[key] = overrideValue
+        continue
+      }
+
+      if (
+        typeof baseValue === 'object' &&
+        baseValue !== null &&
+        typeof overrideValue === 'object' &&
+        overrideValue !== null &&
+        typeof overrideValue !== 'function'
+      ) {
+        result[key] = mergeDeep(baseValue, overrideValue as any)
+        continue
+      }
+
+      result[key] = overrideValue
+    }
+
+    return result
+  }
+
+  return (override as unknown as T) ?? base
+}
+
 type VariantOverride = Partial<ProductVariant> & {
   features?: string[]
   use_cases?: string[]
@@ -1331,6 +1386,642 @@ const copyByLocale: Record<'fr' | 'en' | 'et', LocaleContent> = {
 
 type LocaleKey = keyof typeof copyByLocale
 
+const localeOverridesByProduct: Record<string, Record<LocaleKey, DeepPartial<LocaleContent>>> = {
+  'gaming-warzone': {
+    fr: {
+      nativeAdvantages: [
+        {
+          icon: Code,
+          title: 'Optimisation Warzone native',
+          description: 'Profils Battle Royale calibrés avec équilibre CPU↔GPU et latence stream maîtrisée.'
+        },
+        {
+          icon: Zap,
+          title: 'Provisionnement instantané',
+          description: 'Instances Warzone prêtes en quelques secondes avec bascule automatique de région selon le ping.'
+        },
+        {
+          icon: Shield,
+          title: 'Surcouche compétitive',
+          description: 'Overlays BR, analytics TTK et coaching adaptatif sans compromettre le fair-play.'
+        },
+        {
+          icon: Trophy,
+          title: 'Support scrim & contenu',
+          description: 'Accompagnement presets Resurgence, sandbox TTK et production stream premium.'
+        }
+      ],
+      metrics: {
+        title: 'Performances calibrées pour Call of Duty: Warzone',
+        description:
+          'Mesures internes sur notre instance PulseForge (profil Medium compétitif) : 217 FPS de moyenne et 1% low à 155 FPS en 1080p. Le gameplay reste très fluide jusqu’en 4K grâce à l’optimisation CPU↔GPU et au pipeline vidéo faible latence.',
+        statCards: {
+          maxFps: 'FPS maximum observé (1080p Medium)',
+          onePercentLow: '1% low (1080p Medium)',
+          inputLag: 'Input lag moyen'
+        },
+        allocationTitle: 'Allocation in-game (profil Medium)',
+        datacenterTitle: 'Monitoring cloud PulseForge',
+        usage: {
+          cpu: 'Bottleneck dominant',
+          gpu: 'Marge GPU',
+          ram: 'Mémoire utilisée',
+          vram: 'VRAM utilisée'
+        },
+        thermals: {
+          cpu: 'Température CPU cloud',
+          gpu: 'Température GPU',
+          power: 'Consommation électrique'
+        },
+        stabilityNote: 'Optimisation Warzone dédiée : CPU maintenu à 93–96 % avec marge stable jusqu’en 4K.'
+      },
+      fpsTable: {
+        footnote: 'Benchmarks internes Warzone (profil Medium compétitif sur Al Mazrah, Vondel et Fortune’s Keep).'
+      },
+      resolution: {
+        title: 'Comment ajuster la résolution côté cloud',
+        description:
+          'Nos mesures internes traduisent la marge FPS réelle quand vous ajustez la définition depuis le panneau PulseForge.',
+        windowLabel: 'Fenêtre relevée',
+        footnote: 'Valeurs relevées sur profil Medium et Ultra Warzone avec overlays actifs.',
+        avgLabel: 'FPS moyen'
+      },
+      experience: {
+        description: (productName: string, latency: number) =>
+          `${productName} tourne intégralement sur notre infrastructure : provisionnement instantané, optimisation réseau dynamique et latence moyenne stabilisée à ${latency} ms.`,
+        bullets: [
+          'Overlays, profils et mises à jour appliqués côté serveur — rien à installer localement.',
+          'Bascule 1080p/1440p/4K depuis le panneau PulseForge en respectant la marge FPS mesurée.',
+          'Monitoring ping/jitter/pertes avec bascule automatique de région si instabilité détectée.'
+        ],
+        profileSubtitle: 'Moyenne mesurée en 1080p Medium',
+        lowLabel: '1% low 1080p Medium',
+        lowSubtitle: 'Fenêtre basse observée'
+      },
+      improvement: {
+        adviceTitle: 'Option « CPU Boost » (côté hôte)'
+      },
+      augmentation: {
+        description: 'Modules Battle Royale contextuels : TTK, économie d’escouade et overlays Resurgence stream-safe.'
+      },
+      hero: {
+        badge: 'PROFILS PAR RÔLE / ARME',
+        title: 'Optimisations dédiées',
+        description: 'Chaque module propose un preset calibré pour les archétypes Warzone (AR, SMG, Sniper, Support, etc.).',
+        headers: {
+          hero: 'Rôle / Arme',
+          overlay: 'Focus overlay',
+          clarity: 'Clarté visuelle',
+          preset: 'Preset conseillé',
+          notes: 'Notes coaching'
+        },
+        fallbackDescription: (game: string) => `Optimisations archétype par archétype pour ${game}`
+      },
+      nativeReasons: {
+        description: (game: string) => `Optimisé de A à Z pour ${game} en Battle Royale, avec overlays stream-safe et support dédié.`
+      }
+    },
+    en: {
+      nativeAdvantages: [
+        {
+          icon: Code,
+          title: 'Native Warzone optimization',
+          description: 'Battle royale profiles with balanced CPU↔GPU pipeline and stabilized stream latency.'
+        },
+        {
+          icon: Zap,
+          title: 'Instant provisioning',
+          description: 'Warzone instances spin up in seconds with automatic region failover based on ping.'
+        },
+        {
+          icon: Shield,
+          title: 'Competitive overlay stack',
+          description: 'BR overlays, TTK analytics, and adaptive coaching while preserving fair play.'
+        },
+        {
+          icon: Trophy,
+          title: 'Scrim & content support',
+          description: 'Guidance for Resurgence presets, TTK sandbox drills, and premium stream production.'
+        }
+      ],
+      metrics: {
+        title: 'Calibrated performance for Call of Duty: Warzone',
+        description:
+          'Internal measurements on our PulseForge instance (competitive Medium profile): 217 FPS average and 1% low at 155 FPS in 1080p. Gameplay stays very smooth up to 4K thanks to Warzone-specific CPU↔GPU tuning and a low-latency video pipeline.',
+        statCards: {
+          maxFps: 'Peak observed FPS (1080p Medium)',
+          onePercentLow: '1% low (1080p Medium)',
+          inputLag: 'Average input lag'
+        },
+        allocationTitle: 'In-game allocation (Medium profile)',
+        datacenterTitle: 'PulseForge cloud monitoring',
+        usage: {
+          cpu: 'Dominant bottleneck',
+          gpu: 'GPU headroom',
+          ram: 'Memory usage',
+          vram: 'VRAM usage'
+        },
+        thermals: {
+          cpu: 'Cloud CPU temperature',
+          gpu: 'GPU temperature',
+          power: 'Power draw'
+        },
+        stabilityNote: 'Warzone-tuned CPU↔GPU pipeline keeps margin stable through 4K.'
+      },
+      fpsTable: {
+        footnote: 'Internal Warzone benchmarks (competitive Medium profile across Al Mazrah, Vondel, and Fortune’s Keep).'
+      },
+      resolution: {
+        footnote: 'Values captured on Warzone Medium and Ultra presets with overlays enabled.',
+        windowLabel: 'Observed window',
+        avgLabel: 'Average FPS'
+      },
+      experience: {
+        description: (productName: string, latency: number) =>
+          `${productName} runs fully on our cloud: instant provisioning, dynamic network optimization, and average latency held at ${latency} ms.`,
+        bullets: [
+          'Overlays, profiles, and updates apply server-side—nothing to install locally.',
+          'Switch between 1080p, 1440p, or 4K from the PulseForge panel while keeping the measured FPS margin.',
+          'Live ping/jitter/loss monitoring with automatic region failover if instability appears.'
+        ],
+        profileSubtitle: 'Average measured at 1080p Medium',
+        lowLabel: '1% low 1080p Medium',
+        lowSubtitle: 'Observed low window'
+      },
+      improvement: {
+        adviceTitle: 'CPU Boost option (host side)'
+      },
+      augmentation: {
+        description: 'Battle royale overlays, TTK analytics, and Resurgence-ready coaching in a stream-safe suite.'
+      },
+      hero: {
+        badge: 'ROLE / WEAPON PROFILES',
+        title: 'Dedicated optimizations',
+        description: 'Each module ships a preset tuned for Warzone archetypes (AR, SMG, Sniper, Support, etc.).',
+        headers: {
+          hero: 'Role / Weapon',
+          overlay: 'Overlay focus',
+          clarity: 'Visual clarity',
+          preset: 'Recommended preset',
+          notes: 'Coaching notes'
+        },
+        fallbackDescription: (game: string) => `Archetype-specific optimizations for ${game}`
+      },
+      nativeReasons: {
+        description: (game: string) => `Optimized end to end for ${game} battle royale with stream-safe overlays and dedicated support.`
+      },
+      product: {
+        description: 'Cloud Warzone instance bundling battle royale overlays, TTK analytics, and stream-safe coaching tools.',
+        longDescription:
+          'PulseForge for Warzone is a fully native battle royale build hosted inside our cloud stack. It brings contextual overlays, adaptive coaching, and BR/Resurgence-ready audio/video presets. Every patch is integrated server-side with CPU↔GPU optimization and a low-latency pipeline to preserve fair play and stability.',
+        variants: {
+          'pulseforge-warzone': {
+            name: 'PulseForge Warzone Operator',
+            usage: 'Calibrated cloud Warzone instance',
+            description: 'Cloud-hosted Warzone build with battle royale overlays and Resurgence coaching.',
+            use_cases: [
+              'Ranked and Resurgence competition',
+              'Squad coaching and TTK analytics',
+              'Battle royale streaming production',
+              'Private scrims with PulseForge Lobby',
+              'VOD review and loadout sandbox'
+            ],
+            features: [
+              'Stream-safe BR modular overlays',
+              'TTK/plate tracking and squad economy',
+              'Rotation coach and zone forecasts',
+              'Post-match analytics with VOD exports',
+              'Battle royale audio profiles',
+              'PulseForge Lobby sandbox compatibility',
+              'Updates synced with Warzone patches'
+            ],
+            featureHighlights: [
+              'Ranked / all servers – 100% fair-play (screen reading, killfeed, audio, no memory injection)',
+              'PulseForge private lobbies – synchronized builds with everyone on PulseForge (cosmetics & advanced training)'
+            ],
+            featureGroups: [
+              {
+                title: 'Ranked / fair-play (live)',
+                items: [
+                  'Zone & Rotation Coach: zone collapse forecasts, low-risk routes, and 3rd-party windows to avoid.',
+                  'Squad Economy: purchase thresholds (UAV, loadout, redeploy) with priority buy station reminders.',
+                  'TTK/Plate Estimator: estimates TTK based on your loadout, distance, and visible armor plates.',
+                  'Audio Spatial Director: BR audio profiles with automatic ducking and prioritization of footsteps, armor, doors, and vehicles.',
+                  'Killfeed Intelligence: squad knock/finish synthesis, numeric advantage detection, and respawn timers.',
+                  'Vehicle & Route Helper: fuel management, estimated noise, covered paths, and critical choke alerts.',
+                  'Recoil Learning Overlay: theoretical recoil patterns for training and VOD review—no input adjustment.',
+                  'Stream Suite: automated lower-thirds, 8-second instant replays, expanded killfeed for internal casting.'
+                ]
+              },
+              {
+                title: 'PulseForge private lobbies',
+                description: 'Game and training options for PulseForge Lobby',
+                items: [
+                  'Shared cosmetics: PulseForge camo and FX visible to every squad on the PF build.',
+                  'TTK & Plates sandbox: armor/HP modifiers, fixed distances, and comparative TTK scoreboard.',
+                  'Contract Planner: scripted contract rotations (bounty, scav, most wanted) for team drills.',
+                  'Ghost-Run & Pathing: ghost rotations of your best runs, synchronized insertion time-trials.',
+                  'Draft & Role Lock: locks roles (entry/anchor/support) and enforces weapon cycles.',
+                  'Stratboard Live: tactical whiteboard overlay with coach/IGL sharing and play export.',
+                  'Caster Mode: expanded HUD, instant replays, and round markers ready for streaming.'
+                ]
+              },
+              {
+                title: 'Role / weapon profiles',
+                description: 'Dedicated optimizations per archetype',
+                items: [
+                  'AR (Assault): TTK & recoil lane focus, “don’t ego-peek” prompts, safe opening angles.',
+                  'SMG (Close): engage windows, short escape paths, and armor reminders.',
+                  'LMG (Anchor): reload discipline, cover swaps, and long-lane control.',
+                  'Sniper/DMR: head-height pre-aim, reposition pacing, and glint management.',
+                  'Shotgun: indoor push consolidation and duo timing cues.',
+                  'Support (IGL): macro calls, squad economy tracking, and contextual 3rd-party alerts.'
+                ]
+              },
+              {
+                title: 'Map & mode modules',
+                items: [
+                  'Circle Forecast: collapse timeline, split routes, and high-risk zones.',
+                  'Stronghold Planner: synchronized entries, reinforcement timing, and safe angles.',
+                  'Resurgence Deck: respawn timers, retake paths, and aggression windows.',
+                  'Vehicle Grid: noise heatmap, choke points, and safe air/ground transitions.'
+                ]
+              },
+              {
+                title: 'Analytics & coaching',
+                items: [
+                  'Match Story Auto-report: pivots, fight wins, and comparison to your target MMR.',
+                  'Session Planner: session goals, micro-challenges, and adherence score.',
+                  'Loadout Scorecard: damage/TTK tracking per weapon with adjustment suggestions.',
+                  'VOD Auto-tag: flags 3rd-party hits, failed retakes, and overly long splits (clickable timeline).'
+                ]
+              },
+              {
+                title: 'Accessibility & comfort',
+                items: [
+                  'Color-blind Pro: compliant team palettes with reinforced projectile outlines.',
+                  'Sound-to-HUD: critical audio cues converted into optional visual hints.',
+                  'Focus Mode: blocks toxic whispers, breathing timer, and guided micro-breaks.'
+                ]
+              }
+            ],
+            implementationNotes: [
+              'Public ranked relies solely on what is visible/audible (cloud-side vision/ASR) plus killfeed/scoreboard. No memory reading or injection.',
+              'Cosmetics, TTK sandbox, and live stratboards remain limited to PulseForge private lobbies where every player uses the same build.',
+              'All overlays are opt-in, discreet, and adaptive (auto-hide mid-fight when the visual load spikes).'
+            ],
+            target_audience: 'Competitive squads, BR coaches, creators',
+            highlight: 'Low-latency pipeline tuned for Warzone',
+            protection: 'Certified stream-safe fair-play',
+            updates: 'Post-patch synchronized updates'
+          }
+        }
+      },
+      technical: {
+        fpsByResolution: [
+          { playability: 'Very smooth', bottleneck: 'CPU (96%)' },
+          { playability: 'Very smooth', bottleneck: 'CPU (95%)' },
+          { playability: 'Very smooth', bottleneck: 'CPU (93%)' }
+        ],
+        resolutionGuidance: [
+          {
+            refreshAdvice: 'Competitive 144–240 Hz target',
+            description: 'The 1080p Medium profile holds around 217 FPS, with Ultra near 179 FPS—ideal for BR, Resurgence, and ranked.',
+            note: 'Switch to the Esports preset when you need a locked 240 Hz experience.'
+          },
+          {
+            refreshAdvice: 'Sharpness / refresh balance',
+            description: 'Moving to 1440p keeps fluidity high. Ultra stays usable around 159 FPS for cinematic output without losing competitiveness.',
+            note: 'Perfect for high-definition streaming or recorded scrims.'
+          },
+          {
+            refreshAdvice: 'Playable 4K above 120 Hz',
+            description: 'Even at 4K Medium (~163 FPS) the experience stays very smooth. Ultra lands near 135 FPS for showcase or premium streaming.',
+            note: 'Use it to highlight content or full-resolution broadcasts.'
+          }
+        ],
+        improvementTips: [
+          'Lower shadows/effects/AA if you need a constant 240 Hz.',
+          'Reduce in-game render resolution while keeping the stream at 1080p/1440p from the cloud.',
+          'Keep drivers up to date (we handle the server profile).',
+          'For hybrid desktop use: enable XMP and confirm memory frequency.',
+          'Watch temperatures—CPU overheating causes most 1% low drops.'
+        ],
+        advice: 'CPU Boost option: +5% → ~217 FPS | +10% → ~219 FPS | +15% → ~222 FPS | +20% → ~225 FPS (requires a premium thermal node slot).',
+        augmentationSuite: {
+          modules: [
+            'Zone & Rotation Coach: predicts circle closures, safe rotations, and 3rd-party risk.',
+            'Squad Economy: tracks buy thresholds for UAV/loadout/redeploy with nearby station reminders.',
+            'TTK/Plate Estimator: computes TTK from loadout, distance, and visible armor.',
+            'Audio Spatial Director: BR audio profile with auto-ducking of non-critical sounds.',
+            'Killfeed Intelligence: aggregates knocks/finishes, numeric advantage, and respawn timers.',
+            'Vehicle & Route Helper: fuel, noise footprint, safe routes, and break points.',
+            'Recoil Learning Overlay: theoretical recoil map for training and VOD (no input changes).',
+            'VOD Auto-tag: automatic tagging of 3rd-party pivots, failed retakes, and long splits.',
+            'Stream Suite: automated lower-thirds, 8-second instant replays, widened killfeed for casting.'
+          ],
+          notes: 'Modules calibrated for Warzone BR and Resurgence, refreshed after every major patch.'
+        },
+        heroSynergy: [
+          {
+            preset: 'Balance',
+            coachingNotes: 'Safe opening angles and “don’t ego-peek” prompts to secure trades.'
+          },
+          {
+            preset: 'Esports',
+            coachingNotes: 'Engage windows, short escape lanes, and armor reminders for entry players.'
+          },
+          {
+            preset: 'Stability',
+            coachingNotes: 'Reload discipline, cover swaps, and long-lane control for anchor roles.'
+          },
+          {
+            preset: 'Sniper Focus',
+            coachingNotes: 'Head-height pre-aim, reposition pacing, and glint management.'
+          },
+          {
+            preset: 'Indoor',
+            coachingNotes: 'Structured indoor pushes and duo timing cues.'
+          },
+          {
+            preset: 'Macro',
+            coachingNotes: 'Macro call assistance, squad economy insights, and contextual 3rd-party alerts.'
+          }
+        ]
+      }
+    },
+    et: {
+      nativeAdvantages: [
+        {
+          icon: Code,
+          title: 'Warzone\'i natiivne optimeerimine',
+          description: 'Battle Royale\'i profiilid CPU↔GPU tasakaaluga ja stabiilse vooglatentsusega.'
+        },
+        {
+          icon: Zap,
+          title: 'Kohene provisioneerimine',
+          description: 'Warzone\'i instantsid valmivad sekunditega, piirkonna automaatne vahetus pingist lähtuvalt.'
+        },
+        {
+          icon: Shield,
+          title: 'Võistlussõbralik overlay',
+          description: 'BR overlayd, TTK analüütika ja kohanduv coaching säilitades fair-play.'
+        },
+        {
+          icon: Trophy,
+          title: 'Scrimi ja sisu tugi',
+          description: 'Abi Resurgence\'i presetidele, TTK sandboxile ja premium-voogude tootmisele.'
+        }
+      ],
+      metrics: {
+        title: 'Kalibreeritud jõudlus Call of Duty: Warzone\'i jaoks',
+        description:
+          'Meie PulseForge\'i instantsi (Medium võistlusprofiil) sisemõõtmised: keskmiselt 217 FPS ja 1% madal 155 FPS 1080p juures. Mängupilt püsib väga sujuv kuni 4K tänu Warzone\'i spetsiifilisele CPU↔GPU häälestusele ja madala latentsusega videotorule.',
+        statCards: {
+          maxFps: 'Maksimaalne täheldatud FPS (1080p Medium)',
+          onePercentLow: '1% madal (1080p Medium)',
+          inputLag: 'Keskmine sisendviivitus'
+        },
+        allocationTitle: 'In-game eraldus (Medium profiil)',
+        datacenterTitle: 'PulseForge\'i pilvemonitoring',
+        usage: {
+          cpu: 'Domineeriv pudelkits',
+          gpu: 'GPU varu',
+          ram: 'Mälu kasutus',
+          vram: 'VRAM kasutus'
+        },
+        thermals: {
+          cpu: 'Pilve CPU temperatuur',
+          gpu: 'GPU temperatuur',
+          power: 'Võimsustarve'
+        },
+        stabilityNote: 'Warzone\'i häälestatud CPU↔GPU toru hoiab varu stabiilsena ka 4K juures.'
+      },
+      fpsTable: {
+        footnote: 'Sisemised Warzone\'i benchmarkid (Medium võistlusprofiil Al Mazrahis, Vondelis ja Fortune’s Keepis).'
+      },
+      resolution: {
+        footnote: 'Väärtused mõõdetud Warzone\'i Medium ja Ultra presetidel overlaydega.',
+        windowLabel: 'Täheldatud aken',
+        avgLabel: 'Keskmine FPS'
+      },
+      experience: {
+        description: (productName: string, latency: number) =>
+          `${productName} töötab täielikult meie pilves: kohene provisioneerimine, dünaamiline võrguoptimeerimine ja keskmine latentsus hoitud ${latency} ms juures.`,
+        bullets: [
+          'Overlayd, profiilid ja uuendused rakenduvad serveripoolselt — kohalikku installi pole vaja.',
+          'Vaheta 1080p/1440p/4K PulseForge\'i paneelist, säilitades mõõdetud FPS varu.',
+          'Elav ping/jitter/kaokontroll automaatse piirkonnavahetusega, kui ilmneb ebastabiilsus.'
+        ],
+        profileSubtitle: 'Keskmine mõõdetud 1080p Medium',
+        lowLabel: '1% madal 1080p Medium',
+        lowSubtitle: 'Täheldatud madalaken'
+      },
+      improvement: {
+        adviceTitle: '„CPU Boost” valik (hosti pool)'
+      },
+      augmentation: {
+        description: 'Battle Royale\'i overlayd, TTK analüütika ja Resurgence\'i coaching ühes stream-safe paketis.'
+      },
+      hero: {
+        badge: 'ROLLI / RELVA PROFIILID',
+        title: 'Pühendatud optimeerimised',
+        description: 'Iga moodul toob Warzone\'i arhetüüpidele (AR, SMG, snaiper, tugi jne) kalibreeritud presetid.',
+        headers: {
+          hero: 'Roll / Relv',
+          overlay: 'Overlay fookus',
+          clarity: 'Visuaalne selgus',
+          preset: 'Soovituslik preset',
+          notes: 'Coaching\'u märkmed'
+        },
+        fallbackDescription: (game: string) => `Arhetüübi põhised optimeerimised mängule ${game}`
+      },
+      nativeReasons: {
+        description: (game: string) => `Täielikult optimeeritud ${game} Battle Royale\'i jaoks stream-safe overlayde ja spetsiaalse toega.`
+      },
+      product: {
+        description: 'Pilvepõhine Warzone\'i instants, mis koondab BR overlayd, TTK analüütika ja stream-safe coaching’u tööriistad.',
+        longDescription:
+          'PulseForge Warzone\'i jaoks on täielikult natiivne Battle Royale\'i build meie pilveplatvormil. See koondab kontekstuaalsed overlayd, kohanduva coaching’u ning BR/Resurgence valmid audio-/videopresetid. Iga patch integreeritakse serveripoolselt CPU↔GPU optimeerimise ja madala latentsusega toruga, hoides fair-play ja stabiilsuse.',
+        variants: {
+          'pulseforge-warzone': {
+            name: 'PulseForge Warzone Operator',
+            usage: 'Kalibreeritud pilvepõhine Warzone\'i instants',
+            description: 'Pilvehostitud Warzone\'i build BR overlayde ja Resurgence\'i coaching’uga.',
+            use_cases: [
+              'Ranked ja Resurgence võistlusmäng',
+              'Meeskonna coaching ja TTK analüütika',
+              'Battle Royale\'i striimimise produktsioon',
+              'Privaat scrimid PulseForge Lobbyga',
+              'VOD analüüs ja loadout-sandbox'
+            ],
+            features: [
+              'Stream-safe BR modulaarsed overlayd',
+              'TTK/plaadijälgimine ja escouadi majandus',
+              'Rotatsioonicoach ja tsooni prognoosid',
+              'Matšijärgne analüütika ja VOD eksport',
+              'Battle Royale\'ile kalibreeritud audioprofiilid',
+              'PulseForge Lobby sandboxi ühilduvus',
+              'Uuendused sünkroonis Warzone\'i patchidega'
+            ],
+            featureHighlights: [
+              'Reastatud / kõik serverid – 100% fair-play (ekraani lugemine, killfeed, audio, ilma mälusüstita)',
+              'PulseForge\'i privaatlobid – sünkroonitud buildid kõigile PulseForge\'i mängijatele (kosmeetika ja edasijõudnud treening)'
+            ],
+            featureGroups: [
+              {
+                title: 'Reastatud / fair-play (live)',
+                items: [
+                  'Zone & Rotation Coach: tsooni sulgumise prognoosid, low-risk marsruudid ja 3rd-party akende vältimine.',
+                  'Escouadi majandus: ostuläved (UAV, loadout, redeploy) ja lähimate buy station\'ite meeldetuletused.',
+                  'TTK/Plate Estimator: TTK hinnang loadouti, distantsi ja nähtavate plaatide järgi.',
+                  'Audio Spatial Director: BR audioprofiil automaatse duckingu ja sammude/armorite/uste/sõidukite prioriseerimisega.',
+                  'Killfeed Intelligence: knock/finish kokkuvõte, arvuline ülekaal ja respawni taimerid.',
+                  'Vehicle & Route Helper: kütusehaldus, mürataseme hinnang, kaetud teekonnad ja kriitilised choke-punktid.',
+                  'Recoil Learning Overlay: relvade teoreetiline tagasilöögimuster treeninguks ja VOD-analüüsiks (ilma sisendimuutuseta).',
+                  'Stream Suite: automaatsed lower thirdid, 8-sekundilised kohesed kordused, laiendatud killfeed sisekommentaatorile.'
+                ]
+              },
+              {
+                title: 'PulseForge\'i privaatlobid',
+                description: 'Mängu- ja treeningvalikud PulseForge Lobby jaoks',
+                items: [
+                  'Jagatud kosmeetika: PulseForge\'i kammud ja efektid nähtavad kõigile PF buildil olevatele escouadidele.',
+                  'TTK & Plates sandbox: soomuse/HP modifikaatorid, fikseeritud distantsid ja võrdlev TTK scoreboard.',
+                  'Contract Planner: skriptitud lepinguringid (bounty, scav, most wanted) meeskonnadrillideks.',
+                  'Ghost-Run & Pathing: parimate rotatsioonide kummitused ja sünkroonitud sissepääsu time-trialid.',
+                  'Draft & Role Lock: lukustab rollid (entry/anchor/support) ja kehtestab relvatsüklid.',
+                  'Stratboard Live: taktikaline tahvel overlay’na coach’i/IGL-i jagamisega ja play’de ekspordiga.',
+                  'Caster Mode: laiendatud HUD, kohesed kordused ja roundi markerid striimiks valmis.'
+                ]
+              },
+              {
+                title: 'Rolli / relva profiilid',
+                description: 'Pühendatud optimeerimised iga arhetüübi jaoks',
+                items: [
+                  'AR (Assault): TTK ja recoil lane fookus, “don’t ego-peek” meeldetuletused, turvalised avamisnurgad.',
+                  'SMG (Close): engage-aknad, lühikesed põgenemisteed ja armori meeldetuletused.',
+                  'LMG (Anchor): reload\'i distsipliin, cover\'i vahetus ja pikamaa kontroll.',
+                  'Sniper/DMR: pea kõrguse pre-aim, repositsiooni tempo ja glindi haldus.',
+                  'Shotgun: indoor-pushide konsolideerimine ja duo-timingud.',
+                  'Support (IGL): makrokõned, escouadi majandus ning kontekstuaalsed 3rd-party hoiatused.'
+                ]
+              },
+              {
+                title: 'Kaardi & mängurežiimi moodulid',
+                items: [
+                  'Circle Forecast: sulgumise ajaskaala, split-marsruudid ja riskitsoonid.',
+                  'Stronghold Planner: sünkroonsed sisenemised, lisajõudude taimerid ja ohutud nurgad.',
+                  'Resurgence Deck: respawni taimerid, retake\'i teed ja agressiooniaknad.',
+                  'Vehicle Grid: mürasoojuskaart, choke-punktid ja turvalised õhu/maa üleminekud.'
+                ]
+              },
+              {
+                title: 'Analüütika & coaching',
+                items: [
+                  'Match Story Auto-report: pöördepunktid, fight-võidud ja võrdlus siht-MMR-iga.',
+                  'Session Planner: sessiooni eesmärgid, mikro-ülesanded ja järgimise skoor.',
+                  'Loadout Scorecard: relvade damage/TTK jälgimine koos kohandamissoovitustega.',
+                  'VOD Auto-tag: märgistab 3rd-party rünnakud, ebaõnnestunud retake\'id ja liiga pikad splitid (klõpsatav ajajoon).'
+                ]
+              },
+              {
+                title: 'Ligipääsetavus & mugavus',
+                items: [
+                  'Color-blind Pro: meeskonna paletid nõuetele vastavad ja kiirete projektiilide kontuurid tugevdatud.',
+                  'Sound-to-HUD: kriitilised helisignaalid valikulisteks visuaalseteks vihjeteks.',
+                  'Focus Mode: blokeerib toksilised whispers\'id, hingamise taimer ja juhitud mikropausid.'
+                ]
+              }
+            ],
+            implementationNotes: [
+              'Avalikes ranked-mängudes tugineb kõik ainult nähtavale/kuuldavale (pilvepoolne visioon/ASR) + killfeed/scoreboard. Mälulugemist ega süsti pole.',
+              'Kosmeetika, TTK sandbox ja aktiivsed stratboardid on reserveeritud PulseForge\'i privaatlobidele, kus kõik kasutavad sama buildi.',
+              'Kõik overlayd on opt-in, diskreetsed ja kohanduvad (peituvad võitluse ajal, kui visuaalne koormus tõuseb).'
+            ],
+            target_audience: 'Võistlussquadi, BR-treenerid, loojad',
+            highlight: 'Madala latentsusega Warzone\'i pipeline',
+            protection: 'Stream-safe fair-play sertifitseeritud',
+            updates: 'Patchijärgsed sünkroonitud uuendused'
+          }
+        }
+      },
+      technical: {
+        fpsByResolution: [
+          { playability: 'Väga sujuv', bottleneck: 'CPU (96%)' },
+          { playability: 'Väga sujuv', bottleneck: 'CPU (95%)' },
+          { playability: 'Väga sujuv', bottleneck: 'CPU (93%)' }
+        ],
+        resolutionGuidance: [
+          {
+            refreshAdvice: '144–240 Hz võistlussiht',
+            description: '1080p Medium hoiab ~217 FPS, Ultra ~179 FPS — ideaalne BR-i, Resurgence\'i ja ranked\'i jaoks.',
+            note: 'Lülitu Esports-preseti peale, kui vajad lukustatud 240 Hz kogemust.'
+          },
+          {
+            refreshAdvice: 'Teravuse ja värskenduse tasakaal',
+            description: '1440p peal püsib sujuvus kõrge. Ultra on jätkuvalt kasutatav ~159 FPS juures filmilise väljundi jaoks.',
+            note: 'Sobib HD-striimideks või salvestatud scrimideks.'
+          },
+          {
+            refreshAdvice: 'Mängitav 4K üle 120 Hz',
+            description: 'Isegi 4K Medium (~163 FPS) jääb väga sujuvaks. Ultra jõuab ~135 FPS-ni showcase\'i ja premium-voogude jaoks.',
+            note: 'Kasuta, et tõsta esile sisu või täisresolutsioonis ülekandeid.'
+          }
+        ],
+        improvementTips: [
+          'Langeta varje/efekte/AA-d, kui sihid püsivat 240 Hz.',
+          'Vähenda in-game renderresolutsiooni, jättes pilvevoo 1080p/1440p peale.',
+          'Hoia draiverid ajakohased (serveriprofiili haldame meie).',
+          'Hübriidkasutuse korral aktiveeri XMP ja kinnita mälusagedus.',
+          'Jälgi temperatuure — CPU ülekuumenemine põhjustab enamiku 1% madalaid.'
+        ],
+        advice: '„CPU Boost” valik: +5% → ~217 FPS | +10% → ~219 FPS | +15% → ~222 FPS | +20% → ~225 FPS (vajab premium-terminoodislot’i).',
+        augmentationSuite: {
+          modules: [
+            'Zone & Rotation Coach: ennustab ringi sulgumist, turvalisi rotatsioone ja 3rd-party riske.',
+            'Escouadi majandus: jälgib UAV/loadout/redeploy ostulävesid ja lähimaid jaamu.',
+            'TTK/Plate Estimator: arvutab TTK loadouti, distantsi ja nähtava soomuse põhjal.',
+            'Audio Spatial Director: BR audioprofiil automaatse mitteoluliste helide summutamisega.',
+            'Killfeed Intelligence: koondab knockid/finishid, arvulise eelise ja respawni taimerid.',
+            'Vehicle & Route Helper: kütus, müratase, turvalised marsruudid ja katkestuspunktid.',
+            'Recoil Learning Overlay: relva tagasilöögimuster treeninguks ja VOD\'iks (ilma sisendi muutuseta).',
+            'VOD Auto-tag: märgib automaatselt 3rd-party pöördepunktid, ebaõnnestunud retake\'id ja pikad splitid.',
+            'Stream Suite: automaatsed lower thirdid, 8-sekundilised kordused, laiendatud killfeed casting\'uks.'
+          ],
+          notes: 'Moodulid kalibreeritud Warzone\'i BR-i ja Resurgence\'i jaoks, värskendatakse iga suure patchi järel.'
+        },
+        heroSynergy: [
+          {
+            preset: 'Balance',
+            coachingNotes: 'Turvalised avamisnurgad ja “don’t ego-peek” meeldetuletused trades\'i kindlustamiseks.'
+          },
+          {
+            preset: 'Esports',
+            coachingNotes: 'Engage-aknad, lühikesed põgenemisteed ja armori meeldetuletused entry-rollile.'
+          },
+          {
+            preset: 'Stability',
+            coachingNotes: 'Reload\'i distsipliin, cover\'i vahetus ja pikamaa kontroll anchor-rollile.'
+          },
+          {
+            preset: 'Sniper Focus',
+            coachingNotes: 'Pea kõrguse pre-aim, repositsiooni tempo ja glindi haldus.'
+          },
+          {
+            preset: 'Indoor',
+            coachingNotes: 'Indoor-pushide struktuur ja duo-timingute vihjed.'
+          },
+          {
+            preset: 'Macro',
+            coachingNotes: 'Makrokõnede abi, escouadi majanduse ülevaade ja kontekstuaalsed 3rd-party hoiatused.'
+          }
+        ]
+      }
+    }
+  }
+}
+
 interface NativeGamingProductPageProps {
   product: GamingProduct
 }
@@ -1340,7 +2031,9 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
   const locale = pathname.split('/')[1]
   const supportedLocales = ['fr', 'en', 'et'] as const
   const localeKey: LocaleKey = supportedLocales.includes(locale as LocaleKey) ? (locale as LocaleKey) : 'fr'
-  const copy = copyByLocale[localeKey]
+  const baseCopy = copyByLocale[localeKey]
+  const copyOverrides = localeOverridesByProduct[product.id]?.[localeKey]
+  const copy = useMemo(() => mergeDeep(baseCopy, copyOverrides), [baseCopy, copyOverrides])
 
   const subscriptionPlans = getSubscriptionPlans()
   const localizedSubscriptionPlans = useMemo(

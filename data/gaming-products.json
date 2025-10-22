@@ -341,60 +341,349 @@
   {
     "id": "gaming-warzone",
     "slug": "gaming-warzone",
-    "name": "Call of Duty: Warzone",
+    "name": "Call of Duty: Warzone PulseForge",
     "game": "Call of Duty: Warzone",
     "category": "gaming",
     "optimizationLevel": "native",
-    "description": "Package élite Warzone avec aimbot avancé et HWID spoofer inclus",
-    "longDescription": "Warzone Reaper 2 est l'évolution enterprise de notre solution Warzone. Équipé d'une RTX 4070 Ti, 64GB de RAM et d'un Intel i9-12900K, il offre des fonctionnalités avancées comme l'aimbot pour véhicules, ESP 3D et HWID spoofer hardware inclus.",
+    "description": "Instance cloud Warzone calibrée Battle Royale avec overlays tactiques, analytics TTK et profils stream-safe.",
+    "longDescription": "PulseForge pour Warzone est une build native orientée Battle Royale hébergée dans notre cloud gaming. Elle regroupe les overlays contextuels, les coachings adaptatifs et les presets audio/vidéo calibrés pour BR et Resurgence. Chaque patch est intégré côté serveur avec optimisation CPU↔GPU et pipeline vidéo faible latence pour préserver le fair-play et la stabilité.",
     "status": "ACTIVE",
+    "technicalSpecs": {
+      "performanceMetrics": {
+        "avgFps": 217,
+        "minFps": 184,
+        "maxFps": 249,
+        "onePercentLow": 155,
+        "latency": 1.1,
+        "inputLag": 0.32,
+        "frameTime": 4.6,
+        "cpuUsage": 95,
+        "gpuUsage": 72,
+        "ramUsage": 20.5,
+        "vramUsage": 9.6,
+        "powerDraw": 395,
+        "thermalCpu": 67,
+        "thermalGpu": 63
+      },
+      "augmentationSuite": {
+        "awarenessIndex": 94,
+        "overlayRefresh": 144,
+        "adaptiveCoaching": 90,
+        "reactionTimeMs": 45,
+        "moduleCoverage": 17,
+        "tacticalFocus": 91,
+        "modules": [
+          "Zone & Rotation Coach : prédiction des fermetures, chemins low-risk et alertes de 3rd-party.",
+          "Économie d’escouade : seuils d’achat (UAV, loadout, redeploy), buy stations prioritaires.",
+          "TTK/Plate Estimator : calcul du TTK selon loadout, distance et plaques visibles.",
+          "Audio Spatial Director : profil BR avec ducking automatique des sons non critiques.",
+          "Killfeed Intelligence : synthèse knocks/finishes, avantage numérique et timers de respawn.",
+          "Vehicle & Route Helper : gestion carburant, bruit estimé, routes couvertes et points de rupture.",
+          "Recoil Learning Overlay : pattern théorique pour entraînement et VOD sans ajustement d’input.",
+          "VOD Auto-tag : marquage automatique des pivots (3rd-party, retakes ratés, splits).",
+          "Stream Suite : lower-thirds auto, replays instantanés 8 s, killfeed élargi pour casting interne."
+        ],
+        "notes": "Modules calibrés pour Warzone BR et Resurgence, rafraîchis à chaque patch majeur."
+      },
+      "fpsByResolution": [
+        {
+          "resolution": "1920 × 1080",
+          "avgFps": 217,
+          "minFps": 184,
+          "maxFps": 249,
+          "playability": "Très fluide",
+          "bottleneck": "CPU (96%)"
+        },
+        {
+          "resolution": "2560 × 1440",
+          "avgFps": 193,
+          "minFps": 164,
+          "maxFps": 222,
+          "playability": "Très fluide",
+          "bottleneck": "CPU (95%)"
+        },
+        {
+          "resolution": "3840 × 2160",
+          "avgFps": 163,
+          "minFps": 139,
+          "maxFps": 188,
+          "playability": "Très fluide",
+          "bottleneck": "CPU (93%)"
+        }
+      ],
+      "qualityBreakdown": [
+        {
+          "resolution": "1920 × 1080",
+          "presets": {
+            "low": 220,
+            "medium": 217,
+            "high": 196,
+            "ultra": 179
+          }
+        },
+        {
+          "resolution": "2560 × 1440",
+          "presets": {
+            "low": 196,
+            "medium": 193,
+            "high": 175,
+            "ultra": 159
+          }
+        },
+        {
+          "resolution": "3840 × 2160",
+          "presets": {
+            "low": 166,
+            "medium": 163,
+            "high": 148,
+            "ultra": 135
+          }
+        }
+      ],
+      "resolutionGuidance": [
+        {
+          "resolution": "1920 × 1080",
+          "avgFps": 217,
+          "fpsWindow": "184 – 249 FPS",
+          "refreshAdvice": "Cible 144–240 Hz compétitif",
+          "description": "Le profil 1080p Medium maintient ~217 FPS, avec 179 FPS en Ultra. Idéal pour la réactivité maximale (BR, Resurgence, ranked).",
+          "note": "Activez le preset Esports si vous jouez en 240 Hz constant."
+        },
+        {
+          "resolution": "2560 × 1440",
+          "avgFps": 193,
+          "fpsWindow": "164 – 222 FPS",
+          "refreshAdvice": "Équilibre netteté / fréquence",
+          "description": "Le passage en 1440p conserve une excellente fluidité. L’Ultra reste exploitable à ~159 FPS pour un rendu plus cinématique sans sacrifier la compétitivité.",
+          "note": "Idéal pour le streaming haute définition ou les sessions scrim filmées."
+        },
+        {
+          "resolution": "3840 × 2160",
+          "avgFps": 163,
+          "fpsWindow": "139 – 188 FPS",
+          "refreshAdvice": "4K jouable au-delà de 120 Hz",
+          "description": "Même en 4K Medium (~163 FPS), l’expérience reste très fluide. Ultra descend à ~135 FPS pour du showcase ou du stream premium.",
+          "note": "Utilisez ce mode pour mettre en avant vos contenus cinématiques."
+        }
+      ],
+      "improvementTips": [
+        "Abaissez ombres/effets/AA si vous ciblez 240 Hz constant.",
+        "Réduisez la résolution de rendu in-game tout en conservant le stream à 1080p/1440p côté cloud.",
+        "Maintenez vos pilotes à jour (profil serveur géré par nos soins).",
+        "Sur desktop local (si usage hybride) : activez XMP et vérifiez la fréquence mémoire.",
+        "Surveillez les températures : la surchauffe CPU provoque la majeure partie des chutes en 1% low."
+      ],
+      "advice": "Option « CPU Boost » : +5 % → ~217 FPS | +10 % → ~219 FPS | +15 % → ~222 FPS | +20 % → ~225 FPS (requiert un slot nœud thermique premium).",
+      "heroSynergy": [
+        {
+          "hero": "AR (Assaut)",
+          "overlayFocus": 94,
+          "clarityBoost": 91,
+          "preset": "Balance",
+          "coachingNotes": "Angles d’ouverture safe et prompts “don’t ego-peek” pour sécuriser les trades."
+        },
+        {
+          "hero": "SMG (Close)",
+          "overlayFocus": 92,
+          "clarityBoost": 90,
+          "preset": "Esports",
+          "coachingNotes": "Timing d’entrée, fenêtres d’engage et routes d’évasion courtes."
+        },
+        {
+          "hero": "LMG (Ancrage)",
+          "overlayFocus": 91,
+          "clarityBoost": 88,
+          "preset": "Stability",
+          "coachingNotes": "Discipline reload, échanges de cover et contrôle de lignes longues."
+        },
+        {
+          "hero": "Sniper/DMR",
+          "overlayFocus": 95,
+          "clarityBoost": 94,
+          "preset": "Sniper Focus",
+          "coachingNotes": "Pré-aim hauteurs tête, pacing de reposition et gestion du glint."
+        },
+        {
+          "hero": "Shotgun",
+          "overlayFocus": 88,
+          "clarityBoost": 84,
+          "preset": "Indoor",
+          "coachingNotes": "Consolidation des pushes rapprochés et duo-timings."
+        },
+        {
+          "hero": "Support (IGL)",
+          "overlayFocus": 93,
+          "clarityBoost": 90,
+          "preset": "Macro",
+          "coachingNotes": "Macro-calls, suivi économie et alertes 3rd-party contextuelles."
+        }
+      ],
+      "networkStats": {
+        "serverLocations": 24,
+        "avgPing": 18,
+        "maxBandwidth": 1200,
+        "packetLoss": 0.2,
+        "jitter": 3.1,
+        "ddosProtection": true,
+        "encryption": "TLS 1.3 + SRTP"
+      },
+      "securityMetrics": {
+        "detectionRate": 0,
+        "banRate": 0.1,
+        "uptimePercentage": 99.97,
+        "avgResponseTime": 6,
+        "incidentsLastMonth": 0,
+        "securityUpdatesPerWeek": 5,
+        "encryptionLevel": "AES-256",
+        "obfuscationLayers": 4,
+        "antiDebug": true,
+        "antiVM": true,
+        "kernelProtection": true
+      },
+      "updateHistory": {
+        "totalUpdates": 148,
+        "lastUpdateDate": "2025-02-20",
+        "avgUpdatesPerMonth": 5.8,
+        "criticalPatches": 9,
+        "securityPatches": 46,
+        "featureUpdates": 52,
+        "bugFixes": 41
+      },
+      "userStats": {
+        "totalUsers": 6240,
+        "activeUsersLast30Days": 5128,
+        "avgSessionDuration": 3.4,
+        "avgGamesPerDay": 5.1,
+        "satisfactionScore": 4.6,
+        "recommendationRate": 89
+      }
+    },
     "variants": [
       {
-        "id": "reaper2",
-        "name": "Reaper 2",
-        "tier": "enterprise",
-        "gpu": "RTX 4070 Ti",
-        "ram": "64 GB DDR5",
-        "cpu": "Intel i9-12900K",
-        "usage": "Package élite",
-        "description": "Package élite Warzone avec aimbot avancé et HWID spoofer inclus",
+        "id": "pulseforge-warzone",
+        "name": "PulseForge Warzone Operator",
+        "tier": "premium",
+        "gpu": "RTX 4090",
+        "ram": "128 GB DDR5",
+        "cpu": "Intel i9-14900KS",
+        "storage": "2TB NVMe Gen4",
+        "motherboard": "ASUS ROG Maximus Z790",
+        "psu": "1200W 80+ Platinum",
+        "cooling": "Custom Loop Liquid",
+        "usage": "Instance cloud Warzone calibrée",
+        "description": "Instance Warzone hébergée sur notre cloud avec overlays Battle Royale et coaching Resurgence.",
         "use_cases": [
-          "Jeu professionnel",
-          "Stream en sécurité",
-          "Domination en tournoi",
-          "Services de compte",
-          "K/D maximum"
+          "Compétitions Ranked et Resurgence",
+          "Coaching d’escouade et analytics TTK",
+          "Production stream Battle Royale",
+          "Scrims privés PulseForge Lobby",
+          "VOD review et sandbox loadouts"
         ],
         "features": [
-          "Aimbot à prédiction avancée",
-          "ESP bounding box 3D",
-          "Aimbot véhicules",
-          "HWID spoofer inclus",
-          "ESP loadout",
-          "Support assistant personnel",
-          "Mises à jour protection temps réel"
+          "Overlays BR modulaires stream-safe",
+          "Suivi TTK/plaques et économie d’escouade",
+          "Coach rotations et prévisions de zone",
+          "Analytics post-match et exports VOD",
+          "Profils audio Battle Royale calibrés",
+          "Compatibilité PulseForge Lobby sandbox",
+          "Mises à jour synchronisées aux patchs Warzone"
         ],
-        "target_audience": "Joueurs professionnels, Streamers",
-        "highlight": "Inclut HWID spoofer",
-        "protection": "Hardware spoofer included",
-        "updates": "Real-time updates",
+        "featureHighlights": [
+          "Ranked/Tous serveurs – 100 % fair-play (lecture d’écran, killfeed, audio, sans injection mémoire)",
+          "Lobbies privés Pulseforge – builds synchronisés où tout le monde est sur Pulseforge (cosmétique & entraînement avancé)"
+        ],
+        "featureGroups": [
+          {
+            "title": "Ranked / fair-play (live)",
+            "items": [
+              "Zone & Rotation Coach : prévisions de fermeture, routes low-risk et fenêtres de 3rd-party à éviter.",
+              "Économie d’escouade : seuils d’achat (UAV, loadout, redéploiement) et rappel des buy stations prioritaires.",
+              "TTK/Plate Estimator : estimation du TTK selon votre loadout, la distance et les plaques adverses visibles.",
+              "Audio Spatial Director : profils audio BR, ducking automatique et priorisation pas/plaques/portes/véhicules.",
+              "Killfeed Intelligence : synthèse des knocks/finishes par escouade, détection d’avantage numérique et timers de respawn.",
+              "Vehicle & Route Helper : gestion carburant, bruit estimé, routes couvertes et points de rupture critiques.",
+              "Recoil Learning Overlay : pattern théorique de vos armes favorites pour entraînement et VOD.",
+              "Stream Suite : lower-thirds automatiques, replays instantanés 8 s, killfeed élargi pour caster interne."
+            ]
+          },
+          {
+            "title": "Lobbies privés PulseForge",
+            "description": "Options de jeu et d’entraînement pour PulseForge Lobby",
+            "items": [
+              "Cosmétiques partagés : camouflages et FX PulseForge visibles pour toutes les escouades sur build PF.",
+              "Sandbox TTK & Plates : modificateurs d’armure/HP, distances fixes et scoreboard TTK comparatif.",
+              "Contract Planner : distribution scénarisée de contrats (bounty, scav, most wanted) pour drills.",
+              "Ghost-Run & Pathing : fantômes de rotations optimales, time-trial d’insertion et routes synchronisées.",
+              "Draft & Role Lock : verrouillage de rôles (entry/anchor/support) et cycles d’armes imposés.",
+              "Stratboard Live : tableau tactique overlay avec partage coach/IGL et export des plays.",
+              "Caster Mode : HUD élargi, replays instantanés et marqueurs de rounds stream-ready."
+            ]
+          },
+          {
+            "title": "Profils par rôle / arme",
+            "description": "Optimisations dédiées pour chaque archétype",
+            "items": [
+              "AR (Assaut) : focus TTK & recoil lane, prompts “don’t ego-peek”, angles d’ouverture safe.",
+              "SMG (Close) : windows d’engage, chemins d’évasion courts et reminders d’armure.",
+              "LMG (Ancrage) : discipline reload, gestion de cover et contrôle de lignes longues.",
+              "Sniper/DMR : pré-aim hauteurs tête, pacing reposition et gestion du glint.",
+              "Shotgun : consolidation pushes indoor et timings duo.",
+              "Support (IGL) : macro calls, économie escouade et alertes 3rd-party."
+            ]
+          },
+          {
+            "title": "Modules \"Map & Mode\"",
+            "items": [
+              "Circle Forecast : timeline collapse, split routes et zones à risque.",
+              "Stronghold Planner : entrées synchronisées, timings de renforts et angles safe.",
+              "Resurgence Deck : timers de respawn, routes de retake et fenêtres d’agression.",
+              "Vehicle Grid : heatmap bruit, points de rupture et transitions air/sol sécurisées."
+            ]
+          },
+          {
+            "title": "Analytics & Coachings",
+            "items": [
+              "Match Story Auto-report : pivots, fight-wins, ult diff et comparaison MMR cible.",
+              "Session Planner : objectifs de session, micro-défis et score d’adhérence.",
+              "Loadout Scorecard : suivi damage/TTK par arme et recommandations d’ajustement.",
+              "VOD Auto-tag : marquage 3rd-party, retakes ratés et splits trop longs (timeline cliquable)."
+            ]
+          },
+          {
+            "title": "Accessibilité & confort",
+            "items": [
+              "Color-blind Pro : palettes conformes et contours renforcés des projectiles rapides.",
+              "Sound-to-HUD : indices sonores critiques convertis en signaux visuels optionnels.",
+              "Focus Mode : blocage whispers toxiques, timer respiration et micro-pauses guidées."
+            ]
+          }
+        ],
+        "implementationNotes": [
+          "En ranked public, tout repose sur le visuel/son (vision/ASR côté cloud) + killfeed/scoreboard. Aucune lecture mémoire ni injection.",
+          "Cosmétiques, sandbox TTK et stratboards actifs sont réservés aux lobbies privés PulseForge avec build partagé.",
+          "Overlays opt-in, discrets et adaptatifs (masqués en fight si bruit visuel)."
+        ],
+        "target_audience": "Escouades compétitives, coachs BR, créateurs",
+        "highlight": "Pipeline faible latence calibré Warzone",
+        "protection": "Fair-play stream-safe certifié",
+        "updates": "Mises à jour synchronisées post-patch",
         "pricing": {
-          "hourly": 2.25,
-          "monthly": 900
+          "hourly": 2.05,
+          "monthly": 690
         },
-        "sla": "99.99%",
+        "sla": "99.97%",
         "support_level": "enterprise",
         "badges": [
-          "Next Gen",
-          "Enterprise",
-          "Vehicle Support"
+          "BR Optimized",
+          "Stream Safe",
+          "PulseForge Lobby"
         ],
         "image": "/images/products/warzone/main.png"
       }
     ],
     "reviews": {
       "average": 4.8,
-      "count": 510
+      "count": 512
     },
     "discount": {
       "active": false,

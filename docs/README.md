@@ -80,6 +80,7 @@ Cette section résume le fonctionnement des pages produits cloud gaming : où so
   - Chaque entrée précise l'identifiant, le `slug`, le niveau d'optimisation (`native` ou `community`), la description marketing et les métriques de performance.
   - Les tableaux `resolutionGuidance` et `technicalSpecs` exposent les FPS, la latence et les informations réseau injectées telles quelles dans l'interface.
 - Les variantes peuvent embarquer `featureHighlights`, `featureGroups` (titre, description, éléments) et `implementationNotes` pour décrire les suites PulseForge ; le rendu se base maintenant sur un sélecteur interactif qui affiche un groupe à la fois pour limiter le scroll. Ces blocs sont traduits via les overrides de `copyByLocale.product.variants`.
+- L’entrée `gaming-warzone` suit cette structure pour Call of Duty: Warzone : métriques BR (FPS multi-résolutions, option « CPU Boost »), variantes PulseForge et suites de fonctionnalités orientées Battle Royale.
 - Les utilitaires d'accès et les types associés vivent dans [`lib/gaming-products.ts`](../lib/gaming-products.ts).
   - `getAllGamingProducts()` et `getGamingProductBySlug()` alimentent les routes dynamiques.
 
@@ -87,6 +88,7 @@ Cette section résume le fonctionnement des pages produits cloud gaming : où so
 - Les textes génériques (navigation, CTA, footer, listes) sont stockés dans [`public/locales/<locale>/common.json`](../public/locales).
 - Le contenu narratif propre aux offres natives est regroupé dans [`components/NativeGamingProductPage.tsx`](../components/NativeGamingProductPage.tsx) via la constante `copyByLocale`.
   - Ajouter une langue consiste à dupliquer l'objet existant et adapter les champs textuels.
+  - Les textes spécifiques à une offre (ex. PulseForge Warzone) sont fusionnés via `localeOverridesByProduct` pour injecter les métriques, descriptions cloud et variantes traduites dans chaque langue.
 - Les pages communautaires réutilisent les traductions du dossier `public/locales` et les textes définis directement dans [`components/CommunityGamingProductPage.tsx`](../components/CommunityGamingProductPage.tsx).
 
 ### 🏗️ Construction des pages
@@ -104,7 +106,7 @@ Cette section résume le fonctionnement des pages produits cloud gaming : où so
 4. Compléter les traductions génériques dans `public/locales/<locale>/common.json` si besoin.
 5. Lancer `npm run lint` pour valider les schémas avant de publier.
 
-**Dernière action:** Sélecteur d’onglets pour les fonctionnalités PulseForge et transition AnimatePresence (24/10/2025)
+**Dernière action:** Ajout de l’offre native Warzone PulseForge et overrides de localisation FR/EN/ET (25/10/2025)
 
 ---
 
