@@ -18,6 +18,34 @@ const inViewFadeProps = {
   viewport: { once: true, amount: 0.25 }
 } as const
 
+const inViewSlideProps = {
+  initial: { opacity: 0, x: -36 },
+  whileInView: { opacity: 1, x: 0 },
+  viewport: { once: true, amount: 0.25 }
+} as const
+
+const inViewScaleProps = {
+  initial: { opacity: 0, scale: 0.9, y: 18 },
+  whileInView: { opacity: 1, scale: 1, y: 0 },
+  viewport: { once: true, amount: 0.3 }
+} as const
+
+const inViewTiltProps = {
+  initial: { opacity: 0, rotateX: -8, y: 24 },
+  whileInView: { opacity: 1, rotateX: 0, y: 0 },
+  viewport: { once: true, amount: 0.25 }
+} as const
+
+const hoverLiftProps = {
+  whileHover: { y: -8, scale: 1.02 },
+  whileTap: { scale: 0.98 }
+} as const
+
+const hoverGlowProps = {
+  whileHover: { y: -6, scale: 1.01, boxShadow: '0px 16px 38px rgba(59, 130, 246, 0.35)' },
+  whileTap: { scale: 0.99 }
+} as const
+
 const fadeTransition = { duration: 0.6, ease: 'easeOut' } as const
 
 interface CommunityGamingProductPageProps {
@@ -99,8 +127,13 @@ export default function CommunityGamingProductPage({ product }: CommunityGamingP
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <motion.div className="space-y-4" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.05 }}>
-              <motion.div className="relative rounded-2xl overflow-hidden glass-effect" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.1 }}>
+            <motion.div className="space-y-4" {...inViewTiltProps} transition={{ ...fadeTransition, delay: 0.05 }}>
+              <motion.div
+                className="relative rounded-2xl overflow-hidden glass-effect"
+                {...inViewScaleProps}
+                transition={{ ...fadeTransition, delay: 0.1 }}
+                {...hoverGlowProps}
+              >
                 <motion.div initial={{ opacity: 0, scale: 1.02 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, ease: 'easeOut' }}>
                   <ProductImage
                     productSlug={product.slug}
@@ -110,7 +143,7 @@ export default function CommunityGamingProductPage({ product }: CommunityGamingP
                     className="w-full h-auto max-h-[600px] object-contain"
                   />
                 </motion.div>
-                <motion.div className="absolute top-4 left-4" initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, ease: 'easeOut', delay: 0.2 }}>
+                <motion.div className="absolute top-4 left-4" initial={{ opacity: 0, y: -10, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }} transition={{ duration: 0.4, ease: 'easeOut', delay: 0.2 }}>
                   <span className="px-3 py-1 bg-blue-500/90 backdrop-blur-sm text-white text-xs font-semibold rounded-full">
                     {copy.badges.catalog}
                   </span>
@@ -118,7 +151,7 @@ export default function CommunityGamingProductPage({ product }: CommunityGamingP
               </motion.div>
             </motion.div>
 
-            <motion.div className="space-y-6" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.1 }}>
+            <motion.div className="space-y-6" {...inViewSlideProps} transition={{ ...fadeTransition, delay: 0.1 }}>
               <div>
                 <div className="flex items-center gap-2 mb-2">
                   <span className="px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full border border-blue-500/30">
@@ -158,9 +191,9 @@ export default function CommunityGamingProductPage({ product }: CommunityGamingP
                     <Link key={plan.id} href={`/${locale}/premium/signup`} className="group block">
                       <motion.div
                         className="relative p-5 rounded-xl border border-white/10 glass-effect transition-all group-hover:border-blue-500/50"
-                        {...inViewFadeProps}
+                        {...inViewSlideProps}
                         transition={{ ...fadeTransition, delay: 0.2 + idx * 0.05 }}
-                        whileHover={{ y: -4 }}
+                        {...hoverLiftProps}
                       >
                         {plan.popular && (
                           <span className="absolute -top-3 left-4 px-3 py-1 bg-blue-500 text-xs text-white font-semibold rounded-full">
@@ -199,8 +232,9 @@ export default function CommunityGamingProductPage({ product }: CommunityGamingP
                     <motion.div
                       key={item.label}
                       className="p-3 glass-effect rounded-lg"
-                      {...inViewFadeProps}
+                      {...inViewScaleProps}
                       transition={{ ...fadeTransition, delay: 0.25 + idx * 0.05 }}
+                      {...hoverLiftProps}
                     >
                       <span className="text-gray-400 text-xs block mb-1">{item.label}</span>
                       <span className="text-white font-semibold">{item.value}</span>
@@ -218,21 +252,27 @@ export default function CommunityGamingProductPage({ product }: CommunityGamingP
             </motion.div>
           </motion.section>
 
-          <motion.section {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.12 }}>
+          <motion.section {...inViewTiltProps} transition={{ ...fadeTransition, delay: 0.12 }}>
             <motion.div className="text-center mb-12" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.17 }}>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">{copy.featuresTitle}</h2>
             </motion.div>
 
-            <motion.div className="max-w-4xl mx-auto glass-effect rounded-2xl p-8 border border-white/10" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.2 }}>
+            <motion.div
+              className="max-w-4xl mx-auto glass-effect rounded-2xl p-8 border border-white/10"
+              {...inViewScaleProps}
+              transition={{ ...fadeTransition, delay: 0.2 }}
+              {...hoverGlowProps}
+            >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {variant.features.map((feature, idx) => (
                   <motion.div
                     key={idx}
                     className="flex items-start gap-3"
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
+                    initial={{ opacity: 0, x: -14, rotateY: -8 }}
+                    whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
                     transition={{ duration: 0.35, ease: 'easeOut', delay: idx * 0.04 }}
+                    whileHover={{ x: 4 }}
                   >
                     <Check className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
                     <span className="text-gray-300">{feature}</span>
@@ -254,8 +294,9 @@ export default function CommunityGamingProductPage({ product }: CommunityGamingP
                   <motion.div
                     key={item.title}
                     className="p-6 glass-effect rounded-xl border border-white/10 text-center"
-                    {...inViewFadeProps}
+                    {...inViewScaleProps}
                     transition={{ ...fadeTransition, delay: 0.22 + index * 0.05 }}
+                    {...hoverGlowProps}
                   >
                     <div className="inline-flex p-4 bg-blue-500/20 rounded-xl mb-4">
                       <Icon className="w-8 h-8 text-blue-400" />
@@ -268,14 +309,19 @@ export default function CommunityGamingProductPage({ product }: CommunityGamingP
             </div>
           </motion.section>
 
-          <motion.section className="text-center py-16 glass-effect rounded-2xl border border-white/10" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.16 }}>
+          <motion.section
+            className="text-center py-16 glass-effect rounded-2xl border border-white/10"
+            {...inViewScaleProps}
+            transition={{ ...fadeTransition, delay: 0.16 }}
+            {...hoverGlowProps}
+          >
             <h2 className="text-4xl font-bold mb-6">{ctaTitle}</h2>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">{ctaDescription}</p>
             <Link href={`/${locale}/premium/signup`} className="group inline-block">
               <motion.span
                 className="inline-flex items-center gap-2 px-8 py-4 bg-blue-500 rounded-lg font-semibold transition-colors group-hover:bg-blue-600"
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
+                whileHover={{ scale: 1.05, rotate: -0.5, boxShadow: '0px 18px 40px rgba(59, 130, 246, 0.35)' }}
+                whileTap={{ scale: 0.97, rotate: 0 }}
               >
                 {copy.cta.button}
                 <ArrowRight className="w-5 h-5" />

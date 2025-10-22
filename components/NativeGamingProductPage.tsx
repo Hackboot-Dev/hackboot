@@ -17,6 +17,34 @@ const inViewFadeProps = {
   viewport: { once: true, amount: 0.25 }
 } as const
 
+const inViewSlideProps = {
+  initial: { opacity: 0, x: -48 },
+  whileInView: { opacity: 1, x: 0 },
+  viewport: { once: true, amount: 0.2 }
+} as const
+
+const inViewScaleProps = {
+  initial: { opacity: 0, scale: 0.88, y: 24 },
+  whileInView: { opacity: 1, scale: 1, y: 0 },
+  viewport: { once: true, amount: 0.25 }
+} as const
+
+const inViewTiltProps = {
+  initial: { opacity: 0, rotateX: -10, y: 28 },
+  whileInView: { opacity: 1, rotateX: 0, y: 0 },
+  viewport: { once: true, amount: 0.25 }
+} as const
+
+const hoverLiftProps = {
+  whileHover: { y: -8, scale: 1.02 },
+  whileTap: { scale: 0.98 }
+} as const
+
+const hoverGlowProps = {
+  whileHover: { y: -6, scale: 1.01, boxShadow: '0px 20px 45px rgba(168, 85, 247, 0.35)' },
+  whileTap: { scale: 0.99 }
+} as const
+
 const fadeTransition = { duration: 0.6, ease: 'easeOut' } as const
 
 const statPalette = {
@@ -1457,8 +1485,9 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
     return (
       <motion.div
         className="p-6 glass-effect rounded-xl border border-white/10"
-        {...inViewFadeProps}
+        {...inViewScaleProps}
         transition={{ ...fadeTransition, delay }}
+        {...hoverLiftProps}
       >
         <div className="flex items-center gap-3 mb-3">
           <div className={`p-2 rounded-lg ${palette.iconBg}`}>
@@ -1498,10 +1527,13 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
           {/* Image Gallery */}
           <motion.div
             className="space-y-4"
-            {...inViewFadeProps}
+            {...inViewTiltProps}
             transition={{ ...fadeTransition, delay: 0.05 }}
           >
-            <div className="relative rounded-2xl overflow-hidden glass-effect transition-transform duration-300">
+            <motion.div
+              className="relative rounded-2xl overflow-hidden glass-effect transition-transform duration-300"
+              {...hoverGlowProps}
+            >
               <AnimatePresence mode="wait">
                 <motion.img
                   key={activeImage}
@@ -1527,7 +1559,7 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                   </motion.span>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
             {/* Thumbnails */}
             {gallery.length > 1 && (
@@ -1558,7 +1590,7 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
           {/* Product Info */}
           <motion.div
             className="space-y-6"
-            {...inViewFadeProps}
+            {...inViewSlideProps}
             transition={{ ...fadeTransition, delay: 0.1 }}
           >
             <div>
@@ -1610,8 +1642,12 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                   <motion.div
                     key={stat.label}
                     className="p-3 glass-effect rounded-lg text-center"
-                    {...inViewFadeProps}
-                    transition={{ ...fadeTransition, delay: 0.2 + idx * 0.05 }}
+                    initial={{ opacity: 0, y: 16, scale: 0.95, rotate: idx % 2 === 0 ? -1.5 : 1.5 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1, rotate: 0 }}
+                    viewport={{ once: true, amount: 0.45 }}
+                    transition={{ duration: 0.45, ease: 'easeOut', delay: 0.2 + idx * 0.05 }}
+                    whileHover={{ y: -6, scale: 1.05 }}
+                    whileTap={{ scale: 0.97 }}
                   >
                     <div className={`text-2xl font-bold ${stat.color}`}>{stat.value}</div>
                     <div className="text-xs text-gray-400">{stat.label}</div>
@@ -1628,9 +1664,9 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                   <Link key={plan.id} href={`/${locale}/premium/signup`} className="group block">
                     <motion.div
                       className="relative p-5 rounded-xl border border-white/10 glass-effect transition-all group-hover:border-purple-500/50"
-                      {...inViewFadeProps}
+                      {...inViewSlideProps}
                       transition={{ ...fadeTransition, delay: 0.25 + idx * 0.05 }}
-                      whileHover={{ y: -4 }}
+                      {...hoverLiftProps}
                     >
                       {plan.popular && (
                         <span className="absolute -top-3 left-4 px-3 py-1 bg-purple-500 text-xs text-white font-semibold rounded-full">
@@ -2341,22 +2377,42 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
 
             <div className="max-w-5xl mx-auto">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <motion.div className="glass-effect rounded-xl p-6 border border-white/10 text-center" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.2 }}>
+                <motion.div
+                  className="glass-effect rounded-xl p-6 border border-white/10 text-center"
+                  {...inViewScaleProps}
+                  transition={{ ...fadeTransition, delay: 0.2 }}
+                  {...hoverLiftProps}
+                >
                   <Users className="w-8 h-8 text-purple-400 mx-auto mb-3" />
                   <div className="text-3xl font-bold text-white mb-1">{tech.userStats.totalUsers.toLocaleString(localeKey)}</div>
                   <div className="text-sm text-gray-400">{copy.user.cards.total}</div>
                 </motion.div>
-                <motion.div className="glass-effect rounded-xl p-6 border border-white/10 text-center" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.25 }}>
+                <motion.div
+                  className="glass-effect rounded-xl p-6 border border-white/10 text-center"
+                  {...inViewScaleProps}
+                  transition={{ ...fadeTransition, delay: 0.25 }}
+                  {...hoverLiftProps}
+                >
                   <Activity className="w-8 h-8 text-green-400 mx-auto mb-3" />
                   <div className="text-3xl font-bold text-white mb-1">{tech.userStats.activeUsersLast30Days.toLocaleString(localeKey)}</div>
                   <div className="text-sm text-gray-400">{copy.user.cards.active}</div>
                 </motion.div>
-                <motion.div className="glass-effect rounded-xl p-6 border border-white/10 text-center" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.3 }}>
+                <motion.div
+                  className="glass-effect rounded-xl p-6 border border-white/10 text-center"
+                  {...inViewScaleProps}
+                  transition={{ ...fadeTransition, delay: 0.3 }}
+                  {...hoverLiftProps}
+                >
                   <Gauge className="w-8 h-8 text-blue-400 mx-auto mb-3" />
                   <div className="text-3xl font-bold text-white mb-1">{tech.userStats.avgSessionDuration}h</div>
                   <div className="text-sm text-gray-400">{copy.user.cards.session}</div>
                 </motion.div>
-                <motion.div className="glass-effect rounded-xl p-6 border border-white/10 text-center" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.35 }}>
+                <motion.div
+                  className="glass-effect rounded-xl p-6 border border-white/10 text-center"
+                  {...inViewScaleProps}
+                  transition={{ ...fadeTransition, delay: 0.35 }}
+                  {...hoverLiftProps}
+                >
                   <Trophy className="w-8 h-8 text-yellow-400 mx-auto mb-3" />
                   <div className="text-3xl font-bold text-white mb-1">{tech.userStats.avgGamesPerDay}</div>
                   <div className="text-sm text-gray-400">{copy.user.cards.games}</div>
@@ -2364,14 +2420,24 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
               </div>
 
               <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-                <motion.div className="glass-effect rounded-xl p-8 border border-yellow-500/30 bg-yellow-500/5" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.4 }}>
+                <motion.div
+                  className="glass-effect rounded-xl p-8 border border-yellow-500/30 bg-yellow-500/5"
+                  {...inViewTiltProps}
+                  transition={{ ...fadeTransition, delay: 0.4 }}
+                  {...hoverGlowProps}
+                >
                   <div className="text-center">
                     <Star className="w-12 h-12 text-yellow-400 mx-auto mb-4" />
                     <div className="text-5xl font-bold text-yellow-400 mb-2">{tech.userStats.satisfactionScore}/5</div>
                     <div className="text-gray-400">{copy.user.ratingLabel}</div>
                   </div>
                 </motion.div>
-                <motion.div className="glass-effect rounded-xl p-8 border border-green-500/30 bg-green-500/5" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.45 }}>
+                <motion.div
+                  className="glass-effect rounded-xl p-8 border border-green-500/30 bg-green-500/5"
+                  {...inViewTiltProps}
+                  transition={{ ...fadeTransition, delay: 0.45 }}
+                  {...hoverGlowProps}
+                >
                   <div className="text-center">
                     <Trophy className="w-12 h-12 text-green-400 mx-auto mb-4" />
                     <div className="text-5xl font-bold text-green-400 mb-2">{tech.userStats.recommendationRate}%</div>
@@ -2397,9 +2463,9 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                 <motion.div
                   key={idx}
                   className="p-6 glass-effect rounded-xl border border-white/10 hover:border-purple-500/30 transition-all"
-                  {...inViewFadeProps}
+                  {...inViewScaleProps}
                   transition={{ ...fadeTransition, delay: 0.2 + idx * 0.05 }}
-                  whileHover={{ y: -6 }}
+                  {...hoverGlowProps}
                 >
                   <div className="flex items-start gap-4">
                     <div className="p-3 bg-purple-500/20 rounded-lg">
@@ -2429,8 +2495,9 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                   <motion.div
                     key={idx}
                     className="glass-effect rounded-xl border border-purple-500/30 bg-purple-500/10 p-5 flex items-start gap-3"
-                    {...inViewFadeProps}
+                    {...inViewScaleProps}
                     transition={{ ...fadeTransition, delay: 0.2 + idx * 0.05 }}
+                    {...hoverGlowProps}
                   >
                     <Shield className="w-5 h-5 text-purple-300 mt-0.5" />
                     <span className="text-sm md:text-base text-gray-200">{highlight}</span>
@@ -2442,7 +2509,13 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
             {featureGroups.length > 0 ? (
               <div className="space-y-6">
                 {featureGroups.map((group, idx) => (
-                  <motion.div key={idx} className="glass-effect rounded-2xl p-8 border border-white/10" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.25 + idx * 0.05 }}>
+                  <motion.div
+                    key={idx}
+                    className="glass-effect rounded-2xl p-8 border border-white/10"
+                    {...inViewSlideProps}
+                    transition={{ ...fadeTransition, delay: 0.25 + idx * 0.05 }}
+                    {...hoverLiftProps}
+                  >
                     <div>
                       <h3 className="text-xl font-semibold text-white">{group.title}</h3>
                       {group.description && <p className="text-sm text-gray-400 mt-2">{group.description}</p>}
@@ -2452,10 +2525,11 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                         <motion.div
                           key={itemIdx}
                           className="flex items-start gap-3"
-                          initial={{ opacity: 0, x: -10 }}
-                          whileInView={{ opacity: 1, x: 0 }}
+                          initial={{ opacity: 0, x: -14, rotateY: -8 }}
+                          whileInView={{ opacity: 1, x: 0, rotateY: 0 }}
                           viewport={{ once: true, amount: 0.3 }}
                           transition={{ duration: 0.35, ease: 'easeOut', delay: itemIdx * 0.04 }}
+                          whileHover={{ x: 4 }}
                         >
                           <Check className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" />
                           <span className="text-gray-300">{item}</span>

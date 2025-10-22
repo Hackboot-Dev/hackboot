@@ -2035,3 +2035,26 @@ if (hasDecimal) {
 #### État:
 ✅ Animations harmonisées sur les pages native & communautaire
 ✅ Progress bars et tableaux animés au scroll
+
+### Enhancement: Variations d’animations et interactions hover PulseForge
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Diversifier les animations d’entrée au-delà des simples fade-in pour dynamiser les pages produits native et communautaire.
+- Ajouter des effets de survol subtils sur les cartes, plans et CTA afin d’offrir un feedback visuel plus premium.
+- Actualiser la documentation pour référencer les nouveaux presets `framer-motion` et les helpers de hover.
+
+#### Actions réalisées:
+1. Création des presets `inViewSlideProps`, `inViewScaleProps`, `inViewTiltProps` ainsi que des helpers `hoverLiftProps` / `hoverGlowProps`, puis application ciblée sur les sections héros, statistiques, fonctionnalités et avantages.
+2. Ajout de rotations légères, translations et halos lumineux sur les cartes (plans d’abonnement, quick stats, avantages PulseForge) côté native et communautaire.
+3. Mise à jour de `docs/README.md` pour détailler l’utilisation des nouveaux presets et inciter à réutiliser les helpers de survol.
+
+#### Fichiers modifiés:
+- `/components/NativeGamingProductPage.tsx`
+- `/components/CommunityGamingProductPage.tsx`
+- `/docs/README.md`
+
+#### État:
+✅ Animations variées et cohérentes avec l’identité PulseForge
+✅ Interactions hover légères sur les cartes et CTA
