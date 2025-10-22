@@ -3,14 +3,13 @@
 import { useMemo } from 'react'
 import { Star, Check, ArrowRight, Users, Cloud } from 'lucide-react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { useTranslation } from 'next-i18next'
 import type { GamingProduct } from '@/lib/gaming-products'
 import { getSubscriptionPlans } from '@/lib/subscriptions'
 import type { SubscriptionPlan } from '@/lib/subscriptions'
 import ProductImage from './ProductImage'
 import SiteHeader from '@/components/SiteHeader'
 import Footer from '@/components/Footer'
+import { useI18n } from '@/lib/i18n-simple'
 
 interface CommunityGamingProductPageProps {
   product: GamingProduct
@@ -19,32 +18,44 @@ interface CommunityGamingProductPageProps {
 type CommunityPageCopy = {
   breadcrumb: { home: string; games: string }
   badges: { catalog: string; support: string }
-  subscription: { title: string; popular: string; viewDetails: string }
+  subscription: { title: string; description: string; popular: string; viewDetails: string }
   configuration: { title: string; gpu: string; ram: string; cpu: string; support: string; supportValue: string }
   about: { title: string }
   featuresTitle: string
   benefits: { title: string; items: Array<{ title: string; description: string }> }
-  cta: { button: string }
+  cta: { title: string; description: string; button: string }
   reviewsLabel: string
 }
 
-export default function CommunityGamingProductPage({ product }: CommunityGamingProductPageProps) {
-  const pathname = usePathname()
-  const locale = pathname.split('/')[1]
-  const { t } = useTranslation('common')
+const formatMessage = (template?: string, replacements: Record<string, string> = {}) =>
+  template
+    ? Object.entries(replacements).reduce(
+        (result, [key, value]) => result.replaceAll(`{{${key}}}`, value),
+        template,
+      )
+    : undefined
 
-  const copy = t('communityProductPage', { returnObjects: true }) as CommunityPageCopy
-  const subscriptionDescription = t('communityProductPage.subscription.description', { productName: product.name })
-  const aboutTitle = t('communityProductPage.about.title', { productName: product.name })
-  const ctaTitle = t('communityProductPage.cta.title', { game: product.game })
-  const ctaDescription = t('communityProductPage.cta.description', { productName: product.name })
-  const planTranslations = t('premiumSignup.plans', { returnObjects: true }) as Record<string, Partial<SubscriptionPlan>>
+export default function CommunityGamingProductPage({ product }: CommunityGamingProductPageProps) {
+  const { t, locale } = useI18n()
+  const copy = t.communityProductPage as CommunityPageCopy
+  const planTranslations = t.premiumSignup?.plans as Record<string, Partial<SubscriptionPlan>> | undefined
+
+  const subscriptionDescription =
+    formatMessage(copy.subscription.description, { productName: product.name }) ??
+    `Accédez à ${product.name} avec n'importe quel abonnement Hackboot`
+  const aboutTitle =
+    formatMessage(copy.about.title, { productName: product.name }) ?? `À propos de ${product.name}`
+  const ctaTitle =
+    formatMessage(copy.cta.title, { game: product.game }) ?? `Prêt à jouer à ${product.game} ?`
+  const ctaDescription =
+    formatMessage(copy.cta.description, { productName: product.name }) ??
+    `Choisissez votre abonnement et accédez immédiatement à ${product.name}`
 
   const subscriptionPlans = getSubscriptionPlans()
   const localizedPlans = useMemo(
     () =>
       subscriptionPlans.map((plan) => {
-        const override = planTranslations[plan.id]
+        const override = planTranslations?.[plan.id]
         if (!override) {
           return plan
         }

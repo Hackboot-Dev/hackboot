@@ -1992,3 +1992,23 @@ if (hasDecimal) {
 #### État:
 ✅ Page native Overwatch disponible en FR/EN/ET
 ✅ Page produit communautaire alignée sur les traductions globales
+
+### Fix: Stabilisation de la page produit communautaire
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Éliminer l'appel à `useTranslation` qui cassait le prerender Netlify en absence d'instance i18next.
+- Garantir le formatage des messages avec variables tout en restant aligné sur le provider `useI18n` maison.
+
+#### Actions réalisées:
+1. Remplacement du hook `useTranslation` par `useI18n` afin d'utiliser le contexte de traduction interne.
+2. Ajout d'un utilitaire de formatage pour interpoler les variables (nom du produit, jeu) dans les CTA et descriptions.
+3. Harmonisation du typage de la copie communautaire pour couvrir description d'abonnement et CTA localisé.
+
+#### Fichiers modifiés:
+- `/components/CommunityGamingProductPage.tsx`
+
+#### État:
+✅ Page communautaire compatible avec le provider i18n custom
+⚠️ `npm run build` échoue toujours faute de dépendance `framer-motion` (problème existant, hors périmètre de ce correctif)
