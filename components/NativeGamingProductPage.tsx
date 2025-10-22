@@ -2822,10 +2822,700 @@ const localeOverridesByProduct: Record<string, Record<LocaleKey, DeepPartial<Loc
         ]
       }
     }
+  },
+  'gaming-battlefield6': {
+    fr: {
+      nativeAdvantages: [
+        {
+          icon: Code,
+          title: 'Optimisation Battlefield native',
+          description: 'Profils Conquest/Breakthrough calibrés avec pipeline CPU↔GPU équilibré.'
+        },
+        {
+          icon: Zap,
+          title: 'Provisioning cloud instantané',
+          description: 'Instances Battlefield 6 prêtes en quelques secondes avec bascule région automatique selon le ping.'
+        },
+        {
+          icon: Shield,
+          title: 'Suite tactique fair-play',
+          description: 'Overlays objectifs/escouade stream-safe sans injection mémoire ni assistance intrusive.'
+        },
+        {
+          icon: Trophy,
+          title: 'Support véhicules & production',
+          description: 'Coaching véhicules, analytics tickets et outils stream intégrés PulseForge Lobby.'
+        }
+      ],
+      metrics: {
+        title: 'Performances calibrées pour Battlefield 6',
+        description:
+          'Profil PulseForge Medium compétitif : 208 FPS de moyenne, min observé à 176 FPS et pic à 238 FPS en 1080p. Les profils 1440p et 4K restent très fluides grâce à l’allocation dynamique CPU↔GPU.',
+        statCards: {
+          maxFps: 'FPS maximum observé (1080p Medium)',
+          onePercentLow: 'Min observé (1080p Medium)',
+          inputLag: 'Input lag moyen'
+        },
+        allocationTitle: 'Bottleneck dominant (profil Medium)',
+        datacenterTitle: 'Monitoring cloud PulseForge',
+        usage: {
+          cpu: 'Charge CPU',
+          gpu: 'Charge GPU',
+          ram: 'Mémoire utilisée',
+          vram: 'VRAM utilisée'
+        },
+        thermals: {
+          cpu: 'Température CPU cloud',
+          gpu: 'Température GPU',
+          power: 'Consommation électrique'
+        },
+        stabilityNote: '1080p reste limité par le CPU ; les profils 1440p/4K exploitent la marge GPU pour lisser la courbe FPS.'
+      },
+      fpsTable: {
+        footnote: 'Benchmarks internes Battlefield 6 (Conquest & Breakthrough, profil Medium compétitif).'
+      },
+      resolution: {
+        title: 'Comment ajuster la résolution côté cloud',
+        description:
+          'Nos mesures internes traduisent la marge FPS réelle lorsque vous modifiez la définition depuis le panneau PulseForge.',
+        windowLabel: 'Fenêtre relevée',
+        footnote: 'Valeurs relevées sur presets Medium/Ultra avec overlays actifs.',
+        avgLabel: 'FPS moyen'
+      },
+      experience: {
+        description: (productName: string, latency: number) =>
+          `${productName} tourne entièrement sur notre infrastructure : provisioning instantané, routage adaptatif et latence stabilisée à ${latency} ms.`,
+        bullets: [
+          'Overlays, presets et mises à jour appliqués côté serveur — aucune installation locale.',
+          'Monitoring ping/jitter/pertes en temps réel avec bascule automatique de région si nécessaire.',
+          'Profilage spécifique Conquest/Breakthrough et véhicules mis à jour après chaque patch.'
+        ],
+        profileSubtitle: 'Moyenne mesurée en 1080p Medium',
+        lowLabel: 'Min observé 1080p Medium',
+        lowSubtitle: 'Fenêtre basse relevée'
+      },
+      improvement: {
+        adviceTitle: 'Option « CPU Boost » (côté hôte)'
+      },
+      augmentation: {
+        description: 'Suite tactique Battlefield 6 : objectifs, rotations, véhicules et analytics tickets.'
+      },
+      hero: {
+        badge: 'PROFILS ESCOUADE & VÉHICULES',
+        title: 'Optimisations dédiées',
+        description: 'Chaque preset couvre un rôle Battlefield (infanterie, reconnaissance, véhicules, commandement).',
+        headers: {
+          hero: 'Rôle',
+          overlay: 'Focus overlay',
+          clarity: 'Clarté visuelle',
+          preset: 'Preset conseillé',
+          notes: 'Notes coaching'
+        },
+        fallbackDescription: (game: string) => `Optimisations par rôle pour ${game}`
+      },
+      nativeReasons: {
+        description: (game: string) => `Optimisé de bout en bout pour ${game} côté cloud avec overlays fair-play.`
+      },
+      product: {
+        description: 'Instance Battlefield 6 cloud native calibrée Conquest/Breakthrough.',
+        longDescription:
+          'PulseForge Battlefield 6 combine profils objectifs, pipeline vidéo faible latence et monitoring réseau pour maintenir une réactivité stable en 1080p, 1440p et 4K. Les overlays, modules véhicules et Focus HUD sont pilotés côté serveur afin de rester conformes en ranked comme en scrim.',
+        variants: {
+          'pulseforge-battlefield6': {
+            name: 'PulseForge Battlefield 6 Command',
+            usage: 'Instance Battlefield 6 PulseForge',
+            description: 'Build cloud Battlefield 6 orienté objectifs, véhicules et production stream.',
+            use_cases: [
+              'Compétitions Conquest & Breakthrough',
+              'Coaching escouade et analytics tickets',
+              'Production stream Battlefield',
+              'Scrims privés PulseForge Lobby',
+              'Sandbox véhicules & drills objectifs'
+            ],
+            features: [
+              'Overlays modulaires objectifs/escouade',
+              'Analytics post-match tickets & timeline',
+              'Coach rotations et spawn waves',
+              'Vehicle drill suite PulseForge Lobby',
+              'Profils audio Battlefield calibrés',
+              'Mises à jour synchronisées patch Battlefield',
+              'Compatibilité PulseForge Lobby sandbox'
+            ],
+            featureHighlights: [
+              'Ranked/Tous serveurs – 100 % fair-play (lecture d’écran, killfeed, audio, sans injection mémoire)',
+              'Lobbies privés PulseForge – builds synchronisés où tout le monde est sur PulseForge (cosmétique & entraînement avancé)'
+            ],
+            featureGroups: [
+              {
+                title: 'Ranked / fair-play (live)',
+                items: [
+                  'Ticket & Pressure Overlay : pression par secteur, fenêtres de neutralisation/capture et rappel des tickets.',
+                  'Rotation Coach : routes d’escouade safe/fast, backcaps opportunistes et timings de regroupement.',
+                  'Spawn Wave Planner : estimation vagues alliées/ennemies, choix beacon/squad/base.',
+                  'Vehicle Ops Assistant : cycles réparation/sortie et angles sûrs (sans assistance d’aim).',
+                  'Suppression & Visibility : indicateurs suppression et fenêtres de punition.',
+                  'Killfeed Intelligence : synthèse wipes d’escouade et détection avantage numérique.',
+                  'Focus HUD : masquage contextuel des modules non essentiels pendant les fights massifs.'
+                ]
+              },
+              {
+                title: 'Réactivité & couverture',
+                items: [
+                  'Overlay refresh jusqu’à 144 Hz sur profils Medium/High.',
+                  'Modules actifs phase-aware : objectifs, escouade, véhicules.',
+                  'Temps de réaction moyen ~45 ms sur événements visibles.',
+                  'Monitoring réseau continu avec bascule automatique de région.'
+                ]
+              },
+              {
+                title: 'PulseForge Lobby',
+                description: 'Options de jeu & d’entraînement (tous joueurs sur build PulseForge)',
+                items: [
+                  'Cosmétiques partagés : thèmes d’escouade, tracers & kill-banners PulseForge.',
+                  'Vehicle Drill Suite : circuits tank/IFV/heli/jet, duels blindés et ateliers réparation coordonnée.',
+                  'Objective Scenario Runner : scripts Conquest/Breakthrough avec scoreboard captures/retakes/tickets.',
+                  'Stratboard Live : tableau tactique par carte avec annotations coach/lead.',
+                  'Draft & Role Rules : verrouillage Lead/Anchor/Recon/Support et loadouts imposés.',
+                  'Caster Mode : HUD élargi (objectifs, véhicules, tickets), replays instantanés et marqueurs d’actions.'
+                ]
+              },
+              {
+                title: 'Pourquoi choisir notre build natif Battlefield 6 ?',
+                items: [
+                  'Intégration native synchronisée après chaque mise à jour DICE.',
+                  'Suite overlays fair-play, stream-safe et conforme ranked/tournoi.',
+                  'Performances calibrées : 208/186/154 FPS moyens (1080p/1440p/4K).',
+                  'Support créatif : scrims, VOD analytics et thèmes d’escouade PulseForge Lobby.'
+                ]
+              }
+            ],
+            implementationNotes: [
+              'En parties publiques/ranked, les overlays reposent uniquement sur HUD/son/killfeed visibles. Aucune lecture mémoire ni injection.',
+              'Cosmétiques partagés, sandbox véhicules et stratboards temps réel sont réservés aux lobbies PulseForge avec build commun.',
+              'Overlays opt-in avec masquage automatique en fight pour limiter la surcharge visuelle.'
+            ],
+            target_audience: 'Escouades Battlefield, coachs véhicules, créateurs',
+            highlight: 'Suite Conquest & véhicules dédiée',
+            protection: 'Fair-play stream-safe',
+            updates: 'Mises à jour synchronisées patch Battlefield'
+          }
+        }
+      },
+      technical: {
+        fpsByResolution: [
+          { playability: 'Très fluide', bottleneck: 'CPU (≈ 88%)' },
+          { playability: 'Très fluide', bottleneck: 'GPU (≈ 61%)' },
+          { playability: 'Très fluide', bottleneck: 'GPU (≈ 76%)' }
+        ],
+        resolutionGuidance: [
+          {
+            refreshAdvice: 'Cible 144–200 Hz compétitif',
+            description: 'Idéal pour l’infanterie et les combats rapprochés ; la marge reste confortable même en High.',
+            note: 'Activez Focus HUD pour réduire la charge visuelle lors des push massifs.'
+          },
+          {
+            refreshAdvice: 'Netteté + stabilité',
+            description: 'Excellent compromis pour le streaming Conquest et les VOD détaillées.',
+            note: 'Préférez le preset High pour lisser les 1% low sans perte visuelle majeure.'
+          },
+          {
+            refreshAdvice: '4K fluide 120 Hz',
+            description: 'Parfait pour du showcase cinématographique tout en gardant une bonne réactivité.',
+            note: 'Utilisez ce mode pour les prises de vue premium ou la production stream.'
+          }
+        ],
+        improvementTips: [
+          'Baissez ombres et Post-FX en priorité tout en conservant la résolution native.',
+          'Activez Focus HUD afin de masquer les modules non essentiels lors des grands teamfights.',
+          'Préférez le preset High plutôt que Ultra en 1440p/4K pour lisser les 1% low.'
+        ],
+        advice:
+          'Option « CPU Boost » : +5 % → ~210/178/240 FPS · +10 % → ~212/180/244 FPS · +15 % → ~215/183/247 FPS · +20 % → ~219/186/251 FPS (nécessite un nœud Thermal-Premium).',
+        augmentationSuite: {
+          modules: [
+            'Ticket & Pressure Overlay : pression par secteur et fenêtres de capture.',
+            'Rotation Coach : routes safe/fast et timings de regroupement.',
+            'Spawn Wave Planner : estimation des vagues alliées/ennemies.',
+            'Vehicle Ops Assistant : cycles réparation/sortie sans assistance intrusive.',
+            'Suppression & Visibility : indicateurs de suppression et fenêtres de punition.',
+            'Ballistics Trainer : visualisation de la balistique en entraînement.',
+            'Killfeed Intelligence : synthèse wipes d’escouade et avantage numérique.'
+          ],
+          notes: 'Modules calibrés Conquest/Breakthrough, rafraîchis après chaque patch DICE.'
+        },
+        heroSynergy: [
+          { preset: 'Assault', coachingNotes: 'Priorité points chauds et rappels utilitaires anti-véhicule.' },
+          { preset: 'Recon', coachingNotes: 'Surveillance drones et trajectoires de backcap.' },
+          { preset: 'Support', coachingNotes: 'Gestion beacons et cycles de réparation.' },
+          { preset: 'Armor', coachingNotes: 'Angles sûrs et cycles réparation/sortie.' },
+          { preset: 'Air', coachingNotes: 'Routes nap-of-the-earth et timers de contre-mesures.' },
+          { preset: 'Command', coachingNotes: 'Synthèse tickets et priorités d’objectif.' }
+        ]
+      }
+    },
+    en: {
+      nativeAdvantages: [
+        {
+          icon: Code,
+          title: 'Native Battlefield optimization',
+          description: 'Conquest/Breakthrough profiles tuned with a balanced CPU↔GPU pipeline.'
+        },
+        {
+          icon: Zap,
+          title: 'Instant cloud provisioning',
+          description: 'Battlefield 6 instances spin up in seconds with automatic region failover based on ping.'
+        },
+        {
+          icon: Shield,
+          title: 'Fair-play tactical suite',
+          description: 'Objective/squad overlays stay stream-safe with zero memory injection or intrusive assists.'
+        },
+        {
+          icon: Trophy,
+          title: 'Vehicle & production support',
+          description: 'Vehicle coaching, ticket analytics, and integrated streaming tools via PulseForge Lobby.'
+        }
+      ],
+      metrics: {
+        title: 'Performance calibrated for Battlefield 6',
+        description:
+          'PulseForge competitive Medium profile: 208 average FPS, 176 FPS minimum, and peaks at 238 FPS in 1080p. 1440p and 4K remain very smooth thanks to dynamic CPU↔GPU allocation.',
+        statCards: {
+          maxFps: 'Max FPS observed (1080p Medium)',
+          onePercentLow: 'Min observed (1080p Medium)',
+          inputLag: 'Average input lag'
+        },
+        allocationTitle: 'Dominant bottleneck (Medium profile)',
+        datacenterTitle: 'PulseForge cloud monitoring',
+        usage: {
+          cpu: 'CPU load',
+          gpu: 'GPU load',
+          ram: 'Memory usage',
+          vram: 'VRAM usage'
+        },
+        thermals: {
+          cpu: 'Cloud CPU temperature',
+          gpu: 'GPU temperature',
+          power: 'Power draw'
+        },
+        stabilityNote: '1080p is CPU-bound; the 1440p/4K presets leverage GPU headroom to keep the curve stable.'
+      },
+      fpsTable: {
+        footnote: 'Internal Battlefield 6 benchmarks (Conquest & Breakthrough, competitive Medium profile).'
+      },
+      resolution: {
+        title: 'How to adjust resolution from the cloud',
+        description:
+          'Our internal measurements show the actual FPS buffer when you change definition via the PulseForge panel.',
+        windowLabel: 'Measured window',
+        footnote: 'Values captured on Medium/Ultra presets with overlays enabled.',
+        avgLabel: 'Average FPS'
+      },
+      experience: {
+        description: (productName: string, latency: number) =>
+          `${productName} runs entirely on our infrastructure: instant provisioning, adaptive routing, and latency stabilized around ${latency} ms.`,
+        bullets: [
+          'Overlays, presets, and updates are applied server-side—nothing to install locally.',
+          'Real-time ping/jitter/loss monitoring with automatic region failover when needed.',
+          'Battlefield-specific profiling for Conquest/Breakthrough and vehicles refreshed after every patch.'
+        ],
+        profileSubtitle: 'Average measured at 1080p Medium',
+        lowLabel: 'Min observed 1080p Medium',
+        lowSubtitle: 'Recorded low window'
+      },
+      improvement: {
+        adviceTitle: 'CPU Boost option (host side)'
+      },
+      augmentation: {
+        description: 'Battlefield 6 tactical suite covering objectives, rotations, vehicles, and ticket analytics.'
+      },
+      hero: {
+        badge: 'SQUAD & VEHICLE PROFILES',
+        title: 'Dedicated optimizations',
+        description: 'Each preset covers a Battlefield role (infantry, recon, vehicles, command).',
+        headers: {
+          hero: 'Role',
+          overlay: 'Overlay focus',
+          clarity: 'Visual clarity',
+          preset: 'Recommended preset',
+          notes: 'Coaching notes'
+        },
+        fallbackDescription: (game: string) => `Role-specific optimizations for ${game}`
+      },
+      nativeReasons: {
+        description: (game: string) => `Optimized end to end for ${game} in the cloud with fair-play overlays.`
+      },
+      product: {
+        description: 'Cloud-native Battlefield 6 instance tuned for Conquest/Breakthrough.',
+        longDescription:
+          'PulseForge Battlefield 6 blends objective profiles, a low-latency video pipeline, and live network monitoring to keep responsiveness steady at 1080p, 1440p, and 4K. Overlays, vehicle modules, and Focus HUD are orchestrated server-side to remain compliant in ranked and scrims.',
+        variants: {
+          'pulseforge-battlefield6': {
+            name: 'PulseForge Battlefield 6 Command',
+            usage: 'Battlefield 6 PulseForge instance',
+            description: 'Cloud Battlefield 6 build focused on objectives, vehicles, and premium streaming.',
+            use_cases: [
+              'Conquest & Breakthrough competition',
+              'Squad coaching and ticket analytics',
+              'Battlefield stream production',
+              'Private scrims with PulseForge Lobby',
+              'Vehicle sandbox & objective drills'
+            ],
+            features: [
+              'Modular objective/squad overlays',
+              'Post-match ticket analytics & timeline',
+              'Rotation and spawn-wave coaching',
+              'PulseForge Lobby vehicle drill suite',
+              'Calibrated Battlefield audio profiles',
+              'Patch-synced Battlefield updates',
+              'PulseForge Lobby sandbox compatibility'
+            ],
+            featureHighlights: [
+              'Ranked/all servers – 100% fair play (screen reading, killfeed, audio, no memory injection)',
+              'PulseForge private lobbies – synchronized builds with every player on PulseForge (cosmetics & advanced training)'
+            ],
+            featureGroups: [
+              {
+                title: 'Ranked / fair-play (live)',
+                items: [
+                  'Ticket & Pressure Overlay: sector pressure, capture windows, and ticket reminders.',
+                  'Rotation Coach: safe/fast squad routes, opportunistic backcaps, and regroup timings.',
+                  'Spawn Wave Planner: estimates ally/enemy waves and optimizes beacon/squad/base respawns.',
+                  'Vehicle Ops Assistant: repair/exit cycles and safe angles without aim assistance.',
+                  'Suppression & Visibility: suppression indicators and punishment windows.',
+                  'Killfeed Intelligence: squad wipe synthesis and numeric advantage detection.',
+                  'Focus HUD: contextually hides non-essential modules during large fights.'
+                ]
+              },
+              {
+                title: 'Reactivity & coverage',
+                items: [
+                  'Overlay refresh up to 144 Hz on Medium/High profiles.',
+                  'Phase-aware modules covering objectives, squads, and vehicles.',
+                  'Average reaction time ~45 ms on visible events.',
+                  'Continuous network monitoring with automatic region switching.'
+                ]
+              },
+              {
+                title: 'PulseForge Lobby',
+                description: 'Training options when everyone runs the PulseForge build',
+                items: [
+                  'Shared cosmetics: squad themes, tracers, and PulseForge kill banners.',
+                  'Vehicle Drill Suite: timed tank/IFV/heli/jet circuits, armor duels, coordinated repair workshops.',
+                  'Objective Scenario Runner: scripted Conquest/Breakthrough drills with capture/retake/ticket scoreboards.',
+                  'Stratboard Live: map-tied tactical board with coach/leader annotations.',
+                  'Draft & Role Rules: locks Lead/Anchor/Recon/Support roles and enforces loadouts.',
+                  'Caster Mode: expanded HUD (objectives, vehicles, tickets), instant replays, and key event markers.'
+                ]
+              },
+              {
+                title: 'Why choose our native Battlefield 6 build?',
+                items: [
+                  'Native integration synchronized after every DICE update.',
+                  'Fair-play, stream-safe overlay suite compliant with ranked and tournaments.',
+                  'Calibrated performance: 208/186/154 average FPS (1080p/1440p/4K).',
+                  'Creative support: scrims, VOD analytics, and PulseForge Lobby squad themes.'
+                ]
+              }
+            ],
+            implementationNotes: [
+              'In public/ranked games overlays rely solely on visible HUD/audio/killfeed data. No memory reading or injection.',
+              'Shared cosmetics, vehicle sandboxes, and live stratboards are limited to PulseForge lobbies with a shared build.',
+              'Overlays are opt-in and auto-hide during fights to avoid visual overload.'
+            ],
+            target_audience: 'Battlefield squads, vehicle coaches, creators',
+            highlight: 'Dedicated Conquest & vehicle suite',
+            protection: 'Stream-safe fair play',
+            updates: 'Battlefield patch-synced updates'
+          }
+        }
+      },
+      technical: {
+        fpsByResolution: [
+          { playability: 'Very smooth', bottleneck: 'CPU (≈ 88%)' },
+          { playability: 'Very smooth', bottleneck: 'GPU (≈ 61%)' },
+          { playability: 'Very smooth', bottleneck: 'GPU (≈ 76%)' }
+        ],
+        resolutionGuidance: [
+          {
+            refreshAdvice: '144–200 Hz competitive target',
+            description: 'Ideal for infantry and close-quarters fights; the buffer stays generous even on High.',
+            note: 'Enable Focus HUD to trim visual noise during large pushes.'
+          },
+          {
+            refreshAdvice: 'Sharpness + stability',
+            description: 'A strong balance for streaming Conquest and detailed VOD work.',
+            note: 'Stay on the High preset to smooth 1% lows without major visual loss.'
+          },
+          {
+            refreshAdvice: '120 Hz-ready 4K',
+            description: 'Great for cinematic showcases while keeping the experience reactive.',
+            note: 'Use this mode for premium capture or stream production.'
+          }
+        ],
+        improvementTips: [
+          'Lower shadows and post-FX first while keeping native resolution.',
+          'Enable Focus HUD to hide non-essential modules during massive firefights.',
+          'Prefer High instead of Ultra at 1440p/4K to stabilize 1% lows.'
+        ],
+        advice:
+          'CPU Boost option: +5% → ~210/178/240 FPS · +10% → ~212/180/244 FPS · +15% → ~215/183/247 FPS · +20% → ~219/186/251 FPS (requires a Thermal-Premium node).',
+        augmentationSuite: {
+          modules: [
+            'Ticket & Pressure Overlay: sector pressure and capture windows.',
+            'Rotation Coach: safe/fast routes and regroup timings.',
+            'Spawn Wave Planner: predicts ally/enemy waves.',
+            'Vehicle Ops Assistant: repair/exit cycles without intrusive assistance.',
+            'Suppression & Visibility: suppression indicators and punish windows.',
+            'Ballistics Trainer: ballistic visualization in training.',
+            'Killfeed Intelligence: squad wipe synthesis and numeric advantage.'
+          ],
+          notes: 'Modules calibrated for Conquest/Breakthrough and refreshed after every DICE patch.'
+        },
+        heroSynergy: [
+          { preset: 'Assault', coachingNotes: 'Hot zone priority and anti-vehicle utility reminders.' },
+          { preset: 'Recon', coachingNotes: 'Drone coverage and backcap pathing.' },
+          { preset: 'Support', coachingNotes: 'Beacon management and repair cycles.' },
+          { preset: 'Armor', coachingNotes: 'Safe angles and repair/exit timing.' },
+          { preset: 'Air', coachingNotes: 'Nap-of-the-earth routes and countermeasure timers.' },
+          { preset: 'Command', coachingNotes: 'Ticket synthesis and objective priorities.' }
+        ]
+      }
+    },
+    et: {
+      nativeAdvantages: [
+        {
+          icon: Code,
+          title: 'Battlefieldi natiivne optimeerimine',
+          description: 'Conquest/Breakthrough profiilid on häälestatud tasakaalus CPU↔GPU toruga.'
+        },
+        {
+          icon: Zap,
+          title: 'Viivitusteta pilveprovision',
+          description: 'Battlefield 6 instants käivituvad sekunditega ja vahetavad regiooni automaatselt vastavalt pingile.'
+        },
+        {
+          icon: Shield,
+          title: 'Fair-play taktikamoodulid',
+          description: 'Eesmärkide/eskadroni overlayd on stream-safe – mälu ei loeta ja abivahendeid ei lisata.'
+        },
+        {
+          icon: Trophy,
+          title: 'Sõiduki- ja produktsioonitugi',
+          description: 'Sõidukitreening, piletite analüütika ja PulseForge Lobby integreeritud striimitööriistad.'
+        }
+      ],
+      metrics: {
+        title: 'Battlefield 6 jõudlus',
+        description:
+          'PulseForge’i Medium võistlusprofiil: keskmiselt 208 FPS, miinimum 176 FPS ja maksimum 238 FPS 1080p juures. 1440p ja 4K jäävad väga sujuvaks tänu dünaamilisele CPU↔GPU jaotusele.',
+        statCards: {
+          maxFps: 'Maks FPS (1080p Medium)',
+          onePercentLow: 'Min märgatud (1080p Medium)',
+          inputLag: 'Keskmine sisendviivitus'
+        },
+        allocationTitle: 'Domineeriv kitsaskoht (Medium profiil)',
+        datacenterTitle: 'PulseForge’i pilvemonitoring',
+        usage: {
+          cpu: 'CPU koormus',
+          gpu: 'GPU koormus',
+          ram: 'Mälu kasutus',
+          vram: 'VRAM kasutus'
+        },
+        thermals: {
+          cpu: 'Pilve CPU temperatuur',
+          gpu: 'GPU temperatuur',
+          power: 'Voolutarve'
+        },
+        stabilityNote: '1080p on CPU-põhine; 1440p/4K presetid kasutavad GPU varu, et hoida FPS kõvera stabiilsena.'
+      },
+      fpsTable: {
+        footnote: 'Sisemised Battlefield 6 benchmark’id (Conquest & Breakthrough, Medium profiil).'
+      },
+      resolution: {
+        title: 'Resolutsiooni muutmine pilves',
+        description:
+          'Meie mõõtmised näitavad tegelikku FPS varu, kui muudad PulseForge’i paneelist resolutsiooni.',
+        windowLabel: 'Mõõdetud aken',
+        footnote: 'Väärtused Medium/Ultra presetitel koos overlaydega.',
+        avgLabel: 'Keskmine FPS'
+      },
+      experience: {
+        description: (productName: string, latency: number) =>
+          `${productName} töötab täielikult meie infrastruktuuris: kohene provisioning, adaptiivne marsruut ja latentsus umbes ${latency} ms.`,
+        bullets: [
+          'Overlayd, presetid ja uuendused rakenduvad serveripoolselt – lokaalset installi pole vaja.',
+          'Reaalajas ping/jitter/kadude jälgimine automaatse regiooni vahetusega vajadusel.',
+          'Battlefieldi-spetsiifiline profiil Conquest/Breakthrough ja sõidukitele, värskendatakse iga patchi järel.'
+        ],
+        profileSubtitle: 'Keskmine 1080p Medium mõõtmine',
+        lowLabel: 'Min 1080p Medium',
+        lowSubtitle: 'Salvestatud alumine aken'
+      },
+      improvement: {
+        adviceTitle: '„CPU Boost” valik (hosti pool)'
+      },
+      augmentation: {
+        description: 'Battlefield 6 taktikaline suite: eesmärgid, rotatsioonid, sõidukid ja piletianalüütika.'
+      },
+      hero: {
+        badge: 'ESKADRONI JA SÕIDUKI PROFIILID',
+        title: 'Pühendatud optimisatsioonid',
+        description: 'Iga preset katab Battlefieldi rolli (jalavägi, luure, sõidukid, juhtimine).',
+        headers: {
+          hero: 'Roll',
+          overlay: 'Overlay fookus',
+          clarity: 'Visuaalne selgus',
+          preset: 'Soovitatud preset',
+          notes: 'Treeningmärkused'
+        },
+        fallbackDescription: (game: string) => `Rollipõhised optimeerimised mängule ${game}`
+      },
+      nativeReasons: {
+        description: (game: string) => `Täielikult pilves optimeeritud lahendus mängule ${game} fair-play overlaydega.`
+      },
+      product: {
+        description: 'Pilvepõhine Battlefield 6 instants Conquest/Breakthrough jaoks.',
+        longDescription:
+          'PulseForge Battlefield 6 ühendab eesmärgiprofiilid, väikse latentsusega videotoru ja võrgujälgimise, et hoida reaktsioon stabiilsena 1080p, 1440p ja 4K juures. Overlayd, sõidukimoodulid ja Focus HUD juhitakse serverist, et jääda vastavusse ranked ja scrim nõuetega.',
+        variants: {
+          'pulseforge-battlefield6': {
+            name: 'PulseForge Battlefield 6 Command',
+            usage: 'Battlefield 6 PulseForge instants',
+            description: 'Pilvepõhine Battlefield 6 build eesmärkide, sõidukite ja premium-striimi jaoks.',
+            use_cases: [
+              'Conquest & Breakthrough võistlused',
+              'Eskadroni coaching ja piletianalüütika',
+              'Battlefieldi striimiproduktsioon',
+              'Privaat-scrimid PulseForge Lobbyga',
+              'Sõiduki sandbox ja eesmärgiharjutused'
+            ],
+            features: [
+              'Modulaarsed overlayd eesmärkide/eskadroni jaoks',
+              'Post-matši piletianalüütika ja ajajoon',
+              'Rotatsiooni ja spawn-wave’i coaching',
+              'PulseForge Lobby sõidukitreeningu suite',
+              'Kalibreeritud Battlefieldi audioprofiilid',
+              'Patchidega sünkroonitud uuendused',
+              'PulseForge Lobby sandboxi tugi'
+            ],
+            featureHighlights: [
+              'Ranked/kõik serverid – 100% fair-play (ekraani lugemine, killfeed, audio, ilma mälu süstita)',
+              'PulseForge’i privaatlobbyd – sünkroonitud buildid kõigile mängijatele (kosmeetika ja edasijõudnud treening)'
+            ],
+            featureGroups: [
+              {
+                title: 'Ranked / fair-play (live)',
+                items: [
+                  'Ticket & Pressure Overlay: sektori surve, vallutuse aknad ja piletimärguanded.',
+                  'Rotation Coach: turvalised/kiired marsruudid, backcap’i võimalused ja kogunemise ajastus.',
+                  'Spawn Wave Planner: liitlaste/vastaste lainete hinnang ja beacon/squad/base optimeerimine.',
+                  'Vehicle Ops Assistant: remondi/väljumise tsüklid ja turvalised nurgad (ilma aim-abita).',
+                  'Suppression & Visibility: suppressiooni indikaatorid ja karistuse aknad.',
+                  'Killfeed Intelligence: eskadroni wipe’i kokkuvõte ja arvulise eelise tuvastus.',
+                  'Focus HUD: peidab suurtes võitlustes ebaolulised moodulid.'
+                ]
+              },
+              {
+                title: 'Reaktsioon ja katvus',
+                items: [
+                  'Overlay värskendus kuni 144 Hz Medium/High profiilidel.',
+                  'Faaditeadlikud moodulid: eesmärgid, eskadron, sõidukid.',
+                  'Keskmine reaktsiooniaeg ~45 ms nähtavate sündmuste puhul.',
+                  'Järjepidev võrgujälgimine automaatse regiooni vahetusega.'
+                ]
+              },
+              {
+                title: 'PulseForge Lobby',
+                description: 'Treeninguvõimalused, kui kõik kasutavad PulseForge’i buildi',
+                items: [
+                  'Jagatud kosmeetika: eskadroni teemad, tracer’id ja PulseForge’i kill-bannerid.',
+                  'Vehicle Drill Suite: ajastatud tank/IFV/heli/jeti rajad, soomusduellid ja koordineeritud remondiharjutused.',
+                  'Objective Scenario Runner: skriptitud Conquest/Breakthrough harjutused capture/retake/pileti tabelitega.',
+                  'Stratboard Live: kaardiga seotud taktikalaud treeneri/liidri annotatsioonidega.',
+                  'Draft & Role Rules: lukustab Lead/Anchor/Recon/Support rollid ja kehtestab loadout’id.',
+                  'Caster Mode: laiendatud HUD (eesmärgid, sõidukid, piletid), kiired kordused ja võtmesündmuste markerid.'
+                ]
+              },
+              {
+                title: 'Miks valida meie natiivne Battlefield 6 build?',
+                items: [
+                  'Natiivne integratsioon sünkroonis iga DICE uuendusega.',
+                  'Fair-play ja stream-safe overlayd, mis vastavad ranked ja turniiri nõuetele.',
+                  'Kalibreeritud jõudlus: 208/186/154 FPS keskmiselt (1080p/1440p/4K).',
+                  'Loominguline tugi: scrimid, VOD-analüütika ja PulseForge Lobby eskadroni teemad.'
+                ]
+              }
+            ],
+            implementationNotes: [
+              'Avalikes/ranked mängudes tuginevad overlayd ainult nähtavale HUDile/helile/killfeedile. Mälulugemist ega süsti pole.',
+              'Jagatud kosmeetika, sõidukisandboxid ja live-stratboardid on piiratud PulseForge’i lobbydega, kus on ühine build.',
+              'Overlayd on opt-in ja peidavad end suure võitluse ajal, et vältida visuaalset ülekoormust.'
+            ],
+            target_audience: 'Battlefieldi eskadronid, sõidukitreenerid, loojad',
+            highlight: 'Conquesti ja sõidukite fokusseeritud suite',
+            protection: 'Stream-safe fair-play',
+            updates: 'Battlefieldi patchidega sünkroonitud uuendused'
+          }
+        }
+      },
+      technical: {
+        fpsByResolution: [
+          { playability: 'Väga sujuv', bottleneck: 'CPU (≈ 88%)' },
+          { playability: 'Väga sujuv', bottleneck: 'GPU (≈ 61%)' },
+          { playability: 'Väga sujuv', bottleneck: 'GPU (≈ 76%)' }
+        ],
+        resolutionGuidance: [
+          {
+            refreshAdvice: '144–200 Hz võistlussiht',
+            description: 'Ideaalne jalaväele ja lähivõitlusele; puhver jääb heldeks isegi High presetil.',
+            note: 'Aktiveeri Focus HUD, et suurte rünnakute ajal visuaalset müra vähendada.'
+          },
+          {
+            refreshAdvice: 'Teravus + stabiilsus',
+            description: 'Tugev tasakaal Conquesti striimimiseks ja detailseks VOD tööks.',
+            note: 'Kasuta High presetit, et 1% madalaid ilma suure visuaalkaota siluda.'
+          },
+          {
+            refreshAdvice: '120 Hz valmis 4K',
+            description: 'Sobib hästi kinemaatilisteks esitluste ja samas säilitab reaktsioonivõime.',
+            note: 'Kasuta seda režiimi premium-salvestuseks või striimiproduktsiooniks.'
+          }
+        ],
+        improvementTips: [
+          'Vähenda esmalt varje ja post-FX’e, jättes resolutsiooni natiivseks.',
+          'Lülita sisse Focus HUD, et peita massiivsetes lahingutes ebaolulised moodulid.',
+          'Eelista 1440p/4K puhul High presetit Ultra asemel, et stabiliseerida 1% madalaid.'
+        ],
+        advice:
+          '„CPU Boost” valik: +5% → ~210/178/240 FPS · +10% → ~212/180/244 FPS · +15% → ~215/183/247 FPS · +20% → ~219/186/251 FPS (vajab Thermal-Premium sõlme).',
+        augmentationSuite: {
+          modules: [
+            'Ticket & Pressure Overlay: sektori surve ja vallutuse aknad.',
+            'Rotation Coach: turvalised/kiired teed ja kogunemise ajastus.',
+            'Spawn Wave Planner: ennustab liitlaste/vastaste laineid.',
+            'Vehicle Ops Assistant: remondi/väljumise tsüklid ilma pealetükkiva abita.',
+            'Suppression & Visibility: suppressiooni indikaatorid ja karistusaknad.',
+            'Ballistics Trainer: ballistika visualiseerimine treeningus.',
+            'Killfeed Intelligence: eskadroni wipe’i kokkuvõte ja arvuline eelis.'
+          ],
+          notes: 'Moodulid on häälestatud Conquest/Breakthrough jaoks ja värskendatakse iga DICE patchiga.'
+        },
+        heroSynergy: [
+          { preset: 'Assault', coachingNotes: 'Kuumade tsoonide prioriteet ja anti-sõiduki utiliidi meeldetuletused.' },
+          { preset: 'Recon', coachingNotes: 'Droonikatvus ja backcap’i trajektoorid.' },
+          { preset: 'Support', coachingNotes: 'Beaconite haldus ja remonditsüklid.' },
+          { preset: 'Armor', coachingNotes: 'Turvalised nurgad ja remondi/väljumise ajastus.' },
+          { preset: 'Air', coachingNotes: 'Nap-of-the-earth marsruudid ja vastumeetmete taimerid.' },
+          { preset: 'Command', coachingNotes: 'Piletite kokkuvõte ja eesmärkide prioriteedid.' }
+        ]
+      }
+    }
   }
 }
 
 interface NativeGamingProductPageProps {
+
   product: GamingProduct
 }
 

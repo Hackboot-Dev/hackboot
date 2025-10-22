@@ -2126,3 +2126,26 @@ if (hasDecimal) {
 #### État:
 ✅ Fiche Valorant PulseForge conforme aux métriques fournies
 ✅ Localisation FR/EN/ET opérationnelle avec onglets PulseForge
+
+### Feature: PulseForge Battlefield 6 native build
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Déployer la fiche Battlefield 6 PulseForge avec les métriques Conquest/Breakthrough (208/186/154 FPS) et la suite d’assistances véhicules/escouade.
+- Étendre les overrides de localisation FR/EN/ET pour les performances, l’expérience cloud et les variantes PulseForge spécifiques à Battlefield.
+- Actualiser la documentation centrale afin de référencer l’offre Battlefield et consigner la mise à jour du catalogue.
+
+#### Actions réalisées:
+1. Réécriture de `gaming-battlefield6` dans `data/gaming-products.json` avec les benchmarks 1080p/1440p/4K, l’option « CPU Boost » et les groupes de fonctionnalités PulseForge.
+2. Ajout de `localeOverridesByProduct['gaming-battlefield6']` dans `NativeGamingProductPage.tsx` pour fournir les textes FR/EN/ET (performances, expérience cloud, onglets PulseForge Lobby).
+3. Mise à jour de `docs/README.md` pour inclure la fiche Battlefield et noter la dernière action cataloguée.
+
+#### Fichiers modifiés:
+- `/data/gaming-products.json`
+- `/components/NativeGamingProductPage.tsx`
+- `/docs/README.md`
+
+#### État:
+✅ Offre Battlefield 6 PulseForge alignée sur les métriques fournies
+✅ Localisation FR/EN/ET opérationnelle avec onglets PulseForge Lobby

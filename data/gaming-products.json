@@ -1052,60 +1052,323 @@
   {
     "id": "gaming-battlefield6",
     "slug": "gaming-battlefield6",
-    "name": "Battlefield 6",
+    "name": "Battlefield 6 PulseForge",
     "game": "Battlefield 6",
     "category": "gaming",
     "optimizationLevel": "native",
-    "description": "Solution Battlefield 6 premium avec build privé et protection avancée",
-    "longDescription": "Battlefield 6 God Mode offre une expérience de jeu optimale avec GPU RTX 4090, 128GB RAM DDR5 et Intel i9-13900K. Build privé exclusif avec HWID spoofer intégré, parfait pour la domination sur le champ de bataille.",
+    "description": "Instance cloud Battlefield 6 calibrée Conquest/Breakthrough avec overlays tactiques et support escouade.",
+    "longDescription": "PulseForge pour Battlefield 6 est un build natif hébergé sur notre cloud gaming. Pensé pour les escouades compétitives, il combine profils Conquest/Breakthrough, optimisation CPU↔GPU et pipeline vidéo faible latence afin de maintenir la fluidité jusqu’en 4K. Overlays, modules et mises à jour sont appliqués côté serveur pour préserver le fair-play et la conformité tournois.",
     "status": "ACTIVE",
+    "technicalSpecs": {
+      "performanceMetrics": {
+        "avgFps": 208,
+        "minFps": 176,
+        "maxFps": 238,
+        "onePercentLow": 176,
+        "latency": 1.3,
+        "inputLag": 0.36,
+        "frameTime": 4.8,
+        "cpuUsage": 88,
+        "gpuUsage": 76,
+        "ramUsage": 21.4,
+        "vramUsage": 10.7,
+        "powerDraw": 405,
+        "thermalCpu": 68,
+        "thermalGpu": 65
+      },
+      "augmentationSuite": {
+        "awarenessIndex": 92,
+        "overlayRefresh": 144,
+        "adaptiveCoaching": 88,
+        "reactionTimeMs": 45,
+        "moduleCoverage": 16,
+        "tacticalFocus": 93,
+        "modules": [
+          "Ticket & Pressure Overlay : pression par secteur, fenêtres de neutralisation/capture et rappel des tickets restants.",
+          "Rotation Coach : propositions de routes d’escouade (safe vs fast), backcaps et timings de regroupement.",
+          "Spawn Wave Planner : estimation des vagues de réapparition alliées/ennemies et choix optimisé beacon/squad/base.",
+          "Vehicle Ops Assistant : gestion des sièges, cycles réparation/sortie et angles sûrs sans assistance d’aim.",
+          "Suppression & Visibility : indicateurs de suppression et fenêtres de punition quand l’adversaire est affaibli.",
+          "Ballistics Trainer : visualisation stream-safe de la chute/temps de vol des projectiles (mode entraînement).",
+          "Killfeed Intelligence : synthèse des wipes d’escouade et détection d’avantage numérique."
+        ],
+        "notes": "Modules calibrés Conquest/Breakthrough et rafraîchis après chaque patch DICE."
+      },
+      "fpsByResolution": [
+        {
+          "resolution": "1920 × 1080",
+          "avgFps": 208,
+          "minFps": 176,
+          "maxFps": 238,
+          "playability": "Très fluide",
+          "bottleneck": "CPU (≈ 88%)"
+        },
+        {
+          "resolution": "2560 × 1440",
+          "avgFps": 186,
+          "minFps": 158,
+          "maxFps": 215,
+          "playability": "Très fluide",
+          "bottleneck": "GPU (≈ 61%)"
+        },
+        {
+          "resolution": "3840 × 2160",
+          "avgFps": 154,
+          "minFps": 130,
+          "maxFps": 182,
+          "playability": "Très fluide",
+          "bottleneck": "GPU (≈ 76%)"
+        }
+      ],
+      "qualityBreakdown": [
+        {
+          "resolution": "1920 × 1080",
+          "presets": {
+            "low": 214,
+            "medium": 208,
+            "high": 191,
+            "ultra": 173
+          }
+        },
+        {
+          "resolution": "2560 × 1440",
+          "presets": {
+            "low": 196,
+            "medium": 186,
+            "high": 172,
+            "ultra": 158
+          }
+        },
+        {
+          "resolution": "3840 × 2160",
+          "presets": {
+            "low": 166,
+            "medium": 154,
+            "high": 140,
+            "ultra": 127
+          }
+        }
+      ],
+      "resolutionGuidance": [
+        {
+          "resolution": "1920 × 1080",
+          "avgFps": 208,
+          "fpsWindow": "176 – 238 FPS",
+          "refreshAdvice": "Cible 144–200 Hz compétitif",
+          "description": "Idéal pour l’infanterie et les combats rapprochés ; la marge reste confortable même en High.",
+          "note": "Activez Focus HUD pour réduire la charge visuelle lors des push massifs."
+        },
+        {
+          "resolution": "2560 × 1440",
+          "avgFps": 186,
+          "fpsWindow": "158 – 215 FPS",
+          "refreshAdvice": "Netteté + stabilité",
+          "description": "Excellent compromis pour le streaming Conquest et les VOD détaillées.",
+          "note": "Préférez le preset High pour lisser les 1% low sans perte visuelle majeure."
+        },
+        {
+          "resolution": "3840 × 2160",
+          "avgFps": 154,
+          "fpsWindow": "130 – 182 FPS",
+          "refreshAdvice": "4K fluide 120 Hz",
+          "description": "Parfait pour du showcase cinématographique tout en gardant une bonne réactivité.",
+          "note": "Utilisez ce mode pour les prises de vue premium ou la production stream." 
+        }
+      ],
+      "improvementTips": [
+        "Baissez ombres et Post-FX en priorité tout en conservant la résolution native.",
+        "Activez Focus HUD afin de masquer les modules non essentiels lors des grands teamfights.",
+        "Préférez le preset High plutôt que Ultra en 1440p/4K pour lisser les 1% low."
+      ],
+      "advice": "Option « CPU Boost » (1080p) : +5 % → ~210/178/240 FPS · +10 % → ~212/180/244 FPS · +15 % → ~215/183/247 FPS · +20 % → ~219/186/251 FPS (nécessite un nœud Thermal-Premium).",
+      "heroSynergy": [
+        {
+          "hero": "Infanterie Assaut",
+          "overlayFocus": 92,
+          "clarityBoost": 90,
+          "preset": "Assault",
+          "coachingNotes": "Priorité points chauds, prompts de push coordonnés et rappel utilitaires anti-véhicule."
+        },
+        {
+          "hero": "Recon éclaireur",
+          "overlayFocus": 90,
+          "clarityBoost": 88,
+          "preset": "Recon",
+          "coachingNotes": "Surveillance drones, trajectoires de backcap et rappels de spotters."
+        },
+        {
+          "hero": "Support ingénieur",
+          "overlayFocus": 91,
+          "clarityBoost": 89,
+          "preset": "Support",
+          "coachingNotes": "Gestion beacons, cycles réparation et alertes artillerie."
+        },
+        {
+          "hero": "Pilote blindé",
+          "overlayFocus": 93,
+          "clarityBoost": 92,
+          "preset": "Armor",
+          "coachingNotes": "Angles sûrs, cycles réparation/sortie et surveillance menaces anti-char."
+        },
+        {
+          "hero": "Aérien / Hélico",
+          "overlayFocus": 95,
+          "clarityBoost": 93,
+          "preset": "Air",
+          "coachingNotes": "Routes nap-of-the-earth, callouts anti-AA et timers de contre-mesures."
+        },
+        {
+          "hero": "Chef d’escouade",
+          "overlayFocus": 94,
+          "clarityBoost": 90,
+          "preset": "Command",
+          "coachingNotes": "Planification rotations, priorités d’objectif et synthèse tickets en temps réel."
+        }
+      ],
+      "networkStats": {
+        "serverLocations": 26,
+        "avgPing": 19,
+        "maxBandwidth": 1300,
+        "packetLoss": 0.25,
+        "jitter": 3.4,
+        "ddosProtection": true,
+        "encryption": "TLS 1.3 + SRTP"
+      },
+      "securityMetrics": {
+        "detectionRate": 0,
+        "banRate": 0.08,
+        "uptimePercentage": 99.96,
+        "avgResponseTime": 7,
+        "incidentsLastMonth": 0,
+        "securityUpdatesPerWeek": 4,
+        "encryptionLevel": "AES-256",
+        "obfuscationLayers": 4,
+        "antiDebug": true,
+        "antiVM": true,
+        "kernelProtection": true
+      },
+      "updateHistory": {
+        "totalUpdates": 132,
+        "lastUpdateDate": "2025-02-22",
+        "avgUpdatesPerMonth": 5.2,
+        "criticalPatches": 8,
+        "securityPatches": 38,
+        "featureUpdates": 49,
+        "bugFixes": 37
+      },
+      "userStats": {
+        "totalUsers": 5780,
+        "activeUsersLast30Days": 4416,
+        "avgSessionDuration": 3.1,
+        "avgGamesPerDay": 4.7,
+        "satisfactionScore": 4.7,
+        "recommendationRate": 87
+      }
+    },
     "variants": [
       {
-        "id": "godmode",
-        "name": "God Mode",
+        "id": "pulseforge-battlefield6",
+        "name": "PulseForge Battlefield 6 Command",
         "tier": "premium",
         "gpu": "RTX 4090",
         "ram": "128 GB DDR5",
-        "cpu": "Intel i9-13900K",
-        "usage": "Build privé",
-        "description": "Solution Battlefield 6 premium avec build privé et protection avancée",
+        "cpu": "Intel i9-14900KS",
+        "storage": "2TB NVMe Gen4",
+        "motherboard": "ASUS ROG Maximus Z790",
+        "psu": "1200W 80+ Platinum",
+        "cooling": "Custom Loop Liquid",
+        "usage": "Instance Battlefield 6 cloud native",
+        "description": "Instance Battlefield 6 cloud native calibrée Conquest/Breakthrough et véhicules.",
         "use_cases": [
-          "Gaming compétitif",
-          "Conquête dominante",
-          "Stream professionnel",
-          "Statistiques optimales",
-          "Performance maximale"
+          "Compétitions Conquest & Breakthrough",
+          "Coaching escouade et analytics tickets",
+          "Production stream Battlefield",
+          "Scrims privés PulseForge Lobby",
+          "Sandbox véhicules & drills objectifs"
         ],
         "features": [
-          "Build privé personnalisé",
-          "ESP avancé véhicules et infanterie",
-          "Aimbot prédictif",
-          "HWID spoofer intégré",
-          "Protection kernel-level",
-          "Support premium 24/7",
-          "Mises à jour garanties"
+          "Overlays modulaires objectifs/escouade",
+          "Analytics post-match tickets & timeline",
+          "Coach rotations et spawn waves",
+          "Vehicle drill suite PulseForge Lobby",
+          "Profils audio Battlefield calibrés",
+          "Mises à jour synchronisées patch Battlefield",
+          "Compatibilité PulseForge Lobby sandbox"
         ],
-        "target_audience": "Joueurs compétitifs, Équipes esport",
-        "highlight": "Build privé exclusif",
-        "protection": "Undetectable",
-        "updates": "Priority updates",
+        "featureHighlights": [
+          "Ranked/Tous serveurs – 100 % fair-play (lecture d’écran, killfeed, audio, sans injection mémoire)",
+          "Lobbies privés PulseForge – builds synchronisés où tout le monde est sur PulseForge (cosmétique & entraînement avancé)"
+        ],
+        "featureGroups": [
+          {
+            "title": "Ranked / fair-play (live)",
+            "items": [
+              "Ticket & Pressure Overlay : pression par secteur, fenêtres de neutralisation/capture et rappel des tickets.",
+              "Rotation Coach : routes d’escouade safe/fast, backcaps opportunistes et timings de regroupement.",
+              "Spawn Wave Planner : estimation vagues alliées/ennemies, choix beacon/squad/base.",
+              "Vehicle Ops Assistant : cycles réparation/sortie et angles sûrs (sans assistance d’aim).",
+              "Suppression & Visibility : indicateurs suppression et fenêtres de punition.",
+              "Killfeed Intelligence : synthèse wipes d’escouade et détection avantage numérique.",
+              "Focus HUD : masquage contextuel des modules non essentiels pendant les fights massifs."
+            ]
+          },
+          {
+            "title": "Réactivité & couverture",
+            "items": [
+              "Overlay refresh jusqu’à 144 Hz sur profils Medium/High.",
+              "Modules actifs phase-aware : objectifs, escouade, véhicules.",
+              "Temps de réaction moyen ~45 ms sur événements visibles.",
+              "Monitoring réseau continu avec bascule automatique de région."
+            ]
+          },
+          {
+            "title": "PulseForge Lobby",
+            "description": "Options de jeu & d’entraînement (tous joueurs sur build PulseForge)",
+            "items": [
+              "Cosmétiques partagés : thèmes d’escouade, tracers & kill-banners PulseForge.",
+              "Vehicle Drill Suite : circuits tank/IFV/heli/jet, duels blindés et ateliers réparation coordonnée.",
+              "Objective Scenario Runner : scripts Conquest/Breakthrough avec scoreboard captures/retakes/tickets.",
+              "Stratboard Live : tableau tactique par carte avec annotations coach/lead.",
+              "Draft & Role Rules : verrouillage Lead/Anchor/Recon/Support et loadouts imposés.",
+              "Caster Mode : HUD élargi (objectifs, véhicules, tickets), replays instantanés et marqueurs d’actions."
+            ]
+          },
+          {
+            "title": "Pourquoi choisir notre build natif Battlefield 6 ?",
+            "items": [
+              "Intégration native synchronisée après chaque mise à jour DICE.",
+              "Suite overlays fair-play, stream-safe et conforme ranked/tournoi.",
+              "Performances calibrées : 208/186/154 FPS moyens (1080p/1440p/4K).",
+              "Support créatif : scrims, VOD analytics et thèmes d’escouade PulseForge Lobby."
+            ]
+          }
+        ],
+        "implementationNotes": [
+          "En parties publiques/ranked, les overlays reposent uniquement sur HUD/son/killfeed visibles. Aucune lecture mémoire ni injection.",
+          "Les cosmétiques partagés, scénarios sandbox et stratboards temps réel sont réservés aux lobbies PulseForge avec build commun.",
+          "Les overlays sont opt-in et se masquent automatiquement en fight pour éviter la surcharge visuelle."
+        ],
+        "target_audience": "Escouades Battlefield, coachs véhicules, créateurs",
+        "highlight": "Suite Conquest & véhicules dédiée",
+        "protection": "Fair-play stream-safe",
+        "updates": "Mises à jour synchronisées patch Battlefield",
         "pricing": {
-          "hourly": 2.25,
-          "monthly": 900
+          "hourly": 1.95,
+          "monthly": 680
         },
-        "sla": "99.999%",
+        "sla": "99.97%",
         "support_level": "enterprise",
         "badges": [
-          "Premium",
-          "Exclusive",
-          "Next-Gen"
+          "Conquest Optimized",
+          "Stream Safe",
+          "PulseForge Lobby"
         ],
         "image": "/images/products/battlefield6/main.png"
       }
     ],
     "reviews": {
-      "average": 4.9,
-      "count": 342
+      "average": 4.8,
+      "count": 368
     },
     "discount": {
       "active": false,
@@ -1114,7 +1377,8 @@
     },
     "gallery": [
       "/images/products/battlefield6/main.png",
-      "/images/products/battlefield6/1.png"
+      "/images/products/battlefield6/1.png",
+      "/images/products/battlefield6/2.png"
     ]
   },
   {
