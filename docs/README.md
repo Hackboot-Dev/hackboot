@@ -94,6 +94,7 @@ Cette section résume le fonctionnement des pages produits cloud gaming : où so
   - `optimizationLevel === 'native'` ⟶ [`NativeGamingProductPage`](../components/NativeGamingProductPage.tsx)
   - sinon ⟶ [`CommunityGamingProductPage`](../components/CommunityGamingProductPage.tsx)
 - Les deux vues encapsulent le contenu dans `<SiteHeader />`, `<main className="pt-28 pb-24">` et `<Footer />` afin de conserver la navigation cohérente.
+- Les animations d’apparition, de remplissage des jauges et des CTA reposent sur `framer-motion`. Réutiliser `inViewFadeProps` / `fadeTransition` introduits dans les composants pour toute nouvelle section afin de garder un rythme homogène.
 
 ### ➕ Ajouter ou mettre à jour un produit
 1. Modifier l'entrée cible dans `data/gaming-products.json` (métriques, visuels, variantes).
@@ -102,7 +103,7 @@ Cette section résume le fonctionnement des pages produits cloud gaming : où so
 4. Compléter les traductions génériques dans `public/locales/<locale>/common.json` si besoin.
 5. Lancer `npm run lint` pour valider les schémas avant de publier.
 
-**Dernière action:** Ajout des groupes de fonctionnalités PulseForge et des notes d'implémentation traduites (23/10/2025)
+**Dernière action:** Harmonisation des animations framer-motion sur les pages native & communautaire (24/10/2025)
 
 ---
 

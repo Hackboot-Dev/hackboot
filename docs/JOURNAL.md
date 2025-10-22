@@ -2012,3 +2012,26 @@ if (hasDecimal) {
 #### État:
 ✅ Page communautaire compatible avec le provider i18n custom
 ⚠️ `npm run build` échoue toujours faute de dépendance `framer-motion` (problème existant, hors périmètre de ce correctif)
+
+### Enhancement: Animations framer-motion pour les pages produits
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Apporter des animations d’apparition et de remplissage cohérentes sur les pages produits native et communautaire.
+- Mettre en valeur les graphiques (jauges, tableaux, cartes) via `framer-motion` sans casser la structure responsive.
+- Documenter l’approche afin que les futures sections réutilisent le même canevas d’animation.
+
+#### Actions réalisées:
+1. Intégration d’`AnimatePresence` et de wrappers `motion` sur les sections clés de `NativeGamingProductPage` (héros, métriques, tableaux, fonctionnalités) avec animation des barres de progression.
+2. Application d’un traitement similaire à `CommunityGamingProductPage` pour les visuels, listes d’avantages et CTA.
+3. Mise à jour de la documentation (`docs/README.md`) pour décrire la convention `inViewFadeProps` / `fadeTransition` et tracer la nouvelle directive dans le journal.
+
+#### Fichiers modifiés:
+- `/components/NativeGamingProductPage.tsx`
+- `/components/CommunityGamingProductPage.tsx`
+- `/docs/README.md`
+
+#### État:
+✅ Animations harmonisées sur les pages native & communautaire
+✅ Progress bars et tableaux animés au scroll

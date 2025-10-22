@@ -10,6 +10,15 @@ import ProductImage from './ProductImage'
 import SiteHeader from '@/components/SiteHeader'
 import Footer from '@/components/Footer'
 import { useI18n } from '@/lib/i18n-simple'
+import { motion } from 'framer-motion'
+
+const inViewFadeProps = {
+  initial: { opacity: 0, y: 28 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.25 }
+} as const
+
+const fadeTransition = { duration: 0.6, ease: 'easeOut' } as const
 
 interface CommunityGamingProductPageProps {
   product: GamingProduct
@@ -90,24 +99,26 @@ export default function CommunityGamingProductPage({ product }: CommunityGamingP
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div className="space-y-4">
-              <div className="relative rounded-2xl overflow-hidden glass-effect">
-                <ProductImage
-                  productSlug={product.slug}
-                  productName={product.name}
-                  gameName={product.game}
-                  fallbackImage={variant.image}
-                  className="w-full h-auto max-h-[600px] object-contain"
-                />
-                <div className="absolute top-4 left-4">
+            <motion.div className="space-y-4" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.05 }}>
+              <motion.div className="relative rounded-2xl overflow-hidden glass-effect" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.1 }}>
+                <motion.div initial={{ opacity: 0, scale: 1.02 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, ease: 'easeOut' }}>
+                  <ProductImage
+                    productSlug={product.slug}
+                    productName={product.name}
+                    gameName={product.game}
+                    fallbackImage={variant.image}
+                    className="w-full h-auto max-h-[600px] object-contain"
+                  />
+                </motion.div>
+                <motion.div className="absolute top-4 left-4" initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, ease: 'easeOut', delay: 0.2 }}>
                   <span className="px-3 py-1 bg-blue-500/90 backdrop-blur-sm text-white text-xs font-semibold rounded-full">
                     {copy.badges.catalog}
                   </span>
-                </div>
-              </div>
-            </div>
+                </motion.div>
+              </motion.div>
+            </motion.div>
 
-            <div className="space-y-6">
+            <motion.div className="space-y-6" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.1 }}>
               <div>
                 <div className="flex items-center gap-2 mb-2">
                   <span className="px-3 py-1 bg-blue-500/20 text-blue-400 text-xs font-semibold rounded-full border border-blue-500/30">
@@ -121,7 +132,7 @@ export default function CommunityGamingProductPage({ product }: CommunityGamingP
               </div>
 
               {product.reviews.count > 0 && (
-                <div className="flex items-center gap-4">
+                <motion.div className="flex items-center gap-4" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.15 }}>
                   <div className="flex items-center">
                     {[...Array(5)].map((_, i) => (
                       <Star
@@ -136,38 +147,41 @@ export default function CommunityGamingProductPage({ product }: CommunityGamingP
                   </div>
                   <span className="text-white font-medium">{product.reviews.average}</span>
                   <span className="text-gray-400">({product.reviews.count} {copy.reviewsLabel})</span>
-                </div>
+                </motion.div>
               )}
 
               <div className="space-y-4 pt-4 border-t border-white/10">
                 <h3 className="font-semibold text-xl">{copy.subscription.title}</h3>
                 <p className="text-sm text-gray-400">{subscriptionDescription}</p>
                 <div className="grid grid-cols-1 gap-4">
-                  {localizedPlans.map((plan) => (
-                    <Link
-                      key={plan.id}
-                      href={`/${locale}/premium/signup`}
-                      className="relative p-5 rounded-xl border border-white/10 hover:border-blue-500/50 glass-effect transition-all group"
-                    >
-                      {plan.popular && (
-                        <span className="absolute -top-3 left-4 px-3 py-1 bg-blue-500 text-xs text-white font-semibold rounded-full">
-                          {copy.subscription.popular}
-                        </span>
-                      )}
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <h4 className="font-bold text-lg mb-1">{plan.name}</h4>
-                          <p className="text-sm text-gray-400">{plan.description}</p>
+                  {localizedPlans.map((plan, idx) => (
+                    <Link key={plan.id} href={`/${locale}/premium/signup`} className="group block">
+                      <motion.div
+                        className="relative p-5 rounded-xl border border-white/10 glass-effect transition-all group-hover:border-blue-500/50"
+                        {...inViewFadeProps}
+                        transition={{ ...fadeTransition, delay: 0.2 + idx * 0.05 }}
+                        whileHover={{ y: -4 }}
+                      >
+                        {plan.popular && (
+                          <span className="absolute -top-3 left-4 px-3 py-1 bg-blue-500 text-xs text-white font-semibold rounded-full">
+                            {copy.subscription.popular}
+                          </span>
+                        )}
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <h4 className="font-bold text-lg mb-1">{plan.name}</h4>
+                            <p className="text-sm text-gray-400">{plan.description}</p>
+                          </div>
+                          <div className="text-right">
+                            <div className="text-2xl font-bold text-blue-400">{plan.price.toFixed(2)}€</div>
+                            <div className="text-xs text-gray-500">{plan.billing}</div>
+                          </div>
                         </div>
-                        <div className="text-right">
-                          <div className="text-2xl font-bold text-blue-400">{plan.price.toFixed(2)}€</div>
-                          <div className="text-xs text-gray-500">{plan.billing}</div>
+                        <div className="mt-3 flex items-center text-sm text-blue-400 group-hover:text-blue-300">
+                          <span>{copy.subscription.viewDetails}</span>
+                          <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                         </div>
-                      </div>
-                      <div className="mt-3 flex items-center text-sm text-blue-400 group-hover:text-blue-300">
-                        <span>{copy.subscription.viewDetails}</span>
-                        <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                      </div>
+                      </motion.div>
                     </Link>
                   ))}
                 </div>
@@ -176,83 +190,98 @@ export default function CommunityGamingProductPage({ product }: CommunityGamingP
               <div className="space-y-3 pt-4 border-t border-white/10">
                 <h3 className="font-semibold text-lg">{copy.configuration.title}</h3>
                 <div className="grid grid-cols-2 gap-4 text-sm">
-                  <div className="p-3 glass-effect rounded-lg">
-                    <span className="text-gray-400 text-xs block mb-1">{copy.configuration.gpu}</span>
-                    <span className="text-white font-semibold">{variant.gpu}</span>
-                  </div>
-                  <div className="p-3 glass-effect rounded-lg">
-                    <span className="text-gray-400 text-xs block mb-1">{copy.configuration.ram}</span>
-                    <span className="text-white font-semibold">{variant.ram}</span>
-                  </div>
-                  <div className="p-3 glass-effect rounded-lg">
-                    <span className="text-gray-400 text-xs block mb-1">{copy.configuration.cpu}</span>
-                    <span className="text-white font-semibold">{variant.cpu}</span>
-                  </div>
-                  <div className="p-3 glass-effect rounded-lg">
-                    <span className="text-gray-400 text-xs block mb-1">{copy.configuration.support}</span>
-                    <span className="text-white font-semibold">{copy.configuration.supportValue}</span>
-                  </div>
+                  {[
+                    { label: copy.configuration.gpu, value: variant.gpu },
+                    { label: copy.configuration.ram, value: variant.ram },
+                    { label: copy.configuration.cpu, value: variant.cpu },
+                    { label: copy.configuration.support, value: copy.configuration.supportValue }
+                  ].map((item, idx) => (
+                    <motion.div
+                      key={item.label}
+                      className="p-3 glass-effect rounded-lg"
+                      {...inViewFadeProps}
+                      transition={{ ...fadeTransition, delay: 0.25 + idx * 0.05 }}
+                    >
+                      <span className="text-gray-400 text-xs block mb-1">{item.label}</span>
+                      <span className="text-white font-semibold">{item.value}</span>
+                    </motion.div>
+                  ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
 
-          <section className="space-y-6">
-            <div className="text-center">
+          <motion.section className="space-y-6" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.1 }}>
+            <motion.div className="text-center" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.15 }}>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">{aboutTitle}</h2>
               <p className="text-gray-400 max-w-2xl mx-auto">{product.longDescription}</p>
-            </div>
-          </section>
+            </motion.div>
+          </motion.section>
 
-          <section>
-            <div className="text-center mb-12">
+          <motion.section {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.12 }}>
+            <motion.div className="text-center mb-12" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.17 }}>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">{copy.featuresTitle}</h2>
-            </div>
+            </motion.div>
 
-            <div className="max-w-4xl mx-auto glass-effect rounded-2xl p-8 border border-white/10">
+            <motion.div className="max-w-4xl mx-auto glass-effect rounded-2xl p-8 border border-white/10" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.2 }}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {variant.features.map((feature, idx) => (
-                  <div key={idx} className="flex items-start gap-3">
+                  <motion.div
+                    key={idx}
+                    className="flex items-start gap-3"
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.35, ease: 'easeOut', delay: idx * 0.04 }}
+                  >
                     <Check className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
                     <span className="text-gray-300">{feature}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
-            </div>
-          </section>
+            </motion.div>
+          </motion.section>
 
-          <section>
-            <div className="text-center mb-12">
+          <motion.section {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.14 }}>
+            <motion.div className="text-center mb-12" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.19 }}>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">{copy.benefits.title}</h2>
-            </div>
+            </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
               {copy.benefits.items.map((item, index) => {
                 const Icon = benefitIcons[index] ?? Cloud
                 return (
-                  <div key={item.title} className="p-6 glass-effect rounded-xl border border-white/10 text-center">
+                  <motion.div
+                    key={item.title}
+                    className="p-6 glass-effect rounded-xl border border-white/10 text-center"
+                    {...inViewFadeProps}
+                    transition={{ ...fadeTransition, delay: 0.22 + index * 0.05 }}
+                  >
                     <div className="inline-flex p-4 bg-blue-500/20 rounded-xl mb-4">
                       <Icon className="w-8 h-8 text-blue-400" />
                     </div>
                     <h3 className="font-bold text-lg mb-2">{item.title}</h3>
                     <p className="text-gray-400 text-sm">{item.description}</p>
-                  </div>
+                  </motion.div>
                 )
               })}
             </div>
-          </section>
+          </motion.section>
 
-          <section className="text-center py-16 glass-effect rounded-2xl border border-white/10">
+          <motion.section className="text-center py-16 glass-effect rounded-2xl border border-white/10" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.16 }}>
             <h2 className="text-4xl font-bold mb-6">{ctaTitle}</h2>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">{ctaDescription}</p>
-            <Link
-              href={`/${locale}/premium/signup`}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-blue-500 hover:bg-blue-600 rounded-lg font-semibold transition-all"
-            >
-              {copy.cta.button}
-              <ArrowRight className="w-5 h-5" />
+            <Link href={`/${locale}/premium/signup`} className="group inline-block">
+              <motion.span
+                className="inline-flex items-center gap-2 px-8 py-4 bg-blue-500 rounded-lg font-semibold transition-colors group-hover:bg-blue-600"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+              >
+                {copy.cta.button}
+                <ArrowRight className="w-5 h-5" />
+              </motion.span>
             </Link>
-          </section>
+          </motion.section>
         </div>
       </main>
       <Footer />

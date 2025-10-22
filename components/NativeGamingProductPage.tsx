@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Star, Shield, Zap, Check, ArrowRight, Trophy, Gauge, Code, Target, TrendingUp, Activity, Cpu, Users, Lock, Wifi } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -9,6 +9,33 @@ import { getSubscriptionPlans } from '@/lib/subscriptions'
 import type { SubscriptionPlan } from '@/lib/subscriptions'
 import SiteHeader from '@/components/SiteHeader'
 import Footer from '@/components/Footer'
+import { motion, AnimatePresence, useInView } from 'framer-motion'
+
+const inViewFadeProps = {
+  initial: { opacity: 0, y: 32 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, amount: 0.25 }
+} as const
+
+const fadeTransition = { duration: 0.6, ease: 'easeOut' } as const
+
+const statPalette = {
+  purple: { text: 'text-purple-400', iconBg: 'bg-purple-500/20' },
+  green: { text: 'text-green-400', iconBg: 'bg-green-500/20' },
+  blue: { text: 'text-blue-400', iconBg: 'bg-blue-500/20' },
+  orange: { text: 'text-orange-400', iconBg: 'bg-orange-500/20' },
+  red: { text: 'text-red-400', iconBg: 'bg-red-500/20' },
+  cyan: { text: 'text-cyan-400', iconBg: 'bg-cyan-500/20' }
+} as const
+
+const progressPalette = {
+  purple: 'bg-purple-500',
+  green: 'bg-green-500',
+  blue: 'bg-blue-500',
+  orange: 'bg-orange-500',
+  red: 'bg-red-500',
+  cyan: 'bg-cyan-500'
+} as const
 
 type VariantOverride = Partial<ProductVariant> & {
   features?: string[]
@@ -1401,54 +1428,48 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
   const implementationNotes = selectedVariant?.implementationNotes ?? []
 
   const ProgressBar = ({ label, value, max, color = "purple", unit = "" }: { label: string, value: number, max: number, color?: string, unit?: string }) => {
-    const percentage = (value / max) * 100
-    const colorClasses = {
-      purple: "bg-purple-500",
-      green: "bg-green-500",
-      blue: "bg-blue-500",
-      orange: "bg-orange-500",
-      red: "bg-red-500",
-      cyan: "bg-cyan-500"
-    }
+    const progressRef = useRef<HTMLDivElement>(null)
+    const isInView = useInView(progressRef, { once: true, amount: 0.6 })
+    const percentage = Math.max(0, Math.min((value / max) * 100, 100))
+    const fillClass = progressPalette[color as keyof typeof progressPalette] ?? progressPalette.purple
 
     return (
-      <div className="space-y-2">
+      <div ref={progressRef} className="space-y-2">
         <div className="flex justify-between text-sm">
           <span className="text-gray-400">{label}</span>
           <span className="text-white font-semibold">{value}{unit}</span>
         </div>
         <div className="h-2 bg-white/10 rounded-full overflow-hidden">
-          <div
-            className={`h-full ${colorClasses[color as keyof typeof colorClasses]} transition-all duration-500`}
-            style={{ width: `${percentage}%` }}
+          <motion.div
+            className={`h-full rounded-full ${fillClass}`}
+            initial={{ width: '0%' }}
+            animate={{ width: isInView ? `${percentage}%` : '0%' }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
           />
         </div>
       </div>
     )
   }
 
-  const StatCard = ({ icon: Icon, label, value, color = "purple" }: { icon: any, label: string, value: string | number, color?: string }) => {
-    const colorClasses = {
-      purple: "text-purple-400",
-      green: "text-green-400",
-      blue: "text-blue-400",
-      orange: "text-orange-400",
-      red: "text-red-400",
-      cyan: "text-cyan-400"
-    }
+  const StatCard = ({ icon: Icon, label, value, color = "purple", delay = 0 }: { icon: any, label: string, value: string | number, color?: string, delay?: number }) => {
+    const palette = statPalette[color as keyof typeof statPalette] ?? statPalette.purple
 
     return (
-      <div className="p-6 glass-effect rounded-xl border border-white/10">
+      <motion.div
+        className="p-6 glass-effect rounded-xl border border-white/10"
+        {...inViewFadeProps}
+        transition={{ ...fadeTransition, delay }}
+      >
         <div className="flex items-center gap-3 mb-3">
-          <div className={`p-2 bg-${color}-500/20 rounded-lg`}>
-            <Icon className={`w-5 h-5 ${colorClasses[color as keyof typeof colorClasses]}`} />
+          <div className={`p-2 rounded-lg ${palette.iconBg}`}>
+            <Icon className={`w-5 h-5 ${palette.text}`} />
           </div>
           <span className="text-gray-400 text-sm">{label}</span>
         </div>
-        <div className={`text-3xl font-bold ${colorClasses[color as keyof typeof colorClasses]}`}>
+        <div className={`text-3xl font-bold ${palette.text}`}>
           {value}
         </div>
-      </div>
+      </motion.div>
     )
   }
 
@@ -1475,21 +1496,35 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Image Gallery */}
-          <div className="space-y-4">
+          <motion.div
+            className="space-y-4"
+            {...inViewFadeProps}
+            transition={{ ...fadeTransition, delay: 0.05 }}
+          >
             <div className="relative rounded-2xl overflow-hidden glass-effect transition-transform duration-300">
-              <img
-                src={activeImage}
-                alt={`${product.name} - Image ${selectedImageIndex + 1}`}
-                className="w-full h-auto max-h-[600px] object-contain"
-              />
+              <AnimatePresence mode="wait">
+                <motion.img
+                  key={activeImage}
+                  src={activeImage}
+                  alt={`${product.name} - Image ${selectedImageIndex + 1}`}
+                  className="w-full h-auto max-h-[600px] object-contain"
+                  initial={{ opacity: 0, scale: 1.02 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.98 }}
+                  transition={{ duration: 0.5, ease: 'easeOut' }}
+                />
+              </AnimatePresence>
               <div className="absolute top-4 left-4 flex flex-wrap gap-2">
                 {selectedVariant.badges.map((badge, idx) => (
-                  <span
-                    key={idx}
+                  <motion.span
+                    key={`${badge}-${idx}`}
                     className="px-3 py-1 bg-purple-500/90 backdrop-blur-sm text-white text-xs font-semibold rounded-full"
+                    initial={{ opacity: 0, y: -8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: idx * 0.08 }}
                   >
                     {badge}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
             </div>
@@ -1498,28 +1533,34 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
             {gallery.length > 1 && (
               <div className="grid grid-cols-3 gap-3">
                 {gallery.map((image, idx) => (
-                  <button
-                    key={idx}
+                  <motion.button
+                    key={`${image}-${idx}`}
                     onClick={() => setSelectedImageIndex(idx)}
                     className={`relative rounded-lg overflow-hidden border-2 transition-all ${
                       selectedImageIndex === idx
                         ? 'border-purple-500 scale-105'
                         : 'border-white/10 hover:border-white/30'
                     }`}
+                    whileHover={{ scale: selectedImageIndex === idx ? 1.05 : 1.02 }}
+                    whileTap={{ scale: 0.97 }}
                   >
                     <img
                       src={image}
                       alt={`Thumbnail ${idx + 1}`}
                       className="w-full h-24 object-cover"
                     />
-                  </button>
+                  </motion.button>
                 ))}
               </div>
             )}
-          </div>
+          </motion.div>
 
           {/* Product Info */}
-          <div className="space-y-6">
+          <motion.div
+            className="space-y-6"
+            {...inViewFadeProps}
+            transition={{ ...fadeTransition, delay: 0.1 }}
+          >
             <div>
               <div className="flex items-center gap-2 mb-2">
                 <span className="px-3 py-1 bg-purple-500/20 text-purple-400 text-xs font-semibold rounded-full border border-purple-500/30">
@@ -1532,7 +1573,11 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
               <p className="text-xl text-gray-300">{productDescription}</p>
             </div>
 
-            <div className="flex items-center gap-4">
+            <motion.div
+              className="flex items-center gap-4"
+              {...inViewFadeProps}
+              transition={{ ...fadeTransition, delay: 0.15 }}
+            >
               <div className="flex items-center">
                 {[...Array(5)].map((_, i) => (
                   <Star
@@ -1547,27 +1592,31 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
               </div>
               <span className="text-white font-medium">{product.reviews.average}</span>
               <span className="text-gray-400">({product.reviews.count} {copy.reviewsLabel})</span>
-            </div>
+            </motion.div>
 
             {/* Quick Stats */}
             {tech?.performanceMetrics && (
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3 pt-4 border-t border-white/10">
-                <div className="p-3 glass-effect rounded-lg text-center">
-                  <div className="text-2xl font-bold text-green-400">{tech.performanceMetrics.avgFps}</div>
-                  <div className="text-xs text-gray-400">{copy.quickStats.avgFps}</div>
-                </div>
-                <div className="p-3 glass-effect rounded-lg text-center">
-                  <div className="text-2xl font-bold text-orange-400">{tech.performanceMetrics.onePercentLow ?? tech.performanceMetrics.minFps}</div>
-                  <div className="text-xs text-gray-400">{copy.quickStats.onePercentLow}</div>
-                </div>
-                <div className="p-3 glass-effect rounded-lg text-center">
-                  <div className="text-2xl font-bold text-blue-400">{tech.performanceMetrics.latency}ms</div>
-                  <div className="text-xs text-gray-400">{copy.quickStats.latency}</div>
-                </div>
-                <div className="p-3 glass-effect rounded-lg text-center">
-                  <div className="text-2xl font-bold text-purple-400">{tech.performanceMetrics.inputLag}ms</div>
-                  <div className="text-xs text-gray-400">{copy.quickStats.inputLag}</div>
-                </div>
+                {[
+                  { value: `${tech.performanceMetrics.avgFps}`, label: copy.quickStats.avgFps, color: 'text-green-400' },
+                  {
+                    value: `${tech.performanceMetrics.onePercentLow ?? tech.performanceMetrics.minFps}`,
+                    label: copy.quickStats.onePercentLow,
+                    color: 'text-orange-400'
+                  },
+                  { value: `${tech.performanceMetrics.latency}ms`, label: copy.quickStats.latency, color: 'text-blue-400' },
+                  { value: `${tech.performanceMetrics.inputLag}ms`, label: copy.quickStats.inputLag, color: 'text-purple-400' }
+                ].map((stat, idx) => (
+                  <motion.div
+                    key={stat.label}
+                    className="p-3 glass-effect rounded-lg text-center"
+                    {...inViewFadeProps}
+                    transition={{ ...fadeTransition, delay: 0.2 + idx * 0.05 }}
+                  >
+                    <div className={`text-2xl font-bold ${stat.color}`}>{stat.value}</div>
+                    <div className="text-xs text-gray-400">{stat.label}</div>
+                  </motion.div>
+                ))}
               </div>
             )}
 
@@ -1575,63 +1624,67 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
             <div className="space-y-4 pt-4 border-t border-white/10">
               <h3 className="font-semibold text-xl">{copy.subscription.title}</h3>
               <div className="grid grid-cols-1 gap-4">
-                {localizedSubscriptionPlans.map((plan) => (
-                  <Link
-                    key={plan.id}
-                    href={`/${locale}/premium/signup`}
-                    className="relative p-5 rounded-xl border border-white/10 hover:border-purple-500/50 glass-effect transition-all group"
-                  >
-                    {plan.popular && (
-                      <span className="absolute -top-3 left-4 px-3 py-1 bg-purple-500 text-xs text-white font-semibold rounded-full">
-                        {copy.subscription.popular}
-                      </span>
-                    )}
-                    <div className="flex items-center justify-between">
-                      <div>
-                        <h4 className="font-bold text-lg mb-1">{plan.name}</h4>
-                        <p className="text-sm text-gray-400">{plan.description}</p>
+                {localizedSubscriptionPlans.map((plan, idx) => (
+                  <Link key={plan.id} href={`/${locale}/premium/signup`} className="group block">
+                    <motion.div
+                      className="relative p-5 rounded-xl border border-white/10 glass-effect transition-all group-hover:border-purple-500/50"
+                      {...inViewFadeProps}
+                      transition={{ ...fadeTransition, delay: 0.25 + idx * 0.05 }}
+                      whileHover={{ y: -4 }}
+                    >
+                      {plan.popular && (
+                        <span className="absolute -top-3 left-4 px-3 py-1 bg-purple-500 text-xs text-white font-semibold rounded-full">
+                          {copy.subscription.popular}
+                        </span>
+                      )}
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <h4 className="font-bold text-lg mb-1">{plan.name}</h4>
+                          <p className="text-sm text-gray-400">{plan.description}</p>
+                        </div>
+                        <div className="text-right">
+                          <div className="text-2xl font-bold text-purple-400">{plan.price.toFixed(2)}€</div>
+                          <div className="text-xs text-gray-500">{plan.billing}</div>
+                        </div>
                       </div>
-                      <div className="text-right">
-                        <div className="text-2xl font-bold text-purple-400">{plan.price.toFixed(2)}€</div>
-                        <div className="text-xs text-gray-500">{plan.billing}</div>
+                      <div className="mt-3 flex items-center text-sm text-purple-400 group-hover:text-purple-300">
+                        <span>{copy.subscription.viewDetails}</span>
+                        <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                       </div>
-                    </div>
-                    <div className="mt-3 flex items-center text-sm text-purple-400 group-hover:text-purple-300">
-                      <span>{copy.subscription.viewDetails}</span>
-                      <ArrowRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                    </div>
+                    </motion.div>
                   </Link>
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
 
         {/* Performance Metrics Section */}
         {tech?.performanceMetrics && (
-          <div className="mt-20">
-            <div className="text-center mb-12">
+          <motion.section className="mt-20" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.1 }}>
+            <motion.div className="text-center mb-12" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.15 }}>
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/20 text-green-400 rounded-full mb-4">
                 <Activity className="w-5 h-5" />
                 <span className="font-semibold">{copy.metrics.badge}</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">{copy.metrics.title}</h2>
               <p className="text-gray-400 max-w-2xl mx-auto">{copy.metrics.description}</p>
-            </div>
+            </motion.div>
 
             <div className="max-w-6xl mx-auto">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <StatCard icon={Gauge} label={copy.metrics.statCards.maxFps} value={tech.performanceMetrics.maxFps} color="green" />
+                <StatCard icon={Gauge} label={copy.metrics.statCards.maxFps} value={tech.performanceMetrics.maxFps} color="green" delay={0.1} />
                 <StatCard
                   icon={Activity}
                   label={copy.metrics.statCards.onePercentLow}
                   value={tech.performanceMetrics.onePercentLow ?? tech.performanceMetrics.minFps}
                   color="orange"
+                  delay={0.2}
                 />
-                <StatCard icon={Zap} label={copy.metrics.statCards.inputLag} value={`${tech.performanceMetrics.inputLag}ms`} color="blue" />
+                <StatCard icon={Zap} label={copy.metrics.statCards.inputLag} value={`${tech.performanceMetrics.inputLag}ms`} color="blue" delay={0.3} />
               </div>
 
-              <div className="glass-effect rounded-2xl p-8 border border-white/10">
+              <motion.div className="glass-effect rounded-2xl p-8 border border-white/10" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.2 }}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="space-y-4">
                     <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
@@ -1659,18 +1712,18 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.section>
         )}
 
         {tech?.fpsByResolution && tech.fpsByResolution.length > 0 && (
-          <div className="mt-16">
-            <div className="text-center mb-8">
+          <motion.section className="mt-16" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.1 }}>
+            <motion.div className="text-center mb-8" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.15 }}>
               <h3 className="text-2xl font-bold mb-2">{copy.fpsTable.title}</h3>
               <p className="text-gray-400 max-w-2xl mx-auto">{copy.fpsTable.description}</p>
-            </div>
-            <div className="glass-effect rounded-2xl p-6 border border-white/10 overflow-x-auto">
+            </motion.div>
+            <motion.div className="glass-effect rounded-2xl p-6 border border-white/10 overflow-x-auto" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.2 }}>
               <table className="w-full text-sm">
                 <thead>
                   <tr className="border-b border-white/10 text-gray-400">
@@ -1684,31 +1737,43 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                 </thead>
                 <tbody>
                   {tech.fpsByResolution.map((entry, idx) => (
-                    <tr key={idx} className="border-b border-white/10 last:border-none">
+                    <motion.tr
+                      key={idx}
+                      className="border-b border-white/10 last:border-none"
+                      initial={{ opacity: 0, y: 12 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.3 }}
+                      transition={{ duration: 0.4, ease: 'easeOut', delay: idx * 0.05 }}
+                    >
                       <td className="py-3 px-4 font-semibold text-white">{entry.resolution}</td>
                       <td className="py-3 px-4 text-center text-green-400 font-semibold">{entry.avgFps}</td>
                       <td className="py-3 px-4 text-center text-orange-400">{entry.minFps}</td>
                       <td className="py-3 px-4 text-center text-blue-400">{entry.maxFps}</td>
                       <td className="py-3 px-4 text-center text-gray-300">{entry.playability}</td>
                       <td className="py-3 px-4 text-center text-gray-400">{entry.bottleneck}</td>
-                    </tr>
+                    </motion.tr>
                   ))}
                 </tbody>
               </table>
               <p className="text-xs text-gray-500 mt-4">{copy.fpsTable.footnote}</p>
-            </div>
-          </div>
+            </motion.div>
+          </motion.section>
         )}
 
         {tech?.qualityBreakdown && tech.qualityBreakdown.length > 0 && (
-          <div className="mt-16">
-            <div className="text-center mb-8">
+          <motion.section className="mt-16" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.1 }}>
+            <motion.div className="text-center mb-8" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.15 }}>
               <h3 className="text-2xl font-bold mb-2">{copy.quality.title}</h3>
               <p className="text-gray-400 max-w-2xl mx-auto">{copy.quality.description}</p>
-            </div>
+            </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {tech.qualityBreakdown.map((quality, idx) => (
-                <div key={idx} className="glass-effect rounded-2xl border border-white/10 p-6">
+                <motion.div
+                  key={idx}
+                  className="glass-effect rounded-2xl border border-white/10 p-6"
+                  {...inViewFadeProps}
+                  transition={{ ...fadeTransition, delay: 0.2 + idx * 0.05 }}
+                >
                   <div className="flex items-center justify-between mb-4">
                     <h4 className="text-lg font-semibold text-white">{quality.resolution}</h4>
                     <span className="text-xs text-purple-400 uppercase">{copy.quality.badge}</span>
@@ -1721,21 +1786,26 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                       </div>
                     ))}
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.section>
         )}
 
         {tech?.resolutionGuidance && tech.resolutionGuidance.length > 0 && (
-          <div className="mt-16">
-            <div className="text-center mb-8">
+          <motion.section className="mt-16" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.1 }}>
+            <motion.div className="text-center mb-8" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.15 }}>
               <h3 className="text-2xl font-bold mb-2">{copy.resolution.title}</h3>
               <p className="text-gray-400 max-w-2xl mx-auto">{copy.resolution.description}</p>
-            </div>
+            </motion.div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {tech.resolutionGuidance.map((entry, idx) => (
-                <div key={idx} className="glass-effect rounded-2xl p-6 border border-white/10 flex flex-col h-full">
+                <motion.div
+                  key={idx}
+                  className="glass-effect rounded-2xl p-6 border border-white/10 flex flex-col h-full"
+                  {...inViewFadeProps}
+                  transition={{ ...fadeTransition, delay: 0.2 + idx * 0.05 }}
+                >
                   <div className="flex items-start justify-between gap-4">
                     <div>
                       <h4 className="text-xl font-semibold text-white">{entry.resolution}</h4>
@@ -1756,16 +1826,16 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                       {entry.note}
                     </div>
                   )}
-                </div>
+                </motion.div>
               ))}
             </div>
             <p className="text-xs text-gray-500 mt-6 text-center">{copy.resolution.footnote}</p>
-          </div>
+          </motion.section>
         )}
 
         {tech?.performanceMetrics && (
-          <div className="mt-16">
-            <div className="glass-effect rounded-3xl border border-purple-500/30 bg-purple-500/5 p-8">
+          <motion.section className="mt-16" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.1 }}>
+            <motion.div className="glass-effect rounded-3xl border border-purple-500/30 bg-purple-500/5 p-8" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.15 }}>
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
                 <div className="lg:col-span-2 space-y-4">
                   <h3 className="text-2xl font-bold text-white">{copy.experience.title}</h3>
@@ -1800,17 +1870,17 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.section>
         )}
 
         
 
         {(tech?.improvementTips || tech?.advice) && (
-          <div className="mt-16">
+          <motion.section className="mt-16" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.1 }}>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
               {tech?.improvementTips && (
-                <div className="glass-effect rounded-2xl border border-white/10 p-6">
+                <motion.div className="glass-effect rounded-2xl border border-white/10 p-6" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.15 }}>
                   <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
                     <TrendingUp className="w-5 h-5 text-purple-400" />
                     {copy.improvement.tipsTitle}
@@ -1823,51 +1893,58 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                       </li>
                     ))}
                   </ul>
-                </div>
+                </motion.div>
               )}
               {tech?.advice && (
-                <div className="glass-effect rounded-2xl border border-purple-500/30 bg-purple-500/5 p-6 flex flex-col justify-center">
+                <motion.div className="glass-effect rounded-2xl border border-purple-500/30 bg-purple-500/5 p-6 flex flex-col justify-center" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.2 }}>
                   <h3 className="text-xl font-semibold mb-3 flex items-center gap-2">
                     <Trophy className="w-5 h-5 text-purple-400" />
                     {copy.improvement.adviceTitle}
                   </h3>
                   <p className="text-gray-200 text-sm leading-relaxed">{tech.advice}</p>
-                </div>
+                </motion.div>
               )}
             </div>
-          </div>
+          </motion.section>
         )}
 
         {/* Assistance Suite */}
         {tech?.augmentationSuite && (
-          <div className="mt-20">
-            <div className="text-center mb-12">
+          <motion.section className="mt-20" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.1 }}>
+            <motion.div className="text-center mb-12" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.15 }}>
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-500/20 text-red-400 rounded-full mb-4">
                 <Target className="w-5 h-5" />
                 <span className="font-semibold">{copy.augmentation.badge}</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">{copy.augmentation.title}</h2>
               <p className="text-gray-400 max-w-2xl mx-auto">{copy.augmentation.description}</p>
-            </div>
+            </motion.div>
 
             <div className="max-w-5xl mx-auto">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                <StatCard icon={Target} label={copy.augmentation.awarenessLabel} value={`${tech.augmentationSuite.awarenessIndex}/100`} color="red" />
-                <StatCard icon={Activity} label={copy.augmentation.overlayLabel} value={`${tech.augmentationSuite.overlayRefresh} Hz`} color="orange" />
-                <StatCard icon={TrendingUp} label={copy.augmentation.coachingLabel} value={`${tech.augmentationSuite.adaptiveCoaching}%`} color="purple" />
-                <StatCard icon={Gauge} label={copy.augmentation.focusLabel} value={`${tech.augmentationSuite.tacticalFocus}%`} color="blue" />
+                <StatCard icon={Target} label={copy.augmentation.awarenessLabel} value={`${tech.augmentationSuite.awarenessIndex}/100`} color="red" delay={0.1} />
+                <StatCard icon={Activity} label={copy.augmentation.overlayLabel} value={`${tech.augmentationSuite.overlayRefresh} Hz`} color="orange" delay={0.2} />
+                <StatCard icon={TrendingUp} label={copy.augmentation.coachingLabel} value={`${tech.augmentationSuite.adaptiveCoaching}%`} color="purple" delay={0.3} />
+                <StatCard icon={Gauge} label={copy.augmentation.focusLabel} value={`${tech.augmentationSuite.tacticalFocus}%`} color="blue" delay={0.4} />
               </div>
 
-              <div className="glass-effect rounded-2xl p-8 border border-white/10">
+              <motion.div className="glass-effect rounded-2xl p-8 border border-white/10" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.2 }}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div>
                     <h3 className="font-bold text-lg mb-4">{copy.augmentation.modulesTitle}</h3>
                     <div className="space-y-3">
                       {tech.augmentationSuite.modules.map((module, idx) => (
-                        <div key={idx} className="flex items-start gap-3 p-3 bg-red-500/10 rounded-lg border border-red-500/30">
+                        <motion.div
+                          key={idx}
+                          className="flex items-start gap-3 p-3 bg-red-500/10 rounded-lg border border-red-500/30"
+                          initial={{ opacity: 0, x: -12 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true, amount: 0.3 }}
+                          transition={{ duration: 0.4, ease: 'easeOut', delay: idx * 0.05 }}
+                        >
                           <Check className="w-5 h-5 text-red-400 mt-0.5" />
                           <span className="text-gray-200">{module}</span>
-                        </div>
+                        </motion.div>
                       ))}
                     </div>
                     {tech.augmentationSuite.notes && (
@@ -1892,32 +1969,32 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.section>
         )}
 
         {/* Legacy precision suite */}
         {!tech?.augmentationSuite && tech?.aimbotStats && copy.legacyPrecision && (
-          <div className="mt-20">
-            <div className="text-center mb-12">
+          <motion.section className="mt-20" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.1 }}>
+            <motion.div className="text-center mb-12" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.15 }}>
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-red-500/20 text-red-400 rounded-full mb-4">
                 <Target className="w-5 h-5" />
                 <span className="font-semibold">{copy.legacyPrecision.badge}</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">{copy.legacyPrecision.title}</h2>
               <p className="text-gray-400 max-w-2xl mx-auto">{copy.legacyPrecision.description}</p>
-            </div>
+            </motion.div>
 
             <div className="max-w-5xl mx-auto">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                <StatCard icon={Target} label={copy.legacyPrecision.stats.tracking} value={`${tech.aimbotStats.predictionAccuracy}%`} color="red" />
-                <StatCard icon={Activity} label={copy.legacyPrecision.stats.smoothness} value={`${tech.aimbotStats.smoothness}%`} color="orange" />
-                <StatCard icon={Zap} label={copy.legacyPrecision.stats.fov} value={`${tech.aimbotStats.fov}°`} color="purple" />
-                <StatCard icon={Gauge} label={copy.legacyPrecision.stats.switchTime} value={`${tech.aimbotStats.targetSwitchTime}s`} color="blue" />
+                <StatCard icon={Target} label={copy.legacyPrecision.stats.tracking} value={`${tech.aimbotStats.predictionAccuracy}%`} color="red" delay={0.1} />
+                <StatCard icon={Activity} label={copy.legacyPrecision.stats.smoothness} value={`${tech.aimbotStats.smoothness}%`} color="orange" delay={0.2} />
+                <StatCard icon={Zap} label={copy.legacyPrecision.stats.fov} value={`${tech.aimbotStats.fov}°`} color="purple" delay={0.3} />
+                <StatCard icon={Gauge} label={copy.legacyPrecision.stats.switchTime} value={`${tech.aimbotStats.targetSwitchTime}s`} color="blue" delay={0.4} />
               </div>
 
-              <div className="glass-effect rounded-2xl p-8 border border-white/10">
+              <motion.div className="glass-effect rounded-2xl p-8 border border-white/10" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.2 }}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div>
                     <h3 className="font-bold text-lg mb-4">{copy.legacyPrecision.advancedTitle}</h3>
@@ -1934,10 +2011,17 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                     <h3 className="font-bold text-lg mb-4">{copy.legacyPrecision.focusTitle}</h3>
                     <div className="space-y-3">
                       {tech.aimbotStats.boneSelection.map((bone, idx) => (
-                        <div key={idx} className="flex items-center gap-3 p-3 bg-purple-500/10 rounded-lg border border-purple-500/30">
+                        <motion.div
+                          key={idx}
+                          className="flex items-center gap-3 p-3 bg-purple-500/10 rounded-lg border border-purple-500/30"
+                          initial={{ opacity: 0, x: -10 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true, amount: 0.3 }}
+                          transition={{ duration: 0.4, ease: 'easeOut', delay: idx * 0.05 }}
+                        >
                           <Check className="w-5 h-5 text-purple-400" />
                           <span className="text-white capitalize">{bone}</span>
-                        </div>
+                        </motion.div>
                       ))}
                     </div>
                     <div className="mt-4 p-4 bg-green-500/10 border border-green-500/30 rounded-lg">
@@ -1948,24 +2032,24 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.section>
         )}
 
         {/* Hero Synergy */}
         {tech?.heroSynergy && tech.heroSynergy.length > 0 && (
-          <div className="mt-20">
-            <div className="text-center mb-12">
+          <motion.section className="mt-20" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.1 }}>
+            <motion.div className="text-center mb-12" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.15 }}>
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-500/20 text-cyan-400 rounded-full mb-4">
                 <Trophy className="w-5 h-5" />
                 <span className="font-semibold">{copy.hero.badge}</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">{copy.hero.title}</h2>
               <p className="text-gray-400 max-w-2xl mx-auto">{copy.hero.description}</p>
-            </div>
+            </motion.div>
 
-            <div className="max-w-6xl mx-auto glass-effect rounded-2xl p-8 border border-white/10">
+            <motion.div className="max-w-6xl mx-auto glass-effect rounded-2xl p-8 border border-white/10" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.2 }}>
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
@@ -1979,7 +2063,14 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                   </thead>
                   <tbody>
                     {tech.heroSynergy.map((hero, idx) => (
-                      <tr key={idx} className="border-b border-white/10 hover:bg-white/5 transition-colors">
+                      <motion.tr
+                        key={idx}
+                        className="border-b border-white/10 hover:bg-white/5 transition-colors"
+                        initial={{ opacity: 0, y: 12 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.4, ease: 'easeOut', delay: idx * 0.05 }}
+                      >
                         <td className="py-4 px-4">
                           <div className="font-semibold text-white">{hero.hero}</div>
                         </td>
@@ -1995,27 +2086,27 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                         <td className="py-4 px-4 text-center">
                           <span className="text-orange-300 text-sm leading-relaxed">{hero.coachingNotes}</span>
                         </td>
-                      </tr>
+                      </motion.tr>
                     ))}
                   </tbody>
                 </table>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.section>
         )}
 
         {!tech?.heroSynergy && tech?.compatibilityMatrix && tech.compatibilityMatrix.length > 0 && (
-          <div className="mt-20">
-            <div className="text-center mb-12">
+          <motion.section className="mt-20" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.1 }}>
+            <motion.div className="text-center mb-12" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.15 }}>
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-500/20 text-cyan-400 rounded-full mb-4">
                 <Trophy className="w-5 h-5" />
                 <span className="font-semibold">{copy.hero.badge}</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">{copy.hero.fallbackTitle}</h2>
               <p className="text-gray-400 max-w-2xl mx-auto">{copy.hero.fallbackDescription(product.game)}</p>
-            </div>
+            </motion.div>
 
-            <div className="max-w-6xl mx-auto glass-effect rounded-2xl p-8 border border-white/10">
+            <motion.div className="max-w-6xl mx-auto glass-effect rounded-2xl p-8 border border-white/10" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.2 }}>
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead>
@@ -2029,7 +2120,14 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                   </thead>
                   <tbody>
                     {tech.compatibilityMatrix.map((hero, idx) => (
-                      <tr key={idx} className="border-b border-white/10 hover:bg-white/5 transition-colors">
+                      <motion.tr
+                        key={idx}
+                        className="border-b border-white/10 hover:bg-white/5 transition-colors"
+                        initial={{ opacity: 0, y: 12 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.2 }}
+                        transition={{ duration: 0.4, ease: 'easeOut', delay: idx * 0.05 }}
+                      >
                         <td className="py-4 px-4">
                           <div className="font-semibold text-white">{hero.hero}</div>
                         </td>
@@ -2037,9 +2135,12 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                           <div className="flex flex-col items-center gap-1">
                             <span className="text-green-400 font-bold">{hero.effectiveness}%</span>
                             <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
-                              <div
+                              <motion.div
                                 className="h-full bg-green-500"
-                                style={{ width: `${hero.effectiveness}%` }}
+                                initial={{ width: '0%' }}
+                                whileInView={{ width: `${hero.effectiveness}%` }}
+                                viewport={{ once: true, amount: 0.4 }}
+                                transition={{ duration: 0.6, ease: 'easeOut' }}
                               />
                             </div>
                           </div>
@@ -2053,54 +2154,54 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                         <td className="py-4 px-4 text-center">
                           <span className="text-orange-400 font-bold">{hero.winRate}%</span>
                         </td>
-                      </tr>
+                      </motion.tr>
                     ))}
                   </tbody>
                 </table>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </motion.section>
         )}
 
 
         {/* Reliability Metrics */}
         {tech?.securityMetrics && (
-          <div className="mt-20">
-            <div className="text-center mb-12">
+          <motion.section className="mt-20" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.1 }}>
+            <motion.div className="text-center mb-12" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.15 }}>
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-green-500/20 text-green-400 rounded-full mb-4">
                 <Lock className="w-5 h-5" />
                 <span className="font-semibold">{copy.reliability.badge}</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">{copy.reliability.title}</h2>
               <p className="text-gray-400 max-w-2xl mx-auto">{copy.reliability.description}</p>
-            </div>
+            </motion.div>
 
             <div className="max-w-6xl mx-auto">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-                <div className="glass-effect rounded-xl p-6 border border-green-500/30 bg-green-500/5">
+                <motion.div className="glass-effect rounded-xl p-6 border border-green-500/30 bg-green-500/5" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.2 }}>
                   <div className="text-center">
                     <div className="text-4xl font-bold text-green-400 mb-2">{tech.securityMetrics.detectionRate}%</div>
                     <div className="text-sm text-gray-400">{copy.reliability.cards.detection}</div>
                     <div className="mt-3 text-xs text-green-400">{copy.reliability.cards.detectionFootnote}</div>
                   </div>
-                </div>
-                <div className="glass-effect rounded-xl p-6 border border-blue-500/30 bg-blue-500/5">
+                </motion.div>
+                <motion.div className="glass-effect rounded-xl p-6 border border-blue-500/30 bg-blue-500/5" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.25 }}>
                   <div className="text-center">
                     <div className="text-4xl font-bold text-blue-400 mb-2">{tech.securityMetrics.uptimePercentage}%</div>
                     <div className="text-sm text-gray-400">{copy.reliability.cards.uptime}</div>
                     <div className="mt-3 text-xs text-blue-400">{copy.reliability.cards.uptimeFootnote}</div>
                   </div>
-                </div>
-                <div className="glass-effect rounded-xl p-6 border border-purple-500/30 bg-purple-500/5">
+                </motion.div>
+                <motion.div className="glass-effect rounded-xl p-6 border border-purple-500/30 bg-purple-500/5" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.3 }}>
                   <div className="text-center">
                     <div className="text-4xl font-bold text-purple-400 mb-2">{tech.securityMetrics.avgResponseTime}min</div>
                     <div className="text-sm text-gray-400">{copy.reliability.cards.response}</div>
                     <div className="mt-3 text-xs text-purple-400">{copy.reliability.cards.responseFootnote}</div>
                   </div>
-                </div>
+                </motion.div>
               </div>
 
-              <div className="glass-effect rounded-2xl p-8 border border-white/10">
+              <motion.div className="glass-effect rounded-2xl p-8 border border-white/10" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.25 }}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div>
                     <h3 className="font-bold text-lg mb-4 flex items-center gap-2">
@@ -2137,11 +2238,18 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                           { label: copy.reliability.surveillanceToggles.antiVM, enabled: tech.securityMetrics.antiVM },
                           { label: copy.reliability.surveillanceToggles.kernel, enabled: tech.securityMetrics.kernelProtection }
                         ].map((item, idx) => (
-                          <div key={idx} className={`flex items-center gap-3 p-3 rounded-lg ${item.enabled ? 'bg-green-500/10 border border-green-500/30' : 'bg-red-500/10 border border-red-500/30'}`}>
+                          <motion.div
+                            key={idx}
+                            className={`flex items-center gap-3 p-3 rounded-lg ${item.enabled ? 'bg-green-500/10 border border-green-500/30' : 'bg-red-500/10 border border-red-500/30'}`}
+                            initial={{ opacity: 0, x: -12 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true, amount: 0.3 }}
+                            transition={{ duration: 0.4, ease: 'easeOut', delay: idx * 0.05 }}
+                          >
                             <div className={`w-3 h-3 rounded-full ${item.enabled ? 'bg-green-400' : 'bg-red-400'}`} />
                             <span className={item.enabled ? 'text-green-400' : 'text-red-400'}>{item.label}</span>
                             {item.enabled && <Check className="w-4 h-4 text-green-400 ml-auto" />}
-                          </div>
+                          </motion.div>
                         ))}
                         <div className="mt-4 p-4 bg-purple-500/10 border border-purple-500/30 rounded-lg">
                           <div className="flex items-start gap-2 text-purple-400 text-sm">
@@ -2152,32 +2260,32 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                       </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.section>
         )}
 
         {/* Network Stats */}
         {tech?.networkStats && (
-          <div className="mt-20">
-            <div className="text-center mb-12">
+          <motion.section className="mt-20" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.1 }}>
+            <motion.div className="text-center mb-12" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.15 }}>
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-500/20 text-blue-400 rounded-full mb-4">
                 <Wifi className="w-5 h-5" />
                 <span className="font-semibold">{copy.network.badge}</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">{copy.network.title}</h2>
               <p className="text-gray-400 max-w-2xl mx-auto">{copy.network.description(tech.networkStats.serverLocations)}</p>
-            </div>
+            </motion.div>
 
             <div className="max-w-5xl mx-auto">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-                <StatCard icon={Wifi} label={copy.network.cards.servers} value={tech.networkStats.serverLocations} color="blue" />
-                <StatCard icon={Zap} label={copy.network.cards.ping} value={`${tech.networkStats.avgPing}ms`} color="green" />
-                <StatCard icon={Activity} label={copy.network.cards.loss} value={`${tech.networkStats.packetLoss}%`} color="purple" />
-                <StatCard icon={Gauge} label={copy.network.cards.jitter} value={`${tech.networkStats.jitter}ms`} color="cyan" />
+                <StatCard icon={Wifi} label={copy.network.cards.servers} value={tech.networkStats.serverLocations} color="blue" delay={0.1} />
+                <StatCard icon={Zap} label={copy.network.cards.ping} value={`${tech.networkStats.avgPing}ms`} color="green" delay={0.2} />
+                <StatCard icon={Activity} label={copy.network.cards.loss} value={`${tech.networkStats.packetLoss}%`} color="purple" delay={0.3} />
+                <StatCard icon={Gauge} label={copy.network.cards.jitter} value={`${tech.networkStats.jitter}ms`} color="cyan" delay={0.4} />
               </div>
 
-              <div className="glass-effect rounded-2xl p-8 border border-white/10">
+              <motion.div className="glass-effect rounded-2xl p-8 border border-white/10" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.25 }}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div className="flex items-center justify-between p-4 bg-white/5 rounded-lg">
                     <div className="flex items-center gap-3">
@@ -2201,86 +2309,98 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                   </div>
                 </div>
                 {tech.networkStats.ddosProtection && (
-                  <div className="mt-6 p-4 bg-green-500/10 border border-green-500/30 rounded-lg">
+                  <motion.div
+                    className="mt-6 p-4 bg-green-500/10 border border-green-500/30 rounded-lg"
+                    initial={{ opacity: 0, y: 8 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.4, ease: 'easeOut', delay: 0.3 }}
+                  >
                     <div className="flex items-center gap-2 text-green-400">
                       <Shield className="w-5 h-5" />
                       <span className="font-semibold">{copy.network.ddos}</span>
                     </div>
-                  </div>
+                  </motion.div>
                 )}
-              </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.section>
         )}
 
         {/* User Stats */}
         {tech?.userStats && (
-          <div className="mt-20">
-            <div className="text-center mb-12">
+          <motion.section className="mt-20" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.1 }}>
+            <motion.div className="text-center mb-12" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.15 }}>
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-orange-500/20 text-orange-400 rounded-full mb-4">
                 <Users className="w-5 h-5" />
                 <span className="font-semibold">{copy.user.badge}</span>
               </div>
               <h2 className="text-3xl md:text-4xl font-bold mb-4">{copy.user.title(tech.userStats.totalUsers.toLocaleString(localeKey))}</h2>
               <p className="text-gray-400 max-w-2xl mx-auto">{copy.user.subtitle}</p>
-            </div>
+            </motion.div>
 
             <div className="max-w-5xl mx-auto">
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                <div className="glass-effect rounded-xl p-6 border border-white/10 text-center">
+                <motion.div className="glass-effect rounded-xl p-6 border border-white/10 text-center" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.2 }}>
                   <Users className="w-8 h-8 text-purple-400 mx-auto mb-3" />
                   <div className="text-3xl font-bold text-white mb-1">{tech.userStats.totalUsers.toLocaleString(localeKey)}</div>
                   <div className="text-sm text-gray-400">{copy.user.cards.total}</div>
-                </div>
-                <div className="glass-effect rounded-xl p-6 border border-white/10 text-center">
+                </motion.div>
+                <motion.div className="glass-effect rounded-xl p-6 border border-white/10 text-center" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.25 }}>
                   <Activity className="w-8 h-8 text-green-400 mx-auto mb-3" />
                   <div className="text-3xl font-bold text-white mb-1">{tech.userStats.activeUsersLast30Days.toLocaleString(localeKey)}</div>
                   <div className="text-sm text-gray-400">{copy.user.cards.active}</div>
-                </div>
-                <div className="glass-effect rounded-xl p-6 border border-white/10 text-center">
+                </motion.div>
+                <motion.div className="glass-effect rounded-xl p-6 border border-white/10 text-center" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.3 }}>
                   <Gauge className="w-8 h-8 text-blue-400 mx-auto mb-3" />
                   <div className="text-3xl font-bold text-white mb-1">{tech.userStats.avgSessionDuration}h</div>
                   <div className="text-sm text-gray-400">{copy.user.cards.session}</div>
-                </div>
-                <div className="glass-effect rounded-xl p-6 border border-white/10 text-center">
+                </motion.div>
+                <motion.div className="glass-effect rounded-xl p-6 border border-white/10 text-center" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.35 }}>
                   <Trophy className="w-8 h-8 text-yellow-400 mx-auto mb-3" />
                   <div className="text-3xl font-bold text-white mb-1">{tech.userStats.avgGamesPerDay}</div>
                   <div className="text-sm text-gray-400">{copy.user.cards.games}</div>
-                </div>
+                </motion.div>
               </div>
 
               <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="glass-effect rounded-xl p-8 border border-yellow-500/30 bg-yellow-500/5">
+                <motion.div className="glass-effect rounded-xl p-8 border border-yellow-500/30 bg-yellow-500/5" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.4 }}>
                   <div className="text-center">
                     <Star className="w-12 h-12 text-yellow-400 mx-auto mb-4" />
                     <div className="text-5xl font-bold text-yellow-400 mb-2">{tech.userStats.satisfactionScore}/5</div>
                     <div className="text-gray-400">{copy.user.ratingLabel}</div>
                   </div>
-                </div>
-                <div className="glass-effect rounded-xl p-8 border border-green-500/30 bg-green-500/5">
+                </motion.div>
+                <motion.div className="glass-effect rounded-xl p-8 border border-green-500/30 bg-green-500/5" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.45 }}>
                   <div className="text-center">
                     <Trophy className="w-12 h-12 text-green-400 mx-auto mb-4" />
                     <div className="text-5xl font-bold text-green-400 mb-2">{tech.userStats.recommendationRate}%</div>
                     <div className="text-gray-400">{copy.user.recommendationLabel}</div>
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
-          </div>
+          </motion.section>
         )}
 
         {/* Native Advantages Section */}
-        <div className="mt-20">
-          <div className="text-center mb-12">
+        <motion.section className="mt-20" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.1 }}>
+          <motion.div className="text-center mb-12" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.15 }}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">{copy.nativeReasons.title}</h2>
             <p className="text-gray-400 max-w-2xl mx-auto">{copy.nativeReasons.description(product.game)}</p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {nativeAdvantages.map((advantage, idx) => {
               const Icon = advantage.icon
               return (
-                <div key={idx} className="p-6 glass-effect rounded-xl border border-white/10 hover:border-purple-500/30 transition-all">
+                <motion.div
+                  key={idx}
+                  className="p-6 glass-effect rounded-xl border border-white/10 hover:border-purple-500/30 transition-all"
+                  {...inViewFadeProps}
+                  transition={{ ...fadeTransition, delay: 0.2 + idx * 0.05 }}
+                  whileHover={{ y: -6 }}
+                >
                   <div className="flex items-start gap-4">
                     <div className="p-3 bg-purple-500/20 rounded-lg">
                       <Icon className="w-6 h-6 text-purple-400" />
@@ -2290,29 +2410,31 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                       <p className="text-gray-400 text-sm">{advantage.description}</p>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               )
             })}
           </div>
-        </div>
+        </motion.section>
 
         {/* Fonctionnalités */}
-        <div className="mt-20">
-          <div className="text-center mb-12">
+        <motion.section className="mt-20" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.1 }}>
+          <motion.div className="text-center mb-12" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.15 }}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">{copy.featuresTitle}</h2>
-          </div>
+          </motion.div>
 
           <div className="space-y-8 max-w-5xl mx-auto">
             {featureHighlights.length > 0 && (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {featureHighlights.map((highlight, idx) => (
-                  <div
+                  <motion.div
                     key={idx}
                     className="glass-effect rounded-xl border border-purple-500/30 bg-purple-500/10 p-5 flex items-start gap-3"
+                    {...inViewFadeProps}
+                    transition={{ ...fadeTransition, delay: 0.2 + idx * 0.05 }}
                   >
                     <Shield className="w-5 h-5 text-purple-300 mt-0.5" />
                     <span className="text-sm md:text-base text-gray-200">{highlight}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             )}
@@ -2320,68 +2442,94 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
             {featureGroups.length > 0 ? (
               <div className="space-y-6">
                 {featureGroups.map((group, idx) => (
-                  <div key={idx} className="glass-effect rounded-2xl p-8 border border-white/10">
+                  <motion.div key={idx} className="glass-effect rounded-2xl p-8 border border-white/10" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.25 + idx * 0.05 }}>
                     <div>
                       <h3 className="text-xl font-semibold text-white">{group.title}</h3>
                       {group.description && <p className="text-sm text-gray-400 mt-2">{group.description}</p>}
                     </div>
                     <div className="mt-4 space-y-3">
                       {group.items.map((item, itemIdx) => (
-                        <div key={itemIdx} className="flex items-start gap-3">
+                        <motion.div
+                          key={itemIdx}
+                          className="flex items-start gap-3"
+                          initial={{ opacity: 0, x: -10 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true, amount: 0.3 }}
+                          transition={{ duration: 0.35, ease: 'easeOut', delay: itemIdx * 0.04 }}
+                        >
                           <Check className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" />
                           <span className="text-gray-300">{item}</span>
-                        </div>
+                        </motion.div>
                       ))}
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             ) : (
-              <div className="glass-effect rounded-2xl p-8 border border-white/10">
+              <motion.div className="glass-effect rounded-2xl p-8 border border-white/10" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.25 }}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {selectedVariant.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-start gap-3">
+                    <motion.div
+                      key={idx}
+                      className="flex items-start gap-3"
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, amount: 0.3 }}
+                      transition={{ duration: 0.35, ease: 'easeOut', delay: idx * 0.04 }}
+                    >
                       <Check className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" />
                       <span className="text-gray-300">{feature}</span>
-                    </div>
+                    </motion.div>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             )}
 
             {implementationNotes.length > 0 && (
-              <div className="glass-effect rounded-2xl p-6 border border-purple-500/40 bg-purple-500/10">
+              <motion.div className="glass-effect rounded-2xl p-6 border border-purple-500/40 bg-purple-500/10" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.3 }}>
                 <div className="flex items-start gap-3">
                   <Lock className="w-6 h-6 text-purple-300 mt-0.5" />
                   <div>
                     <h3 className="text-lg font-semibold text-white">{copy.featureNotesTitle}</h3>
                     <ul className="mt-3 space-y-2 text-sm text-gray-200">
                       {implementationNotes.map((note, idx) => (
-                        <li key={idx} className="flex items-start gap-2">
+                        <motion.li
+                          key={idx}
+                          className="flex items-start gap-2"
+                          initial={{ opacity: 0, x: -10 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true, amount: 0.3 }}
+                          transition={{ duration: 0.35, ease: 'easeOut', delay: idx * 0.04 }}
+                        >
                           <Check className="w-4 h-4 text-purple-300 mt-0.5 flex-shrink-0" />
                           <span>{note}</span>
-                        </li>
+                        </motion.li>
                       ))}
                     </ul>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             )}
           </div>
-        </div>
+        </motion.section>
 
         {/* CTA Section */}
-        <div className="mt-20 text-center py-16 glass-effect rounded-2xl border border-white/10">
-          <h2 className="text-4xl font-bold mb-6">{copy.cta.title(product.game)}</h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">{copy.cta.description}</p>
-          <Link
-            href={`/${locale}/premium/signup`}
-            className="inline-flex items-center gap-2 px-8 py-4 bg-purple-500 hover:bg-purple-600 rounded-lg font-semibold transition-all"
-          >
-            {copy.cta.button}
-            <ArrowRight className="w-5 h-5" />
-          </Link>
-        </div>
+        <motion.section className="mt-20" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.1 }}>
+          <motion.div className="text-center py-16 glass-effect rounded-2xl border border-white/10" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.15 }}>
+            <h2 className="text-4xl font-bold mb-6">{copy.cta.title(product.game)}</h2>
+            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">{copy.cta.description}</p>
+            <Link href={`/${locale}/premium/signup`} className="group inline-block">
+              <motion.span
+                className="inline-flex items-center gap-2 px-8 py-4 bg-purple-500 rounded-lg font-semibold transition-colors group-hover:bg-purple-600"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.97 }}
+              >
+                {copy.cta.button}
+                <ArrowRight className="w-5 h-5" />
+              </motion.span>
+            </Link>
+          </motion.div>
+        </motion.section>
       </div>
     </main>
     <Footer />
