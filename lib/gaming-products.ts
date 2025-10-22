@@ -1,6 +1,12 @@
 import nativeProductsData from '@/data/gaming-products.json'
 import communityProductsData from '@/data/gaming-products-community.json'
 
+export interface FeatureGroup {
+  title: string
+  description?: string
+  items: string[]
+}
+
 export interface ProductVariant {
   id: string
   name: string
@@ -16,6 +22,9 @@ export interface ProductVariant {
   features: string[]
   protection: string
   updates: string
+  featureHighlights?: string[]
+  featureGroups?: FeatureGroup[]
+  implementationNotes?: string[]
   pricing: {
     hourly: number
     monthly: number

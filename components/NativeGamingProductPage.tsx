@@ -136,6 +136,7 @@ interface LocaleContent {
   }
   nativeReasons: { title: string; description: (game: string) => string }
   featuresTitle: string
+  featureNotesTitle: string
   cta: { title: (game: string) => string; description: string; button: string }
   subscriptionPlans?: Record<string, Partial<SubscriptionPlan>>
   product: { description?: string; longDescription?: string; variants?: Record<string, VariantOverride> }
@@ -361,6 +362,7 @@ const frenchCopy: LocaleContent = {
     description: (game: string) => `Optimisé de A à Z pour ${game}, avec des performances mesurées et un support dédié`
   },
   featuresTitle: 'Fonctionnalités Incluses',
+  featureNotesTitle: 'Notes d’implémentation (pour rester clean côté ToS)',
   cta: {
     title: (game: string) => `Prêt à sublimer votre expérience ${game} ?`,
     description: "Activez la suite PulseForge et profitez d'outils créatifs prêts pour le coaching, le streaming et la compétition.",
@@ -589,6 +591,7 @@ const englishCopy: LocaleContent = {
     description: (game: string) => `Optimized end to end for ${game}, with measured performance and dedicated support.`
   },
   featuresTitle: 'Included features',
+  featureNotesTitle: 'Implementation notes (stay ToS-friendly)',
   cta: {
     title: (game: string) => `Ready to elevate your ${game} experience?`,
     description: 'Activate the PulseForge suite and unlock creative tools built for coaching, streaming, and competition.',
@@ -653,6 +656,88 @@ const englishCopy: LocaleContent = {
           'Tournament-certified ergonomic macros',
           'Multi-input integration support (MKB/pad)',
           'Continuous collaborative updates'
+        ],
+        featureHighlights: [
+          'Ranked / all servers – 100% fair-play (screen reading, killfeed, audio, no memory injection)',
+          'PulseForge private lobbies – synchronized builds with everyone on PulseForge (cosmetics & advanced training)'
+        ],
+        featureGroups: [
+          {
+            title: 'Ranked / fair-play (live)',
+            items: [
+              'Ult Economy Assistant (light overlay): estimates enemy ultimate progress by role (killfeed, visible damage, time in game) plus an anti-ulti stack reminder for your team.',
+              'Fight Timeline: a “teamfight phase” bar that lights up after the first pick and ends at clean-up, with “advantage/outnumbered”, “enemy respawn”, and stagger detection indicators (killfeed analysis).',
+              'Cooldown Inference Overlay: infers key enemy cooldowns from visible cues (animation, sound, VFX). Example: Suzu/Kiriko, Lamp/Bap, Immortality consumed → punishment window displayed for 2–3 seconds.',
+              'Map & Rotation Coach: interactive mini-maps per point/control, highlights risky angles, retake paths, overtime timers, and best recontest routes (based on the active map).',
+              'Crosshair & FOV Optimizer: hero/map recommendations (default placement, head height, pre-aim lanes) plus a gaze heatmap (simulated eye-line via center-screen tracking).',
+              'Comm AI Notetaker: local transcription of comms with tags (“Blade ready”, “no lamp”, “push right”), 20-second summaries at the bottom of the screen, silent text ping if no one calls.',
+              'Anti-Tilt HUD: contextually hides tilting stats (accuracy, deaths) mid-fight, keeps focus on objectives. Unlocks everything between fights.',
+              'Audio Director: role-based audio profiles (Tank/Support/DPS), automatic ducking when key calls trigger, low-frequency shield to better pick up footsteps/ultimates.',
+              'Input Coach Micro-movements: detects micro habit errors (late reloads, ability hoarding, unnecessary jumps under hitscan) with short prompts between fights.',
+              'Latency Guard: levels out jitter and adapts the stream pre-buffer in-fight vs out-of-fight to keep the cloud feel stable.'
+            ]
+          },
+          {
+            title: 'PulseForge private lobbies (everyone on the PulseForge build)',
+            description: 'PulseForge Lobby compatible (private lobby options)',
+            items: [
+              'Shared skins & VFX: team-wide visual sets (weapons, tracers, kill-impact FX), synchronized team sprays, end-of-fight animations; invisible to non-PulseForge players.',
+              'Dynamic cooldown sandbox: practice with reduced cooldowns, boosted ultimate charge, scenario runner (e.g. “Nano-Blade 3 tries”, “Dive Winston+Genji on point B”).',
+              'Stratboard Live: tactical whiteboard aligned on the map overlay (routes, timings, map control zones), real-time sharing with coach/spectator.',
+              'Draft & Lock scrim: lock compositions, force role rotations, auto-export scrim reports (picks, swaps, fight wins, ult diff).',
+              'Ghost-Run & Time-Trial: “ghosts” of your best executions (e.g. Tracer pathing, Winston engage route) visible to the whole team.',
+              'Stream-Ready Suite: automatic lower thirds, 8-second instant replays, widened killfeed for internal casting, chapter markers.'
+            ]
+          },
+          {
+            title: 'Hero packs',
+            description: 'Quick and practical examples',
+            items: [
+              'Genji: Blade Planner (detected “no-Suzu/no-Lamp” window) plus dash reset check (killfeed) and suggested vertical engage route.',
+              'Tracer: Blink Economy (blink counter → engage/escape), “Recall Value” (last 3 seconds state reminder) plus pre-aim lanes versus hitscan.',
+              'Sombra: Translocator Planner (dynamic safe zones) plus Hack Window reminders on targets without cleanse.',
+              'Winston: Dive Timer (jump → zap → bubble → melee → cancel) plus heatmap of effective bubbles on the active map.',
+              'Reinhardt: Shatter Angle Coach (likely angle lines, on-screen reminders of enemy stuns/interrupts).',
+              'Zarya: Bubble Trade Meter (probable charge value vs peel) plus “gravi combo” alerts ready when burst DPS allies are online.',
+              'Sojourn: Rail Discipline (prompts “don’t ego-peek”, optimal rail charge before peek) plus power-spike reminders.',
+              'Cassidy: Peek Timer (recommended max exposure per angle) plus sticky grenade “commit/abort” prompt.',
+              'Ana: Anti/Nade Value (window for 3+ targets without cleanse) plus Sleep Priority (impact-ranked target list).',
+              'Mercy: GA Pathing Preview (safe GA lines) plus beam juggling coach (optimal blue/yellow uptime).',
+              'Kiriko: Suzu Priority (alerts on visible imminent threats) plus TP rescue lanes.',
+              'Lucio: Beat Risk Meter (active anti-beat conditions) plus fast rollout ghosts.',
+              'Baptiste: Immortality Trade (value vs risk) plus lamp angle helper (useful bounces).'
+            ]
+          },
+          {
+            title: 'Map & mode modules',
+            items: [
+              'King of the Hill IQ: retake timing indicators, split paths, “do-not-touch zones” when outnumbered.',
+              'Hybrid/Escort: checkpoint playbook (off-angles, key high grounds, enemy spawn timers), “cart push discipline” reminders.',
+              'Point flashcards: mini-cards during setup (30s) with three pre-configured plays per team.'
+            ]
+          },
+          {
+            title: 'Analytics & coaching',
+            items: [
+              'Match Story Auto-report: automatic recap (pivots, fight wins, ult diff, decisive picks) plus comparisons to your target MMR.',
+              'Session Planner: session goals (two hero focuses + one map), micro-challenges, and adherence score.',
+              'A/B Personal HUD: HUD tests (reticle size, minimal HUD) with measured impact on accuracy/KAST-like metrics.',
+              'VOD Auto-tag: automatic tagging of recurring mistakes (stagger, over-ult, tunnel vision) with a clickable timeline.'
+            ]
+          },
+          {
+            title: 'Accessibility & comfort',
+            items: [
+              'Color-blind Pro: compliant team/hero palettes plus reinforced outlines on fast projectiles.',
+              'Sound-to-HUD: critical audio cues converted into optional visual tiles for the hard of hearing.',
+              'Focus Mode: blocks toxic whispers, breathing timer between rounds, guided micro-breaks.'
+            ]
+          }
+        ],
+        implementationNotes: [
+          'In public ranked, every calculation only uses what is visible/audible (cloud-side vision/ASR) plus killfeed/scoreboard. No memory reading or injection.',
+          'Cosmetics, tweaked cooldowns, sandbox scenarios, and live stratboards are reserved for PulseForge private lobbies where everyone runs the same build.',
+          'All overlays are opt-in, discreet, and adaptive (auto-hide mid-fight when the visual load rises).'
         ],
         target_audience: 'Coaches, creators, competitive players',
         highlight: 'Meta-synced native suite',
@@ -954,6 +1039,7 @@ const estonianCopy: LocaleContent = {
     description: (game: string) => `Läbivalt ${game} jaoks optimeeritud, mõõdetud jõudluse ja pühendunud toe abil.`
   },
   featuresTitle: 'Kaasa kuuluvad funktsioonid',
+  featureNotesTitle: 'Rakenduse märkused (ToS-sõbralik kasutus)',
   cta: {
     title: (game: string) => `Valmis oma ${game} kogemust tõstma?`,
     description: 'Aktiveeri PulseForge’i komplekt ja ava coaching’u, striimimise ja võistluste jaoks loodud tööriistad.',
@@ -1018,6 +1104,88 @@ const estonianCopy: LocaleContent = {
           'Turniirikindlad ergonoomilised makrod',
           'Mitme sisendi tugi (MKB/pult)',
           'Jätkuvad koostööl põhinevad uuendused'
+        ],
+        featureHighlights: [
+          'Reastatud / kõik serverid – 100% fair-play (ekraani lugemine, killfeed, audio, ilma mälusüstita)',
+          "PulseForge'i privaatlobid – sünkroonitud buildid kõigile PulseForge'is (kosmeetika ja edasijõudnud treening)"
+        ],
+        featureGroups: [
+          {
+            title: 'Reastatud / fair-play (live)',
+            items: [
+              'Ult Economy Assistant (kerge overlay): hindab vastaste ulti edenemist rolli järgi (killfeed, nähtav kahju, mänguaeg) + meeskonnale anti-ulti-stack meeldetuletus.',
+              'Fight Timeline: „teamfight’i faasi” riba süttib esimese pick’i järel ja lõppeb clean-up’iga, näidates „eelis / vähemus”, „vastase respawn” ja staggeri tuvastust (killfeed’i analüüs).',
+              'Cooldown Inference Overlay: järeldab võtme cooldown’id nähtavate vihjete põhjal (animatsioon, heli, VFX). Nt Suzu/Kiriko, Lamp/Bap, Immortality kasutatud → karistusaken 2–3 sekundiks.',
+              'Map & Rotation Coach: interaktiivsed minikaardid iga punkti/kontrolli jaoks, hoiatab ohtlike nurkade eest, näitab retake-teid, overtime’i taimerid ja parimad recontest-marsruudid (aktiivse kaardi põhjal).',
+              'Crosshair & FOV Optimizer: soovitused kangelase/kaardi kaupa (vaikimisi paigutus, pea kõrgus, pre-aim rajad) + pilgukaart (simuleeritud silmaliin ekraani keskpunkti jälgimisest).',
+              'Comm AI Notetaker: salvestab kohapeal commid siltidega („Blade ready”, „no lamp”, „push right”), kuvab iga 20 s ekraani allosas kokkuvõtte ja saadab vaikse tekstipingi, kui keegi ei call’i.',
+              'Anti-Tilt HUD: peidab võitluse ajal tilt’i tekitavad statid (täpsus, surmad), hoiab fookuse eesmärkidel. Kõik avaneb uuesti võitluste vahel.',
+              'Audio Director: rollipõhised audioprofiilid (Tank/Tugi/DPS), automaatne mixi langetamine oluliste call’ide ajal, madalsagedusfilter paremaks sammude/ultide kuulmiseks.',
+              'Input Coach Micro-liigutused: tuvastab mikroharjumuste vead (hiline reload, võimete kogumine, ebavajalikud hüpped hitscan’i vastu) ja annab lühikesed promptid võitluste vahel.',
+              'Latency Guard: tasandab jitterit ja kohandab stream’i eelpuhvrit võitluse ajal vs väljas, et pilvekogemus püsiks stabiilne.'
+            ]
+          },
+          {
+            title: "PulseForge'i privaatlobid (kõik PulseForge buildil)",
+            description: 'Ühilduv PulseForge Lobby lahendusega (privaatlobi valikud)',
+            items: [
+              'Jagatud skinid ja VFX-id: tiimi visuaalseted setid (relvad, tracer’id, kill-impact FX), sünkroonitud tiimispreid, lahingu lõpu animatsioonid; nähtamatud neile, kes PulseForge’i ei kasuta.',
+              'Dünaamiline cooldown-sandbox: treening lühendatud cooldown’idega, kiirendatud ulti charge, stsenaariumijooksja (nt „Nano-Blade 3 katset”, „Dive Winston+Genji punkt B-le”).',
+              'Stratboard Live: taktikaline tahvel kaardiga overlay’s (marsruudid, ajastused, map control tsoonid), reaalajas jagamine coach’i või spectatoriga.',
+              'Draft & Lock scrim: lukustab koosseisud, sunnib rollirotatsiooni, ekspordib automaatselt scrimi raporti (picks, swapid, fight-win’id, ult-diff).',
+              'Ghost-Run & Time-Trial: „kummitused” teie parimatest sooritustest (nt Traceri liikumine, Winstoni engage) nähtavad kogu tiimile.',
+              'Stream-Ready Suite: automaatsed lower thirdid, 8-sekundilised kohesed kordused, laiendatud killfeed sisekommentaatorile, peatükkide markerid.'
+            ]
+          },
+          {
+            title: 'Kangelase paketid',
+            description: 'Kiired ja praktilised näited',
+            items: [
+              'Genji: Blade Planner (tuvastatud „no-Suzu/no-Lamp” aken) + dash reset kontroll (killfeed) + soovitatud vertikaalne engage-tee.',
+              'Tracer: Blink Economy (blink loendur → engage/escape), „Recall Value” (viimase 3 s seisundi meeldetuletus) + pre-aim rajad hitscan’i vastu.',
+              "Sombra: Translocator Planner (dünaamilised turvalised tsoonid) + Hack Window meeldetuletused sihtmärkidele ilma cleanse'ita.",
+              'Winston: Dive Timer (hüpe → zap → bubble → melee → cancel) + aktiivse kaardi efektiivsete bubble’ite soojuskaart.',
+              'Reinhardt: Shatter Angle Coach (tõenäolised nurkjooned, ekraanile ilmuvad vaenlase stunnide/katkestuste meeldetuletused).',
+              'Zarya: Bubble Trade Meter (tõenäoline charge’i väärtus vs peel) + „gravi kombo” hoiatused, kui burst DPS-liitlased on valmis.',
+              'Sojourn: Rail Discipline (promptid „ära ego-peeki”, optimaalne raili laeng enne piilumist) + power-spike meeldetuletused.',
+              'Cassidy: Peek Timer (soovituslik maksimaalne kokkupuute aeg nurga järgi) + sticky granaadi „commit/abort” prompt.',
+              'Ana: Anti/Nade Value (aken 3+ sihtmärgile ilma cleanse’ita) + Sleep Priority (mõju järgi järjestatud sihtmärkide nimekiri).',
+              'Mercy: GA Pathing Preview (ohutud GA trajektoorid) + beam juggling coach (sinise/kollase kiire optimaalne uptime).',
+              'Kiriko: Suzu Priority (hoiatused nähtavate peatselt saabuvate ohtude kohta) + TP päästerajad.',
+              'Lucio: Beat Risk Meter (aktiivsed anti-beat tingimused) + kiired rollout-kummitused.',
+              'Baptiste: Immortality Trade (väärtus vs risk) + lamp angle helper (kasulikud põrked).'
+            ]
+          },
+          {
+            title: 'Kaardi ja mänguviisi moodulid',
+            items: [
+              'King of the Hill IQ: retake’i ajastuse indikaatorid, split-teed, „ära-astuta tsoonid” kui olete vähemuses.',
+              'Hybrid/Escort: checkpoint’i playbook (off-angles, võtme kõrgendikud, vastaste spawni taimerid), „cart push discipline” meeldetuletused.',
+              'Punkti flashcardid: minikaardid setup’i (30 s) ajal kolme eelseadistatud käiguga tiimi kohta.'
+            ]
+          },
+          {
+            title: 'Analüütika ja coaching',
+            items: [
+              'Match Story Auto-report: automaatne kokkuvõte (pöörded, fight-võidud, ult-diff, otsustavad pickid) + võrdlus siht-MMR-iga.',
+              'Session Planner: sessiooni eesmärgid (2 kangelase fookust + 1 kaart), mikroülesanded ja täituvuse skoor.',
+              'A/B Personal HUD: HUDi testid (sihtmärgi suurus, minimaalne HUD) mõõdetud mõjuga täpsusele/KAST-laadsetele näitajatele.',
+              'VOD Auto-tag: korduvate vigade automaatne märgistamine (stagger, üle-ulti, tunnel vision) klõpsatava ajajoonega.'
+            ]
+          },
+          {
+            title: 'Ligipääsetavus ja mugavus',
+            items: [
+              'Color-blind Pro: meeskonna/kangelase paletid standardite järgi + kiirete projektiilide tugevdatud kontuurid.',
+              'Sound-to-HUD: kriitilised helisignaalid muudetakse valikuliseks visuaalseteks ikoonideks kuulmispuudega mängijatele.',
+              'Focus Mode: blokeerib toksilised whisperid, hingamistimer roundide vahel, juhendatud mikro-pausid.'
+            ]
+          }
+        ],
+        implementationNotes: [
+          'Avalikes reitingumängudes põhineb kogu arvutus ainult nähtaval/kuuldaval (pilvepoolne visioon/ASR) + killfeed/scoreboard. Mälulugemist ega süsti pole.',
+          "Kosmeetika, muudetud cooldownid, sandbox-stsenaariumid ja reaalajas stratboardid on mõeldud ainult PulseForge'i privaatlobidele, kus kõik kasutavad sama buildi.",
+          'Kõik overlayd on opt-in, diskreetsed ja kohanduvad (peidavad end võitluse ajal, kui visuaalne müra kasvab).'
         ],
         target_audience: 'Treenerid, loojad, võistlusmängijad',
         highlight: 'Metaga sünkroonis natiivne suite',
@@ -1228,6 +1396,9 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
   const productDescription = copy.product.description ?? product.description
   const nativeAdvantages = copy.nativeAdvantages
   const performanceLatency = tech?.performanceMetrics?.latency ?? 0
+  const featureHighlights = selectedVariant?.featureHighlights ?? []
+  const featureGroups = selectedVariant?.featureGroups ?? []
+  const implementationNotes = selectedVariant?.implementationNotes ?? []
 
   const ProgressBar = ({ label, value, max, color = "purple", unit = "" }: { label: string, value: number, max: number, color?: string, unit?: string }) => {
     const percentage = (value / max) * 100
@@ -2131,15 +2302,71 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
             <h2 className="text-3xl md:text-4xl font-bold mb-4">{copy.featuresTitle}</h2>
           </div>
 
-          <div className="max-w-4xl mx-auto glass-effect rounded-2xl p-8 border border-white/10">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {selectedVariant.features.map((feature, idx) => (
-                <div key={idx} className="flex items-start gap-3">
-                  <Check className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" />
-                  <span className="text-gray-300">{feature}</span>
+          <div className="space-y-8 max-w-5xl mx-auto">
+            {featureHighlights.length > 0 && (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {featureHighlights.map((highlight, idx) => (
+                  <div
+                    key={idx}
+                    className="glass-effect rounded-xl border border-purple-500/30 bg-purple-500/10 p-5 flex items-start gap-3"
+                  >
+                    <Shield className="w-5 h-5 text-purple-300 mt-0.5" />
+                    <span className="text-sm md:text-base text-gray-200">{highlight}</span>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {featureGroups.length > 0 ? (
+              <div className="space-y-6">
+                {featureGroups.map((group, idx) => (
+                  <div key={idx} className="glass-effect rounded-2xl p-8 border border-white/10">
+                    <div>
+                      <h3 className="text-xl font-semibold text-white">{group.title}</h3>
+                      {group.description && <p className="text-sm text-gray-400 mt-2">{group.description}</p>}
+                    </div>
+                    <div className="mt-4 space-y-3">
+                      {group.items.map((item, itemIdx) => (
+                        <div key={itemIdx} className="flex items-start gap-3">
+                          <Check className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" />
+                          <span className="text-gray-300">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="glass-effect rounded-2xl p-8 border border-white/10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {selectedVariant.features.map((feature, idx) => (
+                    <div key={idx} className="flex items-start gap-3">
+                      <Check className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-300">{feature}</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+              </div>
+            )}
+
+            {implementationNotes.length > 0 && (
+              <div className="glass-effect rounded-2xl p-6 border border-purple-500/40 bg-purple-500/10">
+                <div className="flex items-start gap-3">
+                  <Lock className="w-6 h-6 text-purple-300 mt-0.5" />
+                  <div>
+                    <h3 className="text-lg font-semibold text-white">{copy.featureNotesTitle}</h3>
+                    <ul className="mt-3 space-y-2 text-sm text-gray-200">
+                      {implementationNotes.map((note, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <Check className="w-4 h-4 text-purple-300 mt-0.5 flex-shrink-0" />
+                          <span>{note}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
 

@@ -1,5 +1,26 @@
 # Journal des Actions - Hackboot
 
+## 2025-10-23
+
+### Feature: Enrichissement PulseForge Overwatch avec modules lobby et notes ToS
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Présenter clairement les offres PulseForge (ranked fair-play et lobbies privés) et garantir la disponibilité des traductions FR/EN/ET, tout en affichant les garde-fous ToS.
+
+#### Modifications apportées:
+1. Ajout de `featureHighlights`, `featureGroups` et `implementationNotes` sur la variante Overwatch PulseForge dans `data/gaming-products.json`.
+2. Extension de l'interface `ProductVariant` (`lib/gaming-products.ts`) pour supporter ces nouveaux champs.
+3. Modernisation de la section Fonctionnalités dans `NativeGamingProductPage.tsx` (highlights, groupes détaillés, note de conformité).
+4. Traduction complète des blocs PulseForge en anglais et estonien via `copyByLocale.product.variants`.
+5. Documentation des nouveaux champs dans `docs/README.md` et journalisation de l'opération.
+
+#### Résultats:
+- ✅ Les pages FR/EN/ET détaillent les modules ranked/live et PulseForge Lobby.
+- ✅ Les notes ToS sont visibles dans un encart dédié.
+- ✅ La documentation reflète la nouvelle structure de données.
+
 ## 2025-10-22
 
 ### Docs: Intégration de la documentation des pages produits dans README

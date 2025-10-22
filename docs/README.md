@@ -79,6 +79,7 @@ Cette section résume le fonctionnement des pages produits cloud gaming : où so
 - Les fiches sont définies dans [`data/gaming-products.json`](../data/gaming-products.json).
   - Chaque entrée précise l'identifiant, le `slug`, le niveau d'optimisation (`native` ou `community`), la description marketing et les métriques de performance.
   - Les tableaux `resolutionGuidance` et `technicalSpecs` exposent les FPS, la latence et les informations réseau injectées telles quelles dans l'interface.
+  - Les variantes peuvent embarquer `featureHighlights`, `featureGroups` (titre, description, éléments) et `implementationNotes` pour décrire les suites PulseForge ; ces blocs sont traduits via les overrides de `copyByLocale.product.variants`.
 - Les utilitaires d'accès et les types associés vivent dans [`lib/gaming-products.ts`](../lib/gaming-products.ts).
   - `getAllGamingProducts()` et `getGamingProductBySlug()` alimentent les routes dynamiques.
 
@@ -101,7 +102,7 @@ Cette section résume le fonctionnement des pages produits cloud gaming : où so
 4. Compléter les traductions génériques dans `public/locales/<locale>/common.json` si besoin.
 5. Lancer `npm run lint` pour valider les schémas avant de publier.
 
-**Dernière action:** Intégration de la documentation des pages produits dans ce fichier (22/09/2025)
+**Dernière action:** Ajout des groupes de fonctionnalités PulseForge et des notes d'implémentation traduites (23/10/2025)
 
 ---
 

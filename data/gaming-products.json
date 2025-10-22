@@ -223,6 +223,88 @@
           "Support d'intégration multi-input (MKB/pad)",
           "Mises à jour collaboratives en continu"
         ],
+        "featureHighlights": [
+          "Ranked/Tous serveurs – 100 % fair-play (lecture d’écran, killfeed, audio, sans injection mémoire)",
+          "Lobbies privés PulseForge – builds synchronisés où tout le monde est sur PulseForge (cosmétique & entraînement avancé)"
+        ],
+        "featureGroups": [
+          {
+            "title": "Ranked / fair-play (live)",
+            "items": [
+              "Ult Economy Assistant (visuel léger) : estimation de l’avancement des ultis adverses par rôle (basé sur killfeed, dégâts visibles, temps en jeu) + rappel \"anti-stack d’ulti\" côté équipe.",
+              "Fight Timeline : barre \"phase de teamfight\" qui s’allume dès le premier pick et se termine au clean-up, avec indicateurs \"avantage/sous-nombre\", \"respawn adv.\" et stagger détecté (analyse du killfeed).",
+              "Cooldown Inference Overlay : inférence des CDs clés adverses à partir d’indices visibles (animation, son, VFX). Exemple : Suzu/Kiriko, Lamp/Bap, Immortality consommé → fenêtre de punition affichée 2–3 s.",
+              "Map & Rotation Coach : mini-plans interactifs par point/contrôle, rappel d’angles dangereux, chemins de retake, timers d’over-time et meilleurs \"recontest routes\" (basé sur la carte active).",
+              "Crosshair & FOV Optimizer : recommandations par héros/carte (placement par défaut, hauteur tête, \"pre-aim lanes\") + heatmap de regard (eye-line simulée via tracking du centre d’écran).",
+              "Comm AI Notetaker : transcription locale des comms avec tags (\"Blade ready\", \"no lamp\", \"push right\"), résumé en bas d’écran toutes les 20 s, ping textuel silencieux si personne ne call.",
+              "Anti-Tilt HUD : masquage contextuel de stats toxiques (accuracy, deaths) en fight, focus sur objectifs. Déverrouille tout entre les fights.",
+              "Audio Director : profil audio par rôle (Tank/Supp/DPS), duck automatique du mix quand call important, bouclier anti-LFE pour repérer mieux les pas/ultis.",
+              "Input Coach Micro-gestes : détection de micro-erreurs \"habitudes\" (reload tardif, ability hoarding, sauts inutiles sous hitscan) avec prompts courts entre les fights.",
+              "Latency Guard : égalisation du jitter et adaptation du pre-buffer de stream in-fight vs out-of-fight, pour garder la sensation stable sur cloud."
+            ]
+          },
+          {
+            "title": "Lobbies privés Pulseforge (tous joueurs sur build Pulseforge)",
+            "description": "Compatible PulseForge Lobby (options de lobbies privés)",
+            "items": [
+              "Skins & VFX partagés : sets visuels de team (armes, tracers, kill-impact FX), sprays synchronisés d’équipe, animations de fin de fight ; invisibles pour les non-Pulseforge.",
+              "Sandbox à CDs dynamiques : entraînement avec CDs réduits, ult charge boostée, scenario runner (ex : \"Nano-Blade 3 tries\", \"Dive Winston+Genji sur point B\").",
+              "Stratboard Live : tableau tactique calé sur la carte en overlay (routes, timings, map control zones), partage en temps réel avec coach/spectateur.",
+              "Draft & Lock scrim : verrouillage de compos, rotation forcée des rôles, export auto du scrim report (picks, swaps, fight-wins, ult-diff).",
+              "Ghost-Run & Time-Trial : \"fantômes\" de vos meilleures exécutions (ex : tracer pathing, Winston engage route) visibles par l’équipe.",
+              "Stream-Ready Suite : lower-thirds auto, replays instantanés 8 s, killfeed élargi pour caster interne, marqueurs de chapitres."
+            ]
+          },
+          {
+            "title": "Packs \"Héros\"",
+            "description": "Exemples rapides & utiles",
+            "items": [
+              "Genji : Blade Planner (fenêtre \"no-Suzu/no-Lamp\" détectée) + check \"dash reset\" (killfeed) + route d’engage verticale suggérée.",
+              "Tracer : Blink Economy (compteur blink→engage/escape), \"Recall Value\" (rappel des dernières 3 s d’état) + lanes de pré-aim sur hitscan.",
+              "Sombra : Translocator Planner (zones safe dynamiques) + rappel Hack Windows sur cibles sans cleanse.",
+              "Winston : Dive Timer (jump→zap→bubble→melee→cancel) + heatmap de bulles efficaces sur la carte active.",
+              "Reinhardt : Shatter Angle Coach (lignes d’angles probables, rappel des stuns/interrupts ennemis on-screen).",
+              "Zarya : Bubble Trade Meter (valeur probable de charge vs peel) + alertes \"gravi combos\" prêtes (si coéquipiers avec DPS burst).",
+              "Sojourn : Rail Discipline (prompts \"don’t ego-peek\", charge rail optimale avant peek) + rappel de power-spikes.",
+              "Cassidy : Peek-Timer (exposition max conseillée selon angle) + sticky nade \"commit/abort\" prompt.",
+              "Ana : Anti/Nade Value (fenêtre 3+ cibles sans cleanse) + Sleep Priority (liste triée par impact si hit).",
+              "Mercy : GA Pathing Preview (lignes de GA sûres) + beam juggling coach (uptime bleu/jaune optimal).",
+              "Kiriko : Suzu Priority (rappel des menaces imminentes visibles) + TP lanes de sauvetage.",
+              "Lucio : Beat Risk Meter (anti-beat conditions actives) + rollouts rapides avec fantômes.",
+              "Baptiste : Immortality Trade (value/risque) + lamp angle helper (rebonds utiles)."
+            ]
+          },
+          {
+            "title": "Modules \"Map & Mode\"",
+            "items": [
+              "King of the Hill IQ : indicateurs de retake timings, chemins split, \"do-not-touch zones\" quand sous-nombre.",
+              "Hybrid/Escorte : checkpoint playbook (angles off-angles, highgrounds clés, spawn adv. timers), rappel \"cart push discipline\".",
+              "Flashcards de pointes : micro-cartes pendant le setup (30 s) avec 3 plays pré-config par équipe."
+            ]
+          },
+          {
+            "title": "Analytics & Coachings",
+            "items": [
+              "Match Story Auto-report : résumé auto (pivots, fight-wins, ult-diff, picks décisifs) + comparaisons à votre MMR cible.",
+              "Session Planner : objectifs de session (2 focus héros + 1 map), micro-défis et score d’adhérence.",
+              "A/B Personal HUD : tests d’HUD (taille réticule, HUD minimal) avec mesure d’impact sur précision/KAST-like.",
+              "VOD Auto-tag : tagging auto des erreurs récurrentes (stagger, over-ult, tunnel vision), timeline cliquable."
+            ]
+          },
+          {
+            "title": "Accessibilité & confort",
+            "items": [
+              "Color-blind Pro : palettes par équipe/héros conformes + contours renforcés des projectiles rapides.",
+              "Sound-to-HUD : indices sonores critiques transformés en vignettes visuelles (optionnel) pour malentendants.",
+              "Focus Mode : blocage des whispers toxiques, timer de respiration entre rounds, micro-pauses guidées."
+            ]
+          }
+        ],
+        "implementationNotes": [
+          "En ranked public, tout ce qui est calculé vient uniquement de ce qui est visible/entendable (vision/ASR côté cloud) + killfeed/scoreboard. Aucune lecture mémoire / aucune injection.",
+          "Les cosmétiques, CDs modifiés, scénarios sandbox et stratboards actifs temps réel sont réservés aux lobbies privés Pulseforge où tout le monde est sur le même build.",
+          "Tous les overlays sont opt-in, discrets, et adaptatifs (se masquent en fight si bruit visuel)."
+        ],
         "target_audience": "Coachs, créateurs, joueurs compétitifs",
         "highlight": "Suite native synchronisée à la méta",
         "protection": "Conformité tournois & stream",
