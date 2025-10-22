@@ -2019,6 +2019,809 @@ const localeOverridesByProduct: Record<string, Record<LocaleKey, DeepPartial<Loc
         ]
       }
     }
+  },
+  'gaming-valorant': {
+    fr: {
+      nativeAdvantages: [
+        {
+          icon: Code,
+          title: 'Profil Esports Valorant natif',
+          description: 'FPS 240–360 Hz stabilisés avec orchestration CPU↔GPU dédiée et overlays fair-play.'
+        },
+        {
+          icon: Zap,
+          title: 'Pipeline ultra-basse latence',
+          description: 'Streaming 1080p/1440p/4K avec routage adaptatif et bascule automatique de région.'
+        },
+        {
+          icon: Shield,
+          title: 'Suite fair-play certifiée',
+          description: 'Overlays HUD/audio/minimap conformes tournois, sans injection ni assistances intrusives.'
+        },
+        {
+          icon: Trophy,
+          title: 'Support staff & scrims',
+          description: 'Plans PulseForge Lobby, analytics VOD et accompagnement coach/caster.'
+        }
+      ],
+      metrics: {
+        title: 'Performances calibrées pour Valorant',
+        description:
+          'Profil PulseForge Esports (preset compétitif). Valorant étant très CPU-bound, nous maintenons 596 FPS de moyenne en 1080p avec un min observé à 507 FPS et un maximum à 685 FPS. La stabilité reste élevée en 1440p et 4K grâce à la réserve CPU.',
+        statCards: {
+          maxFps: 'FPS maximum observé (1080p Medium)',
+          onePercentLow: 'Min observé (proxy 1% low, 1080p Medium)',
+          inputLag: 'Input lag moyen'
+        },
+        allocationTitle: 'Bottleneck dominant (profil Medium)',
+        datacenterTitle: 'Monitoring cloud PulseForge',
+        usage: {
+          cpu: 'Charge CPU',
+          gpu: 'Charge GPU',
+          ram: 'Mémoire utilisée',
+          vram: 'VRAM utilisée'
+        },
+        thermals: {
+          cpu: 'Température CPU cloud',
+          gpu: 'Température GPU',
+          power: 'Consommation électrique'
+        },
+        stabilityNote: 'Valorant reste limité par le CPU : nos profils conservent la marge nécessaire jusqu’en 4K.'
+      },
+      fpsTable: {
+        footnote: 'Benchmarks internes Valorant (profil Medium compétitif, maps ranked et scrims).'
+      },
+      resolution: {
+        title: 'Comment ajuster la résolution côté cloud',
+        description:
+          'Nos mesures internes traduisent la marge FPS réelle lorsque vous ajustez la définition depuis le panneau PulseForge.',
+        windowLabel: 'Fenêtre relevée',
+        footnote: 'Valeurs relevées sur preset Medium/Ultra Valorant avec overlays actifs.',
+        avgLabel: 'FPS moyen'
+      },
+      experience: {
+        description: (productName: string, latency: number) =>
+          `${productName} tourne intégralement sur notre infrastructure : provisioning instantané, routage réseau adaptatif et latence stabilisée à ${latency} ms.`,
+        bullets: [
+          'Overlays, presets et mises à jour appliqués côté serveur — aucune installation locale.',
+          'Bascule 1080p/1440p/4K instantanée depuis le panneau PulseForge avec la marge FPS mesurée.',
+          'Monitoring ping/jitter/pertes avec failover automatique si la région devient instable.'
+        ],
+        profileSubtitle: 'Moyenne mesurée en 1080p Medium',
+        lowLabel: 'Min observé 1080p Medium',
+        lowSubtitle: 'Fenêtre basse relevée'
+      },
+      improvement: {
+        adviceTitle: 'Option « CPU Boost » (côté hôte)'
+      },
+      augmentation: {
+        description: 'Modules phase-aware Valorant : économie, executes, retakes et coaching stream-safe.'
+      },
+      hero: {
+        badge: 'PROFILS AGENT / RÔLE',
+        title: 'Optimisations dédiées',
+        description: 'Chaque preset couvre un rôle Valorant (Duelist, Controller, Initiator, Sentinel, Flex).',
+        headers: {
+          hero: 'Rôle',
+          overlay: 'Focus overlay',
+          clarity: 'Clarté visuelle',
+          preset: 'Preset conseillé',
+          notes: 'Notes coaching'
+        },
+        fallbackDescription: (game: string) => `Optimisations par rôle pour ${game}`
+      },
+      nativeReasons: {
+        description: (game: string) => `Optimisé de bout en bout pour ${game} Esports avec overlays fair-play et support staff.`
+      },
+      product: {
+        description: 'Instance Valorant cloud native calibrée pour le 240+ Hz et la conformité tournoi.',
+        longDescription:
+          'PulseForge Valorant associe une orchestration CPU-bound et notre pipeline vidéo faible latence pour garantir une réactivité extrême. Tout est piloté côté serveur : overlays, Focus HUD, presets audio et mises à jour synchronisées après chaque patch Riot.',
+        variants: {
+          'pulseforge-valorant': {
+            name: 'PulseForge Valorant Esports',
+            usage: 'Instance Valorant Esports',
+            description: 'Build cloud Valorant orienté compétition et streaming 240+ Hz.',
+            use_cases: [
+              'Scrims pro et ranked Immortal/Radiant',
+              'Coaching staff et review tactique',
+              'Production stream Esports & watch parties',
+              'Line-up practice PulseForge Lobby',
+              'Sessions VOD & sandbox utilitaires'
+            ],
+            features: [
+              'Overlays modulaires phase-aware',
+              'Analyse post-match & export (timeline, economy)',
+              'Coach macro (tempo, rotations, retakes)',
+              'Thèmes d’équipe stream-safe (PulseForge Lobby)',
+              'Intégration multi-input (clavier/souris, manette)',
+              'Mises à jour continues & profils partagés d’équipe'
+            ],
+            featureHighlights: [
+              'Ranked / tournois — overlays 100 % fair-play basés sur HUD, audio et minimap',
+              'PulseForge Lobby — scrims synchronisés, lineup sandbox et caster mode intégré'
+            ],
+            featureGroups: [
+              {
+                title: 'Modules tactiques en temps réel',
+                description: 'Suite contextuelle pour les phases Valorant',
+                items: [
+                  'Eco & Buy Advisor : calcul du loss bonus, recommandations full/half/force et rappel drop.',
+                  'Execute Planner : cartes-plans par site avec tempo flash/smoke/plant et crossfires probables.',
+                  'Post-Plant Director : timer Spike précis, chemins de repost safe et zones d’interdiction.',
+                  'Retake Coach : séquence clear → trade → isolate avec alerte avantage numérique (killfeed).',
+                  'Angle & Head-Height : repères de hauteur de tête et prompts “don’t ego-peek”.',
+                  'Audio Spatial Director : priorisation pas/portes/reload, ducking des sons non critiques.',
+                  'Fight Timeline : suivi picks/trades, alerte “no-trade 3 s” et indicateurs de man-advantage.',
+                  'VOD Auto-Tag : marquage des pivots (retake tardif, dry peek, spike late) avec export chronologique.'
+                ]
+              },
+              {
+                title: 'Réactivité & couverture',
+                items: [
+                  'Overlay refresh jusqu’à 144 Hz sur preset Esports.',
+                  'Modules actifs phase-aware : 10 à 14 selon la carte et le mode.',
+                  'Temps de réaction moyen ~40–45 ms sur événements visibles.',
+                  'Focus HUD : masquage automatique des overlays non essentiels en fight.'
+                ]
+              },
+              {
+                title: 'PulseForge Lobby',
+                description: 'Options scrim & entraînement (tous joueurs sur PulseForge)',
+                items: [
+                  'Cosmétiques partagés : thèmes d’armes et kill-banners PulseForge visibles côté lobby.',
+                  'Lineup Sandbox : trajectoires stream-safe de flashes/smokes/molotovs et time-trial d’exec.',
+                  'Draft & Role Rules : rôles IGL/Entry/Anchor/Support et contraintes d’achat par round.',
+                  'Retake/Execute Scenario Runner : séquences scriptées avec scoreboard d’exécution.',
+                  'Ghost-Run & Pathing : fantômes de vos meilleures entrées/retakes, replays synchronisés.',
+                  'Caster Mode : HUD élargi (killfeed, economy), replays 8 s et marqueurs de manches.'
+                ]
+              },
+              {
+                title: 'Capacité multi-jeux',
+                description: 'Profil medium sur top 100 jeux',
+                items: [
+                  '1080p : 100 % ≥30/60/90 FPS, 96 % ≥120 FPS, 86 % ≥144 FPS.',
+                  '1440p : 100 % ≥30/60 FPS, 96 % ≥90 FPS, 75 % ≥120 FPS, 51 % ≥144 FPS.',
+                  '4K : 100 % ≥30 FPS, 94 % ≥60 FPS, 52 % ≥90 FPS, 24 % ≥120 FPS, 14 % ≥144 FPS.'
+                ]
+              },
+              {
+                title: 'Compatibilité & prérequis',
+                items: [
+                  '1080p : CPU min Core2 Duo E6550, GPU GTX 550 Ti / HD 6790, 4 Go RAM.',
+                  '1440p : CPU min Pentium E5200, GPU GT 1030 / R7 450, 4 Go RAM.',
+                  '4K : CPU min Core2 Duo E6700, GPU GTX 750 Ti / RX 550X, 8 Go RAM.',
+                  'Sur PulseForge : seules une connexion stable et notre client léger sont requis.'
+                ]
+              },
+              {
+                title: 'Pourquoi choisir notre build natif Valorant ?',
+                items: [
+                  'Intégration native synchronisée après chaque patch Riot.',
+                  'Suite overlays et coaching conforme tournois & stream-safe.',
+                  'Performances calibrées : 596/565/520 FPS moyens (1080p/1440p/4K).',
+                  'Support créatif : scrims, VOD analytics et thèmes d’équipe PulseForge Lobby.'
+                ]
+              }
+            ],
+            implementationNotes: [
+              'En parties classées/publiques, les overlays utilisent uniquement HUD, audio et minimap visibles. Aucune lecture mémoire, aucun aim-assist.',
+              'Les modules sandbox (lineups projetées, caster mode complet) nécessitent PulseForge Lobby avec build partagé.',
+              'Les overlays sont opt-in et s’ajustent automatiquement pour éviter la surcharge visuelle.'
+            ],
+            target_audience: 'Équipes Valorant, coachs Esports, créateurs',
+            highlight: 'Profil Esports 240–360 Hz stabilisé',
+            protection: 'Overlays fair-play stream-safe',
+            updates: 'Sync patch Riot & maintenance continue'
+          }
+        }
+      },
+      technical: {
+        fpsByResolution: [
+          { playability: 'Très fluide', bottleneck: 'CPU (42%)' },
+          { playability: 'Très fluide', bottleneck: 'CPU (36%)' },
+          { playability: 'Très fluide', bottleneck: 'CPU (25%)' }
+        ],
+        resolutionGuidance: [
+          {
+            refreshAdvice: 'Cible 240–360 Hz compétitif',
+            description: 'Le profil 1080p Esports maintient ~596 FPS, avec 577 FPS en Ultra. Idéal pour scrims, ranked et LAN virtuelles.',
+            note: 'Activez le Focus HUD pour lisser les 1% low en clutch.'
+          },
+          {
+            refreshAdvice: 'Netteté + fréquence 240 Hz',
+            description: 'Passer en 1440p conserve une fenêtre de 480–650 FPS. Ultra reste exploitable à ~547 FPS pour streaming détaillé.',
+            note: 'Parfait pour un rendu net sur les VOD et le co-stream.'
+          },
+          {
+            refreshAdvice: '4K à 200+ Hz',
+            description: 'En 4K Medium, la moyenne reste ~520 FPS avec réserve CPU. Ultra tourne autour de 471 FPS pour des showcases coach/stream.',
+            note: 'Utilisez ce preset pour les analyses spectateur et le contenu premium.'
+          }
+        ],
+        improvementTips: [
+          'Utilisez le preset Esports et désactivez les post-FX superflus.',
+          'Laissez PulseForge piloter le cap d’images (évitez les limites externes).',
+          'Activez le Focus HUD pour masquer les modules non essentiels en fight.',
+          'Si vous ciblez un 240 Hz parfait, réduisez l’anti-aliasing plutôt que la résolution.'
+        ],
+        advice: 'Option « CPU Boost » : +5 % → 598/508/687 FPS · +10 % → 602/512/692 FPS · +15 % → 609/518/701 FPS · +20 % → 620/527/713 FPS (requiert un nœud Thermal-Premium).',
+        augmentationSuite: {
+          modules: [
+            'Eco & Buy Advisor : calcul du loss bonus et recommandations achat/drop.',
+            'Execute Planner : plans par site avec tempo utilitaires et crossfires probables.',
+            'Post-Plant Director : timer Spike, chemins de repost et zones d’interdiction.',
+            'Retake Coach : séquence clear → trade → isolate avec alertes d’avantage numérique.',
+            'Angle & Head-Height : repères de hauteur de tête et prompts anti ego-peek.',
+            'Audio Spatial Director : priorisation pas/portes/reload, ducking automatique.',
+            'Fight Timeline : suivi picks/trades et alertes no-trade 3 s.',
+            'VOD Auto-Tag : marquage automatique des pivots et export chronologique.'
+          ],
+          notes: 'Overlays rafraîchis jusqu’à 144 Hz, calibrés sur les phases Valorant (defaults, executes, retakes).'
+        },
+        heroSynergy: [
+          {
+            preset: 'Esports',
+            coachingNotes: 'Timeline engage, rappels dash/satchel et alertes anti dry-peak.'
+          },
+          {
+            preset: 'Macro',
+            coachingNotes: 'Plans de smokes synchronisés, timers post-plant et rappel des re-smokes.'
+          },
+          {
+            preset: 'Recon',
+            coachingNotes: 'Séquençage drone/flash, line-ups et signal anti double-push.'
+          },
+          {
+            preset: 'Anchor',
+            coachingNotes: 'Alertes trap, rotations safe et monitoring économie adversaire.'
+          },
+          {
+            preset: 'Sniper Focus',
+            coachingNotes: 'Head-height map, glint minimisé et rappel reposition instant.'
+          },
+          {
+            preset: 'Support',
+            coachingNotes: 'Gestion drop utilitaires, callouts auto et focus anti-tilt HUD.'
+          }
+        ]
+      }
+    },
+    en: {
+      nativeAdvantages: [
+        {
+          icon: Code,
+          title: 'Native Valorant esports profile',
+          description: 'Stabilized 240–360 FPS with dedicated CPU↔GPU orchestration and fair-play overlays.'
+        },
+        {
+          icon: Zap,
+          title: 'Ultra-low latency pipeline',
+          description: '1080p/1440p/4K streaming with adaptive routing and automatic region failover.'
+        },
+        {
+          icon: Shield,
+          title: 'Certified fair-play suite',
+          description: 'HUD/audio/minimap overlays compliant with tournament rules—no injection, no intrusive assists.'
+        },
+        {
+          icon: Trophy,
+          title: 'Staff & scrim support',
+          description: 'PulseForge Lobby playbooks, VOD analytics, and coaching/casting assistance.'
+        }
+      ],
+      metrics: {
+        title: 'Calibrated performance for Valorant',
+        description:
+          'PulseForge Esports reference profile (competitive preset). Valorant is heavily CPU-bound, so we hold 596 average FPS at 1080p with a 507 FPS observed low and 685 FPS peak. Stability remains high at 1440p and 4K thanks to CPU headroom.',
+        statCards: {
+          maxFps: 'Max observed FPS (1080p Medium)',
+          onePercentLow: 'Min observed (1% low proxy, 1080p Medium)',
+          inputLag: 'Average input lag'
+        },
+        allocationTitle: 'Dominant bottleneck (Medium profile)',
+        datacenterTitle: 'PulseForge cloud monitoring',
+        usage: {
+          cpu: 'CPU load',
+          gpu: 'GPU load',
+          ram: 'Memory used',
+          vram: 'VRAM used'
+        },
+        thermals: {
+          cpu: 'Cloud CPU temperature',
+          gpu: 'GPU temperature',
+          power: 'Power draw'
+        },
+        stabilityNote: 'Valorant stays CPU-limited: our profiles keep the needed headroom up to 4K.'
+      },
+      fpsTable: {
+        footnote: 'Internal Valorant benchmarks (competitive Medium profile across ranked and scrim maps).'
+      },
+      resolution: {
+        title: 'How to adjust resolution in the cloud',
+        description:
+          'Our internal measurements reflect the real FPS margin when you change resolution from the PulseForge panel.',
+        windowLabel: 'Observed window',
+        footnote: 'Values captured on Valorant Medium/Ultra presets with overlays enabled.',
+        avgLabel: 'Average FPS'
+      },
+      experience: {
+        description: (productName: string, latency: number) =>
+          `${productName} runs entirely on our infrastructure: instant provisioning, adaptive network routing, and latency held around ${latency} ms.`,
+        bullets: [
+          'Server-side overlays, presets, and updates—nothing to install locally.',
+          'Instant 1080p/1440p/4K switching from the PulseForge panel while respecting the measured FPS window.',
+          'Live ping/jitter/loss monitoring with automatic failover if a region becomes unstable.'
+        ],
+        profileSubtitle: 'Average measured at 1080p Medium',
+        lowLabel: 'Min observed 1080p Medium',
+        lowSubtitle: 'Recorded low window'
+      },
+      improvement: {
+        adviceTitle: 'CPU Boost option (host side)'
+      },
+      augmentation: {
+        description: 'Phase-aware Valorant modules covering economy, executes, retakes, and stream-safe coaching.'
+      },
+      hero: {
+        badge: 'AGENT / ROLE PROFILES',
+        title: 'Dedicated optimizations',
+        description: 'Each preset covers a Valorant role (Duelist, Controller, Initiator, Sentinel, Flex).',
+        headers: {
+          hero: 'Role',
+          overlay: 'Overlay focus',
+          clarity: 'Visual clarity',
+          preset: 'Recommended preset',
+          notes: 'Coaching notes'
+        },
+        fallbackDescription: (game: string) => `Role-specific optimizations for ${game}`
+      },
+      nativeReasons: {
+        description: (game: string) => `Optimized end to end for ${game} esports with fair-play overlays and staff support.`
+      },
+      product: {
+        description: 'Cloud-native Valorant instance tuned for 240+ Hz competitive play and tournament compliance.',
+        longDescription:
+          'PulseForge Valorant pairs CPU-bound orchestration with our low-latency video pipeline to keep responsiveness extreme. Everything runs server-side: overlays, Focus HUD, audio presets, and Riot patch-sync updates.',
+        variants: {
+          'pulseforge-valorant': {
+            name: 'PulseForge Valorant Esports',
+            usage: 'Valorant esports instance',
+            description: 'Cloud Valorant build tailored for competition and 240+ Hz streaming.',
+            use_cases: [
+              'Pro scrims and Immortal/Radiant ranked play',
+              'Coaching staff and tactical review',
+              'Esports stream production & watch parties',
+              'Line-up practice with PulseForge Lobby',
+              'VOD sessions and utility sandbox'
+            ],
+            features: [
+              'Phase-aware modular overlays',
+              'Post-match analysis & exports (timeline, economy)',
+              'Macro coach (tempo, rotations, retakes)',
+              'Stream-safe team themes (PulseForge Lobby)',
+              'Multi-input integration (keyboard/mouse, controller)',
+              'Continuous updates & shared team profiles'
+            ],
+            featureHighlights: [
+              'Ranked / tournaments—100% fair-play overlays based on HUD, audio, and minimap',
+              'PulseForge Lobby—synchronized scrims, lineup sandbox, and built-in caster mode'
+            ],
+            featureGroups: [
+              {
+                title: 'Real-time tactical modules',
+                description: 'Contextual suite for Valorant phases',
+                items: [
+                  'Eco & Buy Advisor: computes loss bonus, recommends full/half/force, and reminds drops.',
+                  'Execute Planner: site blueprints with flash/smoke/plant tempo and expected crossfires.',
+                  'Post-Plant Director: precise spike timer, safe re-peek paths, and denial zones.',
+                  'Retake Coach: clear → trade → isolate sequence with numeric advantage alerts from the killfeed.',
+                  'Angle & Head-Height: head-height references and “don’t ego-peek” prompts.',
+                  'Audio Spatial Director: prioritizes footsteps/doors/reloads with automatic ducking.',
+                  'Fight Timeline: tracks picks/trades, flags “no-trade 3 s”, and shows man-advantage.',
+                  'VOD Auto-Tag: marks pivots (late retake, dry peek, late spike) with chronological export.'
+                ]
+              },
+              {
+                title: 'Reactivity & coverage',
+                items: [
+                  'Overlay refresh up to 144 Hz on the Esports preset.',
+                  'Phase-aware modules: 10 to 14 active depending on map and mode.',
+                  'Average reaction time ~40–45 ms on visible events.',
+                  'Focus HUD: automatically hides non-essential overlays in fights.'
+                ]
+              },
+              {
+                title: 'PulseForge Lobby',
+                description: 'Scrim & training options (all players on PulseForge)',
+                items: [
+                  'Shared cosmetics: PulseForge weapon themes and kill banners visible within the lobby.',
+                  'Lineup Sandbox: stream-safe trajectories for flashes/smokes/molotovs plus execute time-trials.',
+                  'Draft & Role Rules: enforce IGL/Entry/Anchor/Support roles and round-based buy constraints.',
+                  'Retake/Execute Scenario Runner: scripted sequences with execution scoreboards.',
+                  'Ghost-Run & Pathing: ghosts of your best entries/retakes with synchronized replays.',
+                  'Caster Mode: expanded HUD (killfeed, economy), 8 s instant replays, and round markers.'
+                ]
+              },
+              {
+                title: 'Multigame capacity',
+                description: 'Medium profile across top 100 titles',
+                items: [
+                  '1080p: 100% ≥30/60/90 FPS, 96% ≥120 FPS, 86% ≥144 FPS.',
+                  '1440p: 100% ≥30/60 FPS, 96% ≥90 FPS, 75% ≥120 FPS, 51% ≥144 FPS.',
+                  '4K: 100% ≥30 FPS, 94% ≥60 FPS, 52% ≥90 FPS, 24% ≥120 FPS, 14% ≥144 FPS.'
+                ]
+              },
+              {
+                title: 'Compatibility & requirements',
+                items: [
+                  '1080p: Min CPU Core2 Duo E6550, GPU GTX 550 Ti / HD 6790, 4 GB RAM.',
+                  '1440p: Min CPU Pentium E5200, GPU GT 1030 / R7 450, 4 GB RAM.',
+                  '4K: Min CPU Core2 Duo E6700, GPU GTX 750 Ti / RX 550X, 8 GB RAM.',
+                  'On PulseForge only a stable connection and our lightweight client are required.'
+                ]
+              },
+              {
+                title: 'Why choose our native Valorant build?',
+                items: [
+                  'Native integration synchronized after every Riot patch.',
+                  'Fair-play overlays and coaching compliant with tournament and streaming rules.',
+                  'Calibrated performance: 596/565/520 average FPS (1080p/1440p/4K).',
+                  'Creative support: scrims, VOD analytics, and PulseForge Lobby team themes.'
+                ]
+              }
+            ],
+            implementationNotes: [
+              'In public/ranked games overlays rely solely on visible HUD, audio, and minimap data. No memory reading, no aim assist.',
+              'Sandbox modules (projected lineups, full caster mode) require PulseForge Lobby with a shared build.',
+              'Overlays are opt-in and auto-adjust to prevent visual overload.'
+            ],
+            target_audience: 'Valorant teams, esports coaches, creators',
+            highlight: 'Stabilized 240–360 Hz esports profile',
+            protection: 'Stream-safe fair-play overlays',
+            updates: 'Riot patch sync and continuous maintenance'
+          }
+        }
+      },
+      technical: {
+        fpsByResolution: [
+          { playability: 'Very smooth', bottleneck: 'CPU (42%)' },
+          { playability: 'Very smooth', bottleneck: 'CPU (36%)' },
+          { playability: 'Very smooth', bottleneck: 'CPU (25%)' }
+        ],
+        resolutionGuidance: [
+          {
+            refreshAdvice: '240–360 Hz competitive target',
+            description: 'The 1080p Esports profile holds ~596 FPS with Ultra around 577 FPS—ideal for scrims, ranked, and virtual LANs.',
+            note: 'Enable Focus HUD to smooth 1% lows during clutch moments.'
+          },
+          {
+            refreshAdvice: 'Sharpness + 240 Hz frequency',
+            description: 'Switching to 1440p keeps a 480–650 FPS window. Ultra stays usable near 547 FPS for detailed streaming.',
+            note: 'Perfect for high-definition VODs and co-streams.'
+          },
+          {
+            refreshAdvice: '4K at 200+ Hz',
+            description: 'At 4K Medium the average stays near 520 FPS with CPU headroom. Ultra hovers around 471 FPS for showcase/coach streams.',
+            note: 'Use this preset for spectator analysis and premium content.'
+          }
+        ],
+        improvementTips: [
+          'Use the Esports preset and disable non-essential post-FX.',
+          'Let PulseForge manage the frame cap—avoid external limits.',
+          'Enable Focus HUD to hide non-critical modules during fights.',
+          'If you need a flawless 240 Hz, lower anti-aliasing instead of resolution.'
+        ],
+        advice: 'CPU Boost option: +5% → 598/508/687 FPS · +10% → 602/512/692 FPS · +15% → 609/518/701 FPS · +20% → 620/527/713 FPS (requires a Thermal-Premium node).',
+        augmentationSuite: {
+          modules: [
+            'Eco & Buy Advisor: computes loss bonus and drop recommendations.',
+            'Execute Planner: site plans with utility tempo and expected crossfires.',
+            'Post-Plant Director: spike timer, repost paths, and denial zones.',
+            'Retake Coach: clear → trade → isolate sequence with advantage alerts.',
+            'Angle & Head-Height: head-height markers and “don’t ego-peek” prompts.',
+            'Audio Spatial Director: prioritizes footsteps/doors/reloads with auto ducking.',
+            'Fight Timeline: tracks picks/trades and issues “no-trade 3 s” warnings.',
+            'VOD Auto-Tag: automatically tags pivotal moments with timeline export.'
+          ],
+          notes: 'Overlays refresh up to 144 Hz and are tuned for Valorant phases (defaults, executes, retakes).'
+        },
+        heroSynergy: [
+          {
+            preset: 'Esports',
+            coachingNotes: 'Engage timeline, dash/satchel reminders, and anti dry-peek alerts.'
+          },
+          {
+            preset: 'Macro',
+            coachingNotes: 'Synchronized smoke plans, post-plant timers, and re-smoke reminders.'
+          },
+          {
+            preset: 'Recon',
+            coachingNotes: 'Drone/flash sequencing, lineups, and anti double-push signals.'
+          },
+          {
+            preset: 'Anchor',
+            coachingNotes: 'Trap alerts, safe rotations, and opponent economy monitoring.'
+          },
+          {
+            preset: 'Sniper Focus',
+            coachingNotes: 'Head-height mapping, minimized glint, and instant reposition cues.'
+          },
+          {
+            preset: 'Support',
+            coachingNotes: 'Utility drop management, auto callouts, and anti-tilt HUD focus.'
+          }
+        ]
+      }
+    },
+    et: {
+      nativeAdvantages: [
+        {
+          icon: Code,
+          title: 'Valoranti natiivne Esports-profiil',
+          description: '240–360 FPS stabiliseeritud CPU↔GPU orkestreerimise ja fair-play overlaydega.'
+        },
+        {
+          icon: Zap,
+          title: 'Ülimadala latentsusega toru',
+          description: '1080p/1440p/4K voog adaptatiivse marsruudi ja automaatse regiooni vahetusega.'
+        },
+        {
+          icon: Shield,
+          title: 'Fair-play kinnitatud suite',
+          description: 'HUDi/heli/minikaardi overlayd vastavad turniirireeglitele – ilma süstide ja abita.'
+        },
+        {
+          icon: Trophy,
+          title: 'Tiimi ja scrimi tugi',
+          description: 'PulseForge Lobby plaanid, VOD-analüütika ja coach/casteri abi.'
+        }
+      ],
+      metrics: {
+        title: 'Kalibreeritud jõudlus Valoranti jaoks',
+        description:
+          'PulseForge Esportsi võrdlusprofiil (võistluspreset). Valorant sõltub tugevalt CPU-st, seega hoiame 596 FPS keskmiselt 1080p juures, 507 FPS madalvahemiku ja 685 FPS tipuga. 1440p ja 4K säilitavad kõrge stabiilsuse tänu CPU varule.',
+        statCards: {
+          maxFps: 'Maksimaalne täheldatud FPS (1080p Medium)',
+          onePercentLow: 'Minimaalne täheldatud (1% low proxy, 1080p Medium)',
+          inputLag: 'Keskmine sisendviivitus'
+        },
+        allocationTitle: 'Domineeriv pudelkits (Medium-profiil)',
+        datacenterTitle: 'PulseForge’i pilvemonitoring',
+        usage: {
+          cpu: 'CPU koormus',
+          gpu: 'GPU koormus',
+          ram: 'RAM kasutus',
+          vram: 'VRAM kasutus'
+        },
+        thermals: {
+          cpu: 'Pilve CPU temperatuur',
+          gpu: 'GPU temperatuur',
+          power: 'Võimsustarve'
+        },
+        stabilityNote: 'Valorant jääb CPU-piiratuks: meie profiilid hoiavad varu ka 4K juures.'
+      },
+      fpsTable: {
+        footnote: 'Valoranti sisemised benchmarkid (Medium võistluspreset, ranked- ja scrim-kaardid).'
+      },
+      resolution: {
+        title: 'Kuidas pilves resolutsiooni reguleerida',
+        description:
+          'Meie mõõtmised näitavad tegelikku FPS-varu, kui muudate PulseForge’i paneelist eraldusvõimet.',
+        windowLabel: 'Täheldatud vahemik',
+        footnote: 'Väärtused Valoranti Medium/Ultra presetidel koos overlaydega.',
+        avgLabel: 'Keskmine FPS'
+      },
+      experience: {
+        description: (productName: string, latency: number) =>
+          `${productName} töötab täielikult meie infrastruktuuril: kohene provisioning, adaptatiivne võrk ja latentsus hoitakse umbes ${latency} ms juures.`,
+        bullets: [
+          'Overlayd, presetid ja uuendused rakenduvad serveripoolselt – kohalikke installatsioone pole.',
+          'Lülitu 1080p/1440p/4K vahel hetkega, järgides mõõdetud FPS-vahemikku.',
+          'Otsemonitooring ping/jitter/kao üle, automaatne regiooni vahetus ebastabiilsuse korral.'
+        ],
+        profileSubtitle: 'Keskmine mõõdetud 1080p Medium juures',
+        lowLabel: 'Min täheldatud 1080p Medium',
+        lowSubtitle: 'Madal aken'
+      },
+      improvement: {
+        adviceTitle: '„CPU Boost” valik (hosti poolel)'
+      },
+      augmentation: {
+        description: 'Valoranti faasiteadlikud moodulid: majandus, executes, retake’id ja stream-safe coaching.'
+      },
+      hero: {
+        badge: 'AGENDI / ROLLI PROFIILID',
+        title: 'Pühendatud optimeerimised',
+        description: 'Iga preset katab Valoranti rolli (Duelist, Controller, Initiator, Sentinel, Flex).',
+        headers: {
+          hero: 'Roll',
+          overlay: 'Overlay fookus',
+          clarity: 'Visuaalne selgus',
+          preset: 'Soovituslik preset',
+          notes: 'Coaching’u märkused'
+        },
+        fallbackDescription: (game: string) => `Rollipõhised optimeerimised mängule ${game}`
+      },
+      nativeReasons: {
+        description: (game: string) => `${game} on optimeeritud otsast lõpuni fair-play overlayde ja tiimitaseme toega.`
+      },
+      product: {
+        description: 'Pilvepõhine Valoranti instants, häälestatud 240+ Hz võistlusmänguks ja turniirinõuetele.',
+        longDescription:
+          'PulseForge Valorant ühendab CPU-keskse orkestreerimise ja madala latentsusega videotoru, et hoida reageerimisvõime äärmuslik. Kõik töötab serveripoolselt: overlayd, Focus HUD, audiopresetid ja Riot patchide järgsed värskendused.',
+        variants: {
+          'pulseforge-valorant': {
+            name: 'PulseForge Valorant Esports',
+            usage: 'Valoranti esports-instants',
+            description: 'Pilvebuild, mis on loodud võistlusmänguks ja 240+ Hz voogedastuseks.',
+            use_cases: [
+              'Pro-scrimid ja Immortal/Radiant ranked',
+              'Treeneritiim ja taktikaline analüüs',
+              'Esports-voogude produktsioon ja watch party’d',
+              'Lineup’i harjutamine PulseForge Lobbyga',
+              'VOD-sessioonid ja utiliidi-sandbox'
+            ],
+            features: [
+              'Faasiteadlikud modulaarsed overlayd',
+              'Matšijärgne analüüs ja ekspordid (timeline, economy)',
+              'Makrocoach (tempo, rotatsioonid, retake’id)',
+              'Stream-safe tiimiteemad (PulseForge Lobby)',
+              'Multi-input tugi (klaviatuur/hiir, kontroller)',
+              'Pidevad uuendused ja jagatud tiimiprofiilid'
+            ],
+            featureHighlights: [
+              'Ranked / turniirid – 100% fair-play overlayd HUDi, heli ja minikaardi põhjal',
+              'PulseForge Lobby – sünkroonitud scrimid, lineup-sandbox ja sisse-ehitatud caster mode'
+            ],
+            featureGroups: [
+              {
+                title: 'Reaalajas taktikamoodulid',
+                description: 'Kontekstuaalne suite Valoranti faaside jaoks',
+                items: [
+                  'Eco & Buy Advisor: loss-bonuse arvutus, full/half/force soovitused ja drop-meeldetuletused.',
+                  'Execute Planner: saidiplanid flashide/suitse/molyde jaoks ja oodatavate crossfire’idega.',
+                  'Post-Plant Director: täpne spike-timer, turvalised repost-teed ja keelu tsoonid.',
+                  'Retake Coach: clear → trade → isolate järjestus killfeed’i arvulise eelise hoiatustega.',
+                  'Angle & Head-Height: pea kõrguse markerid ja “don’t ego-peek” vihjed.',
+                  'Audio Spatial Director: sammude/uste/reload’i prioritiseerimine automaatse ducking’uga.',
+                  'Fight Timeline: jälgib picke/trade’e, annab “no-trade 3 s” hoiatused ja eelisnäitajad.',
+                  'VOD Auto-Tag: märgib pöördepunktid (hiline retake, dry peek, hiline spike) koos ekspordiga.'
+                ]
+              },
+              {
+                title: 'Reaktiivsus ja katvus',
+                items: [
+                  'Overlay värskendus kuni 144 Hz Esports-preseti peal.',
+                  'Faasiteadlikke mooduleid on 10–14 sõltuvalt kaardist ja režiimist.',
+                  'Keskmine reaktsiooniaeg ~40–45 ms nähtavatel sündmustel.',
+                  'Focus HUD peidab võitluses mitteolulised overlayd automaatselt.'
+                ]
+              },
+              {
+                title: 'PulseForge Lobby',
+                description: 'Scrimi ja treeningu valikud (kõik mängijad PulseForge’il)',
+                items: [
+                  'Jagatud kosmeetika: PulseForge’i relvateemad ja kill-bännerid lobby’s nähtavad.',
+                  'Lineup Sandbox: stream-safe trajektoorid flashide/suitse/molyde jaoks ja execute time-trialid.',
+                  'Draft & Role Rules: kehtestab IGL/Entry/Anchor/Support rollid ja ostureeglid.',
+                  'Retake/Execute Scenario Runner: skriptitud seeriad täitmise scoreboardiga.',
+                  'Ghost-Run & Pathing: parimate sisenemiste/retake’ide kummitused ja sünkroonitud kordused.',
+                  'Caster Mode: laiendatud HUD (killfeed, economy), 8 s kohesed kordused ja roundi markerid.'
+                ]
+              },
+              {
+                title: 'Mitmemänguline võimekus',
+                description: 'Medium-profiil top 100 mängu lõikes',
+                items: [
+                  '1080p: 100% ≥30/60/90 FPS, 96% ≥120 FPS, 86% ≥144 FPS.',
+                  '1440p: 100% ≥30/60 FPS, 96% ≥90 FPS, 75% ≥120 FPS, 51% ≥144 FPS.',
+                  '4K: 100% ≥30 FPS, 94% ≥60 FPS, 52% ≥90 FPS, 24% ≥120 FPS, 14% ≥144 FPS.'
+                ]
+              },
+              {
+                title: 'Ühilduvus ja nõuded',
+                items: [
+                  '1080p: min CPU Core2 Duo E6550, GPU GTX 550 Ti / HD 6790, 4 GB RAM.',
+                  '1440p: min CPU Pentium E5200, GPU GT 1030 / R7 450, 4 GB RAM.',
+                  '4K: min CPU Core2 Duo E6700, GPU GTX 750 Ti / RX 550X, 8 GB RAM.',
+                  'PulseForge’is on vaja vaid stabiilset ühendust ja meie kerget klienti.'
+                ]
+              },
+              {
+                title: 'Miks valida meie Valoranti natiivne build?',
+                items: [
+                  'Natiivne integratsioon sünkroonis iga Riot patchiga.',
+                  'Fair-play overlayd ja coaching turniiri- ning striiminõuetele vastav.',
+                  'Kalibreeritud jõudlus: 596/565/520 FPS keskmiselt (1080p/1440p/4K).',
+                  'Loominguline tugi: scrimid, VOD-analüütika ja PulseForge Lobby tiimiteemad.'
+                ]
+              }
+            ],
+            implementationNotes: [
+              'Avalikes/ranked-mängudes tuginevad overlayd ainult nähtavale HUDile, helile ja minikaardile. Mälulugemist ega aim-abi pole.',
+              'Sandbox-moodulid (joonistatud lineupid, täismahus caster mode) nõuavad PulseForge Lobby ühise buildiga.',
+              'Overlayd on opt-in ja kohanduvad automaatselt, et vältida visuaalset üleküllust.'
+            ],
+            target_audience: 'Valoranti tiimid, esports-treenerid, loojad',
+            highlight: 'Stabiliseeritud 240–360 Hz Esports-profiil',
+            protection: 'Stream-safe fair-play overlayd',
+            updates: 'Riot patchide sünkroon ja pidev hooldus'
+          }
+        }
+      },
+      technical: {
+        fpsByResolution: [
+          { playability: 'Väga sujuv', bottleneck: 'CPU (42%)' },
+          { playability: 'Väga sujuv', bottleneck: 'CPU (36%)' },
+          { playability: 'Väga sujuv', bottleneck: 'CPU (25%)' }
+        ],
+        resolutionGuidance: [
+          {
+            refreshAdvice: '240–360 Hz võistlussiht',
+            description: '1080p Esports-profiil hoiab ~596 FPS, Ultra ~577 FPS – ideaalne scrimideks ja ranked’iks.',
+            note: 'Focus HUD aitab clutch’ides 1% madalaid siluda.'
+          },
+          {
+            refreshAdvice: 'Teravus + 240 Hz',
+            description: '1440p peale liikumine jätab 480–650 FPS akna. Ultra püsib ~547 FPS ümber detailseks voogedastuseks.',
+            note: 'Sobib ideaalselt HD-VODideks ja co-streamideks.'
+          },
+          {
+            refreshAdvice: '4K üle 200 Hz',
+            description: '4K Medium hoiab keskmiselt ~520 FPS CPU-varuga. Ultra on ~471 FPS coach/stream-sisu jaoks.',
+            note: 'Kasuta seda presetit vaatajapildi analüüsiks ja premium-sisuks.'
+          }
+        ],
+        improvementTips: [
+          'Kasuta Esports-preseti ja lülita mittevajalikud post-FX-id välja.',
+          'Lase PulseForge’il hallata FPS limiiti – väldi väliseid piirajaid.',
+          'Aktiveeri Focus HUD, et peita võitluse ajal ebaolulised moodulid.',
+          'Kui vajad täiuslikku 240 Hz kogemust, vähenda pigem anti-aliasingut kui resolutsiooni.'
+        ],
+        advice: '„CPU Boost” valik: +5% → 598/508/687 FPS · +10% → 602/512/692 FPS · +15% → 609/518/701 FPS · +20% → 620/527/713 FPS (vajab Thermal-Premium sõlme).',
+        augmentationSuite: {
+          modules: [
+            'Eco & Buy Advisor: loss-bonuse arvutus ja drop-soovitused.',
+            'Execute Planner: saidiplanid utiliidi tempoga ja eeldatavate risttuledega.',
+            'Post-Plant Director: spike’i taimer, repost-teed ja keelutsoonid.',
+            'Retake Coach: clear → trade → isolate järjestus eelisehoiatustega.',
+            'Angle & Head-Height: pea kõrguse markerid ja “don’t ego-peek” vihjed.',
+            'Audio Spatial Director: sammude/uste/reload’i prioritiseerimine automaatse ducking’uga.',
+            'Fight Timeline: jälgib picke/trade’e ja annab “no-trade 3 s” märguande.',
+            'VOD Auto-Tag: märgib pöördepunktid automaatselt ja ekspordib ajajoone.'
+          ],
+          notes: 'Overlayd värskenduvad kuni 144 Hz ja on häälestatud Valoranti faasidele (defaults, executes, retake’id).'
+        },
+        heroSynergy: [
+          {
+            preset: 'Esports',
+            coachingNotes: 'Engage’i ajajoon, dash/satchel meeldetuletused ja anti dry-peak hoiatused.'
+          },
+          {
+            preset: 'Macro',
+            coachingNotes: 'Sünkroonitud suitsuplaanid, post-plant taimerid ja re-smoke märguanded.'
+          },
+          {
+            preset: 'Recon',
+            coachingNotes: 'Droon/flash’i järjestused, lineupid ja anti double-push signaalid.'
+          },
+          {
+            preset: 'Anchor',
+            coachingNotes: 'Trap’i hoiatused, turvalised rotatsioonid ja vastase majanduse jälgimine.'
+          },
+          {
+            preset: 'Sniper Focus',
+            coachingNotes: 'Pea kõrguse kaardistus, vähendatud glint ja kohene repositsioon.'
+          },
+          {
+            preset: 'Support',
+            coachingNotes: 'Utiliitide jagamise haldus, automaatsed callout’id ja anti-tilt HUD fookus.'
+          }
+        ]
+      }
+    }
   }
 }
 

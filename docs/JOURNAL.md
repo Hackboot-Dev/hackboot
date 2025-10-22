@@ -2103,3 +2103,26 @@ if (hasDecimal) {
 #### État:
 ✅ Offre Warzone alignée avec PulseForge et métriques fournies
 ✅ Localisation FR/EN/ET opérationnelle via overrides
+
+### Feature: PulseForge Valorant native build
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Déployer la fiche Valorant PulseForge avec les métriques CPU-bound (596/565/520 FPS) et les tableaux fournis par l’équipe produit.
+- Harmoniser l’expérience native avec les modules Esports (PulseForge Lobby, CPU Boost, astuces FPS) tout en conservant le sélecteur d’onglets compact.
+- Assurer une localisation complète FR/EN/ET via `localeOverridesByProduct` et mettre à jour la documentation centrale.
+
+#### Actions réalisées:
+1. Actualisation de `gaming-valorant` dans `data/gaming-products.json` : métriques par résolution/preset, option CPU Boost, capacités multi-jeux et notes de conformité fair-play.
+2. Ajout des overrides `localeOverridesByProduct['gaming-valorant']` dans `NativeGamingProductPage.tsx` pour injecter les textes FR/EN/ET (performances, expérience cloud, onglets PulseForge).
+3. Mise à jour de `docs/README.md` pour référencer la fiche Valorant et consigner la dernière action côté catalogue.
+
+#### Fichiers modifiés:
+- `/data/gaming-products.json`
+- `/components/NativeGamingProductPage.tsx`
+- `/docs/README.md`
+
+#### État:
+✅ Fiche Valorant PulseForge conforme aux métriques fournies
+✅ Localisation FR/EN/ET opérationnelle avec onglets PulseForge

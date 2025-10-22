@@ -81,6 +81,7 @@ Cette section résume le fonctionnement des pages produits cloud gaming : où so
   - Les tableaux `resolutionGuidance` et `technicalSpecs` exposent les FPS, la latence et les informations réseau injectées telles quelles dans l'interface.
 - Les variantes peuvent embarquer `featureHighlights`, `featureGroups` (titre, description, éléments) et `implementationNotes` pour décrire les suites PulseForge ; le rendu se base maintenant sur un sélecteur interactif qui affiche un groupe à la fois pour limiter le scroll. Ces blocs sont traduits via les overrides de `copyByLocale.product.variants`.
 - L’entrée `gaming-warzone` suit cette structure pour Call of Duty: Warzone : métriques BR (FPS multi-résolutions, option « CPU Boost »), variantes PulseForge et suites de fonctionnalités orientées Battle Royale.
+- L’entrée `gaming-valorant` applique le même modèle pour Valorant : performances Esports 1080p/1440p/4K, contrôleur de résolution, onglets PulseForge Lobby et notes de conformité fair-play.
 - Les utilitaires d'accès et les types associés vivent dans [`lib/gaming-products.ts`](../lib/gaming-products.ts).
   - `getAllGamingProducts()` et `getGamingProductBySlug()` alimentent les routes dynamiques.
 
@@ -106,7 +107,7 @@ Cette section résume le fonctionnement des pages produits cloud gaming : où so
 4. Compléter les traductions génériques dans `public/locales/<locale>/common.json` si besoin.
 5. Lancer `npm run lint` pour valider les schémas avant de publier.
 
-**Dernière action:** Ajout de l’offre native Warzone PulseForge et overrides de localisation FR/EN/ET (25/10/2025)
+**Dernière action:** Ajout de l’offre native Valorant PulseForge et overrides de localisation FR/EN/ET (22/10/2025)
 
 ---
 

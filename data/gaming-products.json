@@ -699,60 +699,344 @@
   {
     "id": "gaming-valorant",
     "slug": "gaming-valorant",
-    "name": "Valorant",
+    "name": "Valorant PulseForge",
     "game": "Valorant",
     "category": "gaming",
     "optimizationLevel": "native",
-    "description": "Suite de cheat Valorant indétectée avec aimbot, ESP et skin changer",
-    "longDescription": "Valorant Oblivion est spécialement conçu pour contourner Vanguard. Ce système offre un aimbot humanisé, ESP, skinchanger et triggerbot, le tout avec des mises à jour stealth pour rester indétectable.",
+    "description": "Instance cloud Valorant calibrée Esports avec overlays fair-play et coaching phase-aware.",
+    "longDescription": "PulseForge pour Valorant est un build 100 % natif hébergé sur notre cloud gaming. Pensé pour les équipes Esports et les créateurs, il vise des fréquences d’image extrêmes sur 1080p, 1440p et 4K grâce à une orchestration CPU-bound et à notre pipeline vidéo faible latence. Les overlays, presets et mises à jour sont pilotés côté serveur pour préserver le fair-play et la conformité tournoi.",
     "status": "ACTIVE",
+    "technicalSpecs": {
+      "performanceMetrics": {
+        "avgFps": 596,
+        "minFps": 507,
+        "maxFps": 685,
+        "onePercentLow": 507,
+        "latency": 0.8,
+        "inputLag": 0.24,
+        "frameTime": 1.7,
+        "cpuUsage": 42,
+        "gpuUsage": 58,
+        "ramUsage": 14.8,
+        "vramUsage": 6.4,
+        "powerDraw": 330,
+        "thermalCpu": 61,
+        "thermalGpu": 58
+      },
+      "augmentationSuite": {
+        "awarenessIndex": 97,
+        "overlayRefresh": 144,
+        "adaptiveCoaching": 94,
+        "reactionTimeMs": 42,
+        "moduleCoverage": 14,
+        "tacticalFocus": 95,
+        "modules": [
+          "Eco & Buy Advisor : calcul du loss bonus et recommandations achat/drop.",
+          "Execute Planner : plans par site avec tempo utilitaires et crossfires probables.",
+          "Post-Plant Director : timer Spike, chemins de repost et zones d'interdiction.",
+          "Retake Coach : séquence clear → trade → isolate avec alertes d'avantage numérique.",
+          "Angle & Head-Height : repères de hauteur de tête et prompts anti ego-peek.",
+          "Audio Spatial Director : priorisation pas/portes/reload, ducking automatique.",
+          "Fight Timeline : suivi picks/trades et alertes no-trade 3 s.",
+          "VOD Auto-Tag : marquage automatique des pivots et export chronologique."
+        ],
+        "notes": "Overlays rafraîchis jusqu'à 144 Hz, calibrés sur les phases Valorant (defaults, executes, retakes)."
+      },
+      "fpsByResolution": [
+        {
+          "resolution": "1920 × 1080",
+          "avgFps": 596,
+          "minFps": 507,
+          "maxFps": 685,
+          "playability": "Très fluide",
+          "bottleneck": "CPU (42%)"
+        },
+        {
+          "resolution": "2560 × 1440",
+          "avgFps": 565,
+          "minFps": 480,
+          "maxFps": 650,
+          "playability": "Très fluide",
+          "bottleneck": "CPU (36%)"
+        },
+        {
+          "resolution": "3840 × 2160",
+          "avgFps": 520,
+          "minFps": 442,
+          "maxFps": 598,
+          "playability": "Très fluide",
+          "bottleneck": "CPU (25%)"
+        }
+      ],
+      "qualityBreakdown": [
+        {
+          "resolution": "1920 × 1080",
+          "presets": {
+            "low": 701,
+            "medium": 596,
+            "high": 586,
+            "ultra": 577
+          }
+        },
+        {
+          "resolution": "2560 × 1440",
+          "presets": {
+            "low": 665,
+            "medium": 565,
+            "high": 556,
+            "ultra": 547
+          }
+        },
+        {
+          "resolution": "3840 × 2160",
+          "presets": {
+            "low": 617,
+            "medium": 520,
+            "high": 495,
+            "ultra": 471
+          }
+        }
+      ],
+      "resolutionGuidance": [
+        {
+          "resolution": "1920 × 1080",
+          "avgFps": 596,
+          "fpsWindow": "507 – 685 FPS",
+          "refreshAdvice": "Cible 240–360 Hz compétitif",
+          "description": "Le profil 1080p Esports maintient ~596 FPS, avec 577 FPS en Ultra. Idéal pour scrims, ranked et LAN virtuelles.",
+          "note": "Activez le Focus HUD pour lisser les 1% low en clutch."
+        },
+        {
+          "resolution": "2560 × 1440",
+          "avgFps": 565,
+          "fpsWindow": "480 – 650 FPS",
+          "refreshAdvice": "Netteté + fréquence 240 Hz",
+          "description": "Passer en 1440p conserve une fenêtre de 480–650 FPS. Ultra reste exploitable à ~547 FPS pour streaming détaillé.",
+          "note": "Parfait pour un rendu net sur les VOD et le co-stream."
+        },
+        {
+          "resolution": "3840 × 2160",
+          "avgFps": 520,
+          "fpsWindow": "442 – 598 FPS",
+          "refreshAdvice": "4K à 200+ Hz",
+          "description": "En 4K Medium, la moyenne reste ~520 FPS avec réserve CPU. Ultra tourne autour de 471 FPS pour des showcases coach/stream.",
+          "note": "Utilisez ce preset pour les analyses spectateur et le contenu premium."
+        }
+      ],
+      "improvementTips": [
+        "Utilisez le preset Esports et désactivez les post-FX superflus.",
+        "Laissez PulseForge piloter le cap d'images (évitez les limites externes).",
+        "Activez le Focus HUD pour masquer les modules non essentiels en fight.",
+        "Si vous ciblez un 240 Hz parfait, réduisez l'anti-aliasing plutôt que la résolution."
+      ],
+      "advice": "Option « CPU Boost » : +5 % → 598/508/687 FPS · +10 % → 602/512/692 FPS · +15 % → 609/518/701 FPS · +20 % → 620/527/713 FPS (requiert un nœud Thermal-Premium).",
+      "heroSynergy": [
+        {
+          "hero": "Duelist (Entry)",
+          "overlayFocus": 97,
+          "clarityBoost": 94,
+          "preset": "Esports",
+          "coachingNotes": "Timeline engage, rappels dash/satchel et alertes anti dry-peak."
+        },
+        {
+          "hero": "Controller",
+          "overlayFocus": 94,
+          "clarityBoost": 91,
+          "preset": "Macro",
+          "coachingNotes": "Plans de smokes synchronisés, timers post-plant et rappel des re-smokes."
+        },
+        {
+          "hero": "Initiator",
+          "overlayFocus": 95,
+          "clarityBoost": 92,
+          "preset": "Recon",
+          "coachingNotes": "Séquençage drone/flash, line-ups et signal anti double-push."
+        },
+        {
+          "hero": "Sentinel",
+          "overlayFocus": 92,
+          "clarityBoost": 90,
+          "preset": "Anchor",
+          "coachingNotes": "Alertes trap, rotations safe et monitoring économie adversaire."
+        },
+        {
+          "hero": "Operator / Sniper",
+          "overlayFocus": 96,
+          "clarityBoost": 95,
+          "preset": "Sniper Focus",
+          "coachingNotes": "Head-height map, glint minimisé et rappel reposition instant."
+        },
+        {
+          "hero": "Flex / Support",
+          "overlayFocus": 93,
+          "clarityBoost": 90,
+          "preset": "Support",
+          "coachingNotes": "Gestion drop utilitaires, callouts auto et focus anti-tilt HUD."
+        }
+      ],
+      "networkStats": {
+        "serverLocations": 22,
+        "avgPing": 14,
+        "maxBandwidth": 950,
+        "packetLoss": 0.1,
+        "jitter": 2.4,
+        "ddosProtection": true,
+        "encryption": "TLS 1.3 + SRTP"
+      },
+      "securityMetrics": {
+        "detectionRate": 0,
+        "banRate": 0.05,
+        "uptimePercentage": 99.99,
+        "avgResponseTime": 5,
+        "incidentsLastMonth": 0,
+        "securityUpdatesPerWeek": 6,
+        "encryptionLevel": "AES-256",
+        "obfuscationLayers": 4,
+        "antiDebug": true,
+        "antiVM": true,
+        "kernelProtection": true
+      },
+      "updateHistory": {
+        "totalUpdates": 172,
+        "lastUpdateDate": "2025-02-24",
+        "avgUpdatesPerMonth": 6.2,
+        "criticalPatches": 8,
+        "securityPatches": 48,
+        "featureUpdates": 68,
+        "bugFixes": 48
+      },
+      "userStats": {
+        "totalUsers": 7120,
+        "activeUsersLast30Days": 5890,
+        "avgSessionDuration": 2.9,
+        "avgGamesPerDay": 7.4,
+        "satisfactionScore": 4.8,
+        "recommendationRate": 93
+      }
+    },
     "variants": [
       {
-        "id": "oblivion",
-        "name": "Oblivion",
-        "tier": "enterprise",
-        "gpu": "RTX 3080 Ti",
-        "ram": "32 GB DDR5",
-        "cpu": "AMD Ryzen 9 5950X",
-        "usage": "Suite indétectée",
-        "description": "Suite de cheat Valorant indétectée avec aimbot, ESP et skin changer",
+        "id": "pulseforge-valorant",
+        "name": "PulseForge Valorant Esports",
+        "tier": "premium",
+        "gpu": "RTX 4080",
+        "ram": "96 GB DDR5",
+        "cpu": "Intel i9-14900KS",
+        "storage": "1TB NVMe Gen4",
+        "motherboard": "ASUS ROG Strix Z790-E",
+        "psu": "1000W 80+ Platinum",
+        "cooling": "360mm AIO Liquid",
+        "usage": "Instance cloud Valorant Esports",
+        "description": "Build Valorant cloud native calibrée pour la compétition et le streaming 240+ Hz.",
         "use_cases": [
-          "Classement Radiant",
-          "Avantage compétitif",
-          "Amélioration de skill",
-          "Boost de compte",
-          "Aperçu des skins"
+          "Scrims pro et ranked Immortal/Radiant",
+          "Coaching staff et review tactique",
+          "Production stream Esports & watch parties",
+          "Line-up practice PulseForge Lobby",
+          "Sessions VOD & sandbox utilitaires"
         ],
         "features": [
-          "Aimbot humanisé",
-          "ESP joueurs",
-          "ESP capacités",
-          "Skinchanger toutes armes",
-          "Triggerbot",
-          "Équipe support élite",
-          "Système de mise à jour furtif"
+          "Overlays modulaires phase-aware",
+          "Analyse post-match & export (timeline, economy)",
+          "Coach macro (tempo, rotations, retakes)",
+          "Thèmes d’équipe stream-safe (PulseForge Lobby)",
+          "Intégration multi-input (clavier/souris, manette)",
+          "Mises à jour continues & profils partagés d’équipe"
         ],
-        "target_audience": "Joueurs compétitifs Valorant",
-        "highlight": "Contourne l'anti-cheat Vanguard",
-        "protection": "Vanguard bypass",
-        "updates": "Stealth updates",
+        "featureHighlights": [
+          "Ranked / tournois — overlays 100 % fair-play basés sur HUD, audio et minimap",
+          "PulseForge Lobby — scrims synchronisés, lineup sandbox et caster mode intégré"
+        ],
+        "featureGroups": [
+          {
+            "title": "Modules tactiques en temps réel",
+            "description": "Suite contextuelle pour les phases Valorant",
+            "items": [
+              "Eco & Buy Advisor : calcul du loss bonus, recommandations full/half/force et rappel drop.",
+              "Execute Planner : cartes-plans par site avec tempo flash/smoke/plant et crossfires probables.",
+              "Post-Plant Director : timer Spike précis, chemins de repost safe et zones d’interdiction.",
+              "Retake Coach : séquence clear → trade → isolate avec alerte avantage numérique (killfeed).",
+              "Angle & Head-Height : repères de hauteur de tête et prompts “don’t ego-peek”.",
+              "Audio Spatial Director : priorisation pas/portes/reload, ducking des sons non critiques.",
+              "Fight Timeline : suivi picks/trades, alerte “no-trade 3 s” et indicateurs de man-advantage.",
+              "VOD Auto-Tag : marquage des pivots (retake tardif, dry peek, spike late) avec export chronologique."
+            ]
+          },
+          {
+            "title": "Réactivité & couverture",
+            "items": [
+              "Overlay refresh jusqu’à 144 Hz sur preset Esports.",
+              "Modules actifs phase-aware : 10 à 14 selon la carte et le mode.",
+              "Temps de réaction moyen ~40–45 ms sur événements visibles.",
+              "Focus HUD : masquage automatique des overlays non essentiels en fight."
+            ]
+          },
+          {
+            "title": "PulseForge Lobby",
+            "description": "Options scrim & entraînement (tous joueurs sur PulseForge)",
+            "items": [
+              "Cosmétiques partagés : thèmes d’armes et kill-banners PulseForge visibles côté lobby.",
+              "Lineup Sandbox : trajectoires stream-safe de flashes/smokes/molotovs et time-trial d’exec.",
+              "Draft & Role Rules : rôles IGL/Entry/Anchor/Support et contraintes d’achat par round.",
+              "Retake/Execute Scenario Runner : séquences scriptées avec scoreboard d’exécution.",
+              "Ghost-Run & Pathing : fantômes de vos meilleures entrées/retakes, replays synchronisés.",
+              "Caster Mode : HUD élargi (killfeed, economy), replays 8 s et marqueurs de manches."
+            ]
+          },
+          {
+            "title": "Capacité multi-jeux",
+            "description": "Profil medium sur top 100 jeux",
+            "items": [
+              "1080p : 100 % ≥30/60/90 FPS, 96 % ≥120 FPS, 86 % ≥144 FPS.",
+              "1440p : 100 % ≥30/60 FPS, 96 % ≥90 FPS, 75 % ≥120 FPS, 51 % ≥144 FPS.",
+              "4K : 100 % ≥30 FPS, 94 % ≥60 FPS, 52 % ≥90 FPS, 24 % ≥120 FPS, 14 % ≥144 FPS."
+            ]
+          },
+          {
+            "title": "Compatibilité & prérequis",
+            "items": [
+              "1080p : CPU min Core2 Duo E6550, GPU GTX 550 Ti / HD 6790, 4 Go RAM.",
+              "1440p : CPU min Pentium E5200, GPU GT 1030 / R7 450, 4 Go RAM.",
+              "4K : CPU min Core2 Duo E6700, GPU GTX 750 Ti / RX 550X, 8 Go RAM.",
+              "Sur PulseForge : seules une connexion stable et notre client léger sont requis."
+            ]
+          },
+          {
+            "title": "Pourquoi choisir notre build natif Valorant ?",
+            "items": [
+              "Intégration native synchronisée après chaque patch Riot.",
+              "Suite overlays et coaching conforme tournois & stream-safe.",
+              "Performances calibrées : 596/565/520 FPS moyens (1080p/1440p/4K).",
+              "Support créatif : scrims, VOD analytics et thèmes d’équipe PulseForge Lobby."
+            ]
+          }
+        ],
+        "implementationNotes": [
+          "En parties classées/publiques, les overlays utilisent uniquement HUD, audio et minimap visibles. Aucune lecture mémoire, aucun aim-assist.",
+          "Les modules sandbox (lineups projetées, caster mode complet) nécessitent PulseForge Lobby avec build partagé.",
+          "Les overlays sont opt-in et s’ajustent automatiquement pour éviter la surcharge visuelle."
+        ],
+        "target_audience": "Équipes Valorant, coachs Esports, créateurs",
+        "highlight": "Profil Esports 240–360 Hz stabilisé",
+        "protection": "Overlays fair-play stream-safe",
+        "updates": "Sync patch Riot & maintenance continue",
         "pricing": {
-          "hourly": 1.13,
-          "monthly": 450
+          "hourly": 1.6,
+          "monthly": 640
         },
-        "sla": "99.99%",
+        "sla": "99.98%",
         "support_level": "enterprise",
         "badges": [
-          "Valorant Pro",
-          "Vanguard Bypass",
-          "Humanized"
+          "Esports Ready",
+          "Stream Safe",
+          "PulseForge Lobby"
         ],
         "image": "/images/products/valorant/main.png"
       }
     ],
     "reviews": {
-      "average": 4.8,
-      "count": 267
+      "average": 4.9,
+      "count": 438
     },
     "discount": {
       "active": false,
@@ -761,7 +1045,8 @@
     },
     "gallery": [
       "/images/products/valorant/main.png",
-      "/images/products/valorant/1.png"
+      "/images/products/valorant/1.png",
+      "/images/products/valorant/2.png"
     ]
   },
   {
