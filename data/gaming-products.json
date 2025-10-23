@@ -1384,60 +1384,336 @@
   {
     "id": "gaming-destiny2",
     "slug": "gaming-destiny2",
-    "name": "Destiny 2",
+    "name": "Destiny 2 PulseForge",
     "game": "Destiny 2",
     "category": "gaming",
     "optimizationLevel": "native",
-    "description": "Package Destiny 2 élite avec aimbot PvP/PvE et protection indétectable",
-    "longDescription": "Destiny 2 God Mode combine puissance et discrétion. RTX 4080, 64GB RAM DDR5 et AMD Ryzen 9 7950X offrent des performances exceptionnelles. Build privé avec protection kernel pour PvP et PvE.",
+    "description": "Instance cloud Destiny 2 calibrée PvE/PvP avec overlays situationnels et support raids.",
+    "longDescription": "PulseForge pour Destiny 2 est un build natif hébergé sur notre cloud gaming. Il priorise la stabilité des 1% low en Crucible/Trials et en PvE endgame tout en maintenant un input-lag constant grâce à notre pipeline vidéo faible latence. Overlays, modules et mises à jour sont appliqués côté serveur pour préserver le fair-play et la conformité Bungie.",
     "status": "ACTIVE",
+    "technicalSpecs": {
+      "performanceMetrics": {
+        "avgFps": 402,
+        "minFps": 342,
+        "maxFps": 462,
+        "onePercentLow": 342,
+        "latency": 1.0,
+        "inputLag": 0.28,
+        "frameTime": 2.5,
+        "cpuUsage": 76,
+        "gpuUsage": 64,
+        "ramUsage": 18.9,
+        "vramUsage": 8.7,
+        "powerDraw": 348,
+        "thermalCpu": 64,
+        "thermalGpu": 60
+      },
+      "augmentationSuite": {
+        "awarenessIndex": 95,
+        "overlayRefresh": 144,
+        "adaptiveCoaching": 92,
+        "reactionTimeMs": 43,
+        "moduleCoverage": 15,
+        "tacticalFocus": 94,
+        "modules": [
+          "Encounter Timeline : jalons mécaniques via indices visuels (phases DPS, immunités, safe spots).",
+          "Champions & Mods Planner : rappel des types de champions vus et des mods anti-barrière/surcharge requis par escouade.",
+          "Super & Buff Orchestrator : cycle des Supers et buffs/débuffs visibles pour éviter l’overlap.",
+          "Ammo Economy : suivi des consommations spéciales/lourdes et fenêtres probables de drop.",
+          "DPS Estimator : estimation relative du DPS de phase via les ticks affichés (stream-safe).",
+          "Survival Cues : repères de résilience/recovery et alertes no-rez lors des wipes potentiels.",
+          "Zone & Pressure Map : lecture de pression par zone et détection du man-advantage via killfeed.",
+          "Super Economy Read : estimation de charge de Super basée sur les infos visibles pour planifier les rounds.",
+          "Peek Discipline : repères de hauteur de tête, tempo jiggle/swing et prompts anti ego-peek.",
+          "Fight Timeline : suivi des trades dès le premier pick et alerte no-trade 3 s."
+        ],
+        "notes": "Modules PvE/PvP rafraîchis après chaque patch Destiny 2, priorisant la lisibilité et le respect du fair-play."
+      },
+      "fpsByResolution": [
+        {
+          "resolution": "1920 × 1080",
+          "avgFps": 402,
+          "minFps": 342,
+          "maxFps": 462,
+          "playability": "Très fluide",
+          "bottleneck": "CPU (≈76%)"
+        },
+        {
+          "resolution": "2560 × 1440",
+          "avgFps": 356,
+          "minFps": 302,
+          "maxFps": 410,
+          "playability": "Très fluide",
+          "bottleneck": "CPU (≈64%)"
+        },
+        {
+          "resolution": "3840 × 2160",
+          "avgFps": 246,
+          "minFps": 212,
+          "maxFps": 280,
+          "playability": "Très fluide",
+          "bottleneck": "GPU (≈41%)"
+        }
+      ],
+      "qualityBreakdown": [
+        {
+          "resolution": "1920 × 1080",
+          "presets": {
+            "low": 458,
+            "medium": 402,
+            "high": 378,
+            "ultra": 342
+          }
+        },
+        {
+          "resolution": "2560 × 1440",
+          "presets": {
+            "low": 398,
+            "medium": 356,
+            "high": 330,
+            "ultra": 302
+          }
+        },
+        {
+          "resolution": "3840 × 2160",
+          "presets": {
+            "low": 268,
+            "medium": 246,
+            "high": 228,
+            "ultra": 206
+          }
+        }
+      ],
+      "resolutionGuidance": [
+        {
+          "resolution": "1920 × 1080",
+          "avgFps": 402,
+          "fpsWindow": "342 – 462 FPS",
+          "refreshAdvice": "Cible 240–360 Hz compétitif",
+          "description": "Idéal pour Crucible/Trials : priorité réactivité et 1% low serrés.",
+          "note": "Activez Focus HUD pour lisser les phases clutch."
+        },
+        {
+          "resolution": "2560 × 1440",
+          "avgFps": 356,
+          "fpsWindow": "302 – 410 FPS",
+          "refreshAdvice": "Netteté + fréquence 240 Hz",
+          "description": "Excellent pour stream & VOD détaillées tout en conservant le snap.",
+          "note": "Parfait pour Trials ou scrims filmés en haute définition."
+        },
+        {
+          "resolution": "3840 × 2160",
+          "avgFps": 246,
+          "fpsWindow": "212 – 280 FPS",
+          "refreshAdvice": "4K 200+ Hz jouable",
+          "description": "Parfait pour raids/donjons showcase, avec marge stable en Ultra.",
+          "note": "Idéal pour les sessions VOD premium et la production stream."
+        }
+      ],
+      "improvementTips": [
+        "Utilisez le preset Esports/Low pour Trials/Compétitif et Medium pour PvE endgame.",
+        "Laissez PulseForge piloter le cap FPS et l’anti-tear ; évitez les limites externes.",
+        "Activez Focus HUD pour masquer les modules non essentiels pendant les fights.",
+        "En 4K, privilégiez High plutôt qu’Ultra pour conserver la régularité des combats."
+      ],
+      "advice": "Option « CPU Boost » (1080p) : +5 % → ~410/348/470 FPS · +10 % → ~418/355/478 FPS · +15 % → ~428/364/490 FPS · +20 % → ~440/374/505 FPS (nœud Thermal-Premium requis).",
+      "heroSynergy": [
+        {
+          "hero": "AR (Assaut)",
+          "overlayFocus": 93,
+          "clarityBoost": 90,
+          "preset": "Balance",
+          "coachingNotes": "Focus TTK & lanes, prompts anti ego-peek et angles d’ouverture sécurisés."
+        },
+        {
+          "hero": "SMG (Close)",
+          "overlayFocus": 92,
+          "clarityBoost": 89,
+          "preset": "Esports",
+          "coachingNotes": "Timing d’entrée, fenêtres d’engage et routes d’évasion courtes."
+        },
+        {
+          "hero": "LMG (Ancrage)",
+          "overlayFocus": 90,
+          "clarityBoost": 87,
+          "preset": "Stability",
+          "coachingNotes": "Contrôle des lanes longues, discipline reload et alternance des couverts."
+        },
+        {
+          "hero": "Sniper/DMR",
+          "overlayFocus": 95,
+          "clarityBoost": 93,
+          "preset": "Sniper Focus",
+          "coachingNotes": "Pré-aim hauteur tête, pacing de reposition et gestion du glint."
+        },
+        {
+          "hero": "Shotgun",
+          "overlayFocus": 88,
+          "clarityBoost": 85,
+          "preset": "Indoor",
+          "coachingNotes": "Consolidation des pushes rapprochés et duo-timings."
+        },
+        {
+          "hero": "Support (IGL)",
+          "overlayFocus": 94,
+          "clarityBoost": 91,
+          "preset": "Macro",
+          "coachingNotes": "Macro-calls, economy Supers et alertes de rotations."
+        }
+      ],
+      "networkStats": {
+        "serverLocations": 23,
+        "avgPing": 17,
+        "maxBandwidth": 1150,
+        "packetLoss": 0.22,
+        "jitter": 3.0,
+        "ddosProtection": true,
+        "encryption": "TLS 1.3 + SRTP"
+      },
+      "securityMetrics": {
+        "detectionRate": 0,
+        "banRate": 0.07,
+        "uptimePercentage": 99.97,
+        "avgResponseTime": 6,
+        "incidentsLastMonth": 0,
+        "securityUpdatesPerWeek": 4,
+        "encryptionLevel": "AES-256",
+        "obfuscationLayers": 4,
+        "antiDebug": true,
+        "antiVM": true,
+        "kernelProtection": true
+      },
+      "updateHistory": {
+        "totalUpdates": 141,
+        "lastUpdateDate": "2025-02-18",
+        "avgUpdatesPerMonth": 5.1,
+        "criticalPatches": 7,
+        "securityPatches": 42,
+        "featureUpdates": 50,
+        "bugFixes": 42
+      },
+      "userStats": {
+        "totalUsers": 6020,
+        "activeUsersLast30Days": 4898,
+        "avgSessionDuration": 3.3,
+        "avgGamesPerDay": 4.9,
+        "satisfactionScore": 4.7,
+        "recommendationRate": 88
+      }
+    },
     "variants": [
       {
-        "id": "godmode",
-        "name": "God Mode",
+        "id": "pulseforge-destiny2",
+        "name": "PulseForge Destiny 2 Vanguard",
         "tier": "premium",
-        "gpu": "RTX 4080",
-        "ram": "64 GB DDR5",
-        "cpu": "AMD Ryzen 9 7950X",
-        "usage": "Build privé",
-        "description": "Package Destiny 2 élite avec aimbot PvP/PvE et protection indétectable",
+        "gpu": "RTX 4090",
+        "ram": "128 GB DDR5",
+        "cpu": "AMD Ryzen 9 7950X3D",
+        "storage": "2TB NVMe Gen4",
+        "motherboard": "ASUS ROG Crosshair X670E",
+        "psu": "1200W 80+ Platinum",
+        "cooling": "Custom Loop Liquid",
+        "usage": "Instance Destiny 2 PulseForge",
+        "description": "Build cloud Destiny 2 orienté PvE/PvP avec overlays situationnels et support raids.",
         "use_cases": [
-          "Trials of Osiris",
-          "Raids & Dungeons",
-          "PvP compétitif",
-          "Farming optimisé",
-          "Grandmaster Nightfalls"
+          "Trials of Osiris et PvP compétitif",
+          "Raids, donjons et Nuit Noire GM",
+          "Scrims privés PulseForge Lobby",
+          "Production stream et VOD analytics",
+          "Entraînement DPS et sandbox mécaniques"
         ],
         "features": [
-          "Build privé Destiny 2",
-          "Aimbot PvP précision maximale",
-          "ESP ennemis et coffres",
-          "Super tracker",
-          "HWID spoofer",
-          "Protection BattlEye",
-          "Support dédié Guardian"
+          "Overlays modulaires PvE/PvP stream-safe",
+          "Analyse post-match et export timeline/DPS",
+          "Coach macro Supers, economy et rotations",
+          "Thèmes d’escouade PulseForge Lobby",
+          "Intégration multi-input clavier/souris/manette",
+          "Mises à jour synchronisées patch Destiny 2",
+          "Compatibilité PulseForge Lobby sandbox"
         ],
-        "target_audience": "Guardians compétitifs, Streamers",
-        "highlight": "Aimbot PvP/PvE",
-        "protection": "BattlEye bypass",
-        "updates": "Day-one updates",
+        "featureHighlights": [
+          "Public/Ranked – overlays purement visuels (HUD, audio, killfeed) sans injection mémoire",
+          "PulseForge Lobby – cosmétiques partagés, sandbox DPS et stratboard live pour tous les joueurs PulseForge"
+        ],
+        "featureGroups": [
+          {
+            "title": "Modules tactiques PvE",
+            "items": [
+              "Encounter Timeline : jalons mécaniques, phases DPS et safe spots stream-safe.",
+              "Champions & Mods Planner : rappel champions/mods requis par escouade.",
+              "Super & Buff Orchestrator : cycle Supers et buffs/débuffs visibles pour éviter l’overlap.",
+              "Ammo Economy : prompts heavy/special avant les phases DPS critiques.",
+              "DPS Estimator : lecture relative du DPS de phase basée sur les ticks affichés.",
+              "Survival Cues : alertes résilience/recovery et fenêtres sans rez."
+            ]
+          },
+          {
+            "title": "Modules tactiques PvP",
+            "items": [
+              "Zone & Pressure Map : pression par zone et lecture du man-advantage via killfeed.",
+              "Super Economy Read : estimation charge Supers visible pour rounds clés.",
+              "Peek Discipline : repères head-height, tempo jiggle/swing et prompts anti ego-peek.",
+              "Fight Timeline : suivi trades, alerte no-trade 3 s et rappel stabiliser quand l’équipe mène.",
+              "Audio Spatial Director : priorisation pas/portes/reloads, ducking automatique du bruit non critique."
+            ]
+          },
+          {
+            "title": "Réactivité & couverture",
+            "items": [
+              "Overlay refresh jusqu’à 144 Hz.",
+              "Modules actifs selon mode PvE/PvP détecté.",
+              "Temps de réaction moyen ~40–45 ms sur événements visibles.",
+              "Monitoring réseau avec bascule automatique de région."
+            ]
+          },
+          {
+            "title": "PulseForge Lobby",
+            "description": "Options de jeu & d’entraînement (tous joueurs sur build PulseForge)",
+            "items": [
+              "Raid Lab : salles mécaniques avec timelines partageables et scoring d’exécution.",
+              "DPS Check Lab : mannequins et cibles mobiles avec scoreboard DPS de phase.",
+              "Movement & Ability Sandbox : parcours chronométrés et drills capacité avec reset rapide.",
+              "Ghost-Run & Pathing : fantômes de vos meilleures exécutions et replays synchronisés.",
+              "Cosmétiques partagés : bannières d’escouade, finisher FX, kill-banners PulseForge.",
+              "Caster Mode : HUD élargi, replays instantanés 8 s et export highlights."
+            ]
+          },
+          {
+            "title": "Pourquoi choisir notre build natif Destiny 2 ?",
+            "items": [
+              "Intégration native synchronisée après chaque patch Bungie.",
+              "Suite fair-play stream-safe pour PvE/PvP sans injection ni assistance intrusive.",
+              "Performances calibrées : 402/356/246 FPS moyens avec marge sur chaque preset.",
+              "Support créatif : scrims, analytics VOD et thèmes d’escouade PulseForge Lobby."
+            ]
+          }
+        ],
+        "implementationNotes": [
+          "En parties publiques/ranked, les overlays reposent uniquement sur HUD, audio et killfeed visibles.",
+          "Cosmétiques, sandbox DPS et stratboards live sont réservés aux lobbies PulseForge avec build partagé.",
+          "Overlays opt-in et auto-masquage lors des phases à forte intensité visuelle."
+        ],
+        "target_audience": "Escouades Destiny, raid leads, créateurs",
+        "highlight": "Stabilité 1% low pour PvE/PvP intensif",
+        "protection": "Fair-play stream-safe certifié",
+        "updates": "Mises à jour synchronisées patch Destiny 2",
         "pricing": {
-          "hourly": 2.0,
-          "monthly": 800
+          "hourly": 1.98,
+          "monthly": 700
         },
-        "sla": "99.99%",
+        "sla": "99.97%",
         "support_level": "enterprise",
         "badges": [
-          "Premium",
-          "Guardian",
-          "PvP Ready"
+          "Raid Ready",
+          "Stream Safe",
+          "PulseForge Lobby"
         ],
         "image": "/images/products/destiny2/main.png"
       }
     ],
     "reviews": {
       "average": 4.8,
-      "count": 289
+      "count": 412
     },
     "discount": {
       "active": false,

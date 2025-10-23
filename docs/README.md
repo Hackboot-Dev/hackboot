@@ -83,6 +83,7 @@ Cette section résume le fonctionnement des pages produits cloud gaming : où so
 - L’entrée `gaming-warzone` suit cette structure pour Call of Duty: Warzone : métriques BR (FPS multi-résolutions, option « CPU Boost »), variantes PulseForge et suites de fonctionnalités orientées Battle Royale.
 - L’entrée `gaming-valorant` applique le même modèle pour Valorant : performances Esports 1080p/1440p/4K, contrôleur de résolution, onglets PulseForge Lobby et notes de conformité fair-play.
 - L’entrée `gaming-battlefield6` décline l’offre Battlefield 6 PulseForge : profils Conquest/Breakthrough, benchmarks CPU/GPU, option « CPU Boost » et onglets PulseForge Lobby pour les scénarios véhicules et objectifs.
+- L’entrée `gaming-destiny2` reprend la même logique pour Destiny 2 : métriques PvE/PvP (402/356/246 FPS), option « CPU Boost », modules tactiques raids/Trials et onglets PulseForge Lobby pour les sandbox DPS.
 - Les utilitaires d'accès et les types associés vivent dans [`lib/gaming-products.ts`](../lib/gaming-products.ts).
   - `getAllGamingProducts()` et `getGamingProductBySlug()` alimentent les routes dynamiques.
 
@@ -108,7 +109,7 @@ Cette section résume le fonctionnement des pages produits cloud gaming : où so
 4. Compléter les traductions génériques dans `public/locales/<locale>/common.json` si besoin.
 5. Lancer `npm run lint` pour valider les schémas avant de publier.
 
-**Dernière action:** Ajout de l’offre native Battlefield 6 PulseForge et overrides de localisation FR/EN/ET (23/10/2025)
+**Dernière action:** Ajout de l’offre native Destiny 2 PulseForge et overrides de localisation FR/EN/ET (23/10/2025)
 
 ---
 

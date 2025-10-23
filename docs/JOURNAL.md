@@ -2149,3 +2149,27 @@ if (hasDecimal) {
 #### État:
 ✅ Offre Battlefield 6 PulseForge alignée sur les métriques fournies
 ✅ Localisation FR/EN/ET opérationnelle avec onglets PulseForge Lobby
+
+### Feature: PulseForge Destiny 2 native build
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Déployer la fiche Destiny 2 PulseForge avec les métriques PvE/PvP (402/356/246 FPS) et l’option « CPU Boost » fournie.
+- Étendre les overrides de localisation FR/EN/ET pour refléter les modules raids/Trials, l’expérience cloud et les variantes PulseForge Lobby.
+- Actualiser la documentation centrale afin de référencer l’offre Destiny 2 et journaliser la mise à jour du catalogue.
+
+#### Actions réalisées:
+1. Remplacement de `gaming-destiny2` dans `data/gaming-products.json` par la fiche PulseForge native (performances, suites tactiques, variante « Vanguard »).
+2. Ajout de `localeOverridesByProduct['gaming-destiny2']` dans `NativeGamingProductPage.tsx` pour injecter les textes FR/EN/ET (avantages, métriques, onglets PulseForge Lobby).
+3. Mise à jour de `docs/README.md` et de ce journal pour documenter l’arrivée de Destiny 2 dans le catalogue natif.
+
+#### Fichiers modifiés:
+- `/data/gaming-products.json`
+- `/components/NativeGamingProductPage.tsx`
+- `/docs/README.md`
+- `/docs/JOURNAL.md`
+
+#### État:
+✅ Offre Destiny 2 PulseForge alignée sur les métriques fournies
+✅ Localisation FR/EN/ET opérationnelle avec onglets raids/Trials et PulseForge Lobby

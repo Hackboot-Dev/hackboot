@@ -3509,12 +3509,739 @@ const localeOverridesByProduct: Record<string, Record<LocaleKey, DeepPartial<Loc
           { preset: 'Air', coachingNotes: 'Nap-of-the-earth marsruudid ja vastumeetmete taimerid.' },
           { preset: 'Command', coachingNotes: 'Piletite kokkuvõte ja eesmärkide prioriteedid.' }
         ]
+
+      }
+    }
+  },
+  'gaming-destiny2': {
+    fr: {
+      nativeAdvantages: [
+        {
+          icon: Code,
+          title: 'Profil Destiny 2 natif',
+          description: 'Stabilité 1% low et pipeline faible latence calibrés PvE/PvP.'
+        },
+        {
+          icon: Zap,
+          title: 'Provisioning cloud instantané',
+          description: 'Instances Destiny prêtes en quelques secondes avec bascule région automatique selon le ping.'
+        },
+        {
+          icon: Shield,
+          title: 'Suite fair-play situationnelle',
+          description: 'Overlays PvE/PvP stream-safe, aucune injection ni assistance intrusive.'
+        },
+        {
+          icon: Trophy,
+          title: 'Support raids & Trials',
+          description: 'Sandbox PulseForge Lobby, analytics DPS et assistance macro Supers.'
+        }
+      ],
+      metrics: {
+        title: 'Performances calibrées pour Destiny 2',
+        description:
+          'Profil PulseForge Medium compétitif : 402 FPS de moyenne, min observé à 342 FPS et pic à 462 FPS en 1080p. Les profils 1440p et 4K restent très fluides grâce à l’allocation CPU↔GPU et au pipeline faible latence.',
+        statCards: {
+          maxFps: 'FPS maximum observé (1080p Medium)',
+          onePercentLow: 'Min observé (proxy 1% low, 1080p Medium)',
+          inputLag: 'Input lag moyen'
+        },
+        allocationTitle: 'Bottleneck dominant (profil Medium)',
+        datacenterTitle: 'Monitoring cloud PulseForge',
+        usage: {
+          cpu: 'Charge CPU',
+          gpu: 'Charge GPU',
+          ram: 'Mémoire utilisée',
+          vram: 'VRAM utilisée'
+        },
+        thermals: {
+          cpu: 'Température CPU cloud',
+          gpu: 'Température GPU',
+          power: 'Consommation électrique'
+        },
+        stabilityNote:
+          'Destiny 2 reste CPU-bound en 1080p/1440p ; nos profils maintiennent la réserve nécessaire tout en stabilisant l’input-lag en 4K.'
+      },
+      fpsTable: {
+        footnote: 'Benchmarks internes Destiny 2 (profil Medium compétitif, Crucible/Trials et PvE endgame).'
+      },
+      resolution: {
+        title: 'Comment ajuster la résolution côté cloud',
+        description:
+          'Nos mesures internes traduisent la marge FPS réelle lorsque vous modifiez la définition depuis le panneau PulseForge.',
+        windowLabel: 'Fenêtre relevée',
+        footnote: 'Valeurs relevées sur presets Medium/Ultra Destiny 2 avec overlays actifs.',
+        avgLabel: 'FPS moyen'
+      },
+      experience: {
+        description: (productName: string, latency: number) =>
+          `${productName} tourne entièrement sur notre infrastructure : provisioning instantané, routage adaptatif et latence stabilisée à ${latency} ms.`,
+        bullets: [
+          'Overlays, presets et mises à jour appliqués côté serveur — aucune installation locale.',
+          'Bascule 1080p/1440p/4K instantanée tout en respectant la fenêtre FPS mesurée.',
+          'Monitoring ping/jitter/pertes avec bascule automatique de région pour Trials ou raids critiques.'
+        ],
+        profileSubtitle: 'Moyenne mesurée en 1080p Medium',
+        lowLabel: 'Min observé 1080p Medium',
+        lowSubtitle: 'Fenêtre basse relevée'
+      },
+      improvement: { adviceTitle: 'Option « CPU Boost » (côté hôte)' },
+      augmentation: {
+        description: 'Modules situationnels PvE/PvP pour raids, Trials et sandbox stream-safe.'
+      },
+      hero: {
+        badge: 'PROFILS ARME / RÔLE',
+        title: 'Optimisations dédiées',
+        description: 'Chaque preset couvre un archétype Destiny 2 (AR, SMG, LMG, Sniper, Shotgun, Support).',
+        headers: {
+          hero: 'Rôle / Arme',
+          overlay: 'Focus overlay',
+          clarity: 'Clarté visuelle',
+          preset: 'Preset conseillé',
+          notes: 'Notes coaching'
+        },
+        fallbackDescription: (game: string) => `Optimisations par archétype pour ${game}`
+      },
+      nativeReasons: {
+        description: (game: string) => `Optimisé de bout en bout pour ${game} en PvE/PvP, overlays stream-safe et support raid.`
+      },
+      product: {
+        description: 'Instance Destiny 2 cloud native calibrée Trials/Raids.',
+        longDescription:
+          'PulseForge Destiny 2 associe stabilité 1% low et pipeline vidéo faible latence pour Crucible, Trials et PvE endgame. Toutes les assistances (Focus HUD, timeline encounters, economy Supers) sont orchestrées côté serveur pour rester conformes aux guidelines Bungie.',
+        variants: {
+          'pulseforge-destiny2': {
+            name: 'PulseForge Destiny 2 Vanguard',
+            usage: 'Instance Destiny 2 PulseForge',
+            description: 'Build cloud Destiny 2 orienté PvE/PvP avec overlays situationnels et support raids.',
+            use_cases: [
+              'Trials of Osiris et PvP compétitif',
+              'Raids, donjons et Nuit Noire GM',
+              'Scrims privés PulseForge Lobby',
+              'Production stream et VOD analytics',
+              'Entraînement DPS et sandbox mécaniques'
+            ],
+            features: [
+              'Overlays modulaires PvE/PvP stream-safe',
+              'Analyse post-match & export (timeline, DPS, deaths)',
+              'Coach macro Supers, economy et rotations',
+              'Thèmes d’escouade PulseForge Lobby',
+              'Intégration multi-input clavier/souris/manette',
+              'Mises à jour synchronisées patch Destiny 2',
+              'Compatibilité PulseForge Lobby sandbox'
+            ],
+            featureHighlights: [
+              'Public/Ranked – overlays purement visuels (HUD, audio, killfeed) sans injection mémoire',
+              'PulseForge Lobby – cosmétiques partagés, sandbox DPS et stratboard live pour tous les joueurs PulseForge'
+            ],
+            featureGroups: [
+              {
+                title: 'Modules tactiques PvE',
+                items: [
+                  'Encounter Timeline : jalons mécaniques, phases DPS et safe spots stream-safe.',
+                  'Champions & Mods Planner : rappel champions/mods requis par escouade.',
+                  'Super & Buff Orchestrator : cycle Supers et buffs/débuffs visibles pour éviter l’overlap.',
+                  'Ammo Economy : prompts heavy/special avant les phases DPS critiques.',
+                  'DPS Estimator : lecture relative du DPS de phase basée sur les ticks affichés.',
+                  'Survival Cues : alertes résilience/recovery et fenêtres sans rez.'
+                ]
+              },
+              {
+                title: 'Modules tactiques PvP',
+                items: [
+                  'Zone & Pressure Map : pression par zone et lecture du man-advantage via killfeed.',
+                  'Super Economy Read : estimation charge Supers visible pour rounds clés.',
+                  'Peek Discipline : repères head-height, tempo jiggle/swing et prompts anti ego-peek.',
+                  'Fight Timeline : suivi trades, alerte no-trade 3 s et rappel stabiliser quand l’équipe mène.',
+                  'Audio Spatial Director : priorisation pas/portes/reloads, ducking automatique du bruit non critique.'
+                ]
+              },
+              {
+                title: 'Réactivité & couverture',
+                items: [
+                  'Overlay refresh jusqu’à 144 Hz.',
+                  'Modules actifs selon mode PvE/PvP détecté.',
+                  'Temps de réaction moyen ~40–45 ms sur événements visibles.',
+                  'Monitoring réseau avec bascule automatique de région.'
+                ]
+              },
+              {
+                title: 'PulseForge Lobby',
+                description: 'Options de jeu & d’entraînement (tous joueurs sur build PulseForge)',
+                items: [
+                  'Raid Lab : salles mécaniques avec timelines partageables et scoring d’exécution.',
+                  'DPS Check Lab : mannequins et cibles mobiles avec scoreboard DPS de phase.',
+                  'Movement & Ability Sandbox : parcours chronométrés et drills capacité avec reset rapide.',
+                  'Ghost-Run & Pathing : fantômes de vos meilleures exécutions et replays synchronisés.',
+                  'Cosmétiques partagés : bannières d’escouade, finisher FX, kill-banners PulseForge.',
+                  'Caster Mode : HUD élargi, replays instantanés 8 s et export highlights.'
+                ]
+              },
+              {
+                title: 'Pourquoi choisir notre build natif Destiny 2 ?',
+                items: [
+                  'Intégration native synchronisée après chaque patch Bungie.',
+                  'Suite fair-play stream-safe pour PvE/PvP sans injection ni assistance intrusive.',
+                  'Performances calibrées : 402/356/246 FPS moyens avec marge sur chaque preset.',
+                  'Support créatif : scrims, analytics VOD et thèmes d’escouade PulseForge Lobby.'
+                ]
+              }
+            ],
+            implementationNotes: [
+              'En parties publiques/ranked, les overlays reposent uniquement sur HUD, audio et killfeed visibles.',
+              'Cosmétiques, sandbox DPS et stratboards live sont réservés aux lobbies PulseForge avec build partagé.',
+              'Overlays opt-in et auto-masquage lors des phases à forte intensité visuelle.'
+            ],
+            target_audience: 'Escouades Destiny, raid leads, créateurs',
+            highlight: 'Stabilité 1% low pour PvE/PvP intensif',
+            protection: 'Fair-play stream-safe certifié',
+            updates: 'Mises à jour synchronisées patch Destiny 2'
+          }
+        }
+      },
+      technical: {
+        fpsByResolution: [
+          { playability: 'Très fluide', bottleneck: 'CPU (≈76%)' },
+          { playability: 'Très fluide', bottleneck: 'CPU (≈64%)' },
+          { playability: 'Très fluide', bottleneck: 'GPU (≈41%)' }
+        ],
+        resolutionGuidance: [
+          {
+            refreshAdvice: 'Cible 240–360 Hz',
+            description: 'Le profil 1080p Medium maintient ~402 FPS avec Ultra à ~342 FPS pour Trials et Crucible.',
+            note: 'Activez Focus HUD pour lisser les phases clutch.'
+          },
+          {
+            refreshAdvice: 'Netteté + fréquence 240 Hz',
+            description: '1440p conserve une fenêtre 302–410 FPS, idéale pour streaming et VOD détaillées.',
+            note: 'Conservez le preset High pour stabiliser les 1% low.'
+          },
+          {
+            refreshAdvice: '4K 200+ Hz jouable',
+            description: 'Même en 4K Medium (~246 FPS), l’expérience reste très fluide pour les raids showcase.',
+            note: 'Ultra (~206 FPS) convient aux sessions stream premium.'
+          }
+        ],
+        improvementTips: [
+          'Utilisez le preset Esports/Low pour Trials/Compétitif, Medium pour le PvE endgame.',
+          'Laissez PulseForge piloter le cap FPS et l’anti-tear ; évitez les limites externes.',
+          'Activez Focus HUD pour masquer les modules non essentiels pendant les fights.',
+          'En 4K, privilégiez High plutôt qu’Ultra pour conserver la régularité des combats.'
+        ],
+        advice:
+          'Option « CPU Boost » : +5 % → ~410/348/470 FPS · +10 % → ~418/355/478 FPS · +15 % → ~428/364/490 FPS · +20 % → ~440/374/505 FPS (nœud Thermal-Premium requis).',
+        augmentationSuite: {
+          modules: [
+            'Encounter Timeline : jalons mécaniques, phases DPS et safe spots stream-safe.',
+            'Champions & Mods Planner : rappel champions/mods requis par escouade.',
+            'Super & Buff Orchestrator : cycle Supers et buffs/débuffs visibles.',
+            'Ammo Economy : suivi heavy/special et fenêtres probables de drop.',
+            'DPS Estimator : lecture relative du DPS de phase basée sur les ticks affichés.',
+            'Survival Cues : alertes résilience/recovery et fenêtres sans rez.',
+            'Zone & Pressure Map : pression par zone et man-advantage via killfeed.',
+            'Super Economy Read : estimation charge Supers visible pour rounds clés.',
+            'Peek Discipline : repères head-height, tempo jiggle/swing et prompts anti ego-peek.',
+            'Fight Timeline : suivi trades et alerte no-trade 3 s.'
+          ],
+          notes: 'Modules PvE/PvP rafraîchis après chaque patch Destiny 2.'
+        },
+        heroSynergy: [
+          { preset: 'Balance', coachingNotes: 'Angles d’ouverture sécurisés et rappels anti ego-peek.' },
+          { preset: 'Esports', coachingNotes: 'Timing d’entrée, engage windows et routes d’évasion courtes.' },
+          { preset: 'Stability', coachingNotes: 'Contrôle des lanes longues et discipline reload.' },
+          { preset: 'Sniper Focus', coachingNotes: 'Pré-aim hauteur tête et gestion du glint.' },
+          { preset: 'Indoor', coachingNotes: 'Consolidation des pushes rapprochés et duo-timings.' },
+          { preset: 'Macro', coachingNotes: 'Macro-calls, economy Supers et alertes rotations.' }
+        ]
+      }
+    },
+    en: {
+      nativeAdvantages: [
+        {
+          icon: Code,
+          title: 'Native Destiny 2 profile',
+          description: 'Stable 1% lows and low-latency pipeline tuned for PvE and PvP.'
+        },
+        {
+          icon: Zap,
+          title: 'Instant cloud provisioning',
+          description: 'Destiny instances spin up in seconds with automatic region failover based on ping.'
+        },
+        {
+          icon: Shield,
+          title: 'Fair-play situational suite',
+          description: 'PvE/PvP overlays stay stream-safe with zero memory injection or intrusive assists.'
+        },
+        {
+          icon: Trophy,
+          title: 'Raid & Trials support',
+          description: 'PulseForge Lobby sandbox, DPS analytics, and macro Super guidance.'
+        }
+      ],
+      metrics: {
+        title: 'Calibrated performance for Destiny 2',
+        description:
+          'PulseForge competitive Medium profile: 402 average FPS, 342 FPS observed low, and 462 FPS peak at 1080p. 1440p and 4K remain very smooth thanks to CPU↔GPU allocation and our low-latency pipeline.',
+        statCards: {
+          maxFps: 'Max observed FPS (1080p Medium)',
+          onePercentLow: 'Min observed (1% low proxy, 1080p Medium)',
+          inputLag: 'Average input lag'
+        },
+        allocationTitle: 'Dominant bottleneck (Medium profile)',
+        datacenterTitle: 'PulseForge cloud monitoring',
+        usage: {
+          cpu: 'CPU load',
+          gpu: 'GPU load',
+          ram: 'Memory used',
+          vram: 'VRAM used'
+        },
+        thermals: {
+          cpu: 'Cloud CPU temperature',
+          gpu: 'GPU temperature',
+          power: 'Power draw'
+        },
+        stabilityNote:
+          'Destiny 2 is CPU-bound at 1080p/1440p; our profiles preserve headroom while keeping input lag steady at 4K.'
+      },
+      fpsTable: {
+        footnote: 'Internal Destiny 2 benchmarks (competitive Medium profile across Crucible/Trials and endgame PvE).'
+      },
+      resolution: {
+        title: 'How to adjust resolution from the cloud',
+        description:
+          'Our internal measurements show the real FPS buffer when you change resolution via the PulseForge panel.',
+        windowLabel: 'Measured window',
+        footnote: 'Values captured on Destiny 2 Medium/Ultra presets with overlays enabled.',
+        avgLabel: 'Average FPS'
+      },
+      experience: {
+        description: (productName: string, latency: number) =>
+          `${productName} runs entirely on our infrastructure: instant provisioning, adaptive routing, and latency held around ${latency} ms.`,
+        bullets: [
+          'Server-side overlays, presets, and updates—nothing to install locally.',
+          'Instant 1080p/1440p/4K switching while respecting the measured FPS window.',
+          'Live ping/jitter/loss monitoring with automatic region failover for critical Trials or raid sessions.'
+        ],
+        profileSubtitle: 'Average measured at 1080p Medium',
+        lowLabel: 'Min observed 1080p Medium',
+        lowSubtitle: 'Recorded low window'
+      },
+      improvement: { adviceTitle: 'CPU Boost option (host side)' },
+      augmentation: {
+        description: 'Situational PvE/PvP modules covering raids, Trials, and stream-safe sandbox drills.'
+      },
+      hero: {
+        badge: 'WEAPON / ROLE PROFILES',
+        title: 'Dedicated optimizations',
+        description: 'Each preset covers a Destiny 2 archetype (AR, SMG, LMG, Sniper, Shotgun, Support).',
+        headers: {
+          hero: 'Role / weapon',
+          overlay: 'Overlay focus',
+          clarity: 'Visual clarity',
+          preset: 'Recommended preset',
+          notes: 'Coaching notes'
+        },
+        fallbackDescription: (game: string) => `Archetype-specific optimizations for ${game}`
+      },
+      nativeReasons: {
+        description: (game: string) => `Optimized end to end for ${game} PvE/PvP with stream-safe overlays and raid support.`
+      },
+      product: {
+        description: 'Cloud-native Destiny 2 instance tuned for Trials and raid stability.',
+        longDescription:
+          'PulseForge Destiny 2 balances 1% low stability with a low-latency video pipeline for Crucible, Trials, and endgame PvE. Focus HUD, encounter timelines, and Super economy coaching are orchestrated server-side to respect Bungie’s guidelines.',
+        variants: {
+          'pulseforge-destiny2': {
+            name: 'PulseForge Destiny 2 Vanguard',
+            usage: 'Destiny 2 PulseForge instance',
+            description: 'Cloud Destiny 2 build focused on PvE/PvP overlays and raid-ready support.',
+            use_cases: [
+              'Trials of Osiris and competitive PvP',
+              'Raids, dungeons, and Grandmaster Nightfalls',
+              'Private scrims with PulseForge Lobby',
+              'Stream production and VOD analytics',
+              'DPS training and encounter sandbox'
+            ],
+            features: [
+              'Stream-safe PvE/PvP modular overlays',
+              'Post-match analysis & exports (timeline, DPS, deaths)',
+              'Macro coaching for Supers, economy, and rotations',
+              'PulseForge Lobby squad theming',
+              'Multi-input integration (keyboard/mouse, controller)',
+              'Patch-synced Destiny 2 updates',
+              'PulseForge Lobby sandbox compatibility'
+            ],
+            featureHighlights: [
+              'Public/ranked – purely visual overlays (HUD, audio, killfeed) with no memory injection',
+              'PulseForge Lobby – shared cosmetics, DPS sandbox, and live stratboard for every PulseForge player'
+            ],
+            featureGroups: [
+              {
+                title: 'PvE tactical modules',
+                items: [
+                  'Encounter Timeline: mechanical milestones, DPS windows, and safe spots.',
+                  'Champions & Mods Planner: reminders for champion types and required anti-barrier/overload mods.',
+                  'Super & Buff Orchestrator: visible Super and buff/debuff cycles to avoid overlap.',
+                  'Ammo Economy: heavy/special prompts before critical DPS phases.',
+                  'DPS Estimator: phase DPS read based on visible ticks.',
+                  'Survival Cues: resilience/recovery prompts and no-rez windows.'
+                ]
+              },
+              {
+                title: 'PvP tactical modules',
+                items: [
+                  'Zone & Pressure Map: area pressure and man-advantage from the killfeed.',
+                  'Super Economy Read: visible Super charge estimation for clutch rounds.',
+                  'Peek Discipline: head-height markers, jiggle/swing pacing, and anti ego-peek prompts.',
+                  'Fight Timeline: trade tracking, 3-second no-trade alert, and stabilize reminders.',
+                  'Audio Spatial Director: footsteps/doors/reload prioritization with automatic ducking.'
+                ]
+              },
+              {
+                title: 'Reactivity & coverage',
+                items: [
+                  'Overlay refresh up to 144 Hz.',
+                  'Modules adapt automatically to PvE or PvP contexts.',
+                  'Average reaction time ~40–45 ms on visible events.',
+                  'Network monitoring with automatic region failover.'
+                ]
+              },
+              {
+                title: 'PulseForge Lobby',
+                description: 'Training options when everyone runs the PulseForge build',
+                items: [
+                  'Raid Lab: mechanic rooms with shareable timelines and execution scoring.',
+                  'DPS Check Lab: dummies and moving targets with phase DPS scoreboards.',
+                  'Movement & Ability Sandbox: timed routes and ability drills with quick resets.',
+                  'Ghost-Run & Pathing: ghost replays of best clears and synchronized playback.',
+                  'Shared cosmetics: squad banners, finisher FX, PulseForge kill banners.',
+                  'Caster Mode: expanded HUD, 8-second instant replays, and highlight exports.'
+                ]
+              },
+              {
+                title: 'Why choose our native Destiny 2 build?',
+                items: [
+                  'Native integration synchronized after every Bungie patch.',
+                  'Stream-safe fair-play overlays for PvE/PvP without intrusive assists.',
+                  'Calibrated performance: 402/356/246 average FPS across 1080p/1440p/4K.',
+                  'Creative support: scrims, VOD analytics, and PulseForge Lobby squad theming.'
+                ]
+              }
+            ],
+            implementationNotes: [
+              'In public/ranked games overlays rely solely on visible HUD/audio/killfeed data.',
+              'Cosmetics, DPS sandbox, and live stratboards stay limited to PulseForge lobbies with a shared build.',
+              'Overlays are opt-in and auto-hide during high-visibility phases.'
+            ],
+            target_audience: 'Destiny fireteams, raid leads, creators',
+            highlight: 'Stable 1% lows for intense PvE/PvP',
+            protection: 'Certified stream-safe fair play',
+            updates: 'Destiny 2 patch-synced updates'
+          }
+        }
+      },
+      technical: {
+        fpsByResolution: [
+          { playability: 'Very smooth', bottleneck: 'CPU (≈76%)' },
+          { playability: 'Very smooth', bottleneck: 'CPU (≈64%)' },
+          { playability: 'Very smooth', bottleneck: 'GPU (≈41%)' }
+        ],
+        resolutionGuidance: [
+          {
+            refreshAdvice: '240–360 Hz competitive target',
+            description: 'The 1080p Medium profile holds ~402 FPS with Ultra near 342 FPS for Trials and Crucible.',
+            note: 'Enable Focus HUD to smooth clutch phases.'
+          },
+          {
+            refreshAdvice: '240 Hz sharpness balance',
+            description: '1440p maintains a 302–410 FPS window, perfect for detailed streaming and VOD work.',
+            note: 'Stay on the High preset to stabilize 1% lows.'
+          },
+          {
+            refreshAdvice: 'Playable 4K above 200 Hz',
+            description: '4K Medium (~246 FPS) stays very smooth for raid showcases; Ultra (~206 FPS) suits premium streams.',
+            note: 'Use this mode for broadcast-ready captures.'
+          }
+        ],
+        improvementTips: [
+          'Use the Esports/Low preset for Trials/competitive play and Medium for endgame PvE.',
+          'Let PulseForge control frame capping and anti-tear; avoid external limits.',
+          'Enable Focus HUD to hide non-essential modules mid-fight.',
+          'At 4K, prefer High over Ultra to keep combat pacing consistent.'
+        ],
+        advice:
+          'CPU Boost option: +5% → ~410/348/470 FPS · +10% → ~418/355/478 FPS · +15% → ~428/364/490 FPS · +20% → ~440/374/505 FPS (requires a Thermal-Premium node).',
+        augmentationSuite: {
+          modules: [
+            'Encounter Timeline: mechanical milestones, DPS windows, and safe spots.',
+            'Champions & Mods Planner: champion/mod reminders for the fireteam.',
+            'Super & Buff Orchestrator: visible Super and buff/debuff cycles.',
+            'Ammo Economy: heavy/special tracking with drop windows.',
+            'DPS Estimator: phase DPS read based on visible ticks.',
+            'Survival Cues: resilience/recovery prompts and no-rez windows.',
+            'Zone & Pressure Map: zone pressure and numeric advantage from the killfeed.',
+            'Super Economy Read: visible Super charge estimation.',
+            'Peek Discipline: head-height markers and anti ego-peek prompts.',
+            'Fight Timeline: trade tracking with a 3-second no-trade alert.'
+          ],
+          notes: 'PvE/PvP modules refreshed after every Destiny 2 patch.'
+        },
+        heroSynergy: [
+          { preset: 'Balance', coachingNotes: 'Secure opening angles with anti ego-peek reminders.' },
+          { preset: 'Esports', coachingNotes: 'Engage timing, windows, and short escape routes.' },
+          { preset: 'Stability', coachingNotes: 'Long lane control and reload discipline.' },
+          { preset: 'Sniper Focus', coachingNotes: 'Head-height pre-aim and glint management.' },
+          { preset: 'Indoor', coachingNotes: 'Structured close-range pushes and duo timings.' },
+          { preset: 'Macro', coachingNotes: 'Macro calls, Super economy, and rotation alerts.' }
+        ]
+      }
+    },
+    et: {
+      nativeAdvantages: [
+        {
+          icon: Code,
+          title: 'Destiny 2 natiivne profiil',
+          description: 'Stabiilsed 1% low väärtused ja madala latentsusega toru PvE/PvP jaoks.'
+        },
+        {
+          icon: Zap,
+          title: 'Kohene pilveprovision',
+          description: 'Destiny instantsid käivituvad sekunditega ja vahetavad regiooni automaatselt vastavalt pingile.'
+        },
+        {
+          icon: Shield,
+          title: 'Fair-play situatsiooniline suite',
+          description: 'PvE/PvP overlayd on stream-safe – mälu ei loeta ja abivahendeid ei lisata.'
+        },
+        {
+          icon: Trophy,
+          title: 'Raidide ja Trials tugi',
+          description: 'PulseForge Lobby sandbox, DPS analüütika ja makro-Superite juhendamine.'
+        }
+      ],
+      metrics: {
+        title: 'Destiny 2 jõudlus',
+        description:
+          'PulseForge’i Medium võistlusprofiil: keskmiselt 402 FPS, miinimum 342 FPS ja maksimum 462 FPS 1080p juures. 1440p ja 4K püsivad väga sujuvana tänu CPU↔GPU jaotusele ja madala latentsusega torule.',
+        statCards: {
+          maxFps: 'Maks FPS (1080p Medium)',
+          onePercentLow: 'Min täheldatud (1% low proxy, 1080p Medium)',
+          inputLag: 'Keskmine sisendviivitus'
+        },
+        allocationTitle: 'Domineeriv kitsaskoht (Medium profiil)',
+        datacenterTitle: 'PulseForge’i pilvemonitoring',
+        usage: {
+          cpu: 'CPU koormus',
+          gpu: 'GPU koormus',
+          ram: 'Mälu kasutus',
+          vram: 'VRAM kasutus'
+        },
+        thermals: {
+          cpu: 'Pilve CPU temperatuur',
+          gpu: 'GPU temperatuur',
+          power: 'Võimsustarve'
+        },
+        stabilityNote:
+          'Destiny 2 on 1080p/1440p juures CPU-bound; meie profiilid hoiavad varu ja sisendviivituse stabiilsena isegi 4K-s.'
+      },
+      fpsTable: {
+        footnote: 'Sisemised Destiny 2 benchmarkid (Medium profiil Crucible/Trials ja PvE endgame stsenaariumites).'
+      },
+      resolution: {
+        title: 'Kuidas pilves resolutsiooni muuta',
+        description:
+          'Sisemised mõõtmised näitavad tegelikku FPS varu, kui muudate PulseForge’i paneelist resolutsiooni.',
+        windowLabel: 'Mõõdetud aken',
+        footnote: 'Väärtused mõõdetud Destiny 2 Medium/Ultra presetidel koos overlaydega.',
+        avgLabel: 'Keskmine FPS'
+      },
+      experience: {
+        description: (productName: string, latency: number) =>
+          `${productName} töötab täielikult meie infrastruktuuris: kohene provisioning, adaptiivne marsruut ja latentsus umbes ${latency} ms.`,
+        bullets: [
+          'Overlayd, presetid ja uuendused rakenduvad serveripoolselt – lokaalset installi pole vaja.',
+          'Vaheta 1080p/1440p/4K koheselt, säilitades mõõdetud FPS akna.',
+          'Elav ping/jitter/kao jälgimine automaatse regiooni vahetusega Trials’i või raidide kriitilistel hetkedel.'
+        ],
+        profileSubtitle: 'Keskmine 1080p Medium mõõtmine',
+        lowLabel: 'Min 1080p Medium',
+        lowSubtitle: 'Salvestatud madalaken'
+      },
+      improvement: { adviceTitle: '„CPU Boost” valik (hosti pool)' },
+      augmentation: {
+        description: 'Situatsioonilised PvE/PvP moodulid raidide, Trials’i ja stream-safe sandboxi jaoks.'
+      },
+      hero: {
+        badge: 'RELV / ROLL PROFIILID',
+        title: 'Pühendatud optimeerimised',
+        description: 'Iga preset katab Destiny 2 arhetüübi (AR, SMG, LMG, snaiper, shotgun, tugi).',
+        headers: {
+          hero: 'Roll / relv',
+          overlay: 'Overlay fookus',
+          clarity: 'Visuaalne selgus',
+          preset: 'Soovitatud preset',
+          notes: 'Coaching märkused'
+        },
+        fallbackDescription: (game: string) => `Arhetüübi optimeerimised mängule ${game}`
+      },
+      nativeReasons: {
+        description: (game: string) => `Täielikult optimeeritud lahendus mängule ${game} PvE/PvP jaoks stream-safe overlaydega.`
+      },
+      product: {
+        description: 'Pilvepõhine Destiny 2 instants Trials’i ja raidi stabiilsuseks.',
+        longDescription:
+          'PulseForge Destiny 2 ühendab stabiilsed 1% low väärtused ja madala latentsusega videotoru Crucible’i, Trials’i ja PvE endgame’i jaoks. Focus HUD, encounter timeline’id ja Superite majandus juhitakse serveripoolselt, järgides Bungie juhiseid.',
+        variants: {
+          'pulseforge-destiny2': {
+            name: 'PulseForge Destiny 2 Vanguard',
+            usage: 'Destiny 2 PulseForge instants',
+            description: 'Pilvepõhine Destiny 2 build PvE/PvP overlayde ja raidivalmiduse jaoks.',
+            use_cases: [
+              'Trials of Osiris ja konkurentsitihe PvP',
+              'Raidid, dungeonid ja Grandmaster Nightfallid',
+              'Privaat-scrimid PulseForge Lobbyga',
+              'Striimitootmine ja VOD analüütika',
+              'DPS treening ja encounter sandbox'
+            ],
+            features: [
+              'Stream-safe PvE/PvP modulaarsed overlayd',
+              'Post-matši analüüs ja eksport (timeline, DPS, deaths)',
+              'Makro coaching Superite, majanduse ja rotatsioonide jaoks',
+              'PulseForge Lobby eskadroni teemad',
+              'Multi-input integratsioon (klaviatuur/hiir, kontroller)',
+              'Patchidega sünkroonitud Destiny 2 uuendused',
+              'PulseForge Lobby sandboxi tugi'
+            ],
+            featureHighlights: [
+              'Avalik/ranked – puhtalt visuaalsed overlayd (HUD, audio, killfeed), mälu ei loeta',
+              'PulseForge Lobby – jagatud kosmeetika, DPS sandbox ja live stratboard kõigile PulseForge’i mängijatele'
+            ],
+            featureGroups: [
+              {
+                title: 'PvE taktikamoodulid',
+                items: [
+                  'Encounter Timeline: mehaanika verstapostid, DPS aknad ja safe spotid.',
+                  'Champions & Mods Planner: meeldetuletused champion-tüüpidest ja vajaminevatest modidest.',
+                  'Super & Buff Orchestrator: nähtavad Superite ja buff/debuff’i tsüklid ülekattest hoidumiseks.',
+                  'Ammo Economy: heavy/special meeldetuletused enne DPS faase.',
+                  'DPS Estimator: faasi DPS lugemine nähtavate tickide põhjal.',
+                  'Survival Cues: vastupidavuse/taastumise vihjed ja no-rez aknad.'
+                ]
+              },
+              {
+                title: 'PvP taktikamoodulid',
+                items: [
+                  'Zone & Pressure Map: surve tsoonides ja killfeedist loetav arvuline eelis.',
+                  'Super Economy Read: nähtav Superi laetuse hinnang otsustavate roundide jaoks.',
+                  'Peek Discipline: pea kõrguse märgised, jiggle/swing tempo ja anti ego-peek vihjed.',
+                  'Fight Timeline: trade’i jälgimine, 3-sekundiline no-trade hoiatus ja stabiliseerimise meeldetuletused.',
+                  'Audio Spatial Director: sammude/uste/reload’i prioriseerimine automaatse summutusega.'
+                ]
+              },
+              {
+                title: 'Reageerimine ja katvus',
+                items: [
+                  'Overlay värskendus kuni 144 Hz.',
+                  'Moodulid kohanevad automaatselt PvE või PvP kontekstiga.',
+                  'Keskmine reaktsiooniaeg ~40–45 ms nähtavate sündmuste puhul.',
+                  'Võrgu jälgimine automaatse regiooni vahetusega.'
+                ]
+              },
+              {
+                title: 'PulseForge Lobby',
+                description: 'Treeningvõimalused, kui kõik kasutavad PulseForge’i buildi',
+                items: [
+                  'Raid Lab: mehaanikaruumid jagatavate timeline’ide ja soorituspunktidega.',
+                  'DPS Check Lab: mannekeenid ja liikuvad sihtmärgid DPS scoreboardiga.',
+                  'Movement & Ability Sandbox: ajastatud rajad ja võimeharjutused kiire resetiga.',
+                  'Ghost-Run & Pathing: parimate soorituste „fantoomid” ja sünkroniseeritud taasesitused.',
+                  'Jagatud kosmeetika: eskadroni bännerid, finisher FX, PulseForge’i kill-bannerid.',
+                  'Caster Mode: laiendatud HUD, 8-sekundilised kohesed kordused ja highlight’ide eksport.'
+                ]
+              },
+              {
+                title: 'Miks valida meie natiivne Destiny 2 build?',
+                items: [
+                  'Natiivne integratsioon sünkroonis iga Bungie patchiga.',
+                  'Stream-safe fair-play overlayd PvE/PvP jaoks ilma pealetükkivate abideta.',
+                  'Kalibreeritud jõudlus: 402/356/246 FPS keskmiselt 1080p/1440p/4K juures.',
+                  'Loominguline tugi: scrimid, VOD analüütika ja PulseForge Lobby eskadroni teemad.'
+                ]
+              }
+            ],
+            implementationNotes: [
+              'Avalikes/ranked mängudes tuginevad overlayd ainult nähtavale HUDile/helile/killfeedile.',
+              'Kosmeetika, DPS sandbox ja live stratboardid on piiratud PulseForge’i lobbydega, kus on ühine build.',
+              'Overlayd on opt-in ja peidavad end intensiivsetel visuaalsetel faasidel.'
+            ],
+            target_audience: 'Destiny fireteamid, raid lead’id, loojad',
+            highlight: 'Stabiilsed 1% low väärtused intensiivseks PvE/PvP-ks',
+            protection: 'Sertifitseeritud stream-safe fair-play',
+            updates: 'Destiny 2 patchidega sünkroonitud uuendused'
+          }
+        }
+      },
+      technical: {
+        fpsByResolution: [
+          { playability: 'Väga sujuv', bottleneck: 'CPU (≈76%)' },
+          { playability: 'Väga sujuv', bottleneck: 'CPU (≈64%)' },
+          { playability: 'Väga sujuv', bottleneck: 'GPU (≈41%)' }
+        ],
+        resolutionGuidance: [
+          {
+            refreshAdvice: '240–360 Hz siht',
+            description: '1080p Medium hoiab ~402 FPS, Ultra on ~342 FPS Trials’i ja Crucible’i jaoks.',
+            note: 'Aktiveeri Focus HUD, et clutch-situatsioonides kõver sujuvaks jääks.'
+          },
+          {
+            refreshAdvice: '240 Hz teravuse tasakaal',
+            description: '1440p säilitab 302–410 FPS akna – ideaalne detailseks striimiks ja VOD tööks.',
+            note: 'Hoia High presetit, et 1% madalad stabiilsed oleksid.'
+          },
+          {
+            refreshAdvice: 'Mängitav 4K üle 200 Hz',
+            description: '4K Medium (~246 FPS) püsib väga sujuv raidide showcase’ideks; Ultra (~206 FPS) sobib premium-striimiks.',
+            note: 'Kasuta seda režiimi edastusvalmis salvestusteks.'
+          }
+        ],
+        improvementTips: [
+          'Kasuta Trials/konkurentsimängus Esports/Low presetit ja PvE endgame’is Medium presetit.',
+          'Lase PulseForge’il kontrollida FPS piiramist ja anti-tear’i; väldi väliseid limite.',
+          'Lülita Focus HUD sisse, et võitluse ajal mittevajalikud moodulid peita.',
+          '4K juures eelista High presetit Ultra asemel, et hoida lahingutempo ühtlane.'
+        ],
+        advice:
+          '„CPU Boost” valik: +5% → ~410/348/470 FPS · +10% → ~418/355/478 FPS · +15% → ~428/364/490 FPS · +20% → ~440/374/505 FPS (vajab Thermal-Premium sõlme).',
+        augmentationSuite: {
+          modules: [
+            'Encounter Timeline: mehaanika verstapostid, DPS aknad ja safe spotid.',
+            'Champions & Mods Planner: championite/modide meeldetuletused tiimile.',
+            'Super & Buff Orchestrator: nähtavad Superite ja buff/debuff’i tsüklid.',
+            'Ammo Economy: heavy/special jälgimine ja drop-aknad.',
+            'DPS Estimator: faasi DPS lugemine nähtavate tickide järgi.',
+            'Survival Cues: vastupidavuse/taastumise vihjed ja no-rez aknad.',
+            'Zone & Pressure Map: surve tsoonides ja killfeedist loetav arvuline eelis.',
+            'Super Economy Read: Superi laetuse hinnang nähtava info põhjal.',
+            'Peek Discipline: pea kõrguse märgised ja anti ego-peek vihjed.',
+            'Fight Timeline: trade’i jälgimine ja 3-sekundiline no-trade hoiatus.'
+          ],
+          notes: 'PvE/PvP moodulid värskendatakse iga Destiny 2 patchi järel.'
+        },
+        heroSynergy: [
+          { preset: 'Balance', coachingNotes: 'Turvalised avamisnurgad ja anti ego-peek meeldetuletused.' },
+          { preset: 'Esports', coachingNotes: 'Engage’i ajastus, aknad ja lühikesed põgenemisteed.' },
+          { preset: 'Stability', coachingNotes: 'Pikamaa kontroll ja reload’i distsipliin.' },
+          { preset: 'Sniper Focus', coachingNotes: 'Pea kõrguse pre-aim ja glindi haldus.' },
+          { preset: 'Indoor', coachingNotes: 'Struktureeritud lähivõitlused ja duo-timingud.' },
+          { preset: 'Macro', coachingNotes: 'Makrokõned, Superi majandus ja rotatsiooni hoiatused.' }
+        ]
       }
     }
   }
 }
 
 interface NativeGamingProductPageProps {
+
 
   product: GamingProduct
 }
