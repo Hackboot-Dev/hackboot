@@ -2223,3 +2223,26 @@ if (hasDecimal) {
 #### État:
 ✅ Page communautaire épurée (plus de section configuration locale)
 ✅ Traductions synchronisées et documentation alignée
+
+### UI: Animation enrichie du menu mobile global
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Offrir une animation d’apparition plus dynamique pour le menu mobile (header principal et site header).
+- Garantir une transition fluide à l’ouverture/fermeture en utilisant les helpers `framer-motion` déjà présents dans le projet.
+- Conserver l’accessibilité (overlay cliquable, fermeture automatique lors de la navigation).
+
+#### Actions réalisées:
+1. Intégration de `AnimatePresence` et de transitions spring dans `components/SiteHeader.tsx` pour gérer l’overlay et le panneau mobile avec un slide-in/tilt léger.
+2. Application du même schéma d’animation dans `components/Header.tsx` afin d’harmoniser l’expérience sur les autres pages.
+3. Vérification via `npm run lint` et tentative de build (`npm run build`) – ce dernier échoue toujours hors repo à cause de la dépendance `framer-motion` manquante côté environnement Netlify.
+
+#### Fichiers modifiés:
+- `/components/SiteHeader.tsx`
+- `/components/Header.tsx`
+- `/docs/JOURNAL.md`
+
+#### État:
+✅ Animations mobiles plus riches sur les deux headers
+⚠️ Build Netlify toujours bloqué (module `framer-motion` absent côté environnement externe)
