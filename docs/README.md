@@ -94,6 +94,7 @@ Cette section résume le fonctionnement des pages produits cloud gaming : où so
   - Ajouter une langue consiste à dupliquer l'objet existant et adapter les champs textuels.
   - Les textes spécifiques à une offre (ex. PulseForge Warzone) sont fusionnés via `localeOverridesByProduct` pour injecter les métriques, descriptions cloud et variantes traduites dans chaque langue.
 - Les pages communautaires réutilisent les traductions du dossier `public/locales` et les textes définis directement dans [`components/CommunityGamingProductPage.tsx`](../components/CommunityGamingProductPage.tsx).
+  - La grille « configuration standard » a été retirée : la vue se concentre désormais sur les abonnements, la description longue et les avantages génériques du catalogue.
 
 ### 🏗️ Construction des pages
 - Le routeur [`app/[locale]/products/[slug]/page.tsx`](../app/%5Blocale%5D/products/%5Bslug%5D/page.tsx) charge le produit demandé et choisit quel composant rendre :

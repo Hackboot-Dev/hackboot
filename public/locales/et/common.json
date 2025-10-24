@@ -917,14 +917,6 @@
       "popular": "Kõige populaarsem",
       "viewDetails": "Vaata üksikasju"
     },
-    "configuration": {
-      "title": "Standardkonfiguratsioon",
-      "gpu": "GPU",
-      "ram": "RAM",
-      "cpu": "CPU",
-      "support": "Tugi",
-      "supportValue": "Kogukond"
-    },
     "about": {
       "title": "{{productName}} tutvustus"
     },

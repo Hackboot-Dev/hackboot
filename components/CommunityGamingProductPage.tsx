@@ -56,7 +56,6 @@ type CommunityPageCopy = {
   breadcrumb: { home: string; games: string }
   badges: { catalog: string; support: string }
   subscription: { title: string; description: string; popular: string; viewDetails: string }
-  configuration: { title: string; gpu: string; ram: string; cpu: string; support: string; supportValue: string }
   about: { title: string }
   featuresTitle: string
   benefits: { title: string; items: Array<{ title: string; description: string }> }
@@ -216,29 +215,6 @@ export default function CommunityGamingProductPage({ product }: CommunityGamingP
                         </div>
                       </motion.div>
                     </Link>
-                  ))}
-                </div>
-              </div>
-
-              <div className="space-y-3 pt-4 border-t border-white/10">
-                <h3 className="font-semibold text-lg">{copy.configuration.title}</h3>
-                <div className="grid grid-cols-2 gap-4 text-sm">
-                  {[
-                    { label: copy.configuration.gpu, value: variant.gpu },
-                    { label: copy.configuration.ram, value: variant.ram },
-                    { label: copy.configuration.cpu, value: variant.cpu },
-                    { label: copy.configuration.support, value: copy.configuration.supportValue }
-                  ].map((item, idx) => (
-                    <motion.div
-                      key={item.label}
-                      className="p-3 glass-effect rounded-lg"
-                      {...inViewScaleProps}
-                      transition={{ ...fadeTransition, delay: 0.25 + idx * 0.05 }}
-                      {...hoverLiftProps}
-                    >
-                      <span className="text-gray-400 text-xs block mb-1">{item.label}</span>
-                      <span className="text-white font-semibold">{item.value}</span>
-                    </motion.div>
                   ))}
                 </div>
               </div>

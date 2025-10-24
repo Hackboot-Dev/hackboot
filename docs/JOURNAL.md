@@ -2197,3 +2197,29 @@ if (hasDecimal) {
 #### État:
 ✅ Offre Dota 2 PulseForge alignée sur les métriques fournies
 ✅ Localisation FR/EN/ET opérationnelle avec onglets PulseForge Lobby et modules fair-play
+
+### Maintenance: Simplification de la page produit communautaire
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Supprimer la section « configuration standard » des pages produits communautaires conformément à la demande.
+- Conserver la mise en page actuelle (abonnements, description longue, avantages) et garantir la compatibilité i18n.
+- Mettre à jour la documentation centrale et le journal pour refléter le changement.
+
+#### Actions réalisées:
+1. Retrait de la grille configuration/support dans `components/CommunityGamingProductPage.tsx` et simplification du typage associé.
+2. Nettoyage des traductions FR/EN/ET dans `public/locales/*/common.json` afin de retirer les clés inutilisées.
+3. Mise à jour de `docs/README.md` et de ce journal pour détailler le comportement actualisé de la page communautaire.
+
+#### Fichiers modifiés:
+- `/components/CommunityGamingProductPage.tsx`
+- `/public/locales/en/common.json`
+- `/public/locales/et/common.json`
+- `/public/locales/fr/common.json`
+- `/docs/README.md`
+- `/docs/JOURNAL.md`
+
+#### État:
+✅ Page communautaire épurée (plus de section configuration locale)
+✅ Traductions synchronisées et documentation alignée

@@ -917,14 +917,6 @@
       "popular": "Most popular",
       "viewDetails": "View details"
     },
-    "configuration": {
-      "title": "Standard Configuration",
-      "gpu": "GPU",
-      "ram": "RAM",
-      "cpu": "CPU",
-      "support": "Support",
-      "supportValue": "Community"
-    },
     "about": {
       "title": "About {{productName}}"
     },
