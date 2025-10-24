@@ -2246,3 +2246,34 @@ if (hasDecimal) {
 #### État:
 ✅ Animations mobiles plus riches sur les deux headers
 ⚠️ Build Netlify toujours bloqué (module `framer-motion` absent côté environnement externe)
+
+### UI: Optimisation de la page Services premium
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Fluidifier les animations et arrière-plans de la page services tout en réduisant la charge GPU.
+- Corriger les soucis responsive (titre qui déborde, timeline difficile à utiliser sur mobile).
+- Adapter les interactions pour les terminaux tactiles et respecter `prefers-reduced-motion`.
+
+#### Actions réalisées:
+1. Réécriture de `ParticleBackground` avec détection mobile, respect de `prefers-reduced-motion`, gestion du DPR et connexions O(n) pour éviter les ralentissements.
+2. Migration d’`AnimatedCounter` vers `framer-motion.animate` en écriture directe pour supprimer les re-rendus successifs et appliquer un timing plus court.
+3. Mise à jour de `FlipCard3D` et `GlowingCard` pour différencier les pointeurs tactiles (tap pour retourner, glow statique) et ajuster les transitions.
+4. Amélioration de `InteractiveTimeline` (scroll horizontal, rôles ARIA, progression sécurisée) et révision du hero services pour une typographie responsive.
+5. Documentation synchronisée (`docs/README.md`, `docs/JOURNAL.md`) afin de refléter les optimisations et bonnes pratiques associées.
+
+#### Fichiers modifiés:
+- `/app/[locale]/services/page.tsx`
+- `/components/services/AnimatedCounter.tsx`
+- `/components/services/FlipCard3D.tsx`
+- `/components/services/GlowingCard.tsx`
+- `/components/services/InteractiveTimeline.tsx`
+- `/components/services/ParticleBackground.tsx`
+- `/docs/README.md`
+- `/docs/JOURNAL.md`
+
+#### État:
+✅ Animations et interactions fluides sur desktop & mobile
+✅ Titre hero contenu et timeline utilisable en responsive
+⚠️ Build Netlify toujours dépendant de `framer-motion` côté environnement distant

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import type { LucideIcon } from 'lucide-react'
@@ -25,6 +25,16 @@ export default function GlowingCard({
 }: GlowingCardProps) {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const cardRef = useRef<HTMLDivElement>(null)
+  const [isInteractive, setIsInteractive] = useState(false)
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const query = window.matchMedia('(hover: hover) and (pointer: fine)')
+    const update = () => setIsInteractive(query.matches)
+    update()
+    query.addEventListener('change', update)
+    return () => query.removeEventListener('change', update)
+  }, [])
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current) return
@@ -35,27 +45,32 @@ export default function GlowingCard({
     })
   }
 
+  const glowBackground = isInteractive
+    ? `radial-gradient(520px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(139, 92, 246, 0.16), transparent 45%)`
+    : 'radial-gradient(520px circle at 50% 50%, rgba(139, 92, 246, 0.12), transparent 55%)'
+
   return (
     <motion.div
       ref={cardRef}
-      onMouseMove={handleMouseMove}
+      onMouseMove={isInteractive ? handleMouseMove : undefined}
       className="relative glass-effect rounded-2xl p-8 border border-white/10 group overflow-hidden"
-      whileHover={{ scale: 1.02 }}
-      transition={{ duration: 0.2 }}
+      whileHover={isInteractive ? { scale: 1.015 } : undefined}
+      whileTap={!isInteractive ? { scale: 0.99 } : undefined}
+      transition={{ duration: 0.18, ease: 'easeOut' }}
     >
       {/* Glowing effect */}
       <div
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-        style={{
-          background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(139, 92, 246, 0.15), transparent 40%)`,
-        }}
+        className={`absolute inset-0 transition-opacity duration-300 pointer-events-none ${
+          isInteractive ? 'opacity-0 group-hover:opacity-100' : 'opacity-70'
+        }`}
+        style={{ background: glowBackground }}
       />
 
       <div className="relative z-10">
         <motion.div
           className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${gradient} flex items-center justify-center mb-6`}
-          whileHover={{ rotate: 360 }}
-          transition={{ duration: 0.6 }}
+          whileHover={isInteractive ? { rotate: 18, scale: 1.05 } : undefined}
+          transition={{ duration: 0.4, ease: 'easeOut' }}
         >
           <Icon className="w-8 h-8 text-white" />
         </motion.div>

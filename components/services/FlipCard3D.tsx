@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import type { LucideIcon } from 'lucide-react'
 import { CheckCircle2 } from 'lucide-react'
@@ -27,18 +27,58 @@ export default function FlipCard3D({
   highlights,
 }: FlipCard3DProps) {
   const [isFlipped, setIsFlipped] = useState(false)
+  const [isInteractive, setIsInteractive] = useState(false)
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const query = window.matchMedia('(hover: hover) and (pointer: fine)')
+    const update = () => setIsInteractive(query.matches)
+    update()
+    query.addEventListener('change', update)
+    return () => query.removeEventListener('change', update)
+  }, [])
+
+  const handlePointerEnter = () => {
+    if (isInteractive) {
+      setIsFlipped(true)
+    }
+  }
+
+  const handlePointerLeave = () => {
+    if (isInteractive) {
+      setIsFlipped(false)
+    }
+  }
+
+  const handleToggle = () => {
+    if (!isInteractive) {
+      setIsFlipped((prev) => !prev)
+    }
+  }
 
   return (
     <div
-      className="relative h-[400px] perspective-1000"
-      onMouseEnter={() => setIsFlipped(true)}
-      onMouseLeave={() => setIsFlipped(false)}
+      className={`relative perspective-1000 ${
+        isInteractive ? 'h-[420px]' : 'min-h-[420px]'
+      }`}
+      onMouseEnter={handlePointerEnter}
+      onMouseLeave={handlePointerLeave}
+      onClick={handleToggle}
+      onKeyDown={(event) => {
+        if (!isInteractive && (event.key === 'Enter' || event.key === ' ')) {
+          event.preventDefault()
+          handleToggle()
+        }
+      }}
+      role={isInteractive ? undefined : 'button'}
+      aria-pressed={isInteractive ? undefined : isFlipped}
+      tabIndex={isInteractive ? -1 : 0}
     >
       <motion.div
         className="relative w-full h-full"
         initial={false}
         animate={{ rotateY: isFlipped ? 180 : 0 }}
-        transition={{ duration: 0.6, type: 'spring', damping: 20 }}
+        transition={{ duration: 0.45, type: 'spring', damping: 22, stiffness: 180 }}
         style={{ transformStyle: 'preserve-3d' }}
       >
         {/* Front */}
@@ -53,9 +93,9 @@ export default function FlipCard3D({
           </div>
 
           <h3 className={`text-2xl font-black mb-2 ${iconColor}`}>{title}</h3>
-          <p className="text-sm text-gray-400 mb-4">{description}</p>
+          <p className="text-sm text-gray-400 mb-4 leading-relaxed">{description}</p>
 
-          <ul className="space-y-2">
+          <ul className="space-y-2 text-left">
             {bullets.map((bullet, idx) => (
               <li key={idx} className="flex items-start gap-2 text-sm text-gray-300">
                 <CheckCircle2
@@ -67,7 +107,7 @@ export default function FlipCard3D({
           </ul>
 
           <div className="mt-4 text-xs text-gray-500 text-center">
-            Survolez pour voir plus
+            {isInteractive ? 'Survolez pour voir plus' : 'Touchez pour explorer'}
           </div>
         </div>
 
@@ -98,7 +138,7 @@ export default function FlipCard3D({
           <h4 className={`text-sm font-bold mb-2 ${iconColor}`}>
             Fonctionnalités
           </h4>
-          <div className="space-y-1 max-h-[180px] overflow-y-auto custom-scrollbar">
+          <div className="space-y-1 max-h-[180px] overflow-y-auto custom-scrollbar pr-1">
             {highlights.slice(0, 6).map((highlight, idx) => (
               <div
                 key={idx}

@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { animate, motion, useInView } from 'framer-motion'
 
 interface AnimatedCounterProps {
   value: string
@@ -12,51 +12,85 @@ interface AnimatedCounterProps {
 export default function AnimatedCounter({
   value,
   label,
-  duration = 2,
+  duration = 1.25,
 }: AnimatedCounterProps) {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
+  const ref = useRef<HTMLDivElement | null>(null)
+  const textRef = useRef<HTMLSpanElement | null>(null)
+  const isInView = useInView(ref, { once: true, margin: '-50px' })
   const [displayValue, setDisplayValue] = useState(value)
 
   useEffect(() => {
-    if (!isInView) return
+    if (textRef.current) {
+      textRef.current.textContent = displayValue
+    }
+  }, [displayValue])
+
+  useEffect(() => {
+    if (!isInView) {
+      return
+    }
+
+    if (typeof window !== 'undefined') {
+      const prefersReducedMotion = window.matchMedia(
+        '(prefers-reduced-motion: reduce)',
+      )
+      if (prefersReducedMotion.matches) {
+        setDisplayValue(value)
+        if (textRef.current) {
+          textRef.current.textContent = value
+        }
+        return
+      }
+    }
 
     const numericValue = parseFloat(value.replace(/[^0-9.]/g, ''))
     const suffix = value.replace(/[0-9.]/g, '')
 
-    if (isNaN(numericValue)) {
+    if (Number.isNaN(numericValue)) {
       setDisplayValue(value)
+      if (textRef.current) {
+        textRef.current.textContent = value
+      }
       return
     }
 
-    let startTime: number | null = null
-    const animate = (currentTime: number) => {
-      if (!startTime) startTime = currentTime
-      const elapsed = currentTime - startTime
-      const progress = Math.min(elapsed / (duration * 1000), 1)
+    const controls = animate(0, numericValue, {
+      duration,
+      ease: 'easeOut',
+      onUpdate: (latest) => {
+        const rounded = Math.round(latest)
+        const formatted = `${rounded}${suffix}`
+        if (textRef.current) {
+          textRef.current.textContent = formatted
+        }
+      },
+      onComplete: () => {
+        setDisplayValue(value)
+        if (textRef.current) {
+          textRef.current.textContent = value
+        }
+      },
+    })
 
-      const currentValue = Math.floor(numericValue * progress)
-      setDisplayValue(`${currentValue}${suffix}`)
-
-      if (progress < 1) {
-        requestAnimationFrame(animate)
-      }
+    return () => {
+      controls.stop()
     }
-
-    requestAnimationFrame(animate)
-  }, [isInView, value, duration])
+  }, [duration, isInView, value])
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 16 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.35, ease: 'easeOut' }}
       className="glass-effect rounded-xl px-6 py-4 border border-white/10"
     >
-      <div className="text-3xl font-black bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-cyan-400">
+      <span
+        ref={textRef}
+        className="text-3xl font-black bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-cyan-400"
+      >
         {displayValue}
-      </div>
+      </span>
       <div className="text-sm text-gray-400 mt-1">{label}</div>
     </motion.div>
   )

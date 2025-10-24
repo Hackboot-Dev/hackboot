@@ -491,22 +491,22 @@ export default function ServicesPage() {
         />
       </div>
 
-      <div className="relative pt-32 pb-20" style={{ zIndex: 2 }}>
+      <div className="relative pt-28 pb-20" style={{ zIndex: 2 }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Hero Section */}
-          <div className="text-center mb-20 animate-scale-in">
+          <div className="text-center mb-16 animate-scale-in px-2 sm:px-0">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border border-purple-500/30 rounded-full mb-6">
               <Shield className="w-4 h-4 text-purple-400" />
               <span className="text-sm font-medium text-purple-300">{badge}</span>
             </div>
 
-            <h1 className="text-6xl md:text-8xl font-black mb-6">
+            <h1 className="max-w-5xl mx-auto text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.05] tracking-tight mb-6">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-cyan-400 to-emerald-400">
                 {title}
               </span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12">
+            <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12">
               {subtitle}
             </p>
 
@@ -543,7 +543,7 @@ export default function ServicesPage() {
           </div>
 
           {/* Flip Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20 animate-slide-up">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20 animate-slide-up auto-rows-fr">
             {pillars.map((pillar) => (
               <FlipCard3D
                 key={pillar.id}

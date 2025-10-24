@@ -113,6 +113,16 @@ Cette section résume le fonctionnement des pages produits cloud gaming : où so
 
 **Dernière action:** Ajout de l’offre native Dota 2 PulseForge et overrides de localisation FR/EN/ET (24/10/2025)
 
+## 🛠️ Page Services premium
+
+La page services (`app/[locale]/services/page.tsx`) combine plusieurs composants interactifs optimisés pour les appareils mobiles et desktop.
+
+- **Arrière-plan allégé** : `ParticleBackground` ajuste dynamiquement le nombre de particules selon la taille d’écran, respecte `prefers-reduced-motion` et recycle les connexions pour éviter les ralentissements.
+- **Cartes 3D adaptatives** : `FlipCard3D` bascule en mode « tap to flip » sur les terminaux tactiles et conserve les animations 3D uniquement sur les pointeurs précis.
+- **Cartes lumineuses** : `GlowingCard` réduit les effets coûteux sur mobile tout en conservant une lueur statique.
+- **Counters et timeline** : `AnimatedCounter` s’appuie sur `framer-motion.animate` pour animer les chiffres sans re-rendu massif, tandis que `InteractiveTimeline` devient scrollable horizontalement et accessible clavier.
+- **Mise en page responsive** : le hero ajuste la taille du titre (`text-4xl → text-8xl`) avec `tracking-tight` et `leading` resserrés pour éviter que le texte ne déborde sur les petits écrans.
+
 ---
 
 *Documentation maintenue selon les standards définis dans `/CLAUDE.md`*
