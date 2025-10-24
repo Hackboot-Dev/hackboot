@@ -78,13 +78,20 @@ export default function FlipCard3D({
         className="relative w-full h-full"
         initial={false}
         animate={{ rotateY: isFlipped ? 180 : 0 }}
-        transition={{ duration: 0.45, type: 'spring', damping: 22, stiffness: 180 }}
-        style={{ transformStyle: 'preserve-3d' }}
+        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+        style={{
+          transformStyle: 'preserve-3d',
+          transformPerspective: 1400,
+          willChange: 'transform',
+        }}
       >
         {/* Front */}
         <div
           className="absolute inset-0 backface-hidden glass-effect rounded-2xl p-6 border border-white/10"
-          style={{ backfaceVisibility: 'hidden' }}
+          style={{
+            backfaceVisibility: 'hidden',
+            pointerEvents: isFlipped ? 'none' : 'auto',
+          }}
         >
           <div
             className={`w-14 h-14 rounded-xl bg-gradient-to-br ${gradient} flex items-center justify-center mb-4`}
@@ -117,6 +124,7 @@ export default function FlipCard3D({
           style={{
             backfaceVisibility: 'hidden',
             transform: 'rotateY(180deg)',
+            pointerEvents: isFlipped ? 'auto' : 'none',
           }}
         >
           <h4 className={`text-xl font-black mb-4 ${iconColor}`}>Statistiques</h4>

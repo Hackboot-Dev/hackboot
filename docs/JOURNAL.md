@@ -2277,3 +2277,24 @@ if (hasDecimal) {
 ✅ Animations et interactions fluides sur desktop & mobile
 ✅ Titre hero contenu et timeline utilisable en responsive
 ⚠️ Build Netlify toujours dépendant de `framer-motion` côté environnement distant
+
+### UI: Stabilisation du flip 3D des cartes services
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Supprimer les glitches pendant l’animation de rotation des cartes 3D sur la page services.
+- Conserver l’expérience différenciée desktop/mobile sans modifier le design existant.
+
+#### Actions réalisées:
+1. Ajustement du composant `FlipCard3D` pour utiliser une transition easing maîtrisée, une perspective explicite et un `will-change` ciblé.
+2. Gestion des `pointer-events` côté recto/verso afin d’éviter les oscillations lors du flip sur desktop et tactile.
+3. Vérification du comportement accessibilité (toggle clavier) après refactor animation.
+
+#### Fichiers modifiés:
+- `/components/services/FlipCard3D.tsx`
+- `/docs/JOURNAL.md`
+
+#### État:
+✅ Animation fluide sans rebond parasite
+⚠️ Build Netlify toujours dépendant de `framer-motion` (environnement distant)
