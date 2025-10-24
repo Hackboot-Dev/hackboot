@@ -2173,3 +2173,27 @@ if (hasDecimal) {
 #### État:
 ✅ Offre Destiny 2 PulseForge alignée sur les métriques fournies
 ✅ Localisation FR/EN/ET opérationnelle avec onglets raids/Trials et PulseForge Lobby
+
+### Feature: PulseForge Dota 2 native build
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Déployer la fiche Dota 2 PulseForge avec les métriques Medium 405/380/300 FPS, l’option « CPU Boost » et les modules fair-play fournis.
+- Étendre les overrides de localisation FR/EN/ET pour refléter les avantages, l’expérience cloud et les onglets PulseForge Lobby (lane lab, warding planner, sandbox cosmétiques).
+- Actualiser la documentation centrale et ce journal afin de consigner l’arrivée de Dota 2 dans le catalogue natif.
+
+#### Actions réalisées:
+1. Remplacement de `gaming-dota2` dans `data/gaming-products.json` par la fiche PulseForge native (performances, suites tactiques, variante « Ancients »).
+2. Ajout de `localeOverridesByProduct['gaming-dota2']` dans `NativeGamingProductPage.tsx` pour injecter les textes FR/EN/ET (avantages, expérience cloud, variantes PulseForge Lobby).
+3. Mise à jour de `docs/README.md` et de ce journal pour référencer l’offre Dota 2 et la mise à jour des traductions.
+
+#### Fichiers modifiés:
+- `/data/gaming-products.json`
+- `/components/NativeGamingProductPage.tsx`
+- `/docs/README.md`
+- `/docs/JOURNAL.md`
+
+#### État:
+✅ Offre Dota 2 PulseForge alignée sur les métriques fournies
+✅ Localisation FR/EN/ET opérationnelle avec onglets PulseForge Lobby et modules fair-play

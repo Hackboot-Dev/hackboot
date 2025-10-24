@@ -4237,6 +4237,689 @@ const localeOverridesByProduct: Record<string, Record<LocaleKey, DeepPartial<Loc
         ]
       }
     }
+  },
+  'gaming-dota2': {
+    fr: {
+      nativeAdvantages: [
+        {
+          icon: Code,
+          title: 'Profil Dota 2 natif',
+          description: 'Stabilité CPU-bound et pipeline vidéo faible latence calibrés teamfight.'
+        },
+        {
+          icon: Zap,
+          title: 'Provisioning cloud instantané',
+          description: 'Instances Dota 2 prêtes en quelques secondes avec bascule région automatique.'
+        },
+        {
+          icon: Shield,
+          title: 'Overlays sobres fair-play',
+          description: 'Modules stream-safe basés sur HUD/son/killfeed sans aucune injection mémoire.'
+        },
+        {
+          icon: Trophy,
+          title: 'Sandbox PulseForge Lobby',
+          description: 'Lane lab, warding planner et cosmétiques partagés pour scrims et coaching.'
+        }
+      ],
+      metrics: {
+        title: 'Performances calibrées pour Dota 2',
+        description:
+          'Profil PulseForge Medium compétitif : 405 FPS de moyenne, 1% low à 310 FPS et pic à 470 FPS en 1080p. Les profils 1440p et 4K restent très fluides grâce à l’allocation CPU↔GPU et à l’overhead cloud contrôlé.',
+        statCards: {
+          maxFps: 'FPS maximum observé (1080p Medium)',
+          onePercentLow: 'Min observé (proxy 1% low, 1080p Medium)',
+          inputLag: 'Input lag moyen'
+        },
+        allocationTitle: 'Bottleneck dominant (profil Medium)',
+        datacenterTitle: 'Monitoring cloud PulseForge',
+        usage: {
+          cpu: 'Charge CPU',
+          gpu: 'Charge GPU',
+          ram: 'Mémoire utilisée',
+          vram: 'VRAM utilisée'
+        },
+        thermals: {
+          cpu: 'Température CPU cloud',
+          gpu: 'Température GPU',
+          power: 'Consommation électrique'
+        },
+        stabilityNote:
+          'Dota 2 reste majoritairement CPU-bound ; nos profils maintiennent la réserve nécessaire jusqu’en 4K tout en stabilisant les 1% low.'
+      },
+      fpsTable: {
+        footnote: 'Benchmarks internes Dota 2 (profil Medium compétitif, scrims 5v5 et pubs high MMR).'
+      },
+      resolution: {
+        title: 'Comment ajuster la résolution côté cloud',
+        description:
+          'Nos mesures traduisent la marge FPS réelle lorsque vous ajustez la définition depuis le panneau PulseForge.',
+        windowLabel: 'Fenêtre relevée',
+        footnote: 'Valeurs relevées sur presets Medium/Ultra Dota 2 avec overlays actifs.',
+        avgLabel: 'FPS moyen'
+      },
+      experience: {
+        description: (productName: string, latency: number) =>
+          `${productName} tourne entièrement sur notre infrastructure : provisioning instantané, routage adaptatif et latence stabilisée à ${latency} ms.`,
+        bullets: [
+          'Overlays, presets et mises à jour appliqués côté serveur — rien à installer localement.',
+          'Bascule 1080p/1440p/4K instantanée tout en respectant la fenêtre FPS mesurée.',
+          'Monitoring ping/jitter/pertes avec bascule automatique de région lors des tournois et scrims.'
+        ],
+        profileSubtitle: 'Moyenne mesurée en 1080p Medium',
+        lowLabel: 'Min observé 1080p Medium',
+        lowSubtitle: 'Fenêtre basse relevée'
+      },
+      improvement: { adviceTitle: 'Option « CPU Boost » (côté hôte)' },
+      augmentation: {
+        description: 'Modules tactiques sobres pour teamfights, macro économies et confort stream-safe.'
+      },
+      hero: {
+        badge: 'PROFILS PAR RÔLE',
+        title: 'Optimisations dédiées',
+        description: 'Chaque preset couvre les positions 1 à 5 avec feedback overlay dédié.',
+        headers: {
+          hero: 'Rôle',
+          overlay: 'Focus overlay',
+          clarity: 'Clarté visuelle',
+          preset: 'Preset conseillé',
+          notes: 'Notes coaching'
+        },
+        fallbackDescription: (game: string) => `Optimisations par rôle pour ${game}`
+      },
+      nativeReasons: {
+        description: (game: string) => `Optimisé de bout en bout pour ${game} avec overlays fair-play et sandbox scrims.`
+      },
+      product: {
+        description: 'Instance Dota 2 cloud native calibrée compétitif.',
+        longDescription:
+          'PulseForge Dota 2 vise une fréquence d’image stable tout en respectant le fair-play : overlays purement visuels, pipeline vidéo faible latence et sandbox PulseForge Lobby pour scrims et entraînements.',
+        variants: {
+          'pulseforge-dota2': {
+            name: 'PulseForge Dota 2 Ancients',
+            usage: 'Instance Dota 2 PulseForge',
+            description: 'Build cloud Dota 2 orienté compétitif avec overlays sobres et sandbox scrim.',
+            use_cases: [
+              'Ranked haut niveau et scrims',
+              'Coaching équipe et analyst desk',
+              'Production stream MOBA',
+              'Revues VOD stratégiques',
+              'Sandbox PulseForge Lobby'
+            ],
+            features: [
+              'Overlays modulaires stream-safe',
+              'Analyse post-match et exports timeline',
+              'Coach macro rotations & buybacks',
+              'Thèmes d’équipe PulseForge Lobby',
+              'Intégration multi-input clavier/souris/manette',
+              'Mises à jour synchronisées patch Dota 2',
+              'Compatibilité PulseForge Lobby sandbox'
+            ],
+            featureHighlights: [
+              'Public/Ranked – overlays purement visuels (HUD, audio, killfeed, minimap) sans lecture mémoire',
+              'PulseForge Lobby – cosmétiques partagés et sandbox lanes/warding pour tous les joueurs PulseForge'
+            ],
+            featureGroups: [
+              {
+                title: 'Modules tactiques publics',
+                items: [
+                  'Roshan/Aegis & Runes : rappels Aegis, Power/Bounty et alternance Day/Night.',
+                  'Stack & Pull Helper : minuteurs pull/stack affichés sur la carte.',
+                  'Buyback & Économie : suivi buybacks alliés, stocks smokes/dusts/TPs et rappels shop.',
+                  'Fight Timeline : suivi trades, alerte no-trade 3 s et man-advantage.',
+                  'Post-fight Digest : récap morts, ultis et TPs disponibles par camp.',
+                  'Focus HUD : masquage intelligent des stats toxiques pendant les fights.'
+                ]
+              },
+              {
+                title: 'Lisibilité & confort',
+                items: [
+                  'Audio Spatial Director : priorisation pas/TP/ult, ducking du bruit non critique.',
+                  'Color grading optionnel pour highlight spells critiques.',
+                  'Anti-tilt HUD avec prompts respiration entre fights.',
+                  'Support multi-moniteur pour analyst desk stream.',
+                  'Latency Guard : maintien du jitter et adaptation du buffer de stream.'
+                ]
+              },
+              {
+                title: 'PulseForge Lobby',
+                description: 'Options de jeu & d’entraînement (tous joueurs sur build PulseForge)',
+                items: [
+                  'Lane & Last-hit Lab : vagues scriptées, scoreboard CS delta et sandbox freeze/push.',
+                  'Warding Planner : plan sentries/obs par zone avec partage live coach/équipe.',
+                  'Draft & Role Rules : règles pos 1–5, rotations imposées et répétitions d’openings.',
+                  'Ghost-Run & Pathing : fantômes de rotations support/carry avec replays synchronisés.',
+                  'Cosmétiques partagés : kill-banners & emotes PulseForge visibles par le lobby PF.',
+                  'Caster Mode : HUD élargi, replays 8 s et marqueurs de fights stream-ready.'
+                ]
+              },
+              {
+                title: 'Pourquoi choisir notre build natif Dota 2 ?',
+                items: [
+                  'Intégration native synchronisée après chaque patch Valve.',
+                  'Conformité totale : overlays stream-safe, aucune assistance intrusive.',
+                  'Performances calibrées : ~405/380/300 FPS moyens avec réserve CPU.',
+                  'Support créatif : scrims outillés, analytics VOD et thèmes d’équipe PulseForge Lobby.'
+                ]
+              }
+            ],
+            implementationNotes: [
+              'En parties publiques, toutes les données proviennent uniquement du HUD, du son et du killfeed visibles.',
+              'Cosmétiques, sandbox lanes et stratboards sont réservés aux lobbies PulseForge avec build partagé.',
+              'Les overlays restent opt-in et se masquent lors des teamfights pour limiter le bruit visuel.'
+            ],
+            target_audience: 'Teams Dota 2, coachs, analystes',
+            highlight: 'Stabilité CPU-bound calibrée',
+            protection: 'Fair-play stream-safe certifié',
+            updates: 'Mises à jour synchronisées patch Dota 2'
+          }
+        }
+      },
+      technical: {
+        fpsByResolution: [
+          { playability: 'Très fluide', bottleneck: 'CPU (majoritaire)' },
+          { playability: 'Très fluide', bottleneck: 'CPU' },
+          { playability: 'Très fluide', bottleneck: 'Mixte (tendance CPU)' }
+        ],
+        resolutionGuidance: [
+          {
+            refreshAdvice: 'Cible 240–360 Hz',
+            description: 'Le profil 1080p Medium maintient ~405 FPS avec 1% low à ~310 FPS pour les teamfights denses.',
+            note: 'Conservez fps_max piloté par PulseForge pour lisser l’input-lag.'
+          },
+          {
+            refreshAdvice: 'Netteté + fréquence 240 Hz',
+            description: '1440p garde 300–440 FPS, idéal pour streaming et VOD détaillées.',
+            note: 'Maintenez Focus HUD actif pour éviter la surcharge visuelle en fight.'
+          },
+          {
+            refreshAdvice: '4K 200+ Hz jouable',
+            description: 'Même en 4K Medium (~300 FPS), l’expérience reste très fluide pour les showcases et coachings.',
+            note: 'Ultra (~260 FPS) convient aux reviews premium.'
+          }
+        ],
+        improvementTips: [
+          'Gardez V-Sync off, fps_max piloté par PulseForge et overlay limité aux modules essentiels en fight.',
+          'Baissez post-FX et ombres si vous ciblez un 1% low encore plus serré.',
+          'Le jeu étant CPU-bound, l’overclock contrôlé côté hôte améliore surtout les 1% low.'
+        ],
+        advice:
+          'Option « CPU Boost » : +5 % → ~410/312/476 FPS · +10 % → ~415/316/482 FPS · +15 % → ~422/323/490 FPS · +20 % → ~432/332/502 FPS (nœud Thermal-Premium requis).',
+        augmentationSuite: {
+          modules: [
+            'Roshan/Aegis & Runes : rappels non intrusifs (Aegis, Power/Bounty, Day/Night) basés sur l’horloge.',
+            'Stack & Pull Helper : minuteurs pull/stack par camp synchronisés sur l’horloge in-game.',
+            'Buyback & Économie : suivi buyback/économie alliée (smokes, dusts, TPs) sans infos ennemies cachées.',
+            'Fight Timeline : suivi trades & man-advantage avec alerte no-trade 3 s.',
+            'Post-fight Digest : récap morts/ult/TP par camp pour décider push ou retreat.',
+            'Audio Spatial Director : priorisation pas/TP/ult et ducking du bruit non critique.',
+            'Focus HUD : masquage intelligent des stats non pertinentes pendant 5–8 s critiques.'
+          ],
+          notes: 'Overlays rafraîchis jusqu’à 144 Hz, calibrés pour les teamfights Source 2 et conformes aux règles publiques.'
+        },
+        heroSynergy: [
+          { preset: 'Hyperfarm', coachingNotes: 'Timers stack, rappel buyback et lanes safe pour scaling mid/late.' },
+          { preset: 'Tempo', coachingNotes: 'Runes, rotations et Fight Timeline pour sécuriser les power spikes.' },
+          { preset: 'Pressure', coachingNotes: 'Rotation Coach, Post-fight Digest et prompts tower trades.' },
+          { preset: 'Playmaker', coachingNotes: 'Stack & Pull Helper, warding cues et Fight Timeline pour initier sans feed.' },
+          { preset: 'Vision', coachingNotes: 'Warding Planner, Buyback Economy et rappels smoke/dust.' }
+        ]
+      }
+    },
+    en: {
+      nativeAdvantages: [
+        {
+          icon: Code,
+          title: 'Native Dota 2 profile',
+          description: 'CPU-bound stability and low-latency video pipeline tuned for teamfights.'
+        },
+        {
+          icon: Zap,
+          title: 'Instant cloud provisioning',
+          description: 'Dota 2 instances spin up in seconds with automatic region failover.'
+        },
+        {
+          icon: Shield,
+          title: 'Fair-play overlay stack',
+          description: 'Stream-safe modules built from HUD/audio/killfeed with zero memory reads.'
+        },
+        {
+          icon: Trophy,
+          title: 'PulseForge Lobby sandbox',
+          description: 'Lane lab, warding planner, and shared cosmetics for scrims and coaching.'
+        }
+      ],
+      metrics: {
+        title: 'Calibrated performance for Dota 2',
+        description:
+          'PulseForge competitive Medium profile: 405 average FPS, 310 FPS 1% low proxy, and 470 FPS peaks at 1080p. The 1440p and 4K profiles stay very smooth thanks to CPU↔GPU allocation and controlled cloud overhead.',
+        statCards: {
+          maxFps: 'Max observed FPS (1080p Medium)',
+          onePercentLow: 'Min observed (1% low proxy, 1080p Medium)',
+          inputLag: 'Average input lag'
+        },
+        allocationTitle: 'Dominant bottleneck (Medium profile)',
+        datacenterTitle: 'PulseForge cloud monitoring',
+        usage: {
+          cpu: 'CPU load',
+          gpu: 'GPU load',
+          ram: 'Memory used',
+          vram: 'VRAM used'
+        },
+        thermals: {
+          cpu: 'Cloud CPU temperature',
+          gpu: 'GPU temperature',
+          power: 'Power draw'
+        },
+        stabilityNote:
+          'Dota 2 remains mostly CPU-bound; our profiles keep enough headroom up to 4K while stabilising 1% lows.'
+      },
+      fpsTable: {
+        footnote: 'Internal Dota 2 benchmarks (Medium competitive profile across 5v5 scrims and high-MMR pubs).'
+      },
+      resolution: {
+        title: 'How to adjust resolution from the cloud',
+        description:
+          'Our measurements reflect the real FPS headroom when you change resolution inside the PulseForge panel.',
+        windowLabel: 'Observed window',
+        footnote: 'Values captured on Dota 2 Medium/Ultra presets with overlays enabled.',
+        avgLabel: 'Average FPS'
+      },
+      experience: {
+        description: (productName: string, latency: number) =>
+          `${productName} runs entirely on our infrastructure: instant provisioning, adaptive routing, and latency held around ${latency} ms.`,
+        bullets: [
+          'Overlays, presets, and updates ship server-side—nothing to install locally.',
+          'Swap 1080p/1440p/4K instantly while staying within the measured FPS window.',
+          'Ping/jitter/loss monitoring with automatic region failover for tournaments and scrims.'
+        ],
+        profileSubtitle: 'Average recorded at 1080p Medium',
+        lowLabel: 'Observed minimum 1080p Medium',
+        lowSubtitle: 'Low-end window'
+      },
+      improvement: { adviceTitle: '“CPU Boost” option (host side)' },
+      augmentation: {
+        description: 'Minimal, fair-play tactical modules for teamfights, economy reads, and stream-safe comfort.'
+      },
+      hero: {
+        badge: 'ROLE PROFILES',
+        title: 'Dedicated optimisations',
+        description: 'Each preset covers positions 1 to 5 with role-specific overlay feedback.',
+        headers: {
+          hero: 'Role',
+          overlay: 'Overlay focus',
+          clarity: 'Visual clarity',
+          preset: 'Suggested preset',
+          notes: 'Coaching notes'
+        },
+        fallbackDescription: (game: string) => `Role-based optimisations for ${game}`
+      },
+      nativeReasons: {
+        description: (game: string) => `End-to-end optimisation for ${game} with fair-play overlays and scrim sandbox.`
+      },
+      product: {
+        description: 'Native Dota 2 cloud instance tuned for competitive play.',
+        longDescription:
+          'PulseForge Dota 2 targets extreme frame rates while staying fair-play: overlays remain purely visual, the video pipeline stays low-latency, and the PulseForge Lobby sandbox powers scrims and training.',
+        variants: {
+          'pulseforge-dota2': {
+            name: 'PulseForge Dota 2 Ancients',
+            usage: 'PulseForge Dota 2 instance',
+            description: 'Competitive cloud build with minimalist overlays and full scrim sandbox.',
+            use_cases: [
+              'High-level ranked and scrims',
+              'Team coaching and analyst desks',
+              'MOBA stream production',
+              'Strategic VOD reviews',
+              'PulseForge Lobby sandbox'
+            ],
+            features: [
+              'Stream-safe modular overlays',
+              'Post-match analysis and timeline exports',
+              'Macro coaching for rotations and buybacks',
+              'PulseForge Lobby team themes',
+              'Multi-input integration (mouse/keyboard, controller)',
+              'Patch-synchronised Dota 2 updates',
+              'PulseForge Lobby sandbox compatibility'
+            ],
+            featureHighlights: [
+              'Public/Ranked – overlays stay purely visual (HUD, audio, killfeed, minimap) with no memory access',
+              'PulseForge Lobby – shared cosmetics plus lane/warding sandbox for every PulseForge player'
+            ],
+            featureGroups: [
+              {
+                title: 'Public tactical modules',
+                items: [
+                  'Roshan/Aegis & Runes: Aegis, Power/Bounty, and Day/Night reminders.',
+                  'Stack & Pull Helper: on-screen stack/pull timers per camp.',
+                  'Buyback & Economy: allied buyback tracker, smoke/dust/TP stocks, and shop reminders.',
+                  'Fight Timeline: trade tracking with 3 s no-trade alerts and advantage reads.',
+                  'Post-fight Digest: deaths, ultimates, and TP availability by team.',
+                  'Focus HUD: hides distracting stats during fights.'
+                ]
+              },
+              {
+                title: 'Readability & comfort',
+                items: [
+                  'Audio Spatial Director: prioritised footsteps/TP/ult cues with ducking.',
+                  'Optional colour grading to highlight critical spells.',
+                  'Anti-tilt HUD with breathing prompts between fights.',
+                  'Multi-monitor support for analyst desk streams.',
+                  'Latency Guard: jitter control and adaptive stream buffer.'
+                ]
+              },
+              {
+                title: 'PulseForge Lobby',
+                description: 'Practice options when every player runs the PulseForge build',
+                items: [
+                  'Lane & Last-hit Lab: scripted waves, CS delta scoreboard, freeze/push sandbox.',
+                  'Warding Planner: shared sentry/obs plans with live coach collaboration.',
+                  'Draft & Role Rules: enforced pos1–5 rules, rotation drills, and opening rehearsals.',
+                  'Ghost-Run & Pathing: ghosts of support/carry rotations with synced replays.',
+                  'Shared cosmetics: PulseForge kill banners and emotes visible to the lobby.',
+                  'Caster Mode: expanded HUD, 8 s instant replays, and fight markers ready for broadcast.'
+                ]
+              },
+              {
+                title: 'Why choose our native Dota 2 build?',
+                items: [
+                  'Native integration refreshed after every Valve patch.',
+                  'Full compliance: stream-safe overlays with no intrusive assistance.',
+                  'Calibrated performance: ~405/380/300 average FPS with CPU headroom.',
+                  'Creative support: tooled scrims, VOD analytics, and PulseForge Lobby themes.'
+                ]
+              }
+            ],
+            implementationNotes: [
+              'In public/ranked games, data comes only from visible HUD, audio, and killfeed.',
+              'Cosmetics, lane sandbox, and stratboards stay exclusive to PulseForge Lobby sessions.',
+              'Overlays remain opt-in and auto-hide during heavy teamfight moments.'
+            ],
+            target_audience: 'Dota 2 teams, coaches, analysts',
+            highlight: 'Calibrated CPU-bound stability',
+            protection: 'Certified stream-safe fair play',
+            updates: 'Patch-synchronised Dota 2 updates'
+          }
+        }
+      },
+      technical: {
+        fpsByResolution: [
+          { playability: 'Very smooth', bottleneck: 'CPU (majority)' },
+          { playability: 'Very smooth', bottleneck: 'CPU' },
+          { playability: 'Very smooth', bottleneck: 'Mixed (CPU-leaning)' }
+        ],
+        resolutionGuidance: [
+          {
+            refreshAdvice: 'Target 240–360 Hz',
+            description: 'The 1080p Medium profile holds ~405 FPS with ~310 FPS 1% lows for intense teamfights.',
+            note: 'Let PulseForge control fps_max to keep input latency tight.'
+          },
+          {
+            refreshAdvice: 'Sharpness + 240 Hz balance',
+            description: '1440p sustains 300–440 FPS, ideal for streaming and detailed VODs.',
+            note: 'Keep Focus HUD active to avoid clutter during fights.'
+          },
+          {
+            refreshAdvice: 'Playable 4K above 200 Hz',
+            description: 'Even at 4K Medium (~300 FPS), the experience stays snappy for showcases and coaching.',
+            note: 'Ultra (~260 FPS) suits premium reviews and broadcast capture.'
+          }
+        ],
+        improvementTips: [
+          'Keep V-Sync off, let PulseForge drive fps_max, and only enable essential overlays during fights.',
+          'Lower post-FX and shadows if you want even tighter 1% lows.',
+          'Because the game is CPU-bound, host-side overclocking mostly helps the 1% lows.'
+        ],
+        advice:
+          '“CPU Boost” option: +5% → ~410/312/476 FPS · +10% → ~415/316/482 FPS · +15% → ~422/323/490 FPS · +20% → ~432/332/502 FPS (requires a Thermal-Premium node).',
+        augmentationSuite: {
+          modules: [
+            'Roshan/Aegis & Runes: non-intrusive reminders (Aegis, Power/Bounty, Day/Night) keyed to the clock.',
+            'Stack & Pull Helper: synced stack/pull timers per camp using the in-game clock.',
+            'Buyback & Economy: allied buyback tracker plus smoke/dust/TP stock without enemy leaks.',
+            'Fight Timeline: trade tracking with 3 s no-trade alerts and advantage calls.',
+            'Post-fight Digest: deaths/ultimates/TPs summarised per side for push vs retreat decisions.',
+            'Audio Spatial Director: prioritised footsteps/TP/ult cues with noise ducking.',
+            'Focus HUD: context-aware stat hiding during the 5–8 s critical windows.'
+          ],
+          notes: 'Overlays refresh up to 144 Hz, tuned for Source 2 teamfights and public-rule compliance.'
+        },
+        heroSynergy: [
+          { preset: 'Hyperfarm', coachingNotes: 'Stack timers, buyback reminders, and safe lanes for mid/late scaling.' },
+          { preset: 'Tempo', coachingNotes: 'Rune tracking, rotations, and Fight Timeline to secure power spikes.' },
+          { preset: 'Pressure', coachingNotes: 'Rotation guidance, post-fight digest, and tower trade prompts.' },
+          { preset: 'Playmaker', coachingNotes: 'Stack & Pull Helper, ward cues, and Fight Timeline to engage cleanly.' },
+          { preset: 'Vision', coachingNotes: 'Warding Planner, buyback economy, and smoke/dust reminders.' }
+        ]
+      }
+    },
+    et: {
+      nativeAdvantages: [
+        {
+          icon: Code,
+          title: 'Dota 2 natiivprofiil',
+          description: 'CPU-põhine stabiilsus ja madala latentsusega videotoru, mis on häälestatud teamfight’ideks.'
+        },
+        {
+          icon: Zap,
+          title: 'Kohene pilveprovisioneerimine',
+          description: 'Dota 2 instantsid käivitatakse sekunditega, piirkonna automaatne vahetus pingist lähtuvalt.'
+        },
+        {
+          icon: Shield,
+          title: 'Fair-play overlay pakett',
+          description: 'Stream-safe moodulid, mis tuginevad HUDile/helile/killfeedile ilma mälu lugemata.'
+        },
+        {
+          icon: Trophy,
+          title: 'PulseForge Lobby liivakast',
+          description: 'Lane lab, wardingu planner ja jagatud kosmeetika scrimideks ning coachinguks.'
+        }
+      ],
+      metrics: {
+        title: 'Kalibreeritud jõudlus Dota 2 jaoks',
+        description:
+          'PulseForge’i Medium konkurentsiprofiil: keskmiselt 405 FPS, 1% low umbes 310 FPS ja tipud 470 FPS 1080p juures. 1440p ja 4K profiilid püsivad väga sujuvad tänu CPU↔GPU jaotusele ja kontrollitud pilve overhead’ile.',
+        statCards: {
+          maxFps: 'Maksimaalne täheldatud FPS (1080p Medium)',
+          onePercentLow: 'Min täheldatud (1% low proxy, 1080p Medium)',
+          inputLag: 'Keskmine sisendviivitus'
+        },
+        allocationTitle: 'Domineeriv pudelkits (Medium profiil)',
+        datacenterTitle: 'PulseForge’i pilvemonitoring',
+        usage: {
+          cpu: 'CPU koormus',
+          gpu: 'GPU koormus',
+          ram: 'Mälu kasutus',
+          vram: 'VRAM kasutus'
+        },
+        thermals: {
+          cpu: 'Pilve CPU temperatuur',
+          gpu: 'GPU temperatuur',
+          power: 'Voolutarve'
+        },
+        stabilityNote:
+          'Dota 2 on valdavalt CPU-põhine; meie profiilid hoiavad varu kuni 4K resolutsioonini ja stabiliseerivad 1% low väärtused.'
+      },
+      fpsTable: {
+        footnote: 'Sisemised Dota 2 testid (Medium konkurentsiprofiil 5v5 scrimidel ja kõrge MMR pubides).'
+      },
+      resolution: {
+        title: 'Kuidas pilves resolutsiooni kohandada',
+        description:
+          'Mõõtmised näitavad tegelikku FPS varu, kui muudate resolutsiooni PulseForge’i paneelist.',
+        windowLabel: 'Täheldatud aken',
+        footnote: 'Väärtused Medium/Ultra presetitel koos overlaydega.',
+        avgLabel: 'Keskmine FPS'
+      },
+      experience: {
+        description: (productName: string, latency: number) =>
+          `${productName} töötab täielikult meie infrastruktuuris: kohene provisioning, adaptiivne ruuting ja latentsus hoitud umbes ${latency} ms juures.`,
+        bullets: [
+          'Overlayd, presetid ja uuendused tulevad serveri kaudu — lokaalne paigaldus puudub.',
+          'Vaheta 1080p/1440p/4K kohe, püsides mõõdetud FPS aknas.',
+          'Ping/jitter/loss monitooring automaatse regiooni vahetusega turniirideks ja scrimideks.'
+        ],
+        profileSubtitle: 'Keskmine väärtus 1080p Medium profiilil',
+        lowLabel: 'Min täheldatud 1080p Medium',
+        lowSubtitle: 'Madalaim aken'
+      },
+      improvement: { adviceTitle: '„CPU Boost” valik (hosti pool)' },
+      augmentation: {
+        description: 'Minimalistlikud, fair-play taktikamoodulid teamfight’ideks, majanduse lugemiseks ja stream-safe mugavuseks.'
+      },
+      hero: {
+        badge: 'ROLLIPÕHISED PROFIILID',
+        title: 'Pühendatud optimeerimised',
+        description: 'Iga preset katab positsioonid 1–5 rollipõhise overlay tagasisidega.',
+        headers: {
+          hero: 'Roll',
+          overlay: 'Overlay fookus',
+          clarity: 'Visuaalne selgus',
+          preset: 'Soovitatud preset',
+          notes: 'Coaching märkused'
+        },
+        fallbackDescription: (game: string) => `Rollipõhised optimeerimised mängule ${game}`
+      },
+      nativeReasons: {
+        description: (game: string) => `Täielikult optimeeritud ${game} lahendus fair-play overlayde ja scrim-liivakastiga.`
+      },
+      product: {
+        description: 'Natiivne Dota 2 pilveinstants, mis on häälestatud konkurentsimänguks.',
+        longDescription:
+          'PulseForge Dota 2 sihib väga kõrgeid kaadrisagedusi jäädes samas fair-play reeglitele truuks: overlayd on puhtalt visuaalsed, videotoru hoiab madalat latentsust ja PulseForge Lobby liivakast katab scrimid ning treeningud.',
+        variants: {
+          'pulseforge-dota2': {
+            name: 'PulseForge Dota 2 Ancients',
+            usage: 'PulseForge’i Dota 2 instants',
+            description: 'Konkurentsile suunatud pilvebuild minimalistlike overlayde ja täisliivakastiga.',
+            use_cases: [
+              'Kõrgetasemeline ranked ja scrimid',
+              'Tiimitreening ja analüütikute töö',
+              'MOBA striimitootmine',
+              'Strateegilised VOD-ülevaated',
+              'PulseForge Lobby liivakast'
+            ],
+            features: [
+              'Stream-safe modulaarsed overlayd',
+              'Post-matši analüüs ja timeline’i eksport',
+              'Makro coaching rotatsioonide ja buyback’ide jaoks',
+              'PulseForge Lobby tiimiteemad',
+              'Multi-input integratsioon (klaviatuur/hiir, kontroller)',
+              'Patchidega sünkroonis Dota 2 uuendused',
+              'PulseForge Lobby liivakasti tugi'
+            ],
+            featureHighlights: [
+              'Avalik/ranked – overlayd on puhtalt visuaalsed (HUD, audio, killfeed, minimapp) ilma mälu lugemata',
+              'PulseForge Lobby – jagatud kosmeetika ja lane/wardingu liivakast kõikidele PulseForge’i mängijatele'
+            ],
+            featureGroups: [
+              {
+                title: 'Avalikud taktikamoodulid',
+                items: [
+                  'Roshan/Aegis & Runes: Aegise, Power/Bounty rune’ide ja Day/Night meeldetuletused.',
+                  'Stack & Pull Helper: laagripõhised stack/pull taimerid ekraanil.',
+                  'Buyback & Economy: liitlaste buyback jälgija, smoke/dust/TP varud ja poe meeldetuletused.',
+                  'Fight Timeline: trade’ide jälgimine, 3 s no-trade hoiatused ja eelisinfo.',
+                  'Post-fight Digest: surmad, ulti’d ja TP-d mõlema poole kohta.',
+                  'Focus HUD: peidab häirivad statistilised näidikud võitluse ajal.'
+                ]
+              },
+              {
+                title: 'Loetavus ja mugavus',
+                items: [
+                  'Audio Spatial Director: eelistab samme/TP/ult helisid ja summutab müra.',
+                  'Valikuline värvikorrektsioon kriitiliste loitsude esiletõstmiseks.',
+                  'Anti-tilt HUD hingamispromptidega võitluste vahel.',
+                  'Mitme monitori tugi analüütikute striimidele.',
+                  'Latency Guard: kontrollib jitterit ja kohandab striimi puhvrit.'
+                ]
+              },
+              {
+                title: 'PulseForge Lobby',
+                description: 'Harjutusvõimalused, kui kõik mängijad on PulseForge’i buildil',
+                items: [
+                  'Lane & Last-hit Lab: skriptitud lained, CS delta tabel ja freeze/push liivakast.',
+                  'Warding Planner: jagatud sentry/obs plaanid koos live coach’iga.',
+                  'Draft & Role Rules: pos1–5 reeglid, rotatsiooni harjutused ja avangute kordused.',
+                  'Ghost-Run & Pathing: tugi/kandja rotatsioonide “kummitused” sünkroniseeritud taasesitusega.',
+                  'Jagatud kosmeetika: PulseForge’i kill-bannerid ja emotsioonid nähtavad kogu lobbys.',
+                  'Caster Mode: laiendatud HUD, 8 s kohesed kordused ja võitluse markerid ülekandeks.'
+                ]
+              },
+              {
+                title: 'Miks valida meie natiivne Dota 2 build?',
+                items: [
+                  'Natiivne integratsioon, värskendatud pärast iga Valve patchi.',
+                  'Täielik vastavus: stream-safe overlayd, intrusiivseid abisid pole.',
+                  'Kalibreeritud jõudlus: ~405/380/300 FPS keskmiselt koos CPU varuga.',
+                  'Loov tugi: scrimid, VOD analüütika ja PulseForge Lobby tiimiteemad.'
+                ]
+              }
+            ],
+            implementationNotes: [
+              'Avalikes/ranked mängudes pärinevad andmed ainult nähtavast HUDist, helist ja killfeedist.',
+              'Kosmeetika, lane-liivakast ja stratboardid on eksklusiivsed PulseForge Lobby seanssidele.',
+              'Overlayd on opt-in ja peituvad automaatselt intensiivsete teamfight’ide ajal.'
+            ],
+            target_audience: 'Dota 2 tiimid, coach’id, analüütikud',
+            highlight: 'Häälestatud CPU-põhine stabiilsus',
+            protection: 'Sertifitseeritud stream-safe fair play',
+            updates: 'Patchidega sünkroonis Dota 2 uuendused'
+          }
+        }
+      },
+      technical: {
+        fpsByResolution: [
+          { playability: 'Väga sujuv', bottleneck: 'CPU (enamus)' },
+          { playability: 'Väga sujuv', bottleneck: 'CPU' },
+          { playability: 'Väga sujuv', bottleneck: 'Segapudelkael (CPU eelis)' }
+        ],
+        resolutionGuidance: [
+          {
+            refreshAdvice: 'Siht 240–360 Hz',
+            description: '1080p Medium hoiab ~405 FPS ja ~310 FPS 1% low väärtusi tihedate teamfight’ide jaoks.',
+            note: 'Lase PulseForge’il juhtida fps_max seadet, et hoida input viivitus madal.'
+          },
+          {
+            refreshAdvice: 'Teravus + 240 Hz tasakaal',
+            description: '1440p säilitab 300–440 FPS ja sobib suurepäraselt striimide ja detailsete VODide jaoks.',
+            note: 'Hoia Focus HUD aktiivne, et vältida ekraanikära võitluses.'
+          },
+          {
+            refreshAdvice: 'Mängitav 4K üle 200 Hz',
+            description: '4K Medium (~300 FPS) püsib väga reageeriv showcase’ideks ja coachinguks.',
+            note: 'Ultra (~260 FPS) sobib premium-ülekannete ja analüüside jaoks.'
+          }
+        ],
+        improvementTips: [
+          'Hoia V-Sync väljas, lase PulseForge’il juhtida fps_max’i ja aktiveeri vaid vajalikud overlayd võitluse ajal.',
+          'Vähenda post-FX ja varje, kui soovid veel stabiilsemat 1% low väärtust.',
+          'Kuna mäng on CPU-põhine, aitab hosti poolne ülekiirendus peamiselt 1% low väärtusi.'
+        ],
+        advice:
+          '„CPU Boost” valik: +5% → ~410/312/476 FPS · +10% → ~415/316/482 FPS · +15% → ~422/323/490 FPS · +20% → ~432/332/502 FPS (vajab Thermal-Premium sõlme).',
+        augmentationSuite: {
+          modules: [
+            'Roshan/Aegis & Runes: mitteintrusiivsed meeldetuletused (Aegis, Power/Bounty, Day/Night) mängukella järgi.',
+            'Stack & Pull Helper: sünkroonitud stack/pull taimerid iga laagri kohta.',
+            'Buyback & Economy: liitlaste buyback’i ja tarvikute (smoke, dust, TP) jälgimine ilma vastase infot lekitamata.',
+            'Fight Timeline: trade’ide jälgimine koos 3 s no-trade hoiatustega ja eelisinfoga.',
+            'Post-fight Digest: surmad/ultid/TP-d mõlema poole kohta push vs retreat otsusteks.',
+            'Audio Spatial Director: eelistatud sammude/TP/ult helid mürasummutusega.',
+            'Focus HUD: peidab kontekstuaalselt mittevajalikud näitajad 5–8 kriitilise sekundi jooksul.'
+          ],
+          notes: 'Overlayd värskenevad kuni 144 Hz, häälestatud Source 2 teamfight’idele ja avalikele reeglitele.'
+        },
+        heroSynergy: [
+          { preset: 'Hyperfarm', coachingNotes: 'Stacki taimerid, buyback’i meeldetuletused ja turvalised rajad mid/late skaleerimiseks.' },
+          { preset: 'Tempo', coachingNotes: 'Rune jälgimine, rotatsioonid ja Fight Timeline power spike’ide kindlustamiseks.' },
+          { preset: 'Pressure', coachingNotes: 'Rotatsiooni juhendid, post-fight kokkuvõtted ja tower trade soovitused.' },
+          { preset: 'Playmaker', coachingNotes: 'Stack & Pull Helper, wardingu vihjed ja Fight Timeline puhaste engage’ide jaoks.' },
+          { preset: 'Vision', coachingNotes: 'Warding Planner, buyback majandus ja smoke/dust meeldetuletused.' }
+        ]
+      }
+    }
   }
 }
 

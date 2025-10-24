@@ -1728,60 +1728,316 @@
   {
     "id": "gaming-dota2",
     "slug": "gaming-dota2",
-    "name": "Dota 2",
+    "name": "Dota 2 PulseForge",
     "game": "Dota 2",
     "category": "gaming",
     "optimizationLevel": "native",
-    "description": "Solution Dota 2 professionnelle avec scripts avancés et map awareness",
-    "longDescription": "Dota 2 God Mode est conçu pour les joueurs exigeants. RTX 4070 Ti, 64GB RAM et Intel i9-12900K garantissent des performances fluides. Build privé avec scripts personnalisés et protection VAC.",
+    "description": "Instance cloud Dota 2 calibrée compétitif avec overlays fair-play et sandbox scrim.",
+    "longDescription": "PulseForge pour Dota 2 est un build natif hébergé sur notre cloud gaming. Il cible une fréquence d’image stable avec des 1% low serrés en teamfight tout en respectant strictement le fair-play grâce à des overlays purement visuels et un pipeline vidéo faible latence.",
     "status": "ACTIVE",
+    "technicalSpecs": {
+      "performanceMetrics": {
+        "avgFps": 405,
+        "minFps": 310,
+        "maxFps": 470,
+        "onePercentLow": 310,
+        "latency": 0.95,
+        "inputLag": 0.25,
+        "frameTime": 2.1,
+        "cpuUsage": 78,
+        "gpuUsage": 45,
+        "ramUsage": 16.2,
+        "vramUsage": 7.4,
+        "powerDraw": 315,
+        "thermalCpu": 60,
+        "thermalGpu": 55
+      },
+      "augmentationSuite": {
+        "awarenessIndex": 93,
+        "overlayRefresh": 144,
+        "adaptiveCoaching": 89,
+        "reactionTimeMs": 41,
+        "moduleCoverage": 12,
+        "tacticalFocus": 94,
+        "modules": [
+          "Roshan/Aegis & Runes : rappels non intrusifs (Aegis, Power/Bounty, Day/Night) basés sur l’horloge à l’écran.",
+          "Stack & Pull Helper : minuteurs de pull/stack par camp synchronisés sur l’horloge in-game.",
+          "Buyback & Économie : suivi de votre buyback, de l’économie d’équipe (smokes, dusts, TPs) sans infos ennemies cachées.",
+          "Fight Timeline : suivi trades & man-advantage dès le premier kill avec alerte no-trade 3 s.",
+          "Post-fight Digest : récap mort/ult/TP par camp pour décider push ou retreat.",
+          "Audio Spatial Director : priorisation pas/TP/ult sonores avec ducking du bruit non critique.",
+          "Focus HUD : masquage intelligent des stats non pertinentes pendant 5–8 s critiques."
+        ],
+        "notes": "Overlays rafraîchis jusqu’à 144 Hz, calibrés pour les teamfights Source 2 et conformes aux règles publiques."
+      },
+      "fpsByResolution": [
+        {
+          "resolution": "1920 × 1080",
+          "avgFps": 405,
+          "minFps": 310,
+          "maxFps": 470,
+          "playability": "Très fluide",
+          "bottleneck": "CPU (majoritaire)"
+        },
+        {
+          "resolution": "2560 × 1440",
+          "avgFps": 380,
+          "minFps": 300,
+          "maxFps": 440,
+          "playability": "Très fluide",
+          "bottleneck": "CPU"
+        },
+        {
+          "resolution": "3840 × 2160",
+          "avgFps": 300,
+          "minFps": 250,
+          "maxFps": 340,
+          "playability": "Très fluide",
+          "bottleneck": "Mixte (tendance CPU)"
+        }
+      ],
+      "qualityBreakdown": [
+        {
+          "resolution": "1920 × 1080",
+          "presets": {
+            "low": 440,
+            "medium": 405,
+            "high": 385,
+            "ultra": 360
+          }
+        },
+        {
+          "resolution": "2560 × 1440",
+          "presets": {
+            "low": 410,
+            "medium": 380,
+            "high": 355,
+            "ultra": 330
+          }
+        },
+        {
+          "resolution": "3840 × 2160",
+          "presets": {
+            "low": 320,
+            "medium": 300,
+            "high": 280,
+            "ultra": 260
+          }
+        }
+      ],
+      "resolutionGuidance": [
+        {
+          "resolution": "1920 × 1080",
+          "avgFps": 405,
+          "fpsWindow": "310 – 470 FPS",
+          "refreshAdvice": "Cible 240–360 Hz compétitif",
+          "description": "Idéal pour teamfights denses ; 1% low stables avec marge confortable même en High.",
+          "note": "Conservez fps_max piloté par PulseForge pour lisser l’input-lag."
+        },
+        {
+          "resolution": "2560 × 1440",
+          "avgFps": 380,
+          "fpsWindow": "300 – 440 FPS",
+          "refreshAdvice": "Netteté + fréquence 240 Hz",
+          "description": "Parfait pour streaming et VOD détaillées tout en gardant le snap Source 2.",
+          "note": "Maintenez Focus HUD actif pour éviter la surcharge visuelle en fight."
+        },
+        {
+          "resolution": "3840 × 2160",
+          "avgFps": 300,
+          "fpsWindow": "250 – 340 FPS",
+          "refreshAdvice": "4K 200+ Hz jouable",
+          "description": "Mode showcase/coach : l’écart reste contenu car le jeu reste surtout CPU-limited.",
+          "note": "Parfait pour analyses spectateur et contenu premium."
+        }
+      ],
+      "improvementTips": [
+        "Gardez V-Sync off, fps_max piloté par PulseForge et overlay limité aux modules essentiels en fight.",
+        "Baissez post-FX et ombres si vous ciblez un 1% low encore plus serré.",
+        "Le jeu étant CPU-bound, l’overclock contrôlé côté hôte améliore surtout les 1% low."
+      ],
+      "advice": "Option « CPU Boost » (1080p) : +5 % → ~410/312/476 FPS · +10 % → ~415/316/482 FPS · +15 % → ~422/323/490 FPS · +20 % → ~432/332/502 FPS (nœud Thermal-Premium requis).",
+      "heroSynergy": [
+        {
+          "hero": "Carry (Pos 1)",
+          "overlayFocus": 92,
+          "clarityBoost": 90,
+          "preset": "Hyperfarm",
+          "coachingNotes": "Timers stack, rappel buyback et lanes safe pour scaling mid/late."
+        },
+        {
+          "hero": "Mid (Pos 2)",
+          "overlayFocus": 94,
+          "clarityBoost": 91,
+          "preset": "Tempo",
+          "coachingNotes": "Runes, rotations et Fight Timeline pour sécuriser les power spikes."
+        },
+        {
+          "hero": "Offlane (Pos 3)",
+          "overlayFocus": 90,
+          "clarityBoost": 88,
+          "preset": "Pressure",
+          "coachingNotes": "Rotation Coach, Post-fight Digest et prompts tower trades."
+        },
+        {
+          "hero": "Soft Support (Pos 4)",
+          "overlayFocus": 91,
+          "clarityBoost": 89,
+          "preset": "Playmaker",
+          "coachingNotes": "Stack & Pull Helper, warding cues et Fight Timeline pour initier sans feed."
+        },
+        {
+          "hero": "Hard Support (Pos 5)",
+          "overlayFocus": 93,
+          "clarityBoost": 92,
+          "preset": "Vision",
+          "coachingNotes": "Warding Planner, Buyback Economy et prompts smoke/dust."
+        }
+      ],
+      "networkStats": {
+        "serverLocations": 21,
+        "avgPing": 16,
+        "maxBandwidth": 980,
+        "packetLoss": 0.18,
+        "jitter": 2.6,
+        "ddosProtection": true,
+        "encryption": "TLS 1.3 + SRTP"
+      },
+      "securityMetrics": {
+        "detectionRate": 0,
+        "banRate": 0.06,
+        "uptimePercentage": 99.97,
+        "avgResponseTime": 5,
+        "incidentsLastMonth": 0,
+        "securityUpdatesPerWeek": 5,
+        "encryptionLevel": "AES-256",
+        "obfuscationLayers": 4,
+        "antiDebug": true,
+        "antiVM": true,
+        "kernelProtection": true
+      },
+      "updateHistory": {
+        "totalUpdates": 133,
+        "lastUpdateDate": "2025-03-07",
+        "avgUpdatesPerMonth": 4.8,
+        "criticalPatches": 6,
+        "securityPatches": 38,
+        "featureUpdates": 49,
+        "bugFixes": 40
+      },
+      "userStats": {
+        "totalUsers": 5480,
+        "activeUsersLast30Days": 4212,
+        "avgSessionDuration": 3.6,
+        "avgGamesPerDay": 4.7,
+        "satisfactionScore": 4.7,
+        "recommendationRate": 87
+      }
+    },
     "variants": [
       {
-        "id": "godmode",
-        "name": "God Mode",
+        "id": "pulseforge-dota2",
+        "name": "PulseForge Dota 2 Ancients",
         "tier": "premium",
-        "gpu": "RTX 4070 Ti",
-        "ram": "64 GB DDR5",
-        "cpu": "Intel i9-12900K",
-        "usage": "Build privé",
-        "description": "Solution Dota 2 professionnelle avec scripts avancés et map awareness",
+        "gpu": "RTX 4090",
+        "ram": "128 GB DDR5",
+        "cpu": "Intel i9-14900KS",
+        "storage": "2TB NVMe Gen4",
+        "motherboard": "ASUS ROG Maximus Z790",
+        "psu": "1200W 80+ Platinum",
+        "cooling": "Custom Loop Liquid",
+        "usage": "Instance Dota 2 PulseForge",
+        "description": "Build cloud Dota 2 orienté compétitif avec overlays sobres et sandbox scrim.",
         "use_cases": [
-          "Ranked compétitif",
-          "Tournois professionnels",
-          "MMR grinding",
-          "Stream gameplay",
-          "Practice optimisée"
+          "Ranked haut niveau et scrims",
+          "Coaching équipe et analyst desk",
+          "Production stream MOBA",
+          "Revues VOD stratégiques",
+          "Sandbox PulseForge Lobby"
         ],
         "features": [
-          "Build privé Dota 2",
-          "Map awareness complète",
-          "Last-hit perfection",
-          "Ability tracker",
-          "Ward detection",
-          "Protection VAC",
-          "Scripts personnalisables"
+          "Overlays modulaires stream-safe",
+          "Analyse post-match et exports timeline",
+          "Coach macro rotations & buybacks",
+          "Thèmes d’équipe PulseForge Lobby",
+          "Intégration multi-input clavier/souris/manette",
+          "Mises à jour synchronisées patch Dota 2",
+          "Compatibilité PulseForge Lobby sandbox"
         ],
-        "target_audience": "Joueurs compétitifs, Pro teams",
-        "highlight": "Scripts professionnels",
-        "protection": "VAC bypass",
-        "updates": "Patch-day updates",
+        "featureHighlights": [
+          "Public/Ranked – overlays purement visuels (HUD, audio, killfeed, minimap) sans lecture mémoire",
+          "PulseForge Lobby – cosmétiques partagés et sandbox lanes/warding pour tous les joueurs PulseForge"
+        ],
+        "featureGroups": [
+          {
+            "title": "Modules tactiques publics",
+            "items": [
+              "Roshan/Aegis & Runes : rappels Aegis, Power/Bounty et alternance Day/Night.",
+              "Stack & Pull Helper : minuteurs pull/stack affichés sur la carte.",
+              "Buyback & Économie : suivi buybacks alliés, stocks smokes/dusts/TPs et rappels shop.",
+              "Fight Timeline : suivi trades, alerte no-trade 3 s et man-advantage.",
+              "Post-fight Digest : récap morts, ultis et TPs disponibles par camp.",
+              "Focus HUD : masquage intelligent des stats toxiques pendant les fights."
+            ]
+          },
+          {
+            "title": "Lisibilité & confort",
+            "items": [
+              "Audio Spatial Director : priorisation pas/TP/ult, ducking du bruit non critique.",
+              "Color grading optionnel pour highlight spells critiques.",
+              "Anti-tilt HUD avec prompts respiration entre fights.",
+              "Support multi-moniteur pour analyst desk stream.",
+              "Latency Guard : maintien du jitter et adaptation du buffer de stream."
+            ]
+          },
+          {
+            "title": "PulseForge Lobby",
+            "description": "Options de jeu & d’entraînement (tous joueurs sur build PulseForge)",
+            "items": [
+              "Lane & Last-hit Lab : vagues scriptées, scoreboard CS delta et sandbox freeze/push.",
+              "Warding Planner : plan sentries/obs par zone avec partage live coach/équipe.",
+              "Draft & Role Rules : règles pos 1–5, rotations imposées et répétitions d’openings.",
+              "Ghost-Run & Pathing : fantômes de rotations support/carry avec replays synchronisés.",
+              "Cosmétiques partagés : kill-banners & emotes PulseForge visibles par le lobby PF.",
+              "Caster Mode : HUD élargi, replays 8 s et marqueurs de fights stream-ready."
+            ]
+          },
+          {
+            "title": "Pourquoi choisir notre build natif Dota 2 ?",
+            "items": [
+              "Intégration native synchronisée après chaque patch Valve.",
+              "Conformité totale : overlays stream-safe, aucune assistance intrusive.",
+              "Performances calibrées : ~405/380/300 FPS moyens avec réserve CPU.",
+              "Support créatif : scrims outillés, analytics VOD et thèmes d’équipe PulseForge Lobby."
+            ]
+          }
+        ],
+        "implementationNotes": [
+          "En parties publiques, toutes les données proviennent uniquement du HUD, du son et du killfeed visibles.",
+          "Cosmétiques, sandbox lanes et stratboards sont réservés aux lobbies PulseForge avec build partagé.",
+          "Les overlays restent opt-in et se masquent lors des teamfights pour limiter le bruit visuel."
+        ],
+        "target_audience": "Teams Dota 2, coachs, analystes",
+        "highlight": "Stabilité CPU-bound calibrée",
+        "protection": "Fair-play stream-safe certifié",
+        "updates": "Mises à jour synchronisées patch Dota 2",
         "pricing": {
-          "hourly": 1.88,
-          "monthly": 750
+          "hourly": 1.65,
+          "monthly": 610
         },
-        "sla": "99.99%",
+        "sla": "99.97%",
         "support_level": "enterprise",
         "badges": [
-          "Premium",
-          "Pro Scripts",
-          "Competitive"
+          "MOBA Optimized",
+          "Stream Safe",
+          "PulseForge Lobby"
         ],
         "image": "/images/products/dota2/main.png"
       }
     ],
     "reviews": {
       "average": 4.7,
-      "count": 215
+      "count": 368
     },
     "discount": {
       "active": false,
@@ -1792,72 +2048,6 @@
       "/images/products/dota2/main.png",
       "/images/products/dota2/1.png"
     ]
-  },
-  {
-    "id": "gaming-apex",
-    "slug": "gaming-apex",
-    "name": "Apex Legends",
-    "game": "Apex Legends",
-    "category": "gaming",
-    "optimizationLevel": "community",
-    "description": "Configuration cloud optimisée pour Apex Legends",
-    "longDescription": "Environnement gaming cloud pour Apex Legends avec configuration standard et support communautaire.",
-    "status": "ACTIVE",
-    "gfnData": {
-      "playType": "READY_TO_PLAY",
-      "minimumTier": null,
-      "stores": [
-        "EA_APP"
-      ],
-      "iconUrl": "https://img.nvidiagrid.net/apps/100885211/ZZ/GAME_ICON_01_20f4b569-4620-4c87-a7fd-6ea51b87cade.png",
-      "logoUrl": "https://img.nvidiagrid.net/apps/100885211/ZZ/GAME_LOGO_01_b747bcf5-01b6-46ba-bfb0-0193e2b4a50b.png"
-    },
-    "variants": [
-      {
-        "id": "standard",
-        "name": "Standard",
-        "tier": "standard",
-        "gpu": "RTX 3060",
-        "ram": "16 GB",
-        "cpu": "Intel i5-12400",
-        "usage": "Configuration standard",
-        "description": "Environnement cloud pour Apex Legends",
-        "use_cases": [
-          "Jeu casual",
-          "Practice",
-          "Ranked"
-        ],
-        "features": [
-          "VM cloud optimisée",
-          "Support communautaire",
-          "Mises à jour régulières"
-        ],
-        "target_audience": "Joueurs Apex",
-        "highlight": "Support communautaire",
-        "protection": "Standard",
-        "updates": "Regular",
-        "pricing": {
-          "hourly": 0.5,
-          "monthly": 199
-        },
-        "sla": "99.9%",
-        "support_level": "community",
-        "badges": [
-          "Community",
-          "Standard"
-        ],
-        "image": "/images/products/apex/standard/main.png"
-      }
-    ],
-    "reviews": {
-      "average": 4.3,
-      "count": 89
-    },
-    "discount": {
-      "active": false,
-      "percentage": 0,
-      "code": ""
-    }
   },
   {
     "id": "gaming-cs2",
