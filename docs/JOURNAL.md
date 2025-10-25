@@ -2343,3 +2343,33 @@ if (hasDecimal) {
 #### État:
 ✅ Glow interactif fluide sans re-rendu complet
 ⚠️ Build distant toujours bloqué tant que `framer-motion` manque côté Netlify
+
+### UI: Refonte radicale de la page services
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Supprimer les ralentissements sévères (≈3 FPS) signalés sur l’ouverture du menu, les modales et les interactions des cartes services.
+- Repenser la structure pour offrir une narration claire (hero → piliers → modules → process → contact) avec des animations légères et contrôlées.
+- Réduire la dette technique en retirant les composants expérimentaux et la dépendance `@react-spring/web` devenue inutile.
+
+#### Actions réalisées:
+1. Réécriture complète de `app/[locale]/services/page.tsx` avec `LazyMotion`, hero radial statique, onglets piliers, cartes modules et grille process – toutes animées via `whileInView`/hover conditionnés par `useReducedMotion`.
+2. Suppression des anciens composants (`AnimatedCounter`, `FlipCard3D`, `GlowingCard`, `InteractiveTimeline`) désormais inutilisés, ainsi que de la dépendance `@react-spring/web`.
+3. Actualisation de la documentation (`docs/README.md`) pour décrire la nouvelle architecture et journalisation de l’intervention.
+
+#### Fichiers modifiés:
+- `/app/[locale]/services/page.tsx`
+- `/components/services/AnimatedCounter.tsx` (supprimé)
+- `/components/services/FlipCard3D.tsx` (supprimé)
+- `/components/services/GlowingCard.tsx` (supprimé)
+- `/components/services/InteractiveTimeline.tsx` (supprimé)
+- `/package.json`
+- `/package-lock.json`
+- `/docs/README.md`
+- `/docs/JOURNAL.md`
+
+#### État:
+✅ Page services fluide et responsive sans stutters
+✅ Bundle allégé (suppression @react-spring)
+⚠️ Build Netlify encore dépendant de la présence de `framer-motion` côté environnement distant

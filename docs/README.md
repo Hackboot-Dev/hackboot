@@ -115,14 +115,13 @@ Cette section résume le fonctionnement des pages produits cloud gaming : où so
 
 ## 🛠️ Page Services premium
 
-La page services (`app/[locale]/services/page.tsx`) combine plusieurs composants interactifs optimisés pour les appareils mobiles et desktop.
+La page services (`app/[locale]/services/page.tsx`) a été reconstruite autour d’un socle léger et cohérent :
 
-- **Arrière-plan allégé** : `ParticleBackground` ajuste dynamiquement le nombre de particules selon la taille d’écran, respecte `prefers-reduced-motion` et recycle les connexions pour éviter les ralentissements.
-- **Cartes 3D adaptatives** : `FlipCard3D` bascule en mode « tap to flip » sur les terminaux tactiles et conserve les animations 3D uniquement sur les pointeurs précis.
-  - Animation gérée par `@react-spring/web` pour un flip fluide sans glitch, avec respect de `prefers-reduced-motion`.
-- **Cartes lumineuses** : `GlowingCard` réduit les effets coûteux sur mobile tout en conservant une lueur statique.
-- **Counters et timeline** : `AnimatedCounter` s’appuie sur `framer-motion.animate` pour animer les chiffres sans re-rendu massif, tandis que `InteractiveTimeline` devient scrollable horizontalement et accessible clavier.
-- **Mise en page responsive** : le hero ajuste la taille du titre (`text-4xl → text-8xl`) avec `tracking-tight` et `leading` resserrés pour éviter que le texte ne déborde sur les petits écrans.
+- **Hero immersif** : `LazyMotion` + `domAnimation` pilotent les apparitions (badge, titre, CTA, métriques) avec un halo radial statique. Les hover effects s’annulent automatiquement quand `useReducedMotion` retourne `true`.
+- **Piliers tabulaires** : les données issues des traductions sont fusionnées aux blueprints (`security`, `performance`, `partnership`, `infrastructure`). La colonne de gauche sélectionne un pilier, la carte de droite affiche description, stats et points clés dans une grille bi-colonne.
+- **Modules & process** : les solutions cloud sont présentées en cartes animées verticales (`whileInView` + hover lift). Le process adopte des dalles numérotées en grille 2×2, chacune animée à l’entrée sans scroll horizontal.
+- **Bloc contact** : CTA principal, métriques SLA et note additionnelle sont regroupés dans un panneau gradient unique (structure flex → grille), garantissant un rendu fluide mobile/desktop.
+- **Performances** : plus aucune dépendance `@react-spring/web`. Les anciens composants (`FlipCard3D`, `GlowingCard`, `AnimatedCounter`, `InteractiveTimeline`) ont été retirés pour réduire le bundle et éliminer les 3 FPS observés.
 
 ---
 

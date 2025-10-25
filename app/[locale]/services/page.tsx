@@ -1,7 +1,7 @@
 'use client'
 
-import { useMemo } from 'react'
-import { useI18n } from '@/lib/i18n-simple'
+import { useMemo, useState } from 'react'
+import { LazyMotion, domAnimation, m, useReducedMotion } from 'framer-motion'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
@@ -10,24 +10,19 @@ import {
   Cpu,
   HeadphonesIcon,
   Cloud,
-  ArrowRight,
-  TrendingUp,
-  Award,
   Rocket,
   Target,
   Users,
+  Sparkles,
+  Compass,
+  Layers,
 } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import SiteHeader from '@/components/SiteHeader'
-import FlipCard3D from '@/components/services/FlipCard3D'
-import AnimatedCounter from '@/components/services/AnimatedCounter'
-import InteractiveTimeline from '@/components/services/InteractiveTimeline'
-import ParticleBackground from '@/components/services/ParticleBackground'
-import GlowingCard from '@/components/services/GlowingCard'
-import MorphingShape from '@/components/services/MorphingShape'
+import { useI18n } from '@/lib/i18n-simple'
 
 const Footer = dynamic(() => import('@/components/Footer'), {
-  loading: () => <div className="h-32 bg-black" />,
+  loading: () => <div className="h-24 bg-black" />,
   ssr: false,
 })
 
@@ -55,28 +50,6 @@ type ServicesStep = {
   id: string
   title: string
   description: string
-}
-
-type PillarCard = {
-  id: string
-  icon: LucideIcon
-  gradient: string
-  iconColor: string
-  title: string
-  description: string
-  bullets: string[]
-  stats: { label: string; value: string }[]
-  highlights: string[]
-}
-
-type SolutionCard = {
-  id: string
-  icon: LucideIcon
-  gradient: string
-  title: string
-  description: string
-  link: string
-  linkLabel: string
 }
 
 type ServicesContent = {
@@ -109,30 +82,209 @@ type ServicesContent = {
   }
 }
 
+type PillarBlueprint = {
+  id: string
+  icon: LucideIcon
+  label: string
+  accent: string
+  stats: { label: string; value: string }[]
+  defaultDescription: string
+  defaultBullets: string[]
+}
+
+type SolutionBlueprint = {
+  id: string
+  icon: LucideIcon
+  accent: string
+  defaultTitle: string
+  defaultDescription: string
+  defaultLinkLabel: string
+  linkBuilder: (locale: string) => string
+}
+
+const HERO_METRIC_FALLBACK: ServicesMetric[] = [
+  { id: 'uptime', value: '99,9 %', label: 'Disponibilité garantie' },
+  { id: 'clients', value: '120+', label: 'Clients pro accompagnés' },
+  { id: 'regions', value: '8', label: 'Régions cloud actives' },
+  { id: 'sla', value: '<5 min', label: 'SLA support moyen' },
+]
+
+const PILLAR_BLUEPRINTS: PillarBlueprint[] = [
+  {
+    id: 'security',
+    icon: Shield,
+    label: 'Sécurité proactive',
+    accent: 'from-purple-500/90 to-purple-700/60',
+    stats: [
+      { label: 'Kernel shield', value: 'Propriétaire' },
+      { label: 'Audits', value: 'Quotidiens' },
+      { label: 'Détection', value: '0%' },
+    ],
+    defaultDescription:
+      'Protection multi-couches, supervision anti-détection et chiffrement bout en bout.',
+    defaultBullets: [
+      'Surveillance continue et audits dynamiques',
+      'Gestion proactive des incidents',
+      'Playbooks de mitigation personnalisés',
+    ],
+  },
+  {
+    id: 'performance',
+    icon: Cpu,
+    label: 'Performance calibrée',
+    accent: 'from-sky-500/90 to-indigo-700/60',
+    stats: [
+      { label: 'GPU', value: 'RTX 4090' },
+      { label: 'Latency', value: '<1 ms' },
+      { label: 'Scaling', value: 'Instantané' },
+    ],
+    defaultDescription:
+      'Clusters bare-metal optimisés, pipeline CI/CD gaming et monitoring temps réel.',
+    defaultBullets: [
+      'Optimisation GPU frame-by-frame',
+      'Auto-scaling multi-régions',
+      'Benchmarks et rapports mensuels',
+    ],
+  },
+  {
+    id: 'partnership',
+    icon: HeadphonesIcon,
+    label: 'Support dédié',
+    accent: 'from-emerald-500/90 to-teal-700/60',
+    stats: [
+      { label: 'Réponse', value: '<5 min' },
+      { label: 'Disponibilité', value: '24/7' },
+      { label: 'Satisfaction', value: '98%' },
+    ],
+    defaultDescription:
+      'Account manager senior, escalade prioritaire et canaux privés Discord/WhatsApp.',
+    defaultBullets: [
+      'Veille & recommandations proactives',
+      'Workshops adaptés à votre roster',
+      'Documentation personnalisée',
+    ],
+  },
+  {
+    id: 'infrastructure',
+    icon: Cloud,
+    label: 'Cloud orchestration',
+    accent: 'from-cyan-500/90 to-slate-700/60',
+    stats: [
+      { label: 'Régions', value: '12+' },
+      { label: 'Uptime', value: '99.99%' },
+      { label: 'Déploiement', value: '<2 min' },
+    ],
+    defaultDescription:
+      'Provisionnement instantané, bascule automatique de région et sauvegardes en continu.',
+    defaultBullets: [
+      'Réseau 10 Gbps sécurisé',
+      'Disaster recovery automatisé',
+      'Intégration API PulseForge',
+    ],
+  },
+]
+
+const SOLUTION_BLUEPRINTS: SolutionBlueprint[] = [
+  {
+    id: 'cloud',
+    icon: Rocket,
+    accent: 'from-blue-500/90 to-purple-500/60',
+    defaultTitle: 'Cloud Ops & Scaling',
+    defaultDescription:
+      'Provisionnement automatisé, régions multiples et pipelines CI/CD prêts pour PulseForge.',
+    defaultLinkLabel: 'Découvrir Premium',
+    linkBuilder: (locale) => `/${locale}/premium`,
+  },
+  {
+    id: 'competitive',
+    icon: Target,
+    accent: 'from-rose-500/90 to-orange-500/60',
+    defaultTitle: 'Labs Anti-Cheat',
+    defaultDescription:
+      'Reverse engineering continu, correctifs jour zéro et protocoles d’audit conformes.',
+    defaultLinkLabel: 'Voir les jeux',
+    linkBuilder: (locale) => `/${locale}/games`,
+  },
+  {
+    id: 'custom',
+    icon: Users,
+    accent: 'from-emerald-500/90 to-cyan-500/60',
+    defaultTitle: 'Coaching & Integrations',
+    defaultDescription:
+      'Sessions 1:1, assistance en direct et intégrations personnalisées dans vos outils.',
+    defaultLinkLabel: 'Planifier un call',
+    linkBuilder: (locale) => `/${locale}/contact`,
+  },
+]
+
+const PROCESS_FALLBACK: ServicesStep[] = [
+  {
+    id: 'discover',
+    title: 'Kick-off & audit',
+    description:
+      'Analyse de votre roster, objectifs de performance et contraintes de sécurité.',
+  },
+  {
+    id: 'prototype',
+    title: 'Prototype guidé',
+    description:
+      'Instance pilote PulseForge avec profils calibrés et supervision conjointe.',
+  },
+  {
+    id: 'deploy',
+    title: 'Déploiement orchestré',
+    description:
+      'Activation progressive, documentation et transfert de compétences.',
+  },
+  {
+    id: 'optimize',
+    title: 'Optimisation continue',
+    description:
+      'Revues, benchmarks et évolution proactive selon vos retours terrain.',
+  },
+]
+
+const CONTACT_METRIC_FALLBACK: ServicesMetric[] = [
+  { id: 'sla', value: '<5 min', label: 'Temps de réponse moyen' },
+  { id: 'coverage', value: '24/7', label: 'Support global' },
+  { id: 'satisfaction', value: '98 %', label: 'Satisfaction client' },
+]
+
+const heroReveal = {
+  hidden: { opacity: 0, y: 32 },
+  show: { opacity: 1, y: 0 },
+}
+
+const sectionReveal = {
+  hidden: { opacity: 0, y: 40 },
+  show: { opacity: 1, y: 0 },
+}
+
+const cardReveal = {
+  hidden: { opacity: 0, y: 24 },
+  show: { opacity: 1, y: 0 },
+}
+
 export default function ServicesPage() {
   const { t } = useI18n()
   const params = useParams()
   const locale = (params?.locale as string) || 'fr'
   const servicesContent = (t.services ?? {}) as ServicesContent
+  const shouldReduceMotion = useReducedMotion()
 
-  const badge = servicesContent.badge ?? 'Services Premium'
-  const title = servicesContent.title ?? 'Infrastructure & Sécurité'
+  const badge = servicesContent.badge ?? 'Services PulseForge'
+  const title =
+    servicesContent.title ??
+    'Infrastructure et sécurité professionnelles pour vos opérations gaming'
   const subtitle =
     servicesContent.subtitle ??
-    'Des services sur-mesure pour les joueurs et équipes qui exigent la perfection technique et la performance maximale.'
+    'Nous combinons cloud, sécurité et coaching technique pour déployer des expériences PulseForge irréprochables.'
   const primaryCta = servicesContent.cta ?? 'Parler à un expert'
 
-  const heroMetricFallback: ServicesMetric[] = [
-    { id: 'uptime', value: '99.9%', label: 'Uptime garanti' },
-    { id: 'clients', value: '500+', label: 'Clients satisfaits' },
-    { id: 'regions', value: '12', label: 'Régions globales' },
-    { id: 'support', value: '24/7', label: 'Support dédié' },
-  ]
-  const heroMetricsSource = Array.isArray(servicesContent.metrics)
-    ? servicesContent.metrics
-    : []
-  const heroMetrics = heroMetricFallback.map((metric) => {
-    const match = heroMetricsSource.find((item) => item?.id === metric.id)
+  const heroMetrics = HERO_METRIC_FALLBACK.map((metric) => {
+    const match = Array.isArray(servicesContent.metrics)
+      ? servicesContent.metrics.find((item) => item?.id === metric.id)
+      : undefined
     return {
       ...metric,
       value: match?.value ?? metric.value,
@@ -140,517 +292,467 @@ export default function ServicesPage() {
     }
   })
 
-  const pillarDefaults: PillarCard[] = [
-    {
-      id: 'security',
-      icon: Shield,
-      gradient: 'from-purple-500 via-violet-500 to-purple-600',
-      iconColor: 'text-purple-400',
-      title: 'Sécurité Maximale',
-      description:
-        'Protection multi-couches avec supervision continue et technologies anti-détection de pointe pour une tranquillité totale.',
-      bullets: [
-        'Surveillance anti-cheat 24/7',
-        'Kernel shield propriétaire',
-        'Chiffrement E2E permanent',
-      ],
-      stats: [
-        { label: 'Protection', value: 'Kernel-level' },
-        { label: 'Détection', value: '0%' },
-        { label: 'Uptime', value: '99.9%' },
-        { label: 'Audits', value: 'Quotidiens' },
-      ],
-      highlights: [
-        'Protection kernel-level avancée',
-        'HWID spoofer intégré',
-        'Bypass EAC/BE/Vanguard',
-        'Stream-proof garanti',
-        'Chiffrement bout en bout',
-        'Monitoring en temps réel',
-        'Alertes instantanées',
-        'Backup automatique',
-      ],
-    },
-    {
-      id: 'performance',
-      icon: Cpu,
-      gradient: 'from-blue-500 via-indigo-500 to-blue-600',
-      iconColor: 'text-blue-400',
-      title: 'Performance Extrême',
-      description:
-        'Infrastructure bare-metal avec optimisation GPU frame-by-frame et pipelines CI/CD pensés pour le gaming compétitif.',
-      bullets: [
-        'Clusters bare-metal dédiés',
-        'Optimisation GPU à la frame',
-        'Monitoring de latence en direct',
-      ],
-      stats: [
-        { label: 'CPU', value: 'i9-13900K' },
-        { label: 'GPU', value: 'RTX 4090' },
-        { label: 'RAM', value: '128GB DDR5' },
-        { label: 'Latence', value: '<1ms' },
-      ],
-      highlights: [
-        'Processeurs dernière génération',
-        'GPU RTX 4090 dédiés',
-        'RAM DDR5 ultra-rapide',
-        'SSD NVMe Gen4',
-        'Réseau 10Gbps',
-        'Optimisation automatique',
-        'Scaling instantané',
-        'Zero downtime',
-      ],
-    },
-    {
-      id: 'partnership',
-      icon: HeadphonesIcon,
-      gradient: 'from-emerald-500 via-teal-500 to-emerald-600',
-      iconColor: 'text-emerald-400',
-      title: 'Support Dédié',
-      description:
-        'Account manager personnel, playbooks sur-mesure et support prioritaire sur canaux privés Discord et WhatsApp.',
-      bullets: [
-        'Account manager dédié',
-        'Playbooks personnalisés',
-        'Escalade instantanée sur Discord',
-      ],
-      stats: [
-        { label: 'Réponse', value: '<5min' },
-        { label: 'Disponibilité', value: '24/7' },
-        { label: 'Satisfaction', value: '98%' },
-        { label: 'Résolution', value: '<30min' },
-      ],
-      highlights: [
-        'Manager dédié à votre compte',
-        'Canal Discord prioritaire',
-        'Support WhatsApp direct',
-        'Documentation personnalisée',
-        'Formations régulières',
-        'Veille technologique',
-        'Recommendations proactives',
-        'Revues mensuelles',
-      ],
-    },
-    {
-      id: 'infrastructure',
-      icon: Cloud,
-      gradient: 'from-cyan-500 via-sky-500 to-cyan-600',
-      iconColor: 'text-cyan-400',
-      title: 'Cloud Enterprise',
-      description:
-        'Infrastructure cloud redondante multi-régions avec provisionnement automatisé et scaling intelligent en temps réel.',
-      bullets: [
-        'Multi-régions global',
-        'Auto-scaling intelligent',
-        'Déploiement automatisé',
-      ],
-      stats: [
-        { label: 'Régions', value: '12+' },
-        { label: 'Uptime', value: '99.99%' },
-        { label: 'Déploiement', value: '<2min' },
-        { label: 'Backup', value: 'Temps réel' },
-      ],
-      highlights: [
-        'Présence dans 12 régions',
-        'Load balancing automatique',
-        'CDN global optimisé',
-        'Disaster recovery',
-        'Backup redondant',
-        'Migration à chaud',
-        'Scaling élastique',
-        'Monitoring avancé',
-      ],
-    },
-    {
-      id: 'analytics',
-      icon: TrendingUp,
-      gradient: 'from-amber-500 via-yellow-500 to-amber-600',
-      iconColor: 'text-amber-400',
-      title: 'Analytics & Insights',
-      description:
-        'Tableaux de bord en temps réel avec métriques de performance détaillées et rapports d\'optimisation personnalisés.',
-      bullets: [
-        'Dashboard temps réel',
-        'Métriques détaillées',
-        'Rapports personnalisés',
-      ],
-      stats: [
-        { label: 'Métriques', value: '50+' },
-        { label: 'Refresh', value: 'Temps réel' },
-        { label: 'Historique', value: '6 mois' },
-        { label: 'Exports', value: 'Illimités' },
-      ],
-      highlights: [
-        'Dashboard interactif',
-        'KPIs personnalisables',
-        'Alertes intelligentes',
-        'Rapports automatiques',
-        'Comparaisons périodiques',
-        'Prédictions IA',
-        'Export données brutes',
-        'API complète',
-      ],
-    },
-    {
-      id: 'compliance',
-      icon: Award,
-      gradient: 'from-pink-500 via-rose-500 to-pink-600',
-      iconColor: 'text-pink-400',
-      title: 'Conformité & Certifications',
-      description:
-        'Infrastructure certifiée aux standards internationaux avec audits réguliers et conformité RGPD garantie.',
-      bullets: [
-        'Certifications ISO',
-        'Conformité RGPD',
-        'Audits trimestriels',
-      ],
-      stats: [
-        { label: 'Certifs', value: 'ISO 27001' },
-        { label: 'RGPD', value: 'Conforme' },
-        { label: 'Audits', value: 'Trimestriels' },
-        { label: 'SOC', value: 'Type II' },
-      ],
-      highlights: [
-        'Certification ISO 27001',
-        'SOC 2 Type II compliant',
-        'RGPD full compliance',
-        'Audits indépendants',
-        'Documentation complète',
-        'Formation équipes',
-        'Politiques mises à jour',
-        'Transparence totale',
-      ],
-    },
-  ]
+  const pillars = useMemo(() => {
+    const source = Array.isArray(servicesContent.pillars)
+      ? servicesContent.pillars
+      : []
+    return PILLAR_BLUEPRINTS.map((pillar) => {
+      const match = source.find((item) => item?.id === pillar.id)
+      return {
+        ...pillar,
+        title: match?.title ?? pillar.label,
+        description: match?.description ?? pillar.defaultDescription,
+        bullets:
+          Array.isArray(match?.bullets) && match?.bullets?.length
+            ? (match?.bullets as string[])
+            : pillar.defaultBullets,
+      }
+    })
+  }, [servicesContent.pillars])
 
-  const pillarSource = Array.isArray(servicesContent.pillars)
-    ? servicesContent.pillars
-    : []
-  const pillars = pillarDefaults.map((pillar) => {
-    const match = pillarSource.find((item) => item?.id === pillar.id)
-    return {
-      ...pillar,
-      title: match?.title ?? pillar.title,
-      description: match?.description ?? pillar.description,
-      bullets:
-        Array.isArray(match?.bullets) && match?.bullets?.length
-          ? (match?.bullets as string[])
-          : pillar.bullets,
-    }
-  })
+  const [activePillarId, setActivePillarId] = useState<string>(
+    () => PILLAR_BLUEPRINTS[0]?.id ?? 'security',
+  )
+
+  const activePillar = pillars.find((pillar) => pillar.id === activePillarId)
 
   const pillarsHeading = {
-    title: servicesContent.pillarsHeading?.title ?? 'Nos Services Premium',
+    title:
+      servicesContent.pillarsHeading?.title ?? 'Des fondations pensées pour le pro',
     subtitle:
       servicesContent.pillarsHeading?.subtitle ??
-      'Une suite complète de services professionnels pour maximiser vos performances et votre sécurité.',
+      'Chaque pilier combine nos briques cloud, sécurité et support pour une exécution PulseForge sans faille.',
   }
 
-  const solutionDefaults: SolutionCard[] = [
-    {
-      id: 'cloud',
-      icon: Rocket,
-      gradient: 'from-sky-500 via-blue-600 to-indigo-600',
-      title: 'Cloud Gaming Infrastructure',
-      description:
-        'Infrastructure cloud complète avec machines virtuelles optimisées, auto-scaling intelligent et déploiement multi-régions instantané.',
-      link: `/${locale}/premium`,
-      linkLabel: 'Découvrir Premium',
-    },
-    {
-      id: 'competitive',
-      icon: Target,
-      gradient: 'from-purple-500 via-fuchsia-500 to-purple-600',
-      title: 'Solutions Anti-Cheat',
-      description:
-        'Protection avancée avec reverse engineering continu, correctifs jour zéro et protocoles d\'audit pour rester indétectable sur tous les anti-cheats.',
-      link: `/${locale}/games`,
-      linkLabel: 'Voir les jeux',
-    },
-    {
-      id: 'custom',
-      icon: Users,
-      gradient: 'from-emerald-500 via-teal-500 to-emerald-600',
-      title: 'Coaching & Intégrations',
-      description:
-        'Accompagnement personnalisé avec sessions 1:1, assistance en direct, intégrations API sur-mesure et formation continue de vos équipes.',
-      link: `/${locale}/contact`,
-      linkLabel: 'Nous contacter',
-    },
-  ]
-
-  const solutionsSource = servicesContent.solutions?.items ?? []
-  const solutions = solutionDefaults.map((solution) => {
-    const match = solutionsSource.find((item) => item?.id === solution.id)
-    return {
-      ...solution,
-      title: match?.title ?? solution.title,
-      description: match?.description ?? solution.description,
-      linkLabel: match?.linkLabel ?? solution.linkLabel,
-    }
-  })
+  const solutions = useMemo(() => {
+    const source = Array.isArray(servicesContent.solutions?.items)
+      ? servicesContent.solutions?.items ?? []
+      : []
+    return SOLUTION_BLUEPRINTS.map((solution) => {
+      const match = source.find((item) => item?.id === solution.id)
+      return {
+        ...solution,
+        title: match?.title ?? solution.defaultTitle,
+        description: match?.description ?? solution.defaultDescription,
+        linkLabel: match?.linkLabel ?? solution.defaultLinkLabel,
+        link: solution.linkBuilder(locale),
+      }
+    })
+  }, [servicesContent.solutions?.items, locale])
 
   const solutionsHeading = {
-    title: servicesContent.solutions?.title ?? 'Solutions Complètes',
+    title: servicesContent.solutions?.title ?? 'Modules prêts à activer',
     subtitle:
       servicesContent.solutions?.subtitle ??
-      'Des modules flexibles qui s\'intègrent parfaitement à votre workflow pour un écosystème gaming complet.',
+      'Composez votre stack PulseForge en sélectionnant les modules adaptés à vos besoins opérationnels.',
   }
 
-  const processFallback = [
-    {
-      id: 'discover',
-      title: 'Découverte & Audit',
-      description:
-        'Analyse approfondie de vos besoins, objectifs de performance et contraintes techniques pour créer une solution parfaitement adaptée.',
-    },
-    {
-      id: 'prototype',
-      title: 'Prototype & Test',
-      description:
-        'Mise en place d\'un environnement de test avec configurations optimisées et validation complète avant déploiement production.',
-    },
-    {
-      id: 'deploy',
-      title: 'Déploiement Production',
-      description:
-        'Migration progressive avec supervision continue, formation de vos équipes et documentation technique complète.',
-    },
-    {
-      id: 'optimize',
-      title: 'Optimisation Continue',
-      description:
-        'Monitoring permanent, revues mensuelles, ajustements proactifs et évolution de l\'infrastructure selon vos besoins.',
-    },
-  ]
-
-  const processSource = servicesContent.process?.steps ?? []
-  const processSteps = processFallback.map((step) => {
-    const match = processSource.find((item) => item?.id === step.id)
-    return {
-      ...step,
-      title: match?.title ?? step.title,
-      description: match?.description ?? step.description,
-    }
-  })
+  const processSteps = useMemo(() => {
+    const source = Array.isArray(servicesContent.process?.steps)
+      ? servicesContent.process?.steps ?? []
+      : []
+    return PROCESS_FALLBACK.map((step) => {
+      const match = source.find((item) => item?.id === step.id)
+      return {
+        ...step,
+        title: match?.title ?? step.title,
+        description: match?.description ?? step.description,
+      }
+    })
+  }, [servicesContent.process?.steps])
 
   const processHeading = {
-    title: servicesContent.process?.title ?? 'Notre Méthodologie',
+    title: servicesContent.process?.title ?? 'Notre méthode accompagnée',
     subtitle:
       servicesContent.process?.subtitle ??
-      'Un processus éprouvé qui garantit une intégration fluide et des résultats mesurables dès le premier jour.',
+      'Un cadre en quatre phases pour intégrer PulseForge sans rupture et avec un pilotage constant.',
   }
 
   const contactContent = servicesContent.contact ?? {}
 
-  const contactMetricFallback: ServicesMetric[] = [
-    { id: 'sla', value: '5', label: 'Temps de réponse (min)' },
-    { id: 'coverage', value: '365', label: 'Jours par an' },
-    { id: 'satisfaction', value: '98', label: 'Satisfaction (%)' },
-  ]
+  const contactMetrics = useMemo(() => {
+    const source = Array.isArray(contactContent.metrics)
+      ? contactContent.metrics
+      : []
+    return CONTACT_METRIC_FALLBACK.map((metric) => {
+      const match = source.find((item) => item?.id === metric.id)
+      return {
+        ...metric,
+        value: match?.value ?? metric.value,
+        label: match?.label ?? metric.label,
+      }
+    })
+  }, [contactContent.metrics])
 
-  const contactMetricsSource = Array.isArray(contactContent.metrics)
-    ? contactContent.metrics
-    : []
-  const contactMetrics = contactMetricFallback.map((metric) => {
-    const match = contactMetricsSource.find((item) => item?.id === metric.id)
-    return {
-      ...metric,
-      value: match?.value ?? metric.value,
-      label: match?.label ?? metric.label,
-    }
-  })
-
-  const contactNote =
-    contactContent.note ??
-    'Un canal prioritaire Discord & WhatsApp est activé dès la signature du contrat.'
-
-  const contactTitle = contactContent.title ?? 'Prêt à démarrer ?'
+  const contactTitle =
+    contactContent.title ?? 'Prêt à lancer votre build PulseForge ?'
   const contactDescription =
     contactContent.description ??
-    'Notre équipe vous répond sous 24h pour évaluer vos besoins et préparer un plan d\'action personnalisé.'
-  const contactCta = contactContent.cta ?? 'Planifier un call'
+    'Nos ingénieurs vous répondent sous 24 h pour cadrer les besoins, planifier les tests et verrouiller la mise en production.'
+  const contactCta = contactContent.cta ?? 'Planifier un call dédié'
+  const contactNote =
+    contactContent.note ??
+    'Un canal prioritaire (Discord + WhatsApp) est ouvert dès la signature pour les escalades critiques.'
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-hidden animate-fade-in">
+    <div className="min-h-screen bg-[#04060d] text-white">
       <SiteHeader />
+      <LazyMotion features={domAnimation}>
+        <main className="relative overflow-hidden">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.16),_transparent_55%),radial-gradient(circle_at_bottom,_rgba(16,185,129,0.12),_transparent_50%)]" />
 
-      {/* Background Effects */}
-      <ParticleBackground />
-      <MorphingShape />
-
-      {/* Background grid */}
-      <div className="fixed inset-0 opacity-[0.03] pointer-events-none" style={{ zIndex: 1 }}>
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `linear-gradient(rgba(139, 92, 246, 0.3) 1px, transparent 1px),
-                           linear-gradient(90deg, rgba(139, 92, 246, 0.3) 1px, transparent 1px)`,
-            backgroundSize: '50px 50px',
-          }}
-        />
-      </div>
-
-      <div className="relative pt-28 pb-20" style={{ zIndex: 2 }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Hero Section */}
-          <div className="text-center mb-16 animate-scale-in px-2 sm:px-0">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 border border-purple-500/30 rounded-full mb-6">
-              <Shield className="w-4 h-4 text-purple-400" />
-              <span className="text-sm font-medium text-purple-300">{badge}</span>
-            </div>
-
-            <h1 className="max-w-5xl mx-auto text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-[1.05] tracking-tight mb-6">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-cyan-400 to-emerald-400">
-                {title}
-              </span>
-            </h1>
-
-            <p className="text-base sm:text-lg md:text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12">
-              {subtitle}
-            </p>
-
-            {/* Animated Counters */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mb-8">
-              {heroMetrics.map((metric) => (
-                <AnimatedCounter
-                  key={metric.id}
-                  value={metric.value}
-                  label={metric.label}
-                />
-              ))}
-            </div>
-
-            <Link
-              href={`/${locale}/contact`}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-500 to-cyan-600 text-white text-lg font-bold rounded-full hover:scale-105 transition-transform"
-            >
-              {primaryCta}
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-          </div>
-
-          {/* Pillars Title */}
-          <div className="text-center mb-12 animate-fade-in">
-            <h2 className="text-4xl md:text-6xl font-black mb-4">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 to-purple-600">
-                {pillarsHeading.title}
-              </span>
-            </h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-              {pillarsHeading.subtitle}
-            </p>
-          </div>
-
-          {/* Flip Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20 animate-slide-up auto-rows-fr">
-            {pillars.map((pillar) => (
-              <FlipCard3D
-                key={pillar.id}
-                icon={pillar.icon}
-                gradient={pillar.gradient}
-                iconColor={pillar.iconColor}
-                title={pillar.title}
-                description={pillar.description}
-                bullets={pillar.bullets}
-                stats={pillar.stats}
-                highlights={pillar.highlights}
+          {/* Hero */}
+          <section className="relative z-10 px-6 pt-28 pb-24 md:pb-32">
+            <div className="absolute inset-x-0 top-16 flex justify-center">
+              <m.div
+                aria-hidden
+                className="h-64 w-[90%] max-w-5xl rounded-[140px] bg-gradient-to-r from-indigo-500/30 via-transparent to-emerald-500/30 blur-3xl"
+                animate={shouldReduceMotion ? undefined : { opacity: [0.5, 0.9, 0.5] }}
+                transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
               />
-            ))}
-          </div>
+            </div>
+            <div className="mx-auto max-w-6xl">
+              <m.div
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-sm text-purple-200"
+                initial="hidden"
+                animate="show"
+                variants={heroReveal}
+                transition={{ duration: 0.5, ease: 'easeOut' }}
+              >
+                <Sparkles className="h-4 w-4" />
+                {badge}
+              </m.div>
 
-          {/* Solutions Section */}
-          <div className="mb-20 animate-fade-in">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-black mb-4">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 to-cyan-600">
-                  {solutionsHeading.title}
+              <m.h1
+                className="mt-8 max-w-4xl text-4xl font-black leading-tight sm:text-5xl md:text-6xl lg:text-7xl"
+                initial="hidden"
+                animate="show"
+                variants={heroReveal}
+                transition={{ duration: 0.7, ease: 'easeOut', delay: 0.05 }}
+              >
+                <span className="bg-gradient-to-r from-indigo-200 via-sky-200 to-emerald-200 bg-clip-text text-transparent">
+                  {title}
                 </span>
-              </h2>
-              <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-                {solutionsHeading.subtitle}
-              </p>
-            </div>
+              </m.h1>
 
-            {/* Glowing Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {solutions.map((solution) => (
-                <GlowingCard
-                  key={solution.id}
-                  icon={solution.icon}
-                  gradient={solution.gradient}
-                  title={solution.title}
-                  description={solution.description}
-                  link={solution.link}
-                  linkLabel={solution.linkLabel}
-                />
-              ))}
-            </div>
-          </div>
+              <m.p
+                className="mt-6 max-w-3xl text-lg text-slate-300 sm:text-xl"
+                initial="hidden"
+                animate="show"
+                variants={heroReveal}
+                transition={{ duration: 0.7, ease: 'easeOut', delay: 0.12 }}
+              >
+                {subtitle}
+              </m.p>
 
-          {/* Process Section - Interactive Timeline */}
-          <div className="mb-20 animate-slide-up">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-5xl font-black mb-4">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-pink-600">
-                  {processHeading.title}
-                </span>
-              </h2>
-              <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-                {processHeading.subtitle}
-              </p>
-            </div>
+              <m.div
+                className="mt-10 flex flex-col items-start gap-4 sm:flex-row"
+                initial="hidden"
+                animate="show"
+                variants={heroReveal}
+                transition={{ duration: 0.7, ease: 'easeOut', delay: 0.18 }}
+              >
+                <Link
+                  href={`/${locale}/contact`}
+                  className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-500 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-sky-500/30 transition-transform duration-200 hover:scale-[1.02] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
+                >
+                  {primaryCta}
+                </Link>
+                <Link
+                  href={`/${locale}/premium`}
+                  className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-base font-semibold text-slate-200 backdrop-blur transition duration-200 hover:border-white/40 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40"
+                >
+                  Explorer les offres
+                </Link>
+              </m.div>
 
-            <InteractiveTimeline steps={processSteps} />
-          </div>
-
-          {/* CTA Section */}
-          <div className="animate-scale-in">
-            <div className="glass-effect rounded-3xl p-12 bg-gradient-to-br from-purple-500/10 to-cyan-500/10 border-2 border-purple-500/20">
-              <div className="text-center mb-8">
-                <Shield className="w-16 h-16 text-purple-400 mx-auto mb-6" />
-                <h2 className="text-4xl md:text-5xl font-black mb-4">
-                  {contactTitle}
-                </h2>
-                <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                  {contactDescription}
-                </p>
-
-                {/* Contact Metrics with Animation */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto mb-6">
-                  {contactMetrics.map((metric) => (
-                    <AnimatedCounter
-                      key={metric.id}
-                      value={metric.value}
-                      label={metric.label}
-                      duration={1.5}
-                    />
-                  ))}
-                </div>
-
-                <p className="text-sm text-gray-400 mb-8">{contactNote}</p>
-
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Link
-                    href={`/${locale}/contact`}
-                    className="px-8 py-4 bg-gradient-to-r from-purple-500 to-cyan-600 text-white text-lg font-bold rounded-full hover:scale-105 transition-transform flex items-center justify-center gap-2"
+              <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                {heroMetrics.map((metric, index) => (
+                  <m.div
+                    key={metric.id}
+                    className="relative overflow-hidden rounded-3xl border border-white/5 bg-white/5 px-6 py-5"
+                    initial="hidden"
+                    animate="show"
+                    variants={cardReveal}
+                    transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 + index * 0.05 }}
+                    whileHover=
+                      {shouldReduceMotion
+                        ? undefined
+                        : { y: -6, scale: 1.01, transition: { type: 'spring', stiffness: 220, damping: 20 } }}
                   >
-                    {contactCta}
-                    <ArrowRight className="w-5 h-5" />
-                  </Link>
-                  <Link
-                    href={`/${locale}/premium`}
-                    className="px-8 py-4 glass-effect rounded-full text-lg font-medium hover:bg-white/10 transition-all"
-                  >
-                    Voir les offres
-                  </Link>
-                </div>
+                    <div className="absolute inset-0 opacity-0 transition-opacity duration-300 hover:opacity-100" aria-hidden>
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent" />
+                    </div>
+                    <p className="text-sm uppercase tracking-wide text-slate-300">{metric.label}</p>
+                    <p className="mt-3 text-3xl font-semibold text-white sm:text-4xl">{metric.value}</p>
+                  </m.div>
+                ))}
               </div>
             </div>
-          </div>
-        </div>
-      </div>
+          </section>
 
+          {/* Pillars */}
+          <section className="relative z-10 border-t border-white/5 bg-gradient-to-b from-white/5 via-transparent to-transparent px-6 py-24">
+            <div className="mx-auto max-w-6xl">
+              <m.div
+                className="max-w-3xl"
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={sectionReveal}
+                transition={{ duration: 0.6, ease: 'easeOut' }}
+              >
+                <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Pillars</p>
+                <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
+                  <span className="bg-gradient-to-r from-sky-200 via-indigo-200 to-emerald-200 bg-clip-text text-transparent">
+                    {pillarsHeading.title}
+                  </span>
+                </h2>
+                <p className="mt-4 text-lg text-slate-300">{pillarsHeading.subtitle}</p>
+              </m.div>
+
+              <div className="mt-12 grid gap-6 lg:grid-cols-[260px,1fr]">
+                <div className="flex flex-row gap-4 overflow-x-auto pb-2 lg:flex-col lg:overflow-visible">
+                  {pillars.map((pillar) => {
+                    const Icon = pillar.icon
+                    const isActive = pillar.id === activePillarId
+                    return (
+                      <button
+                        key={pillar.id}
+                        type="button"
+                        onClick={() => setActivePillarId(pillar.id)}
+                        className={`group relative flex min-w-[220px] items-center gap-3 rounded-2xl border px-4 py-3 text-left transition ${
+                          isActive
+                            ? 'border-white/40 bg-white/10'
+                            : 'border-white/10 bg-white/5 hover:border-white/20 hover:bg-white/[0.08]'
+                        }`}
+                      >
+                        <div className={`grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br ${pillar.accent}`}>
+                          <Icon className="h-5 w-5" />
+                        </div>
+                        <div>
+                          <p className="text-sm font-semibold text-white">{pillar.title}</p>
+                          <p className="text-xs text-slate-300">{pillar.label}</p>
+                        </div>
+                        <span
+                          className={`absolute inset-y-0 right-1.5 w-1 rounded-full transition ${
+                            isActive ? 'bg-gradient-to-b from-indigo-300 to-emerald-300 opacity-100' : 'opacity-0'
+                          }`}
+                          aria-hidden
+                        />
+                      </button>
+                    )
+                  })}
+                </div>
+
+                <m.div
+                  key={activePillar?.id ?? 'pillar-card'}
+                  className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8"
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.3 }}
+                  variants={cardReveal}
+                  transition={{ duration: 0.6, ease: 'easeOut' }}
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent" aria-hidden />
+                  <div className="relative z-10">
+                    <div className="flex flex-wrap items-center justify-between gap-4">
+                      <div className="max-w-2xl">
+                        <h3 className="text-2xl font-semibold text-white sm:text-3xl">
+                          {activePillar?.title ?? pillars[0]?.title}
+                        </h3>
+                        <p className="mt-3 text-base text-slate-300 sm:text-lg">
+                          {activePillar?.description ?? pillars[0]?.description}
+                        </p>
+                      </div>
+                      <div className="grid grid-cols-3 gap-3 rounded-2xl border border-white/10 bg-black/30 p-4">
+                        {(activePillar?.stats ?? pillarBlueprints[0].stats).map((stat) => (
+                          <div key={stat.label} className="text-center">
+                            <p className="text-sm text-slate-300">{stat.label}</p>
+                            <p className="mt-1 text-lg font-semibold text-white">{stat.value}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="mt-8 grid gap-3 sm:grid-cols-2">
+                      {(activePillar?.bullets ?? pillars[0]?.bullets ?? []).map((bullet) => (
+                        <div
+                          key={bullet}
+                          className="flex items-center gap-3 rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-slate-200"
+                        >
+                          <Layers className="h-4 w-4 text-emerald-300" />
+                          {bullet}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </m.div>
+              </div>
+            </div>
+          </section>
+
+          {/* Solutions */}
+          <section className="relative z-10 px-6 py-24">
+            <div className="mx-auto max-w-6xl">
+              <m.div
+                className="max-w-3xl"
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={sectionReveal}
+                transition={{ duration: 0.6, ease: 'easeOut' }}
+              >
+                <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Modules</p>
+                <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
+                  <span className="bg-gradient-to-r from-emerald-200 via-sky-200 to-indigo-200 bg-clip-text text-transparent">
+                    {solutionsHeading.title}
+                  </span>
+                </h2>
+                <p className="mt-4 text-lg text-slate-300">{solutionsHeading.subtitle}</p>
+              </m.div>
+
+              <div className="mt-12 grid gap-6 md:grid-cols-3">
+                {solutions.map((solution, index) => {
+                  const Icon = solution.icon
+                  return (
+                    <m.article
+                      key={solution.id}
+                      className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-7"
+                      initial="hidden"
+                      whileInView="show"
+                      viewport={{ once: true, amount: 0.3 }}
+                      variants={cardReveal}
+                      transition={{ duration: 0.6, ease: 'easeOut', delay: index * 0.05 }}
+                      whileHover=
+                        {shouldReduceMotion
+                          ? undefined
+                          : {
+                              y: -8,
+                              transition: { type: 'spring', stiffness: 220, damping: 24 },
+                            }}
+                    >
+                      <div
+                        className={`absolute inset-0 bg-gradient-to-br ${solution.accent} opacity-0 transition-opacity duration-300 group-hover:opacity-40`}
+                        aria-hidden
+                      />
+                      <div className="relative z-10 flex flex-1 flex-col">
+                        <div className="grid h-12 w-12 place-items-center rounded-2xl bg-white/10">
+                          <Icon className="h-6 w-6" />
+                        </div>
+                        <h3 className="mt-6 text-xl font-semibold text-white">{solution.title}</h3>
+                        <p className="mt-3 text-sm text-slate-200 sm:text-base">
+                          {solution.description}
+                        </p>
+                        <div className="mt-auto pt-6">
+                          <Link
+                            href={solution.link}
+                            className="inline-flex items-center gap-2 text-sm font-semibold text-emerald-200 transition-colors duration-200 hover:text-white"
+                          >
+                            {solution.linkLabel}
+                            <Compass className="h-4 w-4" />
+                          </Link>
+                        </div>
+                      </div>
+                    </m.article>
+                  )
+                })}
+              </div>
+            </div>
+          </section>
+
+          {/* Process */}
+          <section className="relative z-10 border-y border-white/5 bg-white/[0.03] px-6 py-24">
+            <div className="mx-auto max-w-6xl">
+              <m.div
+                className="max-w-3xl"
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={sectionReveal}
+                transition={{ duration: 0.6, ease: 'easeOut' }}
+              >
+                <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Process</p>
+                <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
+                  <span className="bg-gradient-to-r from-indigo-200 via-sky-200 to-emerald-200 bg-clip-text text-transparent">
+                    {processHeading.title}
+                  </span>
+                </h2>
+                <p className="mt-4 text-lg text-slate-300">{processHeading.subtitle}</p>
+              </m.div>
+
+              <div className="mt-12 grid gap-6 md:grid-cols-2">
+                {processSteps.map((step, index) => (
+                  <m.div
+                    key={step.id}
+                    className="relative overflow-hidden rounded-3xl border border-white/10 bg-black/40 p-6"
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true, amount: 0.3 }}
+                    variants={cardReveal}
+                    transition={{ duration: 0.6, ease: 'easeOut', delay: index * 0.04 }}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent" aria-hidden />
+                    <div className="relative z-10">
+                      <div className="flex items-center gap-4">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-base font-semibold text-white">
+                          {index + 1}
+                        </div>
+                        <h3 className="text-xl font-semibold text-white">{step.title}</h3>
+                      </div>
+                      <p className="mt-4 text-sm text-slate-200 sm:text-base">{step.description}</p>
+                    </div>
+                  </m.div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* Contact */}
+          <section className="relative z-10 px-6 py-24">
+            <div className="mx-auto max-w-5xl overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-indigo-500/20 via-sky-500/20 to-emerald-500/20 p-10">
+              <m.div
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.3 }}
+                variants={sectionReveal}
+                transition={{ duration: 0.6, ease: 'easeOut' }}
+              >
+                <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
+                  <div className="max-w-2xl">
+                    <p className="text-sm uppercase tracking-[0.25em] text-slate-200">Contact</p>
+                    <h2 className="mt-4 text-3xl font-bold text-white sm:text-4xl">{contactTitle}</h2>
+                    <p className="mt-3 text-base text-slate-100 sm:text-lg">{contactDescription}</p>
+                  </div>
+                  <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+                    {contactMetrics.map((metric) => (
+                      <div
+                        key={metric.id}
+                        className="rounded-2xl border border-white/20 bg-black/30 px-4 py-3 text-center"
+                      >
+                        <p className="text-xs uppercase tracking-wide text-slate-300">{metric.label}</p>
+                        <p className="mt-2 text-lg font-semibold text-white sm:text-xl">
+                          {metric.value}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+                  <Link
+                    href={`/${locale}/contact`}
+                    className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-base font-semibold text-slate-900 transition-transform duration-200 hover:scale-[1.02] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+                  >
+                    {contactCta}
+                  </Link>
+                  <p className="text-sm text-slate-100">{contactNote}</p>
+                </div>
+              </m.div>
+            </div>
+          </section>
+        </main>
+      </LazyMotion>
       <Footer />
     </div>
   )
