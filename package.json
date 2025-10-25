@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/Hackboot-Dev/hackboot#readme",
   "dependencies": {
+    "@react-spring/web": "^10.0.3",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.24",
     "i18next": "^25.5.2",

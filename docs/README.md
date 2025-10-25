@@ -119,6 +119,7 @@ La page services (`app/[locale]/services/page.tsx`) combine plusieurs composants
 
 - **Arrière-plan allégé** : `ParticleBackground` ajuste dynamiquement le nombre de particules selon la taille d’écran, respecte `prefers-reduced-motion` et recycle les connexions pour éviter les ralentissements.
 - **Cartes 3D adaptatives** : `FlipCard3D` bascule en mode « tap to flip » sur les terminaux tactiles et conserve les animations 3D uniquement sur les pointeurs précis.
+  - Animation gérée par `@react-spring/web` pour un flip fluide sans glitch, avec respect de `prefers-reduced-motion`.
 - **Cartes lumineuses** : `GlowingCard` réduit les effets coûteux sur mobile tout en conservant une lueur statique.
 - **Counters et timeline** : `AnimatedCounter` s’appuie sur `framer-motion.animate` pour animer les chiffres sans re-rendu massif, tandis que `InteractiveTimeline` devient scrollable horizontalement et accessible clavier.
 - **Mise en page responsive** : le hero ajuste la taille du titre (`text-4xl → text-8xl`) avec `tracking-tight` et `leading` resserrés pour éviter que le texte ne déborde sur les petits écrans.

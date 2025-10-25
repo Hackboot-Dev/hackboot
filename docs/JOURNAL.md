@@ -2298,3 +2298,27 @@ if (hasDecimal) {
 #### État:
 ✅ Animation fluide sans rebond parasite
 ⚠️ Build Netlify toujours dépendant de `framer-motion` (environnement distant)
+
+### UI: Flip Services via @react-spring
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Remplacer l’animation custom par une bibliothèque dédiée pour éliminer les saccades signalées.
+- Respecter les préférences de mouvement réduit sans sacrifier le mode tactile « tap to flip ».
+
+#### Actions réalisées:
+1. Adoption de `@react-spring/web` dans `FlipCard3D` avec un spring contrôlé (tension/friction) et interpolation perspective.
+2. Synchronisation du flip avec `prefers-reduced-motion` pour désactiver l’animation lorsque requis.
+3. Mise à jour de la documentation centrale afin de signaler la nouvelle dépendance et les bonnes pratiques associées.
+
+#### Fichiers modifiés:
+- `/components/services/FlipCard3D.tsx`
+- `/package.json`
+- `/package-lock.json`
+- `/docs/README.md`
+- `/docs/JOURNAL.md`
+
+#### État:
+✅ Flip fluide sur desktop & mobile avec transitions stables
+⚠️ Build Netlify toujours tributaire de `framer-motion` côté environnement distant

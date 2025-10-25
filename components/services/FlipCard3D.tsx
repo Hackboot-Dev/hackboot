@@ -1,7 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+import { useReducedMotion } from 'framer-motion'
+import { animated, useSpring } from '@react-spring/web'
 import type { LucideIcon } from 'lucide-react'
 import { CheckCircle2 } from 'lucide-react'
 
@@ -28,6 +29,12 @@ export default function FlipCard3D({
 }: FlipCard3DProps) {
   const [isFlipped, setIsFlipped] = useState(false)
   const [isInteractive, setIsInteractive] = useState(false)
+  const prefersReducedMotion = useReducedMotion()
+
+  const [spring, api] = useSpring(() => ({
+    rotate: 0,
+    config: { tension: 520, friction: 40, precision: 0.01 },
+  }))
 
   useEffect(() => {
     if (typeof window === 'undefined') return
@@ -37,6 +44,11 @@ export default function FlipCard3D({
     query.addEventListener('change', update)
     return () => query.removeEventListener('change', update)
   }, [])
+
+  useEffect(() => {
+    const target = isFlipped && !prefersReducedMotion ? 180 : 0
+    api.start({ rotate: target, immediate: prefersReducedMotion })
+  }, [api, isFlipped, prefersReducedMotion])
 
   const handlePointerEnter = () => {
     if (isInteractive) {
@@ -74,15 +86,12 @@ export default function FlipCard3D({
       aria-pressed={isInteractive ? undefined : isFlipped}
       tabIndex={isInteractive ? -1 : 0}
     >
-      <motion.div
+      <animated.div
         className="relative w-full h-full"
-        initial={false}
-        animate={{ rotateY: isFlipped ? 180 : 0 }}
-        transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
         style={{
           transformStyle: 'preserve-3d',
-          transformPerspective: 1400,
           willChange: 'transform',
+          transform: spring.rotate.to((angle) => `perspective(1400px) rotateY(${angle}deg)`),
         }}
       >
         {/* Front */}
@@ -158,7 +167,7 @@ export default function FlipCard3D({
             ))}
           </div>
         </div>
-      </motion.div>
+      </animated.div>
     </div>
   )
 }
