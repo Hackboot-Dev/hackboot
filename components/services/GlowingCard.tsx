@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import type { CSSProperties, MouseEvent } from 'react'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import type { LucideIcon } from 'lucide-react'
@@ -23,8 +24,9 @@ export default function GlowingCard({
   link,
   linkLabel,
 }: GlowingCardProps) {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
   const cardRef = useRef<HTMLDivElement>(null)
+  const glowRef = useRef<HTMLDivElement>(null)
+  const frameRef = useRef<number | null>(null)
   const [isInteractive, setIsInteractive] = useState(false)
 
   useEffect(() => {
@@ -36,23 +38,57 @@ export default function GlowingCard({
     return () => query.removeEventListener('change', update)
   }, [])
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return
-    const rect = cardRef.current.getBoundingClientRect()
-    setMousePosition({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
+  const cancelFrame = () => {
+    if (frameRef.current !== null) {
+      cancelAnimationFrame(frameRef.current)
+      frameRef.current = null
+    }
+  }
+
+  const updateGlow = (xPercent: number, yPercent: number) => {
+    if (!glowRef.current) return
+    glowRef.current.style.setProperty('--glow-x', `${xPercent}%`)
+    glowRef.current.style.setProperty('--glow-y', `${yPercent}%`)
+  }
+
+  const scheduleGlow = (xPercent: number, yPercent: number) => {
+    cancelFrame()
+    frameRef.current = requestAnimationFrame(() => {
+      updateGlow(xPercent, yPercent)
+      frameRef.current = null
     })
   }
 
-  const glowBackground = isInteractive
-    ? `radial-gradient(520px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(139, 92, 246, 0.16), transparent 45%)`
-    : 'radial-gradient(520px circle at 50% 50%, rgba(139, 92, 246, 0.12), transparent 55%)'
+  useEffect(() => {
+    updateGlow(50, 50)
+    return cancelFrame
+  }, [])
+
+  const handleMouseMove = (event: MouseEvent<HTMLDivElement>) => {
+    if (!isInteractive || !cardRef.current) return
+    const rect = cardRef.current.getBoundingClientRect()
+    const x = ((event.clientX - rect.left) / rect.width) * 100
+    const y = ((event.clientY - rect.top) / rect.height) * 100
+    scheduleGlow(Math.min(100, Math.max(0, x)), Math.min(100, Math.max(0, y)))
+  }
+
+  const handleMouseLeave = () => {
+    if (!isInteractive) return
+    scheduleGlow(50, 50)
+  }
+
+  const glowStyle: CSSProperties = {
+    '--glow-x': '50%',
+    '--glow-y': '50%',
+    background:
+      'radial-gradient(520px circle at var(--glow-x) var(--glow-y), rgba(139, 92, 246, 0.16), transparent 45%)',
+  }
 
   return (
     <motion.div
       ref={cardRef}
       onMouseMove={isInteractive ? handleMouseMove : undefined}
+      onMouseLeave={isInteractive ? handleMouseLeave : undefined}
       className="relative glass-effect rounded-2xl p-8 border border-white/10 group overflow-hidden"
       whileHover={isInteractive ? { scale: 1.015 } : undefined}
       whileTap={!isInteractive ? { scale: 0.99 } : undefined}
@@ -60,10 +96,11 @@ export default function GlowingCard({
     >
       {/* Glowing effect */}
       <div
+        ref={glowRef}
         className={`absolute inset-0 transition-opacity duration-300 pointer-events-none ${
           isInteractive ? 'opacity-0 group-hover:opacity-100' : 'opacity-70'
         }`}
-        style={{ background: glowBackground }}
+        style={glowStyle}
       />
 
       <div className="relative z-10">

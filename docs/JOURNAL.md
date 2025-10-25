@@ -2322,3 +2322,24 @@ if (hasDecimal) {
 #### État:
 ✅ Flip fluide sur desktop & mobile avec transitions stables
 ⚠️ Build Netlify toujours tributaire de `framer-motion` côté environnement distant
+
+### UI: Stabilisation du glow des cartes services
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Supprimer les chutes de FPS causées par le recalcul React du fond lumineux sur mouvement de souris.
+- Préserver le rendu interactif desktop tout en conservant une expérience stable sur mobile/tactile.
+
+#### Actions réalisées:
+1. Remplacement du `setState` à chaque `mousemove` par un pilotage via variables CSS mises à jour avec `requestAnimationFrame`.
+2. Ajout d’un reset automatique du glow au centre lors du `mouseleave` et au montage pour éviter les valeurs résiduelles.
+3. Nettoyage de la frame planifiée pour empêcher les fuites et garantir une animation fluide.
+
+#### Fichiers modifiés:
+- `/components/services/GlowingCard.tsx`
+- `/docs/JOURNAL.md`
+
+#### État:
+✅ Glow interactif fluide sans re-rendu complet
+⚠️ Build distant toujours bloqué tant que `framer-motion` manque côté Netlify
