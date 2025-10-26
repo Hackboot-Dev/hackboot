@@ -187,6 +187,114 @@ body {
   animation: particle 15s linear infinite;
 }
 
+@keyframes hero-glow-a {
+  0% {
+    background-position: 0% 0%;
+    opacity: 0.35;
+  }
+  50% {
+    background-position: 100% 100%;
+    opacity: 0.55;
+  }
+  100% {
+    background-position: 0% 0%;
+    opacity: 0.35;
+  }
+}
+
+@keyframes hero-glow-b {
+  0% {
+    background-position: 100% 0%;
+    opacity: 0.3;
+  }
+  50% {
+    background-position: 0% 100%;
+    opacity: 0.5;
+  }
+  100% {
+    background-position: 100% 0%;
+    opacity: 0.3;
+  }
+}
+
+@keyframes scroll-indicator {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes achievement-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  70% {
+    transform: scale(1.25);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.25);
+    opacity: 0;
+  }
+}
+
+@keyframes about-blob-a {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  25% {
+    transform: translate3d(80px, -60px, 0) scale(1.1);
+  }
+  50% {
+    transform: translate3d(-40px, 40px, 0) scale(0.95);
+  }
+  75% {
+    transform: translate3d(60px, 20px, 0) scale(1.05);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes about-blob-b {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  30% {
+    transform: translate3d(-90px, 50px, 0) scale(0.95);
+  }
+  60% {
+    transform: translate3d(40px, -40px, 0) scale(1.15);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes about-blob-c {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  25% {
+    transform: translate3d(60px, -40px, 0) scale(1.05);
+  }
+  50% {
+    transform: translate3d(-70px, -60px, 0) scale(0.9);
+  }
+  75% {
+    transform: translate3d(50px, 40px, 0) scale(1.1);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;

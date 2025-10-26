@@ -1,8 +1,8 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { useEffect, useState } from 'react'
 import type { LucideIcon } from 'lucide-react'
+import { useReveal } from '@/lib/hooks/useReveal'
 
 interface Stat {
   icon: LucideIcon
@@ -28,12 +28,12 @@ export default function StatsShowcase({ stats }: StatsShowcaseProps) {
 
 function StatCard({ stat, index }: { stat: Stat; index: number }) {
   const Icon = stat.icon
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true })
+  const { ref, isVisible } = useReveal<HTMLDivElement>({ threshold: 0.35 })
+  const prefersReducedMotion = usePrefersReducedMotion()
   const [displayValue, setDisplayValue] = useState('0')
 
   useEffect(() => {
-    if (!isInView) return
+    if (!isVisible) return
 
     const cleanValue = stat.value.replace(/[^\d.]/g, '')
     const numericValue = parseFloat(cleanValue)
@@ -46,12 +46,12 @@ function StatCard({ stat, index }: { stat: Stat; index: number }) {
     const hasDecimal = cleanValue.includes('.')
     const decimalPlaces = hasDecimal ? cleanValue.split('.')[1]?.length || 0 : 0
 
-    const duration = 2000
+    const duration = prefersReducedMotion ? 0 : 2000
     const startTime = Date.now()
 
     const animate = () => {
       const elapsed = Date.now() - startTime
-      const progress = Math.min(elapsed / duration, 1)
+      const progress = duration === 0 ? 1 : Math.min(elapsed / duration, 1)
 
       const currentValue = numericValue * progress
 
@@ -67,30 +67,27 @@ function StatCard({ stat, index }: { stat: Stat; index: number }) {
     }
 
     requestAnimationFrame(animate)
-  }, [isInView, stat.value])
+  }, [isVisible, stat.value, prefersReducedMotion])
 
   return (
-    <motion.div
+    <div
       ref={ref}
-      initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="relative group"
+      style={{ transitionDelay: `${index * 80}ms` }}
+      className={`relative group transition-all duration-700 ease-out ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+      }`}
     >
       <div className="glass-effect rounded-2xl p-6 border border-white/10 hover:border-purple-500/30 transition-all relative overflow-hidden">
-        {/* Background gradient on hover */}
         <div
-          className={`absolute inset-0 bg-gradient-to-br ${stat.gradient} opacity-0 group-hover:opacity-10 transition-opacity`}
+          className={`absolute inset-0 bg-gradient-to-br ${stat.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
         />
 
         <div className="relative z-10">
-          <motion.div
-            className={`w-12 h-12 rounded-xl bg-gradient-to-br ${stat.gradient} flex items-center justify-center mb-4`}
-            whileHover={{ rotate: 360 }}
-            transition={{ duration: 0.6 }}
+          <div
+            className={`w-12 h-12 rounded-xl bg-gradient-to-br ${stat.gradient} flex items-center justify-center mb-4 transition-transform duration-700 ease-out group-hover:rotate-[360deg]`}
           >
             <Icon className="w-6 h-6 text-white" />
-          </motion.div>
+          </div>
 
           <div className="text-4xl font-black bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 mb-2">
             {displayValue}
@@ -100,6 +97,28 @@ function StatCard({ stat, index }: { stat: Stat; index: number }) {
           <div className="text-sm text-gray-400">{stat.label}</div>
         </div>
       </div>
-    </motion.div>
+    </div>
   )
+}
+
+function usePrefersReducedMotion() {
+  const mediaQuery = '(prefers-reduced-motion: reduce)'
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
+
+  useEffect(() => {
+    const mediaList = window.matchMedia(mediaQuery)
+    setPrefersReducedMotion(mediaList.matches)
+
+    const handleChange = (event: MediaQueryListEvent) => {
+      setPrefersReducedMotion(event.matches)
+    }
+
+    mediaList.addEventListener('change', handleChange)
+
+    return () => {
+      mediaList.removeEventListener('change', handleChange)
+    }
+  }, [])
+
+  return prefersReducedMotion
 }

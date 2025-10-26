@@ -2420,3 +2420,37 @@ if (hasDecimal) {
 ✅ Alignement desktop conforme
 ✅ Animations piliers fluides et lisibles
 ⚠️ Build Netlify toujours conditionné à la présence de `framer-motion` côté environnement distant
+
+### UI: Optimisation page About (animations sans framer)
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Supprimer les ralentissements constatés sur la page « About » (scroll haché, latence dans le menu) dus aux animations `framer-motion`.
+- Conserver la structure narrative (hero, stats, timeline, valeurs) tout en allégeant fortement les effets.
+- Respecter `prefers-reduced-motion` et éviter toute régression visuelle sur desktop/mobile.
+
+#### Actions réalisées:
+1. Création du hook `useReveal` (`lib/hooks/useReveal.ts`) pour piloter les apparitions via `IntersectionObserver` + transitions CSS.
+2. Réécriture des composants `HeroParallax`, `StatsShowcase`, `MissionVision`, `VerticalTimeline`, `AchievementGrid` et `ValueCardParallax` afin de remplacer `framer-motion` par des transitions Tailwind/`requestAnimationFrame` légères.
+3. Remplacement de `MorphingShape` par des blobs animés via `@keyframes` (`about-blob-*`) et ajout d’animations utilitaires (`hero-glow-*`, `achievement-pulse`, `scroll-indicator`) dans `app/globals.css`.
+4. Mise à jour de la documentation (`docs/README.md`) pour décrire la nouvelle approche et informer les équipes contenu/design.
+
+#### Fichiers modifiés:
+- `/app/[locale]/about/page.tsx`
+- `/app/globals.css`
+- `/components/about/AchievementGrid.tsx`
+- `/components/about/HeroParallax.tsx`
+- `/components/about/MissionVision.tsx`
+- `/components/about/StatsShowcase.tsx`
+- `/components/about/ValueCardParallax.tsx`
+- `/components/about/VerticalTimeline.tsx`
+- `/components/services/MorphingShape.tsx`
+- `/docs/README.md`
+- `/docs/JOURNAL.md`
+- `/lib/hooks/useReveal.ts`
+
+#### État:
+✅ Page About fluide sur desktop/mobile (animations CSS légères)
+✅ Respect de `prefers-reduced-motion`
+⚠️ Build Netlify dépend toujours de `framer-motion` pour d’autres pages (pas traité ici)

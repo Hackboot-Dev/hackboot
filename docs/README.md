@@ -123,6 +123,16 @@ La page services (`app/[locale]/services/page.tsx`) reprend désormais les codes
 - **Bloc contact** : panel gradient adouci, métriques SLA et CTA principal conservent le rendu premium tout en respectant les proportions et micro-interactions communes.
 - **Performances** : structure légère (plus de dépendances tierces), hover subtils et suppression des artefacts 3 FPS observés auparavant.
 
+## 🧬 Page About (Notre histoire)
+
+La page about conserve sa structure narrative (hero parallax, stats, timeline, valeurs) mais les animations ont été réécrites pour éliminer les ralentissements signalés :
+
+- **Hook `useReveal`** : chaque carte (stats, mission/vision, timeline, valeurs) s’appuie désormais sur un observer léger (`lib/hooks/useReveal.ts`) qui déclenche des transitions CSS (`opacity`, `translate`, `scale`) au lieu de `framer-motion`.
+- **Hero optimisé** : le scroll applique une mise à l’échelle progressive via `requestAnimationFrame` et des halos animés par CSS (`hero-glow-a/b`). Le contenu apparaît avec des délais (`transitionDelay`) tout en respectant `prefers-reduced-motion`.
+- **Timeline** : la progression verticale utilise un calcul `requestAnimationFrame` ponctuel, et chaque item/puce adopte les classes Tailwind (`translate`, `scale`) pour supprimer les jank.
+- **Décors** : les blobs (`MorphingShape`) et les pulsations de badges exploitent des `@keyframes` dédiés (`about-blob-*`, `achievement-pulse`) plutôt que des animations JS continues, réduisant l’usage CPU/GPU.
+- **Accessibilité** : les animations sont conditionnées par `motion-safe`/`motion-reduce` et les compteurs numériques respectent `prefers-reduced-motion` (désactivation de l’incrément progressif si besoin).
+
 ---
 
 *Documentation maintenue selon les standards définis dans `/CLAUDE.md`*
