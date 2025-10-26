@@ -111,7 +111,7 @@ Cette section résume le fonctionnement des pages produits cloud gaming : où so
 4. Compléter les traductions génériques dans `public/locales/<locale>/common.json` si besoin.
 5. Lancer `npm run lint` pour valider les schémas avant de publier.
 
-**Dernière action:** Ajout de l’offre native Dota 2 PulseForge et overrides de localisation FR/EN/ET (24/10/2025)
+**Dernière action:** Nettoyage des animations de la page About (suppression des halos et compteurs, 24/10/2025)
 
 ## 🛠️ Page Services premium
 
@@ -127,11 +127,11 @@ La page services (`app/[locale]/services/page.tsx`) reprend désormais les codes
 
 La page about conserve sa structure narrative (hero parallax, stats, timeline, valeurs) mais les animations ont été réécrites pour éliminer les ralentissements signalés :
 
-- **Hook `useReveal`** : chaque carte (stats, mission/vision, timeline, valeurs) s’appuie désormais sur un observer léger (`lib/hooks/useReveal.ts`) qui déclenche des transitions CSS (`opacity`, `translate`, `scale`) au lieu de `framer-motion`.
-- **Hero optimisé** : le scroll applique une mise à l’échelle progressive via `requestAnimationFrame` et des halos animés par CSS (`hero-glow-a/b`). Le contenu apparaît avec des délais (`transitionDelay`) tout en respectant `prefers-reduced-motion`.
-- **Timeline** : la progression verticale utilise un calcul `requestAnimationFrame` ponctuel, et chaque item/puce adopte les classes Tailwind (`translate`, `scale`) pour supprimer les jank.
-- **Décors** : les blobs (`MorphingShape`) et les pulsations de badges exploitent des `@keyframes` dédiés (`about-blob-*`, `achievement-pulse`) plutôt que des animations JS continues, réduisant l’usage CPU/GPU.
-- **Accessibilité** : les animations sont conditionnées par `motion-safe`/`motion-reduce` et les compteurs numériques respectent `prefers-reduced-motion` (désactivation de l’incrément progressif si besoin).
+- **Hook `useReveal`** : chaque carte (stats, mission/vision, timeline, valeurs) s’appuie sur l’observer léger (`lib/hooks/useReveal.ts`) pour déclencher des transitions CSS (`opacity`, `translate`, `scale`).
+- **Hero simplifié** : plus de parallax ni de halos animés ; seul le fade-in graduel du badge/titre/texte est conservé.
+- **Timeline** : la progression verticale continue d’utiliser le calcul ponctuel `requestAnimationFrame` pour l’animation de scroll « Notre parcours ».
+- **Cartes & stats** : suppression des compteurs progressifs et des rotations 3D ; les hovers se limitent à de légers `scale`/`opacity`.
+- **Décor maîtrisé** : les arrière-plans dynamiques (`ParticleBackground`, `MorphingShape`) ne sont plus montés sur la page pour éviter tout coût GPU inutile.
 
 ---
 

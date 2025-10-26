@@ -187,63 +187,6 @@ body {
   animation: particle 15s linear infinite;
 }
 
-@keyframes hero-glow-a {
-  0% {
-    background-position: 0% 0%;
-    opacity: 0.35;
-  }
-  50% {
-    background-position: 100% 100%;
-    opacity: 0.55;
-  }
-  100% {
-    background-position: 0% 0%;
-    opacity: 0.35;
-  }
-}
-
-@keyframes hero-glow-b {
-  0% {
-    background-position: 100% 0%;
-    opacity: 0.3;
-  }
-  50% {
-    background-position: 0% 100%;
-    opacity: 0.5;
-  }
-  100% {
-    background-position: 100% 0%;
-    opacity: 0.3;
-  }
-}
-
-@keyframes scroll-indicator {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(8px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-@keyframes achievement-pulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.6;
-  }
-  70% {
-    transform: scale(1.25);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1.25);
-    opacity: 0;
-  }
-}
-
 @keyframes about-blob-a {
   0% {
     transform: translate3d(0, 0, 0) scale(1);

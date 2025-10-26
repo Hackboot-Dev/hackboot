@@ -1,6 +1,5 @@
 'use client'
 
-import { useEffect, useState } from 'react'
 import type { LucideIcon } from 'lucide-react'
 import { useReveal } from '@/lib/hooks/useReveal'
 
@@ -29,45 +28,6 @@ export default function StatsShowcase({ stats }: StatsShowcaseProps) {
 function StatCard({ stat, index }: { stat: Stat; index: number }) {
   const Icon = stat.icon
   const { ref, isVisible } = useReveal<HTMLDivElement>({ threshold: 0.35 })
-  const prefersReducedMotion = usePrefersReducedMotion()
-  const [displayValue, setDisplayValue] = useState('0')
-
-  useEffect(() => {
-    if (!isVisible) return
-
-    const cleanValue = stat.value.replace(/[^\d.]/g, '')
-    const numericValue = parseFloat(cleanValue)
-
-    if (isNaN(numericValue)) {
-      setDisplayValue(stat.value)
-      return
-    }
-
-    const hasDecimal = cleanValue.includes('.')
-    const decimalPlaces = hasDecimal ? cleanValue.split('.')[1]?.length || 0 : 0
-
-    const duration = prefersReducedMotion ? 0 : 2000
-    const startTime = Date.now()
-
-    const animate = () => {
-      const elapsed = Date.now() - startTime
-      const progress = duration === 0 ? 1 : Math.min(elapsed / duration, 1)
-
-      const currentValue = numericValue * progress
-
-      if (hasDecimal) {
-        setDisplayValue(currentValue.toFixed(decimalPlaces))
-      } else {
-        setDisplayValue(Math.floor(currentValue).toString())
-      }
-
-      if (progress < 1) {
-        requestAnimationFrame(animate)
-      }
-    }
-
-    requestAnimationFrame(animate)
-  }, [isVisible, stat.value, prefersReducedMotion])
 
   return (
     <div
@@ -84,13 +44,13 @@ function StatCard({ stat, index }: { stat: Stat; index: number }) {
 
         <div className="relative z-10">
           <div
-            className={`w-12 h-12 rounded-xl bg-gradient-to-br ${stat.gradient} flex items-center justify-center mb-4 transition-transform duration-700 ease-out group-hover:rotate-[360deg]`}
+            className={`w-12 h-12 rounded-xl bg-gradient-to-br ${stat.gradient} flex items-center justify-center mb-4 transition-transform duration-300 ease-out group-hover:scale-105`}
           >
             <Icon className="w-6 h-6 text-white" />
           </div>
 
           <div className="text-4xl font-black bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 mb-2">
-            {displayValue}
+            {stat.value}
             {stat.suffix}
           </div>
 
@@ -99,26 +59,4 @@ function StatCard({ stat, index }: { stat: Stat; index: number }) {
       </div>
     </div>
   )
-}
-
-function usePrefersReducedMotion() {
-  const mediaQuery = '(prefers-reduced-motion: reduce)'
-  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false)
-
-  useEffect(() => {
-    const mediaList = window.matchMedia(mediaQuery)
-    setPrefersReducedMotion(mediaList.matches)
-
-    const handleChange = (event: MediaQueryListEvent) => {
-      setPrefersReducedMotion(event.matches)
-    }
-
-    mediaList.addEventListener('change', handleChange)
-
-    return () => {
-      mediaList.removeEventListener('change', handleChange)
-    }
-  }, [])
-
-  return prefersReducedMotion
 }

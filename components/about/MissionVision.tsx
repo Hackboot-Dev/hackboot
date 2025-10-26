@@ -84,20 +84,20 @@ function RevealCard({
       ref={ref}
       style={{ transitionDelay: `${index * 120}ms` }}
       className={`relative group transition-all duration-700 ease-out ${
-        isVisible ? 'opacity-100 translate-x-0' : index % 2 === 0 ? 'opacity-0 -translate-x-8' : 'opacity-0 translate-x-8'
+        isVisible ? 'opacity-100 translate-x-0' : index % 2 === 0 ? 'opacity-0 -translate-x-6' : 'opacity-0 translate-x-6'
       }`}
     >
       <div
         className={`glass-effect rounded-3xl p-8 border border-white/10 ${borderHover} transition-all h-full relative overflow-hidden`}
       >
         <div
-          className={`absolute inset-0 bg-gradient-to-br ${backgroundHover} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+          className={`absolute inset-0 bg-gradient-to-br ${backgroundHover} to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300`}
         />
 
         <div className="relative z-10">
           <div className="flex items-center gap-4 mb-6">
             <div
-              className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${gradient} flex items-center justify-center transition-transform duration-700 ease-out group-hover:rotate-[360deg]`}
+              className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${gradient} flex items-center justify-center transition-transform duration-300 ease-out group-hover:scale-105`}
             >
               <Icon className="w-8 h-8 text-white" />
             </div>
@@ -122,11 +122,11 @@ function Manifesto({ title, points }: { title: string; points: string[] }) {
       }`}
     >
       <div className="glass-effect rounded-3xl p-8 border border-white/10 hover:border-emerald-500/30 transition-all relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/10 to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-300" />
 
         <div className="relative z-10">
           <div className="flex items-center gap-4 mb-6">
-            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center transition-transform duration-700 ease-out group-hover:rotate-[360deg]">
+            <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center transition-transform duration-300 ease-out group-hover:scale-105">
               <Zap className="w-8 h-8 text-white" />
             </div>
             <h3 className="text-3xl font-black text-white">{title}</h3>

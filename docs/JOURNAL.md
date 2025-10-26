@@ -2454,3 +2454,33 @@ if (hasDecimal) {
 ✅ Page About fluide sur desktop/mobile (animations CSS légères)
 ✅ Respect de `prefers-reduced-motion`
 ⚠️ Build Netlify dépend toujours de `framer-motion` pour d’autres pages (pas traité ici)
+
+### UI: Nettoyage animations About (post-feedback)
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Répondre à la consigne de ne conserver que les apparitions, le scroll de la timeline et les hovers.
+- Éliminer les animations de fond et compteurs jugées parasites sur la page « About ».
+- Documenter la nouvelle approche allégée.
+
+#### Actions réalisées:
+1. Simplification du composant `HeroParallax` (suppression parallax/halos, fade-in uniquement) et retrait des décors `ParticleBackground`/`MorphingShape` de la page.
+2. Nettoyage des cartes (stats, mission/vision, achievements, valeurs) pour supprimer compteurs progressifs, rotations et pulses au profit de simples hovers `scale`/`opacity`.
+3. Suppression des `@keyframes` inutilisés (`hero-glow-*`, `scroll-indicator`, `achievement-pulse`) et mise à jour de `docs/README.md`.
+
+#### Fichiers modifiés:
+- `/app/[locale]/about/page.tsx`
+- `/app/globals.css`
+- `/components/about/AchievementGrid.tsx`
+- `/components/about/HeroParallax.tsx`
+- `/components/about/MissionVision.tsx`
+- `/components/about/StatsShowcase.tsx`
+- `/components/about/ValueCardParallax.tsx`
+- `/docs/README.md`
+- `/docs/JOURNAL.md`
+
+#### État:
+✅ Animations conformes aux attentes (apparition, scroll timeline, hover)
+✅ Page plus légère sans décors GPU
+⚠️ Build Netlify reste tributaire de `framer-motion` pour d’autres pages

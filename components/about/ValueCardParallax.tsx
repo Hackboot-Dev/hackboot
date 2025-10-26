@@ -38,12 +38,12 @@ function ValueCard({ value, index }: { value: Value; index: number }) {
     >
       <div className="glass-effect rounded-2xl p-6 border border-white/10 hover:border-purple-500/30 transition-all h-full relative overflow-hidden">
         <div
-          className={`absolute inset-0 bg-gradient-to-br ${value.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-500`}
+          className={`absolute inset-0 bg-gradient-to-br ${value.gradient} opacity-0 group-hover:opacity-20 transition-opacity duration-300`}
         />
 
         <div className="relative z-10">
           <div
-            className={`w-14 h-14 rounded-xl bg-gradient-to-br ${value.gradient} flex items-center justify-center mb-4 transition-transform duration-500 ease-out group-hover:scale-105 group-hover:rotate-3`}
+            className={`w-14 h-14 rounded-xl bg-gradient-to-br ${value.gradient} flex items-center justify-center mb-4 transition-transform duration-300 ease-out group-hover:scale-105`}
           >
             <Icon className="w-7 h-7 text-white" />
           </div>
@@ -55,7 +55,7 @@ function ValueCard({ value, index }: { value: Value; index: number }) {
           <p className="text-sm text-gray-400 leading-relaxed">{value.description}</p>
         </div>
 
-        <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-br from-purple-500/20 to-transparent rounded-full blur-2xl group-hover:scale-150 transition-transform duration-500" />
+        <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-br from-purple-500/20 to-transparent rounded-full blur-2xl group-hover:scale-110 transition-transform duration-300" />
       </div>
     </div>
   )

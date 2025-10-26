@@ -32,8 +32,6 @@ import MissionVision from '@/components/about/MissionVision'
 import VerticalTimeline from '@/components/about/VerticalTimeline'
 import AchievementGrid from '@/components/about/AchievementGrid'
 import ValueCardParallax from '@/components/about/ValueCardParallax'
-import ParticleBackground from '@/components/services/ParticleBackground'
-import MorphingShape from '@/components/services/MorphingShape'
 
 const Footer = dynamic(() => import('@/components/Footer'), {
   loading: () => <div className="h-32 bg-black" />,
@@ -288,26 +286,10 @@ export default function AboutPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-hidden animate-fade-in">
+    <div className="min-h-screen bg-black text-white overflow-hidden">
       <SiteHeader />
 
-      {/* Background Effects */}
-      <ParticleBackground />
-      <MorphingShape />
-
-      {/* Background grid */}
-      <div className="fixed inset-0 opacity-[0.02] pointer-events-none" style={{ zIndex: 1 }}>
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `linear-gradient(rgba(139, 92, 246, 0.3) 1px, transparent 1px),
-                           linear-gradient(90deg, rgba(139, 92, 246, 0.3) 1px, transparent 1px)`,
-            backgroundSize: '50px 50px',
-          }}
-        />
-      </div>
-
-      <div className="relative" style={{ zIndex: 2 }}>
+      <div className="relative">
         {/* Hero Section */}
         <HeroParallax
           badge={t.about?.badge || 'VMCloud Group OÜ'}
@@ -327,14 +309,12 @@ export default function AboutPage() {
         {/* Mission & Vision */}
         <section className="container mx-auto px-6 py-20">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-6xl font-black mb-4">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-cyan-600">
-                Pourquoi Nous Existons
-              </span>
-            </h2>
-              <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-                Notre raison d’être et la direction que nous prenons
-              </p>
+              <h2 className="text-4xl md:text-6xl font-black mb-4">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-cyan-600">
+                  Pourquoi Nous Existons
+                </span>
+              </h2>
+              <p className="text-xl text-gray-400 max-w-3xl mx-auto">Notre raison d’être et la direction que nous prenons</p>
           </div>
 
           <MissionVision mission={mission} vision={vision} manifesto={manifesto} />
