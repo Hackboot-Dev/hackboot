@@ -1,7 +1,13 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-import { LazyMotion, domAnimation, m, useReducedMotion } from 'framer-motion'
+import {
+  AnimatePresence,
+  LazyMotion,
+  domAnimation,
+  m,
+  useReducedMotion,
+} from 'framer-motion'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { useParams } from 'next/navigation'
@@ -414,7 +420,7 @@ export default function ServicesPage() {
 
           <section className="relative z-10">
             <div className="mx-auto w-full max-w-6xl px-6">
-              <div className="grid gap-12 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:items-start">
+              <div className="grid gap-12 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,1fr)] lg:items-center lg:gap-16">
                 <div className="space-y-8">
                   <m.div
                     className="inline-flex items-center gap-2 glass-effect rounded-full px-4 py-1 text-sm text-purple-200"
@@ -470,7 +476,7 @@ export default function ServicesPage() {
                 </div>
 
                 <m.div
-                  className="grid gap-4 sm:grid-cols-2"
+                  className="grid gap-4 sm:grid-cols-2 lg:self-center"
                   initial="hidden"
                   animate="show"
                   variants={heroReveal}
@@ -526,22 +532,26 @@ export default function ServicesPage() {
                         key={pillar.id}
                         type="button"
                         onClick={() => setActivePillarId(pillar.id)}
-                        className={`group relative flex min-w-[220px] items-center gap-3 rounded-2xl glass-effect px-4 py-3 text-left transition ${
+                        className={`group relative flex min-w-[220px] items-center gap-3 rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-left transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40 ${
                           isActive
-                            ? 'border-white/30 ring-1 ring-purple-400/30'
-                            : 'hover:border-white/25'
+                            ? 'bg-white/10 shadow-[0_0_0_1px_rgba(255,255,255,0.18)]'
+                            : 'hover:bg-white/5'
                         }`}
                       >
-                        <div className={`grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br ${pillar.accent}`}>
+                        <div
+                          className={`grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br ${pillar.accent} transition-transform duration-200 ${
+                            isActive && !shouldReduceMotion ? 'scale-105' : 'group-hover:scale-105'
+                          }`}
+                        >
                           <Icon className="h-5 w-5" />
                         </div>
                         <div>
                           <p className="text-sm font-semibold text-white">{pillar.title}</p>
                           <p className="text-xs text-slate-300">{pillar.label}</p>
                         </div>
-                        <span
-                          className={`absolute inset-y-0 right-1.5 w-1 rounded-full transition ${
-                            isActive ? 'bg-gradient-to-b from-indigo-300 to-emerald-300 opacity-100' : 'opacity-0'
+                        <div
+                          className={`pointer-events-none absolute inset-0 rounded-2xl border border-white/0 transition ${
+                            isActive ? 'border-white/20 shadow-[0_15px_35px_-12px_rgba(99,102,241,0.45)]' : 'group-hover:border-white/10'
                           }`}
                           aria-hidden
                         />
@@ -550,45 +560,49 @@ export default function ServicesPage() {
                   })}
                 </div>
 
-                <m.div
-                  key={displayedPillar.id}
-                  className="glass-effect relative overflow-hidden rounded-3xl border border-white/15 p-8"
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, amount: 0.3 }}
-                  variants={cardReveal}
-                  transition={{ duration: 0.6, ease: 'easeOut' }}
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent" aria-hidden />
-                  <div className="relative z-10">
-                    <div className="flex flex-wrap items-center justify-between gap-4">
-                      <div className="max-w-2xl">
-                        <h3 className="text-2xl font-semibold text-white sm:text-3xl">{displayedPillar.title}</h3>
-                        <p className="mt-3 text-base text-slate-300 sm:text-lg">{displayedPillar.description}</p>
+                <AnimatePresence mode="wait">
+                  <m.div
+                    key={displayedPillar.id}
+                    className="glass-effect relative overflow-hidden rounded-3xl border border-white/15 p-8"
+                    initial={shouldReduceMotion ? false : { opacity: 0, y: 16 }}
+                    animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
+                    exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: -16 }}
+                    transition={shouldReduceMotion ? undefined : { duration: 0.35, ease: 'easeOut' }}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent" aria-hidden />
+                    <div className="relative z-10">
+                      <div className="flex flex-wrap items-center justify-between gap-4">
+                        <div className="max-w-2xl">
+                          <h3 className="text-2xl font-semibold text-white sm:text-3xl">{displayedPillar.title}</h3>
+                          <p className="mt-3 text-base text-slate-300 sm:text-lg">{displayedPillar.description}</p>
+                        </div>
+                        <div className="grid grid-cols-3 gap-3 rounded-2xl glass-effect border border-white/10 bg-black/40 p-4">
+                          {displayedPillar.stats.map((stat) => (
+                            <div key={stat.label} className="text-center">
+                              <p className="text-sm text-slate-300">{stat.label}</p>
+                              <p className="mt-1 text-lg font-semibold text-white">{stat.value}</p>
+                            </div>
+                          ))}
+                        </div>
                       </div>
-                      <div className="grid grid-cols-3 gap-3 rounded-2xl glass-effect border border-white/10 bg-black/40 p-4">
-                        {displayedPillar.stats.map((stat) => (
-                          <div key={stat.label} className="text-center">
-                            <p className="text-sm text-slate-300">{stat.label}</p>
-                            <p className="mt-1 text-lg font-semibold text-white">{stat.value}</p>
-                          </div>
+
+                      <div className="mt-8 grid gap-3 sm:grid-cols-2">
+                        {displayedPillar.bullets.map((bullet, index) => (
+                          <m.div
+                            key={bullet}
+                            className="glass-effect flex items-center gap-3 rounded-2xl px-4 py-3 text-sm text-slate-200"
+                            initial={shouldReduceMotion ? false : { opacity: 0, x: -12 }}
+                            animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, x: 0 }}
+                            transition={shouldReduceMotion ? undefined : { duration: 0.3, ease: 'easeOut', delay: index * 0.05 }}
+                          >
+                            <Layers className="h-4 w-4 text-emerald-300" />
+                            {bullet}
+                          </m.div>
                         ))}
                       </div>
                     </div>
-
-                    <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                      {displayedPillar.bullets.map((bullet) => (
-                        <div
-                          key={bullet}
-                          className="glass-effect flex items-center gap-3 rounded-2xl px-4 py-3 text-sm text-slate-200"
-                        >
-                          <Layers className="h-4 w-4 text-emerald-300" />
-                          {bullet}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </m.div>
+                  </m.div>
+                </AnimatePresence>
               </div>
             </div>
           </section>

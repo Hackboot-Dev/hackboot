@@ -2397,3 +2397,26 @@ if (hasDecimal) {
 ✅ Page Services visuellement cohérente avec les autres pages PulseForge
 ✅ Animations et hover uniformes
 ⚠️ Build Netlify toujours dépendant de `framer-motion` côté environnement distant
+
+### UI: Ajustements Services (centrage & animations piliers)
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Résoudre les décentrages observés sur desktop dans le hero Services.
+- Stabiliser les animations de la section « Nos piliers » et remplacer l’indicateur vertical jugé peu esthétique.
+- Lisser l’apparition des listes pour éviter les micro-freezes rapportés.
+
+#### Actions réalisées:
+1. Recentrage de la grille hero et des métriques pour un alignement cohérent avec la charte PulseForge.
+2. Refonte des boutons piliers (halo actif, glow doux) et ajout d’un `AnimatePresence` pour un switch fluide entre les contenus.
+3. Animation progressive des puces afin de supprimer les à-coups tout en respectant `prefers-reduced-motion`.
+
+#### Fichiers modifiés:
+- `/app/[locale]/services/page.tsx`
+- `/docs/JOURNAL.md`
+
+#### État:
+✅ Alignement desktop conforme
+✅ Animations piliers fluides et lisibles
+⚠️ Build Netlify toujours conditionné à la présence de `framer-motion` côté environnement distant
