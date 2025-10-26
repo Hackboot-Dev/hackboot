@@ -314,7 +314,18 @@ export default function ServicesPage() {
     () => PILLAR_BLUEPRINTS[0]?.id ?? 'security',
   )
 
+  const fallbackPillar = useMemo(() => {
+    const blueprint = PILLAR_BLUEPRINTS[0]
+    return {
+      ...blueprint,
+      title: blueprint.label,
+      description: blueprint.defaultDescription,
+      bullets: blueprint.defaultBullets,
+    }
+  }, [])
+
   const activePillar = pillars.find((pillar) => pillar.id === activePillarId)
+  const displayedPillar = activePillar ?? fallbackPillar
 
   const pillarsHeading = {
     title:
@@ -395,105 +406,101 @@ export default function ServicesPage() {
     'Un canal prioritaire (Discord + WhatsApp) est ouvert dès la signature pour les escalades critiques.'
 
   return (
-    <div className="min-h-screen bg-[#04060d] text-white">
+    <div className="min-h-screen bg-dark text-white flex flex-col">
       <SiteHeader />
       <LazyMotion features={domAnimation}>
-        <main className="relative overflow-hidden">
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.16),_transparent_55%),radial-gradient(circle_at_bottom,_rgba(16,185,129,0.12),_transparent_50%)]" />
+        <main className="relative flex-1 overflow-hidden pt-28 pb-24">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(129,140,248,0.18),_transparent_55%),radial-gradient(circle_at_bottom,_rgba(16,185,129,0.14),_transparent_55%)]" />
 
-          {/* Hero */}
-          <section className="relative z-10 px-6 pt-28 pb-24 md:pb-32">
-            <div className="absolute inset-x-0 top-16 flex justify-center">
-              <m.div
-                aria-hidden
-                className="h-64 w-[90%] max-w-5xl rounded-[140px] bg-gradient-to-r from-indigo-500/30 via-transparent to-emerald-500/30 blur-3xl"
-                animate={shouldReduceMotion ? undefined : { opacity: [0.5, 0.9, 0.5] }}
-                transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
-              />
-            </div>
-            <div className="mx-auto max-w-6xl">
-              <m.div
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1 text-sm text-purple-200"
-                initial="hidden"
-                animate="show"
-                variants={heroReveal}
-                transition={{ duration: 0.5, ease: 'easeOut' }}
-              >
-                <Sparkles className="h-4 w-4" />
-                {badge}
-              </m.div>
-
-              <m.h1
-                className="mt-8 max-w-4xl text-4xl font-black leading-tight sm:text-5xl md:text-6xl lg:text-7xl"
-                initial="hidden"
-                animate="show"
-                variants={heroReveal}
-                transition={{ duration: 0.7, ease: 'easeOut', delay: 0.05 }}
-              >
-                <span className="bg-gradient-to-r from-indigo-200 via-sky-200 to-emerald-200 bg-clip-text text-transparent">
-                  {title}
-                </span>
-              </m.h1>
-
-              <m.p
-                className="mt-6 max-w-3xl text-lg text-slate-300 sm:text-xl"
-                initial="hidden"
-                animate="show"
-                variants={heroReveal}
-                transition={{ duration: 0.7, ease: 'easeOut', delay: 0.12 }}
-              >
-                {subtitle}
-              </m.p>
-
-              <m.div
-                className="mt-10 flex flex-col items-start gap-4 sm:flex-row"
-                initial="hidden"
-                animate="show"
-                variants={heroReveal}
-                transition={{ duration: 0.7, ease: 'easeOut', delay: 0.18 }}
-              >
-                <Link
-                  href={`/${locale}/contact`}
-                  className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-500 px-6 py-3 text-base font-semibold text-white shadow-lg shadow-sky-500/30 transition-transform duration-200 hover:scale-[1.02] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
-                >
-                  {primaryCta}
-                </Link>
-                <Link
-                  href={`/${locale}/premium`}
-                  className="inline-flex items-center gap-2 rounded-full border border-white/20 px-6 py-3 text-base font-semibold text-slate-200 backdrop-blur transition duration-200 hover:border-white/40 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40"
-                >
-                  Explorer les offres
-                </Link>
-              </m.div>
-
-              <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                {heroMetrics.map((metric, index) => (
+          <section className="relative z-10">
+            <div className="mx-auto w-full max-w-6xl px-6">
+              <div className="grid gap-12 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:items-start">
+                <div className="space-y-8">
                   <m.div
-                    key={metric.id}
-                    className="relative overflow-hidden rounded-3xl border border-white/5 bg-white/5 px-6 py-5"
+                    className="inline-flex items-center gap-2 glass-effect rounded-full px-4 py-1 text-sm text-purple-200"
                     initial="hidden"
                     animate="show"
-                    variants={cardReveal}
-                    transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 + index * 0.05 }}
-                    whileHover=
-                      {shouldReduceMotion
-                        ? undefined
-                        : { y: -6, scale: 1.01, transition: { type: 'spring', stiffness: 220, damping: 20 } }}
+                    variants={heroReveal}
+                    transition={{ duration: 0.5, ease: 'easeOut' }}
                   >
-                    <div className="absolute inset-0 opacity-0 transition-opacity duration-300 hover:opacity-100" aria-hidden>
-                      <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent" />
-                    </div>
-                    <p className="text-sm uppercase tracking-wide text-slate-300">{metric.label}</p>
-                    <p className="mt-3 text-3xl font-semibold text-white sm:text-4xl">{metric.value}</p>
+                    <Sparkles className="h-4 w-4" />
+                    {badge}
                   </m.div>
-                ))}
+
+                  <m.h1
+                    className="max-w-4xl text-4xl font-extrabold leading-tight sm:text-5xl md:text-6xl"
+                    initial="hidden"
+                    animate="show"
+                    variants={heroReveal}
+                    transition={{ duration: 0.7, ease: 'easeOut', delay: 0.05 }}
+                  >
+                    <span className="gradient-text">{title}</span>
+                  </m.h1>
+
+                  <m.p
+                    className="max-w-3xl text-lg text-slate-300 sm:text-xl"
+                    initial="hidden"
+                    animate="show"
+                    variants={heroReveal}
+                    transition={{ duration: 0.7, ease: 'easeOut', delay: 0.12 }}
+                  >
+                    {subtitle}
+                  </m.p>
+
+                  <m.div
+                    className="flex flex-col items-start gap-4 sm:flex-row"
+                    initial="hidden"
+                    animate="show"
+                    variants={heroReveal}
+                    transition={{ duration: 0.7, ease: 'easeOut', delay: 0.18 }}
+                  >
+                    <Link
+                      href={`/${locale}/contact`}
+                      className="inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-indigo-500 via-sky-500 to-emerald-500 px-6 py-3 text-base font-semibold shadow-lg shadow-sky-500/30 transition-transform duration-200 hover:scale-[1.02] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
+                    >
+                      {primaryCta}
+                    </Link>
+                    <Link
+                      href={`/${locale}/premium`}
+                      className="inline-flex items-center gap-2 glass-effect rounded-full px-6 py-3 text-base font-semibold text-slate-200 transition duration-200 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40"
+                    >
+                      Explorer les offres
+                    </Link>
+                  </m.div>
+                </div>
+
+                <m.div
+                  className="grid gap-4 sm:grid-cols-2"
+                  initial="hidden"
+                  animate="show"
+                  variants={heroReveal}
+                  transition={{ duration: 0.7, ease: 'easeOut', delay: 0.24 }}
+                >
+                  {heroMetrics.map((metric, index) => (
+                    <m.div
+                      key={metric.id}
+                      className="glass-effect relative overflow-hidden rounded-3xl px-6 py-5"
+                      initial="hidden"
+                      animate="show"
+                      variants={cardReveal}
+                      transition={{ duration: 0.6, ease: 'easeOut', delay: index * 0.05 }}
+                      whileHover=
+                        {shouldReduceMotion
+                          ? undefined
+                          : { y: -6, scale: 1.01, transition: { type: 'spring', stiffness: 220, damping: 20 } }}
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-transparent opacity-0 transition-opacity duration-300 hover:opacity-100" aria-hidden />
+                      <p className="text-sm uppercase tracking-wide text-slate-300">{metric.label}</p>
+                      <p className="mt-3 text-3xl font-semibold text-white sm:text-4xl">{metric.value}</p>
+                    </m.div>
+                  ))}
+                </m.div>
               </div>
             </div>
           </section>
 
-          {/* Pillars */}
-          <section className="relative z-10 border-t border-white/5 bg-gradient-to-b from-white/5 via-transparent to-transparent px-6 py-24">
-            <div className="mx-auto max-w-6xl">
+          <section className="relative z-10 py-24">
+            <div className="mx-auto w-full max-w-6xl px-6">
               <m.div
                 className="max-w-3xl"
                 initial="hidden"
@@ -504,15 +511,13 @@ export default function ServicesPage() {
               >
                 <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Pillars</p>
                 <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
-                  <span className="bg-gradient-to-r from-sky-200 via-indigo-200 to-emerald-200 bg-clip-text text-transparent">
-                    {pillarsHeading.title}
-                  </span>
+                  <span className="gradient-text">{pillarsHeading.title}</span>
                 </h2>
                 <p className="mt-4 text-lg text-slate-300">{pillarsHeading.subtitle}</p>
               </m.div>
 
-              <div className="mt-12 grid gap-6 lg:grid-cols-[260px,1fr]">
-                <div className="flex flex-row gap-4 overflow-x-auto pb-2 lg:flex-col lg:overflow-visible">
+              <div className="mt-12 grid gap-8 lg:grid-cols-[minmax(0,280px)_minmax(0,1fr)]">
+                <div className="flex flex-col gap-3">
                   {pillars.map((pillar) => {
                     const Icon = pillar.icon
                     const isActive = pillar.id === activePillarId
@@ -521,10 +526,10 @@ export default function ServicesPage() {
                         key={pillar.id}
                         type="button"
                         onClick={() => setActivePillarId(pillar.id)}
-                        className={`group relative flex min-w-[220px] items-center gap-3 rounded-2xl border px-4 py-3 text-left transition ${
+                        className={`group relative flex min-w-[220px] items-center gap-3 rounded-2xl glass-effect px-4 py-3 text-left transition ${
                           isActive
-                            ? 'border-white/40 bg-white/10'
-                            : 'border-white/10 bg-white/5 hover:border-white/20 hover:bg-white/[0.08]'
+                            ? 'border-white/30 ring-1 ring-purple-400/30'
+                            : 'hover:border-white/25'
                         }`}
                       >
                         <div className={`grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br ${pillar.accent}`}>
@@ -546,8 +551,8 @@ export default function ServicesPage() {
                 </div>
 
                 <m.div
-                  key={activePillar?.id ?? 'pillar-card'}
-                  className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-8"
+                  key={displayedPillar.id}
+                  className="glass-effect relative overflow-hidden rounded-3xl border border-white/15 p-8"
                   initial="hidden"
                   whileInView="show"
                   viewport={{ once: true, amount: 0.3 }}
@@ -558,15 +563,11 @@ export default function ServicesPage() {
                   <div className="relative z-10">
                     <div className="flex flex-wrap items-center justify-between gap-4">
                       <div className="max-w-2xl">
-                        <h3 className="text-2xl font-semibold text-white sm:text-3xl">
-                          {activePillar?.title ?? pillars[0]?.title}
-                        </h3>
-                        <p className="mt-3 text-base text-slate-300 sm:text-lg">
-                          {activePillar?.description ?? pillars[0]?.description}
-                        </p>
+                        <h3 className="text-2xl font-semibold text-white sm:text-3xl">{displayedPillar.title}</h3>
+                        <p className="mt-3 text-base text-slate-300 sm:text-lg">{displayedPillar.description}</p>
                       </div>
-                      <div className="grid grid-cols-3 gap-3 rounded-2xl border border-white/10 bg-black/30 p-4">
-                        {(activePillar?.stats ?? pillarBlueprints[0].stats).map((stat) => (
+                      <div className="grid grid-cols-3 gap-3 rounded-2xl glass-effect border border-white/10 bg-black/40 p-4">
+                        {displayedPillar.stats.map((stat) => (
                           <div key={stat.label} className="text-center">
                             <p className="text-sm text-slate-300">{stat.label}</p>
                             <p className="mt-1 text-lg font-semibold text-white">{stat.value}</p>
@@ -576,10 +577,10 @@ export default function ServicesPage() {
                     </div>
 
                     <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                      {(activePillar?.bullets ?? pillars[0]?.bullets ?? []).map((bullet) => (
+                      {displayedPillar.bullets.map((bullet) => (
                         <div
                           key={bullet}
-                          className="flex items-center gap-3 rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-sm text-slate-200"
+                          className="glass-effect flex items-center gap-3 rounded-2xl px-4 py-3 text-sm text-slate-200"
                         >
                           <Layers className="h-4 w-4 text-emerald-300" />
                           {bullet}
@@ -592,9 +593,8 @@ export default function ServicesPage() {
             </div>
           </section>
 
-          {/* Solutions */}
-          <section className="relative z-10 px-6 py-24">
-            <div className="mx-auto max-w-6xl">
+          <section className="relative z-10 py-24">
+            <div className="mx-auto w-full max-w-6xl px-6">
               <m.div
                 className="max-w-3xl"
                 initial="hidden"
@@ -605,9 +605,7 @@ export default function ServicesPage() {
               >
                 <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Modules</p>
                 <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
-                  <span className="bg-gradient-to-r from-emerald-200 via-sky-200 to-indigo-200 bg-clip-text text-transparent">
-                    {solutionsHeading.title}
-                  </span>
+                  <span className="gradient-text">{solutionsHeading.title}</span>
                 </h2>
                 <p className="mt-4 text-lg text-slate-300">{solutionsHeading.subtitle}</p>
               </m.div>
@@ -618,7 +616,7 @@ export default function ServicesPage() {
                   return (
                     <m.article
                       key={solution.id}
-                      className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-7"
+                      className="group relative flex h-full flex-col overflow-hidden rounded-3xl glass-effect border border-white/10 p-7"
                       initial="hidden"
                       whileInView="show"
                       viewport={{ once: true, amount: 0.3 }}
@@ -641,9 +639,7 @@ export default function ServicesPage() {
                           <Icon className="h-6 w-6" />
                         </div>
                         <h3 className="mt-6 text-xl font-semibold text-white">{solution.title}</h3>
-                        <p className="mt-3 text-sm text-slate-200 sm:text-base">
-                          {solution.description}
-                        </p>
+                        <p className="mt-3 text-sm text-slate-200 sm:text-base">{solution.description}</p>
                         <div className="mt-auto pt-6">
                           <Link
                             href={solution.link}
@@ -661,9 +657,8 @@ export default function ServicesPage() {
             </div>
           </section>
 
-          {/* Process */}
-          <section className="relative z-10 border-y border-white/5 bg-white/[0.03] px-6 py-24">
-            <div className="mx-auto max-w-6xl">
+          <section className="relative z-10 border-y border-white/5 bg-white/[0.03] py-24">
+            <div className="mx-auto w-full max-w-6xl px-6">
               <m.div
                 className="max-w-3xl"
                 initial="hidden"
@@ -674,9 +669,7 @@ export default function ServicesPage() {
               >
                 <p className="text-sm uppercase tracking-[0.3em] text-slate-400">Process</p>
                 <h2 className="mt-4 text-3xl font-bold sm:text-4xl">
-                  <span className="bg-gradient-to-r from-indigo-200 via-sky-200 to-emerald-200 bg-clip-text text-transparent">
-                    {processHeading.title}
-                  </span>
+                  <span className="gradient-text">{processHeading.title}</span>
                 </h2>
                 <p className="mt-4 text-lg text-slate-300">{processHeading.subtitle}</p>
               </m.div>
@@ -685,7 +678,7 @@ export default function ServicesPage() {
                 {processSteps.map((step, index) => (
                   <m.div
                     key={step.id}
-                    className="relative overflow-hidden rounded-3xl border border-white/10 bg-black/40 p-6"
+                    className="glass-effect relative overflow-hidden rounded-3xl border border-white/10 p-6"
                     initial="hidden"
                     whileInView="show"
                     viewport={{ once: true, amount: 0.3 }}
@@ -708,10 +701,10 @@ export default function ServicesPage() {
             </div>
           </section>
 
-          {/* Contact */}
-          <section className="relative z-10 px-6 py-24">
-            <div className="mx-auto max-w-5xl overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-indigo-500/20 via-sky-500/20 to-emerald-500/20 p-10">
+          <section className="relative z-10 py-24">
+            <div className="mx-auto w-full max-w-5xl px-6">
               <m.div
+                className="glass-effect overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-indigo-500/15 via-sky-500/15 to-emerald-500/15 p-10"
                 initial="hidden"
                 whileInView="show"
                 viewport={{ once: true, amount: 0.3 }}
@@ -726,14 +719,9 @@ export default function ServicesPage() {
                   </div>
                   <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
                     {contactMetrics.map((metric) => (
-                      <div
-                        key={metric.id}
-                        className="rounded-2xl border border-white/20 bg-black/30 px-4 py-3 text-center"
-                      >
+                      <div key={metric.id} className="glass-effect rounded-2xl px-4 py-3 text-center">
                         <p className="text-xs uppercase tracking-wide text-slate-300">{metric.label}</p>
-                        <p className="mt-2 text-lg font-semibold text-white sm:text-xl">
-                          {metric.value}
-                        </p>
+                        <p className="mt-2 text-lg font-semibold text-white sm:text-xl">{metric.value}</p>
                       </div>
                     ))}
                   </div>

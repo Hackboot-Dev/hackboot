@@ -2373,3 +2373,27 @@ if (hasDecimal) {
 ✅ Page services fluide et responsive sans stutters
 ✅ Bundle allégé (suppression @react-spring)
 ⚠️ Build Netlify encore dépendant de la présence de `framer-motion` côté environnement distant
+
+### UI: Harmonisation du design Services avec la charte PulseForge
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Recalibrer la page services pour qu’elle partage les mêmes codes visuels (glass-effect, gradient-text, fond `bg-dark`) que les pages produits et premium.
+- Réduire les écarts de ton (fonds, bordures, hover) qui faisaient paraître la page hors charte.
+- Documenter la nouvelle approche pour les équipes contenu/design.
+
+#### Actions réalisées:
+1. Ajustement du hero, des cartes métriques et des CTA pour utiliser les classes globales (`glass-effect`, `gradient-text`) et une grille cohérente avec le reste du site.
+2. Uniformisation des sections piliers/modules/process/contact : panneaux `glass-effect`, transitions `whileInView` partagées et suppression des teintes dépareillées.
+3. Mise à jour de la documentation (`docs/README.md`) pour détailler le nouvel alignement visuel.
+
+#### Fichiers modifiés:
+- `/app/[locale]/services/page.tsx`
+- `/docs/README.md`
+- `/docs/JOURNAL.md`
+
+#### État:
+✅ Page Services visuellement cohérente avec les autres pages PulseForge
+✅ Animations et hover uniformes
+⚠️ Build Netlify toujours dépendant de `framer-motion` côté environnement distant

@@ -115,13 +115,13 @@ Cette section résume le fonctionnement des pages produits cloud gaming : où so
 
 ## 🛠️ Page Services premium
 
-La page services (`app/[locale]/services/page.tsx`) a été reconstruite autour d’un socle léger et cohérent :
+La page services (`app/[locale]/services/page.tsx`) reprend désormais les codes visuels du reste du site :
 
-- **Hero immersif** : `LazyMotion` + `domAnimation` pilotent les apparitions (badge, titre, CTA, métriques) avec un halo radial statique. Les hover effects s’annulent automatiquement quand `useReducedMotion` retourne `true`.
-- **Piliers tabulaires** : les données issues des traductions sont fusionnées aux blueprints (`security`, `performance`, `partnership`, `infrastructure`). La colonne de gauche sélectionne un pilier, la carte de droite affiche description, stats et points clés dans une grille bi-colonne.
-- **Modules & process** : les solutions cloud sont présentées en cartes animées verticales (`whileInView` + hover lift). Le process adopte des dalles numérotées en grille 2×2, chacune animée à l’entrée sans scroll horizontal.
-- **Bloc contact** : CTA principal, métriques SLA et note additionnelle sont regroupés dans un panneau gradient unique (structure flex → grille), garantissant un rendu fluide mobile/desktop.
-- **Performances** : plus aucune dépendance `@react-spring/web`. Les anciens composants (`FlipCard3D`, `GlowingCard`, `AnimatedCounter`, `InteractiveTimeline`) ont été retirés pour réduire le bundle et éliminer les 3 FPS observés.
+- **Hero harmonisé** : fond `bg-dark`, badge en `glass-effect` et titre `gradient-text` pour rester aligné avec l’accueil et les pages produits. Les apparitions reposent sur `LazyMotion` et respectent `useReducedMotion`.
+- **Piliers tabulaires** : boutons latéraux et carte détaillée utilisent le même glassmorphism que les fiches produits. Les stats sont encapsulées dans des panneaux `glass-effect` pour garder une lecture homogène.
+- **Modules & process** : cartes et étapes réemploient le combo `glass-effect` + border blanche, avec les mêmes animations `whileInView` que le catalogue PulseForge.
+- **Bloc contact** : panel gradient adouci, métriques SLA et CTA principal conservent le rendu premium tout en respectant les proportions et micro-interactions communes.
+- **Performances** : structure légère (plus de dépendances tierces), hover subtils et suppression des artefacts 3 FPS observés auparavant.
 
 ---
 
