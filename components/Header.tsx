@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useMemo } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import LanguageSelectorSimplest from '@/components/LanguageSelectorSimplest'
@@ -37,6 +38,16 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  const overlayTransition = useMemo(
+    () => ({ duration: 0.25, ease: [0.4, 0, 0.2, 1] }),
+    []
+  )
+
+  const panelTransition = useMemo(
+    () => ({ type: 'spring', stiffness: 260, damping: 28, mass: 0.9 }),
+    []
+  )
 
   const navigation = [
     { name: t?.nav?.home || 'Accueil', href: basePath },
@@ -135,17 +146,32 @@ const Header = () => {
       </header>
 
       {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <>
-          <button
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.button
+            key="mobile-overlay"
             type="button"
             className="fixed inset-0 bg-black/80 backdrop-blur-md z-40 md:hidden"
             onClick={() => setIsMobileMenuOpen(false)}
             aria-label="Fermer le menu"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={overlayTransition}
           />
-          <div
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            key="mobile-panel"
             id="mobile-menu"
-            className="fixed top-0 right-0 bottom-0 w-72 bg-black backdrop-blur-2xl saturate-150 border-l border-white/20 z-50 md:hidden shadow-2xl shadow-black/50 transition-transform duration-300"
+            className="fixed top-0 right-0 bottom-0 w-72 bg-black backdrop-blur-2xl saturate-150 border-l border-white/20 z-50 md:hidden shadow-2xl shadow-black/50"
+            initial={{ x: '100%', opacity: 0, scale: 0.96, rotate: 2 }}
+            animate={{ x: 0, opacity: 1, scale: 1, rotate: 0 }}
+            exit={{ x: '100%', opacity: 0, scale: 0.95, rotate: 1.5 }}
+            transition={panelTransition}
           >
             <div className="p-6 pt-20">
               <div className="space-y-6">
@@ -186,9 +212,9 @@ const Header = () => {
                 {t?.nav?.getStarted || 'Commencer'}
               </button>
             </div>
-          </div>
-        </>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   )
 }

@@ -902,6 +902,49 @@
       "highlights": "Included features"
     }
   },
+  "communityProductPage": {
+    "breadcrumb": {
+      "home": "Home",
+      "games": "Games"
+    },
+    "badges": {
+      "catalog": "Community Catalog",
+      "support": "COMMUNITY SUPPORT"
+    },
+    "subscription": {
+      "title": "Choose your subscription",
+      "description": "Access {{productName}} with any Hackboot subscription",
+      "popular": "Most popular",
+      "viewDetails": "View details"
+    },
+    "about": {
+      "title": "About {{productName}}"
+    },
+    "featuresTitle": "Features",
+    "benefits": {
+      "title": "Community Catalog Benefits",
+      "items": [
+        {
+          "title": "Cloud Infrastructure",
+          "description": "Standard cloud configuration optimized for reliable performance"
+        },
+        {
+          "title": "Community Support",
+          "description": "Access Hackboot community forums, guides, and peer assistance"
+        },
+        {
+          "title": "Regular Updates",
+          "description": "Configurations kept aligned with the latest game patches"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ready to play {{game}}?",
+      "description": "Choose your subscription and get instant access to {{productName}}",
+      "button": "Choose my plan"
+    },
+    "reviewsLabel": "reviews"
+  },
   "premiumSignup": {
     "badge": "Configurator signup",
     "title": "Activate your premium access",
