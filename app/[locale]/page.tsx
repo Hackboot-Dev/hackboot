@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic'
 import { Suspense, lazy } from 'react'
-import HeaderFixed from '@/components/HeaderFixed'
+import SiteHeader from '@/components/SiteHeader'
 
 // Hero léger par défaut, 3D optionnelle
 const HeroLight = dynamic(() => import('@/components/HeroLight'), {
@@ -59,49 +59,65 @@ const Footer = dynamic(
 
 export default function Home() {
   return (
-    <main className="relative">
-      <HeaderFixed />
+    <main className="relative animate-fade-in">
+      <SiteHeader />
 
       <Suspense fallback={<div className="min-h-screen" />}>
-        <HeroLight />
+        <div className="animate-scale-in">
+          <HeroLight />
+        </div>
       </Suspense>
 
       <Suspense fallback={<div className="min-h-[50vh] bg-dark" />}>
-        <ParallaxSectionI18n
-          sectionKey="gaming"
-          imageUrl="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop"
-        />
+        <div className="animate-slide-up">
+          <ParallaxSectionI18n
+            sectionKey="gaming"
+            imageUrl="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop"
+          />
+        </div>
       </Suspense>
 
       <Suspense fallback={<div className="min-h-[50vh] bg-dark" />}>
-        <InteractiveCards />
+        <div className="animate-scale-in">
+          <InteractiveCards />
+        </div>
       </Suspense>
 
       <Suspense fallback={<div className="min-h-[50vh] bg-dark" />}>
-        <ParallaxSectionI18n
-          sectionKey="security"
-          imageUrl="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop"
-          reverse
-        />
+        <div className="animate-slide-up">
+          <ParallaxSectionI18n
+            sectionKey="security"
+            imageUrl="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop"
+            reverse
+          />
+        </div>
       </Suspense>
 
       <Suspense fallback={<div className="h-32 bg-dark" />}>
-        <InfiniteScroll />
+        <div className="animate-fade-in">
+          <InfiniteScroll />
+        </div>
       </Suspense>
 
       <Suspense fallback={<div className="min-h-[50vh] bg-dark" />}>
-        <ProductsSection />
+        <div className="animate-scale-in">
+          <ProductsSection />
+        </div>
       </Suspense>
 
       <Suspense fallback={<div className="min-h-[50vh] bg-dark" />}>
-        <ParallaxSectionI18n
-          sectionKey="cloud"
-          imageUrl="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop"
-        />
+        <div className="animate-slide-up">
+          <ParallaxSectionI18n
+            sectionKey="cloud"
+            imageUrl="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop"
+          />
+        </div>
       </Suspense>
 
       <Suspense fallback={<div className="h-32 bg-dark" />}>
-        <Footer />
+        <div className="animate-fade-in">
+          <Footer />
+        </div>
       </Suspense>
     </main>
   )
