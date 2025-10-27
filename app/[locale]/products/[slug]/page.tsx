@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import GamingProductPage from '@/components/GamingProductPage'
+import NativeGamingProductPage from '@/components/NativeGamingProductPage'
+import CommunityGamingProductPage from '@/components/CommunityGamingProductPage'
 import { getGamingProductBySlug, getAllGamingProducts } from '@/lib/gaming-products'
 
 interface Props {
@@ -88,5 +89,9 @@ export default async function Page({ params }: Props) {
     notFound()
   }
 
-  return <GamingProductPage product={product} />
+  if (product.optimizationLevel === 'native') {
+    return <NativeGamingProductPage product={product} />
+  }
+
+  return <CommunityGamingProductPage product={product} />
 }

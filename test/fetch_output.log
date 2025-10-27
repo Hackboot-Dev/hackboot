@@ -1,0 +1,17 @@
+
+======================================================================
+GEFORCE NOW GAMES FETCHER - GraphQL Method
+======================================================================
+
+======================================================================
+FETCHING GEFORCE NOW GAMES
+======================================================================
+Country: US
+Language: en_US
+
+
+✗ Request error on page 1: 500 Server Error: Internal Server Error for url: https://api-prod.nvidia.com/services/gfngames/v1/gameList
+
+✓ Total games fetched: 0
+
+✗ No games fetched!

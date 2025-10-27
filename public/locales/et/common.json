@@ -65,8 +65,23 @@
     }
   },
   "games": {
+    "badge": "Saadaolevad mängud",
     "title": "Toetatud Mängud",
-    "subtitle": "Mängi kõiki oma lemmikuid maksimaalse jõudlusega"
+    "subtitle": "Mängi kõiki oma lemmikuid maksimaalse jõudlusega",
+    "search": "Otsi mängu...",
+    "clear": "Tühjenda",
+    "available": "Saadaval",
+    "results": {
+      "singular": "mäng saadaval",
+      "plural": "mängu saadaval"
+    },
+    "nativeBadge": "Hackboot Optimeeritud",
+    "nativeTitle": "Natiivse Toetusega Mängud",
+    "nativeDescription": "Täielikult toetatud ja 100% optimeeritud mängud Hackbooti poolt. Privaatsed ehitused, premium tugi ja garanteeritud uuendused.",
+    "nativeLabel": "Premium",
+    "communityBadge": "Laiendatud Kataloog",
+    "communityTitle": "Kogukonna Mängud",
+    "communityDescription": "Suur kataloog toetatud mängudest standardsete pilvekonfiguratsioonidega. Kogukonna tugi ja regulaarsed uuendused."
   },
   "products": {
     "title": "Premium Mängulahendused",
@@ -161,6 +176,7 @@
       "email": "E-post",
       "company": "Ettevõte",
       "subject": "Teema",
+      "subjectPlaceholder": "Projekt, küsimus jne.",
       "selectSubject": "Valige teema",
       "general": "Üldine päring",
       "support": "Tehniline tugi",
@@ -186,7 +202,15 @@
       "vmcloud": "VMCloud Group OÜ osa",
       "vmcloudDesc": "Oleme osa VMCloud Group'ist, ettevõtte pilvlahendustes ja innovaatilistes tehnoloogiates liider.",
       "established": "Asutatud 2023",
-      "establishedDesc": "Asutatud Eestis selge visiooniga: revolutsiooniliselt muuta mängutööstust pilve kaudu."
+      "establishedDesc": "Asutatud Eestis selge visiooniga: revolutsiooniliselt muuta mängutööstust pilve kaudu.",
+      "mission": "Loome tipptasemel mängukogemusi ilma turvalisust ohverdamata.",
+      "vision": "Usaldusväärne ökosüsteem võistlejatele ja loojatele."
+    },
+    "highlights": {
+      "security": "Turvalisus ennekõike",
+      "community": "Usaldusväärne kogukond",
+      "performance": "Kõrge jõudlus",
+      "vision": "Selge visioon"
     },
     "stats": {
       "title": "Meie numbrid räägivad",
@@ -196,7 +220,6 @@
       "products": "Põhitooted",
       "support": "Tugi",
       "activeUsers": "Aktiivsed kasutajad",
-      "support": "Tugi",
       "latency": "Keskmine latentsus"
     },
     "timeline": {
@@ -238,20 +261,55 @@
       "heading": "Pakkuda ülikõrge jõudlusega infrastruktuuri",
       "description": "Meie missioon on pakkuda ülikõrge jõudlusega, lihtsat ja läbipaistvat pilvmängude infrastruktuuri, kõrvaldades kogu tehnilise keerukuse.",
       "goals": [
-        {"icon": "⚡", "title": "Jõudlus", "desc": "Minimaalne latentsus"},
-        {"icon": "🛡️", "title": "Usaldusväärsus", "desc": "99.9% tööaeg"},
-        {"icon": "🚀", "title": "Innovatsioon", "desc": "Tipptasemel tehnoloogia"},
-        {"icon": "💎", "title": "Kvaliteet", "desc": "Preemium teenus"}
+        {
+          "icon": "⚡",
+          "title": "Jõudlus",
+          "desc": "Minimaalne latentsus"
+        },
+        {
+          "icon": "🛡️",
+          "title": "Usaldusväärsus",
+          "desc": "99.9% tööaeg"
+        },
+        {
+          "icon": "🚀",
+          "title": "Innovatsioon",
+          "desc": "Tipptasemel tehnoloogia"
+        },
+        {
+          "icon": "💎",
+          "title": "Kvaliteet",
+          "desc": "Preemium teenus"
+        }
       ]
     },
     "values": {
       "tab": "Väärtused",
       "heading": "Väärtused, mis meid määratlevad",
       "description": "Meie põhiväärtused juhivad iga otsust ja tegevust Hackbootis.",
+      "title": "Meie väärtused",
+      "transparency": "Läbipaistvus",
+      "growth": "Kasvule suunatud mõtteviis",
+      "quality": "Kvaliteet igal sammul",
+      "responsibility": "Vastutustundlik disain",
+      "compliance": "Vastavus valmis",
+      "excellence": "Tipptegutsemine",
       "list": [
-        {"icon": "🎯", "title": "Tipptase", "description": "Püüdleme tipptaseme poole kõiges, mida teeme"},
-        {"icon": "💡", "title": "Innovatsioon", "description": "Innovatsioon on meie DNA südamikus"},
-        {"icon": "🤝", "title": "Läbipaistvus", "description": "Avatud ja aus suhtlus meie klientidega"}
+        {
+          "icon": "🎯",
+          "title": "Tipptase",
+          "description": "Püüdleme tipptaseme poole kõiges, mida teeme"
+        },
+        {
+          "icon": "💡",
+          "title": "Innovatsioon",
+          "description": "Innovatsioon on meie DNA südamikus"
+        },
+        {
+          "icon": "🤝",
+          "title": "Läbipaistvus",
+          "description": "Avatud ja aus suhtlus meie klientidega"
+        }
       ]
     },
     "culture": {
@@ -266,46 +324,86 @@
           "icon": "🌍",
           "title": "Remote First",
           "description": "Tööta kõikjalt maailmas",
-          "details": ["100% kaug töö", "Paindlikud tunnid", "Töö-elu tasakaal"]
+          "details": [
+            "100% kaug töö",
+            "Paindlikud tunnid",
+            "Töö-elu tasakaal"
+          ]
         },
         {
           "icon": "🚀",
           "title": "Täielik autonoomia",
           "description": "Tee oma otsused, me usaldame sind",
-          "details": ["Ei mikrohaldust", "Loov vabadus", "Jagatud vastutus"]
+          "details": [
+            "Ei mikrohaldust",
+            "Loov vabadus",
+            "Jagatud vastutus"
+          ]
         },
         {
           "icon": "🔥",
           "title": "Kirg eelkõige",
           "description": "Kirg ja motivatsioon on meie mootorid",
-          "details": ["Isiklikud projektid julgustatud", "Pidev koolitus", "Innovatsioon tasustatud"]
+          "details": [
+            "Isiklikud projektid julgustatud",
+            "Pidev koolitus",
+            "Innovatsioon tasustatud"
+          ]
         },
         {
           "icon": "⚡",
           "title": "Maksimaalne efektiivsus",
           "description": "Ei kasutuid koosolekuid, fookus tulemustel",
-          "details": ["Asünkroonne suhtlus", "Optimeeritud protsessid", "Väärtuse fookus"]
+          "details": [
+            "Asünkroonne suhtlus",
+            "Optimeeritud protsessid",
+            "Väärtuse fookus"
+          ]
         },
         {
           "icon": "💎",
           "title": "Preemium kvaliteet",
           "description": "Teeme ainult tipptaset",
-          "details": ["Kõrged standardid", "Tähelepanu detailidele", "Pidev täiustamine"]
+          "details": [
+            "Kõrged standardid",
+            "Tähelepanu detailidele",
+            "Pidev täiustamine"
+          ]
         },
         {
           "icon": "🌟",
           "title": "Isiklik kasv",
           "description": "Toetame teie arengut",
-          "details": ["Mentorlus saadaval", "Koolituseelarve", "Karjääri areng"]
+          "details": [
+            "Mentorlus saadaval",
+            "Koolituseelarve",
+            "Karjääri areng"
+          ]
         }
       ],
       "workStyle": {
         "title": "Meie tööstiil",
         "items": [
-          {"emoji": "🏠", "title": "100% Remote", "desc": "Tööta kõikjalt"},
-          {"emoji": "⏰", "title": "Paindlikud tunnid", "desc": "Halda oma aega nagu soovid"},
-          {"emoji": "🎯", "title": "Tulemusele orienteeritud", "desc": "Tulemused loevad, mitte tunnid"},
-          {"emoji": "🚀", "title": "Pidev innovatsioon", "desc": "Alati tipptasemel"}
+          {
+            "emoji": "🏠",
+            "title": "100% Remote",
+            "desc": "Tööta kõikjalt"
+          },
+          {
+            "emoji": "⏰",
+            "title": "Paindlikud tunnid",
+            "desc": "Halda oma aega nagu soovid"
+          },
+          {
+            "emoji": "🎯",
+            "title": "Tulemusele orienteeritud",
+            "desc": "Tulemused loevad, mitte tunnid"
+          },
+          {
+            "emoji": "🚀",
+            "title": "Pidev innovatsioon",
+            "desc": "Alati tipptasemel"
+          }
         ]
       }
     },
@@ -356,10 +454,26 @@
       "compliance": {
         "title": "Vastavusstandardid",
         "items": [
-          {"icon": "🇪🇺", "title": "GDPR", "desc": "Andmekaitse"},
-          {"icon": "🔐", "title": "ISO 27001", "desc": "Infoturve"},
-          {"icon": "✅", "title": "PCI DSS", "desc": "Makseturve"},
-          {"icon": "🛡️", "title": "SOC 2", "desc": "Turvakontrollid"}
+          {
+            "icon": "🇪🇺",
+            "title": "GDPR",
+            "desc": "Andmekaitse"
+          },
+          {
+            "icon": "🔐",
+            "title": "ISO 27001",
+            "desc": "Infoturve"
+          },
+          {
+            "icon": "✅",
+            "title": "PCI DSS",
+            "desc": "Makseturve"
+          },
+          {
+            "icon": "🛡️",
+            "title": "SOC 2",
+            "desc": "Turvakontrollid"
+          }
         ]
       }
     },
@@ -367,10 +481,22 @@
       "title": "Meie meeskond",
       "subtitle": "Kirglikud talendid kogu maailmast",
       "stats": [
-        {"value": "50+", "label": "Meeskonna liikmed"},
-        {"value": "15+", "label": "Rahvused"},
-        {"value": "100%", "label": "Remote"},
-        {"value": "24/7", "label": "Globaalne kate"}
+        {
+          "value": "50+",
+          "label": "Meeskonna liikmed"
+        },
+        {
+          "value": "15+",
+          "label": "Rahvused"
+        },
+        {
+          "value": "100%",
+          "label": "Remote"
+        },
+        {
+          "value": "24/7",
+          "label": "Globaalne kate"
+        }
       ],
       "members": [
         {
@@ -378,48 +504,524 @@
           "name": "Tehniline juhtimine",
           "role": "Arhitektuur ja innovatsioon",
           "description": "Pilvandmetöötluse ja mängude eksperdid",
-          "skills": ["Pilv", "Mängud", "Innovatsioon"]
+          "skills": [
+            "Pilv",
+            "Mängud",
+            "Innovatsioon"
+          ]
         },
         {
           "avatar": "👩‍💼",
           "name": "Tootemeeskond",
           "role": "Arendus ja UX",
           "description": "Erakordsete kogemuste loomine",
-          "skills": ["UX/UI", "Toode", "Agile"]
+          "skills": [
+            "UX/UI",
+            "Toode",
+            "Agile"
+          ]
         },
         {
           "avatar": "🛡️",
           "name": "Turvalisus ja infrastruktuur",
           "role": "DevOps ja turvalisus",
           "description": "Tugev ja turvaline infrastruktuur",
-          "skills": ["Turvalisus", "DevOps", "Pilv"]
+          "skills": [
+            "Turvalisus",
+            "DevOps",
+            "Pilv"
+          ]
         },
         {
           "avatar": "🚀",
           "name": "Innovatsiooni labor",
           "role": "R&D",
           "description": "Tuleviku tehnoloogiate uurimine",
-          "skills": ["AI/ML", "Uurimine", "Innovatsioon"]
+          "skills": [
+            "AI/ML",
+            "Uurimine",
+            "Innovatsioon"
+          ]
         },
         {
           "avatar": "💬",
           "name": "Klienditoetus",
           "role": "Kliendi edu",
           "description": "24/7 mitmekeelne tugi",
-          "skills": ["Tugi", "Suhtlus", "Probleemide lahendamine"]
+          "skills": [
+            "Tugi",
+            "Suhtlus",
+            "Probleemide lahendamine"
+          ]
         },
         {
           "avatar": "🌍",
           "name": "Rahvusvaheline meeskond",
           "role": "Globaalsed operatsioonid",
           "description": "Globaalne kohalolek, kohalik ekspertiis",
-          "skills": ["Rahvusvaheline", "Strateegia", "Operatsioonid"]
+          "skills": [
+            "Rahvusvaheline",
+            "Strateegia",
+            "Operatsioonid"
+          ]
         }
       ],
       "join": {
         "title": "Liitu Hackbooti seiklusega",
         "description": "Otsime pidevalt kirglikke talente meie meeskonnaga liitumiseks. Kui jagad meie visiooni, võta meiega ühendust.",
         "button": "Vaata võimalusi"
+      }
+    }
+  },
+  "services": {
+    "badge": "Hackbooti pro teenused",
+    "title": "Ettevõtte tasemel taristu ja turvalisus",
+    "subtitle": "Rätseplahendused mänguritele ja tiimidele, kes nõuavad täiuslikkust.",
+    "cta": "Räägi eksperdiga",
+    "metrics": [
+      { "id": "uptime", "value": "99,9 %", "label": "Tagatud töökindlus" },
+      { "id": "clients", "value": "120+", "label": "Aktiivset pro klienti" },
+      { "id": "regions", "value": "8", "label": "Kaetud piirkonda" }
+    ],
+    "pillarsHeading": {
+      "title": "Meie tugisambad",
+      "subtitle": "Katame kogu teekonna esmasest juurutusest igapäevase toeni."
+    },
+    "pillars": [
+      {
+        "id": "security",
+        "title": "Proaktiivne turvalisus",
+        "description": "Mitmekihiline kaitse, pidevad auditid ja anti-cheat järelevalve, et püsida nähtamatu.",
+        "bullets": [
+          "24/7 anti-cheat seire",
+          "Oma kernel-kilp",
+          "Pidev otsast lõpuni krüpteerimine"
+        ]
+      },
+      {
+        "id": "performance",
+        "title": "Häälestatud jõudlus",
+        "description": "Bare-metal klastrid, kaadri täpsusega GPU tuunimine ja võistluskesksed CI/CD torud.",
+        "bullets": [
+          "Pühendatud bare-metal klastrid",
+          "GPU häälestus kaader-kaadrilt",
+          "Reaalajas latentsuse monitooring"
+        ]
+      },
+      {
+        "id": "partnership",
+        "title": "Pühendunud partnerlus",
+        "description": "Senior account manager, kohandatud playbookid ja kohene tugi meie privaatkanalites.",
+        "bullets": [
+          "Pühendatud account manager",
+          "Kohandatud playbookid",
+          "Kohene eskalatsioon Discordis"
+        ]
+      }
+    ],
+    "solutions": {
+      "title": "Moodulid sinu eesmärkide jaoks",
+      "subtitle": "Kombineeri meie plokid, et liikumine juurutusest igapäevase toeni oleks katkematu.",
+      "items": [
+        {
+          "id": "cloud",
+          "title": "Cloud Ops & Scaling",
+          "description": "Automaatne provisioneerimine, mitme regiooni haare ja CI/CD torud, mis on ehitatud võistlusmängude jaoks.",
+          "linkLabel": "Vaata pakette"
+        },
+        {
+          "id": "competitive",
+          "title": "Anti-Cheat Labs",
+          "description": "Pidev reverse engineering, nullpäeva paigad ja auditi protokollid, et jääda märkamatuks.",
+          "linkLabel": "Uuri kataloogi"
+        },
+        {
+          "id": "custom",
+          "title": "Coaching & Integrations",
+          "description": "1:1 sessioonid, live-tugi ja sinu tööriistadega sobivad erilahendused.",
+          "linkLabel": "Broneeri kõne"
+        }
+      ]
+    },
+    "process": {
+      "title": "Tõestatud raamistik",
+      "subtitle": "Saadame sind avastamisest kuni stabiilse igapäevase tööni ilma katkestusteta.",
+      "steps": [
+        {
+          "id": "discover",
+          "title": "Kick-off ja audit",
+          "description": "Kaardistame vajadused, jõudluseesmärgid ja turvanõuded."
+        },
+        {
+          "id": "prototype",
+          "title": "Juhendatud prototüüp",
+          "description": "Seadistame testkeskkonna sinu tiimi jaoks sobivate eelseadistustega."
+        },
+        {
+          "id": "deploy",
+          "title": "Orkestreeritud juurutus",
+          "description": "Järk-järguline aktiveerimine, ühine järelevalve ja referentsdokumentatsioon."
+        },
+        {
+          "id": "optimize",
+          "title": "Pidev optimeerimine",
+          "description": "Igakuised ülevaated, benchmarkid ja proaktiivsed muudatused pärisandmete põhjal."
+        }
+      ]
+    },
+    "contact": {
+      "title": "Broneeri sessioon",
+      "description": "Meie tiim vastab 24 tunni jooksul, et kaardistada vajadused ja koostada juurutusplaan.",
+      "cta": "Plaani kõne",
+      "metrics": [
+        { "id": "sla", "value": "<5 min", "label": "Keskmine reageerimisaeg" },
+        { "id": "coverage", "value": "24/7", "label": "Tugi üle maailma" },
+        { "id": "satisfaction", "value": "98 %", "label": "Kliendirahulolu" }
+      ],
+      "note": "Prioriteetne Discordi ja WhatsAppi kanal aktiveeritakse kohe pärast lepingu sõlmimist."
+    }
+  },
+  "premium": {
+    "badge": "Eksklusiivne liikmelisus",
+    "title": "PREMIUM",
+    "highlight": "PIIRAMATU",
+    "description": "Ülim mängukogemus. Maksimaalne jõudlus, täielik kataloog ja paindlikud paketid.",
+    "benefits": [
+      "Piiramatu ligipääs kõigile mängudele",
+      "RTX 4090 GPU võimsus",
+      "Kolm sinu vajadustele vastavat paketti",
+      "Prioriteetne tugi 24/7",
+      "Eluaegsed tasuta uuendused",
+      "HWID Spoofer kaasas"
+    ],
+    "featuresHeading": {
+      "title": "AINULT PREMIUMILE",
+      "subtitle": "Vaata, mis muudab meie Premium pakkumise eriliseks"
+    },
+    "learnMore": "Vaata lähemalt",
+    "features": {
+      "performance": {
+        "title": "Erakordne jõudlus",
+        "subtitle": "Maksimaalne võimsus",
+        "description": "Virtuaalmasinad uusima tehnoloogiaga tagavad tipptasemel mängujõudluse. RTX 4090, uusima põlvkonna protsessorid ja DDR5 mälu hoiavad kõik sujuvana.",
+        "stats": [
+          {
+            "label": "GPU",
+            "value": "RTX 4090"
+          },
+          {
+            "label": "RAM",
+            "value": "128GB DDR5"
+          },
+          {
+            "label": "CPU",
+            "value": "i9-13900K"
+          },
+          {
+            "label": "FPS",
+            "value": "240+ FPS"
+          }
+        ],
+        "highlights": [
+          "Uusima põlvkonna RTX 4090",
+          "Reaalajas ray tracing",
+          "DLSS 3.0 lubatud",
+          "128GB DDR5 mälu",
+          "Intel i9-13900K protsessor",
+          "Ülikiire NVMe SSD"
+        ]
+      },
+      "games": {
+        "title": "Täielik mängukataloog",
+        "subtitle": "Kõik mängud",
+        "description": "Piiramatu juurdepääs kogu meie mängukogule. Valorant, Apex Legends, Overwatch, Fortnite ja palju muud ilma lisatasudeta.",
+        "stats": [
+          {
+            "label": "Mängud",
+            "value": "10+"
+          },
+          {
+            "label": "Uuendused",
+            "value": "24/7"
+          },
+          {
+            "label": "Uued tiitlid",
+            "value": "Iga kuu"
+          },
+          {
+            "label": "Tugi",
+            "value": "Kõik mängud"
+          }
+        ],
+        "highlights": [
+          "Valorant",
+          "Apex Legends",
+          "Overwatch 2",
+          "Fortnite",
+          "Call of Duty Warzone",
+          "CS2",
+          "Rainbow Six Siege",
+          "PUBG",
+          "Rust",
+          "Uued mängud lisanduvad regulaarselt"
+        ]
+      },
+      "technology": {
+        "title": "Uuenduslik tehnoloogia",
+        "subtitle": "Pidev innovatsioon",
+        "description": "Pilveinfrastruktuur, mida uuendatakse pidevalt uusimate lahendustega. Arhitektuur on optimeeritud minimaalse latentsuse ja maksimaalse jõudluse jaoks.",
+        "stats": [
+          {
+            "label": "Latentsus",
+            "value": "<5 ms"
+          },
+          {
+            "label": "Töökindlus",
+            "value": "99.9%"
+          },
+          {
+            "label": "Läbilaskevõime",
+            "value": "10Gbps"
+          },
+          {
+            "label": "Uuendused",
+            "value": "Reaalajas"
+          }
+        ],
+        "highlights": [
+          "Uusima põlvkonna serverid",
+          "Redundantne infrastruktuur",
+          "Globaalne mitme regiooni CDN",
+          "Automaatne võrgu optimeerimine",
+          "Hetkelised uuendused",
+          "24/7 monitooring"
+        ]
+      },
+      "instant": {
+        "title": "Installi ja mängi",
+        "subtitle": "Kohe valmis",
+        "description": "Pole vaja midagi alla laadida ega paigaldada. Ühendu virtuaalmasinaga ja alusta mängimist koheselt – kõik on eelhäälestatud.",
+        "stats": [
+          {
+            "label": "Seadistus",
+            "value": "0 min"
+          },
+          {
+            "label": "Konfiguratsioon",
+            "value": "Automaatne"
+          },
+          {
+            "label": "Profiilid",
+            "value": "Eelhäälestatud"
+          },
+          {
+            "label": "Ligipääs",
+            "value": "Kohene"
+          }
+        ],
+        "highlights": [
+          "Allalaadimisi pole vaja",
+          "Eelhäälestatud keskkond",
+          "Mängud eelinstallitud",
+          "Optimeeritud seaded",
+          "Ühe kliki ühendus",
+          "Toimib mitmel seadmel"
+        ]
+      },
+      "price": {
+        "title": "Paindlikud paketid",
+        "subtitle": "Kolm sobivat taset",
+        "description": "Vali oma mängustiiliga sobiv pakett ja ava kõik funktsioonid. Peidetud tasusid ei ole.",
+        "stats": [
+          {
+            "label": "Paketid",
+            "value": "3 taset"
+          },
+          {
+            "label": "Käivitamine",
+            "value": "Hetkega"
+          },
+          {
+            "label": "Tugi",
+            "value": "Prioriteetne"
+          },
+          {
+            "label": "Leping",
+            "value": "Puudub"
+          }
+        ],
+        "highlights": [
+          "Kolm skaleeritavat paketti",
+          "Kõik funktsioonid kaasas",
+          "Premium tugi 24/7",
+          "Uuenda igal ajal",
+          "Peidetud tasusid pole",
+          "Turvalised maksed"
+        ]
+      },
+      "security": {
+        "title": "Maksimaalne turvalisus",
+        "subtitle": "Täielik kaitse",
+        "description": "Mitmekihiline märkamatult toimiv kaitse koos integreeritud HWID spooferiga. Kernel-taseme tehnoloogia tagab rahuliku meelerahu.",
+        "stats": [
+          {
+            "label": "Kaitse",
+            "value": "Kernel-tase"
+          },
+          {
+            "label": "Tuvastamine",
+            "value": "0%"
+          },
+          {
+            "label": "HWID Spoofer",
+            "value": "Kaasas"
+          },
+          {
+            "label": "Krüpteerimine",
+            "value": "E2E"
+          }
+        ],
+        "highlights": [
+          "Kernel-taseme kaitse",
+          "Integreeritud HWID spoofer",
+          "EAC/BE möödahiilimine",
+          "Stream-proof",
+          "Lõpuni krüptitud",
+          "Jääb märkamatuks"
+        ]
+      }
+    },
+    "cta": {
+      "title": "Valmis Premiumiks?",
+      "description": "Liitu mängurite eliidiga ja saa piiramatu ligipääs kõigile funktsioonidele",
+      "primary": "Alusta kohe",
+      "secondary": "Võrdle pakette"
+    },
+    "modal": {
+      "stats": "Põhinäitajad",
+      "highlights": "Paketi sisu"
+    }
+  },
+  "communityProductPage": {
+    "breadcrumb": {
+      "home": "Avaleht",
+      "games": "Mängud"
+    },
+    "badges": {
+      "catalog": "Kogukonna Kataloog",
+      "support": "KOGUKONNA TUGI"
+    },
+    "subscription": {
+      "title": "Vali oma tellimus",
+      "description": "Saa ligipääs mängule {{productName}} mis tahes Hackbooti paketiga",
+      "popular": "Kõige populaarsem",
+      "viewDetails": "Vaata üksikasju"
+    },
+    "about": {
+      "title": "{{productName}} tutvustus"
+    },
+    "featuresTitle": "Funktsioonid",
+    "benefits": {
+      "title": "Kogukonna kataloogi eelised",
+      "items": [
+        {
+          "title": "Pilveinfrastruktuur",
+          "description": "Standardne pilveseadistus, mis on optimeeritud usaldusväärseks jõudluseks"
+        },
+        {
+          "title": "Kogukonna tugi",
+          "description": "Pääs Hackbooti kogukonna foorumitesse, juhenditesse ja abisse"
+        },
+        {
+          "title": "Regulaarsed uuendused",
+          "description": "Konfiguratsioonid püsivad kooskõlas värskeimate mängupaikadega"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Valmis mängima {{game}}?",
+      "description": "Vali tellimus ja saa kohene ligipääs teenusele {{productName}}",
+      "button": "Vali minu pakett"
+    },
+    "reviewsLabel": "arvustust"
+  },
+  "premiumSignup": {
+    "badge": "Konfiguratsiooni registreerimine",
+    "title": "Aktiveeri oma premium ligipääs",
+    "description": "Vali pakett, loo konto ja alusta kohe meie võimsa infrastruktuuriga.",
+    "labels": {
+      "popular": "Populaarseim",
+      "select": "Vali"
+    },
+    "form": {
+      "title": "Lõpeta registreerimine",
+      "description": "Oled ühe sammu kaugusel Hackbooti kogukonnaga liitumisest. Täida andmed, et luua turvaline ligipääs.",
+      "fields": {
+        "firstname": {
+          "label": "Eesnimi",
+          "placeholder": "Alex"
+        },
+        "lastname": {
+          "label": "Perekonnanimi",
+          "placeholder": "Tamm"
+        },
+        "email": {
+          "label": "Ärikonto e-post",
+          "placeholder": "alex@hackboot.gg"
+        },
+        "password": {
+          "label": "Parool",
+          "placeholder": "••••••••"
+        },
+        "confirmPassword": {
+          "label": "Kinnita parool",
+          "placeholder": "••••••••"
+        }
+      },
+      "terms": "Nõustun üldtingimuste ja privaatsuspoliitikaga.",
+      "submit": "Kinnita registreerimine",
+      "disclaimer": "Registreerimise kinnitamisel võtab nõustaja sinuga ühendust, et aktiveerida lõplik premium ligipääs."
+    },
+    "summary": {
+      "selected": "Valitud pakett"
+    },
+    "contact": {
+      "text": "Juba klient?",
+      "link": "Logi sisse siin"
+    },
+    "plans": {
+      "essentiel": {
+        "name": "Essential pakett",
+        "description": "Usaldusväärne jõudlus ja täielik konfiguratori ligipääs koheseks alustamiseks.",
+        "billing": "kuus",
+        "features": [
+          "Juurdepääs standardsele pilveinfrastruktuurile",
+          "Kogukonna tugi",
+          "Regulaarsed turvauuendused",
+          "Populaarsete mängude kataloog kaasas"
+        ]
+      },
+      "avantage": {
+        "name": "Advantage pakett",
+        "description": "Rohkem võimsust ja prioriteetne tugi sujuvaks kogemuseks.",
+        "billing": "kuus",
+        "features": [
+          "Täiendatud GPU jõudlus",
+          "Prioriteetne tugi 24/7",
+          "Ligipääs premium konfiguratsioonidele",
+          "Reaalajas analüütika töölaud"
+        ]
+      },
+      "élite": {
+        "name": "Elite pakett",
+        "description": "Pühendatud infrastruktuur ja maksimaalne turvalisus kõige nõudlikumatele vajadustele.",
+        "billing": "kuus",
+        "features": [
+          "Pühendatud RTX 4090 virtuaalmasin",
+          "Piiramatu HWID Spoofer",
+          "Isiklik tehniline konsultant",
+          "Hetkelised uuendused ja paigad"
+        ]
       }
     }
   }

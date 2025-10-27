@@ -1,9 +1,9 @@
 'use client'
 
 import React, { useEffect, useRef } from 'react'
+import Link from 'next/link'
 import { ChevronDown } from 'lucide-react'
 import { useI18n } from '@/lib/i18n-simple'
-import LanguageSelectorSimplest from '@/components/LanguageSelectorSimplest'
 
 export default function HeroLight() {
   const titleRef = useRef<HTMLHeadingElement>(null)
@@ -58,9 +58,12 @@ export default function HeroLight() {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="px-8 py-4 bg-accent text-white rounded-full transition-transform duration-300 hover:-translate-y-1 hover:bg-accent/90">
+          <Link
+            href={`/${locale}/premium`}
+            className="px-8 py-4 bg-accent text-white rounded-full transition-transform duration-300 hover:-translate-y-1 hover:bg-accent/90"
+          >
             {t?.hero?.getStarted || ''}
-          </button>
+          </Link>
           <button className="px-8 py-4 glass-effect rounded-full transition-transform duration-300 hover:-translate-y-1 hover:bg-white/10">
             {t?.hero?.watchDemo || ''}
           </button>
@@ -71,9 +74,6 @@ export default function HeroLight() {
         <ChevronDown className="w-8 h-8" />
       </div>
 
-      <div className="absolute top-6 right-6">
-        <LanguageSelectorSimplest />
-      </div>
     </section>
   )
 }
