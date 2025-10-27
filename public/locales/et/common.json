@@ -686,6 +686,8 @@
     "title": "PREMIUM",
     "highlight": "PIIRAMATU",
     "description": "Ülim mängukogemus. Maksimaalne jõudlus, täielik kataloog ja paindlikud paketid.",
+    "plansTitle": "Meie premium paketid",
+    "popularBadge": "Populaarne",
     "benefits": [
       "Piiramatu ligipääs kõigile mängudele",
       "RTX 4090 GPU võimsus",
@@ -992,35 +994,41 @@
     "plans": {
       "essentiel": {
         "name": "Essential pakett",
-        "description": "Usaldusväärne jõudlus ja täielik konfiguratori ligipääs koheseks alustamiseks.",
+        "description": "Põhitõed alustamiseks: 28h kogukonna mänge 1080p/60FPS eraldusvõimega.",
         "billing": "kuus",
         "features": [
-          "Juurdepääs standardsele pilveinfrastruktuurile",
-          "Kogukonna tugi",
-          "Regulaarsed turvauuendused",
-          "Populaarsete mängude kataloog kaasas"
+          "28h kogukonna mänge kuus",
+          "1080p eraldusvõime 60 FPS-ga",
+          "Juurdepääs kõikidele kogukonna mängudele",
+          "Pole juurdepääsu PulseForge'le",
+          "Ületamine: 0,99 €/h"
         ]
       },
       "avantage": {
         "name": "Advantage pakett",
-        "description": "Rohkem võimsust ja prioriteetne tugi sujuvaks kogemuseks.",
+        "description": "Rohkem tunde ja parem jõudlus madala nõudluse ajal 50h mängimisega.",
         "billing": "kuus",
         "features": [
-          "Täiendatud GPU jõudlus",
-          "Prioriteetne tugi 24/7",
-          "Ligipääs premium konfiguratsioonidele",
-          "Reaalajas analüütika töölaud"
+          "50h kogukonna mänge kuus",
+          "1080p/60 FPS eraldusvõime",
+          "1440p/120 FPS madala nõudluse tundidel",
+          "Juurdepääs kõikidele kogukonna mängudele",
+          "Pole juurdepääsu PulseForge'le",
+          "Ületamine: 0,89 €/h"
         ]
       },
       "élite": {
         "name": "Elite pakett",
-        "description": "Pühendatud infrastruktuur ja maksimaalne turvalisus kõige nõudlikumatele vajadustele.",
+        "description": "Tippkogemus PulseForge juurdepääsuga ja maksimaalne 1440p/120 jõudlus.",
         "billing": "kuus",
         "features": [
-          "Pühendatud RTX 4090 virtuaalmasin",
-          "Piiramatu HWID Spoofer",
-          "Isiklik tehniline konsultant",
-          "Hetkelised uuendused ja paigad"
+          "65h kogukonna mänge kuus",
+          "8h PulseForge mänge kuus",
+          "1440p eraldusvõime 120 FPS-ga",
+          "Eksklusivne juurdepääs PulseForge'le",
+          "Juurdepääs kõikidele kogukonna mängudele",
+          "Ületamine: 0,79 €/h kogukond",
+          "Ületamine: 1,79 €/h PulseForge"
         ]
       }
     }

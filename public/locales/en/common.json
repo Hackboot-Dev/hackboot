@@ -686,6 +686,8 @@
     "title": "PREMIUM",
     "highlight": "UNLIMITED",
     "description": "The ultimate gaming experience. Maximum performance, full catalog, flexible plans.",
+    "plansTitle": "Our Premium Plans",
+    "popularBadge": "Popular",
     "benefits": [
       "Unlimited access to every game",
       "RTX 4090 GPU performance",
@@ -992,35 +994,41 @@
     "plans": {
       "essentiel": {
         "name": "Essential Pack",
-        "description": "Reliable performance and full configurator access to get started immediately.",
+        "description": "The essentials to get started with 28h of community gaming at 1080p/60FPS.",
         "billing": "per month",
         "features": [
-          "Access to the standard cloud infrastructure",
-          "Community support",
-          "Regular security updates",
-          "Popular game catalog included"
+          "28h of community gaming per month",
+          "1080p resolution at 60 FPS",
+          "Access to all community games",
+          "No access to PulseForge",
+          "Overage: €0.99/h"
         ]
       },
       "avantage": {
         "name": "Advantage Pack",
-        "description": "Extra power and priority support for an optimized experience.",
+        "description": "More hours and better performance during off-peak with 50h of gaming.",
         "billing": "per month",
         "features": [
-          "Enhanced GPU performance",
-          "Priority support 24/7",
-          "Access to premium configurations",
-          "Real-time analytics dashboard"
+          "50h of community gaming per month",
+          "1080p/60 FPS resolution",
+          "1440p/120 FPS during off-peak hours",
+          "Access to all community games",
+          "No access to PulseForge",
+          "Overage: €0.89/h"
         ]
       },
       "élite": {
         "name": "Elite Pack",
-        "description": "Dedicated infrastructure and maximum security for the most demanding needs.",
+        "description": "The ultimate experience with PulseForge access and maximum 1440p/120 performance.",
         "billing": "per month",
         "features": [
-          "Dedicated RTX 4090 virtual machine",
-          "Unlimited HWID spoofer",
-          "Personal technical consultant",
-          "Instant updates and patches"
+          "65h of community gaming per month",
+          "8h of PulseForge gaming per month",
+          "1440p resolution at 120 FPS",
+          "Exclusive access to PulseForge",
+          "Access to all community games",
+          "Overage: €0.79/h community",
+          "Overage: €1.79/h PulseForge"
         ]
       }
     }
