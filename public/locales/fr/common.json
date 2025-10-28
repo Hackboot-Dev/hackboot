@@ -687,6 +687,8 @@
     "title": "PREMIUM",
     "highlight": "UNLIMITED",
     "description": "L'expérience gaming ultime. Performances maximales, catalogue complet, offres flexibles.",
+    "plansTitle": "Nos Offres Premium",
+    "popularBadge": "Populaire",
     "benefits": [
       "Accès illimité à tous les jeux",
       "Performances GPU RTX 4090",
@@ -997,39 +999,41 @@
     "plans": {
       "essentiel": {
         "name": "Pack Essentiel",
-        "description": "Parfait pour débuter avec un quota généreux de jeu communautaire et une qualité d'image fluide.",
+        "description": "L'essentiel pour démarrer avec 28h de jeu communautaire en 1080p/60FPS.",
         "billing": "par mois",
         "features": [
-          "28h de jeu communautaire incluses",
-          "Résolution limitée à 1080p 60fps",
+          "28h de jeu communautaire par mois",
+          "Résolution 1080p à 60 FPS",
+          "Accès à tous les jeux communautaires",
           "Pas d'accès à PulseForge",
-          "Catalogue de jeux communautaire disponible",
-          "Dépassement : 0,99€/h supplémentaire"
+          "Dépassement : 0,99 €/h"
         ]
       },
       "avantage": {
         "name": "Pack Avantage",
-        "description": "Plus de temps de jeu et performances améliorées en heures creuses pour une expérience optimale.",
+        "description": "Plus d'heures et de meilleures performances en heures creuses avec 50h de jeu.",
         "billing": "par mois",
         "features": [
-          "50h de jeu communautaire incluses",
-          "1080p 60fps (standard)",
-          "1440p 120fps en heures creuses",
+          "50h de jeu communautaire par mois",
+          "Résolution 1080p/60 FPS",
+          "1440p/120 FPS en heures creuses",
+          "Accès à tous les jeux communautaires",
           "Pas d'accès à PulseForge",
-          "Dépassement : 0,89€/h supplémentaire"
+          "Dépassement : 0,89 €/h"
         ]
       },
       "élite": {
         "name": "Pack Élite",
-        "description": "L'offre ultime avec accès exclusif à PulseForge et performances maximales garanties.",
+        "description": "L'expérience ultime avec accès à PulseForge et performances maximales en 1440p/120.",
         "billing": "par mois",
         "features": [
-          "65h de jeu communautaire incluses",
-          "8h de jeu PulseForge incluses",
-          "Résolution 1440p 120fps",
-          "Accès complet à PulseForge",
-          "Dépassement : 0,79€/h communautaire",
-          "Dépassement : 1,79€/h PulseForge"
+          "65h de jeu communautaire par mois",
+          "8h de jeu PulseForge par mois",
+          "Résolution 1440p à 120 FPS",
+          "Accès exclusif à PulseForge",
+          "Accès à tous les jeux communautaires",
+          "Dépassement : 0,79 €/h communautaire",
+          "Dépassement : 1,79 €/h PulseForge"
         ]
       }
     }

@@ -8,7 +8,6 @@
     "about": "Meist",
     "contact": "Kontakt",
     "clientArea": "Kliendi Ala",
-    "login": "Logi sisse",
     "getStarted": "Alusta"
   },
   "hero": {
@@ -687,6 +686,8 @@
     "title": "PREMIUM",
     "highlight": "PIIRAMATU",
     "description": "Ülim mängukogemus. Maksimaalne jõudlus, täielik kataloog ja paindlikud paketid.",
+    "plansTitle": "Meie premium paketid",
+    "popularBadge": "Populaarne",
     "benefits": [
       "Piiramatu ligipääs kõigile mängudele",
       "RTX 4090 GPU võimsus",
@@ -695,10 +696,6 @@
       "Eluaegsed tasuta uuendused",
       "HWID Spoofer kaasas"
     ],
-    "plansHeading": {
-      "title": "MEIE PAKETID",
-      "subtitle": "Valige pakett, mis sobib teie vajadustega"
-    },
     "featuresHeading": {
       "title": "AINULT PREMIUMILE",
       "subtitle": "Vaata, mis muudab meie Premium pakkumise eriliseks"
@@ -997,97 +994,43 @@
     "plans": {
       "essentiel": {
         "name": "Essential pakett",
-        "description": "Suurepärane alustamiseks helde kogukonna mängukvoodi ja sujuva kvaliteediga.",
+        "description": "Põhitõed alustamiseks: 28h kogukonna mänge 1080p/60FPS eraldusvõimega.",
         "billing": "kuus",
         "features": [
-          "28h kogukonna mängutunde kaasas",
-          "Resolutsioon piiratud 1080p 60fps",
-          "Puudub PulseForge ligipääs",
-          "Kogukonna mängude kataloog saadaval",
-          "Ületunnitasu: 0,99€/h lisatasu"
+          "28h kogukonna mänge kuus",
+          "1080p eraldusvõime 60 FPS-ga",
+          "Juurdepääs kõikidele kogukonna mängudele",
+          "Pole juurdepääsu PulseForge'le",
+          "Ületamine: 0,99 €/h"
         ]
       },
       "avantage": {
         "name": "Advantage pakett",
-        "description": "Rohkem mänguaega ja paranenud jõudlus madaltundidel optimaalse kogemuse jaoks.",
+        "description": "Rohkem tunde ja parem jõudlus madala nõudluse ajal 50h mängimisega.",
         "billing": "kuus",
         "features": [
-          "50h kogukonna mängutunde kaasas",
-          "1080p 60fps (standard)",
-          "1440p 120fps madaltundidel",
-          "Puudub PulseForge ligipääs",
-          "Ületunnitasu: 0,89€/h lisatasu"
+          "50h kogukonna mänge kuus",
+          "1080p/60 FPS eraldusvõime",
+          "1440p/120 FPS madala nõudluse tundidel",
+          "Juurdepääs kõikidele kogukonna mängudele",
+          "Pole juurdepääsu PulseForge'le",
+          "Ületamine: 0,89 €/h"
         ]
       },
       "élite": {
         "name": "Elite pakett",
-        "description": "Tippakkumine eksklusiivse PulseForge ligipääsu ja garanteeritud maksimaalse jõudlusega.",
+        "description": "Tippkogemus PulseForge juurdepääsuga ja maksimaalne 1440p/120 jõudlus.",
         "billing": "kuus",
         "features": [
-          "65h kogukonna mängutunde kaasas",
-          "8h PulseForge mängutunde kaasas",
-          "1440p 120fps resolutsioon",
-          "Täielik PulseForge ligipääs",
-          "Ületunnitasu: 0,79€/h kogukond",
-          "Ületunnitasu: 1,79€/h PulseForge"
+          "65h kogukonna mänge kuus",
+          "8h PulseForge mänge kuus",
+          "1440p eraldusvõime 120 FPS-ga",
+          "Eksklusivne juurdepääs PulseForge'le",
+          "Juurdepääs kõikidele kogukonna mängudele",
+          "Ületamine: 0,79 €/h kogukond",
+          "Ületamine: 1,79 €/h PulseForge"
         ]
       }
     }
-  },
-  "login": {
-    "badge": "Turvaline sisselogimine",
-    "title": "Sisselogimine",
-    "subtitle": "Ligipääs teie Hackboot ruumile",
-    "form": {
-      "email": {
-        "label": "E-post",
-        "placeholder": "teie@email.com"
-      },
-      "password": {
-        "label": "Parool",
-        "placeholder": "••••••••"
-      },
-      "forgotPassword": "Unustasid parooli?",
-      "submit": "Logi sisse",
-      "submitting": "Sisselogimine..."
-    },
-    "errors": {
-      "generic": "Hmm, need andmed ei sobi. Kontrolli oma e-posti ja parooli!",
-      "invalidCredentials": "Hmm, need andmed ei sobi. Kontrolli oma e-posti ja parooli!"
-    },
-    "noAccount": {
-      "text": "Pole veel kontot?",
-      "link": "Loo konto"
-    }
-  },
-  "forgotPassword": {
-    "badge": "Konto taastamine",
-    "title": "Unustasid parooli?",
-    "subtitle": "Pole probleemi, aitame sul konto tagasi saada",
-    "form": {
-      "email": {
-        "label": "E-post",
-        "placeholder": "teie@email.com"
-      },
-      "submit": "Saada taastamislink",
-      "submitting": "Saatmine..."
-    },
-    "errors": {
-      "generic": "Ilmnes viga. Palun proovi mõne hetke pärast uuesti.",
-      "invalidEmail": "Hmm, see e-post ei tundu kehtiv. Kontrolli seda!"
-    },
-    "successMessage": "Kui selle e-posti aadressiga konto eksisteerib, on parooli taastamise link saadetud.",
-    "successNote": "Kontrolli oma postkasti (ja rämpsposti kausta) mõne minuti pärast.",
-    "backToLogin": "Tagasi sisselogimisse"
-  },
-  "gamesCarousel": {
-    "title": "Saadaolevad mängud",
-    "subtitle": "Klõpsa või lohista, et uurida meie mängude kataloogi",
-    "viewAll": "Vaata kõiki mänge"
-  },
-  "premiumPlansSection": {
-    "title": "Vali oma Premium pakett",
-    "subtitle": "Paindlikud paketid igale mängijale",
-    "cta": "Uuri pakette"
   }
 }

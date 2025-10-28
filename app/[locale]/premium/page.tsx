@@ -40,6 +40,7 @@ export default function PremiumPage() {
   const locale = params?.locale as string || 'fr'
   const { t } = useI18n()
   const premiumContent = t.premium ?? {}
+  const plans = useMemo(() => getSubscriptionPlans(), [])
   const featureSource = premiumContent.features as Record<string, Partial<Omit<Feature, 'id' | 'icon' | 'gradient' | 'iconColor'>>> | undefined
   const featureContent = useMemo<Record<string, Partial<Omit<Feature, 'id' | 'icon' | 'gradient' | 'iconColor'>>>>(() => featureSource ?? {}, [featureSource])
   const premiumBenefits = premiumContent.benefits as string[] | undefined
@@ -289,65 +290,54 @@ export default function PremiumPage() {
             </div>
           </div>
 
-          {/* Pricing Plans Section */}
+          {/* Plans Comparison Section */}
           <div className="mb-20 animate-fade-in">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl md:text-6xl font-black mb-4">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-yellow-600">
-                  {premiumContent.plansHeading?.title ?? 'NOS OFFRES'}
-                </span>
-              </h2>
-              <p className="text-xl text-gray-400">
-                {premiumContent.plansHeading?.subtitle ?? 'Choisissez la formule qui correspond à vos besoins'}
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-7xl mx-auto">
+            <h2 className="text-4xl md:text-5xl font-black text-center mb-12">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-yellow-600">
+                {premiumContent.plansTitle ?? 'Nos Offres Premium'}
+              </span>
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {plans.map((plan) => {
-                const planContent = planTranslations[plan.id] ?? {}
+                const planContent = (premiumContent.plans as Record<string, { name?: string; description?: string; features?: string[] }> | undefined)?.[plan.id] ?? {}
                 const planName = planContent.name ?? plan.name
                 const planDescription = planContent.description ?? plan.description
                 const planFeatures = Array.isArray(planContent.features) && planContent.features.length > 0
                   ? planContent.features
                   : plan.features
-                const isPopular = plan.popular
 
                 return (
                   <div
                     key={plan.id}
-                    className={`relative glass-effect rounded-3xl p-8 transition-all hover:scale-[1.02] ${
-                      isPopular
-                        ? 'border-2 border-amber-500/50 bg-gradient-to-br from-amber-500/10 to-yellow-500/5'
-                        : 'border border-white/10'
+                    className={`glass-effect rounded-3xl p-8 border-2 transition-all hover:scale-[1.02] ${
+                      plan.popular
+                        ? 'border-amber-500/50 bg-gradient-to-br from-amber-500/10 to-yellow-500/10 relative'
+                        : 'border-white/10 hover:border-purple-500/30'
                     }`}
                   >
-                    {isPopular && (
+                    {plan.popular && (
                       <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-amber-500 to-yellow-600 text-black text-sm font-bold rounded-full">
-                        {premiumSignupContent.labels?.popular ?? 'Populaire'}
+                        {premiumContent.popularBadge ?? 'Populaire'}
                       </div>
                     )}
-
                     <div className="text-center mb-6">
                       <h3 className="text-2xl font-black text-white mb-2">{planName}</h3>
-                      <p className="text-sm text-gray-400 mb-4">{planDescription}</p>
-                      <div className="flex items-baseline justify-center gap-1">
-                        <span className="text-5xl font-black text-white">
-                          {new Intl.NumberFormat(locale === 'en' ? 'en-US' : locale === 'et' ? 'et-EE' : 'fr-FR', {
-                            style: 'currency',
-                            currency: plan.currency,
-                            minimumFractionDigits: plan.price % 1 === 0 ? 0 : 2
-                          }).format(plan.price)}
-                        </span>
-                        <span className="text-gray-400">/{plan.billing}</span>
+                      <div className="text-4xl font-black bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600 mb-2">
+                        {new Intl.NumberFormat(locale === 'en' ? 'en-US' : locale === 'et' ? 'et-EE' : 'fr-FR', {
+                          style: 'currency',
+                          currency: plan.currency,
+                          minimumFractionDigits: plan.price % 1 === 0 ? 0 : 2
+                        }).format(plan.price)}
                       </div>
+                      <p className="text-sm text-gray-400">{plan.billing}</p>
                     </div>
-
+                    <p className="text-gray-300 text-center mb-6">
+                      {planDescription}
+                    </p>
                     <ul className="space-y-3 mb-8">
                       {planFeatures.map((feature, idx) => (
-                        <li key={idx} className="flex items-start gap-3">
-                          <CheckCircle className={`w-5 h-5 flex-shrink-0 mt-0.5 ${
-                            isPopular ? 'text-amber-400' : 'text-purple-400'
-                          }`} />
+                        <li key={idx} className="flex items-start gap-2">
+                          <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
                           <span className="text-sm text-gray-300">{feature}</span>
                         </li>
                       ))}
@@ -355,8 +345,8 @@ export default function PremiumPage() {
 
                     <Link
                       href={`/${locale}/premium/signup?plan=${plan.id}`}
-                      className={`block w-full px-6 py-4 rounded-xl font-bold text-center transition-all ${
-                        isPopular
+                      className={`block w-full px-6 py-4 rounded-xl font-bold text-center transition-all mt-auto ${
+                        plan.popular
                           ? 'bg-gradient-to-r from-amber-500 to-yellow-600 text-black hover:scale-105'
                           : 'bg-white/5 text-white hover:bg-white/10 border border-white/10'
                       }`}

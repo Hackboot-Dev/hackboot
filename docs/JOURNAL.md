@@ -496,6 +496,42 @@ Améliorer la présentation des offres premium en détaillant précisément les 
 
 ---
 
+## 2025-10-27
+
+### Feature: Refonte de la page premium avec section de comparaison des offres
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Améliorer la présentation visuelle de la page premium en ajoutant une section dédiée à la comparaison des 3 offres (Essentiel, Avantage, Élite) avec toutes les informations détaillées, et mettre à jour les traductions pour tous les marchés (FR/EN/ET).
+
+#### Modifications apportées:
+1. **Mise à jour des données** (`data/subscriptions.json`) :
+   - **Pack Essentiel** : 28h de jeu communautaire, 1080p/60 FPS, pas d'accès PulseForge, dépassement à 0,99 €/h
+   - **Pack Avantage** : 50h de jeu communautaire, 1080p/60 FPS (1440p/120 en heures creuses), pas d'accès PulseForge, dépassement à 0,89 €/h
+   - **Pack Élite** : 65h communautaire + 8h PulseForge, 1440p/120 FPS, accès exclusif PulseForge, dépassements à 0,79 €/h (communautaire) et 1,79 €/h (PulseForge)
+
+2. **Page premium** (`app/[locale]/premium/page.tsx`) :
+   - Ajout d'une nouvelle section "Nos Offres Premium" AVANT les cartes de fonctionnalités
+   - Affichage en grille des 3 offres avec prix, description et features détaillées
+   - Design avec badge "Populaire" pour l'offre Élite
+   - Integration des traductions i18n pour FR/EN/ET
+
+3. **Traductions** (`public/locales/{fr,en,et}/common.json`) :
+   - Mise à jour des descriptions et features pour les 3 plans en français
+   - Traduction complète en anglais (Essential, Advantage, Elite)
+   - Traduction complète en estonien
+   - Ajout de `plansTitle` et `popularBadge` dans la section premium
+
+#### Résultats:
+- ✅ Section de comparaison visuelle claire et moderne
+- ✅ Toutes les informations détaillées (heures, résolutions, tarifs) affichées
+- ✅ Traductions complètes FR/EN/ET
+- ✅ Les cartes de fonctionnalités existantes (Install to Play, etc.) restent en place
+- ✅ Design cohérent avec la charte graphique (gradient amber/yellow, glass-effect)
+
+---
+
 ## 2025-10-23
 
 ### Feature: Enrichissement PulseForge Overwatch avec modules lobby et notes ToS
