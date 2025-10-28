@@ -33,10 +33,18 @@ const InteractiveCards = dynamic(
   }
 )
 
-const InfiniteScroll = dynamic(
-  () => import('@/components/InfiniteScroll'),
+const InteractiveGamesCarousel = dynamic(
+  () => import('@/components/InteractiveGamesCarousel'),
   {
-    loading: () => <div className="h-32 bg-dark" />,
+    loading: () => <div className="h-96 bg-dark animate-pulse" />,
+    ssr: false
+  }
+)
+
+const PremiumPlansSection = dynamic(
+  () => import('@/components/PremiumPlansSection'),
+  {
+    loading: () => <div className="min-h-[60vh] bg-dark animate-pulse" />,
     ssr: false
   }
 )
@@ -93,14 +101,20 @@ export default function Home() {
         </div>
       </Suspense>
 
-      <Suspense fallback={<div className="h-32 bg-dark" />}>
+      <Suspense fallback={<div className="h-96 bg-dark" />}>
         <div className="animate-fade-in">
-          <InfiniteScroll />
+          <InteractiveGamesCarousel />
+        </div>
+      </Suspense>
+
+      <Suspense fallback={<div className="min-h-[60vh] bg-dark" />}>
+        <div className="animate-scale-in">
+          <PremiumPlansSection />
         </div>
       </Suspense>
 
       <Suspense fallback={<div className="min-h-[50vh] bg-dark" />}>
-        <div className="animate-scale-in">
+        <div className="animate-slide-up">
           <ProductsSection />
         </div>
       </Suspense>

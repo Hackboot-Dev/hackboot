@@ -8,6 +8,7 @@
     "about": "À propos",
     "contact": "Contact",
     "clientArea": "Espace Client",
+    "login": "Connexion",
     "getStarted": "Commencer"
   },
   "hero": {
@@ -694,6 +695,10 @@
       "Mises à jour gratuites à vie",
       "HWID Spoofer inclus"
     ],
+    "plansHeading": {
+      "title": "NOS OFFRES",
+      "subtitle": "Choisissez la formule qui correspond à vos besoins"
+    },
     "featuresHeading": {
       "title": "AVANTAGES RÉSERVÉS",
       "subtitle": "Découvrez ce qui rend notre offre Premium exceptionnelle"
@@ -949,37 +954,97 @@
     "plans": {
       "essentiel": {
         "name": "Pack Essentiel",
-        "description": "Performances fiables et accès complet au configurateur pour démarrer immédiatement.",
+        "description": "Parfait pour débuter avec un quota généreux de jeu communautaire et une qualité d'image fluide.",
         "billing": "par mois",
         "features": [
-          "Accès à l'infrastructure cloud standard",
-          "Support communautaire",
-          "Mises à jour de sécurité régulières",
-          "Catalogue de jeux populaire inclus"
+          "28h de jeu communautaire incluses",
+          "Résolution limitée à 1080p 60fps",
+          "Pas d'accès à PulseForge",
+          "Catalogue de jeux communautaire disponible",
+          "Dépassement : 0,99€/h supplémentaire"
         ]
       },
       "avantage": {
         "name": "Pack Avantage",
-        "description": "Puissance supplémentaire et support prioritaire pour une expérience optimisée.",
+        "description": "Plus de temps de jeu et performances améliorées en heures creuses pour une expérience optimale.",
         "billing": "par mois",
         "features": [
-          "Performances GPU avancées",
-          "Support prioritaire 24/7",
-          "Accès aux configurations premium",
-          "Tableau de bord analytique en temps réel"
+          "50h de jeu communautaire incluses",
+          "1080p 60fps (standard)",
+          "1440p 120fps en heures creuses",
+          "Pas d'accès à PulseForge",
+          "Dépassement : 0,89€/h supplémentaire"
         ]
       },
       "élite": {
         "name": "Pack Élite",
-        "description": "Infrastructure dédiée et sécurité maximale pour les besoins les plus exigeants.",
+        "description": "L'offre ultime avec accès exclusif à PulseForge et performances maximales garanties.",
         "billing": "par mois",
         "features": [
-          "Machine virtuelle dédiée RTX 4090",
-          "HWID Spoofer illimité",
-          "Consultant technique personnel",
-          "Mises à jour et patchs instantanés"
+          "65h de jeu communautaire incluses",
+          "8h de jeu PulseForge incluses",
+          "Résolution 1440p 120fps",
+          "Accès complet à PulseForge",
+          "Dépassement : 0,79€/h communautaire",
+          "Dépassement : 1,79€/h PulseForge"
         ]
       }
     }
+  },
+  "login": {
+    "badge": "Connexion sécurisée",
+    "title": "Connexion",
+    "subtitle": "Accédez à votre espace Hackboot",
+    "form": {
+      "email": {
+        "label": "Email",
+        "placeholder": "votre@email.com"
+      },
+      "password": {
+        "label": "Mot de passe",
+        "placeholder": "••••••••"
+      },
+      "forgotPassword": "Mot de passe oublié ?",
+      "submit": "Se connecter",
+      "submitting": "Connexion..."
+    },
+    "errors": {
+      "generic": "Hmm, ces identifiants ne correspondent pas. Vérifie ton email et ton mot de passe !",
+      "invalidCredentials": "Hmm, ces identifiants ne correspondent pas. Vérifie ton email et ton mot de passe !"
+    },
+    "noAccount": {
+      "text": "Pas encore de compte ?",
+      "link": "Créer un compte"
+    }
+  },
+  "forgotPassword": {
+    "badge": "Récupération de compte",
+    "title": "Mot de passe oublié ?",
+    "subtitle": "Pas de souci, on va t'aider à récupérer ton compte",
+    "form": {
+      "email": {
+        "label": "Email",
+        "placeholder": "votre@email.com"
+      },
+      "submit": "Envoyer le lien",
+      "submitting": "Envoi en cours..."
+    },
+    "errors": {
+      "generic": "Une erreur est survenue. Réessaye dans quelques instants.",
+      "invalidEmail": "Hmm, cet email ne semble pas valide. Vérifie-le !"
+    },
+    "successMessage": "Si un compte existe avec cette adresse email, un lien de réinitialisation a été envoyé.",
+    "successNote": "Vérifie ta boîte mail (et tes spams) dans quelques minutes.",
+    "backToLogin": "Retour à la connexion"
+  },
+  "gamesCarousel": {
+    "title": "Jeux Disponibles",
+    "subtitle": "Clique ou déplace pour explorer notre catalogue de jeux",
+    "viewAll": "Voir tous les jeux"
+  },
+  "premiumPlansSection": {
+    "title": "Choisis Ton Plan Premium",
+    "subtitle": "Des formules flexibles adaptées à tous les joueurs",
+    "cta": "Découvrir les offres"
   }
 }

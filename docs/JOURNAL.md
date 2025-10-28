@@ -1,5 +1,501 @@
 # Journal des Actions - Hackboot
 
+## 2025-10-28
+
+### Feature: Amélioration de la page d'accueil avec carousel de jeux interactif et section premium
+**Heure**: Session actuelle (partie 7)
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Enrichir la page d'accueil avec de nouvelles sections pour expliquer les offres et produits. Remplacer le bandeau de jeux statique par un carousel interactif affichant les vrais jeux avec drag & drop, différenciation visuelle des jeux PulseForge, et ajout d'une section dédiée aux offres premium.
+
+#### Modifications apportées:
+
+**1. Création du composant InteractiveGamesCarousel**
+   - Fichier: `/components/InteractiveGamesCarousel.tsx`
+   - Affiche tous les jeux depuis `gaming-products.json` et `gaming-products-community.json`
+   - **Interactivité drag & drop** : Scroll horizontal avec la souris (grab and move)
+   - **Cliquable** : Cliquer sur un jeu redirige vers sa page de détail
+   - **Différenciation visuelle** :
+     - Jeux PulseForge (native) : Bordure rose, badge "PULSEFORGE" avec icône Sparkles, gradient rose/violet
+     - Jeux communautaires : Bordure blanche, gradient violet/indigo
+   - Affiche l'image, nom, description, catégorie et nombre de variants
+   - Effet hover avec scale et overlay coloré
+   - Bouton CTA "Voir tous les jeux" en bas
+
+**2. Création du composant PremiumPlansSection**
+   - Fichier: `/components/PremiumPlansSection.tsx`
+   - Affiche les 3 offres premium en grille (Essentiel, Avantage, Élite)
+   - Design premium avec effets glass, gradients ambrés pour le plan populaire
+   - Icônes distinctives (Sparkles, Zap, Crown) pour chaque plan
+   - Badge "Populaire" sur le plan Élite
+   - Prix formaté selon la locale
+   - Liste des 5 premières features
+   - Boutons CTA vers `/premium/signup?plan=${plan.id}`
+   - Bouton secondaire "Découvrir les offres" vers `/premium`
+   - Effets d'animation et backgrounds flottants
+
+**3. Mise à jour de la page d'accueil**
+   - Fichier: `/app/[locale]/page.tsx`
+   - Remplacement de `InfiniteScroll` par `InteractiveGamesCarousel`
+   - Ajout de `PremiumPlansSection` entre le carousel de jeux et ProductsSection
+   - Ordre des sections :
+     1. HeroLight
+     2. ParallaxSection (gaming)
+     3. InteractiveCards
+     4. ParallaxSection (security)
+     5. **InteractiveGamesCarousel** (nouveau)
+     6. **PremiumPlansSection** (nouveau)
+     7. ProductsSection
+     8. ParallaxSection (cloud)
+     9. Footer
+   - Ajout des imports dynamiques avec lazy loading
+
+**4. Ajout des traductions**
+   - Fichiers: `/public/locales/fr/common.json`, `/public/locales/en/common.json`, `/public/locales/et/common.json`
+   - Nouvelle section `gamesCarousel`:
+     - title : Titre du carousel
+     - subtitle : Sous-titre avec instruction (cliquer/déplacer)
+     - viewAll : Texte du bouton CTA
+   - Nouvelle section `premiumPlansSection`:
+     - title : Titre de la section
+     - subtitle : Description
+     - cta : Texte du bouton
+
+#### Fonctionnalités du carousel interactif:
+
+- ✅ **Drag & Drop** : Déplacement horizontal avec la souris (grab cursor)
+- ✅ **Cliquable** : Cliquer sur un jeu ouvre sa page de détail
+- ✅ **Différenciation PulseForge** : Badge, bordure rose, gradient spécifique
+- ✅ **Vrais jeux** : Données réelles depuis gaming-products
+- ✅ **Images** : Affiche les images des variants
+- ✅ **Responsive** : Scroll horizontal fluide
+- ✅ **Animations** : Hover effects, scale, transitions
+
+#### Design de la section premium:
+
+- ✅ **3 cartes** : Essentiel, Avantage, Élite
+- ✅ **Plan populaire mis en avant** : Badge, gradient ambré, bordure dorée
+- ✅ **Icônes thématiques** : Crown, Zap, Sparkles
+- ✅ **Prix formatés** : Selon la locale de l'utilisateur
+- ✅ **Features** : 5 premières listées avec checkmarks
+- ✅ **CTAs clairs** : Boutons vers signup avec plan présélectionné
+- ✅ **Effets visuels** : Backgrounds flottants, gradients, shadows
+
+#### Impact:
+
+- ✅ Page d'accueil beaucoup plus riche et informative
+- ✅ Mise en avant des vrais jeux avec interactivité
+- ✅ Différenciation claire PulseForge vs communautaire
+- ✅ Explication des offres premium directement sur la home
+- ✅ Meilleure conversion avec CTAs stratégiques
+- ✅ Expérience utilisateur engageante (drag & drop)
+- ✅ Design cohérent avec le reste du site
+- ✅ Performance optimisée (lazy loading)
+
+#### Fichiers créés:
+
+- `/components/InteractiveGamesCarousel.tsx`
+- `/components/PremiumPlansSection.tsx`
+
+#### Fichiers modifiés:
+
+- `/app/[locale]/page.tsx`
+- `/public/locales/fr/common.json`
+- `/public/locales/en/common.json`
+- `/public/locales/et/common.json`
+- `/docs/JOURNAL.md` (ce fichier)
+
+---
+
+### Feature: Page "Mot de passe oublié" avec API sécurisée
+**Heure**: Session actuelle (partie 6)
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Créer une page "Mot de passe oublié" avec API sécurisée qui renvoie TOUJOURS le même message de succès, sans que le code client puisse détecter qu'aucun email n'est réellement envoyé. Protection contre l'énumération d'utilisateurs.
+
+#### Modifications apportées:
+
+**1. Création de la route API forgot-password**
+   - Fichier: `/app/api/auth/forgot-password/route.ts`
+   - Endpoint POST `/api/auth/forgot-password`
+   - Validation de l'email (format)
+   - Délai aléatoire (1200-2000ms) pour simuler un traitement
+   - Code qui simule des vérifications (database check, email sending) pour masquer la vraie logique
+   - Renvoie **TOUJOURS** le même message de succès : "If an account exists with this email, a password reset link has been sent."
+   - **Sécurité maximale** : Le code côté serveur masque complètement qu'aucun email n'est envoyé
+
+**2. Création de la page forgot-password**
+   - Fichier: `/app/[locale]/forgot-password/page.tsx`
+   - Design cohérent avec la page login (glass-effect, gradients)
+   - Formulaire simple avec un seul champ email
+   - État de chargement avec spinner
+   - Écran de succès avec icône verte et message rassurant
+   - Lien "Retour à la connexion" vers `/login`
+   - Animation shake pour les erreurs
+   - Responsive et accessible
+
+**3. Ajout des traductions i18n**
+   - Fichiers: `/public/locales/fr/common.json`, `/public/locales/en/common.json`, `/public/locales/et/common.json`
+   - Nouvelle section `forgotPassword` avec:
+     - badge, title, subtitle
+     - form : label et placeholder email, boutons
+     - errors : messages d'erreur (email invalide, erreur générique)
+     - successMessage : message de confirmation
+     - successNote : note pour vérifier les spams
+     - backToLogin : lien retour
+   - Messages cohérents dans les 3 langues (FR/EN/ET)
+
+#### Messages de succès par langue:
+
+- **FR**: "Si un compte existe avec cette adresse email, un lien de réinitialisation a été envoyé."
+- **EN**: "If an account exists with this email address, a password reset link has been sent."
+- **ET**: "Kui selle e-posti aadressiga konto eksisteerib, on parooli taastamise link saadetud."
+
+#### Sécurité implémentée:
+
+- ✅ **Protection contre l'énumération** : Impossible de savoir si un email existe ou non
+- ✅ **Message identique** : Toujours le même message de succès
+- ✅ **Code masqué** : Le client ne peut pas détecter qu'aucun email n'est envoyé
+- ✅ **Simulations internes** : Le code simule des vérifications pour masquer la logique
+- ✅ **Délai aléatoire** : Évite les timing attacks
+- ✅ **Validation email** : Seul un format email valide peut passer
+
+#### Impact:
+
+- ✅ Page de récupération de mot de passe professionnelle
+- ✅ Expérience utilisateur rassurante et claire
+- ✅ Sécurité maximale contre l'énumération d'utilisateurs
+- ✅ Design cohérent avec le reste du site
+- ✅ Cohérence multilingue (FR/EN/ET)
+- ✅ Messages conviviaux et rassurants
+
+#### Fichiers créés:
+
+- `/app/api/auth/forgot-password/route.ts`
+- `/app/[locale]/forgot-password/page.tsx`
+
+#### Fichiers modifiés:
+
+- `/public/locales/fr/common.json`
+- `/public/locales/en/common.json`
+- `/public/locales/et/common.json`
+- `/docs/JOURNAL.md` (ce fichier)
+
+---
+
+### Feature: Messages d'erreur de connexion plus conviviaux
+**Heure**: Session actuelle (partie 5)
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Remplacer le message d'erreur générique "Invalid credentials" par un message plus séduisant, convivial et engageant pour améliorer l'expérience utilisateur lors d'une tentative de connexion échouée.
+
+#### Modifications apportées:
+
+**1. Mise à jour de l'API**
+   - Fichier: `/app/api/auth/login/route.ts`
+   - Changement du message d'erreur de `"Invalid credentials"` à `"Incorrect email or password"`
+   - Message plus clair et informatif pour l'utilisateur
+
+**2. Mise à jour des traductions**
+   - Fichiers: `/public/locales/fr/common.json`, `/public/locales/en/common.json`, `/public/locales/et/common.json`
+   - Nouveaux messages d'erreur conviviaux:
+     - **FR**: "Hmm, ces identifiants ne correspondent pas. Vérifie ton email et ton mot de passe !"
+     - **EN**: "Hmm, those credentials don't match. Double-check your email and password!"
+     - **ET**: "Hmm, need andmed ei sobi. Kontrolli oma e-posti ja parooli!"
+
+**3. Correction du mapping des erreurs dans la page login**
+   - Fichier: `/app/[locale]/login/page.tsx`
+   - Ligne 38-44 : Ajout de la logique de mapping des erreurs API vers traductions i18n
+   - L'erreur de l'API (en anglais) est maintenant détectée et mappée à la traduction appropriée
+   - Si l'erreur contient "incorrect" ou "invalid", on affiche `loginContent.errors.invalidCredentials`
+   - Sinon, on affiche le message générique
+   - **FIX** : Les messages s'affichent maintenant dans la langue de l'utilisateur
+
+#### Style des messages:
+
+- ✅ Ton convivial avec "Hmm" pour humaniser l'erreur
+- ✅ Message clair et informatif
+- ✅ Invite à l'action avec "Vérifie" / "Double-check"
+- ✅ Point d'exclamation pour un ton positif et encourageant
+- ✅ Pas de tonalité négative ou culpabilisante
+
+#### Impact:
+
+- ✅ Meilleure expérience utilisateur lors des erreurs
+- ✅ Message plus engageant et moins frustrant
+- ✅ Ton friendly qui correspond à l'identité de la marque
+- ✅ Cohérence multilingue
+- ✅ Maintien de la sécurité (pas de révélation d'info sensible)
+
+#### Fichiers modifiés:
+
+- `/app/api/auth/login/route.ts`
+- `/app/[locale]/login/page.tsx` (correction du mapping i18n)
+- `/public/locales/fr/common.json`
+- `/public/locales/en/common.json`
+- `/public/locales/et/common.json`
+- `/docs/JOURNAL.md` (ce fichier)
+
+---
+
+### Feature: Bouton de connexion dans le header
+**Heure**: Session actuelle (partie 4)
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Ajouter un bouton "Connexion" dans le header à côté du bouton "Commencer" pour faciliter l'accès à la page de connexion depuis toutes les pages du site.
+
+#### Modifications apportées:
+
+**1. Ajout du bouton dans le header desktop**
+   - Fichier: `/components/SiteHeader.tsx`
+   - Ligne 158-163 : Bouton "Connexion" avec style outline (bordure blanche)
+   - Positionné entre le sélecteur de langue et le bouton "Commencer"
+   - Hover state avec fond semi-transparent
+
+**2. Ajout du bouton dans le menu mobile**
+   - Fichier: `/components/SiteHeader.tsx`
+   - Ligne 236-242 : Bouton "Connexion" full-width dans le menu mobile
+   - Positionné avant le bouton "Commencer"
+   - Design cohérent avec la version desktop
+
+**3. Ajout des traductions**
+   - Fichiers: `/public/locales/fr/common.json`, `/public/locales/en/common.json`, `/public/locales/et/common.json`
+   - Nouvelle clé `nav.login`:
+     - FR: "Connexion"
+     - EN: "Login"
+     - ET: "Logi sisse"
+
+#### Design:
+
+- **Bouton Connexion** : Style outline avec bordure blanche/transparente
+- **Bouton Commencer** : Gradient purple-indigo (reste inchangé)
+- Différenciation visuelle claire entre les deux actions
+- Responsive sur mobile et desktop
+
+#### Impact:
+
+- ✅ Accès rapide à la page de connexion depuis toutes les pages
+- ✅ Navigation cohérente et intuitive
+- ✅ Design professionnel et épuré
+- ✅ Cohérence multilingue (FR/EN/ET)
+- ✅ Responsive sur tous les appareils
+
+#### Fichiers modifiés:
+
+- `/components/SiteHeader.tsx`
+- `/public/locales/fr/common.json`
+- `/public/locales/en/common.json`
+- `/public/locales/et/common.json`
+- `/docs/JOURNAL.md` (ce fichier)
+
+---
+
+### Feature: Page de connexion (login) avec API sécurisée
+**Heure**: Session actuelle (partie 3)
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Créer une page de connexion professionnelle avec appel API sécurisé qui renvoie toujours une erreur générique "Invalid credentials" sans révéler si c'est l'email ou le mot de passe qui est incorrect. Le fait que l'API renvoie toujours la même erreur ne doit pas être visible côté client.
+
+#### Modifications apportées:
+
+**1. Création de la route API de login**
+   - Fichier: `/app/api/auth/login/route.ts`
+   - Endpoint POST `/api/auth/login`
+   - Validation basique des champs (email format, présence du password)
+   - Délai aléatoire (800-1200ms) pour simuler une vraie vérification
+   - Renvoie **TOUJOURS** `{ error: "Invalid credentials" }` avec status 401
+   - Le code simule des validations pour masquer le fait que ça renvoie toujours la même erreur
+   - Sécurité : aucune information ne révèle si c'est l'email ou le password qui est incorrect
+
+**2. Création de la page login**
+   - Fichier: `/app/[locale]/login/page.tsx`
+   - Design cohérent avec la charte graphique (glass-effect, gradients purple)
+   - Formulaire avec email et password
+   - Validation HTML5 (required, type="email")
+   - État de chargement avec spinner pendant l'appel API
+   - Affichage des erreurs avec animation shake
+   - Lien "Mot de passe oublié" vers `/forgot-password`
+   - Lien "Créer un compte" vers `/premium/signup`
+   - Responsive et accessible
+
+**3. Ajout des traductions i18n**
+   - Fichiers: `/public/locales/fr/common.json`, `/public/locales/en/common.json`, `/public/locales/et/common.json`
+   - Nouvelle section `login` avec:
+     - badge, title, subtitle
+     - form : labels et placeholders pour email/password
+     - errors : messages d'erreur génériques
+     - noAccount : texte et lien vers signup
+   - Messages d'erreur identiques dans les 3 langues : toujours "Invalid credentials" / "Nom d'utilisateur ou mot de passe incorrect"
+
+**4. Mise à jour du lien sur la page signup**
+   - Fichier: `/app/[locale]/premium/signup/page.tsx`
+   - Ligne 373 : Lien "Connecte-toi ici" pointe maintenant vers `/login`
+   - Style amélioré avec hover states
+
+**5. Ajout de l'animation shake**
+   - Fichier: `/app/globals.css`
+   - Animation CSS pour les erreurs avec effet de tremblement
+   - Utilisée pour attirer l'attention sur les erreurs de formulaire
+
+#### Sécurité implémentée:
+
+- ✅ L'API ne révèle jamais si c'est l'email ou le password qui est incorrect
+- ✅ Message d'erreur générique identique dans tous les cas
+- ✅ Délai aléatoire pour éviter les timing attacks
+- ✅ Le code côté serveur masque le fait qu'il renvoie toujours la même erreur
+- ✅ Validation des entrées pour éviter les injections
+- ✅ Aucune information sensible dans les logs côté client
+
+#### Impact:
+
+- ✅ Page de connexion professionnelle et sécurisée
+- ✅ Expérience utilisateur fluide avec états de chargement
+- ✅ Protection contre les énumérations d'utilisateurs
+- ✅ Cohérence multilingue (FR/EN/ET)
+- ✅ Design cohérent avec le reste du site
+- ✅ Accessibilité et responsive
+
+#### Fichiers créés:
+
+- `/app/api/auth/login/route.ts`
+- `/app/[locale]/login/page.tsx`
+
+#### Fichiers modifiés:
+
+- `/public/locales/fr/common.json`
+- `/public/locales/en/common.json`
+- `/public/locales/et/common.json`
+- `/app/[locale]/premium/signup/page.tsx`
+- `/app/globals.css`
+- `/docs/JOURNAL.md` (ce fichier)
+
+---
+
+## 2025-10-28
+
+### Feature: Système de présélection des offres premium avec URL parameters
+**Heure**: Session actuelle (suite)
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Implémenter un système de présélection d'offres qui mémorise le choix de l'utilisateur via query parameters dans l'URL, permettant une expérience fluide depuis n'importe quelle page (premium, games detail) vers la page signup.
+
+#### Modifications apportées:
+
+**1. Modification de la page premium classique**
+   - Fichier: `/app/[locale]/premium/page.tsx`
+   - Tous les liens vers `/premium/signup` incluent maintenant le plan ID : `?plan=${plan.id}`
+   - Liens dans la section "NOS OFFRES" : chaque carte inclut le plan spécifique
+   - CTA principal en bas de page : présélectionne automatiquement le plan populaire
+
+**2. Modification de la page signup**
+   - Fichier: `/app/[locale]/premium/signup/page.tsx`
+   - Import de `useSearchParams` depuis next/navigation
+   - Lecture du paramètre `plan` depuis l'URL
+   - Présélection automatique du plan si fourni dans l'URL
+   - Validation que le plan existe avant de le présélectionner
+   - Fallback sur le plan populaire si aucun plan n'est fourni ou invalide
+
+**3. Modification du composant NativeGamingProductPage**
+   - Fichier: `/components/NativeGamingProductPage.tsx`
+   - Ligne 227 : Liens dans la liste des plans incluent `?plan=${plan.id}`
+   - Ligne 794 : CTA final présélectionne le plan populaire
+
+**4. Modification du composant CommunityGamingProductPage**
+   - Fichier: `/components/CommunityGamingProductPage.tsx`
+   - Ligne 102 : Liens dans la liste des plans incluent `?plan=${plan.id}`
+   - Ligne 228 : CTA final présélectionne le plan populaire
+
+#### Impact:
+- ✅ Expérience utilisateur fluide : le choix du plan est mémorisé
+- ✅ Navigation cohérente depuis toutes les pages vers signup
+- ✅ Réduction du nombre de clics pour l'utilisateur
+- ✅ Présélection automatique du plan sur la page signup
+- ✅ Système robuste avec fallback sur le plan populaire
+- ✅ URLs partageables avec plan présélectionné
+
+#### Fichiers modifiés:
+- `/app/[locale]/premium/page.tsx`
+- `/app/[locale]/premium/signup/page.tsx`
+- `/components/NativeGamingProductPage.tsx`
+- `/components/CommunityGamingProductPage.tsx`
+- `/docs/JOURNAL.md` (ce fichier)
+
+---
+
+### Feature: Mise à jour détaillée des offres premium (signup + page premium)
+**Heure**: Session actuelle (première partie)
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Améliorer la présentation des offres premium en détaillant précisément les quotas d'heures, résolutions, accès PulseForge et tarifs de dépassement pour chaque formule. Mise à jour de la page premium signup ET ajout d'une section dédiée aux offres sur la page premium classique.
+
+#### Modifications apportées:
+
+**1. Mise à jour du fichier subscriptions.json**
+   - Fichier: `/data/subscriptions.json`
+   - **Pack Essentiel**:
+     - Description mise à jour pour clarifier le positionnement
+     - Features détaillées: 28h de jeu communautaire, 1080p 60fps, pas d'accès PulseForge, dépassement à 0,99€/h
+   - **Pack Avantage**:
+     - Description enrichie avec mention des heures creuses
+     - Features détaillées: 50h de jeu communautaire, 1080p 60fps standard + 1440p 120fps en heures creuses, pas d'accès PulseForge, dépassement à 0,89€/h
+   - **Pack Élite**:
+     - Description mise à jour avec accent sur l'exclusivité PulseForge
+     - Features détaillées: 65h de jeu communautaire, 8h PulseForge, 1440p 120fps, accès complet PulseForge, dépassement à 0,79€/h communautaire et 1,79€/h PulseForge
+
+**2. Mise à jour des fichiers de traduction i18n pour signup**
+   - Fichiers: `/public/locales/fr/common.json`, `/public/locales/en/common.json`, `/public/locales/et/common.json`
+   - Section `premiumSignup.plans` mise à jour pour les 3 langues (FR, EN, ET)
+   - Descriptions et features alignées avec les nouvelles spécifications
+   - Cohérence multilingue assurée
+
+**3. Ajout d'une section "NOS OFFRES" sur la page premium classique**
+   - Fichier: `/app/[locale]/premium/page.tsx`
+   - Nouvelle section ajoutée avant "AVANTAGES RÉSERVÉS"
+   - Affichage des 3 offres en cartes avec:
+     - Nom du pack
+     - Description
+     - Prix formaté selon la locale
+     - Liste complète des features
+     - Badge "Populaire" pour le Pack Élite
+     - Bouton CTA vers la page signup
+   - Design cohérent avec effet glass, animations et gradients
+   - Pack Élite mis en avant avec bordure dorée et gradient ambré
+
+**4. Ajout des traductions pour la section "NOS OFFRES"**
+   - Fichiers: `/public/locales/fr/common.json`, `/public/locales/en/common.json`, `/public/locales/et/common.json`
+   - Nouvelle section `premium.plansHeading`:
+     - FR: "NOS OFFRES" / "Choisissez la formule qui correspond à vos besoins"
+     - EN: "OUR PLANS" / "Choose the plan that fits your needs"
+     - ET: "MEIE PAKETID" / "Valige pakett, mis sobib teie vajadustega"
+
+#### Impact:
+- ✅ Les utilisateurs ont une vision claire des quotas horaires de chaque offre
+- ✅ Les différences entre les offres sont mieux expliquées
+- ✅ Les tarifs de dépassement sont transparents
+- ✅ L'accès PulseForge est clairement différencié pour l'offre Élite
+- ✅ Les changements sont immédiatement visibles sur la page premium signup
+- ✅ Nouvelle section dédiée aux offres sur la page premium classique
+- ✅ Parcours utilisateur amélioré avec mise en avant des offres
+- ✅ Cohérence multilingue (FR/EN/ET)
+- ✅ Expérience utilisateur enrichie avec design premium
+
+#### Fichiers modifiés:
+- `/data/subscriptions.json`
+- `/app/[locale]/premium/page.tsx`
+- `/public/locales/fr/common.json`
+- `/public/locales/en/common.json`
+- `/public/locales/et/common.json`
+- `/docs/JOURNAL.md` (ce fichier)
+
+---
+
 ## 2025-10-21
 
 ### Feature: Refonte complète page produits natifs avec données techniques et graphiques

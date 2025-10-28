@@ -8,6 +8,7 @@
     "about": "About",
     "contact": "Contact",
     "clientArea": "Client Area",
+    "login": "Login",
     "getStarted": "Get Started"
   },
   "hero": {
@@ -694,6 +695,10 @@
       "Lifetime updates included",
       "HWID spoofer included"
     ],
+    "plansHeading": {
+      "title": "OUR PLANS",
+      "subtitle": "Choose the plan that fits your needs"
+    },
     "featuresHeading": {
       "title": "PREMIUM BENEFITS",
       "subtitle": "Discover what makes our Premium offer exceptional"
@@ -949,37 +954,97 @@
     "plans": {
       "essentiel": {
         "name": "Essential Pack",
-        "description": "Reliable performance and full configurator access to get started immediately.",
+        "description": "Perfect to start with a generous community gaming quota and smooth image quality.",
         "billing": "per month",
         "features": [
-          "Access to the standard cloud infrastructure",
-          "Community support",
-          "Regular security updates",
-          "Popular game catalog included"
+          "28h community gaming included",
+          "Resolution limited to 1080p 60fps",
+          "No PulseForge access",
+          "Community game catalog available",
+          "Overage: €0.99/h additional"
         ]
       },
       "avantage": {
         "name": "Advantage Pack",
-        "description": "Extra power and priority support for an optimized experience.",
+        "description": "More gaming time and improved off-peak performance for an optimal experience.",
         "billing": "per month",
         "features": [
-          "Enhanced GPU performance",
-          "Priority support 24/7",
-          "Access to premium configurations",
-          "Real-time analytics dashboard"
+          "50h community gaming included",
+          "1080p 60fps (standard)",
+          "1440p 120fps off-peak hours",
+          "No PulseForge access",
+          "Overage: €0.89/h additional"
         ]
       },
       "élite": {
         "name": "Elite Pack",
-        "description": "Dedicated infrastructure and maximum security for the most demanding needs.",
+        "description": "The ultimate offer with exclusive PulseForge access and guaranteed maximum performance.",
         "billing": "per month",
         "features": [
-          "Dedicated RTX 4090 virtual machine",
-          "Unlimited HWID spoofer",
-          "Personal technical consultant",
-          "Instant updates and patches"
+          "65h community gaming included",
+          "8h PulseForge gaming included",
+          "1440p 120fps resolution",
+          "Full PulseForge access",
+          "Overage: €0.79/h community",
+          "Overage: €1.79/h PulseForge"
         ]
       }
     }
+  },
+  "login": {
+    "badge": "Secure Login",
+    "title": "Login",
+    "subtitle": "Access your Hackboot space",
+    "form": {
+      "email": {
+        "label": "Email",
+        "placeholder": "your@email.com"
+      },
+      "password": {
+        "label": "Password",
+        "placeholder": "••••••••"
+      },
+      "forgotPassword": "Forgot password?",
+      "submit": "Sign in",
+      "submitting": "Signing in..."
+    },
+    "errors": {
+      "generic": "Hmm, those credentials don't match. Double-check your email and password!",
+      "invalidCredentials": "Hmm, those credentials don't match. Double-check your email and password!"
+    },
+    "noAccount": {
+      "text": "Don't have an account?",
+      "link": "Create an account"
+    }
+  },
+  "forgotPassword": {
+    "badge": "Account Recovery",
+    "title": "Forgot Password?",
+    "subtitle": "No worries, we'll help you recover your account",
+    "form": {
+      "email": {
+        "label": "Email",
+        "placeholder": "your@email.com"
+      },
+      "submit": "Send reset link",
+      "submitting": "Sending..."
+    },
+    "errors": {
+      "generic": "An error occurred. Please try again in a few moments.",
+      "invalidEmail": "Hmm, this email doesn't look valid. Double-check it!"
+    },
+    "successMessage": "If an account exists with this email address, a password reset link has been sent.",
+    "successNote": "Check your inbox (and spam folder) in a few minutes.",
+    "backToLogin": "Back to login"
+  },
+  "gamesCarousel": {
+    "title": "Available Games",
+    "subtitle": "Click or drag to explore our game catalog",
+    "viewAll": "View all games"
+  },
+  "premiumPlansSection": {
+    "title": "Choose Your Premium Plan",
+    "subtitle": "Flexible plans tailored to every gamer",
+    "cta": "Explore plans"
   }
 }

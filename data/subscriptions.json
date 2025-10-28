@@ -6,12 +6,13 @@
       "price": 19.99,
       "currency": "EUR",
       "billing": "par mois",
-      "description": "Performances fiables et accès complet au configurateur pour démarrer immédiatement.",
+      "description": "Parfait pour débuter avec un quota généreux de jeu communautaire et une qualité d'image fluide.",
       "features": [
-        "Accès à l'infrastructure cloud standard",
-        "Support communautaire",
-        "Mises à jour de sécurité régulières",
-        "Catalogue de jeux populaire inclus"
+        "28h de jeu communautaire incluses",
+        "Résolution limitée à 1080p 60fps",
+        "Pas d'accès à PulseForge",
+        "Catalogue de jeux communautaire disponible",
+        "Dépassement : 0,99€/h supplémentaire"
       ]
     },
     {
@@ -20,12 +21,13 @@
       "price": 35.0,
       "currency": "EUR",
       "billing": "par mois",
-      "description": "Puissance supplémentaire et support prioritaire pour une expérience optimisée.",
+      "description": "Plus de temps de jeu et performances améliorées en heures creuses pour une expérience optimale.",
       "features": [
-        "Performances GPU avancées",
-        "Support prioritaire 24/7",
-        "Accès aux configurations premium",
-        "Tableau de bord analytique en temps réel"
+        "50h de jeu communautaire incluses",
+        "1080p 60fps (standard)",
+        "1440p 120fps en heures creuses",
+        "Pas d'accès à PulseForge",
+        "Dépassement : 0,89€/h supplémentaire"
       ]
     },
     {
@@ -34,12 +36,14 @@
       "price": 60.0,
       "currency": "EUR",
       "billing": "par mois",
-      "description": "Infrastructure dédiée et sécurité maximale pour les besoins les plus exigeants.",
+      "description": "L'offre ultime avec accès exclusif à PulseForge et performances maximales garanties.",
       "features": [
-        "Machine virtuelle dédiée RTX 4090",
-        "HWID Spoofer illimité",
-        "Consultant technique personnel",
-        "Mises à jour et patchs instantanés"
+        "65h de jeu communautaire incluses",
+        "8h de jeu PulseForge incluses",
+        "Résolution 1440p 120fps",
+        "Accès complet à PulseForge",
+        "Dépassement : 0,79€/h communautaire",
+        "Dépassement : 1,79€/h PulseForge"
       ],
       "popular": true
     }

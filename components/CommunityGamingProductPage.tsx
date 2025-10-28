@@ -99,7 +99,7 @@ export default function CommunityGamingProductPage({ product }: CommunityGamingP
                 {subscriptionPlans.map((plan) => (
                   <Link
                     key={plan.id}
-                    href={`/${locale}/premium/signup`}
+                    href={`/${locale}/premium/signup?plan=${plan.id}`}
                     className="relative p-5 rounded-xl border border-white/10 hover:border-blue-500/50 glass-effect transition-all group"
                   >
                     {plan.popular && (
@@ -225,7 +225,7 @@ export default function CommunityGamingProductPage({ product }: CommunityGamingP
             Choisissez votre abonnement et accédez immédiatement à {product.name}
           </p>
           <Link
-            href={`/${locale}/premium/signup`}
+            href={`/${locale}/premium/signup?plan=${subscriptionPlans.find(p => p.popular)?.id ?? 'élite'}`}
             className="inline-flex items-center gap-2 px-8 py-4 bg-blue-500 hover:bg-blue-600 rounded-lg font-semibold transition-all"
           >
             Choisir mon abonnement

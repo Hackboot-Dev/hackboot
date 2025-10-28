@@ -224,7 +224,7 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
                 {subscriptionPlans.map((plan) => (
                   <Link
                     key={plan.id}
-                    href={`/${locale}/premium/signup`}
+                    href={`/${locale}/premium/signup?plan=${plan.id}`}
                     className="relative p-5 rounded-xl border border-white/10 hover:border-purple-500/50 glass-effect transition-all group"
                   >
                     {plan.popular && (
@@ -791,7 +791,7 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
             Rejoignez des milliers de joueurs et transformez votre expérience de jeu dès aujourd&apos;hui.
           </p>
           <Link
-            href={`/${locale}/premium/signup`}
+            href={`/${locale}/premium/signup?plan=${subscriptionPlans.find(p => p.popular)?.id ?? 'élite'}`}
             className="inline-flex items-center gap-2 px-8 py-4 bg-purple-500 hover:bg-purple-600 rounded-lg font-semibold transition-all"
           >
             Choisir mon abonnement
