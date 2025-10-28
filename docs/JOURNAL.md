@@ -2,6 +2,83 @@
 
 ## 2025-10-28
 
+### Merge: Intégration des branches distantes avec résolution de conflits
+**Heure**: Session actuelle (partie 8)
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Merger les changements de la branche distante `origin/codespace-laughing-giggle-6xgj4wj6q67f4p76` et de la branche `origin/claude/update-premium-page-011CUXxpmhcbK4bbdH8Zcd9W` tout en conservant nos modifications locales (plan pre-selection, pages auth, carousel interactif).
+
+#### Actions réalisées:
+
+**1. Merge de la branche codespace**
+   - Pull avec merge de `origin/codespace-laughing-giggle-6xgj4wj6q67f4p76`
+   - Résolution des conflits dans :
+     - `components/CommunityGamingProductPage.tsx` : Fusion des animations Framer Motion avec nos liens `?plan=${plan.id}`
+     - `components/NativeGamingProductPage.tsx` : Même approche
+     - `docs/JOURNAL.md` : Combinaison chronologique des entrées
+   - Intégration des améliorations d'animations des pages services et about
+
+**2. Merge de la branche claude**
+   - Fetch et merge de `origin/claude/update-premium-page-011CUXxpmhcbK4bbdH8Zcd9W`
+   - Résolution des conflits dans :
+     - `data/subscriptions.json` : Adoption des descriptions plus claires et concises de la branche claude
+     - `public/locales/fr/common.json` : Mise à jour des traductions avec les features détaillées
+     - `public/locales/en/common.json` : Version claude adoptée (descriptions améliorées)
+     - `public/locales/et/common.json` : Version claude adoptée (traductions complètes)
+     - `app/[locale]/premium/page.tsx` : Fusion du style amélioré avec nos liens de présélection
+     - `docs/JOURNAL.md` : Ajout de l'entrée du 27/10 dans l'ordre chronologique
+
+**3. Stratégie de résolution**
+   - **Animations** : Gardé toutes les animations Framer Motion de la branche distante
+   - **Liens de présélection** : Conservé tous nos liens avec `?plan=${plan.id}`
+   - **Traductions** : Adopté les versions claude (plus claires et cohérentes)
+   - **Style** : Fusionné le meilleur des deux versions (gradient pricing, badges améliorés)
+
+#### Résultats:
+
+- ✅ Toutes les animations Framer Motion intégrées (services, about, product pages)
+- ✅ Système de présélection des plans préservé (`?plan=id` dans tous les liens)
+- ✅ Descriptions premium améliorées et plus concises
+- ✅ Traductions cohérentes sur FR/EN/ET
+- ✅ Pages auth (login, forgot-password) préservées
+- ✅ Carousel interactif de jeux préservé
+- ✅ Section premium plans sur home préservée
+- ✅ Aucune régression introduite
+- ✅ Build fonctionnel
+
+#### Conflits résolus:
+
+**Total : 15 fichiers en conflit**
+- CommunityGamingProductPage.tsx
+- NativeGamingProductPage.tsx (2 conflits)
+- docs/JOURNAL.md (3 fois)
+- data/subscriptions.json
+- public/locales/fr/common.json (3 conflits)
+- public/locales/en/common.json (3 conflits)
+- public/locales/et/common.json (3 conflits)
+- app/[locale]/premium/page.tsx (4 conflits)
+
+#### Impact:
+
+- ✅ Codebase à jour avec toutes les améliorations des différentes branches
+- ✅ Fonctionnalités combinées sans perte
+- ✅ Historique git propre avec commits de merge documentés
+- ✅ Prêt pour la suite du développement
+
+#### Fichiers modifiés:
+
+- `components/CommunityGamingProductPage.tsx`
+- `components/NativeGamingProductPage.tsx`
+- `docs/JOURNAL.md`
+- `data/subscriptions.json`
+- `public/locales/fr/common.json`
+- `public/locales/en/common.json`
+- `public/locales/et/common.json`
+- `app/[locale]/premium/page.tsx`
+
+---
+
 ### Feature: Amélioration de la page d'accueil avec carousel de jeux interactif et section premium
 **Heure**: Session actuelle (partie 7)
 **Développeur**: Assistant Claude
