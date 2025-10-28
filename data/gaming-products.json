@@ -2,217 +2,201 @@
   {
     "id": "gaming-overwatch",
     "slug": "gaming-overwatch",
-    "name": "Overwatch 2",
+    "name": "Overwatch 2 PulseForge",
     "game": "Overwatch 2",
     "category": "gaming",
     "optimizationLevel": "native",
-    "description": "Package ultime Overwatch 2 avec build privé et spoofer matériel inclus",
-    "longDescription": "Overwatch 2 God Mode est notre offre premium ultime. Équipé d'une RTX 4090, 128GB de RAM DDR5 et du processeur Intel i9-13900K le plus récent, ce système offre des performances inégalées. Inclut un build privé personnalisé avec HWID spoofer et mises à jour à vie.",
+    "description": "Instance cloud Overwatch 2 regroupant overlays tactiques, analytics en direct et outils de modding stream-safe.",
+    "longDescription": "PulseForge pour Overwatch 2 est une build matérielle et logicielle 100 % native hébergée dans notre cloud gaming. Elle rassemble nos overlays tactiques, les modules de coaching automatisés et les presets audio/vidéo prêts pour le streaming. Pensée pour les équipes compétitives comme pour les créateurs, la suite propose une intégration sans injection intrusive, avec des mises à jour synchronisées sur chaque patch Blizzard et une orchestration server-side.",
     "status": "ACTIVE",
     "technicalSpecs": {
       "performanceMetrics": {
-        "avgFps": 287,
-        "minFps": 245,
-        "maxFps": 360,
-        "latency": 0.7,
-        "inputLag": 0.3,
-        "frameTime": 3.5,
-        "cpuUsage": 42,
-        "gpuUsage": 78,
-        "ramUsage": 18.5,
-        "vramUsage": 7.2,
-        "powerDraw": 385,
-        "thermalCpu": 62,
-        "thermalGpu": 68
+        "avgFps": 410,
+        "minFps": 318,
+        "maxFps": 432,
+        "onePercentLow": 84,
+        "latency": 0.9,
+        "inputLag": 0.28,
+        "frameTime": 2.4,
+        "cpuUsage": 41,
+        "gpuUsage": 79,
+        "ramUsage": 19.2,
+        "vramUsage": 8.4,
+        "powerDraw": 360,
+        "thermalCpu": 63,
+        "thermalGpu": 69
       },
-      "aimbotStats": {
-        "predictionAccuracy": 98.7,
-        "smoothness": 95,
-        "fov": 180,
-        "targetSwitchTime": 0.15,
-        "headShotRate": 87.3,
-        "reactionTime": 0.08,
-        "boneSelection": ["head", "neck", "chest"],
-        "weaponSupport": 100
+      "augmentationSuite": {
+        "awarenessIndex": 96,
+        "overlayRefresh": 144,
+        "adaptiveCoaching": 92,
+        "reactionTimeMs": 45,
+        "moduleCoverage": 18,
+        "tacticalFocus": 88,
+        "modules": [
+          "Overlay tactique dynamique",
+          "Analyse de capacités en temps réel",
+          "Assistant de composition d'équipe",
+          "Profil audio spatial calibré",
+          "Coach de micro-gestion automatisé"
+        ],
+        "notes": "Synchronisation automatique avec les patchnotes officiels et profils e-sport."
       },
-      "espCapabilities": {
-        "maxDistance": 500,
-        "updateRate": 144,
-        "playerTracking": true,
-        "healthBars": true,
-        "ultimateTracking": true,
-        "abilityTracking": true,
-        "distanceIndicators": true,
-        "snapLines": true,
-        "boxESP": true,
-        "skeletonESP": true,
-        "nameESP": true,
-        "rankESP": true
-      },
-      "securityMetrics": {
-        "detectionRate": 0.001,
-        "banRate": 0.0003,
-        "uptimePercentage": 99.997,
-        "avgResponseTime": 12,
-        "incidentsLastMonth": 0,
-        "securityUpdatesPerWeek": 3.5,
-        "encryptionLevel": "AES-256",
-        "obfuscationLayers": 7,
-        "antiDebug": true,
-        "antiVM": true,
-        "kernelProtection": true
-      },
-      "networkStats": {
-        "serverLocations": 47,
-        "avgPing": 8,
-        "maxBandwidth": 1000,
-        "packetLoss": 0.01,
-        "jitter": 0.5,
-        "ddosProtection": true,
-        "encryption": "TLS 1.3"
-      },
-      "compatibilityMatrix": [
+      "fpsByResolution": [
+        {
+          "resolution": "1920 × 1080",
+          "avgFps": 375,
+          "minFps": 318,
+          "maxFps": 431,
+          "playability": "Très fluide",
+          "bottleneck": "Aucun goulot (0%)"
+        },
+        {
+          "resolution": "2560 × 1440",
+          "avgFps": 242,
+          "minFps": 206,
+          "maxFps": 278,
+          "playability": "Très fluide",
+          "bottleneck": "Aucun goulot (0%)"
+        },
+        {
+          "resolution": "3840 × 2160",
+          "avgFps": 131,
+          "minFps": 111,
+          "maxFps": 150,
+          "playability": "Très fluide",
+          "bottleneck": "Limite GPU (18%)"
+        }
+      ],
+      "qualityBreakdown": [
+        {
+          "resolution": "1920 × 1080",
+          "presets": {
+            "low": 432,
+            "medium": 375,
+            "high": 322,
+            "ultra": 201
+          }
+        },
+        {
+          "resolution": "2560 × 1440",
+          "presets": {
+            "low": 279,
+            "medium": 242,
+            "high": 208,
+            "ultra": 130
+          }
+        },
+        {
+          "resolution": "3840 × 2160",
+          "presets": {
+            "low": 151,
+            "medium": 131,
+            "high": 112,
+            "ultra": 70
+          }
+        }
+      ],
+      "resolutionGuidance": [
+        {
+          "resolution": "1920 × 1080",
+          "avgFps": 410,
+          "fpsWindow": "318 – 431 FPS",
+          "refreshAdvice": "Idéal pour viser 240 à 360 Hz en compétitif",
+          "description": "Profil Esports 1080p : nous maintenons 410 FPS de moyenne sur le preset compétition avec overlays complets. En basculant sur le preset Moyen, comptez 375 FPS et 201 FPS en Ultra pour les sessions cinématiques.",
+          "note": "Conservez ce profil si la priorité est la réactivité maximale."
+        },
+        {
+          "resolution": "2560 × 1440",
+          "avgFps": 242,
+          "fpsWindow": "206 – 278 FPS",
+          "refreshAdvice": "Parfait pour des écrans 165/240 Hz avec rendu plus net",
+          "description": "Le passage en 1440p équilibre netteté et fluidité : 242 FPS mesurés en réglages moyens et encore 130 FPS en Ultra avec tous les overlays actifs.",
+          "note": "À privilégier pour le streaming haute définition ou les VOD détaillées."
+        },
+        {
+          "resolution": "3840 × 2160",
+          "avgFps": 131,
+          "fpsWindow": "111 – 150 FPS",
+          "refreshAdvice": "Stable au-delà de 120 Hz pour la 4K compétitive",
+          "description": "En 4K, la plateforme conserve 131 FPS en moyenne sur preset Moyen et 70 FPS en Ultra. La limitation provient du GPU mais reste suffisamment haute pour un affichage 120 Hz constant.",
+          "note": "Utilisez ce mode pour des contenus showcase ou pour jouer sur écran 4K sans compromis majeurs."
+        }
+      ],
+      "improvementTips": [
+        "Basculez entre nos presets Esports et Ultra depuis le panneau cloud pour moduler instantanément la charge GPU.",
+        "Ajustez la résolution de streaming (1080p, 1440p, 2160p) selon la marge FPS indiquée pour conserver la réactivité.",
+        "Utilisez le scheduler automatique pour relancer une instance fraîche avant les scrims longues.",
+        "Activez les overlays optionnels uniquement sur les cartes où vous en avez besoin afin de libérer 3 à 5 % de ressources.",
+        "Surveillez le tableau de bord latence pour déclencher un switch de région si le ping dépasse 30 ms."
+      ],
+      "advice": "Profitez d'une fluidité exceptionnelle sur infrastructure cloud : 410 FPS en 1080p Esports, 242 FPS en 1440p et 131 FPS en 4K. Ajustez la résolution selon le compromis qualité/réactivité que vous visez.",
+      "heroSynergy": [
         {
           "hero": "Widowmaker",
-          "effectiveness": 99,
-          "headShotRate": 94,
-          "kda": 4.8,
-          "winRate": 78
+          "overlayFocus": 98,
+          "clarityBoost": 95,
+          "preset": "Sniper Focus",
+          "coachingNotes": "Overlay à 144 Hz pour sécuriser les lignes de vue longues et les callouts de position."
         },
         {
           "hero": "Cassidy",
-          "effectiveness": 97,
-          "headShotRate": 89,
-          "kda": 4.3,
-          "winRate": 76
+          "overlayFocus": 96,
+          "clarityBoost": 92,
+          "preset": "Precision Aim",
+          "coachingNotes": "Assistants de timings pour les duels à moyenne portée et rappels de cooldowns."
         },
         {
           "hero": "Ashe",
-          "effectiveness": 98,
-          "headShotRate": 91,
-          "kda": 4.6,
-          "winRate": 77
+          "overlayFocus": 97,
+          "clarityBoost": 93,
+          "preset": "Duelliste",
+          "coachingNotes": "Suivi des pics de visibilité et tracking de Bob pour caler les engagements."
         },
         {
           "hero": "Soldier: 76",
-          "effectiveness": 96,
-          "headShotRate": 85,
-          "kda": 4.1,
-          "winRate": 75
+          "overlayFocus": 95,
+          "clarityBoost": 90,
+          "preset": "Assaut",
+          "coachingNotes": "Monitoring des zones de sprint et rappel des fenêtres visées pour Helix Rocket."
         },
         {
           "hero": "Tracer",
-          "effectiveness": 95,
-          "headShotRate": 82,
-          "kda": 3.9,
-          "winRate": 74
+          "overlayFocus": 93,
+          "clarityBoost": 88,
+          "preset": "Mobilité",
+          "coachingNotes": "Indications de routes optimales et suivi des packs de soin pour jouer autour du recall."
         },
         {
           "hero": "Genji",
-          "effectiveness": 94,
-          "headShotRate": 80,
-          "kda": 3.7,
-          "winRate": 73
+          "overlayFocus": 92,
+          "clarityBoost": 87,
+          "preset": "Agilité",
+          "coachingNotes": "Timeline Dragonblade avec alertes sur les ressources ennemies clés."
         }
       ],
-      "benchmarks": {
-        "competitorComparison": [
-          {
-            "metric": "FPS Average",
-            "hackboot": 287,
-            "competitor1": 245,
-            "competitor2": 198,
-            "competitor3": 167
-          },
-          {
-            "metric": "Latency (ms)",
-            "hackboot": 0.7,
-            "competitor1": 1.2,
-            "competitor2": 2.8,
-            "competitor3": 4.1
-          },
-          {
-            "metric": "Detection Rate (%)",
-            "hackboot": 0.001,
-            "competitor1": 0.3,
-            "competitor2": 1.2,
-            "competitor3": 2.7
-          },
-          {
-            "metric": "Uptime (%)",
-            "hackboot": 99.997,
-            "competitor1": 98.5,
-            "competitor2": 96.2,
-            "competitor3": 93.8
-          }
-        ],
-        "rankProgression": [
-          {
-            "rank": "Bronze",
-            "avgGamesTo": 12,
-            "winRate": 95,
-            "avgTime": "3.2h"
-          },
-          {
-            "rank": "Silver",
-            "avgGamesTo": 18,
-            "winRate": 92,
-            "avgTime": "4.8h"
-          },
-          {
-            "rank": "Gold",
-            "avgGamesTo": 24,
-            "winRate": 88,
-            "avgTime": "7.1h"
-          },
-          {
-            "rank": "Platinum",
-            "avgGamesTo": 32,
-            "winRate": 84,
-            "avgTime": "10.5h"
-          },
-          {
-            "rank": "Diamond",
-            "avgGamesTo": 45,
-            "winRate": 79,
-            "avgTime": "15.8h"
-          },
-          {
-            "rank": "Master",
-            "avgGamesTo": 67,
-            "winRate": 73,
-            "avgTime": "24.3h"
-          },
-          {
-            "rank": "Grandmaster",
-            "avgGamesTo": 98,
-            "winRate": 68,
-            "avgTime": "38.7h"
-          }
-        ]
-      },
       "updateHistory": {
-        "totalUpdates": 487,
-        "lastUpdateDate": "2025-10-18",
-        "avgUpdatesPerMonth": 12.4,
-        "criticalPatches": 23,
-        "securityPatches": 156,
-        "featureUpdates": 89,
-        "bugFixes": 219
+        "totalUpdates": 164,
+        "lastUpdateDate": "2025-02-12",
+        "avgUpdatesPerMonth": 6.5,
+        "criticalPatches": 12,
+        "securityPatches": 54,
+        "featureUpdates": 58,
+        "bugFixes": 40
       },
       "userStats": {
-        "totalUsers": 12847,
-        "activeUsersLast30Days": 11203,
-        "avgSessionDuration": 4.7,
-        "avgGamesPerDay": 8.3,
-        "satisfactionScore": 4.8,
-        "recommendationRate": 94
+        "totalUsers": 8421,
+        "activeUsersLast30Days": 7134,
+        "avgSessionDuration": 3.8,
+        "avgGamesPerDay": 6.7,
+        "satisfactionScore": 4.7,
+        "recommendationRate": 91
       }
     },
     "variants": [
       {
         "id": "godmode",
-        "name": "God Mode",
+        "name": "PulseForge Creator",
         "tier": "premium",
         "gpu": "RTX 4090",
         "ram": "128 GB DDR5",
@@ -221,44 +205,126 @@
         "motherboard": "ASUS ROG Maximus Z790",
         "psu": "1200W 80+ Platinum",
         "cooling": "Custom Loop Liquid",
-        "usage": "Build privé",
-        "description": "Package ultime Overwatch 2 avec build privé et spoofer matériel inclus",
+        "usage": "Instance cloud d'augmentation native",
+        "description": "Instance Overwatch 2 hébergée sur notre cloud avec overlays tactiques, modding visuel et outils d'entraînement intégrés.",
         "use_cases": [
-          "Gaming professionnel",
-          "Boost de compte",
-          "Stream en sécurité",
-          "Préparation tournoi",
-          "Performance maximale"
+          "Coaching et analyse d'équipe",
+          "Création de contenu immersif",
+          "Compétitions LAN et online",
+          "Optimisation des macros confort",
+          "Expériences multi-écrans"
         ],
         "features": [
-          "Build privé personnalisé",
-          "Toutes les fonctionnalités incluses",
-          "HWID spoofer",
-          "Protection kernel",
-          "Configurations personnalisées",
-          "Support setup 1-on-1",
-          "Mises à jour à vie"
+          "Overlays modulaires calibrés par rôle",
+          "Modules d'analyse post-match avec export",
+          "Assistant de composition synchronisé à la méta",
+          "Profils de modding visuel stream-safe",
+          "Macros ergonomiques certifiées tournois",
+          "Support d'intégration multi-input (MKB/pad)",
+          "Mises à jour collaboratives en continu"
         ],
-        "target_audience": "Équipes pro, Joueurs high-stakes",
-        "highlight": "Build privé avec spoofer",
-        "protection": "Undetectable",
-        "updates": "Custom builds",
+        "featureHighlights": [
+          "Ranked/Tous serveurs – 100 % fair-play (lecture d’écran, killfeed, audio, sans injection mémoire)",
+          "Lobbies privés PulseForge – builds synchronisés où tout le monde est sur PulseForge (cosmétique & entraînement avancé)"
+        ],
+        "featureGroups": [
+          {
+            "title": "Ranked / fair-play (live)",
+            "items": [
+              "Ult Economy Assistant (visuel léger) : estimation de l’avancement des ultis adverses par rôle (basé sur killfeed, dégâts visibles, temps en jeu) + rappel \"anti-stack d’ulti\" côté équipe.",
+              "Fight Timeline : barre \"phase de teamfight\" qui s’allume dès le premier pick et se termine au clean-up, avec indicateurs \"avantage/sous-nombre\", \"respawn adv.\" et stagger détecté (analyse du killfeed).",
+              "Cooldown Inference Overlay : inférence des CDs clés adverses à partir d’indices visibles (animation, son, VFX). Exemple : Suzu/Kiriko, Lamp/Bap, Immortality consommé → fenêtre de punition affichée 2–3 s.",
+              "Map & Rotation Coach : mini-plans interactifs par point/contrôle, rappel d’angles dangereux, chemins de retake, timers d’over-time et meilleurs \"recontest routes\" (basé sur la carte active).",
+              "Crosshair & FOV Optimizer : recommandations par héros/carte (placement par défaut, hauteur tête, \"pre-aim lanes\") + heatmap de regard (eye-line simulée via tracking du centre d’écran).",
+              "Comm AI Notetaker : transcription locale des comms avec tags (\"Blade ready\", \"no lamp\", \"push right\"), résumé en bas d’écran toutes les 20 s, ping textuel silencieux si personne ne call.",
+              "Anti-Tilt HUD : masquage contextuel de stats toxiques (accuracy, deaths) en fight, focus sur objectifs. Déverrouille tout entre les fights.",
+              "Audio Director : profil audio par rôle (Tank/Supp/DPS), duck automatique du mix quand call important, bouclier anti-LFE pour repérer mieux les pas/ultis.",
+              "Input Coach Micro-gestes : détection de micro-erreurs \"habitudes\" (reload tardif, ability hoarding, sauts inutiles sous hitscan) avec prompts courts entre les fights.",
+              "Latency Guard : égalisation du jitter et adaptation du pre-buffer de stream in-fight vs out-of-fight, pour garder la sensation stable sur cloud."
+            ]
+          },
+          {
+            "title": "Lobbies privés Pulseforge (tous joueurs sur build Pulseforge)",
+            "description": "Compatible PulseForge Lobby (options de lobbies privés)",
+            "items": [
+              "Skins & VFX partagés : sets visuels de team (armes, tracers, kill-impact FX), sprays synchronisés d’équipe, animations de fin de fight ; invisibles pour les non-Pulseforge.",
+              "Sandbox à CDs dynamiques : entraînement avec CDs réduits, ult charge boostée, scenario runner (ex : \"Nano-Blade 3 tries\", \"Dive Winston+Genji sur point B\").",
+              "Stratboard Live : tableau tactique calé sur la carte en overlay (routes, timings, map control zones), partage en temps réel avec coach/spectateur.",
+              "Draft & Lock scrim : verrouillage de compos, rotation forcée des rôles, export auto du scrim report (picks, swaps, fight-wins, ult-diff).",
+              "Ghost-Run & Time-Trial : \"fantômes\" de vos meilleures exécutions (ex : tracer pathing, Winston engage route) visibles par l’équipe.",
+              "Stream-Ready Suite : lower-thirds auto, replays instantanés 8 s, killfeed élargi pour caster interne, marqueurs de chapitres."
+            ]
+          },
+          {
+            "title": "Packs \"Héros\"",
+            "description": "Exemples rapides & utiles",
+            "items": [
+              "Genji : Blade Planner (fenêtre \"no-Suzu/no-Lamp\" détectée) + check \"dash reset\" (killfeed) + route d’engage verticale suggérée.",
+              "Tracer : Blink Economy (compteur blink→engage/escape), \"Recall Value\" (rappel des dernières 3 s d’état) + lanes de pré-aim sur hitscan.",
+              "Sombra : Translocator Planner (zones safe dynamiques) + rappel Hack Windows sur cibles sans cleanse.",
+              "Winston : Dive Timer (jump→zap→bubble→melee→cancel) + heatmap de bulles efficaces sur la carte active.",
+              "Reinhardt : Shatter Angle Coach (lignes d’angles probables, rappel des stuns/interrupts ennemis on-screen).",
+              "Zarya : Bubble Trade Meter (valeur probable de charge vs peel) + alertes \"gravi combos\" prêtes (si coéquipiers avec DPS burst).",
+              "Sojourn : Rail Discipline (prompts \"don’t ego-peek\", charge rail optimale avant peek) + rappel de power-spikes.",
+              "Cassidy : Peek-Timer (exposition max conseillée selon angle) + sticky nade \"commit/abort\" prompt.",
+              "Ana : Anti/Nade Value (fenêtre 3+ cibles sans cleanse) + Sleep Priority (liste triée par impact si hit).",
+              "Mercy : GA Pathing Preview (lignes de GA sûres) + beam juggling coach (uptime bleu/jaune optimal).",
+              "Kiriko : Suzu Priority (rappel des menaces imminentes visibles) + TP lanes de sauvetage.",
+              "Lucio : Beat Risk Meter (anti-beat conditions actives) + rollouts rapides avec fantômes.",
+              "Baptiste : Immortality Trade (value/risque) + lamp angle helper (rebonds utiles)."
+            ]
+          },
+          {
+            "title": "Modules \"Map & Mode\"",
+            "items": [
+              "King of the Hill IQ : indicateurs de retake timings, chemins split, \"do-not-touch zones\" quand sous-nombre.",
+              "Hybrid/Escorte : checkpoint playbook (angles off-angles, highgrounds clés, spawn adv. timers), rappel \"cart push discipline\".",
+              "Flashcards de pointes : micro-cartes pendant le setup (30 s) avec 3 plays pré-config par équipe."
+            ]
+          },
+          {
+            "title": "Analytics & Coachings",
+            "items": [
+              "Match Story Auto-report : résumé auto (pivots, fight-wins, ult-diff, picks décisifs) + comparaisons à votre MMR cible.",
+              "Session Planner : objectifs de session (2 focus héros + 1 map), micro-défis et score d’adhérence.",
+              "A/B Personal HUD : tests d’HUD (taille réticule, HUD minimal) avec mesure d’impact sur précision/KAST-like.",
+              "VOD Auto-tag : tagging auto des erreurs récurrentes (stagger, over-ult, tunnel vision), timeline cliquable."
+            ]
+          },
+          {
+            "title": "Accessibilité & confort",
+            "items": [
+              "Color-blind Pro : palettes par équipe/héros conformes + contours renforcés des projectiles rapides.",
+              "Sound-to-HUD : indices sonores critiques transformés en vignettes visuelles (optionnel) pour malentendants.",
+              "Focus Mode : blocage des whispers toxiques, timer de respiration entre rounds, micro-pauses guidées."
+            ]
+          }
+        ],
+        "implementationNotes": [
+          "En ranked public, tout ce qui est calculé vient uniquement de ce qui est visible/entendable (vision/ASR côté cloud) + killfeed/scoreboard. Aucune lecture mémoire / aucune injection.",
+          "Les cosmétiques, CDs modifiés, scénarios sandbox et stratboards actifs temps réel sont réservés aux lobbies privés Pulseforge où tout le monde est sur le même build.",
+          "Tous les overlays sont opt-in, discrets, et adaptatifs (se masquent en fight si bruit visuel)."
+        ],
+        "target_audience": "Coachs, créateurs, joueurs compétitifs",
+        "highlight": "Suite native synchronisée à la méta",
+        "protection": "Conformité tournois & stream",
+        "updates": "Flux OTA prioritaire",
         "pricing": {
-          "hourly": 2.13,
-          "monthly": 850
+          "hourly": 1.95,
+          "monthly": 640
         },
-        "sla": "99.999%",
+        "sla": "99.98%",
         "support_level": "enterprise",
         "badges": [
-          "Ultimate",
-          "Exclusive",
-          "Best Performance"
+          "Overlay Pro",
+          "Creator Ready",
+          "Meta Sync"
         ],
         "image": "/images/products/overwatch/main.png"
       }
     ],
     "reviews": {
-      "average": 4.8,
+      "average": 4.7,
       "count": 479
     },
     "discount": {
@@ -275,60 +341,349 @@
   {
     "id": "gaming-warzone",
     "slug": "gaming-warzone",
-    "name": "Call of Duty: Warzone",
+    "name": "Call of Duty: Warzone PulseForge",
     "game": "Call of Duty: Warzone",
     "category": "gaming",
     "optimizationLevel": "native",
-    "description": "Package élite Warzone avec aimbot avancé et HWID spoofer inclus",
-    "longDescription": "Warzone Reaper 2 est l'évolution enterprise de notre solution Warzone. Équipé d'une RTX 4070 Ti, 64GB de RAM et d'un Intel i9-12900K, il offre des fonctionnalités avancées comme l'aimbot pour véhicules, ESP 3D et HWID spoofer hardware inclus.",
+    "description": "Instance cloud Warzone calibrée Battle Royale avec overlays tactiques, analytics TTK et profils stream-safe.",
+    "longDescription": "PulseForge pour Warzone est une build native orientée Battle Royale hébergée dans notre cloud gaming. Elle regroupe les overlays contextuels, les coachings adaptatifs et les presets audio/vidéo calibrés pour BR et Resurgence. Chaque patch est intégré côté serveur avec optimisation CPU↔GPU et pipeline vidéo faible latence pour préserver le fair-play et la stabilité.",
     "status": "ACTIVE",
+    "technicalSpecs": {
+      "performanceMetrics": {
+        "avgFps": 217,
+        "minFps": 184,
+        "maxFps": 249,
+        "onePercentLow": 155,
+        "latency": 1.1,
+        "inputLag": 0.32,
+        "frameTime": 4.6,
+        "cpuUsage": 95,
+        "gpuUsage": 72,
+        "ramUsage": 20.5,
+        "vramUsage": 9.6,
+        "powerDraw": 395,
+        "thermalCpu": 67,
+        "thermalGpu": 63
+      },
+      "augmentationSuite": {
+        "awarenessIndex": 94,
+        "overlayRefresh": 144,
+        "adaptiveCoaching": 90,
+        "reactionTimeMs": 45,
+        "moduleCoverage": 17,
+        "tacticalFocus": 91,
+        "modules": [
+          "Zone & Rotation Coach : prédiction des fermetures, chemins low-risk et alertes de 3rd-party.",
+          "Économie d’escouade : seuils d’achat (UAV, loadout, redeploy), buy stations prioritaires.",
+          "TTK/Plate Estimator : calcul du TTK selon loadout, distance et plaques visibles.",
+          "Audio Spatial Director : profil BR avec ducking automatique des sons non critiques.",
+          "Killfeed Intelligence : synthèse knocks/finishes, avantage numérique et timers de respawn.",
+          "Vehicle & Route Helper : gestion carburant, bruit estimé, routes couvertes et points de rupture.",
+          "Recoil Learning Overlay : pattern théorique pour entraînement et VOD sans ajustement d’input.",
+          "VOD Auto-tag : marquage automatique des pivots (3rd-party, retakes ratés, splits).",
+          "Stream Suite : lower-thirds auto, replays instantanés 8 s, killfeed élargi pour casting interne."
+        ],
+        "notes": "Modules calibrés pour Warzone BR et Resurgence, rafraîchis à chaque patch majeur."
+      },
+      "fpsByResolution": [
+        {
+          "resolution": "1920 × 1080",
+          "avgFps": 217,
+          "minFps": 184,
+          "maxFps": 249,
+          "playability": "Très fluide",
+          "bottleneck": "CPU (96%)"
+        },
+        {
+          "resolution": "2560 × 1440",
+          "avgFps": 193,
+          "minFps": 164,
+          "maxFps": 222,
+          "playability": "Très fluide",
+          "bottleneck": "CPU (95%)"
+        },
+        {
+          "resolution": "3840 × 2160",
+          "avgFps": 163,
+          "minFps": 139,
+          "maxFps": 188,
+          "playability": "Très fluide",
+          "bottleneck": "CPU (93%)"
+        }
+      ],
+      "qualityBreakdown": [
+        {
+          "resolution": "1920 × 1080",
+          "presets": {
+            "low": 220,
+            "medium": 217,
+            "high": 196,
+            "ultra": 179
+          }
+        },
+        {
+          "resolution": "2560 × 1440",
+          "presets": {
+            "low": 196,
+            "medium": 193,
+            "high": 175,
+            "ultra": 159
+          }
+        },
+        {
+          "resolution": "3840 × 2160",
+          "presets": {
+            "low": 166,
+            "medium": 163,
+            "high": 148,
+            "ultra": 135
+          }
+        }
+      ],
+      "resolutionGuidance": [
+        {
+          "resolution": "1920 × 1080",
+          "avgFps": 217,
+          "fpsWindow": "184 – 249 FPS",
+          "refreshAdvice": "Cible 144–240 Hz compétitif",
+          "description": "Le profil 1080p Medium maintient ~217 FPS, avec 179 FPS en Ultra. Idéal pour la réactivité maximale (BR, Resurgence, ranked).",
+          "note": "Activez le preset Esports si vous jouez en 240 Hz constant."
+        },
+        {
+          "resolution": "2560 × 1440",
+          "avgFps": 193,
+          "fpsWindow": "164 – 222 FPS",
+          "refreshAdvice": "Équilibre netteté / fréquence",
+          "description": "Le passage en 1440p conserve une excellente fluidité. L’Ultra reste exploitable à ~159 FPS pour un rendu plus cinématique sans sacrifier la compétitivité.",
+          "note": "Idéal pour le streaming haute définition ou les sessions scrim filmées."
+        },
+        {
+          "resolution": "3840 × 2160",
+          "avgFps": 163,
+          "fpsWindow": "139 – 188 FPS",
+          "refreshAdvice": "4K jouable au-delà de 120 Hz",
+          "description": "Même en 4K Medium (~163 FPS), l’expérience reste très fluide. Ultra descend à ~135 FPS pour du showcase ou du stream premium.",
+          "note": "Utilisez ce mode pour mettre en avant vos contenus cinématiques."
+        }
+      ],
+      "improvementTips": [
+        "Abaissez ombres/effets/AA si vous ciblez 240 Hz constant.",
+        "Réduisez la résolution de rendu in-game tout en conservant le stream à 1080p/1440p côté cloud.",
+        "Maintenez vos pilotes à jour (profil serveur géré par nos soins).",
+        "Sur desktop local (si usage hybride) : activez XMP et vérifiez la fréquence mémoire.",
+        "Surveillez les températures : la surchauffe CPU provoque la majeure partie des chutes en 1% low."
+      ],
+      "advice": "Option « CPU Boost » : +5 % → ~217 FPS | +10 % → ~219 FPS | +15 % → ~222 FPS | +20 % → ~225 FPS (requiert un slot nœud thermique premium).",
+      "heroSynergy": [
+        {
+          "hero": "AR (Assaut)",
+          "overlayFocus": 94,
+          "clarityBoost": 91,
+          "preset": "Balance",
+          "coachingNotes": "Angles d’ouverture safe et prompts “don’t ego-peek” pour sécuriser les trades."
+        },
+        {
+          "hero": "SMG (Close)",
+          "overlayFocus": 92,
+          "clarityBoost": 90,
+          "preset": "Esports",
+          "coachingNotes": "Timing d’entrée, fenêtres d’engage et routes d’évasion courtes."
+        },
+        {
+          "hero": "LMG (Ancrage)",
+          "overlayFocus": 91,
+          "clarityBoost": 88,
+          "preset": "Stability",
+          "coachingNotes": "Discipline reload, échanges de cover et contrôle de lignes longues."
+        },
+        {
+          "hero": "Sniper/DMR",
+          "overlayFocus": 95,
+          "clarityBoost": 94,
+          "preset": "Sniper Focus",
+          "coachingNotes": "Pré-aim hauteurs tête, pacing de reposition et gestion du glint."
+        },
+        {
+          "hero": "Shotgun",
+          "overlayFocus": 88,
+          "clarityBoost": 84,
+          "preset": "Indoor",
+          "coachingNotes": "Consolidation des pushes rapprochés et duo-timings."
+        },
+        {
+          "hero": "Support (IGL)",
+          "overlayFocus": 93,
+          "clarityBoost": 90,
+          "preset": "Macro",
+          "coachingNotes": "Macro-calls, suivi économie et alertes 3rd-party contextuelles."
+        }
+      ],
+      "networkStats": {
+        "serverLocations": 24,
+        "avgPing": 18,
+        "maxBandwidth": 1200,
+        "packetLoss": 0.2,
+        "jitter": 3.1,
+        "ddosProtection": true,
+        "encryption": "TLS 1.3 + SRTP"
+      },
+      "securityMetrics": {
+        "detectionRate": 0,
+        "banRate": 0.1,
+        "uptimePercentage": 99.97,
+        "avgResponseTime": 6,
+        "incidentsLastMonth": 0,
+        "securityUpdatesPerWeek": 5,
+        "encryptionLevel": "AES-256",
+        "obfuscationLayers": 4,
+        "antiDebug": true,
+        "antiVM": true,
+        "kernelProtection": true
+      },
+      "updateHistory": {
+        "totalUpdates": 148,
+        "lastUpdateDate": "2025-02-20",
+        "avgUpdatesPerMonth": 5.8,
+        "criticalPatches": 9,
+        "securityPatches": 46,
+        "featureUpdates": 52,
+        "bugFixes": 41
+      },
+      "userStats": {
+        "totalUsers": 6240,
+        "activeUsersLast30Days": 5128,
+        "avgSessionDuration": 3.4,
+        "avgGamesPerDay": 5.1,
+        "satisfactionScore": 4.6,
+        "recommendationRate": 89
+      }
+    },
     "variants": [
       {
-        "id": "reaper2",
-        "name": "Reaper 2",
-        "tier": "enterprise",
-        "gpu": "RTX 4070 Ti",
-        "ram": "64 GB DDR5",
-        "cpu": "Intel i9-12900K",
-        "usage": "Package élite",
-        "description": "Package élite Warzone avec aimbot avancé et HWID spoofer inclus",
+        "id": "pulseforge-warzone",
+        "name": "PulseForge Warzone Operator",
+        "tier": "premium",
+        "gpu": "RTX 4090",
+        "ram": "128 GB DDR5",
+        "cpu": "Intel i9-14900KS",
+        "storage": "2TB NVMe Gen4",
+        "motherboard": "ASUS ROG Maximus Z790",
+        "psu": "1200W 80+ Platinum",
+        "cooling": "Custom Loop Liquid",
+        "usage": "Instance cloud Warzone calibrée",
+        "description": "Instance Warzone hébergée sur notre cloud avec overlays Battle Royale et coaching Resurgence.",
         "use_cases": [
-          "Jeu professionnel",
-          "Stream en sécurité",
-          "Domination en tournoi",
-          "Services de compte",
-          "K/D maximum"
+          "Compétitions Ranked et Resurgence",
+          "Coaching d’escouade et analytics TTK",
+          "Production stream Battle Royale",
+          "Scrims privés PulseForge Lobby",
+          "VOD review et sandbox loadouts"
         ],
         "features": [
-          "Aimbot à prédiction avancée",
-          "ESP bounding box 3D",
-          "Aimbot véhicules",
-          "HWID spoofer inclus",
-          "ESP loadout",
-          "Support assistant personnel",
-          "Mises à jour protection temps réel"
+          "Overlays BR modulaires stream-safe",
+          "Suivi TTK/plaques et économie d’escouade",
+          "Coach rotations et prévisions de zone",
+          "Analytics post-match et exports VOD",
+          "Profils audio Battle Royale calibrés",
+          "Compatibilité PulseForge Lobby sandbox",
+          "Mises à jour synchronisées aux patchs Warzone"
         ],
-        "target_audience": "Joueurs professionnels, Streamers",
-        "highlight": "Inclut HWID spoofer",
-        "protection": "Hardware spoofer included",
-        "updates": "Real-time updates",
+        "featureHighlights": [
+          "Ranked/Tous serveurs – 100 % fair-play (lecture d’écran, killfeed, audio, sans injection mémoire)",
+          "Lobbies privés Pulseforge – builds synchronisés où tout le monde est sur Pulseforge (cosmétique & entraînement avancé)"
+        ],
+        "featureGroups": [
+          {
+            "title": "Ranked / fair-play (live)",
+            "items": [
+              "Zone & Rotation Coach : prévisions de fermeture, routes low-risk et fenêtres de 3rd-party à éviter.",
+              "Économie d’escouade : seuils d’achat (UAV, loadout, redéploiement) et rappel des buy stations prioritaires.",
+              "TTK/Plate Estimator : estimation du TTK selon votre loadout, la distance et les plaques adverses visibles.",
+              "Audio Spatial Director : profils audio BR, ducking automatique et priorisation pas/plaques/portes/véhicules.",
+              "Killfeed Intelligence : synthèse des knocks/finishes par escouade, détection d’avantage numérique et timers de respawn.",
+              "Vehicle & Route Helper : gestion carburant, bruit estimé, routes couvertes et points de rupture critiques.",
+              "Recoil Learning Overlay : pattern théorique de vos armes favorites pour entraînement et VOD.",
+              "Stream Suite : lower-thirds automatiques, replays instantanés 8 s, killfeed élargi pour caster interne."
+            ]
+          },
+          {
+            "title": "Lobbies privés PulseForge",
+            "description": "Options de jeu et d’entraînement pour PulseForge Lobby",
+            "items": [
+              "Cosmétiques partagés : camouflages et FX PulseForge visibles pour toutes les escouades sur build PF.",
+              "Sandbox TTK & Plates : modificateurs d’armure/HP, distances fixes et scoreboard TTK comparatif.",
+              "Contract Planner : distribution scénarisée de contrats (bounty, scav, most wanted) pour drills.",
+              "Ghost-Run & Pathing : fantômes de rotations optimales, time-trial d’insertion et routes synchronisées.",
+              "Draft & Role Lock : verrouillage de rôles (entry/anchor/support) et cycles d’armes imposés.",
+              "Stratboard Live : tableau tactique overlay avec partage coach/IGL et export des plays.",
+              "Caster Mode : HUD élargi, replays instantanés et marqueurs de rounds stream-ready."
+            ]
+          },
+          {
+            "title": "Profils par rôle / arme",
+            "description": "Optimisations dédiées pour chaque archétype",
+            "items": [
+              "AR (Assaut) : focus TTK & recoil lane, prompts “don’t ego-peek”, angles d’ouverture safe.",
+              "SMG (Close) : windows d’engage, chemins d’évasion courts et reminders d’armure.",
+              "LMG (Ancrage) : discipline reload, gestion de cover et contrôle de lignes longues.",
+              "Sniper/DMR : pré-aim hauteurs tête, pacing reposition et gestion du glint.",
+              "Shotgun : consolidation pushes indoor et timings duo.",
+              "Support (IGL) : macro calls, économie escouade et alertes 3rd-party."
+            ]
+          },
+          {
+            "title": "Modules \"Map & Mode\"",
+            "items": [
+              "Circle Forecast : timeline collapse, split routes et zones à risque.",
+              "Stronghold Planner : entrées synchronisées, timings de renforts et angles safe.",
+              "Resurgence Deck : timers de respawn, routes de retake et fenêtres d’agression.",
+              "Vehicle Grid : heatmap bruit, points de rupture et transitions air/sol sécurisées."
+            ]
+          },
+          {
+            "title": "Analytics & Coachings",
+            "items": [
+              "Match Story Auto-report : pivots, fight-wins, ult diff et comparaison MMR cible.",
+              "Session Planner : objectifs de session, micro-défis et score d’adhérence.",
+              "Loadout Scorecard : suivi damage/TTK par arme et recommandations d’ajustement.",
+              "VOD Auto-tag : marquage 3rd-party, retakes ratés et splits trop longs (timeline cliquable)."
+            ]
+          },
+          {
+            "title": "Accessibilité & confort",
+            "items": [
+              "Color-blind Pro : palettes conformes et contours renforcés des projectiles rapides.",
+              "Sound-to-HUD : indices sonores critiques convertis en signaux visuels optionnels.",
+              "Focus Mode : blocage whispers toxiques, timer respiration et micro-pauses guidées."
+            ]
+          }
+        ],
+        "implementationNotes": [
+          "En ranked public, tout repose sur le visuel/son (vision/ASR côté cloud) + killfeed/scoreboard. Aucune lecture mémoire ni injection.",
+          "Cosmétiques, sandbox TTK et stratboards actifs sont réservés aux lobbies privés PulseForge avec build partagé.",
+          "Overlays opt-in, discrets et adaptatifs (masqués en fight si bruit visuel)."
+        ],
+        "target_audience": "Escouades compétitives, coachs BR, créateurs",
+        "highlight": "Pipeline faible latence calibré Warzone",
+        "protection": "Fair-play stream-safe certifié",
+        "updates": "Mises à jour synchronisées post-patch",
         "pricing": {
-          "hourly": 2.25,
-          "monthly": 900
+          "hourly": 2.05,
+          "monthly": 690
         },
-        "sla": "99.99%",
+        "sla": "99.97%",
         "support_level": "enterprise",
         "badges": [
-          "Next Gen",
-          "Enterprise",
-          "Vehicle Support"
+          "BR Optimized",
+          "Stream Safe",
+          "PulseForge Lobby"
         ],
         "image": "/images/products/warzone/main.png"
       }
     ],
     "reviews": {
       "average": 4.8,
-      "count": 510
+      "count": 512
     },
     "discount": {
       "active": false,
@@ -344,60 +699,344 @@
   {
     "id": "gaming-valorant",
     "slug": "gaming-valorant",
-    "name": "Valorant",
+    "name": "Valorant PulseForge",
     "game": "Valorant",
     "category": "gaming",
     "optimizationLevel": "native",
-    "description": "Suite de cheat Valorant indétectée avec aimbot, ESP et skin changer",
-    "longDescription": "Valorant Oblivion est spécialement conçu pour contourner Vanguard. Ce système offre un aimbot humanisé, ESP, skinchanger et triggerbot, le tout avec des mises à jour stealth pour rester indétectable.",
+    "description": "Instance cloud Valorant calibrée Esports avec overlays fair-play et coaching phase-aware.",
+    "longDescription": "PulseForge pour Valorant est un build 100 % natif hébergé sur notre cloud gaming. Pensé pour les équipes Esports et les créateurs, il vise des fréquences d’image extrêmes sur 1080p, 1440p et 4K grâce à une orchestration CPU-bound et à notre pipeline vidéo faible latence. Les overlays, presets et mises à jour sont pilotés côté serveur pour préserver le fair-play et la conformité tournoi.",
     "status": "ACTIVE",
+    "technicalSpecs": {
+      "performanceMetrics": {
+        "avgFps": 596,
+        "minFps": 507,
+        "maxFps": 685,
+        "onePercentLow": 507,
+        "latency": 0.8,
+        "inputLag": 0.24,
+        "frameTime": 1.7,
+        "cpuUsage": 42,
+        "gpuUsage": 58,
+        "ramUsage": 14.8,
+        "vramUsage": 6.4,
+        "powerDraw": 330,
+        "thermalCpu": 61,
+        "thermalGpu": 58
+      },
+      "augmentationSuite": {
+        "awarenessIndex": 97,
+        "overlayRefresh": 144,
+        "adaptiveCoaching": 94,
+        "reactionTimeMs": 42,
+        "moduleCoverage": 14,
+        "tacticalFocus": 95,
+        "modules": [
+          "Eco & Buy Advisor : calcul du loss bonus et recommandations achat/drop.",
+          "Execute Planner : plans par site avec tempo utilitaires et crossfires probables.",
+          "Post-Plant Director : timer Spike, chemins de repost et zones d'interdiction.",
+          "Retake Coach : séquence clear → trade → isolate avec alertes d'avantage numérique.",
+          "Angle & Head-Height : repères de hauteur de tête et prompts anti ego-peek.",
+          "Audio Spatial Director : priorisation pas/portes/reload, ducking automatique.",
+          "Fight Timeline : suivi picks/trades et alertes no-trade 3 s.",
+          "VOD Auto-Tag : marquage automatique des pivots et export chronologique."
+        ],
+        "notes": "Overlays rafraîchis jusqu'à 144 Hz, calibrés sur les phases Valorant (defaults, executes, retakes)."
+      },
+      "fpsByResolution": [
+        {
+          "resolution": "1920 × 1080",
+          "avgFps": 596,
+          "minFps": 507,
+          "maxFps": 685,
+          "playability": "Très fluide",
+          "bottleneck": "CPU (42%)"
+        },
+        {
+          "resolution": "2560 × 1440",
+          "avgFps": 565,
+          "minFps": 480,
+          "maxFps": 650,
+          "playability": "Très fluide",
+          "bottleneck": "CPU (36%)"
+        },
+        {
+          "resolution": "3840 × 2160",
+          "avgFps": 520,
+          "minFps": 442,
+          "maxFps": 598,
+          "playability": "Très fluide",
+          "bottleneck": "CPU (25%)"
+        }
+      ],
+      "qualityBreakdown": [
+        {
+          "resolution": "1920 × 1080",
+          "presets": {
+            "low": 701,
+            "medium": 596,
+            "high": 586,
+            "ultra": 577
+          }
+        },
+        {
+          "resolution": "2560 × 1440",
+          "presets": {
+            "low": 665,
+            "medium": 565,
+            "high": 556,
+            "ultra": 547
+          }
+        },
+        {
+          "resolution": "3840 × 2160",
+          "presets": {
+            "low": 617,
+            "medium": 520,
+            "high": 495,
+            "ultra": 471
+          }
+        }
+      ],
+      "resolutionGuidance": [
+        {
+          "resolution": "1920 × 1080",
+          "avgFps": 596,
+          "fpsWindow": "507 – 685 FPS",
+          "refreshAdvice": "Cible 240–360 Hz compétitif",
+          "description": "Le profil 1080p Esports maintient ~596 FPS, avec 577 FPS en Ultra. Idéal pour scrims, ranked et LAN virtuelles.",
+          "note": "Activez le Focus HUD pour lisser les 1% low en clutch."
+        },
+        {
+          "resolution": "2560 × 1440",
+          "avgFps": 565,
+          "fpsWindow": "480 – 650 FPS",
+          "refreshAdvice": "Netteté + fréquence 240 Hz",
+          "description": "Passer en 1440p conserve une fenêtre de 480–650 FPS. Ultra reste exploitable à ~547 FPS pour streaming détaillé.",
+          "note": "Parfait pour un rendu net sur les VOD et le co-stream."
+        },
+        {
+          "resolution": "3840 × 2160",
+          "avgFps": 520,
+          "fpsWindow": "442 – 598 FPS",
+          "refreshAdvice": "4K à 200+ Hz",
+          "description": "En 4K Medium, la moyenne reste ~520 FPS avec réserve CPU. Ultra tourne autour de 471 FPS pour des showcases coach/stream.",
+          "note": "Utilisez ce preset pour les analyses spectateur et le contenu premium."
+        }
+      ],
+      "improvementTips": [
+        "Utilisez le preset Esports et désactivez les post-FX superflus.",
+        "Laissez PulseForge piloter le cap d'images (évitez les limites externes).",
+        "Activez le Focus HUD pour masquer les modules non essentiels en fight.",
+        "Si vous ciblez un 240 Hz parfait, réduisez l'anti-aliasing plutôt que la résolution."
+      ],
+      "advice": "Option « CPU Boost » : +5 % → 598/508/687 FPS · +10 % → 602/512/692 FPS · +15 % → 609/518/701 FPS · +20 % → 620/527/713 FPS (requiert un nœud Thermal-Premium).",
+      "heroSynergy": [
+        {
+          "hero": "Duelist (Entry)",
+          "overlayFocus": 97,
+          "clarityBoost": 94,
+          "preset": "Esports",
+          "coachingNotes": "Timeline engage, rappels dash/satchel et alertes anti dry-peak."
+        },
+        {
+          "hero": "Controller",
+          "overlayFocus": 94,
+          "clarityBoost": 91,
+          "preset": "Macro",
+          "coachingNotes": "Plans de smokes synchronisés, timers post-plant et rappel des re-smokes."
+        },
+        {
+          "hero": "Initiator",
+          "overlayFocus": 95,
+          "clarityBoost": 92,
+          "preset": "Recon",
+          "coachingNotes": "Séquençage drone/flash, line-ups et signal anti double-push."
+        },
+        {
+          "hero": "Sentinel",
+          "overlayFocus": 92,
+          "clarityBoost": 90,
+          "preset": "Anchor",
+          "coachingNotes": "Alertes trap, rotations safe et monitoring économie adversaire."
+        },
+        {
+          "hero": "Operator / Sniper",
+          "overlayFocus": 96,
+          "clarityBoost": 95,
+          "preset": "Sniper Focus",
+          "coachingNotes": "Head-height map, glint minimisé et rappel reposition instant."
+        },
+        {
+          "hero": "Flex / Support",
+          "overlayFocus": 93,
+          "clarityBoost": 90,
+          "preset": "Support",
+          "coachingNotes": "Gestion drop utilitaires, callouts auto et focus anti-tilt HUD."
+        }
+      ],
+      "networkStats": {
+        "serverLocations": 22,
+        "avgPing": 14,
+        "maxBandwidth": 950,
+        "packetLoss": 0.1,
+        "jitter": 2.4,
+        "ddosProtection": true,
+        "encryption": "TLS 1.3 + SRTP"
+      },
+      "securityMetrics": {
+        "detectionRate": 0,
+        "banRate": 0.05,
+        "uptimePercentage": 99.99,
+        "avgResponseTime": 5,
+        "incidentsLastMonth": 0,
+        "securityUpdatesPerWeek": 6,
+        "encryptionLevel": "AES-256",
+        "obfuscationLayers": 4,
+        "antiDebug": true,
+        "antiVM": true,
+        "kernelProtection": true
+      },
+      "updateHistory": {
+        "totalUpdates": 172,
+        "lastUpdateDate": "2025-02-24",
+        "avgUpdatesPerMonth": 6.2,
+        "criticalPatches": 8,
+        "securityPatches": 48,
+        "featureUpdates": 68,
+        "bugFixes": 48
+      },
+      "userStats": {
+        "totalUsers": 7120,
+        "activeUsersLast30Days": 5890,
+        "avgSessionDuration": 2.9,
+        "avgGamesPerDay": 7.4,
+        "satisfactionScore": 4.8,
+        "recommendationRate": 93
+      }
+    },
     "variants": [
       {
-        "id": "oblivion",
-        "name": "Oblivion",
-        "tier": "enterprise",
-        "gpu": "RTX 3080 Ti",
-        "ram": "32 GB DDR5",
-        "cpu": "AMD Ryzen 9 5950X",
-        "usage": "Suite indétectée",
-        "description": "Suite de cheat Valorant indétectée avec aimbot, ESP et skin changer",
+        "id": "pulseforge-valorant",
+        "name": "PulseForge Valorant Esports",
+        "tier": "premium",
+        "gpu": "RTX 4080",
+        "ram": "96 GB DDR5",
+        "cpu": "Intel i9-14900KS",
+        "storage": "1TB NVMe Gen4",
+        "motherboard": "ASUS ROG Strix Z790-E",
+        "psu": "1000W 80+ Platinum",
+        "cooling": "360mm AIO Liquid",
+        "usage": "Instance cloud Valorant Esports",
+        "description": "Build Valorant cloud native calibrée pour la compétition et le streaming 240+ Hz.",
         "use_cases": [
-          "Classement Radiant",
-          "Avantage compétitif",
-          "Amélioration de skill",
-          "Boost de compte",
-          "Aperçu des skins"
+          "Scrims pro et ranked Immortal/Radiant",
+          "Coaching staff et review tactique",
+          "Production stream Esports & watch parties",
+          "Line-up practice PulseForge Lobby",
+          "Sessions VOD & sandbox utilitaires"
         ],
         "features": [
-          "Aimbot humanisé",
-          "ESP joueurs",
-          "ESP capacités",
-          "Skinchanger toutes armes",
-          "Triggerbot",
-          "Équipe support élite",
-          "Système de mise à jour furtif"
+          "Overlays modulaires phase-aware",
+          "Analyse post-match & export (timeline, economy)",
+          "Coach macro (tempo, rotations, retakes)",
+          "Thèmes d’équipe stream-safe (PulseForge Lobby)",
+          "Intégration multi-input (clavier/souris, manette)",
+          "Mises à jour continues & profils partagés d’équipe"
         ],
-        "target_audience": "Joueurs compétitifs Valorant",
-        "highlight": "Contourne l'anti-cheat Vanguard",
-        "protection": "Vanguard bypass",
-        "updates": "Stealth updates",
+        "featureHighlights": [
+          "Ranked / tournois — overlays 100 % fair-play basés sur HUD, audio et minimap",
+          "PulseForge Lobby — scrims synchronisés, lineup sandbox et caster mode intégré"
+        ],
+        "featureGroups": [
+          {
+            "title": "Modules tactiques en temps réel",
+            "description": "Suite contextuelle pour les phases Valorant",
+            "items": [
+              "Eco & Buy Advisor : calcul du loss bonus, recommandations full/half/force et rappel drop.",
+              "Execute Planner : cartes-plans par site avec tempo flash/smoke/plant et crossfires probables.",
+              "Post-Plant Director : timer Spike précis, chemins de repost safe et zones d’interdiction.",
+              "Retake Coach : séquence clear → trade → isolate avec alerte avantage numérique (killfeed).",
+              "Angle & Head-Height : repères de hauteur de tête et prompts “don’t ego-peek”.",
+              "Audio Spatial Director : priorisation pas/portes/reload, ducking des sons non critiques.",
+              "Fight Timeline : suivi picks/trades, alerte “no-trade 3 s” et indicateurs de man-advantage.",
+              "VOD Auto-Tag : marquage des pivots (retake tardif, dry peek, spike late) avec export chronologique."
+            ]
+          },
+          {
+            "title": "Réactivité & couverture",
+            "items": [
+              "Overlay refresh jusqu’à 144 Hz sur preset Esports.",
+              "Modules actifs phase-aware : 10 à 14 selon la carte et le mode.",
+              "Temps de réaction moyen ~40–45 ms sur événements visibles.",
+              "Focus HUD : masquage automatique des overlays non essentiels en fight."
+            ]
+          },
+          {
+            "title": "PulseForge Lobby",
+            "description": "Options scrim & entraînement (tous joueurs sur PulseForge)",
+            "items": [
+              "Cosmétiques partagés : thèmes d’armes et kill-banners PulseForge visibles côté lobby.",
+              "Lineup Sandbox : trajectoires stream-safe de flashes/smokes/molotovs et time-trial d’exec.",
+              "Draft & Role Rules : rôles IGL/Entry/Anchor/Support et contraintes d’achat par round.",
+              "Retake/Execute Scenario Runner : séquences scriptées avec scoreboard d’exécution.",
+              "Ghost-Run & Pathing : fantômes de vos meilleures entrées/retakes, replays synchronisés.",
+              "Caster Mode : HUD élargi (killfeed, economy), replays 8 s et marqueurs de manches."
+            ]
+          },
+          {
+            "title": "Capacité multi-jeux",
+            "description": "Profil medium sur top 100 jeux",
+            "items": [
+              "1080p : 100 % ≥30/60/90 FPS, 96 % ≥120 FPS, 86 % ≥144 FPS.",
+              "1440p : 100 % ≥30/60 FPS, 96 % ≥90 FPS, 75 % ≥120 FPS, 51 % ≥144 FPS.",
+              "4K : 100 % ≥30 FPS, 94 % ≥60 FPS, 52 % ≥90 FPS, 24 % ≥120 FPS, 14 % ≥144 FPS."
+            ]
+          },
+          {
+            "title": "Compatibilité & prérequis",
+            "items": [
+              "1080p : CPU min Core2 Duo E6550, GPU GTX 550 Ti / HD 6790, 4 Go RAM.",
+              "1440p : CPU min Pentium E5200, GPU GT 1030 / R7 450, 4 Go RAM.",
+              "4K : CPU min Core2 Duo E6700, GPU GTX 750 Ti / RX 550X, 8 Go RAM.",
+              "Sur PulseForge : seules une connexion stable et notre client léger sont requis."
+            ]
+          },
+          {
+            "title": "Pourquoi choisir notre build natif Valorant ?",
+            "items": [
+              "Intégration native synchronisée après chaque patch Riot.",
+              "Suite overlays et coaching conforme tournois & stream-safe.",
+              "Performances calibrées : 596/565/520 FPS moyens (1080p/1440p/4K).",
+              "Support créatif : scrims, VOD analytics et thèmes d’équipe PulseForge Lobby."
+            ]
+          }
+        ],
+        "implementationNotes": [
+          "En parties classées/publiques, les overlays utilisent uniquement HUD, audio et minimap visibles. Aucune lecture mémoire, aucun aim-assist.",
+          "Les modules sandbox (lineups projetées, caster mode complet) nécessitent PulseForge Lobby avec build partagé.",
+          "Les overlays sont opt-in et s’ajustent automatiquement pour éviter la surcharge visuelle."
+        ],
+        "target_audience": "Équipes Valorant, coachs Esports, créateurs",
+        "highlight": "Profil Esports 240–360 Hz stabilisé",
+        "protection": "Overlays fair-play stream-safe",
+        "updates": "Sync patch Riot & maintenance continue",
         "pricing": {
-          "hourly": 1.13,
-          "monthly": 450
+          "hourly": 1.6,
+          "monthly": 640
         },
-        "sla": "99.99%",
+        "sla": "99.98%",
         "support_level": "enterprise",
         "badges": [
-          "Valorant Pro",
-          "Vanguard Bypass",
-          "Humanized"
+          "Esports Ready",
+          "Stream Safe",
+          "PulseForge Lobby"
         ],
         "image": "/images/products/valorant/main.png"
       }
     ],
     "reviews": {
-      "average": 4.8,
-      "count": 267
+      "average": 4.9,
+      "count": 438
     },
     "discount": {
       "active": false,
@@ -406,66 +1045,330 @@
     },
     "gallery": [
       "/images/products/valorant/main.png",
-      "/images/products/valorant/1.png"
+      "/images/products/valorant/1.png",
+      "/images/products/valorant/2.png"
     ]
   },
   {
     "id": "gaming-battlefield6",
     "slug": "gaming-battlefield6",
-    "name": "Battlefield 6",
+    "name": "Battlefield 6 PulseForge",
     "game": "Battlefield 6",
     "category": "gaming",
     "optimizationLevel": "native",
-    "description": "Solution Battlefield 6 premium avec build privé et protection avancée",
-    "longDescription": "Battlefield 6 God Mode offre une expérience de jeu optimale avec GPU RTX 4090, 128GB RAM DDR5 et Intel i9-13900K. Build privé exclusif avec HWID spoofer intégré, parfait pour la domination sur le champ de bataille.",
+    "description": "Instance cloud Battlefield 6 calibrée Conquest/Breakthrough avec overlays tactiques et support escouade.",
+    "longDescription": "PulseForge pour Battlefield 6 est un build natif hébergé sur notre cloud gaming. Pensé pour les escouades compétitives, il combine profils Conquest/Breakthrough, optimisation CPU↔GPU et pipeline vidéo faible latence afin de maintenir la fluidité jusqu’en 4K. Overlays, modules et mises à jour sont appliqués côté serveur pour préserver le fair-play et la conformité tournois.",
     "status": "ACTIVE",
+    "technicalSpecs": {
+      "performanceMetrics": {
+        "avgFps": 208,
+        "minFps": 176,
+        "maxFps": 238,
+        "onePercentLow": 176,
+        "latency": 1.3,
+        "inputLag": 0.36,
+        "frameTime": 4.8,
+        "cpuUsage": 88,
+        "gpuUsage": 76,
+        "ramUsage": 21.4,
+        "vramUsage": 10.7,
+        "powerDraw": 405,
+        "thermalCpu": 68,
+        "thermalGpu": 65
+      },
+      "augmentationSuite": {
+        "awarenessIndex": 92,
+        "overlayRefresh": 144,
+        "adaptiveCoaching": 88,
+        "reactionTimeMs": 45,
+        "moduleCoverage": 16,
+        "tacticalFocus": 93,
+        "modules": [
+          "Ticket & Pressure Overlay : pression par secteur, fenêtres de neutralisation/capture et rappel des tickets restants.",
+          "Rotation Coach : propositions de routes d’escouade (safe vs fast), backcaps et timings de regroupement.",
+          "Spawn Wave Planner : estimation des vagues de réapparition alliées/ennemies et choix optimisé beacon/squad/base.",
+          "Vehicle Ops Assistant : gestion des sièges, cycles réparation/sortie et angles sûrs sans assistance d’aim.",
+          "Suppression & Visibility : indicateurs de suppression et fenêtres de punition quand l’adversaire est affaibli.",
+          "Ballistics Trainer : visualisation stream-safe de la chute/temps de vol des projectiles (mode entraînement).",
+          "Killfeed Intelligence : synthèse des wipes d’escouade et détection d’avantage numérique."
+        ],
+        "notes": "Modules calibrés Conquest/Breakthrough et rafraîchis après chaque patch DICE."
+      },
+      "fpsByResolution": [
+        {
+          "resolution": "1920 × 1080",
+          "avgFps": 208,
+          "minFps": 176,
+          "maxFps": 238,
+          "playability": "Très fluide",
+          "bottleneck": "CPU (≈ 88%)"
+        },
+        {
+          "resolution": "2560 × 1440",
+          "avgFps": 186,
+          "minFps": 158,
+          "maxFps": 215,
+          "playability": "Très fluide",
+          "bottleneck": "GPU (≈ 61%)"
+        },
+        {
+          "resolution": "3840 × 2160",
+          "avgFps": 154,
+          "minFps": 130,
+          "maxFps": 182,
+          "playability": "Très fluide",
+          "bottleneck": "GPU (≈ 76%)"
+        }
+      ],
+      "qualityBreakdown": [
+        {
+          "resolution": "1920 × 1080",
+          "presets": {
+            "low": 214,
+            "medium": 208,
+            "high": 191,
+            "ultra": 173
+          }
+        },
+        {
+          "resolution": "2560 × 1440",
+          "presets": {
+            "low": 196,
+            "medium": 186,
+            "high": 172,
+            "ultra": 158
+          }
+        },
+        {
+          "resolution": "3840 × 2160",
+          "presets": {
+            "low": 166,
+            "medium": 154,
+            "high": 140,
+            "ultra": 127
+          }
+        }
+      ],
+      "resolutionGuidance": [
+        {
+          "resolution": "1920 × 1080",
+          "avgFps": 208,
+          "fpsWindow": "176 – 238 FPS",
+          "refreshAdvice": "Cible 144–200 Hz compétitif",
+          "description": "Idéal pour l’infanterie et les combats rapprochés ; la marge reste confortable même en High.",
+          "note": "Activez Focus HUD pour réduire la charge visuelle lors des push massifs."
+        },
+        {
+          "resolution": "2560 × 1440",
+          "avgFps": 186,
+          "fpsWindow": "158 – 215 FPS",
+          "refreshAdvice": "Netteté + stabilité",
+          "description": "Excellent compromis pour le streaming Conquest et les VOD détaillées.",
+          "note": "Préférez le preset High pour lisser les 1% low sans perte visuelle majeure."
+        },
+        {
+          "resolution": "3840 × 2160",
+          "avgFps": 154,
+          "fpsWindow": "130 – 182 FPS",
+          "refreshAdvice": "4K fluide 120 Hz",
+          "description": "Parfait pour du showcase cinématographique tout en gardant une bonne réactivité.",
+          "note": "Utilisez ce mode pour les prises de vue premium ou la production stream." 
+        }
+      ],
+      "improvementTips": [
+        "Baissez ombres et Post-FX en priorité tout en conservant la résolution native.",
+        "Activez Focus HUD afin de masquer les modules non essentiels lors des grands teamfights.",
+        "Préférez le preset High plutôt que Ultra en 1440p/4K pour lisser les 1% low."
+      ],
+      "advice": "Option « CPU Boost » (1080p) : +5 % → ~210/178/240 FPS · +10 % → ~212/180/244 FPS · +15 % → ~215/183/247 FPS · +20 % → ~219/186/251 FPS (nécessite un nœud Thermal-Premium).",
+      "heroSynergy": [
+        {
+          "hero": "Infanterie Assaut",
+          "overlayFocus": 92,
+          "clarityBoost": 90,
+          "preset": "Assault",
+          "coachingNotes": "Priorité points chauds, prompts de push coordonnés et rappel utilitaires anti-véhicule."
+        },
+        {
+          "hero": "Recon éclaireur",
+          "overlayFocus": 90,
+          "clarityBoost": 88,
+          "preset": "Recon",
+          "coachingNotes": "Surveillance drones, trajectoires de backcap et rappels de spotters."
+        },
+        {
+          "hero": "Support ingénieur",
+          "overlayFocus": 91,
+          "clarityBoost": 89,
+          "preset": "Support",
+          "coachingNotes": "Gestion beacons, cycles réparation et alertes artillerie."
+        },
+        {
+          "hero": "Pilote blindé",
+          "overlayFocus": 93,
+          "clarityBoost": 92,
+          "preset": "Armor",
+          "coachingNotes": "Angles sûrs, cycles réparation/sortie et surveillance menaces anti-char."
+        },
+        {
+          "hero": "Aérien / Hélico",
+          "overlayFocus": 95,
+          "clarityBoost": 93,
+          "preset": "Air",
+          "coachingNotes": "Routes nap-of-the-earth, callouts anti-AA et timers de contre-mesures."
+        },
+        {
+          "hero": "Chef d’escouade",
+          "overlayFocus": 94,
+          "clarityBoost": 90,
+          "preset": "Command",
+          "coachingNotes": "Planification rotations, priorités d’objectif et synthèse tickets en temps réel."
+        }
+      ],
+      "networkStats": {
+        "serverLocations": 26,
+        "avgPing": 19,
+        "maxBandwidth": 1300,
+        "packetLoss": 0.25,
+        "jitter": 3.4,
+        "ddosProtection": true,
+        "encryption": "TLS 1.3 + SRTP"
+      },
+      "securityMetrics": {
+        "detectionRate": 0,
+        "banRate": 0.08,
+        "uptimePercentage": 99.96,
+        "avgResponseTime": 7,
+        "incidentsLastMonth": 0,
+        "securityUpdatesPerWeek": 4,
+        "encryptionLevel": "AES-256",
+        "obfuscationLayers": 4,
+        "antiDebug": true,
+        "antiVM": true,
+        "kernelProtection": true
+      },
+      "updateHistory": {
+        "totalUpdates": 132,
+        "lastUpdateDate": "2025-02-22",
+        "avgUpdatesPerMonth": 5.2,
+        "criticalPatches": 8,
+        "securityPatches": 38,
+        "featureUpdates": 49,
+        "bugFixes": 37
+      },
+      "userStats": {
+        "totalUsers": 5780,
+        "activeUsersLast30Days": 4416,
+        "avgSessionDuration": 3.1,
+        "avgGamesPerDay": 4.7,
+        "satisfactionScore": 4.7,
+        "recommendationRate": 87
+      }
+    },
     "variants": [
       {
-        "id": "godmode",
-        "name": "God Mode",
+        "id": "pulseforge-battlefield6",
+        "name": "PulseForge Battlefield 6 Command",
         "tier": "premium",
         "gpu": "RTX 4090",
         "ram": "128 GB DDR5",
-        "cpu": "Intel i9-13900K",
-        "usage": "Build privé",
-        "description": "Solution Battlefield 6 premium avec build privé et protection avancée",
+        "cpu": "Intel i9-14900KS",
+        "storage": "2TB NVMe Gen4",
+        "motherboard": "ASUS ROG Maximus Z790",
+        "psu": "1200W 80+ Platinum",
+        "cooling": "Custom Loop Liquid",
+        "usage": "Instance Battlefield 6 cloud native",
+        "description": "Instance Battlefield 6 cloud native calibrée Conquest/Breakthrough et véhicules.",
         "use_cases": [
-          "Gaming compétitif",
-          "Conquête dominante",
-          "Stream professionnel",
-          "Statistiques optimales",
-          "Performance maximale"
+          "Compétitions Conquest & Breakthrough",
+          "Coaching escouade et analytics tickets",
+          "Production stream Battlefield",
+          "Scrims privés PulseForge Lobby",
+          "Sandbox véhicules & drills objectifs"
         ],
         "features": [
-          "Build privé personnalisé",
-          "ESP avancé véhicules et infanterie",
-          "Aimbot prédictif",
-          "HWID spoofer intégré",
-          "Protection kernel-level",
-          "Support premium 24/7",
-          "Mises à jour garanties"
+          "Overlays modulaires objectifs/escouade",
+          "Analytics post-match tickets & timeline",
+          "Coach rotations et spawn waves",
+          "Vehicle drill suite PulseForge Lobby",
+          "Profils audio Battlefield calibrés",
+          "Mises à jour synchronisées patch Battlefield",
+          "Compatibilité PulseForge Lobby sandbox"
         ],
-        "target_audience": "Joueurs compétitifs, Équipes esport",
-        "highlight": "Build privé exclusif",
-        "protection": "Undetectable",
-        "updates": "Priority updates",
+        "featureHighlights": [
+          "Ranked/Tous serveurs – 100 % fair-play (lecture d’écran, killfeed, audio, sans injection mémoire)",
+          "Lobbies privés PulseForge – builds synchronisés où tout le monde est sur PulseForge (cosmétique & entraînement avancé)"
+        ],
+        "featureGroups": [
+          {
+            "title": "Ranked / fair-play (live)",
+            "items": [
+              "Ticket & Pressure Overlay : pression par secteur, fenêtres de neutralisation/capture et rappel des tickets.",
+              "Rotation Coach : routes d’escouade safe/fast, backcaps opportunistes et timings de regroupement.",
+              "Spawn Wave Planner : estimation vagues alliées/ennemies, choix beacon/squad/base.",
+              "Vehicle Ops Assistant : cycles réparation/sortie et angles sûrs (sans assistance d’aim).",
+              "Suppression & Visibility : indicateurs suppression et fenêtres de punition.",
+              "Killfeed Intelligence : synthèse wipes d’escouade et détection avantage numérique.",
+              "Focus HUD : masquage contextuel des modules non essentiels pendant les fights massifs."
+            ]
+          },
+          {
+            "title": "Réactivité & couverture",
+            "items": [
+              "Overlay refresh jusqu’à 144 Hz sur profils Medium/High.",
+              "Modules actifs phase-aware : objectifs, escouade, véhicules.",
+              "Temps de réaction moyen ~45 ms sur événements visibles.",
+              "Monitoring réseau continu avec bascule automatique de région."
+            ]
+          },
+          {
+            "title": "PulseForge Lobby",
+            "description": "Options de jeu & d’entraînement (tous joueurs sur build PulseForge)",
+            "items": [
+              "Cosmétiques partagés : thèmes d’escouade, tracers & kill-banners PulseForge.",
+              "Vehicle Drill Suite : circuits tank/IFV/heli/jet, duels blindés et ateliers réparation coordonnée.",
+              "Objective Scenario Runner : scripts Conquest/Breakthrough avec scoreboard captures/retakes/tickets.",
+              "Stratboard Live : tableau tactique par carte avec annotations coach/lead.",
+              "Draft & Role Rules : verrouillage Lead/Anchor/Recon/Support et loadouts imposés.",
+              "Caster Mode : HUD élargi (objectifs, véhicules, tickets), replays instantanés et marqueurs d’actions."
+            ]
+          },
+          {
+            "title": "Pourquoi choisir notre build natif Battlefield 6 ?",
+            "items": [
+              "Intégration native synchronisée après chaque mise à jour DICE.",
+              "Suite overlays fair-play, stream-safe et conforme ranked/tournoi.",
+              "Performances calibrées : 208/186/154 FPS moyens (1080p/1440p/4K).",
+              "Support créatif : scrims, VOD analytics et thèmes d’escouade PulseForge Lobby."
+            ]
+          }
+        ],
+        "implementationNotes": [
+          "En parties publiques/ranked, les overlays reposent uniquement sur HUD/son/killfeed visibles. Aucune lecture mémoire ni injection.",
+          "Les cosmétiques partagés, scénarios sandbox et stratboards temps réel sont réservés aux lobbies PulseForge avec build commun.",
+          "Les overlays sont opt-in et se masquent automatiquement en fight pour éviter la surcharge visuelle."
+        ],
+        "target_audience": "Escouades Battlefield, coachs véhicules, créateurs",
+        "highlight": "Suite Conquest & véhicules dédiée",
+        "protection": "Fair-play stream-safe",
+        "updates": "Mises à jour synchronisées patch Battlefield",
         "pricing": {
-          "hourly": 2.25,
-          "monthly": 900
+          "hourly": 1.95,
+          "monthly": 680
         },
-        "sla": "99.999%",
+        "sla": "99.97%",
         "support_level": "enterprise",
         "badges": [
-          "Premium",
-          "Exclusive",
-          "Next-Gen"
+          "Conquest Optimized",
+          "Stream Safe",
+          "PulseForge Lobby"
         ],
         "image": "/images/products/battlefield6/main.png"
       }
     ],
     "reviews": {
-      "average": 4.9,
-      "count": 342
+      "average": 4.8,
+      "count": 368
     },
     "discount": {
       "active": false,
@@ -474,66 +1377,343 @@
     },
     "gallery": [
       "/images/products/battlefield6/main.png",
-      "/images/products/battlefield6/1.png"
+      "/images/products/battlefield6/1.png",
+      "/images/products/battlefield6/2.png"
     ]
   },
   {
     "id": "gaming-destiny2",
     "slug": "gaming-destiny2",
-    "name": "Destiny 2",
+    "name": "Destiny 2 PulseForge",
     "game": "Destiny 2",
     "category": "gaming",
     "optimizationLevel": "native",
-    "description": "Package Destiny 2 élite avec aimbot PvP/PvE et protection indétectable",
-    "longDescription": "Destiny 2 God Mode combine puissance et discrétion. RTX 4080, 64GB RAM DDR5 et AMD Ryzen 9 7950X offrent des performances exceptionnelles. Build privé avec protection kernel pour PvP et PvE.",
+    "description": "Instance cloud Destiny 2 calibrée PvE/PvP avec overlays situationnels et support raids.",
+    "longDescription": "PulseForge pour Destiny 2 est un build natif hébergé sur notre cloud gaming. Il priorise la stabilité des 1% low en Crucible/Trials et en PvE endgame tout en maintenant un input-lag constant grâce à notre pipeline vidéo faible latence. Overlays, modules et mises à jour sont appliqués côté serveur pour préserver le fair-play et la conformité Bungie.",
     "status": "ACTIVE",
+    "technicalSpecs": {
+      "performanceMetrics": {
+        "avgFps": 402,
+        "minFps": 342,
+        "maxFps": 462,
+        "onePercentLow": 342,
+        "latency": 1.0,
+        "inputLag": 0.28,
+        "frameTime": 2.5,
+        "cpuUsage": 76,
+        "gpuUsage": 64,
+        "ramUsage": 18.9,
+        "vramUsage": 8.7,
+        "powerDraw": 348,
+        "thermalCpu": 64,
+        "thermalGpu": 60
+      },
+      "augmentationSuite": {
+        "awarenessIndex": 95,
+        "overlayRefresh": 144,
+        "adaptiveCoaching": 92,
+        "reactionTimeMs": 43,
+        "moduleCoverage": 15,
+        "tacticalFocus": 94,
+        "modules": [
+          "Encounter Timeline : jalons mécaniques via indices visuels (phases DPS, immunités, safe spots).",
+          "Champions & Mods Planner : rappel des types de champions vus et des mods anti-barrière/surcharge requis par escouade.",
+          "Super & Buff Orchestrator : cycle des Supers et buffs/débuffs visibles pour éviter l’overlap.",
+          "Ammo Economy : suivi des consommations spéciales/lourdes et fenêtres probables de drop.",
+          "DPS Estimator : estimation relative du DPS de phase via les ticks affichés (stream-safe).",
+          "Survival Cues : repères de résilience/recovery et alertes no-rez lors des wipes potentiels.",
+          "Zone & Pressure Map : lecture de pression par zone et détection du man-advantage via killfeed.",
+          "Super Economy Read : estimation de charge de Super basée sur les infos visibles pour planifier les rounds.",
+          "Peek Discipline : repères de hauteur de tête, tempo jiggle/swing et prompts anti ego-peek.",
+          "Fight Timeline : suivi des trades dès le premier pick et alerte no-trade 3 s."
+        ],
+        "notes": "Modules PvE/PvP rafraîchis après chaque patch Destiny 2, priorisant la lisibilité et le respect du fair-play."
+      },
+      "fpsByResolution": [
+        {
+          "resolution": "1920 × 1080",
+          "avgFps": 402,
+          "minFps": 342,
+          "maxFps": 462,
+          "playability": "Très fluide",
+          "bottleneck": "CPU (≈76%)"
+        },
+        {
+          "resolution": "2560 × 1440",
+          "avgFps": 356,
+          "minFps": 302,
+          "maxFps": 410,
+          "playability": "Très fluide",
+          "bottleneck": "CPU (≈64%)"
+        },
+        {
+          "resolution": "3840 × 2160",
+          "avgFps": 246,
+          "minFps": 212,
+          "maxFps": 280,
+          "playability": "Très fluide",
+          "bottleneck": "GPU (≈41%)"
+        }
+      ],
+      "qualityBreakdown": [
+        {
+          "resolution": "1920 × 1080",
+          "presets": {
+            "low": 458,
+            "medium": 402,
+            "high": 378,
+            "ultra": 342
+          }
+        },
+        {
+          "resolution": "2560 × 1440",
+          "presets": {
+            "low": 398,
+            "medium": 356,
+            "high": 330,
+            "ultra": 302
+          }
+        },
+        {
+          "resolution": "3840 × 2160",
+          "presets": {
+            "low": 268,
+            "medium": 246,
+            "high": 228,
+            "ultra": 206
+          }
+        }
+      ],
+      "resolutionGuidance": [
+        {
+          "resolution": "1920 × 1080",
+          "avgFps": 402,
+          "fpsWindow": "342 – 462 FPS",
+          "refreshAdvice": "Cible 240–360 Hz compétitif",
+          "description": "Idéal pour Crucible/Trials : priorité réactivité et 1% low serrés.",
+          "note": "Activez Focus HUD pour lisser les phases clutch."
+        },
+        {
+          "resolution": "2560 × 1440",
+          "avgFps": 356,
+          "fpsWindow": "302 – 410 FPS",
+          "refreshAdvice": "Netteté + fréquence 240 Hz",
+          "description": "Excellent pour stream & VOD détaillées tout en conservant le snap.",
+          "note": "Parfait pour Trials ou scrims filmés en haute définition."
+        },
+        {
+          "resolution": "3840 × 2160",
+          "avgFps": 246,
+          "fpsWindow": "212 – 280 FPS",
+          "refreshAdvice": "4K 200+ Hz jouable",
+          "description": "Parfait pour raids/donjons showcase, avec marge stable en Ultra.",
+          "note": "Idéal pour les sessions VOD premium et la production stream."
+        }
+      ],
+      "improvementTips": [
+        "Utilisez le preset Esports/Low pour Trials/Compétitif et Medium pour PvE endgame.",
+        "Laissez PulseForge piloter le cap FPS et l’anti-tear ; évitez les limites externes.",
+        "Activez Focus HUD pour masquer les modules non essentiels pendant les fights.",
+        "En 4K, privilégiez High plutôt qu’Ultra pour conserver la régularité des combats."
+      ],
+      "advice": "Option « CPU Boost » (1080p) : +5 % → ~410/348/470 FPS · +10 % → ~418/355/478 FPS · +15 % → ~428/364/490 FPS · +20 % → ~440/374/505 FPS (nœud Thermal-Premium requis).",
+      "heroSynergy": [
+        {
+          "hero": "AR (Assaut)",
+          "overlayFocus": 93,
+          "clarityBoost": 90,
+          "preset": "Balance",
+          "coachingNotes": "Focus TTK & lanes, prompts anti ego-peek et angles d’ouverture sécurisés."
+        },
+        {
+          "hero": "SMG (Close)",
+          "overlayFocus": 92,
+          "clarityBoost": 89,
+          "preset": "Esports",
+          "coachingNotes": "Timing d’entrée, fenêtres d’engage et routes d’évasion courtes."
+        },
+        {
+          "hero": "LMG (Ancrage)",
+          "overlayFocus": 90,
+          "clarityBoost": 87,
+          "preset": "Stability",
+          "coachingNotes": "Contrôle des lanes longues, discipline reload et alternance des couverts."
+        },
+        {
+          "hero": "Sniper/DMR",
+          "overlayFocus": 95,
+          "clarityBoost": 93,
+          "preset": "Sniper Focus",
+          "coachingNotes": "Pré-aim hauteur tête, pacing de reposition et gestion du glint."
+        },
+        {
+          "hero": "Shotgun",
+          "overlayFocus": 88,
+          "clarityBoost": 85,
+          "preset": "Indoor",
+          "coachingNotes": "Consolidation des pushes rapprochés et duo-timings."
+        },
+        {
+          "hero": "Support (IGL)",
+          "overlayFocus": 94,
+          "clarityBoost": 91,
+          "preset": "Macro",
+          "coachingNotes": "Macro-calls, economy Supers et alertes de rotations."
+        }
+      ],
+      "networkStats": {
+        "serverLocations": 23,
+        "avgPing": 17,
+        "maxBandwidth": 1150,
+        "packetLoss": 0.22,
+        "jitter": 3.0,
+        "ddosProtection": true,
+        "encryption": "TLS 1.3 + SRTP"
+      },
+      "securityMetrics": {
+        "detectionRate": 0,
+        "banRate": 0.07,
+        "uptimePercentage": 99.97,
+        "avgResponseTime": 6,
+        "incidentsLastMonth": 0,
+        "securityUpdatesPerWeek": 4,
+        "encryptionLevel": "AES-256",
+        "obfuscationLayers": 4,
+        "antiDebug": true,
+        "antiVM": true,
+        "kernelProtection": true
+      },
+      "updateHistory": {
+        "totalUpdates": 141,
+        "lastUpdateDate": "2025-02-18",
+        "avgUpdatesPerMonth": 5.1,
+        "criticalPatches": 7,
+        "securityPatches": 42,
+        "featureUpdates": 50,
+        "bugFixes": 42
+      },
+      "userStats": {
+        "totalUsers": 6020,
+        "activeUsersLast30Days": 4898,
+        "avgSessionDuration": 3.3,
+        "avgGamesPerDay": 4.9,
+        "satisfactionScore": 4.7,
+        "recommendationRate": 88
+      }
+    },
     "variants": [
       {
-        "id": "godmode",
-        "name": "God Mode",
+        "id": "pulseforge-destiny2",
+        "name": "PulseForge Destiny 2 Vanguard",
         "tier": "premium",
-        "gpu": "RTX 4080",
-        "ram": "64 GB DDR5",
-        "cpu": "AMD Ryzen 9 7950X",
-        "usage": "Build privé",
-        "description": "Package Destiny 2 élite avec aimbot PvP/PvE et protection indétectable",
+        "gpu": "RTX 4090",
+        "ram": "128 GB DDR5",
+        "cpu": "AMD Ryzen 9 7950X3D",
+        "storage": "2TB NVMe Gen4",
+        "motherboard": "ASUS ROG Crosshair X670E",
+        "psu": "1200W 80+ Platinum",
+        "cooling": "Custom Loop Liquid",
+        "usage": "Instance Destiny 2 PulseForge",
+        "description": "Build cloud Destiny 2 orienté PvE/PvP avec overlays situationnels et support raids.",
         "use_cases": [
-          "Trials of Osiris",
-          "Raids & Dungeons",
-          "PvP compétitif",
-          "Farming optimisé",
-          "Grandmaster Nightfalls"
+          "Trials of Osiris et PvP compétitif",
+          "Raids, donjons et Nuit Noire GM",
+          "Scrims privés PulseForge Lobby",
+          "Production stream et VOD analytics",
+          "Entraînement DPS et sandbox mécaniques"
         ],
         "features": [
-          "Build privé Destiny 2",
-          "Aimbot PvP précision maximale",
-          "ESP ennemis et coffres",
-          "Super tracker",
-          "HWID spoofer",
-          "Protection BattlEye",
-          "Support dédié Guardian"
+          "Overlays modulaires PvE/PvP stream-safe",
+          "Analyse post-match et export timeline/DPS",
+          "Coach macro Supers, economy et rotations",
+          "Thèmes d’escouade PulseForge Lobby",
+          "Intégration multi-input clavier/souris/manette",
+          "Mises à jour synchronisées patch Destiny 2",
+          "Compatibilité PulseForge Lobby sandbox"
         ],
-        "target_audience": "Guardians compétitifs, Streamers",
-        "highlight": "Aimbot PvP/PvE",
-        "protection": "BattlEye bypass",
-        "updates": "Day-one updates",
+        "featureHighlights": [
+          "Public/Ranked – overlays purement visuels (HUD, audio, killfeed) sans injection mémoire",
+          "PulseForge Lobby – cosmétiques partagés, sandbox DPS et stratboard live pour tous les joueurs PulseForge"
+        ],
+        "featureGroups": [
+          {
+            "title": "Modules tactiques PvE",
+            "items": [
+              "Encounter Timeline : jalons mécaniques, phases DPS et safe spots stream-safe.",
+              "Champions & Mods Planner : rappel champions/mods requis par escouade.",
+              "Super & Buff Orchestrator : cycle Supers et buffs/débuffs visibles pour éviter l’overlap.",
+              "Ammo Economy : prompts heavy/special avant les phases DPS critiques.",
+              "DPS Estimator : lecture relative du DPS de phase basée sur les ticks affichés.",
+              "Survival Cues : alertes résilience/recovery et fenêtres sans rez."
+            ]
+          },
+          {
+            "title": "Modules tactiques PvP",
+            "items": [
+              "Zone & Pressure Map : pression par zone et lecture du man-advantage via killfeed.",
+              "Super Economy Read : estimation charge Supers visible pour rounds clés.",
+              "Peek Discipline : repères head-height, tempo jiggle/swing et prompts anti ego-peek.",
+              "Fight Timeline : suivi trades, alerte no-trade 3 s et rappel stabiliser quand l’équipe mène.",
+              "Audio Spatial Director : priorisation pas/portes/reloads, ducking automatique du bruit non critique."
+            ]
+          },
+          {
+            "title": "Réactivité & couverture",
+            "items": [
+              "Overlay refresh jusqu’à 144 Hz.",
+              "Modules actifs selon mode PvE/PvP détecté.",
+              "Temps de réaction moyen ~40–45 ms sur événements visibles.",
+              "Monitoring réseau avec bascule automatique de région."
+            ]
+          },
+          {
+            "title": "PulseForge Lobby",
+            "description": "Options de jeu & d’entraînement (tous joueurs sur build PulseForge)",
+            "items": [
+              "Raid Lab : salles mécaniques avec timelines partageables et scoring d’exécution.",
+              "DPS Check Lab : mannequins et cibles mobiles avec scoreboard DPS de phase.",
+              "Movement & Ability Sandbox : parcours chronométrés et drills capacité avec reset rapide.",
+              "Ghost-Run & Pathing : fantômes de vos meilleures exécutions et replays synchronisés.",
+              "Cosmétiques partagés : bannières d’escouade, finisher FX, kill-banners PulseForge.",
+              "Caster Mode : HUD élargi, replays instantanés 8 s et export highlights."
+            ]
+          },
+          {
+            "title": "Pourquoi choisir notre build natif Destiny 2 ?",
+            "items": [
+              "Intégration native synchronisée après chaque patch Bungie.",
+              "Suite fair-play stream-safe pour PvE/PvP sans injection ni assistance intrusive.",
+              "Performances calibrées : 402/356/246 FPS moyens avec marge sur chaque preset.",
+              "Support créatif : scrims, analytics VOD et thèmes d’escouade PulseForge Lobby."
+            ]
+          }
+        ],
+        "implementationNotes": [
+          "En parties publiques/ranked, les overlays reposent uniquement sur HUD, audio et killfeed visibles.",
+          "Cosmétiques, sandbox DPS et stratboards live sont réservés aux lobbies PulseForge avec build partagé.",
+          "Overlays opt-in et auto-masquage lors des phases à forte intensité visuelle."
+        ],
+        "target_audience": "Escouades Destiny, raid leads, créateurs",
+        "highlight": "Stabilité 1% low pour PvE/PvP intensif",
+        "protection": "Fair-play stream-safe certifié",
+        "updates": "Mises à jour synchronisées patch Destiny 2",
         "pricing": {
-          "hourly": 2.0,
-          "monthly": 800
+          "hourly": 1.98,
+          "monthly": 700
         },
-        "sla": "99.99%",
+        "sla": "99.97%",
         "support_level": "enterprise",
         "badges": [
-          "Premium",
-          "Guardian",
-          "PvP Ready"
+          "Raid Ready",
+          "Stream Safe",
+          "PulseForge Lobby"
         ],
         "image": "/images/products/destiny2/main.png"
       }
     ],
     "reviews": {
       "average": 4.8,
-      "count": 289
+      "count": 412
     },
     "discount": {
       "active": false,
@@ -548,60 +1728,316 @@
   {
     "id": "gaming-dota2",
     "slug": "gaming-dota2",
-    "name": "Dota 2",
+    "name": "Dota 2 PulseForge",
     "game": "Dota 2",
     "category": "gaming",
     "optimizationLevel": "native",
-    "description": "Solution Dota 2 professionnelle avec scripts avancés et map awareness",
-    "longDescription": "Dota 2 God Mode est conçu pour les joueurs exigeants. RTX 4070 Ti, 64GB RAM et Intel i9-12900K garantissent des performances fluides. Build privé avec scripts personnalisés et protection VAC.",
+    "description": "Instance cloud Dota 2 calibrée compétitif avec overlays fair-play et sandbox scrim.",
+    "longDescription": "PulseForge pour Dota 2 est un build natif hébergé sur notre cloud gaming. Il cible une fréquence d’image stable avec des 1% low serrés en teamfight tout en respectant strictement le fair-play grâce à des overlays purement visuels et un pipeline vidéo faible latence.",
     "status": "ACTIVE",
+    "technicalSpecs": {
+      "performanceMetrics": {
+        "avgFps": 405,
+        "minFps": 310,
+        "maxFps": 470,
+        "onePercentLow": 310,
+        "latency": 0.95,
+        "inputLag": 0.25,
+        "frameTime": 2.1,
+        "cpuUsage": 78,
+        "gpuUsage": 45,
+        "ramUsage": 16.2,
+        "vramUsage": 7.4,
+        "powerDraw": 315,
+        "thermalCpu": 60,
+        "thermalGpu": 55
+      },
+      "augmentationSuite": {
+        "awarenessIndex": 93,
+        "overlayRefresh": 144,
+        "adaptiveCoaching": 89,
+        "reactionTimeMs": 41,
+        "moduleCoverage": 12,
+        "tacticalFocus": 94,
+        "modules": [
+          "Roshan/Aegis & Runes : rappels non intrusifs (Aegis, Power/Bounty, Day/Night) basés sur l’horloge à l’écran.",
+          "Stack & Pull Helper : minuteurs de pull/stack par camp synchronisés sur l’horloge in-game.",
+          "Buyback & Économie : suivi de votre buyback, de l’économie d’équipe (smokes, dusts, TPs) sans infos ennemies cachées.",
+          "Fight Timeline : suivi trades & man-advantage dès le premier kill avec alerte no-trade 3 s.",
+          "Post-fight Digest : récap mort/ult/TP par camp pour décider push ou retreat.",
+          "Audio Spatial Director : priorisation pas/TP/ult sonores avec ducking du bruit non critique.",
+          "Focus HUD : masquage intelligent des stats non pertinentes pendant 5–8 s critiques."
+        ],
+        "notes": "Overlays rafraîchis jusqu’à 144 Hz, calibrés pour les teamfights Source 2 et conformes aux règles publiques."
+      },
+      "fpsByResolution": [
+        {
+          "resolution": "1920 × 1080",
+          "avgFps": 405,
+          "minFps": 310,
+          "maxFps": 470,
+          "playability": "Très fluide",
+          "bottleneck": "CPU (majoritaire)"
+        },
+        {
+          "resolution": "2560 × 1440",
+          "avgFps": 380,
+          "minFps": 300,
+          "maxFps": 440,
+          "playability": "Très fluide",
+          "bottleneck": "CPU"
+        },
+        {
+          "resolution": "3840 × 2160",
+          "avgFps": 300,
+          "minFps": 250,
+          "maxFps": 340,
+          "playability": "Très fluide",
+          "bottleneck": "Mixte (tendance CPU)"
+        }
+      ],
+      "qualityBreakdown": [
+        {
+          "resolution": "1920 × 1080",
+          "presets": {
+            "low": 440,
+            "medium": 405,
+            "high": 385,
+            "ultra": 360
+          }
+        },
+        {
+          "resolution": "2560 × 1440",
+          "presets": {
+            "low": 410,
+            "medium": 380,
+            "high": 355,
+            "ultra": 330
+          }
+        },
+        {
+          "resolution": "3840 × 2160",
+          "presets": {
+            "low": 320,
+            "medium": 300,
+            "high": 280,
+            "ultra": 260
+          }
+        }
+      ],
+      "resolutionGuidance": [
+        {
+          "resolution": "1920 × 1080",
+          "avgFps": 405,
+          "fpsWindow": "310 – 470 FPS",
+          "refreshAdvice": "Cible 240–360 Hz compétitif",
+          "description": "Idéal pour teamfights denses ; 1% low stables avec marge confortable même en High.",
+          "note": "Conservez fps_max piloté par PulseForge pour lisser l’input-lag."
+        },
+        {
+          "resolution": "2560 × 1440",
+          "avgFps": 380,
+          "fpsWindow": "300 – 440 FPS",
+          "refreshAdvice": "Netteté + fréquence 240 Hz",
+          "description": "Parfait pour streaming et VOD détaillées tout en gardant le snap Source 2.",
+          "note": "Maintenez Focus HUD actif pour éviter la surcharge visuelle en fight."
+        },
+        {
+          "resolution": "3840 × 2160",
+          "avgFps": 300,
+          "fpsWindow": "250 – 340 FPS",
+          "refreshAdvice": "4K 200+ Hz jouable",
+          "description": "Mode showcase/coach : l’écart reste contenu car le jeu reste surtout CPU-limited.",
+          "note": "Parfait pour analyses spectateur et contenu premium."
+        }
+      ],
+      "improvementTips": [
+        "Gardez V-Sync off, fps_max piloté par PulseForge et overlay limité aux modules essentiels en fight.",
+        "Baissez post-FX et ombres si vous ciblez un 1% low encore plus serré.",
+        "Le jeu étant CPU-bound, l’overclock contrôlé côté hôte améliore surtout les 1% low."
+      ],
+      "advice": "Option « CPU Boost » (1080p) : +5 % → ~410/312/476 FPS · +10 % → ~415/316/482 FPS · +15 % → ~422/323/490 FPS · +20 % → ~432/332/502 FPS (nœud Thermal-Premium requis).",
+      "heroSynergy": [
+        {
+          "hero": "Carry (Pos 1)",
+          "overlayFocus": 92,
+          "clarityBoost": 90,
+          "preset": "Hyperfarm",
+          "coachingNotes": "Timers stack, rappel buyback et lanes safe pour scaling mid/late."
+        },
+        {
+          "hero": "Mid (Pos 2)",
+          "overlayFocus": 94,
+          "clarityBoost": 91,
+          "preset": "Tempo",
+          "coachingNotes": "Runes, rotations et Fight Timeline pour sécuriser les power spikes."
+        },
+        {
+          "hero": "Offlane (Pos 3)",
+          "overlayFocus": 90,
+          "clarityBoost": 88,
+          "preset": "Pressure",
+          "coachingNotes": "Rotation Coach, Post-fight Digest et prompts tower trades."
+        },
+        {
+          "hero": "Soft Support (Pos 4)",
+          "overlayFocus": 91,
+          "clarityBoost": 89,
+          "preset": "Playmaker",
+          "coachingNotes": "Stack & Pull Helper, warding cues et Fight Timeline pour initier sans feed."
+        },
+        {
+          "hero": "Hard Support (Pos 5)",
+          "overlayFocus": 93,
+          "clarityBoost": 92,
+          "preset": "Vision",
+          "coachingNotes": "Warding Planner, Buyback Economy et prompts smoke/dust."
+        }
+      ],
+      "networkStats": {
+        "serverLocations": 21,
+        "avgPing": 16,
+        "maxBandwidth": 980,
+        "packetLoss": 0.18,
+        "jitter": 2.6,
+        "ddosProtection": true,
+        "encryption": "TLS 1.3 + SRTP"
+      },
+      "securityMetrics": {
+        "detectionRate": 0,
+        "banRate": 0.06,
+        "uptimePercentage": 99.97,
+        "avgResponseTime": 5,
+        "incidentsLastMonth": 0,
+        "securityUpdatesPerWeek": 5,
+        "encryptionLevel": "AES-256",
+        "obfuscationLayers": 4,
+        "antiDebug": true,
+        "antiVM": true,
+        "kernelProtection": true
+      },
+      "updateHistory": {
+        "totalUpdates": 133,
+        "lastUpdateDate": "2025-03-07",
+        "avgUpdatesPerMonth": 4.8,
+        "criticalPatches": 6,
+        "securityPatches": 38,
+        "featureUpdates": 49,
+        "bugFixes": 40
+      },
+      "userStats": {
+        "totalUsers": 5480,
+        "activeUsersLast30Days": 4212,
+        "avgSessionDuration": 3.6,
+        "avgGamesPerDay": 4.7,
+        "satisfactionScore": 4.7,
+        "recommendationRate": 87
+      }
+    },
     "variants": [
       {
-        "id": "godmode",
-        "name": "God Mode",
+        "id": "pulseforge-dota2",
+        "name": "PulseForge Dota 2 Ancients",
         "tier": "premium",
-        "gpu": "RTX 4070 Ti",
-        "ram": "64 GB DDR5",
-        "cpu": "Intel i9-12900K",
-        "usage": "Build privé",
-        "description": "Solution Dota 2 professionnelle avec scripts avancés et map awareness",
+        "gpu": "RTX 4090",
+        "ram": "128 GB DDR5",
+        "cpu": "Intel i9-14900KS",
+        "storage": "2TB NVMe Gen4",
+        "motherboard": "ASUS ROG Maximus Z790",
+        "psu": "1200W 80+ Platinum",
+        "cooling": "Custom Loop Liquid",
+        "usage": "Instance Dota 2 PulseForge",
+        "description": "Build cloud Dota 2 orienté compétitif avec overlays sobres et sandbox scrim.",
         "use_cases": [
-          "Ranked compétitif",
-          "Tournois professionnels",
-          "MMR grinding",
-          "Stream gameplay",
-          "Practice optimisée"
+          "Ranked haut niveau et scrims",
+          "Coaching équipe et analyst desk",
+          "Production stream MOBA",
+          "Revues VOD stratégiques",
+          "Sandbox PulseForge Lobby"
         ],
         "features": [
-          "Build privé Dota 2",
-          "Map awareness complète",
-          "Last-hit perfection",
-          "Ability tracker",
-          "Ward detection",
-          "Protection VAC",
-          "Scripts personnalisables"
+          "Overlays modulaires stream-safe",
+          "Analyse post-match et exports timeline",
+          "Coach macro rotations & buybacks",
+          "Thèmes d’équipe PulseForge Lobby",
+          "Intégration multi-input clavier/souris/manette",
+          "Mises à jour synchronisées patch Dota 2",
+          "Compatibilité PulseForge Lobby sandbox"
         ],
-        "target_audience": "Joueurs compétitifs, Pro teams",
-        "highlight": "Scripts professionnels",
-        "protection": "VAC bypass",
-        "updates": "Patch-day updates",
+        "featureHighlights": [
+          "Public/Ranked – overlays purement visuels (HUD, audio, killfeed, minimap) sans lecture mémoire",
+          "PulseForge Lobby – cosmétiques partagés et sandbox lanes/warding pour tous les joueurs PulseForge"
+        ],
+        "featureGroups": [
+          {
+            "title": "Modules tactiques publics",
+            "items": [
+              "Roshan/Aegis & Runes : rappels Aegis, Power/Bounty et alternance Day/Night.",
+              "Stack & Pull Helper : minuteurs pull/stack affichés sur la carte.",
+              "Buyback & Économie : suivi buybacks alliés, stocks smokes/dusts/TPs et rappels shop.",
+              "Fight Timeline : suivi trades, alerte no-trade 3 s et man-advantage.",
+              "Post-fight Digest : récap morts, ultis et TPs disponibles par camp.",
+              "Focus HUD : masquage intelligent des stats toxiques pendant les fights."
+            ]
+          },
+          {
+            "title": "Lisibilité & confort",
+            "items": [
+              "Audio Spatial Director : priorisation pas/TP/ult, ducking du bruit non critique.",
+              "Color grading optionnel pour highlight spells critiques.",
+              "Anti-tilt HUD avec prompts respiration entre fights.",
+              "Support multi-moniteur pour analyst desk stream.",
+              "Latency Guard : maintien du jitter et adaptation du buffer de stream."
+            ]
+          },
+          {
+            "title": "PulseForge Lobby",
+            "description": "Options de jeu & d’entraînement (tous joueurs sur build PulseForge)",
+            "items": [
+              "Lane & Last-hit Lab : vagues scriptées, scoreboard CS delta et sandbox freeze/push.",
+              "Warding Planner : plan sentries/obs par zone avec partage live coach/équipe.",
+              "Draft & Role Rules : règles pos 1–5, rotations imposées et répétitions d’openings.",
+              "Ghost-Run & Pathing : fantômes de rotations support/carry avec replays synchronisés.",
+              "Cosmétiques partagés : kill-banners & emotes PulseForge visibles par le lobby PF.",
+              "Caster Mode : HUD élargi, replays 8 s et marqueurs de fights stream-ready."
+            ]
+          },
+          {
+            "title": "Pourquoi choisir notre build natif Dota 2 ?",
+            "items": [
+              "Intégration native synchronisée après chaque patch Valve.",
+              "Conformité totale : overlays stream-safe, aucune assistance intrusive.",
+              "Performances calibrées : ~405/380/300 FPS moyens avec réserve CPU.",
+              "Support créatif : scrims outillés, analytics VOD et thèmes d’équipe PulseForge Lobby."
+            ]
+          }
+        ],
+        "implementationNotes": [
+          "En parties publiques, toutes les données proviennent uniquement du HUD, du son et du killfeed visibles.",
+          "Cosmétiques, sandbox lanes et stratboards sont réservés aux lobbies PulseForge avec build partagé.",
+          "Les overlays restent opt-in et se masquent lors des teamfights pour limiter le bruit visuel."
+        ],
+        "target_audience": "Teams Dota 2, coachs, analystes",
+        "highlight": "Stabilité CPU-bound calibrée",
+        "protection": "Fair-play stream-safe certifié",
+        "updates": "Mises à jour synchronisées patch Dota 2",
         "pricing": {
-          "hourly": 1.88,
-          "monthly": 750
+          "hourly": 1.65,
+          "monthly": 610
         },
-        "sla": "99.99%",
+        "sla": "99.97%",
         "support_level": "enterprise",
         "badges": [
-          "Premium",
-          "Pro Scripts",
-          "Competitive"
+          "MOBA Optimized",
+          "Stream Safe",
+          "PulseForge Lobby"
         ],
         "image": "/images/products/dota2/main.png"
       }
     ],
     "reviews": {
       "average": 4.7,
-      "count": 215
+      "count": 368
     },
     "discount": {
       "active": false,
@@ -612,72 +2048,6 @@
       "/images/products/dota2/main.png",
       "/images/products/dota2/1.png"
     ]
-  },
-  {
-    "id": "gaming-apex",
-    "slug": "gaming-apex",
-    "name": "Apex Legends",
-    "game": "Apex Legends",
-    "category": "gaming",
-    "optimizationLevel": "community",
-    "description": "Configuration cloud optimisée pour Apex Legends",
-    "longDescription": "Environnement gaming cloud pour Apex Legends avec configuration standard et support communautaire.",
-    "status": "ACTIVE",
-    "gfnData": {
-      "playType": "READY_TO_PLAY",
-      "minimumTier": null,
-      "stores": [
-        "EA_APP"
-      ],
-      "iconUrl": "https://img.nvidiagrid.net/apps/100885211/ZZ/GAME_ICON_01_20f4b569-4620-4c87-a7fd-6ea51b87cade.png",
-      "logoUrl": "https://img.nvidiagrid.net/apps/100885211/ZZ/GAME_LOGO_01_b747bcf5-01b6-46ba-bfb0-0193e2b4a50b.png"
-    },
-    "variants": [
-      {
-        "id": "standard",
-        "name": "Standard",
-        "tier": "standard",
-        "gpu": "RTX 3060",
-        "ram": "16 GB",
-        "cpu": "Intel i5-12400",
-        "usage": "Configuration standard",
-        "description": "Environnement cloud pour Apex Legends",
-        "use_cases": [
-          "Jeu casual",
-          "Practice",
-          "Ranked"
-        ],
-        "features": [
-          "VM cloud optimisée",
-          "Support communautaire",
-          "Mises à jour régulières"
-        ],
-        "target_audience": "Joueurs Apex",
-        "highlight": "Support communautaire",
-        "protection": "Standard",
-        "updates": "Regular",
-        "pricing": {
-          "hourly": 0.5,
-          "monthly": 199
-        },
-        "sla": "99.9%",
-        "support_level": "community",
-        "badges": [
-          "Community",
-          "Standard"
-        ],
-        "image": "/images/products/apex/standard/main.png"
-      }
-    ],
-    "reviews": {
-      "average": 4.3,
-      "count": 89
-    },
-    "discount": {
-      "active": false,
-      "percentage": 0,
-      "code": ""
-    }
   },
   {
     "id": "gaming-cs2",

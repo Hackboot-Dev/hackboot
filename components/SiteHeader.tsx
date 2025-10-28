@@ -1,6 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useMemo, useState } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import LanguageSelectorSimplest from '@/components/LanguageSelectorSimplest'
@@ -23,7 +24,6 @@ const isSupportedLocale = (value: string | undefined): value is SupportedLocale 
 const SiteHeader = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [shouldRenderMobileMenu, setShouldRenderMobileMenu] = useState(false)
   const pathname = usePathname()
   const router = useRouter()
   const { t, locale: activeLocale } = useI18n()
@@ -82,13 +82,7 @@ const SiteHeader = () => {
   }, [buildHref, router])
 
   const toggleMobileMenu = useCallback(() => {
-    setIsMobileMenuOpen((open) => {
-      const next = !open
-      if (next) {
-        setShouldRenderMobileMenu(true)
-      }
-      return next
-    })
+    setIsMobileMenuOpen((open) => !open)
   }, [])
 
   const closeMobileMenu = useCallback(() => {
@@ -108,18 +102,15 @@ const SiteHeader = () => {
     setIsMobileMenuOpen(false)
   }, [pathname])
 
-  useEffect(() => {
-    if (!isMobileMenuOpen && shouldRenderMobileMenu) {
-      const timeout = window.setTimeout(() => {
-        setShouldRenderMobileMenu(false)
-      }, 320)
-      return () => window.clearTimeout(timeout)
-    }
-    if (isMobileMenuOpen) {
-      setShouldRenderMobileMenu(true)
-    }
-    return undefined
-  }, [isMobileMenuOpen, shouldRenderMobileMenu])
+  const overlayTransition = useMemo(
+    () => ({ duration: 0.25, ease: [0.4, 0, 0.2, 1] }),
+    []
+  )
+
+  const panelTransition = useMemo(
+    () => ({ type: 'spring', stiffness: 260, damping: 28, mass: 0.9 }),
+    []
+  )
 
   const ctaLabel = t?.nav?.getStarted ?? 'Commencer'
 
@@ -198,21 +189,32 @@ const SiteHeader = () => {
         </nav>
       </header>
 
-      {shouldRenderMobileMenu && (
-        <>
-          <button
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.button
+            key="mobile-site-overlay"
             type="button"
-            className={`fixed inset-0 z-40 bg-black/80 backdrop-blur-xl transition-opacity duration-300 ease-out md:hidden ${
-              isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-            }`}
+            className="fixed inset-0 z-40 bg-black/80 backdrop-blur-xl md:hidden"
             onClick={closeMobileMenu}
             aria-label="Close navigation"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={overlayTransition}
           />
-          <div
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            key="mobile-site-panel"
             id="mobile-site-menu"
-            className={`fixed top-0 right-0 bottom-0 z-50 w-80 max-w-full overflow-y-auto border-l border-white/10 bg-black/95 px-6 pb-12 pt-20 shadow-2xl shadow-purple-900/40 transition-transform duration-300 ease-out md:hidden ${
-              isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
-            }`}
+            className="fixed top-0 right-0 bottom-0 z-50 w-80 max-w-full overflow-y-auto border-l border-white/10 bg-black/95 px-6 pb-12 pt-20 shadow-2xl shadow-purple-900/40 md:hidden"
+            initial={{ x: '100%', opacity: 0, scale: 0.96, rotate: 1.5 }}
+            animate={{ x: 0, opacity: 1, scale: 1, rotate: 0 }}
+            exit={{ x: '100%', opacity: 0, scale: 0.95, rotate: 1 }}
+            transition={panelTransition}
           >
             <div className="mb-8">
               <LanguageSelectorSimplest />
@@ -251,9 +253,9 @@ const SiteHeader = () => {
             >
               {ctaLabel}
             </button>
-          </div>
-        </>
-      )}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   )
 }

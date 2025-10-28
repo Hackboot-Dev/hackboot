@@ -907,6 +907,49 @@
       "highlights": "Paketi sisu"
     }
   },
+  "communityProductPage": {
+    "breadcrumb": {
+      "home": "Avaleht",
+      "games": "Mängud"
+    },
+    "badges": {
+      "catalog": "Kogukonna Kataloog",
+      "support": "KOGUKONNA TUGI"
+    },
+    "subscription": {
+      "title": "Vali oma tellimus",
+      "description": "Saa ligipääs mängule {{productName}} mis tahes Hackbooti paketiga",
+      "popular": "Kõige populaarsem",
+      "viewDetails": "Vaata üksikasju"
+    },
+    "about": {
+      "title": "{{productName}} tutvustus"
+    },
+    "featuresTitle": "Funktsioonid",
+    "benefits": {
+      "title": "Kogukonna kataloogi eelised",
+      "items": [
+        {
+          "title": "Pilveinfrastruktuur",
+          "description": "Standardne pilveseadistus, mis on optimeeritud usaldusväärseks jõudluseks"
+        },
+        {
+          "title": "Kogukonna tugi",
+          "description": "Pääs Hackbooti kogukonna foorumitesse, juhenditesse ja abisse"
+        },
+        {
+          "title": "Regulaarsed uuendused",
+          "description": "Konfiguratsioonid püsivad kooskõlas värskeimate mängupaikadega"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Valmis mängima {{game}}?",
+      "description": "Vali tellimus ja saa kohene ligipääs teenusele {{productName}}",
+      "button": "Vali minu pakett"
+    },
+    "reviewsLabel": "arvustust"
+  },
   "premiumSignup": {
     "badge": "Konfiguratsiooni registreerimine",
     "title": "Aktiveeri oma premium ligipääs",

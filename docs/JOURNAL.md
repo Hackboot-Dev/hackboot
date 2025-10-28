@@ -496,6 +496,48 @@ Améliorer la présentation des offres premium en détaillant précisément les 
 
 ---
 
+## 2025-10-23
+
+### Feature: Enrichissement PulseForge Overwatch avec modules lobby et notes ToS
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Présenter clairement les offres PulseForge (ranked fair-play et lobbies privés) et garantir la disponibilité des traductions FR/EN/ET, tout en affichant les garde-fous ToS.
+
+#### Modifications apportées:
+1. Ajout de `featureHighlights`, `featureGroups` et `implementationNotes` sur la variante Overwatch PulseForge dans `data/gaming-products.json`.
+2. Extension de l'interface `ProductVariant` (`lib/gaming-products.ts`) pour supporter ces nouveaux champs.
+3. Modernisation de la section Fonctionnalités dans `NativeGamingProductPage.tsx` (highlights, groupes détaillés, note de conformité).
+4. Traduction complète des blocs PulseForge en anglais et estonien via `copyByLocale.product.variants`.
+5. Documentation des nouveaux champs dans `docs/README.md` et journalisation de l'opération.
+
+#### Résultats:
+- ✅ Les pages FR/EN/ET détaillent les modules ranked/live et PulseForge Lobby.
+- ✅ Les notes ToS sont visibles dans un encart dédié.
+- ✅ La documentation reflète la nouvelle structure de données.
+
+## 2025-10-22
+
+### Docs: Intégration de la documentation des pages produits dans README
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Respecter la consigne de ne plus créer de nouveaux fichiers de documentation tout en conservant la traçabilité du fonctionnement des pages produits.
+
+#### Actions réalisées:
+1. Suppression de `docs/PRODUCT_PAGES.md` afin de se conformer à la directive utilisateur.
+2. Migration du contenu vers une nouvelle section "Pages produits gaming" dans `docs/README.md` avec l'ensemble des informations (données, traductions, construction des pages, checklist).
+3. Mise à jour du présent journal pour documenter l'opération.
+
+#### État:
+✅ Documentation centralisée dans un fichier existant
+✅ Consigne "pas de nouveau fichier docs" respectée
+✅ Processus produit toujours documenté
+
+---
+
 ## 2025-10-21
 
 ### Feature: Refonte complète page produits natifs avec données techniques et graphiques
@@ -2423,3 +2465,520 @@ if (hasDecimal) {
 #### État:
 ✅ Section Services alignée sur la charte visuelle
 ✅ Contenus FR/EN/ET enrichis et synchronisés
+
+### Fix: Localisation complète des pages produits cloud
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Garantir la disponibilité des contenus Overwatch PulseForge en français, anglais et estonien.
+- Uniformiser la page produit communautaire avec les systèmes de traduction existants.
+
+#### Actions réalisées:
+1. Ajout d'une copie estonienne détaillée pour la page native Overwatch (métriques, CTA, plans, conseils techniques).
+2. Internationalisation de la page produit communautaire avec récupération des traductions depuis `common.json` et override des abonnements.
+3. Extension des fichiers de langue FR/EN/ET avec les nouvelles clés `communityProductPage`.
+
+#### Fichiers modifiés:
+- `/components/NativeGamingProductPage.tsx`
+- `/components/CommunityGamingProductPage.tsx`
+- `/public/locales/fr/common.json`
+- `/public/locales/en/common.json`
+- `/public/locales/et/common.json`
+- `/next-i18next.config.js`
+
+#### État:
+✅ Page native Overwatch disponible en FR/EN/ET
+✅ Page produit communautaire alignée sur les traductions globales
+
+### Fix: Stabilisation de la page produit communautaire
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Éliminer l'appel à `useTranslation` qui cassait le prerender Netlify en absence d'instance i18next.
+- Garantir le formatage des messages avec variables tout en restant aligné sur le provider `useI18n` maison.
+
+#### Actions réalisées:
+1. Remplacement du hook `useTranslation` par `useI18n` afin d'utiliser le contexte de traduction interne.
+2. Ajout d'un utilitaire de formatage pour interpoler les variables (nom du produit, jeu) dans les CTA et descriptions.
+3. Harmonisation du typage de la copie communautaire pour couvrir description d'abonnement et CTA localisé.
+
+#### Fichiers modifiés:
+- `/components/CommunityGamingProductPage.tsx`
+
+#### État:
+✅ Page communautaire compatible avec le provider i18n custom
+⚠️ `npm run build` échoue toujours faute de dépendance `framer-motion` (problème existant, hors périmètre de ce correctif)
+
+### Enhancement: Animations framer-motion pour les pages produits
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Apporter des animations d’apparition et de remplissage cohérentes sur les pages produits native et communautaire.
+- Mettre en valeur les graphiques (jauges, tableaux, cartes) via `framer-motion` sans casser la structure responsive.
+- Documenter l’approche afin que les futures sections réutilisent le même canevas d’animation.
+
+#### Actions réalisées:
+1. Intégration d’`AnimatePresence` et de wrappers `motion` sur les sections clés de `NativeGamingProductPage` (héros, métriques, tableaux, fonctionnalités) avec animation des barres de progression.
+2. Application d’un traitement similaire à `CommunityGamingProductPage` pour les visuels, listes d’avantages et CTA.
+3. Mise à jour de la documentation (`docs/README.md`) pour décrire la convention `inViewFadeProps` / `fadeTransition` et tracer la nouvelle directive dans le journal.
+
+#### Fichiers modifiés:
+- `/components/NativeGamingProductPage.tsx`
+- `/components/CommunityGamingProductPage.tsx`
+- `/docs/README.md`
+
+#### État:
+✅ Animations harmonisées sur les pages native & communautaire
+✅ Progress bars et tableaux animés au scroll
+
+### Enhancement: Variations d’animations et interactions hover PulseForge
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Diversifier les animations d’entrée au-delà des simples fade-in pour dynamiser les pages produits native et communautaire.
+- Ajouter des effets de survol subtils sur les cartes, plans et CTA afin d’offrir un feedback visuel plus premium.
+- Actualiser la documentation pour référencer les nouveaux presets `framer-motion` et les helpers de hover.
+
+#### Actions réalisées:
+1. Création des presets `inViewSlideProps`, `inViewScaleProps`, `inViewTiltProps` ainsi que des helpers `hoverLiftProps` / `hoverGlowProps`, puis application ciblée sur les sections héros, statistiques, fonctionnalités et avantages.
+2. Ajout de rotations légères, translations et halos lumineux sur les cartes (plans d’abonnement, quick stats, avantages PulseForge) côté native et communautaire.
+3. Mise à jour de `docs/README.md` pour détailler l’utilisation des nouveaux presets et inciter à réutiliser les helpers de survol.
+
+#### Fichiers modifiés:
+- `/components/NativeGamingProductPage.tsx`
+- `/components/CommunityGamingProductPage.tsx`
+- `/docs/README.md`
+
+#### État:
+✅ Animations variées et cohérentes avec l’identité PulseForge
+✅ Interactions hover légères sur les cartes et CTA
+
+### Enhancement: Navigation compacte des fonctionnalités PulseForge
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Réduire la hauteur de scroll de la section « Fonctionnalités incluses » malgré la multiplication des modules PulseForge.
+- Proposer des animations rapides sans retard de texte afin de rendre la lecture instantanée.
+- Aligner la documentation centrale avec le nouveau sélecteur d’onglets et l’usage d’`AnimatePresence`.
+
+#### Actions réalisées:
+1. Introduction d’un état local `activeFeatureGroupIndex` dans `NativeGamingProductPage` pour piloter un sélecteur horizontal des groupes de fonctionnalités.
+2. Remplacement de l’empilement vertical par un carrousel d’onglets animé (`AnimatePresence`) avec cartes bi-colonnes et délais limités pour afficher immédiatement les descriptions.
+3. Mise à jour de `docs/README.md` afin de décrire le nouveau rendu compact et consigner l’usage d’`AnimatePresence` pour la transition entre onglets.
+
+#### Fichiers modifiés:
+- `/components/NativeGamingProductPage.tsx`
+- `/docs/README.md`
+
+#### État:
+✅ Section « Fonctionnalités incluses » plus compacte et lisible
+✅ Documentation synchronisée avec le nouveau pattern
+
+### Feature: PulseForge Warzone native build
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Remplacer l’ancienne fiche Warzone orientée cheat par une offre PulseForge native alignée avec l’expérience cloud gaming.
+- Intégrer les métriques Battle Royale (FPS multi-résolutions, option CPU Boost, guidance résolution) fournies par le rapport interne.
+- Garantir une localisation complète FR/EN/ET, y compris pour les variantes PulseForge et les notes de conformité.
+
+#### Actions réalisées:
+1. Réécriture de `gaming-warzone` dans `data/gaming-products.json` avec les performances calibrées, la suite d’assistances BR et le variant `PulseForge Warzone Operator`.
+2. Ajout de `localeOverridesByProduct` dans `NativeGamingProductPage.tsx` pour fusionner les textes spécifiques Warzone (métriques, expérience cloud, fonctionnalités) dans chaque langue.
+3. Mise à jour de `docs/README.md` afin de documenter l’arrivée de l’offre Warzone et le rôle des overrides de localisation.
+
+#### Fichiers modifiés:
+- `/data/gaming-products.json`
+- `/components/NativeGamingProductPage.tsx`
+- `/docs/README.md`
+
+#### État:
+✅ Offre Warzone alignée avec PulseForge et métriques fournies
+✅ Localisation FR/EN/ET opérationnelle via overrides
+
+### Feature: PulseForge Valorant native build
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Déployer la fiche Valorant PulseForge avec les métriques CPU-bound (596/565/520 FPS) et les tableaux fournis par l’équipe produit.
+- Harmoniser l’expérience native avec les modules Esports (PulseForge Lobby, CPU Boost, astuces FPS) tout en conservant le sélecteur d’onglets compact.
+- Assurer une localisation complète FR/EN/ET via `localeOverridesByProduct` et mettre à jour la documentation centrale.
+
+#### Actions réalisées:
+1. Actualisation de `gaming-valorant` dans `data/gaming-products.json` : métriques par résolution/preset, option CPU Boost, capacités multi-jeux et notes de conformité fair-play.
+2. Ajout des overrides `localeOverridesByProduct['gaming-valorant']` dans `NativeGamingProductPage.tsx` pour injecter les textes FR/EN/ET (performances, expérience cloud, onglets PulseForge).
+3. Mise à jour de `docs/README.md` pour référencer la fiche Valorant et consigner la dernière action côté catalogue.
+
+#### Fichiers modifiés:
+- `/data/gaming-products.json`
+- `/components/NativeGamingProductPage.tsx`
+- `/docs/README.md`
+
+#### État:
+✅ Fiche Valorant PulseForge conforme aux métriques fournies
+✅ Localisation FR/EN/ET opérationnelle avec onglets PulseForge
+
+### Feature: PulseForge Battlefield 6 native build
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Déployer la fiche Battlefield 6 PulseForge avec les métriques Conquest/Breakthrough (208/186/154 FPS) et la suite d’assistances véhicules/escouade.
+- Étendre les overrides de localisation FR/EN/ET pour les performances, l’expérience cloud et les variantes PulseForge spécifiques à Battlefield.
+- Actualiser la documentation centrale afin de référencer l’offre Battlefield et consigner la mise à jour du catalogue.
+
+#### Actions réalisées:
+1. Réécriture de `gaming-battlefield6` dans `data/gaming-products.json` avec les benchmarks 1080p/1440p/4K, l’option « CPU Boost » et les groupes de fonctionnalités PulseForge.
+2. Ajout de `localeOverridesByProduct['gaming-battlefield6']` dans `NativeGamingProductPage.tsx` pour fournir les textes FR/EN/ET (performances, expérience cloud, onglets PulseForge Lobby).
+3. Mise à jour de `docs/README.md` pour inclure la fiche Battlefield et noter la dernière action cataloguée.
+
+#### Fichiers modifiés:
+- `/data/gaming-products.json`
+- `/components/NativeGamingProductPage.tsx`
+- `/docs/README.md`
+
+#### État:
+✅ Offre Battlefield 6 PulseForge alignée sur les métriques fournies
+✅ Localisation FR/EN/ET opérationnelle avec onglets PulseForge Lobby
+
+### Feature: PulseForge Destiny 2 native build
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Déployer la fiche Destiny 2 PulseForge avec les métriques PvE/PvP (402/356/246 FPS) et l’option « CPU Boost » fournie.
+- Étendre les overrides de localisation FR/EN/ET pour refléter les modules raids/Trials, l’expérience cloud et les variantes PulseForge Lobby.
+- Actualiser la documentation centrale afin de référencer l’offre Destiny 2 et journaliser la mise à jour du catalogue.
+
+#### Actions réalisées:
+1. Remplacement de `gaming-destiny2` dans `data/gaming-products.json` par la fiche PulseForge native (performances, suites tactiques, variante « Vanguard »).
+2. Ajout de `localeOverridesByProduct['gaming-destiny2']` dans `NativeGamingProductPage.tsx` pour injecter les textes FR/EN/ET (avantages, métriques, onglets PulseForge Lobby).
+3. Mise à jour de `docs/README.md` et de ce journal pour documenter l’arrivée de Destiny 2 dans le catalogue natif.
+
+#### Fichiers modifiés:
+- `/data/gaming-products.json`
+- `/components/NativeGamingProductPage.tsx`
+- `/docs/README.md`
+- `/docs/JOURNAL.md`
+
+#### État:
+✅ Offre Destiny 2 PulseForge alignée sur les métriques fournies
+✅ Localisation FR/EN/ET opérationnelle avec onglets raids/Trials et PulseForge Lobby
+
+### Feature: PulseForge Dota 2 native build
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Déployer la fiche Dota 2 PulseForge avec les métriques Medium 405/380/300 FPS, l’option « CPU Boost » et les modules fair-play fournis.
+- Étendre les overrides de localisation FR/EN/ET pour refléter les avantages, l’expérience cloud et les onglets PulseForge Lobby (lane lab, warding planner, sandbox cosmétiques).
+- Actualiser la documentation centrale et ce journal afin de consigner l’arrivée de Dota 2 dans le catalogue natif.
+
+#### Actions réalisées:
+1. Remplacement de `gaming-dota2` dans `data/gaming-products.json` par la fiche PulseForge native (performances, suites tactiques, variante « Ancients »).
+2. Ajout de `localeOverridesByProduct['gaming-dota2']` dans `NativeGamingProductPage.tsx` pour injecter les textes FR/EN/ET (avantages, expérience cloud, variantes PulseForge Lobby).
+3. Mise à jour de `docs/README.md` et de ce journal pour référencer l’offre Dota 2 et la mise à jour des traductions.
+
+#### Fichiers modifiés:
+- `/data/gaming-products.json`
+- `/components/NativeGamingProductPage.tsx`
+- `/docs/README.md`
+- `/docs/JOURNAL.md`
+
+#### État:
+✅ Offre Dota 2 PulseForge alignée sur les métriques fournies
+✅ Localisation FR/EN/ET opérationnelle avec onglets PulseForge Lobby et modules fair-play
+
+### Maintenance: Simplification de la page produit communautaire
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Supprimer la section « configuration standard » des pages produits communautaires conformément à la demande.
+- Conserver la mise en page actuelle (abonnements, description longue, avantages) et garantir la compatibilité i18n.
+- Mettre à jour la documentation centrale et le journal pour refléter le changement.
+
+#### Actions réalisées:
+1. Retrait de la grille configuration/support dans `components/CommunityGamingProductPage.tsx` et simplification du typage associé.
+2. Nettoyage des traductions FR/EN/ET dans `public/locales/*/common.json` afin de retirer les clés inutilisées.
+3. Mise à jour de `docs/README.md` et de ce journal pour détailler le comportement actualisé de la page communautaire.
+
+#### Fichiers modifiés:
+- `/components/CommunityGamingProductPage.tsx`
+- `/public/locales/en/common.json`
+- `/public/locales/et/common.json`
+- `/public/locales/fr/common.json`
+- `/docs/README.md`
+- `/docs/JOURNAL.md`
+
+#### État:
+✅ Page communautaire épurée (plus de section configuration locale)
+✅ Traductions synchronisées et documentation alignée
+
+### UI: Animation enrichie du menu mobile global
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Offrir une animation d’apparition plus dynamique pour le menu mobile (header principal et site header).
+- Garantir une transition fluide à l’ouverture/fermeture en utilisant les helpers `framer-motion` déjà présents dans le projet.
+- Conserver l’accessibilité (overlay cliquable, fermeture automatique lors de la navigation).
+
+#### Actions réalisées:
+1. Intégration de `AnimatePresence` et de transitions spring dans `components/SiteHeader.tsx` pour gérer l’overlay et le panneau mobile avec un slide-in/tilt léger.
+2. Application du même schéma d’animation dans `components/Header.tsx` afin d’harmoniser l’expérience sur les autres pages.
+3. Vérification via `npm run lint` et tentative de build (`npm run build`) – ce dernier échoue toujours hors repo à cause de la dépendance `framer-motion` manquante côté environnement Netlify.
+
+#### Fichiers modifiés:
+- `/components/SiteHeader.tsx`
+- `/components/Header.tsx`
+- `/docs/JOURNAL.md`
+
+#### État:
+✅ Animations mobiles plus riches sur les deux headers
+⚠️ Build Netlify toujours bloqué (module `framer-motion` absent côté environnement externe)
+
+### UI: Optimisation de la page Services premium
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Fluidifier les animations et arrière-plans de la page services tout en réduisant la charge GPU.
+- Corriger les soucis responsive (titre qui déborde, timeline difficile à utiliser sur mobile).
+- Adapter les interactions pour les terminaux tactiles et respecter `prefers-reduced-motion`.
+
+#### Actions réalisées:
+1. Réécriture de `ParticleBackground` avec détection mobile, respect de `prefers-reduced-motion`, gestion du DPR et connexions O(n) pour éviter les ralentissements.
+2. Migration d’`AnimatedCounter` vers `framer-motion.animate` en écriture directe pour supprimer les re-rendus successifs et appliquer un timing plus court.
+3. Mise à jour de `FlipCard3D` et `GlowingCard` pour différencier les pointeurs tactiles (tap pour retourner, glow statique) et ajuster les transitions.
+4. Amélioration de `InteractiveTimeline` (scroll horizontal, rôles ARIA, progression sécurisée) et révision du hero services pour une typographie responsive.
+5. Documentation synchronisée (`docs/README.md`, `docs/JOURNAL.md`) afin de refléter les optimisations et bonnes pratiques associées.
+
+#### Fichiers modifiés:
+- `/app/[locale]/services/page.tsx`
+- `/components/services/AnimatedCounter.tsx`
+- `/components/services/FlipCard3D.tsx`
+- `/components/services/GlowingCard.tsx`
+- `/components/services/InteractiveTimeline.tsx`
+- `/components/services/ParticleBackground.tsx`
+- `/docs/README.md`
+- `/docs/JOURNAL.md`
+
+#### État:
+✅ Animations et interactions fluides sur desktop & mobile
+✅ Titre hero contenu et timeline utilisable en responsive
+⚠️ Build Netlify toujours dépendant de `framer-motion` côté environnement distant
+
+### UI: Stabilisation du flip 3D des cartes services
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Supprimer les glitches pendant l’animation de rotation des cartes 3D sur la page services.
+- Conserver l’expérience différenciée desktop/mobile sans modifier le design existant.
+
+#### Actions réalisées:
+1. Ajustement du composant `FlipCard3D` pour utiliser une transition easing maîtrisée, une perspective explicite et un `will-change` ciblé.
+2. Gestion des `pointer-events` côté recto/verso afin d’éviter les oscillations lors du flip sur desktop et tactile.
+3. Vérification du comportement accessibilité (toggle clavier) après refactor animation.
+
+#### Fichiers modifiés:
+- `/components/services/FlipCard3D.tsx`
+- `/docs/JOURNAL.md`
+
+#### État:
+✅ Animation fluide sans rebond parasite
+⚠️ Build Netlify toujours dépendant de `framer-motion` (environnement distant)
+
+### UI: Flip Services via @react-spring
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Remplacer l’animation custom par une bibliothèque dédiée pour éliminer les saccades signalées.
+- Respecter les préférences de mouvement réduit sans sacrifier le mode tactile « tap to flip ».
+
+#### Actions réalisées:
+1. Adoption de `@react-spring/web` dans `FlipCard3D` avec un spring contrôlé (tension/friction) et interpolation perspective.
+2. Synchronisation du flip avec `prefers-reduced-motion` pour désactiver l’animation lorsque requis.
+3. Mise à jour de la documentation centrale afin de signaler la nouvelle dépendance et les bonnes pratiques associées.
+
+#### Fichiers modifiés:
+- `/components/services/FlipCard3D.tsx`
+- `/package.json`
+- `/package-lock.json`
+- `/docs/README.md`
+- `/docs/JOURNAL.md`
+
+#### État:
+✅ Flip fluide sur desktop & mobile avec transitions stables
+⚠️ Build Netlify toujours tributaire de `framer-motion` côté environnement distant
+
+### UI: Stabilisation du glow des cartes services
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Supprimer les chutes de FPS causées par le recalcul React du fond lumineux sur mouvement de souris.
+- Préserver le rendu interactif desktop tout en conservant une expérience stable sur mobile/tactile.
+
+#### Actions réalisées:
+1. Remplacement du `setState` à chaque `mousemove` par un pilotage via variables CSS mises à jour avec `requestAnimationFrame`.
+2. Ajout d’un reset automatique du glow au centre lors du `mouseleave` et au montage pour éviter les valeurs résiduelles.
+3. Nettoyage de la frame planifiée pour empêcher les fuites et garantir une animation fluide.
+
+#### Fichiers modifiés:
+- `/components/services/GlowingCard.tsx`
+- `/docs/JOURNAL.md`
+
+#### État:
+✅ Glow interactif fluide sans re-rendu complet
+⚠️ Build distant toujours bloqué tant que `framer-motion` manque côté Netlify
+
+### UI: Refonte radicale de la page services
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Supprimer les ralentissements sévères (≈3 FPS) signalés sur l’ouverture du menu, les modales et les interactions des cartes services.
+- Repenser la structure pour offrir une narration claire (hero → piliers → modules → process → contact) avec des animations légères et contrôlées.
+- Réduire la dette technique en retirant les composants expérimentaux et la dépendance `@react-spring/web` devenue inutile.
+
+#### Actions réalisées:
+1. Réécriture complète de `app/[locale]/services/page.tsx` avec `LazyMotion`, hero radial statique, onglets piliers, cartes modules et grille process – toutes animées via `whileInView`/hover conditionnés par `useReducedMotion`.
+2. Suppression des anciens composants (`AnimatedCounter`, `FlipCard3D`, `GlowingCard`, `InteractiveTimeline`) désormais inutilisés, ainsi que de la dépendance `@react-spring/web`.
+3. Actualisation de la documentation (`docs/README.md`) pour décrire la nouvelle architecture et journalisation de l’intervention.
+
+#### Fichiers modifiés:
+- `/app/[locale]/services/page.tsx`
+- `/components/services/AnimatedCounter.tsx` (supprimé)
+- `/components/services/FlipCard3D.tsx` (supprimé)
+- `/components/services/GlowingCard.tsx` (supprimé)
+- `/components/services/InteractiveTimeline.tsx` (supprimé)
+- `/package.json`
+- `/package-lock.json`
+- `/docs/README.md`
+- `/docs/JOURNAL.md`
+
+#### État:
+✅ Page services fluide et responsive sans stutters
+✅ Bundle allégé (suppression @react-spring)
+⚠️ Build Netlify encore dépendant de la présence de `framer-motion` côté environnement distant
+
+### UI: Harmonisation du design Services avec la charte PulseForge
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Recalibrer la page services pour qu’elle partage les mêmes codes visuels (glass-effect, gradient-text, fond `bg-dark`) que les pages produits et premium.
+- Réduire les écarts de ton (fonds, bordures, hover) qui faisaient paraître la page hors charte.
+- Documenter la nouvelle approche pour les équipes contenu/design.
+
+#### Actions réalisées:
+1. Ajustement du hero, des cartes métriques et des CTA pour utiliser les classes globales (`glass-effect`, `gradient-text`) et une grille cohérente avec le reste du site.
+2. Uniformisation des sections piliers/modules/process/contact : panneaux `glass-effect`, transitions `whileInView` partagées et suppression des teintes dépareillées.
+3. Mise à jour de la documentation (`docs/README.md`) pour détailler le nouvel alignement visuel.
+
+#### Fichiers modifiés:
+- `/app/[locale]/services/page.tsx`
+- `/docs/README.md`
+- `/docs/JOURNAL.md`
+
+#### État:
+✅ Page Services visuellement cohérente avec les autres pages PulseForge
+✅ Animations et hover uniformes
+⚠️ Build Netlify toujours dépendant de `framer-motion` côté environnement distant
+
+### UI: Ajustements Services (centrage & animations piliers)
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Résoudre les décentrages observés sur desktop dans le hero Services.
+- Stabiliser les animations de la section « Nos piliers » et remplacer l’indicateur vertical jugé peu esthétique.
+- Lisser l’apparition des listes pour éviter les micro-freezes rapportés.
+
+#### Actions réalisées:
+1. Recentrage de la grille hero et des métriques pour un alignement cohérent avec la charte PulseForge.
+2. Refonte des boutons piliers (halo actif, glow doux) et ajout d’un `AnimatePresence` pour un switch fluide entre les contenus.
+3. Animation progressive des puces afin de supprimer les à-coups tout en respectant `prefers-reduced-motion`.
+
+#### Fichiers modifiés:
+- `/app/[locale]/services/page.tsx`
+- `/docs/JOURNAL.md`
+
+#### État:
+✅ Alignement desktop conforme
+✅ Animations piliers fluides et lisibles
+⚠️ Build Netlify toujours conditionné à la présence de `framer-motion` côté environnement distant
+
+### UI: Optimisation page About (animations sans framer)
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Supprimer les ralentissements constatés sur la page « About » (scroll haché, latence dans le menu) dus aux animations `framer-motion`.
+- Conserver la structure narrative (hero, stats, timeline, valeurs) tout en allégeant fortement les effets.
+- Respecter `prefers-reduced-motion` et éviter toute régression visuelle sur desktop/mobile.
+
+#### Actions réalisées:
+1. Création du hook `useReveal` (`lib/hooks/useReveal.ts`) pour piloter les apparitions via `IntersectionObserver` + transitions CSS.
+2. Réécriture des composants `HeroParallax`, `StatsShowcase`, `MissionVision`, `VerticalTimeline`, `AchievementGrid` et `ValueCardParallax` afin de remplacer `framer-motion` par des transitions Tailwind/`requestAnimationFrame` légères.
+3. Remplacement de `MorphingShape` par des blobs animés via `@keyframes` (`about-blob-*`) et ajout d’animations utilitaires (`hero-glow-*`, `achievement-pulse`, `scroll-indicator`) dans `app/globals.css`.
+4. Mise à jour de la documentation (`docs/README.md`) pour décrire la nouvelle approche et informer les équipes contenu/design.
+
+#### Fichiers modifiés:
+- `/app/[locale]/about/page.tsx`
+- `/app/globals.css`
+- `/components/about/AchievementGrid.tsx`
+- `/components/about/HeroParallax.tsx`
+- `/components/about/MissionVision.tsx`
+- `/components/about/StatsShowcase.tsx`
+- `/components/about/ValueCardParallax.tsx`
+- `/components/about/VerticalTimeline.tsx`
+- `/components/services/MorphingShape.tsx`
+- `/docs/README.md`
+- `/docs/JOURNAL.md`
+- `/lib/hooks/useReveal.ts`
+
+#### État:
+✅ Page About fluide sur desktop/mobile (animations CSS légères)
+✅ Respect de `prefers-reduced-motion`
+⚠️ Build Netlify dépend toujours de `framer-motion` pour d’autres pages (pas traité ici)
+
+### UI: Nettoyage animations About (post-feedback)
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectifs:
+- Répondre à la consigne de ne conserver que les apparitions, le scroll de la timeline et les hovers.
+- Éliminer les animations de fond et compteurs jugées parasites sur la page « About ».
+- Documenter la nouvelle approche allégée.
+
+#### Actions réalisées:
+1. Simplification du composant `HeroParallax` (suppression parallax/halos, fade-in uniquement) et retrait des décors `ParticleBackground`/`MorphingShape` de la page.
+2. Nettoyage des cartes (stats, mission/vision, achievements, valeurs) pour supprimer compteurs progressifs, rotations et pulses au profit de simples hovers `scale`/`opacity`.
+3. Suppression des `@keyframes` inutilisés (`hero-glow-*`, `scroll-indicator`, `achievement-pulse`) et mise à jour de `docs/README.md`.
+
+#### Fichiers modifiés:
+- `/app/[locale]/about/page.tsx`
+- `/app/globals.css`
+- `/components/about/AchievementGrid.tsx`
+- `/components/about/HeroParallax.tsx`
+- `/components/about/MissionVision.tsx`
+- `/components/about/StatsShowcase.tsx`
+- `/components/about/ValueCardParallax.tsx`
+- `/docs/README.md`
+- `/docs/JOURNAL.md`
+
+#### État:
+✅ Animations conformes aux attentes (apparition, scroll timeline, hover)
+✅ Page plus légère sans décors GPU
+⚠️ Build Netlify reste tributaire de `framer-motion` pour d’autres pages

@@ -907,6 +907,49 @@
       "highlights": "Fonctionnalités incluses"
     }
   },
+  "communityProductPage": {
+    "breadcrumb": {
+      "home": "Accueil",
+      "games": "Jeux"
+    },
+    "badges": {
+      "catalog": "Catalogue Communautaire",
+      "support": "SUPPORT COMMUNAUTAIRE"
+    },
+    "subscription": {
+      "title": "Choisissez votre abonnement",
+      "description": "Accédez à {{productName}} avec n'importe quel abonnement Hackboot",
+      "popular": "Le plus populaire",
+      "viewDetails": "Voir les détails"
+    },
+    "about": {
+      "title": "À propos de {{productName}}"
+    },
+    "featuresTitle": "Fonctionnalités",
+    "benefits": {
+      "title": "Avantages du Catalogue Communautaire",
+      "items": [
+        {
+          "title": "Infrastructure Cloud",
+          "description": "Configuration cloud standard optimisée pour des performances fiables"
+        },
+        {
+          "title": "Support Communautaire",
+          "description": "Accédez aux forums, guides et aide de la communauté Hackboot"
+        },
+        {
+          "title": "Mises à jour régulières",
+          "description": "Configurations maintenues à jour avec les derniers patchs du jeu"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Prêt à jouer à {{game}} ?",
+      "description": "Choisissez votre abonnement et accédez immédiatement à {{productName}}",
+      "button": "Choisir mon abonnement"
+    },
+    "reviewsLabel": "avis"
+  },
   "premiumSignup": {
     "badge": "Inscription configurateur",
     "title": "Active ton accès premium",

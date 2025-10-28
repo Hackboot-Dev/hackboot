@@ -1,6 +1,12 @@
 import nativeProductsData from '@/data/gaming-products.json'
 import communityProductsData from '@/data/gaming-products-community.json'
 
+export interface FeatureGroup {
+  title: string
+  description?: string
+  items: string[]
+}
+
 export interface ProductVariant {
   id: string
   name: string
@@ -16,6 +22,9 @@ export interface ProductVariant {
   features: string[]
   protection: string
   updates: string
+  featureHighlights?: string[]
+  featureGroups?: FeatureGroup[]
+  implementationNotes?: string[]
   pricing: {
     hourly: number
     monthly: number
@@ -59,6 +68,7 @@ export interface GamingProduct {
       avgFps: number
       minFps: number
       maxFps: number
+      onePercentLow?: number
       latency: number
       inputLag: number
       frameTime: number
@@ -70,6 +80,16 @@ export interface GamingProduct {
       thermalCpu: number
       thermalGpu: number
     }
+    augmentationSuite?: {
+      awarenessIndex: number
+      overlayRefresh: number
+      adaptiveCoaching: number
+      reactionTimeMs: number
+      moduleCoverage: number
+      tacticalFocus: number
+      modules: string[]
+      notes?: string
+    }
     aimbotStats?: {
       predictionAccuracy: number
       smoothness: number
@@ -80,6 +100,40 @@ export interface GamingProduct {
       boneSelection: string[]
       weaponSupport: number
     }
+    fpsByResolution?: Array<{
+      resolution: string
+      avgFps: number
+      minFps: number
+      maxFps: number
+      playability: string
+      bottleneck: string
+    }>
+    qualityBreakdown?: Array<{
+      resolution: string
+      presets: {
+        low: number
+        medium: number
+        high: number
+        ultra: number
+      }
+    }>
+    resolutionGuidance?: Array<{
+      resolution: string
+      avgFps: number
+      fpsWindow: string
+      refreshAdvice: string
+      description: string
+      note?: string
+    }>
+    improvementTips?: string[]
+    advice?: string
+    heroSynergy?: Array<{
+      hero: string
+      overlayFocus: number
+      clarityBoost: number
+      preset: string
+      coachingNotes: string
+    }>
     espCapabilities?: {
       maxDistance: number
       updateRate: number
@@ -123,21 +177,6 @@ export interface GamingProduct {
       kda: number
       winRate: number
     }>
-    benchmarks?: {
-      competitorComparison: Array<{
-        metric: string
-        hackboot: number
-        competitor1: number
-        competitor2: number
-        competitor3: number
-      }>
-      rankProgression: Array<{
-        rank: string
-        avgGamesTo: number
-        winRate: number
-        avgTime: string
-      }>
-    }
     updateHistory?: {
       totalUpdates: number
       lastUpdateDate: string
