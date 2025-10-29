@@ -2,6 +2,67 @@
 
 ## 2025-10-29
 
+### UI: Transformation du carousel de jeux en bandeau défilant infini
+**Heure**: Session actuelle (partie 2)
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Simplifier le carousel de jeux en un bandeau défilant infini avec juste les noms des jeux dans des bulles arrondies, mettant en avant les jeux PulseForge avec un effet visuel spécial.
+
+#### Actions réalisées:
+
+**1. Refonte complète de InteractiveGamesCarousel**
+   - Suppression du carousel draggable complexe avec cartes
+   - Transformation en bandeau défilant automatique avec `animate-marquee`
+   - Affichage simplifié : juste les noms dans des bulles arrondies
+   - Logique de répétition : jeux communautaires 1x, jeux PulseForge 3x
+   - Double le tableau pour effet de boucle infinie sans coupure
+
+**2. Différenciation visuelle PulseForge**
+   - Bulles avec gradient rose/violet (`from-pink-500/20 to-purple-600/20`)
+   - Bordure brillante rose (`border-pink-500/50`)
+   - Ombre colorée (`shadow-pink-500/30`)
+   - Badge Sparkles animé en haut à droite
+   - Texte en gradient rose/violet/rose
+   - Effet de halo au hover (`blur-sm`)
+
+**3. Jeux communautaires**
+   - Bulles avec glassmorphism standard
+   - Bordure blanche subtile (`border-white/10`)
+   - Texte blanc simple
+   - Hover: translation -y et scale
+
+**4. Simplification de ProductsSection**
+   - Suppression du titre "Solutions Gaming Premium"
+   - Suppression du sous-titre "Configurations haute performance..."
+   - Conservation uniquement des filtres de jeux (centrés)
+   - Amélioration du design des filtres (px-6 py-3, font-medium)
+
+#### Résultats:
+
+- ✅ Bandeau défilant infini fluide et automatique
+- ✅ Jeux PulseForge apparaissent 3x avec effet visuel spectaculaire
+- ✅ Interface épurée et moderne
+- ✅ Performance optimisée (useMemo pour la liste)
+- ✅ Cliquable : chaque bulle redirige vers la page du jeu
+- ✅ ProductsSection épurée sans titre
+- ✅ Animation continue sans interruption
+
+#### Impact:
+
+- **UX simplifiée** : Plus facile de voir tous les jeux d'un coup d'œil
+- **Mise en avant PulseForge** : Les jeux premium apparaissent 3x plus souvent
+- **Effet visuel fort** : Gradient rose/violet attire l'attention sur PulseForge
+- **Performance** : Plus léger que le carousel avec cartes images
+- **Cohérence visuelle** : Style bandeau défilant similaire à InfiniteScroll
+
+#### Fichiers modifiés:
+
+- `components/InteractiveGamesCarousel.tsx` (refonte complète : 178 → 106 lignes)
+- `components/ProductsSection.tsx` (suppression header)
+
+---
+
 ### Refonte: Réorganisation optimisée de la page d'accueil
 **Heure**: Session actuelle
 **Développeur**: Assistant Claude

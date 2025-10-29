@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useMemo } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import { getAllGamingProducts, type GamingProduct } from '@/lib/gaming-products'
 import { useI18n } from '@/lib/i18n-simple'
@@ -11,45 +11,34 @@ export default function InteractiveGamesCarousel() {
   const params = useParams()
   const locale = (params?.locale as string) || 'fr'
   const { t } = useI18n()
-  const scrollRef = useRef<HTMLDivElement>(null)
-  const [isDragging, setIsDragging] = useState(false)
-  const [startX, setStartX] = useState(0)
-  const [scrollLeft, setScrollLeft] = useState(0)
-  const [products] = useState<GamingProduct[]>(() => getAllGamingProducts())
 
-  const handleMouseDown = (e: React.MouseEvent) => {
-    if (!scrollRef.current) return
-    setIsDragging(true)
-    setStartX(e.pageX - scrollRef.current.offsetLeft)
-    setScrollLeft(scrollRef.current.scrollLeft)
-  }
+  const allProducts = useMemo(() => getAllGamingProducts(), [])
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging || !scrollRef.current) return
-    e.preventDefault()
-    const x = e.pageX - scrollRef.current.offsetLeft
-    const walk = (x - startX) * 2
-    scrollRef.current.scrollLeft = scrollLeft - walk
-  }
+  const games = useMemo(() => {
+    const pulseForgeGames = allProducts.filter(p => p.optimizationLevel === 'native')
+    const communityGames = allProducts.filter(p => p.optimizationLevel !== 'native')
 
-  const handleMouseUp = () => {
-    setIsDragging(false)
-  }
+    const gamesList: Array<{game: string, isPulseForge: boolean, slug: string}> = []
 
-  const handleMouseLeave = () => {
-    setIsDragging(false)
-  }
+    communityGames.forEach(p => {
+      gamesList.push({ game: p.game, isPulseForge: false, slug: p.slug })
+    })
 
-  const handleGameClick = (product: GamingProduct, e: React.MouseEvent) => {
-    if (isDragging) {
-      e.preventDefault()
-      return
+    for (let i = 0; i < 3; i++) {
+      pulseForgeGames.forEach(p => {
+        gamesList.push({ game: p.game, isPulseForge: true, slug: p.slug })
+      })
     }
-    router.push(`/${locale}/products/${product.slug}`)
-  }
+
+    return [...gamesList, ...gamesList]
+  }, [allProducts])
 
   const gamesTitle = t.gamesCarousel?.title ?? 'Jeux Disponibles'
   const gamesSubtitle = t.gamesCarousel?.subtitle ?? 'Clique ou déplace pour explorer notre catalogue de jeux'
+
+  const handleGameClick = (slug: string) => {
+    router.push(`/${locale}/products/${slug}`)
+  }
 
   return (
     <section className="py-20 overflow-hidden relative">
@@ -67,104 +56,43 @@ export default function InteractiveGamesCarousel() {
         <p className="text-gray-400 text-lg">{gamesSubtitle}</p>
       </div>
 
-      <div
-        ref={scrollRef}
-        className="relative overflow-x-auto scrollbar-hide cursor-grab active:cursor-grabbing"
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseLeave}
-      >
-        <div className="flex gap-6 px-8 pb-4 w-max">
-          {products.map((product) => {
-            const isPulseForge = product.optimizationLevel === 'native'
-            return (
-              <div
-                key={product.id}
-                onClick={(e) => handleGameClick(product, e)}
-                className={`
-                  relative group flex-shrink-0 w-72 rounded-2xl overflow-hidden
-                  transition-all duration-300 hover:scale-105 hover:shadow-2xl
-                  ${isDragging ? 'cursor-grabbing' : 'cursor-pointer'}
-                  ${isPulseForge
-                    ? 'border-2 border-pink-500/50 shadow-lg shadow-pink-500/20'
-                    : 'border border-white/10'
-                  }
-                `}
-              >
-                {/* Badge PulseForge */}
-                {isPulseForge && (
-                  <div className="absolute top-3 right-3 z-20 px-3 py-1 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center gap-1.5">
-                    <Sparkles className="w-3 h-3 text-white" />
-                    <span className="text-xs font-bold text-white">PULSEFORGE</span>
-                  </div>
-                )}
-
-                {/* Image du jeu */}
-                <div className="relative h-40 overflow-hidden bg-gradient-to-br from-purple-900/20 to-pink-900/20">
-                  {product.variants[0]?.image ? (
-                    <img
-                      src={product.variants[0].image}
-                      alt={product.game}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      draggable={false}
-                    />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center">
-                      <span className="text-4xl font-black text-white/20">{product.game[0]}</span>
-                    </div>
-                  )}
-                  <div className={`absolute inset-0 bg-gradient-to-t ${
-                    isPulseForge
-                      ? 'from-black via-transparent to-pink-500/20'
-                      : 'from-black via-transparent to-purple-500/20'
-                  }`} />
+      <div className="relative overflow-hidden">
+        <div className="flex gap-4 animate-marquee whitespace-nowrap w-max">
+          {games.map((item, index) => (
+            <button
+              key={`${item.game}-${index}`}
+              onClick={() => handleGameClick(item.slug)}
+              className={`
+                relative px-8 py-4 rounded-full whitespace-nowrap
+                transition-all duration-300 hover:-translate-y-1 hover:scale-105
+                cursor-pointer group
+                ${item.isPulseForge
+                  ? 'bg-gradient-to-r from-pink-500/20 to-purple-600/20 border-2 border-pink-500/50 shadow-lg shadow-pink-500/30'
+                  : 'glass-effect border border-white/10'
+                }
+              `}
+            >
+              {item.isPulseForge && (
+                <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-pink-500 to-purple-600 rounded-full flex items-center justify-center animate-pulse">
+                  <Sparkles className="w-3 h-3 text-white" />
                 </div>
-
-                {/* Contenu */}
-                <div className={`p-5 ${
-                  isPulseForge
-                    ? 'bg-gradient-to-br from-pink-950/40 to-purple-950/40 backdrop-blur-xl'
-                    : 'bg-black/60 backdrop-blur-xl'
-                }`}>
-                  <h3 className="text-xl font-bold text-white mb-2 line-clamp-1">
-                    {product.game}
-                  </h3>
-                  <p className="text-sm text-gray-400 line-clamp-2 mb-3">
-                    {product.description}
-                  </p>
-
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <div className={`px-2 py-1 rounded text-xs font-medium ${
-                        isPulseForge
-                          ? 'bg-pink-500/20 text-pink-300'
-                          : 'bg-purple-500/20 text-purple-300'
-                      }`}>
-                        {product.category}
-                      </div>
-                    </div>
-                    <div className={`text-sm font-semibold ${
-                      isPulseForge ? 'text-pink-400' : 'text-purple-400'
-                    }`}>
-                      {product.variants.length} variant{product.variants.length > 1 ? 's' : ''}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Hover overlay */}
-                <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none ${
-                  isPulseForge
-                    ? 'bg-gradient-to-br from-pink-500/10 to-purple-600/10'
-                    : 'bg-gradient-to-br from-purple-500/10 to-indigo-600/10'
-                }`} />
-              </div>
-            )
-          })}
+              )}
+              <span className={`text-lg font-bold ${
+                item.isPulseForge
+                  ? 'bg-clip-text text-transparent bg-gradient-to-r from-pink-400 via-purple-400 to-pink-400'
+                  : 'text-white'
+              }`}>
+                {item.game}
+              </span>
+              {item.isPulseForge && (
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-pink-500/0 via-pink-500/20 to-pink-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm" />
+              )}
+            </button>
+          ))}
         </div>
       </div>
 
-      <div className="mt-6 text-center">
+      <div className="mt-12 text-center relative z-10">
         <button
           onClick={() => router.push(`/${locale}/games`)}
           className="px-8 py-4 bg-gradient-to-r from-purple-500 via-pink-500 to-purple-600 text-white font-bold rounded-full hover:scale-105 transition-transform shadow-lg shadow-purple-500/30"
