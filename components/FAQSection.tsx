@@ -80,36 +80,36 @@ export default function FAQSection() {
             <>
               {[
                 {
-                  question: 'Est-ce que Hackboot est légal ?',
-                  answer: 'Oui, Hackboot opère sous juridiction estonienne où le développement et l\'utilisation de modifications de jeux sont entièrement légaux. Nous respectons strictement toutes les lois en vigueur et sommes une entreprise enregistrée et licenciée en Estonie (VMCloud Group OÜ).'
-                },
-                {
-                  question: 'Quels jeux sont supportés ?',
-                  answer: 'Nous supportons plus de 10 jeux populaires incluant Valorant, Apex Legends, Overwatch 2, Fortnite, Call of Duty Warzone, CS2, Rainbow Six Siege, PUBG et Rust. De nouveaux titres sont ajoutés régulièrement.'
-                },
-                {
-                  question: 'Comment fonctionne la sécurité ?',
-                  answer: 'Nous utilisons une protection multi-couches kernel-level avec HWID spoofer intégré. Notre technologie est indétectable avec 0% de détection sur toutes les plateformes. Chiffrement E2E et monitoring 24/7 pour garantir votre sécurité.'
+                  question: 'Comment fonctionne la sécurité et la protection anti-détection ?',
+                  answer: 'Nos systèmes utilisent des technologies de protection avancées incluant le chiffrement bout-en-bout, l\'isolation des processus et des méthodes de contournement sophistiquées. Nous mettons à jour nos protections en continu pour rester compatibles avec les dernières versions des anti-cheats. Chaque session est sécurisée et anonymisée.'
                 },
                 {
                   question: 'Puis-je annuler mon abonnement à tout moment ?',
-                  answer: 'Oui, vous pouvez annuler votre abonnement à tout moment sans frais cachés ni engagement. Votre accès reste actif jusqu\'à la fin de la période payée.'
+                  answer: 'Oui, vous pouvez annuler votre abonnement à tout moment sans engagement ni frais cachés. Votre accès reste actif jusqu\'à la fin de la période déjà payée. L\'annulation se fait en quelques clics depuis votre espace client.'
                 },
                 {
-                  question: 'Quel matériel est nécessaire ?',
-                  answer: 'Aucun matériel spécifique requis ! Hackboot fonctionne entièrement dans le cloud. Vous avez juste besoin d\'une connexion internet stable (minimum 10 Mbps) et d\'un navigateur moderne.'
+                  question: 'Quel matériel est nécessaire pour utiliser Hackboot ?',
+                  answer: 'Une connexion internet stable (minimum 20 Mbps recommandé) est indispensable. Côté matériel, une configuration PC de bureau classique suffit : processeur Intel i5/Ryzen 5 (ou équivalent), 8 Go de RAM, carte graphique GTX 1060 / RX 580 ou supérieure. Nos services sont optimisés pour fonctionner sur du matériel standard.'
                 },
                 {
                   question: 'Comment fonctionne le support client ?',
-                  answer: 'Notre support est disponible 24/7 via Discord, email et WhatsApp. Temps de réponse moyen sous 5 minutes. Pour les clients premium, un account manager dédié est disponible.'
+                  answer: 'Le support client est accessible via notre page Contact. Il est principalement réservé aux abonnés actifs avec un temps de réponse prioritaire. Les non-abonnés peuvent également nous contacter, mais avec un délai de réponse moins réactif. Rendez-vous sur la page Contact pour nous joindre.'
                 },
                 {
-                  question: 'Y a-t-il une période d\'essai ?',
-                  answer: 'Nous proposons différentes formules adaptées à tous les besoins. Vous pouvez commencer avec notre Pack Essentiel à partir de 27,90€/mois pour tester nos services avant de passer à une formule supérieure.'
+                  question: 'Y a-t-il une période d\'essai gratuite ?',
+                  answer: 'Non, nous ne proposons pas de période d\'essai gratuite. Cependant, nos formules d\'abonnement sont flexibles et vous pouvez annuler à tout moment. Nous recommandons de commencer avec une formule adaptée à vos besoins pour tester nos services.'
                 },
                 {
-                  question: 'Quelles sont les performances attendues ?',
-                  answer: 'Nos serveurs équipés de RTX 4090 et i9-13900K offrent des performances exceptionnelles : 240+ FPS en 1080p, latence <5ms, et 99.9% d\'uptime garanti. Les performances varient selon votre formule choisie.'
+                  question: 'Comment installer et commencer à utiliser Hackboot ?',
+                  answer: 'Après souscription, vous recevrez un accès à votre espace client avec toutes les instructions détaillées. L\'installation est simple et guidée étape par étape. Vous aurez accès à nos tutoriels, documentation et support pour vous accompagner dans vos premiers pas.'
+                },
+                {
+                  question: 'Puis-je utiliser mon abonnement sur plusieurs PC ?',
+                  answer: 'Cela dépend de votre formule d\'abonnement. Certains packs permettent l\'utilisation sur plusieurs machines, tandis que d\'autres sont liés à une configuration matérielle spécifique. Consultez les détails de chaque formule ou contactez-nous pour plus d\'informations.'
+                },
+                {
+                  question: 'Que se passe-t-il en cas de mise à jour du jeu ou de l\'anti-cheat ?',
+                  answer: 'Notre équipe surveille en permanence les mises à jour des jeux et anti-cheats. Nous déployons des correctifs et mises à jour dans les plus brefs délais pour maintenir la compatibilité. Les abonnés sont informés automatiquement des mises à jour disponibles via l\'espace client.'
                 }
               ].map((item, index) => (
                 <div

@@ -151,7 +151,7 @@ body {
 }
 
 .animate-marquee {
-  animation: marquee 30s linear infinite;
+  animation: marquee 300s linear infinite;
 }
 
 @keyframes particle {

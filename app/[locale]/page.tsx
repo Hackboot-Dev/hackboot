@@ -9,14 +9,6 @@ const HeroLight = dynamic(() => import('@/components/HeroLight'), {
   loading: () => <div className="min-h-screen flex items-center justify-center bg-dark" />
 })
 
-const StatsBar = dynamic(
-  () => import('@/components/StatsBar'),
-  {
-    loading: () => <div className="h-32 bg-dark animate-pulse" />,
-    ssr: false
-  }
-)
-
 const InteractiveGamesCarousel = dynamic(
   () => import('@/components/InteractiveGamesCarousel'),
   {
@@ -41,13 +33,6 @@ const InteractiveCards = dynamic(
   }
 )
 
-const ProductsSection = dynamic(
-  () => import('@/components/ProductsSection'),
-  {
-    loading: () => <div className="min-h-[50vh] bg-dark animate-pulse" />,
-    ssr: false
-  }
-)
 
 const PremiumPlansSection = dynamic(
   () => import('@/components/PremiumPlansSection'),
@@ -57,13 +42,6 @@ const PremiumPlansSection = dynamic(
   }
 )
 
-const SocialProofSection = dynamic(
-  () => import('@/components/SocialProofSection'),
-  {
-    loading: () => <div className="min-h-[60vh] bg-dark animate-pulse" />,
-    ssr: false
-  }
-)
 
 const FAQSection = dynamic(
   () => import('@/components/FAQSection'),
@@ -100,12 +78,6 @@ export default function Home() {
         </div>
       </Suspense>
 
-      <Suspense fallback={<div className="h-32 bg-dark" />}>
-        <div className="animate-fade-in">
-          <StatsBar />
-        </div>
-      </Suspense>
-
       <Suspense fallback={<div className="h-96 bg-dark" />}>
         <div className="animate-fade-in">
           <InteractiveGamesCarousel />
@@ -124,21 +96,9 @@ export default function Home() {
         </div>
       </Suspense>
 
-      <Suspense fallback={<div className="min-h-[50vh] bg-dark" />}>
-        <div className="animate-slide-up">
-          <ProductsSection />
-        </div>
-      </Suspense>
-
       <Suspense fallback={<div className="min-h-[60vh] bg-dark" />}>
         <div className="animate-scale-in">
           <PremiumPlansSection />
-        </div>
-      </Suspense>
-
-      <Suspense fallback={<div className="min-h-[60vh] bg-dark" />}>
-        <div className="animate-fade-in">
-          <SocialProofSection />
         </div>
       </Suspense>
 
