@@ -293,7 +293,7 @@ export default function CommunityGamingProductPage({ product }: CommunityGamingP
           >
             <h2 className="text-4xl font-bold mb-6">{ctaTitle}</h2>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">{ctaDescription}</p>
-            <Link href={`/${locale}/premium/signup`} className="group inline-block">
+            <Link href={`/${locale}/premium/signup?plan=${subscriptionPlans.find(p => p.popular)?.id ?? 'élite'}`} className="group inline-block">
               <motion.span
                 className="inline-flex items-center gap-2 px-8 py-4 bg-blue-500 rounded-lg font-semibold transition-colors group-hover:bg-blue-600"
                 whileHover={{ scale: 1.05, rotate: -0.5, boxShadow: '0px 18px 40px rgba(59, 130, 246, 0.35)' }}

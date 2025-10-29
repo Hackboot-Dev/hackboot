@@ -13,6 +13,7 @@ import {
 import dynamic from 'next/dynamic'
 import { useI18n } from '@/lib/i18n-simple'
 import SiteHeader from '@/components/SiteHeader'
+import { getSubscriptionPlans } from '@/lib/subscriptions'
 
 const Footer = dynamic(() => import('@/components/Footer'), {
   loading: () => <div className="h-32 bg-black" />,
@@ -39,11 +40,14 @@ export default function PremiumPage() {
   const locale = params?.locale as string || 'fr'
   const { t } = useI18n()
   const premiumContent = t.premium ?? {}
+  const plans = useMemo(() => getSubscriptionPlans(), [])
   const featureSource = premiumContent.features as Record<string, Partial<Omit<Feature, 'id' | 'icon' | 'gradient' | 'iconColor'>>> | undefined
   const featureContent = useMemo<Record<string, Partial<Omit<Feature, 'id' | 'icon' | 'gradient' | 'iconColor'>>>>(() => featureSource ?? {}, [featureSource])
   const premiumBenefits = premiumContent.benefits as string[] | undefined
 
   const [selectedFeature, setSelectedFeature] = useState<Feature | null>(null)
+  const premiumSignupContent = t.premiumSignup ?? {}
+  const planTranslations = (premiumSignupContent.plans ?? {}) as Record<string, { name?: string; description?: string; features?: string[] }>
 
   const features = useMemo<Feature[]>(() => {
     const defaults: Record<string, { title: string; subtitle: string; description: string; stats: Feature['stats']; highlights: string[] }> = {
@@ -284,6 +288,75 @@ export default function PremiumPage() {
             </div>
           </div>
 
+          {/* Plans Comparison Section */}
+          <div className="mb-20 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-black text-center mb-12">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-yellow-600">
+                {premiumContent.plansTitle ?? 'Nos Offres Premium'}
+              </span>
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {plans.map((plan) => {
+                const planContent = (premiumContent.plans as Record<string, { name?: string; description?: string; features?: string[] }> | undefined)?.[plan.id] ?? {}
+                const planName = planContent.name ?? plan.name
+                const planDescription = planContent.description ?? plan.description
+                const planFeatures = Array.isArray(planContent.features) && planContent.features.length > 0
+                  ? planContent.features
+                  : plan.features
+
+                return (
+                  <div
+                    key={plan.id}
+                    className={`glass-effect rounded-3xl p-8 border-2 transition-all hover:scale-[1.02] ${
+                      plan.popular
+                        ? 'border-amber-500/50 bg-gradient-to-br from-amber-500/10 to-yellow-500/10 relative'
+                        : 'border-white/10 hover:border-purple-500/30'
+                    }`}
+                  >
+                    {plan.popular && (
+                      <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-gradient-to-r from-amber-500 to-yellow-600 text-black text-sm font-bold rounded-full">
+                        {premiumContent.popularBadge ?? 'Populaire'}
+                      </div>
+                    )}
+                    <div className="text-center mb-6">
+                      <h3 className="text-2xl font-black text-white mb-2">{planName}</h3>
+                      <div className="text-4xl font-black bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600 mb-2">
+                        {new Intl.NumberFormat(locale === 'en' ? 'en-US' : locale === 'et' ? 'et-EE' : 'fr-FR', {
+                          style: 'currency',
+                          currency: plan.currency,
+                          minimumFractionDigits: plan.price % 1 === 0 ? 0 : 2
+                        }).format(plan.price)}
+                      </div>
+                      <p className="text-sm text-gray-400">{plan.billing}</p>
+                    </div>
+                    <p className="text-gray-300 text-center mb-6">
+                      {planDescription}
+                    </p>
+                    <ul className="space-y-3 mb-8">
+                      {planFeatures.map((feature, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0 mt-0.5" />
+                          <span className="text-sm text-gray-300">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <Link
+                      href={`/${locale}/premium/signup?plan=${plan.id}`}
+                      className={`block w-full px-6 py-4 rounded-xl font-bold text-center transition-all mt-auto ${
+                        plan.popular
+                          ? 'bg-gradient-to-r from-amber-500 to-yellow-600 text-black hover:scale-105'
+                          : 'bg-white/5 text-white hover:bg-white/10 border border-white/10'
+                      }`}
+                    >
+                      {premiumSignupContent.labels?.select ?? 'Choisir cette offre'}
+                    </Link>
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+
           {/* Features Title */}
           <div className="text-center mb-12 animate-fade-in">
             <h2 className="text-4xl md:text-6xl font-black mb-4">
@@ -348,7 +421,7 @@ export default function PremiumPage() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
-                  href={`/${locale}/premium/signup`}
+                  href={`/${locale}/premium/signup?plan=${plans.find(p => p.popular)?.id ?? 'élite'}`}
                   className="px-8 py-4 bg-gradient-to-r from-amber-500 to-yellow-600 text-black text-lg font-bold rounded-full hover:scale-105 transition-transform flex items-center justify-center gap-2"
                 >
                   {ctaContent.primary}

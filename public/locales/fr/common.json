@@ -8,6 +8,7 @@
     "about": "À propos",
     "contact": "Contact",
     "clientArea": "Espace Client",
+    "login": "Connexion",
     "getStarted": "Commencer"
   },
   "hero": {
@@ -686,6 +687,8 @@
     "title": "PREMIUM",
     "highlight": "UNLIMITED",
     "description": "L'expérience gaming ultime. Performances maximales, catalogue complet, offres flexibles.",
+    "plansTitle": "Nos Offres Premium",
+    "popularBadge": "Populaire",
     "benefits": [
       "Accès illimité à tous les jeux",
       "Performances GPU RTX 4090",
@@ -694,6 +697,10 @@
       "Mises à jour gratuites à vie",
       "HWID Spoofer inclus"
     ],
+    "plansHeading": {
+      "title": "NOS OFFRES",
+      "subtitle": "Choisissez la formule qui correspond à vos besoins"
+    },
     "featuresHeading": {
       "title": "AVANTAGES RÉSERVÉS",
       "subtitle": "Découvrez ce qui rend notre offre Premium exceptionnelle"
@@ -992,37 +999,202 @@
     "plans": {
       "essentiel": {
         "name": "Pack Essentiel",
-        "description": "Performances fiables et accès complet au configurateur pour démarrer immédiatement.",
+        "description": "L'essentiel pour démarrer avec 28h de jeu communautaire en 1080p/60FPS.",
         "billing": "par mois",
         "features": [
-          "Accès à l'infrastructure cloud standard",
-          "Support communautaire",
-          "Mises à jour de sécurité régulières",
-          "Catalogue de jeux populaire inclus"
+          "28h de jeu communautaire par mois",
+          "Résolution 1080p à 60 FPS",
+          "Accès à tous les jeux communautaires",
+          "Pas d'accès à PulseForge",
+          "Dépassement : 0,99 €/h"
         ]
       },
       "avantage": {
         "name": "Pack Avantage",
-        "description": "Puissance supplémentaire et support prioritaire pour une expérience optimisée.",
+        "description": "Plus d'heures et de meilleures performances en heures creuses avec 50h de jeu.",
         "billing": "par mois",
         "features": [
-          "Performances GPU avancées",
-          "Support prioritaire 24/7",
-          "Accès aux configurations premium",
-          "Tableau de bord analytique en temps réel"
+          "50h de jeu communautaire par mois",
+          "Résolution 1080p/60 FPS",
+          "1440p/120 FPS en heures creuses",
+          "Accès à tous les jeux communautaires",
+          "Pas d'accès à PulseForge",
+          "Dépassement : 0,89 €/h"
         ]
       },
       "élite": {
         "name": "Pack Élite",
-        "description": "Infrastructure dédiée et sécurité maximale pour les besoins les plus exigeants.",
+        "description": "L'expérience ultime avec accès à PulseForge et performances maximales en 1440p/120.",
         "billing": "par mois",
         "features": [
-          "Machine virtuelle dédiée RTX 4090",
-          "HWID Spoofer illimité",
-          "Consultant technique personnel",
-          "Mises à jour et patchs instantanés"
+          "65h de jeu communautaire par mois",
+          "8h de jeu PulseForge par mois",
+          "Résolution 1440p à 120 FPS",
+          "Accès exclusif à PulseForge",
+          "Accès à tous les jeux communautaires",
+          "Dépassement : 0,79 €/h communautaire",
+          "Dépassement : 1,79 €/h PulseForge"
         ]
       }
     }
+  },
+  "login": {
+    "badge": "Connexion sécurisée",
+    "title": "Connexion",
+    "subtitle": "Accédez à votre espace Hackboot",
+    "form": {
+      "email": {
+        "label": "Email",
+        "placeholder": "votre@email.com"
+      },
+      "password": {
+        "label": "Mot de passe",
+        "placeholder": "••••••••"
+      },
+      "forgotPassword": "Mot de passe oublié ?",
+      "submit": "Se connecter",
+      "submitting": "Connexion..."
+    },
+    "errors": {
+      "generic": "Hmm, ces identifiants ne correspondent pas. Vérifie ton email et ton mot de passe !",
+      "invalidCredentials": "Hmm, ces identifiants ne correspondent pas. Vérifie ton email et ton mot de passe !"
+    },
+    "noAccount": {
+      "text": "Pas encore de compte ?",
+      "link": "Créer un compte"
+    }
+  },
+  "forgotPassword": {
+    "badge": "Récupération de compte",
+    "title": "Mot de passe oublié ?",
+    "subtitle": "Pas de souci, on va t'aider à récupérer ton compte",
+    "form": {
+      "email": {
+        "label": "Email",
+        "placeholder": "votre@email.com"
+      },
+      "submit": "Envoyer le lien",
+      "submitting": "Envoi en cours..."
+    },
+    "errors": {
+      "generic": "Une erreur est survenue. Réessaye dans quelques instants.",
+      "invalidEmail": "Hmm, cet email ne semble pas valide. Vérifie-le !"
+    },
+    "successMessage": "Si un compte existe avec cette adresse email, un lien de réinitialisation a été envoyé.",
+    "successNote": "Vérifie ta boîte mail (et tes spams) dans quelques minutes.",
+    "backToLogin": "Retour à la connexion"
+  },
+  "gamesCarousel": {
+    "title": "Jeux Disponibles",
+    "subtitle": "Clique ou déplace pour explorer notre catalogue de jeux",
+    "viewAll": "Voir tous les jeux"
+  },
+  "premiumPlansSection": {
+    "title": "Choisis Ton Plan Premium",
+    "subtitle": "Des formules flexibles adaptées à tous les joueurs",
+    "cta": "Découvrir les offres"
+  },
+  "statsBar": {
+    "users": {
+      "value": "100K+",
+      "label": "Utilisateurs actifs"
+    },
+    "uptime": {
+      "value": "99.9%",
+      "label": "Uptime garanti"
+    },
+    "latency": {
+      "value": "<5ms",
+      "label": "Latence moyenne"
+    },
+    "games": {
+      "value": "10+",
+      "label": "Jeux supportés"
+    }
+  },
+  "unifiedFeatures": {
+    "badge": "Pourquoi Hackboot",
+    "title": "Excellence sur tous les fronts",
+    "subtitle": "Gaming, sécurité et infrastructure cloud de classe mondiale"
+  },
+  "socialProof": {
+    "badge": "Ils nous font confiance",
+    "title": "Rejoignez des milliers de joueurs satisfaits",
+    "subtitle": "Découvrez ce que nos utilisateurs pensent de Hackboot",
+    "avgRating": "Note moyenne",
+    "totalReviews": "Avis positifs",
+    "satisfaction": "Satisfaction",
+    "testimonials": [
+      {
+        "name": "Alex M.",
+        "role": "Pro Player",
+        "text": "Hackboot a complètement transformé mon expérience gaming. Performances exceptionnelles et latence minimale.",
+        "rating": 5
+      },
+      {
+        "name": "Sarah K.",
+        "role": "Streamer",
+        "text": "La meilleure solution cloud gaming que j'ai testée. Support réactif et infrastructure ultra-stable.",
+        "rating": 5
+      },
+      {
+        "name": "Tom R.",
+        "role": "Esports Team",
+        "text": "Notre équipe utilise Hackboot depuis 6 mois. Zéro problème, performances au rendez-vous. Recommandé à 100%.",
+        "rating": 5
+      }
+    ]
+  },
+  "faq": {
+    "badge": "Questions fréquentes",
+    "title": "Vous avez des questions ?",
+    "subtitle": "Trouvez rapidement les réponses aux questions les plus courantes",
+    "moreQuestions": "Vous avez d'autres questions ?",
+    "contactButton": "Contactez notre support",
+    "questions": [
+      {
+        "question": "Est-ce que Hackboot est légal ?",
+        "answer": "Oui, Hackboot opère sous juridiction estonienne où le développement et l'utilisation de modifications de jeux sont entièrement légaux. Nous respectons strictement toutes les lois en vigueur et sommes une entreprise enregistrée et licenciée en Estonie (VMCloud Group OÜ)."
+      },
+      {
+        "question": "Quels jeux sont supportés ?",
+        "answer": "Nous supportons plus de 10 jeux populaires incluant Valorant, Apex Legends, Overwatch 2, Fortnite, Call of Duty Warzone, CS2, Rainbow Six Siege, PUBG et Rust. De nouveaux titres sont ajoutés régulièrement."
+      },
+      {
+        "question": "Comment fonctionne la sécurité ?",
+        "answer": "Nous utilisons une protection multi-couches kernel-level avec HWID spoofer intégré. Notre technologie est indétectable avec 0% de détection sur toutes les plateformes. Chiffrement E2E et monitoring 24/7 pour garantir votre sécurité."
+      },
+      {
+        "question": "Puis-je annuler mon abonnement à tout moment ?",
+        "answer": "Oui, vous pouvez annuler votre abonnement à tout moment sans frais cachés ni engagement. Votre accès reste actif jusqu'à la fin de la période payée."
+      },
+      {
+        "question": "Quel matériel est nécessaire ?",
+        "answer": "Aucun matériel spécifique requis ! Hackboot fonctionne entièrement dans le cloud. Vous avez juste besoin d'une connexion internet stable (minimum 10 Mbps) et d'un navigateur moderne."
+      },
+      {
+        "question": "Comment fonctionne le support client ?",
+        "answer": "Notre support est disponible 24/7 via Discord, email et WhatsApp. Temps de réponse moyen sous 5 minutes. Pour les clients premium, un account manager dédié est disponible."
+      },
+      {
+        "question": "Y a-t-il une période d'essai ?",
+        "answer": "Nous proposons différentes formules adaptées à tous les besoins. Vous pouvez commencer avec notre Pack Essentiel à partir de 27,90€/mois pour tester nos services avant de passer à une formule supérieure."
+      },
+      {
+        "question": "Quelles sont les performances attendues ?",
+        "answer": "Nos serveurs équipés de RTX 4090 et i9-13900K offrent des performances exceptionnelles : 240+ FPS en 1080p, latence <5ms, et 99.9% d'uptime garanti. Les performances varient selon votre formule choisie."
+      }
+    ]
+  },
+  "finalCTA": {
+    "badge": "Prêt à commencer ?",
+    "title": "Rejoignez l'élite du gaming",
+    "subtitle": "Commencez votre aventure avec Hackboot dès aujourd'hui. Performances maximales, sécurité totale, support 24/7.",
+    "primaryButton": "Commencer maintenant",
+    "secondaryButton": "Parler à un expert",
+    "feature1": "Installation en 5 minutes",
+    "feature2": "Sans engagement",
+    "feature3": "Support 24/7",
+    "disclaimer": "Plus de 100 000 joueurs nous font déjà confiance"
   }
 }
