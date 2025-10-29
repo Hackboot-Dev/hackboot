@@ -1032,5 +1032,118 @@
         ]
       }
     }
+  },
+  "gamesCarousel": {
+    "title": "Available Games",
+    "subtitle": "Click or drag to explore our game catalog",
+    "viewAll": "View all games"
+  },
+  "premiumPlansSection": {
+    "title": "Choose Your Premium Plan",
+    "subtitle": "Flexible plans for every type of gamer",
+    "cta": "Discover plans"
+  },
+  "statsBar": {
+    "users": {
+      "value": "100K+",
+      "label": "Active users"
+    },
+    "uptime": {
+      "value": "99.9%",
+      "label": "Guaranteed uptime"
+    },
+    "latency": {
+      "value": "<5ms",
+      "label": "Average latency"
+    },
+    "games": {
+      "value": "10+",
+      "label": "Supported games"
+    }
+  },
+  "unifiedFeatures": {
+    "badge": "Why Hackboot",
+    "title": "Excellence on all fronts",
+    "subtitle": "World-class gaming, security, and cloud infrastructure"
+  },
+  "socialProof": {
+    "badge": "They trust us",
+    "title": "Join thousands of satisfied gamers",
+    "subtitle": "Discover what our users think about Hackboot",
+    "avgRating": "Average rating",
+    "totalReviews": "Positive reviews",
+    "satisfaction": "Satisfaction",
+    "testimonials": [
+      {
+        "name": "Alex M.",
+        "role": "Pro Player",
+        "text": "Hackboot completely transformed my gaming experience. Exceptional performance and minimal latency.",
+        "rating": 5
+      },
+      {
+        "name": "Sarah K.",
+        "role": "Streamer",
+        "text": "The best cloud gaming solution I've tested. Responsive support and ultra-stable infrastructure.",
+        "rating": 5
+      },
+      {
+        "name": "Tom R.",
+        "role": "Esports Team",
+        "text": "Our team has been using Hackboot for 6 months. Zero issues, performance delivered. 100% recommended.",
+        "rating": 5
+      }
+    ]
+  },
+  "faq": {
+    "badge": "Frequently asked questions",
+    "title": "Got questions?",
+    "subtitle": "Find quick answers to the most common questions",
+    "moreQuestions": "Have more questions?",
+    "contactButton": "Contact our support",
+    "questions": [
+      {
+        "question": "Is Hackboot legal?",
+        "answer": "Yes, Hackboot operates under Estonian jurisdiction where the development and use of game modifications are entirely legal. We strictly comply with all applicable laws and are a registered and licensed company in Estonia (VMCloud Group OÜ)."
+      },
+      {
+        "question": "What games are supported?",
+        "answer": "We support over 10 popular games including Valorant, Apex Legends, Overwatch 2, Fortnite, Call of Duty Warzone, CS2, Rainbow Six Siege, PUBG, and Rust. New titles are added regularly."
+      },
+      {
+        "question": "How does security work?",
+        "answer": "We use multi-layer kernel-level protection with integrated HWID spoofer. Our technology is undetectable with 0% detection on all platforms. E2E encryption and 24/7 monitoring to guarantee your security."
+      },
+      {
+        "question": "Can I cancel my subscription at any time?",
+        "answer": "Yes, you can cancel your subscription at any time without hidden fees or commitments. Your access remains active until the end of the paid period."
+      },
+      {
+        "question": "What hardware is required?",
+        "answer": "No specific hardware required! Hackboot runs entirely in the cloud. You just need a stable internet connection (minimum 10 Mbps) and a modern browser."
+      },
+      {
+        "question": "How does customer support work?",
+        "answer": "Our support is available 24/7 via Discord, email, and WhatsApp. Average response time under 5 minutes. For premium customers, a dedicated account manager is available."
+      },
+      {
+        "question": "Is there a trial period?",
+        "answer": "We offer different plans suited to all needs. You can start with our Essential Pack from €27.90/month to test our services before upgrading to a higher plan."
+      },
+      {
+        "question": "What performance can I expect?",
+        "answer": "Our servers equipped with RTX 4090 and i9-13900K offer exceptional performance: 240+ FPS at 1080p, <5ms latency, and 99.9% guaranteed uptime. Performance varies according to your chosen plan."
+      }
+    ]
+  },
+  "finalCTA": {
+    "badge": "Ready to start?",
+    "title": "Join the gaming elite",
+    "subtitle": "Start your Hackboot adventure today. Maximum performance, total security, 24/7 support.",
+    "primaryButton": "Get started now",
+    "secondaryButton": "Talk to an expert",
+    "feature1": "Setup in 5 minutes",
+    "feature2": "No commitment",
+    "feature3": "24/7 Support",
+    "disclaimer": "Over 100,000 gamers already trust us"
   }
 }

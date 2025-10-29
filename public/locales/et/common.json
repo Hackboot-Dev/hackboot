@@ -1032,5 +1032,118 @@
         ]
       }
     }
+  },
+  "gamesCarousel": {
+    "title": "Saadaolevad mängud",
+    "subtitle": "Klõpsake või lohistage meie mängukataloogi uurimiseks",
+    "viewAll": "Vaata kõiki mänge"
+  },
+  "premiumPlansSection": {
+    "title": "Vali oma Premium plaan",
+    "subtitle": "Paindlikud plaanid igat tüüpi mängijatele",
+    "cta": "Avasta plaanid"
+  },
+  "statsBar": {
+    "users": {
+      "value": "100K+",
+      "label": "Aktiivsed kasutajad"
+    },
+    "uptime": {
+      "value": "99.9%",
+      "label": "Garanteeritud töötamine"
+    },
+    "latency": {
+      "value": "<5ms",
+      "label": "Keskmine latentsus"
+    },
+    "games": {
+      "value": "10+",
+      "label": "Toetatud mängud"
+    }
+  },
+  "unifiedFeatures": {
+    "badge": "Miks Hackboot",
+    "title": "Tipptase kõigis valdkondades",
+    "subtitle": "Maailmatasemel mängimine, turvalisus ja pilvetaristu"
+  },
+  "socialProof": {
+    "badge": "Nad usaldavad meid",
+    "title": "Liitu tuhandete rahulolev mängijatega",
+    "subtitle": "Avasta, mida meie kasutajad Hackbooti kohta arvavad",
+    "avgRating": "Keskmine hinnang",
+    "totalReviews": "Positiivsed arvustused",
+    "satisfaction": "Rahulolu",
+    "testimonials": [
+      {
+        "name": "Alex M.",
+        "role": "Proffimängija",
+        "text": "Hackboot muutis minu mängukogemuse täielikult. Erakordne jõudlus ja minimaalne latentsus.",
+        "rating": 5
+      },
+      {
+        "name": "Sarah K.",
+        "role": "Striimer",
+        "text": "Parim pilvemängu lahendus, mida olen testinud. Reageeriv tugi ja ülim stabiilne taristu.",
+        "rating": 5
+      },
+      {
+        "name": "Tom R.",
+        "role": "Espordi meeskond",
+        "text": "Meie meeskond on kasutanud Hackbooti 6 kuud. Null probleeme, jõudlus täidetud. 100% soovitatud.",
+        "rating": 5
+      }
+    ]
+  },
+  "faq": {
+    "badge": "Korduma kippuvad küsimused",
+    "title": "On küsimusi?",
+    "subtitle": "Leia kiiresti vastused kõige levinumatele küsimustele",
+    "moreQuestions": "On veel küsimusi?",
+    "contactButton": "Võta ühendust meie toega",
+    "questions": [
+      {
+        "question": "Kas Hackboot on seaduslik?",
+        "answer": "Jah, Hackboot tegutseb Eesti jurisdiktsiooni all, kus mängumodifikatsioonide arendamine ja kasutamine on täielikult seaduslik. Me järgime rangelt kõiki kohaldatavaid seadusi ja oleme Eestis registreeritud ja litsentseeritud ettevõte (VMCloud Group OÜ)."
+      },
+      {
+        "question": "Milliseid mänge toetatakse?",
+        "answer": "Me toetame üle 10 populaarse mängu, sealhulgas Valorant, Apex Legends, Overwatch 2, Fortnite, Call of Duty Warzone, CS2, Rainbow Six Siege, PUBG ja Rust. Uusi pealkirju lisatakse regulaarselt."
+      },
+      {
+        "question": "Kuidas turvalisus töötab?",
+        "answer": "Me kasutame mitmekihilist tuuma-tasemel kaitset integreeritud HWID spooferiga. Meie tehnoloogia on tuvastatamatu 0% tuvastamisega kõigil platvormidel. E2E krüpteerimine ja 24/7 monitooring teie turvalisuse tagamiseks."
+      },
+      {
+        "question": "Kas saan tellimuse igal ajal tühistada?",
+        "answer": "Jah, saate tellimuse igal ajal tühistada ilma varjatud tasudeta või kohustusteta. Teie juurdepääs jääb aktiivseks kuni makstud perioodi lõpuni."
+      },
+      {
+        "question": "Millist riistvara on vaja?",
+        "answer": "Konkreetset riistvara pole vaja! Hackboot töötab täielikult pilves. Teil on vaja ainult stabiilset internetiühendust (vähemalt 10 Mbps) ja kaasaegset brauserit."
+      },
+      {
+        "question": "Kuidas klienditoe töötab?",
+        "answer": "Meie tugi on saadaval 24/7 Discordi, e-posti ja WhatsAppi kaudu. Keskmine reageerimisaeg alla 5 minuti. Preemiumklientidele on saadaval pühendunud kontohaldurid."
+      },
+      {
+        "question": "Kas on prooviaeg?",
+        "answer": "Pakume erinevaid plaane, mis sobivad kõigile vajadustele. Saate alustada meie Essential Packiga alates 27,90 €/kuus, et testida meie teenuseid enne kõrgemale plaanile üleminekut."
+      },
+      {
+        "question": "Millist jõudlust võin oodata?",
+        "answer": "Meie RTX 4090 ja i9-13900K-ga varustatud serverid pakuvad erakordset jõudlust: 240+ FPS 1080p juures, <5ms latentsus ja 99,9% garanteeritud töötamine. Jõudlus sõltub teie valitud plaanist."
+      }
+    ]
+  },
+  "finalCTA": {
+    "badge": "Valmis alustama?",
+    "title": "Liitu mängueliidiga",
+    "subtitle": "Alusta oma Hackbooti seiklust täna. Maksimaalne jõudlus, täielik turvalisus, 24/7 tugi.",
+    "primaryButton": "Alusta kohe",
+    "secondaryButton": "Räägi eksperdiga",
+    "feature1": "Seadistamine 5 minutiga",
+    "feature2": "Kohustuseta",
+    "feature3": "24/7 tugi",
+    "disclaimer": "Üle 100 000 mängija usaldab meid juba"
   }
 }

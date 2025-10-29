@@ -1,5 +1,94 @@
 # Journal des Actions - Hackboot
 
+## 2025-10-29
+
+### Refonte: Réorganisation optimisée de la page d'accueil
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Améliorer le parcours utilisateur de la page d'accueil en réorganisant les sections, supprimant les répétitions, et ajoutant des éléments de réassurance (social proof, FAQ, CTA final).
+
+#### Actions réalisées:
+
+**1. Création de 5 nouveaux composants**
+   - `StatsBar.tsx` : Bandeau de statistiques clés (100K+ users, 99.9% uptime, <5ms latence, 10+ jeux)
+   - `UnifiedFeaturesSection.tsx` : Section unifiée fusionnant les 3 ParallaxSection (Gaming/Security/Cloud) en une grille 3 colonnes cohérente
+   - `SocialProofSection.tsx` : Témoignages clients avec 3 avis par défaut, notes 5 étoiles, et métriques de satisfaction
+   - `FAQSection.tsx` : 8 questions fréquentes avec accordéon interactif
+   - `FinalCTASection.tsx` : Call-to-action final avant le footer avec 2 boutons (commencer/contact)
+
+**2. Ajout des traductions complètes FR/EN/ET**
+   - Ajout de `statsBar`, `unifiedFeatures`, `socialProof`, `faq`, `finalCTA` dans `public/locales/*/common.json`
+   - Traductions complètes des 8 questions FAQ pour chaque langue
+   - Traductions des 3 témoignages clients pour FR/EN/ET
+
+**3. Réorganisation de `app/[locale]/page.tsx`**
+
+   **Ancien ordre (8 sections):**
+   1. Hero
+   2. ParallaxSection Gaming
+   3. InteractiveCards
+   4. ParallaxSection Security
+   5. InteractiveGamesCarousel
+   6. PremiumPlansSection
+   7. ProductsSection
+   8. ParallaxSection Cloud
+
+   **Nouvel ordre (10 sections):**
+   1. Hero
+   2. **StatsBar** (NOUVEAU)
+   3. InteractiveGamesCarousel
+   4. **UnifiedFeaturesSection** (NOUVEAU - remplace 3 parallax)
+   5. InteractiveCards
+   6. ProductsSection
+   7. PremiumPlansSection
+   8. **SocialProofSection** (NOUVEAU)
+   9. **FAQSection** (NOUVEAU)
+   10. **FinalCTASection** (NOUVEAU)
+
+**4. Améliorations du parcours utilisateur**
+   - **Suppression des répétitions** : Les 3 ParallaxSection similaires fusionnées en 1 section cohérente
+   - **Ordre logique** : Catalogue (jeux) → Valeur (features) → Produits → Plans → Confiance (social proof) → FAQ → Action (CTA)
+   - **Éléments de réassurance** : Témoignages, FAQ, et statistiques pour augmenter la conversion
+   - **CTA final puissant** : Dernier point de conversion avant le footer
+
+#### Résultats:
+
+- ✅ 5 nouveaux composants créés et stylisés selon la charte graphique
+- ✅ Traductions complètes pour FR/EN/ET (3 langues)
+- ✅ Page réorganisée avec parcours utilisateur optimisé
+- ✅ Lazy loading conservé pour les performances
+- ✅ Animations cohérentes sur toutes les sections
+- ✅ Design glassmorphism et gradients uniformes
+- ✅ Responsive mobile-first maintenu
+- ✅ Aucune régression introduite
+
+#### Impact:
+
+- **UX améliorée** : Parcours plus fluide et logique
+- **Moins de répétition** : 3 sections similaires fusionnées en 1
+- **Plus de réassurance** : Social proof et FAQ augmentent la confiance
+- **Conversion optimisée** : CTA final pour capter les indécis
+- **Meilleure hiérarchie** : Stats, jeux, features, produits, plans dans l'ordre d'intérêt
+
+#### Fichiers créés:
+
+- `components/StatsBar.tsx`
+- `components/UnifiedFeaturesSection.tsx`
+- `components/SocialProofSection.tsx`
+- `components/FAQSection.tsx`
+- `components/FinalCTASection.tsx`
+
+#### Fichiers modifiés:
+
+- `app/[locale]/page.tsx` (réorganisation complète)
+- `public/locales/fr/common.json` (+110 lignes)
+- `public/locales/en/common.json` (+113 lignes)
+- `public/locales/et/common.json` (+113 lignes)
+
+---
+
 ## 2025-10-28
 
 ### Merge: Intégration des branches distantes avec résolution de conflits

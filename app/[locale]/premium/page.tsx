@@ -46,8 +46,6 @@ export default function PremiumPage() {
   const premiumBenefits = premiumContent.benefits as string[] | undefined
 
   const [selectedFeature, setSelectedFeature] = useState<Feature | null>(null)
-
-  const plans = useMemo(() => getSubscriptionPlans(), [])
   const premiumSignupContent = t.premiumSignup ?? {}
   const planTranslations = (premiumSignupContent.plans ?? {}) as Record<string, { name?: string; description?: string; features?: string[] }>
 

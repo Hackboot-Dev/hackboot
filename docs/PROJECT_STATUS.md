@@ -3,8 +3,8 @@
 ## 📊 Vue d'ensemble
 
 **Statut global:** 🟡 En développement actif
-**Dernière mise à jour:** 27 Octobre 2025
-**Version:** 0.3.0
+**Dernière mise à jour:** 29 Octobre 2025
+**Version:** 0.4.0
 
 ## 🎯 Fonctionnalités implémentées
 
@@ -27,7 +27,6 @@
 - [x] Hero avec animations (version light optimisée)
 - [x] Header avec navigation et menu mobile
 - [x] Logo SVG animé avec interaction hover
-- [x] Sections parallax i18n
 - [x] Cartes interactives avec effets 3D
 - [x] Défilement infini des logos
 - [x] Footer responsive
@@ -36,6 +35,13 @@
 - [x] Formulaire de contact avec validation et feedback
 - [x] Timeline animée (page About)
 - [x] Cartes équipe avec animations (page About)
+- [x] StatsBar - Bandeau statistiques clés
+- [x] UnifiedFeaturesSection - Section features unifiée (Gaming/Security/Cloud)
+- [x] SocialProofSection - Témoignages clients et social proof
+- [x] FAQSection - Questions fréquentes avec accordéon
+- [x] FinalCTASection - Call-to-action final
+- [x] InteractiveGamesCarousel - Carousel de jeux draggable
+- [x] PremiumPlansSection - Section plans premium sur home
 
 ## 🚧 En cours de développement
 
