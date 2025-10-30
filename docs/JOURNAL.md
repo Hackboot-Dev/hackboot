@@ -2,6 +2,263 @@
 
 ## 2025-10-29
 
+### UI: Intégration des illustrations features + Nettoyage du projet
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Intégrer les illustrations personnalisées dans les cards de features de la page principale et nettoyer les fichiers obsolètes du projet.
+
+#### Actions réalisées:
+
+**1. Organisation des illustrations**
+   - Créé dossier `/public/images/features/`
+   - Renommé et déplacé 3 illustrations :
+     - `cloud-gaming.png` (1.4MB) - Contrôleur + cloud + serveurs (line art bleu/violet)
+     - `security-shield.webp` (128KB) - Bouclier + cadenas + serveurs (line art cyan/bleu)
+     - `cloud-infrastructure.png` (1.4MB) - Serveurs + cloud + sécurité (line art bleu/violet)
+
+**2. Intégration dans UnifiedFeaturesSection**
+   - Remplacé les 3 images Unsplash par les illustrations locales
+   - Feature Gaming → `/images/features/cloud-gaming.png`
+   - Feature Security → `/images/features/security-shield.webp`
+   - Feature Cloud → `/images/features/cloud-infrastructure.png`
+   - Images cohérentes avec la charte graphique (hexagones, gradients bleu/violet/rose)
+
+**3. Nettoyage des fichiers obsolètes**
+   - Supprimé `DESIGN_SYSTEM_REPORT.md` (10KB) - Remplacé par CHARTE_GRAPHIQUE.md
+   - Supprimé `products.json` (4KB) - Remplacé par `/data/gaming-products.json`
+   - Fichiers à la racine : 16 → 14 fichiers
+
+**4. Analyse du dossier /test/**
+   - Identifié 4.1MB de fichiers de scraping GeForce Now
+   - 24 fichiers (scripts Python, JSON volumineux, HTML)
+   - Potentiellement supprimables si tests terminés
+
+#### Résultats:
+
+- ✅ Illustrations intégrées dans les 3 cards de features
+- ✅ Design cohérent avec style line art bleu/violet hexagonal
+- ✅ Images optimisées (WebP pour security = 128KB)
+- ✅ 2 fichiers obsolètes supprimés de la racine
+- ✅ Projet plus organisé et propre
+
+#### Style des illustrations:
+
+- **Technique** : Line art avec gradients bleu (#0066FF) → violet (#8B5CF6) → rose (#EC4899)
+- **Éléments** : Hexagones (signature Hackboot), particules, lignes de connexion
+- **Fond** : Blanc/transparent avec motifs hexagonaux subtils
+- **Cohérence** : Parfaitement aligné avec CHARTE_GRAPHIQUE.md
+
+#### Fichiers modifiés:
+- Modifié : `/components/UnifiedFeaturesSection.tsx` (URLs images)
+- Supprimé : `DESIGN_SYSTEM_REPORT.md`, `products.json`
+- Nouveau dossier : `/public/images/features/` (3 images)
+- Documentation : `/docs/JOURNAL.md`
+
+#### Note:
+Dossier `/test/` contient 4.1MB de fichiers de scraping temporaires qui peuvent être supprimés si les tests sont terminés.
+
+---
+
+### Feature: Création du dashboard ADS interne avec authentification
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Créer une page `/ads` accessible uniquement via URL directe, avec authentification sécurisée basée sur `ads-users.json` (mot de passe hashé bcrypt + JWT), permettant de générer rapidement des visuels publicitaires pour les réseaux sociaux.
+
+#### Actions réalisées:
+
+**1. Système d'authentification sécurisé**
+   - Créé `/data/ads-users.json` avec utilisateurs et mots de passe hashés (bcrypt)
+   - Créé `/app/api/ads/login/route.ts` - API d'authentification JWT
+   - Installé dépendances : `bcryptjs`, `jsonwebtoken`, `@types/bcryptjs`, `@types/jsonwebtoken`
+   - Créé script `/scripts/generate-password-hash.js` pour générer des hash
+   - JWT Token avec expiration 24h, stockage localStorage
+
+**2. Page de login (/ads)**
+   - Design glassmorphism cohérent avec la charte graphique
+   - Formulaires username/password avec icônes Lucide
+   - Toggle show/hide password
+   - Gestion des erreurs (credentials invalides, erreur réseau)
+   - Loading state pendant authentification
+   - Redirection vers dashboard après succès
+
+**3. Dashboard principal (/ads/dashboard)**
+   - Vérification du token JWT au chargement
+   - Affichage des informations utilisateur (username, role)
+   - Grille de 4 outils créatifs
+   - Badges "Coming Soon" pour outils non disponibles
+   - Bouton Logout avec suppression du token
+   - Section "Quick Tips" pour guide utilisateur
+
+**4. Outil Social Media Images (/ads/dashboard/social-images)**
+   - 6 formats prédéfinis (Instagram, Facebook, Twitter, LinkedIn, YouTube)
+   - Formulaire de contenu : titre, sous-titre, CTA
+   - Preview en temps réel avec aspect ratio correct
+   - Design avec gradients et effets glassmorphism
+   - Bouton "Copy HTML" pour copier le code
+
+**5. Sécurité et configuration**
+   - Ajout variable d'environnement `ADS_JWT_SECRET` dans `.env.local`
+   - Credentials par défaut : username `admin` / password `admin123`
+   - Hash bcrypt avec salt rounds = 10
+   - Validation côté serveur
+   - Protection routes dashboard
+
+**6. Documentation**
+   - Créé `/app/ads/README.md` complet (180 lignes)
+   - Instructions d'accès et utilisation
+   - Guide pour ajouter des utilisateurs
+   - Guide pour développer de nouveaux outils
+
+#### Résultats:
+
+- ✅ Page `/ads` avec login sécurisé fonctionnel
+- ✅ Dashboard `/ads/dashboard` avec 4 outils (1 disponible, 3 à venir)
+- ✅ Outil Social Media Images opérationnel avec 6 formats
+- ✅ Authentification JWT sécurisée (bcrypt + token 24h)
+- ✅ Design cohérent avec charte graphique Hackboot
+- ✅ Build Next.js réussi sans erreur
+- ✅ Documentation complète
+
+#### Accès:
+**URL:** `http://localhost:3000/ads`
+**Credentials:** `admin` / `admin123`
+
+⚠️ La page n'est pas liée dans la navigation, accessible uniquement via URL directe.
+
+#### Fichiers créés:
+- `/app/ads/page.tsx` - Page de login
+- `/app/ads/dashboard/page.tsx` - Dashboard principal
+- `/app/ads/dashboard/social-images/page.tsx` - Générateur images
+- `/app/ads/README.md` - Documentation
+- `/app/api/ads/login/route.ts` - API authentification
+- `/data/ads-users.json` - Base utilisateurs
+- `/scripts/generate-password-hash.js` - Script hash
+- Modifié : `.env.local`, `package.json`
+
+---
+
+### Documentation: Création de la charte graphique complète
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Créer une charte graphique complète à la racine du projet en analysant le site, les couleurs, le design system, le logo et tous les composants visuels. Cette charte servira de référence pour générer des illustrations cohérentes pour la page principale et maintenir la cohérence visuelle du site.
+
+#### Actions réalisées:
+
+**1. Analyse approfondie du site**
+   - Lecture et analyse de `/app/globals.css` (296 lignes, 10 animations)
+   - Analyse de `/tailwind.config.js` (configuration complète)
+   - Étude du composant `Logo.tsx` (SVG vectoriel avec gradient)
+   - Analyse du `Header.tsx` (navigation, glassmorphism, transitions)
+   - Étude du `HeroLight.tsx` (animations, blobs, effets)
+   - Lecture de `/data/gaming-products.json` (structure produits gaming)
+
+**2. Extraction des éléments de design**
+   - **Palette de couleurs** : Background noir (#000000, #0A0A0A), accent bleu (#0066FF), 6 ensembles de gradients
+   - **Typographie** : Space Grotesk (Display), Inter (Body), hiérarchie complète H1-H4
+   - **Logo** : Hexagone SVG avec gradient purple-pink-indigo, animation 360°
+   - **Animations** : float, gradient-shift, marquee, particle, shake, blob animations
+   - **Composants** : Boutons (primary, secondary, gradient), cartes (standard, product, pulseforge), badges, inputs
+   - **Espacement** : Système 4px, grilles responsive, breakpoints
+
+**3. Création de CHARTE_GRAPHIQUE.md**
+   - Document complet de 15 000+ mots à la racine du projet
+   - 12 sections détaillées avec code CSS/JSX
+   - Valeurs hexadécimales exactes pour toutes les couleurs
+   - Timing précis pour toutes les animations (ms)
+   - Prompts de génération pour 6 types d'illustrations
+   - Guidelines d'accessibilité WCAG AA
+   - Checklist de conformité
+
+**4. Sections de la charte créée**
+   1. Identité visuelle (positionnement, univers)
+   2. Palette de couleurs (principales, gradients, support)
+   3. Typographie (polices, hiérarchie, styles)
+   4. Logo et symbole (SVG, variations, zones de protection)
+   5. Système de grille et espacement (breakpoints, padding, gap)
+   6. Composants UI (boutons, cartes, badges, inputs)
+   7. Animations et effets (10 animations, Framer Motion presets)
+   8. Iconographie (Lucide React, tailles, couleurs)
+   9. Images et illustrations (structure assets, prompts génération)
+   10. Ton et style (principes rédactionnels, messages types)
+   11. Accessibilité (WCAG 2.1 AA, contrastes, motion)
+   12. Guidelines d'utilisation (à faire, à ne pas faire, checklist)
+
+**5. Prompts d'illustration fournis**
+   - Hero Background (background principal homepage)
+   - Gaming Performance Abstract (section performances)
+   - Cloud Gaming Server Room (section infrastructure)
+   - E-sport Competition Scene (section services)
+   - Gaming Controller Abstract (section features)
+   - PulseForge Native Gaming (section PulseForge)
+
+#### Résultats:
+
+- ✅ Charte graphique complète créée : `/CHARTE_GRAPHIQUE.md`
+- ✅ 12 sections détaillées avec exemples de code
+- ✅ Toutes les couleurs documentées avec hex codes exacts
+- ✅ Toutes les animations documentées avec timing précis
+- ✅ 6 prompts prêts pour génération d'illustrations
+- ✅ Guidelines d'accessibilité WCAG AA
+- ✅ Checklist de conformité pour validation
+- ✅ Document de 15 000+ mots, prêt pour référence
+
+#### Utilisation:
+
+Le fichier `CHARTE_GRAPHIQUE.md` peut maintenant être utilisé pour :
+1. Générer des illustrations cohérentes avec Midjourney/DALL-E/Stable Diffusion
+2. Maintenir la cohérence visuelle lors de nouveaux développements
+3. Onboarder de nouveaux designers/développeurs
+4. Valider les designs avec la checklist de conformité
+5. Référencer les valeurs exactes (couleurs, espacements, animations)
+
+#### Fichiers modifiés:
+- Nouveau fichier : `/CHARTE_GRAPHIQUE.md`
+- Documentation : `/docs/JOURNAL.md`
+
+---
+
+### Git: Nettoyage des branches - Conservation de main et dev uniquement
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Basculer sur la branche dev et supprimer toutes les autres branches (locales et distantes) pour ne conserver que main et dev.
+
+#### Actions réalisées:
+
+**1. Bascule sur la branche dev**
+   - Passage de `codespace-laughing-giggle-6xgj4wj6q67f4p76` vers `dev`
+   - Mise à jour de la branche locale dev avec `git pull` (39 commits récupérés)
+
+**2. Suppression des branches locales**
+   - Supprimé : `codespace-laughing-giggle-6xgj4wj6q67f4p76`
+   - Supprimé : `modify-premium-sign-up-flow-and-translation`
+
+**3. Suppression des branches distantes**
+   - Supprimé : `origin/modify-premium-sign-up-flow-and-translation`
+   - Nettoyage des références obsolètes avec `git fetch --prune`
+   - Les branches `claude/update-premium-page-011CUXxpmhcbK4bbdH8Zcd9W` et `codespace-laughing-giggle-6xgj4wj6q67f4p76` étaient déjà supprimées du distant
+
+#### Résultats:
+
+- ✅ Branche actuelle : `dev` (à jour avec origin/dev)
+- ✅ Branches locales restantes : `main`, `dev`
+- ✅ Branches distantes restantes : `origin/main`, `origin/dev`
+- ✅ Toutes les autres branches supprimées
+- ✅ Dépôt nettoyé et organisé
+
+#### Fichiers modifiés:
+- Aucun fichier de code modifié
+- Documentation : `docs/JOURNAL.md`
+
+---
+
 ### UI: Transformation du carousel de jeux en bandeau défilant infini
 **Heure**: Session actuelle (partie 2)
 **Développeur**: Assistant Claude

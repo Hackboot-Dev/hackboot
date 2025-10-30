@@ -11,8 +11,8 @@ export default function StatsBar() {
   const statsData = [
     {
       icon: Users,
-      value: stats.users?.value || '100K+',
-      label: stats.users?.label || 'Utilisateurs actifs',
+      value: stats.users?.value || 'Actif',
+      label: stats.users?.label || 'Service actif 24/7',
       color: 'from-blue-500 to-cyan-500'
     },
     {

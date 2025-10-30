@@ -33,6 +33,16 @@ function getLocale(request: NextRequest): string {
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname
 
+  // Exclude specific routes from locale routing (internal tools, APIs, etc.)
+  const excludedPaths = ['/ads']
+  const isExcluded = excludedPaths.some(path =>
+    pathname === path || pathname.startsWith(`${path}/`)
+  )
+
+  if (isExcluded) {
+    return NextResponse.next()
+  }
+
   // Check if pathname already has a locale
   const pathnameHasLocale = locales.some(
     (locale) => pathname.startsWith(`/${locale}/`) || pathname === `/${locale}`

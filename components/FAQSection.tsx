@@ -80,36 +80,36 @@ export default function FAQSection() {
             <>
               {[
                 {
-                  question: 'Comment fonctionne la sécurité et la protection anti-détection ?',
-                  answer: 'Nos systèmes utilisent des technologies de protection avancées incluant le chiffrement bout-en-bout, l\'isolation des processus et des méthodes de contournement sophistiquées. Nous mettons à jour nos protections en continu pour rester compatibles avec les dernières versions des anti-cheats. Chaque session est sécurisée et anonymisée.'
+                  question: 'Quels sont les jeux disponibles sur Hackboot ?',
+                  answer: 'Hackboot supporte plus de 10 jeux populaires incluant des FPS compétitifs, des jeux de tir tactiques et des battle royales. Vous pouvez consulter la liste complète des jeux supportés sur notre page Games. Chaque jeu dispose de fonctionnalités optimisées et régulièrement mises à jour.'
                 },
                 {
-                  question: 'Puis-je annuler mon abonnement à tout moment ?',
-                  answer: 'Oui, vous pouvez annuler votre abonnement à tout moment sans engagement ni frais cachés. Votre accès reste actif jusqu\'à la fin de la période déjà payée. L\'annulation se fait en quelques clics depuis votre espace client.'
+                  question: 'Quelles sont les différentes formules d\'abonnement Premium ?',
+                  answer: 'Nous proposons trois formules Premium : Basic (accès standard aux features essentielles), Pro (fonctionnalités avancées + support prioritaire) et Elite (accès complet + développement custom). Les prix et détails sont disponibles sur notre page Premium. Tous les abonnements sont sans engagement.'
                 },
                 {
-                  question: 'Quel matériel est nécessaire pour utiliser Hackboot ?',
-                  answer: 'Une connexion internet stable (minimum 20 Mbps recommandé) est indispensable. Côté matériel, une configuration PC de bureau classique suffit : processeur Intel i5/Ryzen 5 (ou équivalent), 8 Go de RAM, carte graphique GTX 1060 / RX 580 ou supérieure. Nos services sont optimisés pour fonctionner sur du matériel standard.'
+                  question: 'Comment puis-je contacter le support technique ?',
+                  answer: 'Notre support est accessible 24/7 via la page Contact du site. Les abonnés Premium bénéficient d\'un temps de réponse prioritaire et d\'une assistance dédiée. Vous pouvez également utiliser le chatbot intégré au site pour obtenir des réponses instantanées aux questions courantes.'
                 },
                 {
-                  question: 'Comment fonctionne le support client ?',
-                  answer: 'Le support client est accessible via notre page Contact. Il est principalement réservé aux abonnés actifs avec un temps de réponse prioritaire. Les non-abonnés peuvent également nous contacter, mais avec un délai de réponse moins réactif. Rendez-vous sur la page Contact pour nous joindre.'
+                  question: 'Quelles sont les fonctionnalités principales de Hackboot ?',
+                  answer: 'Hackboot offre des systèmes de sécurité avancés, une infrastructure cloud ultra-rapide (<5ms de latence), des mises à jour automatiques en temps réel, un support client disponible 24/7, et une interface optimisée pour les performances. Consultez notre page Services pour plus de détails sur chaque fonctionnalité.'
                 },
                 {
-                  question: 'Y a-t-il une période d\'essai gratuite ?',
-                  answer: 'Non, nous ne proposons pas de période d\'essai gratuite. Cependant, nos formules d\'abonnement sont flexibles et vous pouvez annuler à tout moment. Nous recommandons de commencer avec une formule adaptée à vos besoins pour tester nos services.'
+                  question: 'Est-ce que Hackboot garantit la sécurité de mes données ?',
+                  answer: 'Oui, la sécurité est notre priorité absolue. Nous utilisons un chiffrement de niveau militaire, une protection DDoS avancée, des systèmes anti-détection sophistiqués et une authentification multi-facteurs. Toutes vos données sont protégées et anonymisées. Plus d\'infos sur notre page About.'
                 },
                 {
-                  question: 'Comment installer et commencer à utiliser Hackboot ?',
-                  answer: 'Après souscription, vous recevrez un accès à votre espace client avec toutes les instructions détaillées. L\'installation est simple et guidée étape par étape. Vous aurez accès à nos tutoriels, documentation et support pour vous accompagner dans vos premiers pas.'
+                  question: 'Comment se déroule l\'inscription sur Hackboot ?',
+                  answer: 'L\'inscription est simple et rapide : créez votre compte via la page Login, choisissez votre formule Premium sur la page dédiée, et accédez instantanément à votre espace membre. Le processus est entièrement guidé et sécurisé. Aucune information bancaire n\'est stockée sur nos serveurs.'
                 },
                 {
-                  question: 'Puis-je utiliser mon abonnement sur plusieurs PC ?',
-                  answer: 'Cela dépend de votre formule d\'abonnement. Certains packs permettent l\'utilisation sur plusieurs machines, tandis que d\'autres sont liés à une configuration matérielle spécifique. Consultez les détails de chaque formule ou contactez-nous pour plus d\'informations.'
+                  question: 'Quelle est la latence moyenne du service ?',
+                  answer: 'Hackboot garantit une latence moyenne inférieure à 5ms grâce à notre infrastructure cloud distribuée mondialement. Nous disposons de serveurs dans plusieurs régions pour assurer des performances optimales quel que soit votre emplacement géographique.'
                 },
                 {
-                  question: 'Que se passe-t-il en cas de mise à jour du jeu ou de l\'anti-cheat ?',
-                  answer: 'Notre équipe surveille en permanence les mises à jour des jeux et anti-cheats. Nous déployons des correctifs et mises à jour dans les plus brefs délais pour maintenir la compatibilité. Les abonnés sont informés automatiquement des mises à jour disponibles via l\'espace client.'
+                  question: 'Les mises à jour sont-elles automatiques ?',
+                  answer: 'Oui, toutes les mises à jour sont automatiques et déployées en temps réel sans interruption de service. Notre système de mise à jour intelligente garantit une compatibilité permanente avec les dernières versions des jeux et des systèmes de sécurité, avec un uptime garanti de 99.9%.'
                 }
               ].map((item, index) => (
                 <div
