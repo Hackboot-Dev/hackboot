@@ -45,7 +45,7 @@ export default function SocialProofSection() {
                   </div>
 
                   <p className="text-gray-300 mb-6 leading-relaxed">
-                    "{testimonial.text}"
+                    &ldquo;{testimonial.text}&rdquo;
                   </p>
 
                   <div className="flex items-center gap-3">
@@ -83,7 +83,7 @@ export default function SocialProofSection() {
                     </div>
 
                     <p className="text-gray-300 mb-6 leading-relaxed">
-                      "{testimonial.text}"
+                      &ldquo;{testimonial.text}&rdquo;
                     </p>
 
                     <div className="flex items-center gap-3">

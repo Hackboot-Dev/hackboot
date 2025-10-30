@@ -1,1 +1,6 @@
-Generated code for Instagram Story
+{
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "@next/next/no-img-element": "off"
+  }
+}

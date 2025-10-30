@@ -778,6 +778,8 @@ export default function SocialImagesPage() {
 
                 {/* Tab Content */}
                 <div className="glass-effect rounded-xl p-3 border border-white/10 max-h-[calc(100vh-350px)] overflow-y-auto custom-scrollbar">
+                  
+                    
                   {activeTab === 'content' && (
                     <div className="space-y-4">
                       <div>
@@ -787,76 +789,77 @@ export default function SocialImagesPage() {
                         </p>
                       </div>
 
-                      <div>
-                        <label className="block text-xs font-medium text-gray-300 mb-1.5">
-                          Titre principal
-                        </label>
-                        <input
-                          type="text"
-                          value={title}
-                          onChange={(e) => setTitle(e.target.value)}
-                          placeholder="Saisissez un titre accrocheur"
-                          maxLength={titleLimit}
-                          className="w-full px-3 py-2 text-sm bg-white/5 border border-white/10 rounded-lg text-white placeholder:text-gray-500 focus:outline-none focus:border-purple-500/50 transition-colors"
-                        />
-                        <div className="mt-1 flex items-center justify-between text-[11px]">
-                          <span className="text-gray-500">Recommandé : {titleLimit} caractères max.</span>
-                          <span
-                            className={`font-semibold ${getCounterClass(titleRemaining)}`}
-                            aria-live="polite"
-                          >
-                            {titleRemaining} restants
-                          </span>
+                      <div className="space-y-3">
+                        <div>
+                          <label className="block text-xs font-medium text-gray-300 mb-1.5">
+                            Titre principal
+                          </label>
+                          <input
+                            type="text"
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
+                            placeholder="Saisissez un titre accrocheur"
+                            maxLength={titleLimit}
+                            className="w-full px-3 py-2 text-sm bg-white/5 border border-white/10 rounded-lg text-white placeholder:text-gray-500 focus:outline-none focus:border-purple-500/50 transition-colors"
+                          />
+                          <div className="mt-1 flex items-center justify-between text-[11px]">
+                            <span className="text-gray-500">Recommandé : {titleLimit} caractères max.</span>
+                            <span
+                              className={`font-semibold ${getCounterClass(titleRemaining)}`}
+                              aria-live="polite"
+                            >
+                              {titleRemaining} restants
+                            </span>
+                          </div>
+                        </div>
+
+                        <div>
+                          <label className="block text-xs font-medium text-gray-300 mb-1.5">
+                            Sous-titre
+                          </label>
+                          <textarea
+                            value={subtitle}
+                            onChange={(e) => setSubtitle(e.target.value)}
+                            placeholder="Complétez votre promesse ou détaillez l&apos;offre"
+                            rows={2}
+                            maxLength={subtitleLimit}
+                            className="w-full px-3 py-2 text-sm bg-white/5 border border-white/10 rounded-lg text-white placeholder:text-gray-500 focus:outline-none focus:border-purple-500/50 transition-colors resize-none"
+                          />
+                          <div className="mt-1 flex items-center justify-between text-[11px]">
+                            <span className="text-gray-500">{subtitleLimit} caractères conseillés.</span>
+                            <span
+                              className={`font-semibold ${getCounterClass(subtitleRemaining)}`}
+                              aria-live="polite"
+                            >
+                              {subtitleRemaining} restants
+                            </span>
+                          </div>
+                        </div>
+
+                        <div>
+                          <label className="block text-xs font-medium text-gray-300 mb-1.5">
+                            Appel à l&apos;action
+                          </label>
+                          <input
+                            type="text"
+                            value={cta}
+                            onChange={(e) => setCta(e.target.value)}
+                            placeholder="Ex. Télécharger maintenant, Découvrir l&apos;offre"
+                            maxLength={ctaLimit}
+                            className="w-full px-3 py-2 text-sm bg-white/5 border border-white/10 rounded-lg text-white placeholder:text-gray-500 focus:outline-none focus:border-purple-500/50 transition-colors"
+                          />
+                          <div className="mt-1 flex items-center justify-between text-[11px]">
+                            <span className="text-gray-500">{ctaLimit} caractères maximum.</span>
+                            <span
+                              className={`font-semibold ${getCounterClass(ctaRemaining)}`}
+                              aria-live="polite"
+                            >
+                              {ctaRemaining} restants
+                            </span>
+                          </div>
                         </div>
                       </div>
 
-                      <div>
-                        <label className="block text-xs font-medium text-gray-300 mb-1.5">
-                          Sous-titre
-                        </label>
-                        <textarea
-                          value={subtitle}
-                          onChange={(e) => setSubtitle(e.target.value)}
-                          placeholder="Complétez votre promesse ou détaillez l&apos;offre"
-                          rows={2}
-                          maxLength={subtitleLimit}
-                          className="w-full px-3 py-2 text-sm bg-white/5 border border-white/10 rounded-lg text-white placeholder:text-gray-500 focus:outline-none focus:border-purple-500/50 transition-colors resize-none"
-                        />
-                        <div className="mt-1 flex items-center justify-between text-[11px]">
-                          <span className="text-gray-500">{subtitleLimit} caractères conseillés.</span>
-                          <span
-                            className={`font-semibold ${getCounterClass(subtitleRemaining)}`}
-                            aria-live="polite"
-                          >
-                            {subtitleRemaining} restants
-                          </span>
-                        </div>
-                      </div>
-
-                      <div>
-                        <label className="block text-xs font-medium text-gray-300 mb-1.5">
-                          Appel à l&apos;action
-                        </label>
-                        <input
-                          type="text"
-                          value={cta}
-                          onChange={(e) => setCta(e.target.value)}
-                          placeholder="Ex. Télécharger maintenant, Découvrir l&apos;offre"
-                          maxLength={ctaLimit}
-                          className="w-full px-3 py-2 text-sm bg-white/5 border border-white/10 rounded-lg text-white placeholder:text-gray-500 focus:outline-none focus:border-purple-500/50 transition-colors"
-                        />
-                        <div className="mt-1 flex items-center justify-between text-[11px]">
-                          <span className="text-gray-500">{ctaLimit} caractères maximum.</span>
-                          <span
-                            className={`font-semibold ${getCounterClass(ctaRemaining)}`}
-                            aria-live="polite"
-                          >
-                            {ctaRemaining} restants
-                          </span>
-                        </div>
-                      </div>
-
-                      {/* Text Customization */}
                       <div className="space-y-3 border-t border-white/10 pt-3">
                         <div className="flex items-center gap-1.5">
                           <Sliders className="w-3.5 h-3.5 text-purple-400" />
@@ -946,11 +949,9 @@ export default function SocialImagesPage() {
                           </div>
                         </div>
                       </div>
-              </div>
-            </div>
-          )}
-
-                  {activeTab === 'media' && (
+                    </div>
+                  )}
+{activeTab === 'media' && (
                     <div className="space-y-3">
                       <h3 className="text-sm font-semibold mb-2">Bibliothèque média</h3>
 
@@ -1941,9 +1942,10 @@ export default function SocialImagesPage() {
                 </div>
               </div>
             </div>
-          )}
-        </main>
-      </div>
+          </div>
+        )}
+      </main>
     </div>
-  )
+  </div>
+)
 }
