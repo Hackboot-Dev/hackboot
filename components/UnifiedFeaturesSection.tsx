@@ -13,21 +13,21 @@ export default function UnifiedFeaturesSection() {
     {
       key: 'gaming',
       icon: Gamepad2,
-      imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop',
+      imageUrl: '/images/features/cloud-gaming.png',
       gradient: 'from-purple-500 to-pink-500',
       data: sections.gaming || {}
     },
     {
       key: 'security',
       icon: Shield,
-      imageUrl: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop',
+      imageUrl: '/images/features/security-shield.webp',
       gradient: 'from-blue-500 to-cyan-500',
       data: sections.security || {}
     },
     {
       key: 'cloud',
       icon: Cloud,
-      imageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop',
+      imageUrl: '/images/features/cloud-infrastructure.png',
       gradient: 'from-green-500 to-emerald-500',
       data: sections.cloud || {}
     }
