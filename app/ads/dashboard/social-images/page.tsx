@@ -20,7 +20,10 @@ import {
   Plus,
   Minus,
   ChevronDown,
-  ChevronUp
+  ChevronUp,
+  AlignLeft,
+  AlignCenter,
+  AlignRight
 } from 'lucide-react'
 
 interface Format {
@@ -67,11 +70,14 @@ export default function SocialImagesPage() {
   const [authenticated, setAuthenticated] = useState(false)
   const [selectedFormat, setSelectedFormat] = useState<Format | null>(null)
   const [activeTab, setActiveTab] = useState<'content' | 'media' | 'effects' | 'style'>('content')
+  const [showTestBanner, setShowTestBanner] = useState(false)
 
   // Content
   const [title, setTitle] = useState('')
   const [subtitle, setSubtitle] = useState('')
   const [cta, setCta] = useState('')
+  const [textAlignment, setTextAlignment] = useState<'left' | 'center' | 'right'>('center')
+  const [fontFamily, setFontFamily] = useState('inter')
 
   // Media
   const [uploadedMedia, setUploadedMedia] = useState<MediaItem[]>([])
@@ -91,7 +97,7 @@ export default function SocialImagesPage() {
   const [gradientEnabled, setGradientEnabled] = useState(true)
   const [selectedTemplate, setSelectedTemplate] = useState<string>('hackboot-primary')
 
-  // Style - Gradient Controls
+  // Style - Réglages du dégradé
   const [gradientAngle, setGradientAngle] = useState(135)
   const [gradientIntensity, setGradientIntensity] = useState(100)
   const [customGradientColors, setCustomGradientColors] = useState<string[]>(['#0066FF', '#8B5CF6'])
@@ -107,6 +113,24 @@ export default function SocialImagesPage() {
   const [copied, setCopied] = useState(false)
   const router = useRouter()
 
+  const fontOptions = [
+    { id: 'inter', label: 'Inter', stack: "'Inter', sans-serif" },
+    { id: 'manrope', label: 'Manrope', stack: "'Manrope', sans-serif" },
+    { id: 'space-grotesk', label: 'Space Grotesk', stack: "'Space Grotesk', sans-serif" },
+    { id: 'playfair', label: 'Playfair Display', stack: "'Playfair Display', serif" },
+    { id: 'montserrat', label: 'Montserrat', stack: "'Montserrat', sans-serif" },
+  ]
+
+  const defaultTextLimits = { title: 120, subtitle: 220, cta: 45 }
+  const formatTextLimits: Record<string, { title: number; subtitle: number; cta: number }> = {
+    'ig-post': { title: 125, subtitle: 220, cta: 32 },
+    'ig-story': { title: 110, subtitle: 180, cta: 32 },
+    'fb-post': { title: 140, subtitle: 240, cta: 45 },
+    'twitter-post': { title: 100, subtitle: 200, cta: 30 },
+    'linkedin-post': { title: 150, subtitle: 260, cta: 45 },
+    'youtube-thumbnail': { title: 80, subtitle: 140, cta: 28 },
+  }
+
   useEffect(() => {
     const token = localStorage.getItem('ads-token')
     if (!token) {
@@ -116,6 +140,69 @@ export default function SocialImagesPage() {
     }
   }, [router])
 
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const dismissed = localStorage.getItem('ads-social-test-banner-dismissed')
+    setShowTestBanner(dismissed !== 'true')
+  }, [])
+
+  const handleDismissBanner = () => {
+    setShowTestBanner(false)
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('ads-social-test-banner-dismissed', 'true')
+    }
+  }
+
+  const currentFontStack =
+    fontOptions.find((option) => option.id === fontFamily)?.stack || fontOptions[0].stack
+
+  const currentTextLimits = selectedFormat
+    ? formatTextLimits[selectedFormat.id] || defaultTextLimits
+    : defaultTextLimits
+
+  const titleLimit = currentTextLimits.title
+  const subtitleLimit = currentTextLimits.subtitle
+  const ctaLimit = currentTextLimits.cta
+
+  const titleRemaining = Math.max(titleLimit - title.length, 0)
+  const subtitleRemaining = Math.max(subtitleLimit - subtitle.length, 0)
+  const ctaRemaining = Math.max(ctaLimit - cta.length, 0)
+
+  const alignmentClasses = {
+    left: 'items-start text-left',
+    center: 'items-center text-center',
+    right: 'items-end text-right',
+  }[textAlignment]
+
+  const ctaAlignmentClass =
+    textAlignment === 'left' ? 'self-start' : textAlignment === 'right' ? 'self-end' : 'self-center'
+
+  const workflowSteps = [
+    { id: 'format', label: 'Format' },
+    { id: 'content', label: 'Contenu' },
+    { id: 'media', label: 'Média' },
+    { id: 'effects', label: 'Effets' },
+    { id: 'style', label: 'Style' },
+    { id: 'export', label: 'Export' },
+  ]
+
+  const currentStepId = !selectedFormat ? 'format' : copied ? 'export' : activeTab
+  const currentStepIndex = Math.max(
+    workflowSteps.findIndex((step) => step.id === currentStepId),
+    0
+  )
+
+  const getCounterClass = (remaining: number) =>
+    remaining <= 10 ? 'text-amber-300' : 'text-gray-400'
+
+  const effectTargetLabels: Record<string, string> = {
+    title: 'Titre',
+    subtitle: 'Sous-titre',
+    cta: 'CTA',
+    media: 'Média',
+    background: 'Arrière-plan',
+  }
+
   const formats: Format[] = [
     {
       id: 'ig-post',
@@ -123,7 +210,7 @@ export default function SocialImagesPage() {
       platform: 'Instagram',
       width: 1080,
       height: 1080,
-      description: 'Square format for Instagram feed posts',
+      description: 'Format carré idéal pour le fil Instagram',
     },
     {
       id: 'ig-story',
@@ -131,7 +218,7 @@ export default function SocialImagesPage() {
       platform: 'Instagram',
       width: 1080,
       height: 1920,
-      description: 'Vertical format for Instagram stories',
+      description: 'Format vertical pour stories Instagram',
     },
     {
       id: 'fb-post',
@@ -139,7 +226,7 @@ export default function SocialImagesPage() {
       platform: 'Facebook',
       width: 1200,
       height: 630,
-      description: 'Standard Facebook post image',
+      description: 'Visuel standard pour publication Facebook',
     },
     {
       id: 'twitter-post',
@@ -147,7 +234,7 @@ export default function SocialImagesPage() {
       platform: 'Twitter/X',
       width: 1200,
       height: 675,
-      description: 'Standard Twitter/X post image',
+      description: 'Visuel optimisé pour post Twitter/X',
     },
     {
       id: 'linkedin-post',
@@ -155,7 +242,7 @@ export default function SocialImagesPage() {
       platform: 'LinkedIn',
       width: 1200,
       height: 627,
-      description: 'LinkedIn shared image format',
+      description: 'Visuel adapté aux partages LinkedIn',
     },
     {
       id: 'youtube-thumbnail',
@@ -163,7 +250,7 @@ export default function SocialImagesPage() {
       platform: 'YouTube',
       width: 1280,
       height: 720,
-      description: 'YouTube video thumbnail',
+      description: 'Miniature recommandée pour YouTube',
     },
   ]
 
@@ -266,7 +353,7 @@ export default function SocialImagesPage() {
     { id: 'swing', name: 'Swing', description: 'Swing entrance', supportsIntensity: false, defaultDuration: 1000, availableTargets: ['title', 'subtitle', 'cta'] },
   ]
 
-  // Text Effects Definitions (animations)
+  // Effets texte (animations)
   const textEffectDefinitions: EffectDefinition[] = [
     { id: 'typing', name: 'Typing', description: 'Typewriter effect', supportsIntensity: false, defaultDuration: 2000, availableTargets: ['title', 'subtitle'] },
     { id: 'glitch', name: 'Glitch', description: 'Digital glitch', supportsIntensity: true, defaultDuration: 300, availableTargets: ['title', 'subtitle', 'cta'] },
@@ -281,7 +368,7 @@ export default function SocialImagesPage() {
     { id: 'gradient-shift', name: 'Gradient Text', description: 'Animated gradient', supportsIntensity: false, defaultDuration: 3000, availableTargets: ['title', 'subtitle', 'cta'] },
   ]
 
-  // Background Effects Definitions (animations)
+  // Effets de fond (animations)
   const backgroundEffectDefinitions: EffectDefinition[] = [
     { id: 'gradient-shift', name: 'Gradient Shift', description: 'Moving gradient', supportsIntensity: true, defaultDuration: 8000, availableTargets: ['background'] },
     { id: 'particles', name: 'Particles', description: 'Floating particles', supportsIntensity: true, defaultDuration: 20000, availableTargets: ['background'] },
@@ -321,7 +408,7 @@ export default function SocialImagesPage() {
   }
 
   const handleCopyCode = () => {
-    const code = `Generated code for ${selectedFormat?.name}`
+    const code = `Visuel généré pour ${selectedFormat?.name}`
     navigator.clipboard.writeText(code)
     setCopied(true)
     setTimeout(() => setCopied(false), 2000)
@@ -413,7 +500,7 @@ export default function SocialImagesPage() {
       })
     }
 
-    // Background effects
+    // Effets d'arrière-plan
     if (target === 'background') {
       Object.values(backgroundEffects).forEach(effect => {
         if (effect.enabled && effect.targets[target]) {
@@ -561,19 +648,40 @@ export default function SocialImagesPage() {
                 <ArrowLeft className="w-5 h-5" />
               </button>
               <div>
-                <h1 className="text-2xl font-display font-bold gradient-text">Social Media Creator</h1>
+                <h1 className="text-2xl font-display font-bold gradient-text">Créateur Social Media</h1>
                 <p className="text-sm text-gray-400 mt-1">
-                  Create professional visuals with complete customization
+                  Composez des visuels publicitaires prêts pour chaque réseau social
                 </p>
               </div>
             </div>
           </div>
         </header>
 
-        <main className="container mx-auto px-6 py-6">
+        <main className="container mx-auto px-6 py-6 space-y-4">
+          {showTestBanner && (
+            <div className="flex items-start justify-between gap-3 rounded-xl border border-amber-500/30 bg-amber-500/10 px-4 py-3 text-amber-100">
+              <div>
+                <p className="text-sm font-semibold">Environnement de démonstration</p>
+                <p className="text-xs text-amber-200/80">
+                  Les données saisies sont automatiquement réinitialisées. Vous pouvez masquer cet avertissement une fois informé.
+                </p>
+              </div>
+              <button
+                onClick={handleDismissBanner}
+                className="flex items-center gap-1 rounded-lg border border-amber-400/40 px-2 py-1 text-xs font-semibold hover:bg-amber-500/20 transition-colors"
+              >
+                <X className="h-3.5 w-3.5" />
+                Fermer
+              </button>
+            </div>
+          )}
+
           {/* Format Selection */}
-          <div className="mb-6">
-            <h2 className="text-lg font-display font-bold mb-3">1. Select Format</h2>
+          <div className="space-y-3">
+            <div>
+              <h2 className="text-lg font-display font-bold">1. Choisir un format</h2>
+              <p className="text-sm text-gray-400">Sélectionnez le réseau cible pour adapter les dimensions.</p>
+            </div>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
               {formats.map((format) => (
                 <button
@@ -589,22 +697,67 @@ export default function SocialImagesPage() {
                   <div className="text-xs text-gray-500">
                     {format.width} × {format.height}
                   </div>
+                  <p className="mt-1 text-[11px] text-gray-500">{format.description}</p>
                 </button>
               ))}
             </div>
           </div>
 
           {selectedFormat && (
-            <div className="grid grid-cols-1 lg:grid-cols-[400px_1fr] gap-6">
+            <div className="space-y-4">
+              <div className="glass-effect rounded-xl border border-white/10 px-4 py-3">
+                <div className="flex flex-wrap items-center gap-2">
+                  {workflowSteps.map((step, index) => {
+                    const isActive = step.id === currentStepId
+                    const isCompleted = index < currentStepIndex
+                    const isExportStep = step.id === 'export'
+                    const isUpcoming = !isActive && !isCompleted
+
+                    return (
+                      <div
+                        key={step.id}
+                        className={`flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors ${
+                          isActive
+                            ? 'border-purple-400/60 bg-purple-500/20 text-purple-200'
+                            : isCompleted || (isExportStep && copied)
+                              ? 'border-emerald-400/40 bg-emerald-500/10 text-emerald-200'
+                              : 'border-white/10 bg-white/5 text-gray-400'
+                        }`}
+                      >
+                        <span
+                          className={`flex h-5 w-5 items-center justify-center rounded-full text-[11px] font-bold ${
+                            isCompleted || (isExportStep && copied)
+                              ? 'bg-emerald-500/20 text-emerald-200'
+                              : isActive
+                                ? 'bg-purple-500/30 text-purple-200'
+                                : 'bg-white/10 text-gray-300'
+                          }`}
+                        >
+                          {index + 1}
+                        </span>
+                        <span>{step.label}</span>
+                        {isUpcoming && !isExportStep && <span className="text-[10px] uppercase tracking-wide text-gray-500">à venir</span>}
+                        {isExportStep && !copied && (
+                          <span className="text-[10px] uppercase tracking-wide text-gray-500">
+                            prêt
+                          </span>
+                        )}
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-[400px_1fr] gap-6">
               {/* Left Panel - Controls */}
               <div className="space-y-3">
                 {/* Tabs */}
                 <div className="glass-effect rounded-xl p-1.5 border border-white/10">
                   <div className="grid grid-cols-4 gap-1.5">
                     {[
-                      { id: 'content', icon: Type, label: 'Content' },
-                      { id: 'media', icon: ImageIcon, label: 'Media' },
-                      { id: 'effects', icon: Sparkles, label: 'Effects' },
+                      { id: 'content', icon: Type, label: 'Contenu' },
+                      { id: 'media', icon: ImageIcon, label: 'Média' },
+                      { id: 'effects', icon: Sparkles, label: 'Effets' },
                       { id: 'style', icon: Palette, label: 'Style' },
                     ].map((tab) => (
                       <button
@@ -625,62 +778,98 @@ export default function SocialImagesPage() {
 
                 {/* Tab Content */}
                 <div className="glass-effect rounded-xl p-3 border border-white/10 max-h-[calc(100vh-350px)] overflow-y-auto custom-scrollbar">
+                  
+                    
                   {activeTab === 'content' && (
-                    <div className="space-y-3">
-                      <h3 className="text-sm font-semibold mb-2">Text Content</h3>
-
+                    <div className="space-y-4">
                       <div>
-                        <label className="block text-xs font-medium text-gray-300 mb-1.5">
-                          Title
-                        </label>
-                        <input
-                          type="text"
-                          value={title}
-                          onChange={(e) => setTitle(e.target.value)}
-                          placeholder="Enter your title"
-                          className="w-full px-3 py-2 text-sm bg-white/5 border border-white/10 rounded-lg text-white placeholder:text-gray-500 focus:outline-none focus:border-purple-500/50 transition-colors"
-                        />
+                        <h3 className="text-sm font-semibold mb-1.5">Textes &amp; messages</h3>
+                        <p className="text-xs text-gray-400">
+                          Tous les champs se mettent à jour en direct dans l&apos;aperçu.
+                        </p>
                       </div>
 
-                      <div>
-                        <label className="block text-xs font-medium text-gray-300 mb-1.5">
-                          Subtitle
-                        </label>
-                        <textarea
-                          value={subtitle}
-                          onChange={(e) => setSubtitle(e.target.value)}
-                          placeholder="Enter your subtitle"
-                          rows={2}
-                          className="w-full px-3 py-2 text-sm bg-white/5 border border-white/10 rounded-lg text-white placeholder:text-gray-500 focus:outline-none focus:border-purple-500/50 transition-colors resize-none"
-                        />
+                      <div className="space-y-3">
+                        <div>
+                          <label className="block text-xs font-medium text-gray-300 mb-1.5">
+                            Titre principal
+                          </label>
+                          <input
+                            type="text"
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
+                            placeholder="Saisissez un titre accrocheur"
+                            maxLength={titleLimit}
+                            className="w-full px-3 py-2 text-sm bg-white/5 border border-white/10 rounded-lg text-white placeholder:text-gray-500 focus:outline-none focus:border-purple-500/50 transition-colors"
+                          />
+                          <div className="mt-1 flex items-center justify-between text-[11px]">
+                            <span className="text-gray-500">Recommandé : {titleLimit} caractères max.</span>
+                            <span
+                              className={`font-semibold ${getCounterClass(titleRemaining)}`}
+                              aria-live="polite"
+                            >
+                              {titleRemaining} restants
+                            </span>
+                          </div>
+                        </div>
+
+                        <div>
+                          <label className="block text-xs font-medium text-gray-300 mb-1.5">
+                            Sous-titre
+                          </label>
+                          <textarea
+                            value={subtitle}
+                            onChange={(e) => setSubtitle(e.target.value)}
+                            placeholder="Complétez votre promesse ou détaillez l&apos;offre"
+                            rows={2}
+                            maxLength={subtitleLimit}
+                            className="w-full px-3 py-2 text-sm bg-white/5 border border-white/10 rounded-lg text-white placeholder:text-gray-500 focus:outline-none focus:border-purple-500/50 transition-colors resize-none"
+                          />
+                          <div className="mt-1 flex items-center justify-between text-[11px]">
+                            <span className="text-gray-500">{subtitleLimit} caractères conseillés.</span>
+                            <span
+                              className={`font-semibold ${getCounterClass(subtitleRemaining)}`}
+                              aria-live="polite"
+                            >
+                              {subtitleRemaining} restants
+                            </span>
+                          </div>
+                        </div>
+
+                        <div>
+                          <label className="block text-xs font-medium text-gray-300 mb-1.5">
+                            Appel à l&apos;action
+                          </label>
+                          <input
+                            type="text"
+                            value={cta}
+                            onChange={(e) => setCta(e.target.value)}
+                            placeholder="Ex. Télécharger maintenant, Découvrir l&apos;offre"
+                            maxLength={ctaLimit}
+                            className="w-full px-3 py-2 text-sm bg-white/5 border border-white/10 rounded-lg text-white placeholder:text-gray-500 focus:outline-none focus:border-purple-500/50 transition-colors"
+                          />
+                          <div className="mt-1 flex items-center justify-between text-[11px]">
+                            <span className="text-gray-500">{ctaLimit} caractères maximum.</span>
+                            <span
+                              className={`font-semibold ${getCounterClass(ctaRemaining)}`}
+                              aria-live="polite"
+                            >
+                              {ctaRemaining} restants
+                            </span>
+                          </div>
+                        </div>
                       </div>
 
-                      <div>
-                        <label className="block text-xs font-medium text-gray-300 mb-1.5">
-                          Call-to-Action
-                        </label>
-                        <input
-                          type="text"
-                          value={cta}
-                          onChange={(e) => setCta(e.target.value)}
-                          placeholder="e.g., Learn More, Shop Now"
-                          className="w-full px-3 py-2 text-sm bg-white/5 border border-white/10 rounded-lg text-white placeholder:text-gray-500 focus:outline-none focus:border-purple-500/50 transition-colors"
-                        />
-                      </div>
-
-                      {/* Text Customization */}
-                      <div className="pt-2 border-t border-white/10">
-                        <div className="flex items-center gap-1.5 mb-2">
+                      <div className="space-y-3 border-t border-white/10 pt-3">
+                        <div className="flex items-center gap-1.5">
                           <Sliders className="w-3.5 h-3.5 text-purple-400" />
-                          <h4 className="text-xs font-semibold text-purple-400">Text Customization</h4>
+                          <h4 className="text-xs font-semibold text-purple-400">Personnalisation typographique</h4>
                         </div>
 
                         <div className="space-y-3">
                           <div>
                             <div className="flex items-center justify-between mb-2">
-                              <label className="text-sm font-medium text-gray-300">
-                                Title Size
-                              </label>
+                              <label className="text-sm font-medium text-gray-300">Taille du titre</label>
                               <span className="text-sm font-bold text-purple-400 bg-purple-500/10 px-2.5 py-1 rounded-lg">
                                 {titleSize}px
                               </span>
@@ -697,10 +886,8 @@ export default function SocialImagesPage() {
                           </div>
 
                           <div>
-                            <div className="flex items-center justify-between mb-3">
-                              <label className="text-sm font-medium text-gray-300">
-                                Vertical Position
-                              </label>
+                            <div className="flex items-center justify-between mb-2">
+                              <label className="text-sm font-medium text-gray-300">Position verticale</label>
                               <span className="text-sm font-bold text-purple-400 bg-purple-500/10 px-2.5 py-1 rounded-lg">
                                 {textVerticalPosition}%
                               </span>
@@ -715,14 +902,58 @@ export default function SocialImagesPage() {
                               className="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-4 [&::-webkit-slider-thumb]:h-4 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-purple-500 [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:shadow-purple-500/50 [&::-webkit-slider-thumb]:hover:scale-110 [&::-webkit-slider-thumb]:transition-transform [&::-moz-range-thumb]:w-4 [&::-moz-range-thumb]:h-4 [&::-moz-range-thumb]:rounded-full [&::-moz-range-thumb]:bg-purple-500 [&::-moz-range-thumb]:border-0 [&::-moz-range-thumb]:cursor-pointer [&::-moz-range-thumb]:shadow-lg [&::-moz-range-thumb]:shadow-purple-500/50"
                             />
                           </div>
+
+                          <div>
+                            <label className="mb-2 block text-sm font-medium text-gray-300">Alignement du bloc texte</label>
+                            <div className="grid grid-cols-3 gap-1.5">
+                              {[
+                                { id: 'left', label: 'Gauche', icon: AlignLeft },
+                                { id: 'center', label: 'Centre', icon: AlignCenter },
+                                { id: 'right', label: 'Droite', icon: AlignRight },
+                              ].map((option) => (
+                                <button
+                                  key={option.id}
+                                  onClick={() => setTextAlignment(option.id as 'left' | 'center' | 'right')}
+                                  aria-pressed={textAlignment === option.id}
+                                  className={`flex items-center justify-center gap-1 rounded-lg border px-3 py-2 text-xs font-medium transition-colors ${
+                                    textAlignment === option.id
+                                      ? 'border-purple-400/60 bg-purple-500/20 text-purple-200'
+                                      : 'border-white/10 bg-white/5 text-gray-400 hover:border-white/20'
+                                  }`}
+                                >
+                                  <option.icon className="h-4 w-4" />
+                                  {option.label}
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+
+                          <div>
+                            <label className="mb-2 block text-sm font-medium text-gray-300">Police de caractères</label>
+                            <div className="grid grid-cols-2 gap-2">
+                              {fontOptions.map((option) => (
+                                <button
+                                  key={option.id}
+                                  onClick={() => setFontFamily(option.id)}
+                                  className={`rounded-lg border px-3 py-2 text-left transition-colors ${
+                                    fontFamily === option.id
+                                      ? 'border-purple-400/60 bg-purple-500/15 text-white'
+                                      : 'border-white/10 bg-white/5 text-gray-300 hover:border-white/20'
+                                  }`}
+                                  style={{ fontFamily: option.stack }}
+                                >
+                                  {option.label}
+                                </button>
+                              ))}
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   )}
-
-                  {activeTab === 'media' && (
+{activeTab === 'media' && (
                     <div className="space-y-3">
-                      <h3 className="text-sm font-semibold mb-2">Media Assets</h3>
+                      <h3 className="text-sm font-semibold mb-2">Bibliothèque média</h3>
 
                       <input
                         ref={fileInputRef}
@@ -738,13 +969,13 @@ export default function SocialImagesPage() {
                         className="w-full py-4 border-2 border-dashed border-white/20 rounded-xl hover:border-purple-500/50 transition-colors flex flex-col items-center gap-2 text-gray-400 hover:text-purple-400"
                       >
                         <Upload className="w-6 h-6" />
-                        <span className="text-sm font-medium">Upload Images or Videos</span>
-                        <span className="text-xs">PNG, JPG, WebP, MP4, WebM</span>
+                        <span className="text-sm font-medium">Importer des images ou des vidéos</span>
+                        <span className="text-xs">Formats acceptés : PNG, JPG, WebP, MP4, WebM</span>
                       </button>
 
                       {uploadedMedia.length > 0 && (
                         <div className="space-y-2">
-                          <h4 className="text-sm font-medium text-gray-400">Uploaded Media</h4>
+                          <h4 className="text-sm font-medium text-gray-400">Médias importés</h4>
                           <div className="grid grid-cols-2 gap-2">
                             {uploadedMedia.map((media) => (
                               <div
@@ -787,14 +1018,14 @@ export default function SocialImagesPage() {
                         <div className="pt-2 border-t border-white/10">
                           <div className="flex items-center gap-1.5 mb-2">
                             <Sliders className="w-3.5 h-3.5 text-purple-400" />
-                            <h4 className="text-xs font-semibold text-purple-400">Media Customization</h4>
+                            <h4 className="text-xs font-semibold text-purple-400">Réglages du média</h4>
                           </div>
 
                           <div className="space-y-3">
                             <div>
                               <div className="flex items-center justify-between mb-2">
                                 <label className="text-sm font-medium text-gray-300">
-                                  Opacity
+                                  Opacité
                                 </label>
                                 <span className="text-sm font-bold text-purple-400 bg-purple-500/10 px-2.5 py-1 rounded-lg">
                                   {mediaOpacity}%
@@ -814,7 +1045,7 @@ export default function SocialImagesPage() {
                             <div>
                               <div className="flex items-center justify-between mb-3">
                                 <label className="text-sm font-medium text-gray-300">
-                                  Background Blur
+                                  Flou de fond
                                 </label>
                                 <span className="text-sm font-bold text-purple-400 bg-purple-500/10 px-2.5 py-1 rounded-lg">
                                   {mediaBlur}px
@@ -834,7 +1065,7 @@ export default function SocialImagesPage() {
                             <div>
                               <div className="flex items-center justify-between mb-3">
                                 <label className="text-sm font-medium text-gray-300">
-                                  Overlay Darkness
+                                  Intensité du voile
                                 </label>
                                 <span className="text-sm font-bold text-purple-400 bg-purple-500/10 px-2.5 py-1 rounded-lg">
                                   {overlayDarkness}%
@@ -854,7 +1085,7 @@ export default function SocialImagesPage() {
                             <div>
                               <div className="flex items-center justify-between mb-3">
                                 <label className="text-sm font-medium text-gray-300">
-                                  Background Scale
+                                  Zoom arrière-plan
                                 </label>
                                 <span className="text-sm font-bold text-purple-400 bg-purple-500/10 px-2.5 py-1 rounded-lg">
                                   {backgroundScale}%
@@ -886,8 +1117,8 @@ export default function SocialImagesPage() {
                         >
                           <div className="flex items-center gap-2">
                             <Sparkles className="w-4 h-4 text-purple-400" />
-                            <span className="text-sm font-bold text-purple-400">Visual Filters</span>
-                            <span className="text-xs text-gray-400">({Object.keys(visualEffects).length} active)</span>
+                            <span className="text-sm font-bold text-purple-400">Filtres visuels</span>
+                            <span className="text-xs text-gray-400">({Object.keys(visualEffects).length} actifs)</span>
                           </div>
                           {openEffectCategory === 'visual' ? (
                             <ChevronUp className="w-4 h-4 text-purple-400" />
@@ -899,6 +1130,8 @@ export default function SocialImagesPage() {
                           <div className="p-2 space-y-2 bg-white/5">
                             {visualEffectDefinitions.map((def) => {
                               const config = visualEffects[def.id]
+                              const requiresMediaAsset = def.availableTargets.every((target) => target === 'media')
+                              const disableToggle = requiresMediaAsset && !selectedMedia
                               return (
                                 <div key={def.id} className="glass-effect rounded-lg p-2 border border-white/10">
                                   <div className="flex items-start justify-between mb-2">
@@ -907,25 +1140,32 @@ export default function SocialImagesPage() {
                                       <p className="text-xs text-gray-400">{def.description}</p>
                                     </div>
                                     <button
+                                      type="button"
                                       onClick={() => toggleEffect('visual', def.id)}
+                                      disabled={disableToggle}
                                       className={`px-2 py-1 rounded text-xs font-medium transition-all ${
                                         config?.enabled
                                           ? 'bg-purple-500/20 text-purple-400 border border-purple-500/50'
                                           : 'bg-white/5 text-gray-400 border border-white/10 hover:border-white/20'
-                                      }`}
+                                      } ${disableToggle ? 'cursor-not-allowed opacity-40' : ''}`}
                                     >
-                                      {config?.enabled ? 'ON' : 'OFF'}
+                                      {config?.enabled ? 'ACTIF' : 'INACTIF'}
                                     </button>
                                   </div>
+                                  {disableToggle && (
+                                    <p className="text-[11px] text-amber-300/80">
+                                      Importez un média pour appliquer ce filtre.
+                                    </p>
+                                  )}
                                   {config?.enabled && (
                                     <div className="space-y-2 mt-2 pt-2 border-t border-white/10">
                                       {/* Targets */}
                                       <div>
-                                        <label className="text-xs font-medium text-gray-300 mb-1 block">Apply to:</label>
+                                        <label className="text-xs font-medium text-gray-300 mb-1 block">Appliquer sur :</label>
                                         <div className="flex flex-wrap gap-1.5">
                                           {def.availableTargets.map((target) => (
                                             <button
-                                              key={target}
+                                              key={effectTargetLabels[target] ?? target}
                                               onClick={() => updateEffectConfig('visual', def.id, {
                                                 targets: { ...config.targets, [target]: !config.targets[target] }
                                               })}
@@ -935,16 +1175,16 @@ export default function SocialImagesPage() {
                                                   : 'bg-white/5 text-gray-500 border border-white/10'
                                               }`}
                                             >
-                                              {target}
+                                              {effectTargetLabels[target] ?? target}
                                             </button>
                                           ))}
                                         </div>
                                       </div>
-                                      {/* Intensity */}
+                                      {/* Intensité */}
                                       {def.supportsIntensity && (
                                         <div>
                                           <div className="flex items-center justify-between mb-1">
-                                            <label className="text-xs font-medium text-gray-300">Intensity</label>
+                                            <label className="text-xs font-medium text-gray-300">Intensité</label>
                                             <span className="text-xs font-bold text-purple-400 bg-purple-500/10 px-1.5 py-0.5 rounded">
                                               {config.intensity}%
                                             </span>
@@ -976,8 +1216,8 @@ export default function SocialImagesPage() {
                         >
                           <div className="flex items-center gap-2">
                             <RotateCw className="w-4 h-4 text-blue-400" />
-                            <span className="text-sm font-bold text-blue-400">Entrance Animations</span>
-                            <span className="text-xs text-gray-400">({Object.keys(entranceEffects).length} active)</span>
+                            <span className="text-sm font-bold text-blue-400">Animations d’entrée</span>
+                            <span className="text-xs text-gray-400">({Object.keys(entranceEffects).length} actifs)</span>
                           </div>
                           {openEffectCategory === 'entrance' ? (
                             <ChevronUp className="w-4 h-4 text-blue-400" />
@@ -989,6 +1229,14 @@ export default function SocialImagesPage() {
                           <div className="p-2 space-y-2 bg-white/5">
                             {entranceEffectDefinitions.map((def) => {
                               const config = entranceEffects[def.id]
+                              const hasApplicableTarget = def.availableTargets.some((target) => {
+                                if (target === 'media') return !!selectedMedia
+                                if (target === 'title') return Boolean(title)
+                                if (target === 'subtitle') return Boolean(subtitle)
+                                if (target === 'cta') return Boolean(cta)
+                                return false
+                              })
+                              const disableToggle = !hasApplicableTarget
                               return (
                                 <div key={def.id} className="glass-effect rounded-lg p-2 border border-white/10">
                                   <div className="flex items-start justify-between mb-2">
@@ -997,25 +1245,32 @@ export default function SocialImagesPage() {
                                       <p className="text-xs text-gray-400">{def.description}</p>
                                     </div>
                                     <button
+                                      type="button"
                                       onClick={() => toggleEffect('entrance', def.id)}
+                                      disabled={disableToggle}
                                       className={`px-2 py-1 rounded text-xs font-medium transition-all ${
                                         config?.enabled
                                           ? 'bg-blue-500/20 text-blue-400 border border-blue-500/50'
                                           : 'bg-white/5 text-gray-400 border border-white/10 hover:border-white/20'
-                                      }`}
+                                      } ${disableToggle ? 'cursor-not-allowed opacity-40' : ''}`}
                                     >
-                                      {config?.enabled ? 'ON' : 'OFF'}
+                                      {config?.enabled ? 'ACTIF' : 'INACTIF'}
                                     </button>
                                   </div>
+                                  {disableToggle && (
+                                    <p className="text-[11px] text-amber-300/80">
+                                      Ajoutez un texte ou un média pour activer cette animation.
+                                    </p>
+                                  )}
                                   {config?.enabled && (
                                     <div className="space-y-2 mt-2 pt-2 border-t border-white/10">
                                       {/* Targets */}
                                       <div>
-                                        <label className="text-xs font-medium text-gray-300 mb-1 block">Apply to:</label>
+                                        <label className="text-xs font-medium text-gray-300 mb-1 block">Appliquer sur :</label>
                                         <div className="flex flex-wrap gap-1.5">
                                           {def.availableTargets.map((target) => (
                                             <button
-                                              key={target}
+                                              key={effectTargetLabels[target] ?? target}
                                               onClick={() => updateEffectConfig('entrance', def.id, {
                                                 targets: { ...config.targets, [target]: !config.targets[target] }
                                               })}
@@ -1025,15 +1280,15 @@ export default function SocialImagesPage() {
                                                   : 'bg-white/5 text-gray-500 border border-white/10'
                                               }`}
                                             >
-                                              {target}
+                                              {effectTargetLabels[target] ?? target}
                                             </button>
                                           ))}
                                         </div>
                                       </div>
-                                      {/* Duration */}
+                                      {/* Durée */}
                                       <div>
                                         <div className="flex items-center justify-between mb-1">
-                                          <label className="text-xs font-medium text-gray-300">Duration</label>
+                                          <label className="text-xs font-medium text-gray-300">Durée</label>
                                           <span className="text-xs font-bold text-blue-400 bg-blue-500/10 px-1.5 py-0.5 rounded">
                                             {config.duration}ms
                                           </span>
@@ -1048,10 +1303,10 @@ export default function SocialImagesPage() {
                                           className="w-full h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-blue-500 [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:shadow-blue-500/50"
                                         />
                                       </div>
-                                      {/* Delay */}
+                                      {/* Délai */}
                                       <div>
                                         <div className="flex items-center justify-between mb-1">
-                                          <label className="text-xs font-medium text-gray-300">Delay</label>
+                                          <label className="text-xs font-medium text-gray-300">Délai</label>
                                           <span className="text-xs font-bold text-blue-400 bg-blue-500/10 px-1.5 py-0.5 rounded">
                                             {config.delay}ms
                                           </span>
@@ -1075,7 +1330,7 @@ export default function SocialImagesPage() {
                         )}
                       </div>
 
-                      {/* Text Effects Accordion */}
+                      {/* Effets texte Accordion */}
                       <div className="border border-pink-500/30 rounded-lg overflow-hidden">
                         <button
                           onClick={() => setOpenEffectCategory(openEffectCategory === 'text' ? null : 'text')}
@@ -1083,8 +1338,8 @@ export default function SocialImagesPage() {
                         >
                           <div className="flex items-center gap-2">
                             <Type className="w-4 h-4 text-pink-400" />
-                            <span className="text-sm font-bold text-pink-400">Text Animations</span>
-                            <span className="text-xs text-gray-400">({Object.keys(textEffects).length} active)</span>
+                            <span className="text-sm font-bold text-pink-400">Animations de texte</span>
+                            <span className="text-xs text-gray-400">({Object.keys(textEffects).length} actifs)</span>
                           </div>
                           {openEffectCategory === 'text' ? (
                             <ChevronUp className="w-4 h-4 text-pink-400" />
@@ -1096,6 +1351,13 @@ export default function SocialImagesPage() {
                           <div className="p-2 space-y-2 bg-white/5">
                             {textEffectDefinitions.map((def) => {
                               const config = textEffects[def.id]
+                              const hasApplicableTarget = def.availableTargets.some((target) => {
+                                if (target === 'title') return Boolean(title)
+                                if (target === 'subtitle') return Boolean(subtitle)
+                                if (target === 'cta') return Boolean(cta)
+                                return false
+                              })
+                              const disableToggle = !hasApplicableTarget
                               return (
                                 <div key={def.id} className="glass-effect rounded-lg p-2 border border-white/10">
                                   <div className="flex items-start justify-between mb-2">
@@ -1104,25 +1366,32 @@ export default function SocialImagesPage() {
                                       <p className="text-xs text-gray-400">{def.description}</p>
                                     </div>
                                     <button
+                                      type="button"
                                       onClick={() => toggleEffect('text', def.id)}
+                                      disabled={disableToggle}
                                       className={`px-2 py-1 rounded text-xs font-medium transition-all ${
                                         config?.enabled
                                           ? 'bg-pink-500/20 text-pink-400 border border-pink-500/50'
                                           : 'bg-white/5 text-gray-400 border border-white/10 hover:border-white/20'
-                                      }`}
+                                      } ${disableToggle ? 'cursor-not-allowed opacity-40' : ''}`}
                                     >
-                                      {config?.enabled ? 'ON' : 'OFF'}
+                                      {config?.enabled ? 'ACTIF' : 'INACTIF'}
                                     </button>
                                   </div>
+                                  {disableToggle && (
+                                    <p className="text-[11px] text-amber-300/80">
+                                      Ajoutez un titre, un sous-titre ou un CTA pour tester cet effet.
+                                    </p>
+                                  )}
                                   {config?.enabled && (
                                     <div className="space-y-2 mt-2 pt-2 border-t border-white/10">
                                       {/* Targets */}
                                       <div>
-                                        <label className="text-xs font-medium text-gray-300 mb-1 block">Apply to:</label>
+                                        <label className="text-xs font-medium text-gray-300 mb-1 block">Appliquer sur :</label>
                                         <div className="flex flex-wrap gap-1.5">
                                           {def.availableTargets.map((target) => (
                                             <button
-                                              key={target}
+                                              key={effectTargetLabels[target] ?? target}
                                               onClick={() => updateEffectConfig('text', def.id, {
                                                 targets: { ...config.targets, [target]: !config.targets[target] }
                                               })}
@@ -1132,15 +1401,15 @@ export default function SocialImagesPage() {
                                                   : 'bg-white/5 text-gray-500 border border-white/10'
                                               }`}
                                             >
-                                              {target}
+                                              {effectTargetLabels[target] ?? target}
                                             </button>
                                           ))}
                                         </div>
                                       </div>
-                                      {/* Duration */}
+                                      {/* Durée */}
                                       <div>
                                         <div className="flex items-center justify-between mb-1">
-                                          <label className="text-xs font-medium text-gray-300">Duration</label>
+                                          <label className="text-xs font-medium text-gray-300">Durée</label>
                                           <span className="text-xs font-bold text-pink-400 bg-pink-500/10 px-1.5 py-0.5 rounded">
                                             {config.duration}ms
                                           </span>
@@ -1155,10 +1424,10 @@ export default function SocialImagesPage() {
                                           className="w-full h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-pink-500 [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:shadow-pink-500/50"
                                         />
                                       </div>
-                                      {/* Delay */}
+                                      {/* Délai */}
                                       <div>
                                         <div className="flex items-center justify-between mb-1">
-                                          <label className="text-xs font-medium text-gray-300">Delay</label>
+                                          <label className="text-xs font-medium text-gray-300">Délai</label>
                                           <span className="text-xs font-bold text-pink-400 bg-pink-500/10 px-1.5 py-0.5 rounded">
                                             {config.delay}ms
                                           </span>
@@ -1173,11 +1442,11 @@ export default function SocialImagesPage() {
                                           className="w-full h-1.5 bg-white/10 rounded-lg appearance-none cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:w-3 [&::-webkit-slider-thumb]:h-3 [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-pink-500 [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:shadow-lg [&::-webkit-slider-thumb]:shadow-pink-500/50"
                                         />
                                       </div>
-                                      {/* Intensity */}
+                                      {/* Intensité */}
                                       {def.supportsIntensity && (
                                         <div>
                                           <div className="flex items-center justify-between mb-1">
-                                            <label className="text-xs font-medium text-gray-300">Intensity</label>
+                                            <label className="text-xs font-medium text-gray-300">Intensité</label>
                                             <span className="text-xs font-bold text-pink-400 bg-pink-500/10 px-1.5 py-0.5 rounded">
                                               {config.intensity}%
                                             </span>
@@ -1201,7 +1470,7 @@ export default function SocialImagesPage() {
                         )}
                       </div>
 
-                      {/* Background Effects Accordion */}
+                      {/* Effets de fond Accordion */}
                       <div className="border border-green-500/30 rounded-lg overflow-hidden">
                         <button
                           onClick={() => setOpenEffectCategory(openEffectCategory === 'background' ? null : 'background')}
@@ -1209,8 +1478,8 @@ export default function SocialImagesPage() {
                         >
                           <div className="flex items-center gap-2">
                             <Layers className="w-4 h-4 text-green-400" />
-                            <span className="text-sm font-bold text-green-400">Background Effects</span>
-                            <span className="text-xs text-gray-400">({Object.keys(backgroundEffects).length} active)</span>
+                            <span className="text-sm font-bold text-green-400">Effets de fond</span>
+                            <span className="text-xs text-gray-400">({Object.keys(backgroundEffects).length} actifs)</span>
                           </div>
                           {openEffectCategory === 'background' ? (
                             <ChevronUp className="w-4 h-4 text-green-400" />
@@ -1230,6 +1499,7 @@ export default function SocialImagesPage() {
                                       <p className="text-xs text-gray-400">{def.description}</p>
                                     </div>
                                     <button
+                                      type="button"
                                       onClick={() => toggleEffect('background', def.id)}
                                       className={`px-2 py-1 rounded text-xs font-medium transition-all ${
                                         config?.enabled
@@ -1237,18 +1507,18 @@ export default function SocialImagesPage() {
                                           : 'bg-white/5 text-gray-400 border border-white/10 hover:border-white/20'
                                       }`}
                                     >
-                                      {config?.enabled ? 'ON' : 'OFF'}
+                                      {config?.enabled ? 'ACTIF' : 'INACTIF'}
                                     </button>
                                   </div>
                                   {config?.enabled && (
                                     <div className="space-y-2 mt-2 pt-2 border-t border-white/10">
                                       {/* Targets */}
                                       <div>
-                                        <label className="text-xs font-medium text-gray-300 mb-1 block">Apply to:</label>
+                                        <label className="text-xs font-medium text-gray-300 mb-1 block">Appliquer sur :</label>
                                         <div className="flex flex-wrap gap-1.5">
                                           {def.availableTargets.map((target) => (
                                             <button
-                                              key={target}
+                                              key={effectTargetLabels[target] ?? target}
                                               onClick={() => updateEffectConfig('background', def.id, {
                                                 targets: { ...config.targets, [target]: !config.targets[target] }
                                               })}
@@ -1258,16 +1528,16 @@ export default function SocialImagesPage() {
                                                   : 'bg-white/5 text-gray-500 border border-white/10'
                                               }`}
                                             >
-                                              {target}
+                                              {effectTargetLabels[target] ?? target}
                                             </button>
                                           ))}
                                         </div>
                                       </div>
-                                      {/* Duration */}
+                                      {/* Durée */}
                                       {def.defaultDuration > 0 && (
                                         <div>
                                           <div className="flex items-center justify-between mb-1">
-                                            <label className="text-xs font-medium text-gray-300">Duration</label>
+                                            <label className="text-xs font-medium text-gray-300">Durée</label>
                                             <span className="text-xs font-bold text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded">
                                               {config.duration}ms
                                             </span>
@@ -1283,11 +1553,11 @@ export default function SocialImagesPage() {
                                           />
                                         </div>
                                       )}
-                                      {/* Intensity */}
+                                      {/* Intensité */}
                                       {def.supportsIntensity && (
                                         <div>
                                           <div className="flex items-center justify-between mb-1">
-                                            <label className="text-xs font-medium text-gray-300">Intensity</label>
+                                            <label className="text-xs font-medium text-gray-300">Intensité</label>
                                             <span className="text-xs font-bold text-green-400 bg-green-500/10 px-1.5 py-0.5 rounded">
                                               {config.intensity}%
                                             </span>
@@ -1317,7 +1587,7 @@ export default function SocialImagesPage() {
                     <div className="space-y-3">
                       {/* Templates */}
                       <div>
-                        <h3 className="text-sm font-semibold mb-2">Color Templates</h3>
+                        <h3 className="text-sm font-semibold mb-2">Thèmes colorés</h3>
                         <div className="grid grid-cols-2 gap-2">
                           {displayedTemplates.map((template) => (
                             <button
@@ -1350,7 +1620,7 @@ export default function SocialImagesPage() {
                             onClick={() => setShowAllTemplates(true)}
                             className="w-full mt-2 py-1.5 glass-effect rounded-lg hover:bg-white/10 transition-all text-xs font-medium text-gray-400 hover:text-purple-400"
                           >
-                            Show more ({templates.length - 4} templates)
+                            Afficher tout ({templates.length - 4} thèmes)
                           </button>
                         )}
                         {showAllTemplates && (
@@ -1358,7 +1628,7 @@ export default function SocialImagesPage() {
                             onClick={() => setShowAllTemplates(false)}
                             className="w-full mt-2 py-1.5 glass-effect rounded-lg hover:bg-white/10 transition-all text-xs font-medium text-gray-400 hover:text-purple-400"
                           >
-                            Show less
+                            Réduire la liste
                           </button>
                         )}
                       </div>
@@ -1367,7 +1637,7 @@ export default function SocialImagesPage() {
                       <div className="pt-2 border-t border-white/10">
                         <div className="flex items-center gap-1.5 mb-2">
                           <Palette className="w-3.5 h-3.5 text-purple-400" />
-                          <h3 className="text-xs font-semibold text-purple-400">Custom Colors</h3>
+                          <h3 className="text-xs font-semibold text-purple-400">Couleurs personnalisées</h3>
                         </div>
                         <div className="space-y-1.5">
                           {customGradientColors.map((color, index) => (
@@ -1388,7 +1658,7 @@ export default function SocialImagesPage() {
                                 <button
                                   onClick={() => handleRemoveGradientColor(index)}
                                   className="p-1.5 glass-effect rounded-md hover:bg-red-500/20 border border-white/10 hover:border-red-500/50 transition-all"
-                                  title="Remove color"
+                                  title="Supprimer la couleur"
                                 >
                                   <Minus className="w-3 h-3 text-red-400" />
                                 </button>
@@ -1401,22 +1671,22 @@ export default function SocialImagesPage() {
                               className="w-full py-1.5 glass-effect rounded-md border border-white/10 hover:bg-white/10 hover:border-purple-500/50 transition-all flex items-center justify-center gap-1.5 text-xs font-medium text-gray-400 hover:text-purple-400"
                             >
                               <Plus className="w-3 h-3" />
-                              Add Color
+                              Ajouter une couleur
                             </button>
                           )}
                         </div>
                       </div>
 
-                      {/* Gradient Controls */}
+                      {/* Réglages du dégradé */}
                       <div className="pt-2 border-t border-white/10">
                         <div className="flex items-center gap-1.5 mb-2">
                           <RotateCw className="w-3.5 h-3.5 text-purple-400" />
-                          <h4 className="text-xs font-semibold text-purple-400">Gradient Controls</h4>
+                          <h4 className="text-xs font-semibold text-purple-400">Réglages du dégradé</h4>
                         </div>
 
                         <div className="flex items-center justify-between mb-4">
                           <label className="text-sm font-medium text-gray-300">
-                            Enable Gradient
+                            Activer le dégradé
                           </label>
                           <button
                             onClick={() => setGradientEnabled(!gradientEnabled)}
@@ -1437,7 +1707,7 @@ export default function SocialImagesPage() {
                             <div>
                               <div className="flex items-center justify-between mb-1.5">
                                 <label className="text-sm font-medium text-gray-300">
-                                  Gradient Angle
+                                  Angle du dégradé
                                 </label>
                                 <span className="text-sm font-bold text-purple-400 bg-purple-500/10 px-2.5 py-1 rounded-lg">
                                   {gradientAngle}°
@@ -1457,7 +1727,7 @@ export default function SocialImagesPage() {
                             <div>
                               <div className="flex items-center justify-between mb-3">
                                 <label className="text-sm font-medium text-gray-300">
-                                  Gradient Intensity
+                                  Intensité du dégradé
                                 </label>
                                 <span className="text-sm font-bold text-purple-400 bg-purple-500/10 px-2.5 py-1 rounded-lg">
                                   {gradientIntensity}%
@@ -1479,11 +1749,11 @@ export default function SocialImagesPage() {
 
                       {/* Color Pickers */}
                       <div className="pt-2 border-t border-white/10">
-                        <h4 className="text-xs font-semibold text-gray-300 mb-1.5">Custom Colors</h4>
+                        <h4 className="text-xs font-semibold text-gray-300 mb-1.5">Couleurs personnalisées</h4>
                         <div className="grid grid-cols-2 gap-2">
                           <div>
                             <label className="block text-xs font-medium text-gray-400 mb-1">
-                              Background
+                              Arrière-plan
                             </label>
                             <input
                               type="color"
@@ -1495,7 +1765,7 @@ export default function SocialImagesPage() {
 
                           <div>
                             <label className="block text-xs font-medium text-gray-400 mb-1">
-                              Text Color
+                              Couleur du texte
                             </label>
                             <input
                               type="color"
@@ -1519,19 +1789,19 @@ export default function SocialImagesPage() {
                     {copied ? (
                       <>
                         <Check className="w-3.5 h-3.5" />
-                        <span>Copied!</span>
+                        <span>Copié&nbsp;!</span>
                       </>
                     ) : (
                       <>
                         <Copy className="w-3.5 h-3.5" />
-                        <span>Copy</span>
+                        <span>Copier</span>
                       </>
                     )}
                   </button>
 
                   <button className="flex-1 flex items-center justify-center gap-1.5 px-4 py-2 text-sm bg-gradient-to-r from-purple-500 to-blue-600 rounded-lg hover:opacity-90 transition-opacity">
                     <Download className="w-3.5 h-3.5" />
-                    <span>Export</span>
+                    <span>Exporter</span>
                   </button>
                 </div>
               </div>
@@ -1548,7 +1818,7 @@ export default function SocialImagesPage() {
                     </div>
                     <div className="flex items-center gap-1">
                       <Layers className="w-3 h-3 text-gray-400" />
-                      <span className="text-xs text-gray-400">Preview</span>
+                      <span className="text-xs text-gray-400">Aperçu</span>
                     </div>
                   </div>
 
@@ -1563,7 +1833,7 @@ export default function SocialImagesPage() {
                       backgroundColor: !gradientEnabled && !selectedMedia ? backgroundColor : undefined,
                     }}
                   >
-                    {/* Background with effects */}
+                    {/* Effets d'arrière-plan */}
                     <div
                       className={`absolute inset-0 ${getEffectClasses('background')}`}
                       style={getEffectStyles('background')}
@@ -1579,7 +1849,7 @@ export default function SocialImagesPage() {
                           {selectedMedia.type === 'image' ? (
                             <img
                               src={selectedMedia.url}
-                              alt="Background"
+                              alt="Arrière-plan"
                               className="w-full h-full object-cover"
                               style={{
                                 transform: `scale(${backgroundScale / 100})`,
@@ -1613,10 +1883,11 @@ export default function SocialImagesPage() {
 
                     {/* Content Overlay */}
                     <div
-                      className="relative z-10 h-full flex flex-col items-center px-12 text-center"
+                      className={`relative z-10 h-full flex flex-col gap-4 px-12 ${alignmentClasses}`}
                       style={{
                         justifyContent: textVerticalPosition === 50 ? 'center' : 'flex-start',
                         paddingTop: textVerticalPosition !== 50 ? `${textVerticalPosition}%` : undefined,
+                        fontFamily: currentFontStack,
                       }}
                     >
                       {title && (
@@ -1635,7 +1906,7 @@ export default function SocialImagesPage() {
 
                       {subtitle && (
                         <p
-                          className={`mb-6 opacity-90 ${getEffectClasses('subtitle')}`}
+                          className={`opacity-90 ${getEffectClasses('subtitle')}`}
                           style={{
                             ...getEffectStyles('subtitle'),
                             color: textColor,
@@ -1649,7 +1920,7 @@ export default function SocialImagesPage() {
 
                       {cta && (
                         <button
-                          className={`px-8 py-3 bg-white text-black font-semibold rounded-full hover:bg-gray-100 transition-colors ${getEffectClasses('cta')}`}
+                          className={`px-8 py-3 bg-white text-black font-semibold rounded-full hover:bg-gray-100 transition-colors ${getEffectClasses('cta')} ${ctaAlignmentClass}`}
                           style={{
                             ...getEffectStyles('cta'),
                             fontSize: `${titleSize * 0.28}px`
@@ -1662,8 +1933,8 @@ export default function SocialImagesPage() {
                       {!title && !subtitle && !cta && !selectedMedia && (
                         <div className="text-gray-500">
                           <ImageIcon className="w-16 h-16 mx-auto mb-4 opacity-20" />
-                          <p>Start creating your visual</p>
-                          <p className="text-sm mt-2">Add content, media, effects or choose a style</p>
+                          <p>Commencez à composer votre visuel</p>
+                          <p className="text-sm mt-2">Ajoutez du contenu, un média, des effets ou choisissez un style</p>
                         </div>
                       )}
                     </div>
@@ -1671,9 +1942,10 @@ export default function SocialImagesPage() {
                 </div>
               </div>
             </div>
-          )}
-        </main>
-      </div>
+          </div>
+        )}
+      </main>
     </div>
-  )
+  </div>
+)
 }
