@@ -4,6 +4,8 @@ import { useMemo, useState } from 'react'
 import { LazyMotion, domAnimation, m, AnimatePresence } from 'framer-motion'
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
+import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component'
+import 'react-vertical-timeline-component/style.min.css'
 import {
   Code,
   Palette,
@@ -424,7 +426,7 @@ export default function CareersPage() {
           </section>
 
           <section className="py-24 px-4 bg-gradient-to-b from-transparent to-purple-900/10">
-            <div className="max-w-4xl mx-auto">
+            <div className="max-w-6xl mx-auto">
               <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -432,98 +434,53 @@ export default function CareersPage() {
                 transition={{ duration: 0.6 }}
                 className="text-center mb-16"
               >
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-4 px-4">{t.careers.process.title}</h2>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-4 px-4">
+                  {t.careers.process.title}
+                </h2>
                 <p className="text-lg sm:text-xl text-gray-400 px-4">{t.careers.process.subtitle}</p>
               </m.div>
 
-              <div className="relative">
-                <m.div
-                  initial={{ scaleY: 0 }}
-                  whileInView={{ scaleY: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 1.5, delay: 0.2 }}
-                  className="absolute left-6 md:left-10 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-500 via-violet-500 to-purple-900/50 rounded-full origin-top"
-                />
-
-                <div className="space-y-8 md:space-y-12">
-                  {t.careers.process.steps.map((step: any, index: number) => (
-                    <m.div
-                      key={index}
-                      initial={{ opacity: 0, x: -30 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true, margin: '-50px' }}
-                      transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="relative flex items-start gap-6 md:gap-8 group"
-                    >
-                      <m.div
-                        initial={{ scale: 0, rotate: -180 }}
-                        whileInView={{ scale: 1, rotate: 0 }}
-                        viewport={{ once: true }}
-                        transition={{
-                          duration: 0.6,
-                          delay: index * 0.1 + 0.2,
-                          type: 'spring',
-                          bounce: 0.5,
-                        }}
-                        whileHover={{
-                          scale: 1.15,
-                          rotate: [0, -10, 10, 0],
-                          transition: { duration: 0.4 },
-                        }}
-                        className="relative flex-shrink-0 z-10"
-                      >
-                        <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-purple-500 via-violet-600 to-purple-700 flex items-center justify-center text-xl md:text-2xl font-bold shadow-xl shadow-purple-500/50 ring-4 ring-black cursor-default">
-                          {step.number}
-                        </div>
-                        <m.div
-                          initial={{ scale: 0 }}
-                          whileInView={{ scale: 1 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.4, delay: index * 0.1 + 0.4 }}
-                          className="absolute inset-0 rounded-full bg-purple-500/20 blur-xl"
-                        />
-                      </m.div>
-
-                      <m.div
-                        whileHover={{
-                          scale: 1.02,
-                          x: 5,
-                          transition: { duration: 0.2 },
-                        }}
-                        className="flex-1 glass-effect p-6 md:p-8 rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all hover:shadow-xl hover:shadow-purple-500/20"
-                      >
-                        <div className="flex items-center gap-3 mb-3">
-                          <m.div
-                            initial={{ width: 0 }}
-                            whileInView={{ width: '3rem' }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 + 0.3 }}
-                            className="h-1 bg-gradient-to-r from-purple-500 to-violet-600 rounded-full"
-                          />
-                          <m.h3
-                            initial={{ opacity: 0, x: -10 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.4, delay: index * 0.1 + 0.4 }}
-                            className="text-xl md:text-2xl font-bold group-hover:text-purple-400 transition-colors"
-                          >
-                            {step.title}
-                          </m.h3>
-                        </div>
-                        <m.p
-                          initial={{ opacity: 0, y: 10 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 0.4, delay: index * 0.1 + 0.5 }}
-                          className="text-gray-400 group-hover:text-gray-300 transition-colors leading-relaxed"
-                        >
-                          {step.description}
-                        </m.p>
-                      </m.div>
-                    </m.div>
-                  ))}
-                </div>
-              </div>
+              <VerticalTimeline lineColor="rgba(147, 51, 234, 0.3)" animate={true}>
+                {t.careers.process.steps.map((step: any, index: number) => (
+                  <VerticalTimelineElement
+                    key={index}
+                    className="vertical-timeline-element--work"
+                    contentStyle={{
+                      background: 'rgba(17, 24, 39, 0.6)',
+                      backdropFilter: 'blur(12px)',
+                      border: '1px solid rgba(255, 255, 255, 0.1)',
+                      borderRadius: '1rem',
+                      boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+                      color: '#fff',
+                      padding: '2rem',
+                    }}
+                    contentArrowStyle={{
+                      borderRight: '7px solid rgba(17, 24, 39, 0.6)',
+                    }}
+                    iconStyle={{
+                      background: 'linear-gradient(135deg, #9333ea 0%, #7c3aed 100%)',
+                      color: '#fff',
+                      boxShadow: '0 0 0 4px #000, 0 0 20px rgba(147, 51, 234, 0.5)',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      fontSize: '1.5rem',
+                      fontWeight: 'bold',
+                    }}
+                    icon={<span>{step.number}</span>}
+                  >
+                    <div className="relative">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="h-1 w-12 bg-gradient-to-r from-purple-500 to-violet-600 rounded-full" />
+                        <h3 className="text-xl sm:text-2xl font-bold text-white hover:text-purple-400 transition-colors">
+                          {step.title}
+                        </h3>
+                      </div>
+                      <p className="text-gray-300 leading-relaxed text-base sm:text-lg">{step.description}</p>
+                    </div>
+                  </VerticalTimelineElement>
+                ))}
+              </VerticalTimeline>
             </div>
           </section>
 
