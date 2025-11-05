@@ -3,8 +3,8 @@
 ## 📊 Vue d'ensemble
 
 **Statut global:** 🟡 En développement actif
-**Dernière mise à jour:** 27 Octobre 2025
-**Version:** 0.3.0
+**Dernière mise à jour:** 5 Novembre 2025
+**Version:** 0.4.1
 
 ## 🎯 Fonctionnalités implémentées
 
@@ -30,7 +30,7 @@
 - [x] Sections parallax i18n
 - [x] Cartes interactives avec effets 3D
 - [x] Défilement infini des logos
-- [x] Footer responsive
+- [x] Footer responsive avec 4 sections (Product, Company, Resources, Legal) et liens fonctionnels
 - [x] Sélecteur de langue (multiple versions)
 - [x] Loader de page avec animation
 - [x] Formulaire de contact avec validation et feedback
