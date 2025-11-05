@@ -1510,6 +1510,77 @@
       "title": "Ei leia täiuslikku positsiooni?",
       "description": "Saada meile spontaanne kandidatuur, otsime alati erakordseid talente.",
       "button": "Spontaanne kandidatuur"
+    },
+    "apply": {
+      "title": "Kandideeri nüüd",
+      "subtitle": "Liitu Hackboot seiklusega",
+      "description": "Täida allolev vorm ja võtame sinuga 48 tunni jooksul ühendust. Ole ise, me vihkame jura.",
+      "form": {
+        "personalInfo": {
+          "title": "Isikuandmed",
+          "firstName": "Eesnimi",
+          "firstNamePlaceholder": "Jaan",
+          "lastName": "Perekonnanimi",
+          "lastNamePlaceholder": "Tamm",
+          "email": "E-post",
+          "emailPlaceholder": "jaan.tamm@example.com",
+          "phone": "Telefon",
+          "phonePlaceholder": "+372 5123 4567",
+          "location": "Asukoht",
+          "locationPlaceholder": "Tallinn, Eesti"
+        },
+        "jobInfo": {
+          "title": "Töö info",
+          "position": "Soovitud ametikoht",
+          "positionPlaceholder": "Nt: Vanem Full Stack arendaja",
+          "department": "Osakond",
+          "departmentPlaceholder": "Inseneriteadus, Disain, DevOps...",
+          "startDate": "Saadavuse kuupäev",
+          "startDatePlaceholder": "Kohe / 1 kuu pärast / 3 kuu pärast"
+        },
+        "application": {
+          "title": "Sinu kandidatuur",
+          "cv": "CV (ainult PDF)",
+          "cvHelp": "Max suurus: 5 MB - Aktsepteeritud formaat: PDF",
+          "motivation": "Motivatsioonikiri",
+          "motivationPlaceholder": "Miks Hackboot? Mis sind selle ametikoha juures põnevdab? Ole autentne, pole vaja klišeesid.",
+          "salary": "Palgaootused (aasta bruto)",
+          "salaryPlaceholder": "Nt: €60 000 - €80 000",
+          "portfolio": "Portfoolio / GitHub / LinkedIn",
+          "portfolioPlaceholder": "https://github.com/sinu-kasutajanimi"
+        },
+        "additional": {
+          "title": "Mõned lisaküsimused",
+          "remote": "Töö eelistus",
+          "remoteOptions": {
+            "full": "100% Kaugtöö",
+            "hybrid": "Hübriid",
+            "office": "Kontor"
+          },
+          "availability": "Intervjuu saadavus",
+          "availabilityPlaceholder": "Nt: Esmaspäev-Reede pärast kella 14",
+          "message": "Sõnum / Küsimused",
+          "messagePlaceholder": "Kas sul on küsimusi? Midagi öelda? Me kuulame."
+        },
+        "consent": {
+          "gdpr": "Nõustun, et minu andmeid töödeldakse kandideerimise raames (GDPR nõuetele vastav)",
+          "newsletter": "Soovin saada Hackboot uudiseid (valikuline)"
+        },
+        "submit": "Saada kandidatuur",
+        "submitting": "Saatmine...",
+        "success": {
+          "title": "Kandidatuur saadetud!",
+          "message": "Täname kandideerimise eest. Meie meeskond vaatab selle läbi ja võtab sinuga 48 tunni jooksul ühendust.",
+          "cta": "Tagasi tööpakkumiste juurde"
+        },
+        "errors": {
+          "required": "See väli on kohustuslik",
+          "email": "Vale e-post",
+          "fileSize": "Fail on liiga suur (max 5 MB)",
+          "fileType": "Vale faili formaat (ainult PDF)",
+          "general": "Tekkis viga. Palun proovi uuesti."
+        }
+      }
     }
   }
 }

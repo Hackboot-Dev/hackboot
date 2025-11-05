@@ -1589,6 +1589,77 @@
       "title": "Vous ne trouvez pas le poste idéal ?",
       "description": "Envoyez-nous une candidature spontanée, nous sommes toujours à la recherche de talents exceptionnels.",
       "button": "Candidature spontanée"
+    },
+    "apply": {
+      "title": "Postuler maintenant",
+      "subtitle": "Rejoignez l'aventure Hackboot",
+      "description": "Remplissez le formulaire ci-dessous et nous reviendrons vers vous dans les 48 heures. Soyez vous-même, on déteste le bullshit.",
+      "form": {
+        "personalInfo": {
+          "title": "Informations personnelles",
+          "firstName": "Prénom",
+          "firstNamePlaceholder": "John",
+          "lastName": "Nom",
+          "lastNamePlaceholder": "Doe",
+          "email": "Email",
+          "emailPlaceholder": "john.doe@example.com",
+          "phone": "Téléphone",
+          "phonePlaceholder": "+33 6 12 34 56 78",
+          "location": "Localisation",
+          "locationPlaceholder": "Paris, France"
+        },
+        "jobInfo": {
+          "title": "Informations sur le poste",
+          "position": "Poste visé",
+          "positionPlaceholder": "Ex: Développeur Full Stack Senior",
+          "department": "Département",
+          "departmentPlaceholder": "Engineering, Design, DevOps...",
+          "startDate": "Date de disponibilité",
+          "startDatePlaceholder": "Immédiatement / Dans 1 mois / Dans 3 mois"
+        },
+        "application": {
+          "title": "Votre candidature",
+          "cv": "CV (PDF uniquement)",
+          "cvHelp": "Taille max: 5 MB - Format accepté: PDF",
+          "motivation": "Lettre de motivation",
+          "motivationPlaceholder": "Pourquoi Hackboot ? Qu'est-ce qui vous excite dans ce poste ? Soyez authentique, pas besoin de formules toutes faites.",
+          "salary": "Prétentions salariales (annuel brut)",
+          "salaryPlaceholder": "Ex: 60 000 - 80 000 €",
+          "portfolio": "Portfolio / GitHub / LinkedIn",
+          "portfolioPlaceholder": "https://github.com/votre-username"
+        },
+        "additional": {
+          "title": "Quelques questions supplémentaires",
+          "remote": "Préférence de travail",
+          "remoteOptions": {
+            "full": "100% Remote",
+            "hybrid": "Hybride",
+            "office": "Bureau"
+          },
+          "availability": "Disponibilité pour un entretien",
+          "availabilityPlaceholder": "Ex: Lundi-Vendredi après 14h",
+          "message": "Message / Questions",
+          "messagePlaceholder": "Des questions ? Des choses à nous dire ? On vous écoute."
+        },
+        "consent": {
+          "gdpr": "J'accepte que mes données soient traitées dans le cadre de ma candidature (conforme RGPD)",
+          "newsletter": "Je souhaite recevoir des actualités de Hackboot (optionnel)"
+        },
+        "submit": "Envoyer ma candidature",
+        "submitting": "Envoi en cours...",
+        "success": {
+          "title": "Candidature envoyée !",
+          "message": "Merci pour votre candidature. Notre équipe va l'examiner et reviendra vers vous dans les 48 heures.",
+          "cta": "Retour aux offres"
+        },
+        "errors": {
+          "required": "Ce champ est requis",
+          "email": "Email invalide",
+          "fileSize": "Fichier trop volumineux (max 5 MB)",
+          "fileType": "Format de fichier invalide (PDF uniquement)",
+          "general": "Une erreur est survenue. Veuillez réessayer."
+        }
+      }
     }
   }
 }
