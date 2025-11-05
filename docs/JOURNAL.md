@@ -98,6 +98,10 @@ Créer une page complète de candidature avec formulaire détaillé qui envoie t
 - [ ] Ajouter un lien "Postuler" sur la page carrières principale
 - [ ] Optionnel : Ajouter un système de tracking des candidatures
 
+#### Mise à jour (Commit 5c9e4f6):
+- ✅ Chat ID Telegram mis à jour : `7588597731`
+- ✅ Les candidatures seront maintenant envoyées au bon destinataire
+
 ---
 
 ## 2025-11-05
