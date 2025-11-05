@@ -1,0 +1,103 @@
+{
+  "departments": [
+    {
+      "id": "engineering",
+      "icon": "Code",
+      "color": "from-purple-500 to-violet-600"
+    },
+    {
+      "id": "design",
+      "icon": "Palette",
+      "color": "from-pink-500 to-rose-600"
+    },
+    {
+      "id": "devops",
+      "icon": "Server",
+      "color": "from-cyan-500 to-blue-600"
+    },
+    {
+      "id": "security",
+      "icon": "Shield",
+      "color": "from-emerald-500 to-teal-600"
+    },
+    {
+      "id": "support",
+      "icon": "Headphones",
+      "color": "from-amber-500 to-yellow-600"
+    }
+  ],
+  "jobs": [
+    {
+      "id": "senior-fullstack-developer",
+      "department": "engineering",
+      "type": "full-time",
+      "remote": true,
+      "location": "Remote (EU)",
+      "experience": "5+ years",
+      "posted": "2025-11-01"
+    },
+    {
+      "id": "cloud-architect",
+      "department": "devops",
+      "type": "full-time",
+      "remote": true,
+      "location": "Remote (Worldwide)",
+      "experience": "7+ years",
+      "posted": "2025-11-01"
+    },
+    {
+      "id": "security-engineer",
+      "department": "security",
+      "type": "full-time",
+      "remote": true,
+      "location": "Remote (EU)",
+      "experience": "4+ years",
+      "posted": "2025-10-28"
+    },
+    {
+      "id": "senior-frontend-developer",
+      "department": "engineering",
+      "type": "full-time",
+      "remote": true,
+      "location": "Remote (EU)",
+      "experience": "4+ years",
+      "posted": "2025-10-25"
+    },
+    {
+      "id": "product-designer",
+      "department": "design",
+      "type": "full-time",
+      "remote": true,
+      "location": "Remote (Worldwide)",
+      "experience": "3+ years",
+      "posted": "2025-10-20"
+    },
+    {
+      "id": "customer-success-manager",
+      "department": "support",
+      "type": "full-time",
+      "remote": true,
+      "location": "Remote (EU)",
+      "experience": "2+ years",
+      "posted": "2025-10-15"
+    },
+    {
+      "id": "devops-engineer",
+      "department": "devops",
+      "type": "full-time",
+      "remote": true,
+      "location": "Remote (EU)",
+      "experience": "3+ years",
+      "posted": "2025-10-10"
+    },
+    {
+      "id": "backend-developer-go",
+      "department": "engineering",
+      "type": "full-time",
+      "remote": true,
+      "location": "Remote (EU)",
+      "experience": "3+ years",
+      "posted": "2025-10-05"
+    }
+  ]
+}

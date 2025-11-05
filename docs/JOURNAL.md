@@ -2,6 +2,127 @@
 
 ## 2025-11-05
 
+### Feature: Création de la page Carrières avec système de jobs traduisibles
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Créer une page carrières complète et originale pour présenter les postes disponibles avec un design moderne et cohérent avec le site.
+
+#### Actions réalisées:
+
+**1. Création du fichier de données JSON**
+   - Créé `/data/careers.json` avec structure complète
+   - 5 départements définis (Engineering, Design, DevOps, Security, Support)
+   - 8 postes disponibles avec métadonnées (remote, location, experience, type)
+   - Structure extensible et maintenable
+
+**2. Ajout des traductions complètes (FR)**
+   - Ajouté section `careers` dans `/public/locales/fr/common.json`
+   - Traductions complètes pour 8 fiches de postes :
+     - Développeur Full Stack Senior
+     - Architecte Cloud
+     - Ingénieur Sécurité
+     - Développeur Frontend Senior
+     - Designer Produit
+     - Customer Success Manager
+     - Ingénieur DevOps
+     - Développeur Backend Go
+   - Sections traduites : stats, filtres, départements, culture, avantages, processus
+   - Plus de 350 lignes de traductions ajoutées
+
+**3. Création de la page carrières principale**
+   - Créé `/app/[locale]/careers/page.tsx` avec design moderne
+   - Hero section animée avec badge et titre gradient
+   - Stats bar avec 4 métriques clés (postes ouverts, pays, remote, croissance)
+   - Système de filtres par département avec boutons interactifs
+   - Grille de cartes de postes avec effets glassmorphism
+   - Section culture avec 4 valeurs d'entreprise
+   - Section avantages avec 8 bénéfices
+   - Section processus de recrutement en 5 étapes
+   - CTA final pour candidature spontanée
+
+**4. Création de la page détail des postes**
+   - Créé `/app/[locale]/careers/[slug]/page.tsx`
+   - Routing dynamique pour chaque poste
+   - Affichage complet : titre, localisation, expérience, type
+   - 3 sections principales :
+     - Responsabilités (liste animée)
+     - Prérequis (liste animée)
+     - Avantages (grille de cards)
+   - CTA d'application vers page contact
+   - Breadcrumb de retour vers liste des postes
+
+**5. Mise à jour du footer**
+   - Modifié `/components/Footer.tsx`
+   - Lien "Carrières" pointe maintenant vers `/careers` au lieu de `/contact`
+
+**6. Design et animations**
+   - Utilisation de Framer Motion pour animations fluides
+   - Effets glassmorphism cohérents avec le site
+   - Gradients purple/violet/cyan/emerald selon sections
+   - Cards interactives avec hover states
+   - Layout responsive mobile-first
+   - Icons Lucide pour cohérence visuelle
+
+#### Résultats:
+
+- ✅ Page carrières complète et fonctionnelle
+- ✅ 8 postes disponibles avec fiches détaillées
+- ✅ Système de filtres par département
+- ✅ Design moderne avec glassmorphism et gradients
+- ✅ Animations fluides avec Framer Motion
+- ✅ Routing dynamique pour pages individuelles
+- ✅ Traductions FR complètes (350+ lignes)
+- ✅ Responsive mobile/tablet/desktop
+- ✅ Code lint sans erreurs
+- ✅ Footer mis à jour avec bon lien
+
+#### Fichiers créés:
+
+- `/data/careers.json` : Données des postes et départements
+- `/app/[locale]/careers/page.tsx` : Page liste des carrières
+- `/app/[locale]/careers/[slug]/page.tsx` : Page détail d'un poste
+
+#### Fichiers modifiés:
+
+- `/public/locales/fr/common.json` : +350 lignes de traductions
+- `/components/Footer.tsx` : Lien careers mis à jour
+
+#### Structure de la page carrières:
+
+```
+/careers
+├── Hero section (badge + titre + subtitle)
+├── Stats bar (4 métriques)
+├── Filtres par département (5 boutons)
+├── Grille de postes (cards avec animations)
+├── Section culture (4 valeurs)
+├── Section avantages (8 bénéfices)
+├── Section processus (5 étapes)
+└── CTA candidature spontanée
+
+/careers/[slug]
+├── Breadcrumb retour
+├── Header du poste (titre + infos + CTA)
+├── Description complète
+├── Section responsabilités
+├── Section prérequis
+├── Section avantages
+└── CTA application
+```
+
+#### Technologies utilisées:
+
+- Next.js 14 App Router
+- TypeScript
+- Framer Motion pour animations
+- Lucide Icons
+- Tailwind CSS (glassmorphism)
+- i18n avec structure JSON
+
+---
+
 ### UI: Refonte complète du footer avec liens fonctionnels
 **Heure**: Session actuelle
 **Développeur**: Assistant Claude

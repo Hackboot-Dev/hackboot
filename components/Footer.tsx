@@ -25,7 +25,7 @@ export default memo(function Footer() {
     },
     company: {
       about: `/${locale}/about`,
-      careers: `/${locale}/contact`,
+      careers: `/${locale}/careers`,
       press: `/${locale}/contact`,
       partners: `/${locale}/contact`,
     },

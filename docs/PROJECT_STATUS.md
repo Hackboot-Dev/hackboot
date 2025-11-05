@@ -4,7 +4,7 @@
 
 **Statut global:** 🟡 En développement actif
 **Dernière mise à jour:** 5 Novembre 2025
-**Version:** 0.4.1
+**Version:** 0.5.0
 
 ## 🎯 Fonctionnalités implémentées
 
@@ -22,6 +22,8 @@
 - [x] Page Services
 - [x] Page About (design complet avec sections timeline, équipe, valeurs, légal)
 - [x] Page Contact (formulaire interactif, cartes de contact, animations)
+- [x] Page Carrières (liste des postes, filtres par département, culture, avantages, processus)
+- [x] Pages détail des postes (routing dynamique, responsabilités, prérequis, avantages)
 
 ### ✅ Composants
 - [x] Hero avec animations (version light optimisée)
