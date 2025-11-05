@@ -1456,104 +1456,132 @@
       "applyNow": "Postuler maintenant"
     },
     "culture": {
-      "title": "Notre culture",
-      "subtitle": "Ce qui nous rend uniques",
+      "title": "Notre Culture",
+      "subtitle": "Ce qui nous rend vraiment différents",
       "values": [
         {
-          "icon": "Globe",
-          "title": "Remote First",
-          "description": "Travaillez d'où vous voulez, quand vous voulez. Liberté totale."
+          "icon": "Rocket",
+          "title": "Innovation Sans Limites",
+          "description": "Nous encourageons les idées folles. Les meilleures innovations viennent de penser différemment. Si vous avez une idée, nous vous donnons les ressources pour la tester.",
+          "details": "Chez nous, il n'y a pas de 'c'est impossible'. Chaque membre de l'équipe peut proposer et implémenter de nouvelles idées. Nous avons un budget dédié à l'expérimentation et nous célébrons les échecs comme des apprentissages."
         },
         {
-          "icon": "Rocket",
-          "title": "Innovation Continue",
-          "description": "Technologies de pointe et projets challengeants au quotidien."
+          "icon": "Home",
+          "title": "Remote par Design",
+          "description": "Nous sommes remote depuis le jour un. Pas de retour au bureau, pas de bullshit hybride. Travaillez depuis votre canapé, une plage, ou une montagne. On s'en fout tant que vous délivrez.",
+          "details": "Nous n'avons jamais eu de bureau et nous n'en aurons jamais. Notre équipe est répartie sur 15+ pays et c'est comme ça qu'on l'aime. Tous nos process sont conçus pour le remote first."
+        },
+        {
+          "icon": "Heart",
+          "title": "La Passion d'Abord",
+          "description": "Nous ne sommes pas là juste pour un salaire. Nous construisons quelque chose en quoi nous croyons. Si vous n'êtes pas passionné par ce que nous faisons, ce n'est pas l'endroit pour vous.",
+          "details": "On cherche des gens qui se réveillent excités par ce qu'ils vont construire. Pas des mercenaires, mais des missionnaires. Si tu veux juste un job 9-5, ce n'est pas fait pour toi."
         },
         {
           "icon": "Gem",
-          "title": "Excellence",
-          "description": "Standards élevés et attention aux détails dans tout ce que nous faisons."
-        },
-        {
-          "icon": "Handshake",
-          "title": "Transparence",
-          "description": "Communication ouverte et honnête à tous les niveaux."
+          "title": "Excellence & Autonomie",
+          "description": "Nous embauchons les meilleurs et leur faisons confiance. Pas de micromanagement, pas de bullshit. Vous êtes responsable de vos résultats.",
+          "details": "On attend de vous que vous soyez autonome, proactif et responsable. En retour, vous avez une liberté totale sur comment vous travaillez. Résultats > Présence."
         }
       ]
     },
     "perks": {
-      "title": "Avantages & Bénéfices",
+      "title": "Pourquoi nous rejoindre",
+      "subtitle": "Ce qu'on offre vraiment",
       "items": [
         {
-          "icon": "DollarSign",
-          "title": "Rémunération Compétitive",
-          "description": "Salaire au-dessus du marché + equity + bonus"
+          "icon": "Globe",
+          "title": "Remote First",
+          "description": "Travaillez de n'importe où dans le monde",
+          "details": "Aucune restriction géographique. Tant que vous avez une bonne connexion internet et que vous êtes dans un fuseau horaire raisonnable, on s'en fout d'où vous êtes."
         },
         {
-          "icon": "Home",
-          "title": "100% Remote",
-          "description": "Travaillez d'où vous voulez dans le monde"
+          "icon": "DollarSign",
+          "title": "Salaire Compétitif",
+          "description": "Salaires top marché + equity",
+          "details": "On paie au-dessus du marché parce qu'on veut les meilleurs. Plus equity pour que vous soyez vraiment propriétaire de votre succès."
         },
         {
           "icon": "Clock",
-          "title": "Horaires Flexibles",
-          "description": "Gérez votre temps comme vous le souhaitez"
+          "title": "Flexibilité Totale",
+          "description": "Choisissez vos horaires, vos outils",
+          "details": "Lève-tôt ou couche-tard, on s'en fout. Mac ou PC, on s'en fout. On vous fait confiance pour organiser votre travail comme vous le voulez."
         },
         {
-          "icon": "BookOpen",
-          "title": "Formation Continue",
-          "description": "Budget illimité pour formations et conférences"
+          "icon": "TrendingUp",
+          "title": "Croissance Rapide",
+          "description": "Évoluez rapidement avec de vraies responsabilités",
+          "details": "Pas de hiérarchie rigide. Si vous délivrez, vous évoluez. Certains sont passés de junior à lead en 18 mois. Tout dépend de vous."
+        },
+        {
+          "icon": "Gamepad2",
+          "title": "Culture Gaming",
+          "description": "Sessions gaming en équipe, matériel dernier cri",
+          "details": "Gaming nights hebdomadaires, accès gratuit à tous nos jeux, et on vous file le setup gaming si vous le voulez."
+        },
+        {
+          "icon": "Sparkles",
+          "title": "Projets Passion",
+          "description": "20% du temps pour vos projets personnels",
+          "details": "À la Google, mais en mieux. 1 jour par semaine pour bosser sur ce qui vous passionne. Certains side-projects sont devenus des features de nos produits."
         },
         {
           "icon": "Laptop",
           "title": "Hardware Premium",
-          "description": "Équipement de travail haut de gamme fourni"
+          "description": "Le meilleur équipement pour travailler",
+          "details": "MacBook Pro M3 Max, écrans 4K, chaise ergonomique, budget périphériques illimité. Vous choisissez votre setup."
         },
         {
-          "icon": "Umbrella",
-          "title": "Congés Généreux",
-          "description": "4+ semaines de congés payés par an"
-        },
-        {
-          "icon": "Heart",
-          "title": "Santé & Bien-être",
-          "description": "Mutuelle premium + budget sport/bien-être"
-        },
-        {
-          "icon": "Gamepad2",
-          "title": "Gaming Perks",
-          "description": "Accès gratuit à tous nos produits + jeux"
+          "icon": "BookOpen",
+          "title": "Formation Illimitée",
+          "description": "Budget learning sans limite",
+          "details": "Formations, conférences, livres, cours en ligne. Si ça vous aide à progresser, on paye. Pas de limite, pas de justification à rallonge."
         }
       ]
     },
     "process": {
       "title": "Notre processus de recrutement",
-      "subtitle": "Simple, transparent et rapide",
+      "subtitle": "Simple, transparent et rapide (2-3 semaines max)",
       "steps": [
         {
           "number": "1",
           "title": "Candidature",
-          "description": "Envoyez votre CV et portfolio via notre formulaire"
+          "description": "Envoyez votre CV et portfolio via notre formulaire de contact",
+          "duration": "5 minutes",
+          "details": "On ne veut pas de lettre de motivation bullshit. Juste votre CV et vos meilleurs projets. Montrez-nous ce que vous avez construit, pas ce que vous savez écrire.",
+          "tips": "Un bon GitHub/portfolio vaut mieux que 1000 mots. Soyez direct et montrez vos compétences."
         },
         {
           "number": "2",
           "title": "Premier Échange",
-          "description": "Appel de 30min avec un membre de l'équipe"
+          "description": "Call de 30min avec un membre de l'équipe pour se connaître",
+          "duration": "30 minutes",
+          "details": "Discussion informelle pour comprendre qui vous êtes, ce que vous cherchez, et si on match. Pas d'interview bullshit, juste une vraie conversation.",
+          "tips": "Soyez vous-même. On cherche des humains, pas des robots corporate. Posez-nous des questions difficiles."
         },
         {
           "number": "3",
           "title": "Test Technique",
-          "description": "Challenge technique adapté au poste (2-4h)"
+          "description": "Challenge technique réaliste basé sur notre stack (2-4h max)",
+          "duration": "2-4 heures",
+          "details": "Un vrai problème qu'on rencontre au quotidien, pas un exercice de leetcode bullshit. Vous avez 1 semaine pour le faire quand vous voulez. On évalue votre approche, pas juste le code.",
+          "tips": "Qualité > Rapidité. Écrivez du code comme si vous alliez le maintenir. Commentez vos choix techniques."
         },
         {
           "number": "4",
-          "title": "Entretien Final",
-          "description": "Rencontre avec l'équipe et discussion culture"
+          "title": "Rencontre Équipe",
+          "description": "Session de 1h avec plusieurs membres de l'équipe",
+          "duration": "60 minutes",
+          "details": "Review de votre test technique + discussion avec 2-3 membres de l'équipe. On vérifie le fit technique ET culturel. C'est autant pour vous évaluer que pour vous permettre de nous évaluer.",
+          "tips": "Challengez-nous. Demandez-nous ce qui nous frustre, nos plus gros fails. Une team qui n'a rien à cacher n'a pas peur de ces questions."
         },
         {
           "number": "5",
-          "title": "Offre",
-          "description": "Proposition d'embauche et onboarding"
+          "title": "Offre & Onboarding",
+          "description": "On vous fait une offre claire et transparente, puis on vous aide à démarrer",
+          "duration": "48 heures max",
+          "details": "Salaire, equity, avantages : tout est sur la table. Pas de négociation bullshit, on vous fait notre meilleure offre d'entrée. Si c'est oui, vous commencez quand vous voulez.",
+          "tips": "Prenez le temps de réfléchir. On veut que vous soyez sûr à 100%. Une fois à bord, on vous accompagne avec un buddy dédié pour votre premier mois."
         }
       ]
     },

@@ -408,24 +408,27 @@ export default function CareersPage() {
                           <ChevronDown className="w-6 h-6" />
                         </m.div>
                       </div>
-                      <h3 className="text-xl font-bold mb-2 group-hover:text-purple-400 transition-colors">
+                      <h3 className="text-xl font-bold mb-3 group-hover:text-purple-400 transition-colors">
                         {value.title}
                       </h3>
+                      <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors leading-relaxed mb-3">
+                        {value.description}
+                      </p>
                       <AnimatePresence mode="wait">
-                        {isOpen && (
-                          <m.p
+                        {isOpen && value.details && (
+                          <m.div
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.3 }}
-                            className="text-gray-400 group-hover:text-gray-300 transition-colors overflow-hidden"
+                            className="text-xs text-gray-500 mt-4 pt-4 border-t border-white/10 overflow-hidden leading-relaxed"
                           >
-                            {value.description}
-                          </m.p>
+                            {value.details}
+                          </m.div>
                         )}
                       </AnimatePresence>
-                      {!isOpen && (
-                        <p className="text-gray-500 text-sm mt-2">Cliquez pour en savoir plus</p>
+                      {!isOpen && value.details && (
+                        <p className="text-purple-400 text-xs mt-3 font-medium">Lire la suite →</p>
                       )}
                     </m.div>
                   )
@@ -444,6 +447,9 @@ export default function CareersPage() {
                 className="text-center mb-16"
               >
                 <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-4 px-4">{t.careers.perks.title}</h2>
+                {t.careers.perks.subtitle && (
+                  <p className="text-lg sm:text-xl text-gray-400 px-4">{t.careers.perks.subtitle}</p>
+                )}
               </m.div>
 
               <m.div
@@ -488,21 +494,24 @@ export default function CareersPage() {
                       <h3 className="text-lg font-bold mb-2 group-hover:text-purple-400 transition-colors">
                         {perk.title}
                       </h3>
+                      <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors mb-2">
+                        {perk.description}
+                      </p>
                       <AnimatePresence mode="wait">
-                        {isOpen && (
-                          <m.p
+                        {isOpen && perk.details && (
+                          <m.div
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
                             transition={{ duration: 0.3 }}
-                            className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors overflow-hidden"
+                            className="text-xs text-gray-500 mt-3 pt-3 border-t border-white/10 overflow-hidden leading-relaxed"
                           >
-                            {perk.description}
-                          </m.p>
+                            {perk.details}
+                          </m.div>
                         )}
                       </AnimatePresence>
-                      {!isOpen && (
-                        <p className="text-gray-500 text-xs mt-1">Cliquez pour en savoir plus</p>
+                      {!isOpen && perk.details && (
+                        <p className="text-purple-400 text-xs mt-2 font-medium">Cliquez pour les détails →</p>
                       )}
                     </m.div>
                   )
@@ -556,13 +565,34 @@ export default function CareersPage() {
                     icon={<span>{step.number}</span>}
                   >
                     <div className="relative">
-                      <div className="flex items-center gap-3 mb-4">
-                        <div className="h-1 w-12 bg-gradient-to-r from-purple-500 to-violet-600 rounded-full" />
-                        <h3 className="text-xl sm:text-2xl font-bold text-white hover:text-purple-400 transition-colors">
-                          {step.title}
-                        </h3>
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center gap-3">
+                          <div className="h-1 w-12 bg-gradient-to-r from-purple-500 to-violet-600 rounded-full" />
+                          <h3 className="text-xl sm:text-2xl font-bold text-white hover:text-purple-400 transition-colors">
+                            {step.title}
+                          </h3>
+                        </div>
+                        {step.duration && (
+                          <span className="text-sm text-purple-400 font-medium flex items-center gap-2">
+                            <Clock className="w-4 h-4" />
+                            {step.duration}
+                          </span>
+                        )}
                       </div>
-                      <p className="text-gray-300 leading-relaxed text-base sm:text-lg">{step.description}</p>
+                      <p className="text-gray-300 leading-relaxed text-base mb-4">{step.description}</p>
+                      {step.details && (
+                        <div className="mt-4 p-4 bg-white/5 rounded-lg border border-white/10">
+                          <p className="text-sm text-gray-400 leading-relaxed mb-3">{step.details}</p>
+                          {step.tips && (
+                            <div className="flex items-start gap-2 mt-3 pt-3 border-t border-white/10">
+                              <Sparkles className="w-4 h-4 text-purple-400 flex-shrink-0 mt-0.5" />
+                              <p className="text-xs text-purple-300 leading-relaxed">
+                                <span className="font-semibold">Pro tip:</span> {step.tips}
+                              </p>
+                            </div>
+                          )}
+                        </div>
+                      )}
                     </div>
                   </VerticalTimelineElement>
                 ))}
