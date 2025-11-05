@@ -301,13 +301,25 @@ export default function JobDetailPage() {
                       viewport={{ once: true }}
                       transition={{ duration: 0.3, delay: index * 0.05 }}
                       whileHover={{
-                        scale: 1.05,
-                        x: 5,
-                        transition: { duration: 0.2 },
+                        y: -4,
+                        rotateX: 5,
+                        rotateY: 5,
+                        transition: { duration: 0.3, ease: 'easeOut' },
                       }}
-                      className="flex items-center gap-3 p-4 bg-white/5 rounded-xl border border-white/5 hover:bg-white/10 hover:border-emerald-500/30 transition-all cursor-default"
+                      style={{
+                        transformStyle: 'preserve-3d',
+                        perspective: '1000px',
+                      }}
+                      className="flex items-center gap-3 p-4 bg-white/5 rounded-xl border border-white/5 hover:bg-white/10 hover:border-emerald-500/40 hover:shadow-lg hover:shadow-emerald-500/20 transition-all cursor-pointer"
                     >
-                      <m.div whileHover={{ scale: 1.3, rotate: 360 }} transition={{ duration: 0.5 }}>
+                      <m.div
+                        whileHover={{
+                          scale: 1.3,
+                          rotate: 360,
+                          transition: { duration: 0.6, ease: 'easeInOut' },
+                        }}
+                        style={{ transformStyle: 'preserve-3d' }}
+                      >
                         <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0" />
                       </m.div>
                       <span className="text-gray-300 group-hover:text-gray-200 transition-colors">{benefit}</span>

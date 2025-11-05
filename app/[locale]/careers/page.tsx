@@ -174,11 +174,16 @@ export default function CareersPage() {
                       key={index}
                       variants={itemVariants}
                       whileHover={{
-                        scale: 1.05,
+                        y: -8,
+                        rotateX: 5,
                         rotateY: 5,
-                        transition: { duration: 0.3 },
+                        transition: { duration: 0.3, ease: 'easeOut' },
                       }}
-                      className="glass-effect p-6 rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all hover:shadow-lg hover:shadow-purple-500/20 cursor-default group"
+                      style={{
+                        transformStyle: 'preserve-3d',
+                        perspective: '1000px',
+                      }}
+                      className="glass-effect p-6 rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all hover:shadow-xl hover:shadow-purple-500/30 cursor-pointer group"
                     >
                       <m.div
                         className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${stat.gradient} mb-4`}
@@ -353,16 +358,25 @@ export default function CareersPage() {
                     key={index}
                     variants={itemVariants}
                     whileHover={{
-                      scale: 1.05,
-                      y: -10,
-                      transition: { duration: 0.3 },
+                      y: -12,
+                      rotateX: 8,
+                      rotateY: 8,
+                      transition: { duration: 0.3, ease: 'easeOut' },
                     }}
-                    className="glass-effect p-8 rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all hover:shadow-xl hover:shadow-purple-500/20 group"
+                    style={{
+                      transformStyle: 'preserve-3d',
+                      perspective: '1000px',
+                    }}
+                    className="glass-effect p-8 rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all hover:shadow-xl hover:shadow-purple-500/30 group cursor-pointer"
                   >
                     <m.div
                       className="text-5xl mb-4"
-                      whileHover={{ scale: 1.2, rotate: [0, -10, 10, 0] }}
-                      transition={{ duration: 0.5 }}
+                      whileHover={{
+                        scale: 1.3,
+                        rotate: [0, -15, 15, 0],
+                        transition: { duration: 0.6, ease: 'easeInOut' },
+                      }}
+                      style={{ transformStyle: 'preserve-3d' }}
                     >
                       {value.icon}
                     </m.div>
@@ -400,16 +414,25 @@ export default function CareersPage() {
                     key={index}
                     variants={itemVariants}
                     whileHover={{
-                      scale: 1.05,
-                      rotate: 2,
-                      transition: { duration: 0.2 },
+                      y: -8,
+                      rotateX: 5,
+                      rotateY: 5,
+                      transition: { duration: 0.3, ease: 'easeOut' },
                     }}
-                    className="glass-effect p-6 rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all hover:shadow-lg hover:shadow-purple-500/20 group"
+                    style={{
+                      transformStyle: 'preserve-3d',
+                      perspective: '1000px',
+                    }}
+                    className="glass-effect p-6 rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all hover:shadow-xl hover:shadow-purple-500/30 group cursor-pointer"
                   >
                     <m.div
                       className="text-4xl mb-3"
-                      whileHover={{ scale: 1.2, rotate: 360 }}
-                      transition={{ duration: 0.5 }}
+                      whileHover={{
+                        scale: 1.2,
+                        rotate: 360,
+                        transition: { duration: 0.6, ease: 'easeInOut' },
+                      }}
+                      style={{ transformStyle: 'preserve-3d' }}
                     >
                       {perk.icon}
                     </m.div>
