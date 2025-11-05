@@ -22,9 +22,11 @@
   },
   "homepage": "https://github.com/Hackboot-Dev/hackboot#readme",
   "dependencies": {
+    "bcryptjs": "^3.0.2",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.24",
     "i18next": "^25.5.2",
+    "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.544.0",
     "next": "^15.5.3",
     "next-i18next": "^15.4.2",
@@ -36,6 +38,8 @@
   },
   "devDependencies": {
     "@netlify/plugin-nextjs": "^5.14.0",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^24.5.2",
     "@types/react": "^19.1.13",
     "@types/react-dom": "^19.1.9",

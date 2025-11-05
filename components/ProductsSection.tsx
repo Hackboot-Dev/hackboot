@@ -165,29 +165,18 @@ export default memo(function ProductsSection() {
   return (
     <section className="min-h-[60vh] py-20 px-4">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-12">
-          <div>
-            <h2 className="text-4xl md:text-6xl font-display font-bold mb-3">
-              {t.products.home.title}
-            </h2>
-            <p className="text-gray-400 text-lg max-w-2xl">
-              {t.products.home.subtitle}
-            </p>
-          </div>
-
-          <div className="flex items-center gap-2 flex-wrap">
-            {games.map((game) => (
-              <button
-                key={game}
-                onClick={() => setFilter(game)}
-                className={`px-4 py-2 rounded-full border transition-colors duration-300 ${
-                  filter === game ? 'bg-accent text-white border-accent' : 'border-white/10 text-gray-300 hover:bg-white/10'
-                }`}
-              >
-                {game === 'all' ? t.products.home.filters.all : game.toUpperCase()}
-              </button>
-            ))}
-          </div>
+        <div className="flex items-center justify-center gap-2 flex-wrap mb-12">
+          {games.map((game) => (
+            <button
+              key={game}
+              onClick={() => setFilter(game)}
+              className={`px-6 py-3 rounded-full border transition-colors duration-300 text-sm font-medium ${
+                filter === game ? 'bg-accent text-white border-accent' : 'border-white/10 text-gray-300 hover:bg-white/10'
+              }`}
+            >
+              {game === 'all' ? t.products.home.filters.all : game.toUpperCase()}
+            </button>
+          ))}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

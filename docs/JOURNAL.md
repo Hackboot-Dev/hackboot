@@ -1136,6 +1136,8 @@ Respecter la consigne de ne plus créer de nouveaux fichiers de documentation to
 ✅ Consigne "pas de nouveau fichier docs" respectée
 ✅ Processus produit toujours documenté
 
+---
+
 ## 2025-10-21
 
 ### Feature: Refonte complète page produits natifs avec données techniques et graphiques

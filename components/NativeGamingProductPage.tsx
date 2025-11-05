@@ -5267,7 +5267,7 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
               <h3 className="font-semibold text-xl">{copy.subscription.title}</h3>
               <div className="grid grid-cols-1 gap-4">
                 {localizedSubscriptionPlans.map((plan, idx) => (
-                  <Link key={plan.id} href={`/${locale}/premium/signup`} className="group block">
+                  <Link key={plan.id} href={`/${locale}/premium/signup?plan=${plan.id}`} className="group block">
                     <motion.div
                       className="relative p-5 rounded-xl border border-white/10 glass-effect transition-all group-hover:border-purple-500/50"
                       {...inViewSlideProps}
@@ -6250,7 +6250,7 @@ export default function NativeGamingProductPage({ product }: NativeGamingProduct
           <motion.div className="text-center py-16 glass-effect rounded-2xl border border-white/10" {...inViewFadeProps} transition={{ ...fadeTransition, delay: 0.15 }}>
             <h2 className="text-4xl font-bold mb-6">{copy.cta.title(product.game)}</h2>
             <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">{copy.cta.description}</p>
-            <Link href={`/${locale}/premium/signup`} className="group inline-block">
+            <Link href={`/${locale}/premium/signup?plan=${subscriptionPlans.find(p => p.popular)?.id ?? 'élite'}`} className="group inline-block">
               <motion.span
                 className="inline-flex items-center gap-2 px-8 py-4 bg-purple-500 rounded-lg font-semibold transition-colors group-hover:bg-purple-600"
                 whileHover={{ scale: 1.03 }}

@@ -1,26 +1,26 @@
 'use client'
 
 import dynamic from 'next/dynamic'
-import { Suspense, lazy } from 'react'
+import { Suspense } from 'react'
 import SiteHeader from '@/components/SiteHeader'
 
-// Hero léger par défaut, 3D optionnelle
 const HeroLight = dynamic(() => import('@/components/HeroLight'), {
   ssr: true,
   loading: () => <div className="min-h-screen flex items-center justify-center bg-dark" />
 })
 
-// Version 3D à charger seulement si demandé
-const Hero3D = dynamic(() => import('@/components/Hero'), {
-  ssr: false,
-  loading: () => <div className="min-h-screen flex items-center justify-center bg-dark" />
-})
-
-// Lazy loading avec intersection observer
-const ParallaxSectionI18n = dynamic(
-  () => import('@/components/ParallaxSectionI18n'),
+const InteractiveGamesCarousel = dynamic(
+  () => import('@/components/InteractiveGamesCarousel'),
   {
-    loading: () => <div className="min-h-[50vh] bg-dark animate-pulse" />,
+    loading: () => <div className="h-96 bg-dark animate-pulse" />,
+    ssr: false
+  }
+)
+
+const UnifiedFeaturesSection = dynamic(
+  () => import('@/components/UnifiedFeaturesSection'),
+  {
+    loading: () => <div className="min-h-[60vh] bg-dark animate-pulse" />,
     ssr: false
   }
 )
@@ -33,18 +33,28 @@ const InteractiveCards = dynamic(
   }
 )
 
-const InfiniteScroll = dynamic(
-  () => import('@/components/InfiniteScroll'),
+
+const PremiumPlansSection = dynamic(
+  () => import('@/components/PremiumPlansSection'),
   {
-    loading: () => <div className="h-32 bg-dark" />,
+    loading: () => <div className="min-h-[60vh] bg-dark animate-pulse" />,
     ssr: false
   }
 )
 
-const ProductsSection = dynamic(
-  () => import('@/components/ProductsSection'),
+
+const FAQSection = dynamic(
+  () => import('@/components/FAQSection'),
   {
-    loading: () => <div className="min-h-[50vh] bg-dark animate-pulse" />,
+    loading: () => <div className="min-h-[60vh] bg-dark animate-pulse" />,
+    ssr: false
+  }
+)
+
+const FinalCTASection = dynamic(
+  () => import('@/components/FinalCTASection'),
+  {
+    loading: () => <div className="min-h-[40vh] bg-dark animate-pulse" />,
     ssr: false
   }
 )
@@ -68,12 +78,15 @@ export default function Home() {
         </div>
       </Suspense>
 
-      <Suspense fallback={<div className="min-h-[50vh] bg-dark" />}>
+      <Suspense fallback={<div className="h-96 bg-dark" />}>
+        <div className="animate-fade-in">
+          <InteractiveGamesCarousel />
+        </div>
+      </Suspense>
+
+      <Suspense fallback={<div className="min-h-[60vh] bg-dark" />}>
         <div className="animate-slide-up">
-          <ParallaxSectionI18n
-            sectionKey="gaming"
-            imageUrl="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=600&fit=crop"
-          />
+          <UnifiedFeaturesSection />
         </div>
       </Suspense>
 
@@ -83,34 +96,21 @@ export default function Home() {
         </div>
       </Suspense>
 
-      <Suspense fallback={<div className="min-h-[50vh] bg-dark" />}>
-        <div className="animate-slide-up">
-          <ParallaxSectionI18n
-            sectionKey="security"
-            imageUrl="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&h=600&fit=crop"
-            reverse
-          />
-        </div>
-      </Suspense>
-
-      <Suspense fallback={<div className="h-32 bg-dark" />}>
-        <div className="animate-fade-in">
-          <InfiniteScroll />
-        </div>
-      </Suspense>
-
-      <Suspense fallback={<div className="min-h-[50vh] bg-dark" />}>
+      <Suspense fallback={<div className="min-h-[60vh] bg-dark" />}>
         <div className="animate-scale-in">
-          <ProductsSection />
+          <PremiumPlansSection />
         </div>
       </Suspense>
 
-      <Suspense fallback={<div className="min-h-[50vh] bg-dark" />}>
+      <Suspense fallback={<div className="min-h-[60vh] bg-dark" />}>
         <div className="animate-slide-up">
-          <ParallaxSectionI18n
-            sectionKey="cloud"
-            imageUrl="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=600&fit=crop"
-          />
+          <FAQSection />
+        </div>
+      </Suspense>
+
+      <Suspense fallback={<div className="min-h-[40vh] bg-dark" />}>
+        <div className="animate-scale-in">
+          <FinalCTASection />
         </div>
       </Suspense>
 
