@@ -27,6 +27,11 @@ const Footer = dynamic(() => import('@/components/Footer'), {
   ssr: false,
 })
 
+const ThreeBackground = dynamic(() => import('@/components/ThreeBackground'), {
+  loading: () => <div className="fixed inset-0 -z-10 bg-black" />,
+  ssr: false,
+})
+
 const iconMap: Record<string, any> = {
   Code,
   Palette,
@@ -62,6 +67,7 @@ export default function JobDetailPage() {
   return (
     <LazyMotion features={domAnimation}>
       <div className="min-h-screen bg-black text-white overflow-x-hidden">
+        <ThreeBackground />
         <SiteHeader />
 
         <main className="relative pt-24">
