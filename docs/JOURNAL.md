@@ -2,6 +2,86 @@
 
 ## 2025-11-05
 
+### Feature: Enrichissement de la page Carrières avec contenu détaillé et UX améliorée
+**Heure**: Session continuation
+**Développeur**: Assistant Claude
+**Commit**: 199087b
+
+#### Objectif:
+Développer et enrichir la section "Notre processus de recrutement", enrichir tous les avantages avec des détails, et améliorer l'expérience utilisateur avec des animations stables et responsives.
+
+#### Actions réalisées:
+
+**1. Enrichissement des traductions FR (`/public/locales/fr/common.json`)**
+   - **Culture section** : Ajouté 4 valeurs avec descriptions et détails complets
+     - Innovation Sans Limites (Rocket icon)
+     - Remote par Design (Home icon)
+     - La Passion d'Abord (Heart icon)
+     - Excellence & Autonomie (Gem icon)
+   - **Perks section** : Enrichi 8 avantages avec descriptions + détails expandables
+     - Remote First (Globe) - Travail de n'importe où
+     - Salaire Compétitif (DollarSign) - 80-150K€ selon poste
+     - Flexibilité Totale (Clock) - Horaires libres
+     - Croissance Rapide (TrendingUp) - Promotions basées sur performance
+     - Culture Gaming (Gamepad2) - Tournois d'équipe
+     - Projets Passion (Sparkles) - 10% temps sur projets perso
+     - Équipement Premium (Laptop) - MacBook Pro + setup au choix
+     - Formation Continue (BookOpen) - Budget formations illimité
+   - **Process section** : Ajout de champs duration, details et tips pour chaque étape
+     - Candidature (5 min) - "On ne veut pas de lettre de motivation bullshit"
+     - Premier Entretien (30 min) - Discussion informelle
+     - Test Technique (2-4h) - Problème réel, pas de leetcode
+     - Entretien Technique (1h) - Review du test + architecture
+     - Décision & Offre (24-48h) - Décision rapide, transparence totale
+
+**2. Amélioration du composant React (`/app/[locale]/careers/page.tsx`)**
+   - **Perks section** :
+     - Ajouté support du champ `subtitle`
+     - Description toujours visible
+     - Détails expandables avec AnimatePresence
+     - Indicateur visuel "Cliquez pour les détails →"
+   - **Culture section** :
+     - Description toujours visible
+     - Détails expandables avec accordion
+     - Indicateur "Lire la suite →"
+     - Animations Framer Motion maintenues (tilt effects, hover states)
+   - **Timeline section** :
+     - Badges de durée avec icône Clock
+     - Boxes de détails avec fond semi-transparent
+     - Sections "Pro tip" avec icône Sparkles
+     - Meilleure hiérarchie visuelle
+     - Border et padding améliorés
+
+**3. Améliorations UX/UI**
+   - Architecture d'information à deux niveaux (description + détails)
+   - Indices visuels clairs pour le contenu expandable
+   - Maintien de toutes les animations existantes (3D tilt, Framer Motion)
+   - Design glassmorphism cohérent
+   - Typographie améliorée avec meilleure lisibilité
+   - Responsive design maintenu sur tous les breakpoints
+
+#### Résultats:
+- ✅ Page carrières beaucoup plus informative et transparente
+- ✅ Culture d'entreprise clairement communiquée ("no bullshit", passion-driven)
+- ✅ Processus de recrutement détaillé avec temps estimés et conseils
+- ✅ Avantages complets et attractifs (remote first, salaires, flexibilité)
+- ✅ UX fluide avec accordéons et animations stables
+- ✅ Tests lint passés sans erreurs
+- ✅ Commit et push réussis sur la branche `claude/redesign-footer-011CUqR12Q1pevNrARrwG2Zd`
+
+#### Fichiers modifiés:
+- `/public/locales/fr/common.json` : +125 lignes enrichies
+- `/app/[locale]/careers/page.tsx` : Amélioration du rendu des sections
+
+#### Prochaines étapes suggérées:
+- [ ] Enrichir les traductions EN et ET avec le même contenu détaillé
+- [ ] Vérifier si des bibliothèques d'animation supplémentaires sont souhaitées
+- [ ] Tester l'expérience utilisateur complète sur différents devices
+
+---
+
+## 2025-11-05
+
 ### Feature: Création de la page Carrières avec système de jobs traduisibles
 **Heure**: Session actuelle
 **Développeur**: Assistant Claude
