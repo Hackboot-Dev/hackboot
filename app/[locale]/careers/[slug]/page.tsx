@@ -99,11 +99,6 @@ export default function JobDetailPage() {
                       initial={{ scale: 0, rotate: -180 }}
                       animate={{ scale: 1, rotate: 0 }}
                       transition={{ duration: 0.6, delay: 0.2, type: 'spring' }}
-                      whileHover={{
-                        rotate: [0, -10, 10, -10, 0],
-                        scale: 1.1,
-                        transition: { duration: 0.5 },
-                      }}
                       className={`inline-flex p-4 rounded-xl bg-gradient-to-r ${department?.color || 'from-gray-500 to-gray-600'} shadow-lg`}
                     >
                       <DeptIcon className="w-8 h-8" />
@@ -158,9 +153,7 @@ export default function JobDetailPage() {
                         whileTap={{ scale: 0.95 }}
                         className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-500 to-violet-600 rounded-xl font-semibold shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 transition-shadow whitespace-nowrap"
                       >
-                        <m.div whileHover={{ rotate: 15, x: 2 }} transition={{ duration: 0.2 }}>
-                          <Send className="w-5 h-5" />
-                        </m.div>
+                        <Send className="w-5 h-5" />
                         {t.careers.apply.applyNow}
                       </m.div>
                     </Link>
@@ -197,9 +190,7 @@ export default function JobDetailPage() {
                     transition={{ duration: 0.4, delay: 0.1 }}
                     className="text-xl sm:text-2xl font-bold mb-6 flex items-center gap-2 group-hover:text-purple-400 transition-colors"
                   >
-                    <m.div whileHover={{ rotate: 360, scale: 1.2 }} transition={{ duration: 0.5 }}>
-                      <CheckCircle2 className="w-6 h-6 text-purple-400" />
-                    </m.div>
+                    <CheckCircle2 className="w-6 h-6 text-purple-400" />
                     {t.careers.apply.responsibilities}
                   </m.h2>
                   <ul className="space-y-3">
@@ -242,9 +233,7 @@ export default function JobDetailPage() {
                     transition={{ duration: 0.4, delay: 0.1 }}
                     className="text-xl sm:text-2xl font-bold mb-6 flex items-center gap-2 group-hover:text-cyan-400 transition-colors"
                   >
-                    <m.div whileHover={{ rotate: 360, scale: 1.2 }} transition={{ duration: 0.5 }}>
-                      <CheckCircle2 className="w-6 h-6 text-cyan-400" />
-                    </m.div>
+                    <CheckCircle2 className="w-6 h-6 text-cyan-400" />
                     {t.careers.apply.requirements}
                   </m.h2>
                   <ul className="space-y-3">
@@ -287,9 +276,7 @@ export default function JobDetailPage() {
                   transition={{ duration: 0.4, delay: 0.1 }}
                   className="text-xl sm:text-2xl font-bold mb-6 flex items-center gap-2 group-hover:text-emerald-400 transition-colors"
                 >
-                  <m.div whileHover={{ rotate: 360, scale: 1.2 }} transition={{ duration: 0.5 }}>
-                    <CheckCircle2 className="w-6 h-6 text-emerald-400" />
-                  </m.div>
+                  <CheckCircle2 className="w-6 h-6 text-emerald-400" />
                   {t.careers.apply.benefits}
                 </m.h2>
                 <div className="grid md:grid-cols-2 gap-4">
@@ -312,16 +299,7 @@ export default function JobDetailPage() {
                       }}
                       className="flex items-center gap-3 p-4 bg-white/5 rounded-xl border border-white/5 hover:bg-white/10 hover:border-emerald-500/40 hover:shadow-lg hover:shadow-emerald-500/20 transition-all cursor-pointer"
                     >
-                      <m.div
-                        whileHover={{
-                          scale: 1.3,
-                          rotate: 360,
-                          transition: { duration: 0.6, ease: 'easeInOut' },
-                        }}
-                        style={{ transformStyle: 'preserve-3d' }}
-                      >
-                        <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0" />
-                      </m.div>
+                      <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0" />
                       <span className="text-gray-300 group-hover:text-gray-200 transition-colors">{benefit}</span>
                     </m.div>
                   ))}
@@ -369,15 +347,7 @@ export default function JobDetailPage() {
                       whileTap={{ scale: 0.95 }}
                       className="inline-flex items-center gap-2 px-10 py-5 bg-gradient-to-r from-purple-500 to-violet-600 rounded-xl font-semibold text-lg shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 transition-shadow"
                     >
-                      <m.div
-                        whileHover={{
-                          rotate: [0, 15, -15, 15, 0],
-                          x: 2,
-                          transition: { duration: 0.5 },
-                        }}
-                      >
-                        <Send className="w-6 h-6" />
-                      </m.div>
+                      <Send className="w-6 h-6" />
                       {t.careers.apply.applyNow}
                     </m.div>
                   </Link>

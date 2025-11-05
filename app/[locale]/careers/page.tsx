@@ -21,6 +21,7 @@ import {
   ChevronRight,
   Briefcase,
   Sparkles,
+  ChevronDown,
 } from 'lucide-react'
 import SiteHeader from '@/components/SiteHeader'
 import { useI18n } from '@/lib/i18n-simple'
@@ -82,6 +83,8 @@ const cardHoverVariants = {
 export default function CareersPage() {
   const { t, locale } = useI18n()
   const [selectedDepartment, setSelectedDepartment] = useState<string>('all')
+  const [openCultureCard, setOpenCultureCard] = useState<number | null>(null)
+  const [openPerkCard, setOpenPerkCard] = useState<number | null>(null)
 
   const filteredJobs = useMemo(() => {
     if (selectedDepartment === 'all') {
@@ -185,13 +188,9 @@ export default function CareersPage() {
                       }}
                       className="glass-effect p-6 rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all hover:shadow-xl hover:shadow-purple-500/30 cursor-pointer group"
                     >
-                      <m.div
-                        className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${stat.gradient} mb-4`}
-                        whileHover={{ rotate: [0, -10, 10, -10, 0], scale: 1.1 }}
-                        transition={{ duration: 0.5 }}
-                      >
+                      <div className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${stat.gradient} mb-4`}>
                         <Icon className="w-6 h-6" />
-                      </m.div>
+                      </div>
                       <m.div
                         className="text-3xl font-bold mb-1"
                         initial={{ opacity: 0, scale: 0.5 }}
@@ -353,39 +352,57 @@ export default function CareersPage() {
                 viewport={{ once: true }}
                 className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
               >
-                {t.careers.culture.values.map((value: any, index: number) => (
-                  <m.div
-                    key={index}
-                    variants={itemVariants}
-                    whileHover={{
-                      y: -12,
-                      rotateX: 8,
-                      rotateY: 8,
-                      transition: { duration: 0.3, ease: 'easeOut' },
-                    }}
-                    style={{
-                      transformStyle: 'preserve-3d',
-                      perspective: '1000px',
-                    }}
-                    className="glass-effect p-8 rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all hover:shadow-xl hover:shadow-purple-500/30 group cursor-pointer"
-                  >
+                {t.careers.culture.values.map((value: any, index: number) => {
+                  const isOpen = openCultureCard === index
+                  return (
                     <m.div
-                      className="text-5xl mb-4"
+                      key={index}
+                      variants={itemVariants}
+                      onClick={() => setOpenCultureCard(isOpen ? null : index)}
                       whileHover={{
-                        scale: 1.3,
-                        rotate: [0, -15, 15, 0],
-                        transition: { duration: 0.6, ease: 'easeInOut' },
+                        y: -12,
+                        rotateX: 8,
+                        rotateY: 8,
+                        transition: { duration: 0.3, ease: 'easeOut' },
                       }}
-                      style={{ transformStyle: 'preserve-3d' }}
+                      style={{
+                        transformStyle: 'preserve-3d',
+                        perspective: '1000px',
+                      }}
+                      className="glass-effect p-8 rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all hover:shadow-xl hover:shadow-purple-500/30 group cursor-pointer"
                     >
-                      {value.icon}
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="text-5xl">{value.icon}</div>
+                        <m.div
+                          animate={{ rotate: isOpen ? 180 : 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="text-purple-400"
+                        >
+                          <ChevronDown className="w-6 h-6" />
+                        </m.div>
+                      </div>
+                      <h3 className="text-xl font-bold mb-2 group-hover:text-purple-400 transition-colors">
+                        {value.title}
+                      </h3>
+                      <AnimatePresence mode="wait">
+                        {isOpen && (
+                          <m.p
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="text-gray-400 group-hover:text-gray-300 transition-colors overflow-hidden"
+                          >
+                            {value.description}
+                          </m.p>
+                        )}
+                      </AnimatePresence>
+                      {!isOpen && (
+                        <p className="text-gray-500 text-sm mt-2">Cliquez pour en savoir plus</p>
+                      )}
                     </m.div>
-                    <h3 className="text-xl font-bold mb-2 group-hover:text-purple-400 transition-colors">
-                      {value.title}
-                    </h3>
-                    <p className="text-gray-400 group-hover:text-gray-300 transition-colors">{value.description}</p>
-                  </m.div>
-                ))}
+                  )
+                })}
               </m.div>
             </div>
           </section>
@@ -409,41 +426,57 @@ export default function CareersPage() {
                 viewport={{ once: true }}
                 className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
               >
-                {t.careers.perks.items.map((perk: any, index: number) => (
-                  <m.div
-                    key={index}
-                    variants={itemVariants}
-                    whileHover={{
-                      y: -8,
-                      rotateX: 5,
-                      rotateY: 5,
-                      transition: { duration: 0.3, ease: 'easeOut' },
-                    }}
-                    style={{
-                      transformStyle: 'preserve-3d',
-                      perspective: '1000px',
-                    }}
-                    className="glass-effect p-6 rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all hover:shadow-xl hover:shadow-purple-500/30 group cursor-pointer"
-                  >
+                {t.careers.perks.items.map((perk: any, index: number) => {
+                  const isOpen = openPerkCard === index
+                  return (
                     <m.div
-                      className="text-4xl mb-3"
+                      key={index}
+                      variants={itemVariants}
+                      onClick={() => setOpenPerkCard(isOpen ? null : index)}
                       whileHover={{
-                        scale: 1.2,
-                        rotate: 360,
-                        transition: { duration: 0.6, ease: 'easeInOut' },
+                        y: -8,
+                        rotateX: 5,
+                        rotateY: 5,
+                        transition: { duration: 0.3, ease: 'easeOut' },
                       }}
-                      style={{ transformStyle: 'preserve-3d' }}
+                      style={{
+                        transformStyle: 'preserve-3d',
+                        perspective: '1000px',
+                      }}
+                      className="glass-effect p-6 rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all hover:shadow-xl hover:shadow-purple-500/30 group cursor-pointer"
                     >
-                      {perk.icon}
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="text-4xl">{perk.icon}</div>
+                        <m.div
+                          animate={{ rotate: isOpen ? 180 : 0 }}
+                          transition={{ duration: 0.3 }}
+                          className="text-purple-400"
+                        >
+                          <ChevronDown className="w-5 h-5" />
+                        </m.div>
+                      </div>
+                      <h3 className="text-lg font-bold mb-2 group-hover:text-purple-400 transition-colors">
+                        {perk.title}
+                      </h3>
+                      <AnimatePresence mode="wait">
+                        {isOpen && (
+                          <m.p
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors overflow-hidden"
+                          >
+                            {perk.description}
+                          </m.p>
+                        )}
+                      </AnimatePresence>
+                      {!isOpen && (
+                        <p className="text-gray-500 text-xs mt-1">Cliquez pour en savoir plus</p>
+                      )}
                     </m.div>
-                    <h3 className="text-lg font-bold mb-2 group-hover:text-purple-400 transition-colors">
-                      {perk.title}
-                    </h3>
-                    <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
-                      {perk.description}
-                    </p>
-                  </m.div>
-                ))}
+                  )
+                })}
               </m.div>
             </div>
           </section>
