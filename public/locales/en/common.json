@@ -272,12 +272,12 @@
           "desc": "99.9% uptime"
         },
         {
-          "icon": "🚀",
+          "icon": "Rocket",
           "title": "Innovation",
           "desc": "Cutting-edge tech"
         },
         {
-          "icon": "💎",
+          "icon": "Gem",
           "title": "Quality",
           "desc": "Premium service"
         }
@@ -306,7 +306,7 @@
           "description": "Innovation is at the core of our DNA"
         },
         {
-          "icon": "🤝",
+          "icon": "Handshake",
           "title": "Transparency",
           "description": "Open and honest communication with our clients"
         }
@@ -321,7 +321,7 @@
       },
       "principles": [
         {
-          "icon": "🌍",
+          "icon": "Globe",
           "title": "Remote First",
           "description": "Work from anywhere in the world",
           "details": [
@@ -331,7 +331,7 @@
           ]
         },
         {
-          "icon": "🚀",
+          "icon": "Rocket",
           "title": "Total autonomy",
           "description": "Make your decisions, we trust you",
           "details": [
@@ -361,7 +361,7 @@
           ]
         },
         {
-          "icon": "💎",
+          "icon": "Gem",
           "title": "Premium quality",
           "description": "We only do excellence",
           "details": [
@@ -1409,22 +1409,22 @@
       "subtitle": "What makes us unique",
       "values": [
         {
-          "icon": "🌍",
+          "icon": "Globe",
           "title": "Remote First",
           "description": "Work from anywhere, anytime. Total freedom."
         },
         {
-          "icon": "🚀",
+          "icon": "Rocket",
           "title": "Continuous Innovation",
           "description": "Cutting-edge technologies and challenging projects daily."
         },
         {
-          "icon": "💎",
+          "icon": "Gem",
           "title": "Excellence",
           "description": "High standards and attention to detail in everything we do."
         },
         {
-          "icon": "🤝",
+          "icon": "Handshake",
           "title": "Transparency",
           "description": "Open and honest communication at all levels."
         }
@@ -1434,42 +1434,42 @@
       "title": "Benefits & Perks",
       "items": [
         {
-          "icon": "💰",
+          "icon": "DollarSign",
           "title": "Competitive Compensation",
           "description": "Above-market salary + equity + bonuses"
         },
         {
-          "icon": "🏡",
+          "icon": "Home",
           "title": "100% Remote",
           "description": "Work from anywhere in the world"
         },
         {
-          "icon": "⏰",
+          "icon": "Clock",
           "title": "Flexible Hours",
           "description": "Manage your time as you wish"
         },
         {
-          "icon": "📚",
+          "icon": "BookOpen",
           "title": "Continuous Training",
           "description": "Unlimited budget for training and conferences"
         },
         {
-          "icon": "💻",
+          "icon": "Laptop",
           "title": "Premium Hardware",
           "description": "Top-tier work equipment provided"
         },
         {
-          "icon": "🌴",
+          "icon": "Umbrella",
           "title": "Generous Vacation",
           "description": "4+ weeks paid vacation per year"
         },
         {
-          "icon": "🏥",
+          "icon": "Heart",
           "title": "Health & Wellness",
           "description": "Premium health insurance + sports/wellness budget"
         },
         {
-          "icon": "🎮",
+          "icon": "Gamepad2",
           "title": "Gaming Perks",
           "description": "Free access to all our products + games"
         }

@@ -272,12 +272,12 @@
           "desc": "99.9% tööaeg"
         },
         {
-          "icon": "🚀",
+          "icon": "Rocket",
           "title": "Innovatsioon",
           "desc": "Tipptasemel tehnoloogia"
         },
         {
-          "icon": "💎",
+          "icon": "Gem",
           "title": "Kvaliteet",
           "desc": "Preemium teenus"
         }
@@ -306,7 +306,7 @@
           "description": "Innovatsioon on meie DNA südamikus"
         },
         {
-          "icon": "🤝",
+          "icon": "Handshake",
           "title": "Läbipaistvus",
           "description": "Avatud ja aus suhtlus meie klientidega"
         }
@@ -321,7 +321,7 @@
       },
       "principles": [
         {
-          "icon": "🌍",
+          "icon": "Globe",
           "title": "Remote First",
           "description": "Tööta kõikjalt maailmas",
           "details": [
@@ -331,7 +331,7 @@
           ]
         },
         {
-          "icon": "🚀",
+          "icon": "Rocket",
           "title": "Täielik autonoomia",
           "description": "Tee oma otsused, me usaldame sind",
           "details": [
@@ -361,7 +361,7 @@
           ]
         },
         {
-          "icon": "💎",
+          "icon": "Gem",
           "title": "Preemium kvaliteet",
           "description": "Teeme ainult tipptaset",
           "details": [
@@ -1409,22 +1409,22 @@
       "subtitle": "Mis teeb meid ainulaadseks",
       "values": [
         {
-          "icon": "🌍",
+          "icon": "Globe",
           "title": "Kaugtöö eelistatuim",
           "description": "Tööta kus tahes, millal tahes. Täielik vabadus."
         },
         {
-          "icon": "🚀",
+          "icon": "Rocket",
           "title": "Pidev innovatsioon",
           "description": "Tipptehnoloogiad ja väljakutsuvad projektid iga päev."
         },
         {
-          "icon": "💎",
+          "icon": "Gem",
           "title": "Tipptase",
           "description": "Kõrged standardid ja detailidele tähelepanu kõiges, mida teeme."
         },
         {
-          "icon": "🤝",
+          "icon": "Handshake",
           "title": "Läbipaistvus",
           "description": "Avatud ja aus suhtlus kõigil tasanditel."
         }
@@ -1434,42 +1434,42 @@
       "title": "Hüved ja boonused",
       "items": [
         {
-          "icon": "💰",
+          "icon": "DollarSign",
           "title": "Konkurentsivõimeline hüvitis",
           "description": "Turumaksest kõrgem palk + aktsiaid + boonused"
         },
         {
-          "icon": "🏡",
+          "icon": "Home",
           "title": "100% kaugtöö",
           "description": "Tööta kus tahes maailmas"
         },
         {
-          "icon": "⏰",
+          "icon": "Clock",
           "title": "Paindlikud tunnid",
           "description": "Halda oma aega nagu soovid"
         },
         {
-          "icon": "📚",
+          "icon": "BookOpen",
           "title": "Pidev koolitus",
           "description": "Piiramatu eelarve koolitusteks ja konverentsideks"
         },
         {
-          "icon": "💻",
+          "icon": "Laptop",
           "title": "Tippriistvara",
           "description": "Tipptasemel töövarustus pakutud"
         },
         {
-          "icon": "🌴",
+          "icon": "Umbrella",
           "title": "Helde puhkus",
           "description": "4+ nädalat tasulist puhkust aastas"
         },
         {
-          "icon": "🏥",
+          "icon": "Heart",
           "title": "Tervis ja heaolu",
           "description": "Premiumi tervisekindlustus + spordi/heaolu eelarve"
         },
         {
-          "icon": "🎮",
+          "icon": "Gamepad2",
           "title": "Mänguhüved",
           "description": "Tasuta juurdepääs kõigile meie toodetele + mängud"
         }

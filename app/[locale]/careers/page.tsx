@@ -22,6 +22,15 @@ import {
   Briefcase,
   Sparkles,
   ChevronDown,
+  Gem,
+  Handshake,
+  DollarSign,
+  Home,
+  BookOpen,
+  Laptop,
+  Umbrella,
+  Heart,
+  Gamepad2,
 } from 'lucide-react'
 import SiteHeader from '@/components/SiteHeader'
 import { useI18n } from '@/lib/i18n-simple'
@@ -43,6 +52,21 @@ const iconMap: Record<string, any> = {
   Server,
   Shield,
   Headphones,
+}
+
+const careersIconMap: Record<string, any> = {
+  Globe,
+  Rocket,
+  Gem,
+  Handshake,
+  DollarSign,
+  Home,
+  Clock,
+  BookOpen,
+  Laptop,
+  Umbrella,
+  Heart,
+  Gamepad2,
 }
 
 const containerVariants = {
@@ -354,6 +378,7 @@ export default function CareersPage() {
               >
                 {t.careers.culture.values.map((value: any, index: number) => {
                   const isOpen = openCultureCard === index
+                  const IconComponent = careersIconMap[value.icon] || Globe
                   return (
                     <m.div
                       key={index}
@@ -372,7 +397,9 @@ export default function CareersPage() {
                       className="glass-effect p-8 rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all hover:shadow-xl hover:shadow-purple-500/30 group cursor-pointer"
                     >
                       <div className="flex items-center justify-between mb-4">
-                        <div className="text-5xl">{value.icon}</div>
+                        <div className="text-purple-400">
+                          <IconComponent className="w-12 h-12" strokeWidth={1.5} />
+                        </div>
                         <m.div
                           animate={{ rotate: isOpen ? 180 : 0 }}
                           transition={{ duration: 0.3 }}
@@ -428,6 +455,7 @@ export default function CareersPage() {
               >
                 {t.careers.perks.items.map((perk: any, index: number) => {
                   const isOpen = openPerkCard === index
+                  const IconComponent = careersIconMap[perk.icon] || Briefcase
                   return (
                     <m.div
                       key={index}
@@ -446,7 +474,9 @@ export default function CareersPage() {
                       className="glass-effect p-6 rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all hover:shadow-xl hover:shadow-purple-500/30 group cursor-pointer"
                     >
                       <div className="flex items-center justify-between mb-3">
-                        <div className="text-4xl">{perk.icon}</div>
+                        <div className="text-purple-400">
+                          <IconComponent className="w-10 h-10" strokeWidth={1.5} />
+                        </div>
                         <m.div
                           animate={{ rotate: isOpen ? 180 : 0 }}
                           transition={{ duration: 0.3 }}

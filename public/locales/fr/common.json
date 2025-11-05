@@ -1460,22 +1460,22 @@
       "subtitle": "Ce qui nous rend uniques",
       "values": [
         {
-          "icon": "🌍",
+          "icon": "Globe",
           "title": "Remote First",
           "description": "Travaillez d'où vous voulez, quand vous voulez. Liberté totale."
         },
         {
-          "icon": "🚀",
+          "icon": "Rocket",
           "title": "Innovation Continue",
           "description": "Technologies de pointe et projets challengeants au quotidien."
         },
         {
-          "icon": "💎",
+          "icon": "Gem",
           "title": "Excellence",
           "description": "Standards élevés et attention aux détails dans tout ce que nous faisons."
         },
         {
-          "icon": "🤝",
+          "icon": "Handshake",
           "title": "Transparence",
           "description": "Communication ouverte et honnête à tous les niveaux."
         }
@@ -1485,42 +1485,42 @@
       "title": "Avantages & Bénéfices",
       "items": [
         {
-          "icon": "💰",
+          "icon": "DollarSign",
           "title": "Rémunération Compétitive",
           "description": "Salaire au-dessus du marché + equity + bonus"
         },
         {
-          "icon": "🏡",
+          "icon": "Home",
           "title": "100% Remote",
           "description": "Travaillez d'où vous voulez dans le monde"
         },
         {
-          "icon": "⏰",
+          "icon": "Clock",
           "title": "Horaires Flexibles",
           "description": "Gérez votre temps comme vous le souhaitez"
         },
         {
-          "icon": "📚",
+          "icon": "BookOpen",
           "title": "Formation Continue",
           "description": "Budget illimité pour formations et conférences"
         },
         {
-          "icon": "💻",
+          "icon": "Laptop",
           "title": "Hardware Premium",
           "description": "Équipement de travail haut de gamme fourni"
         },
         {
-          "icon": "🌴",
+          "icon": "Umbrella",
           "title": "Congés Généreux",
           "description": "4+ semaines de congés payés par an"
         },
         {
-          "icon": "🏥",
+          "icon": "Heart",
           "title": "Santé & Bien-être",
           "description": "Mutuelle premium + budget sport/bien-être"
         },
         {
-          "icon": "🎮",
+          "icon": "Gamepad2",
           "title": "Gaming Perks",
           "description": "Accès gratuit à tous nos produits + jeux"
         }
