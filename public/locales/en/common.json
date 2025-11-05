@@ -1145,5 +1145,371 @@
     "feature2": "No commitment",
     "feature3": "24/7 Support",
     "disclaimer": "Over 100,000 gamers already trust us"
+  },
+  "careers": {
+    "badge": "Join the team",
+    "title": "Let's build the future of gaming together",
+    "subtitle": "Join a passionate team pushing the boundaries of cloud gaming. Work on innovative projects with cutting-edge technologies.",
+    "stats": {
+      "openings": "Open positions",
+      "countries": "Countries",
+      "remote": "100% Remote",
+      "growth": "Annual growth"
+    },
+    "filters": {
+      "all": "All positions",
+      "department": "Department",
+      "type": "Type",
+      "location": "Location"
+    },
+    "departments": {
+      "engineering": "Engineering",
+      "design": "Design",
+      "devops": "DevOps & Infrastructure",
+      "security": "Security",
+      "support": "Support & Success"
+    },
+    "types": {
+      "full-time": "Full-time",
+      "part-time": "Part-time",
+      "contract": "Contract",
+      "internship": "Internship"
+    },
+    "jobs": {
+      "senior-fullstack-developer": {
+        "title": "Senior Full Stack Developer",
+        "shortDescription": "Build innovative cloud gaming solutions with React, Node.js, and cutting-edge cloud technologies.",
+        "description": "We're looking for a passionate senior full stack developer to join our engineering team. You'll work on our cloud gaming platform, developing innovative features and optimizing performance.",
+        "responsibilities": [
+          "Design and develop full stack features (React, Next.js, Node.js)",
+          "Optimize platform performance and scalability",
+          "Collaborate with product team to define technical roadmaps",
+          "Mentor junior developers",
+          "Participate in code reviews and improve code quality"
+        ],
+        "requirements": [
+          "5+ years experience in full stack development",
+          "Mastery of React, Next.js, TypeScript",
+          "Experience with Node.js, PostgreSQL, Redis",
+          "Knowledge of cloud architectures (AWS, GCP, Azure)",
+          "Passion for performance and optimization",
+          "Excellent communication skills"
+        ],
+        "benefits": [
+          "Competitive salary + equity",
+          "100% remote, flexible hours",
+          "Unlimited training budget",
+          "Top-tier hardware provided",
+          "4 weeks paid vacation"
+        ]
+      },
+      "cloud-architect": {
+        "title": "Cloud Architect",
+        "shortDescription": "Design and deploy our highly available and scalable cloud gaming infrastructure.",
+        "description": "We're seeking an experienced cloud architect to design and maintain our cloud gaming infrastructure. You'll be responsible for architecture, scalability, and platform reliability.",
+        "responsibilities": [
+          "Design multi-region high availability cloud architecture",
+          "Optimize cloud costs and performance",
+          "Implement infrastructure as code (Terraform, CloudFormation)",
+          "Define security and compliance standards",
+          "Oversee critical migrations and deployments"
+        ],
+        "requirements": [
+          "7+ years experience in cloud architecture",
+          "Expertise in AWS, GCP or Azure (certification preferred)",
+          "Mastery of Kubernetes, Docker, CI/CD",
+          "Experience with Terraform, Ansible",
+          "Deep knowledge of networking and cloud security",
+          "Ability to manage complex projects"
+        ],
+        "benefits": [
+          "Exceptional compensation package",
+          "100% remote, flexible timezone",
+          "Conferences and certifications paid",
+          "Personal cloud budget for projects",
+          "Direct impact on product architecture"
+        ]
+      },
+      "security-engineer": {
+        "title": "Security Engineer",
+        "shortDescription": "Protect our infrastructure and users with cutting-edge security solutions.",
+        "description": "Join our security team to develop and maintain our protection systems. You'll work on anti-cheat technologies, kernel-level security, and data protection.",
+        "responsibilities": [
+          "Develop kernel-level security solutions",
+          "Conduct security audits and pentests",
+          "Implement advanced anti-cheat systems",
+          "Monitor and respond to security incidents",
+          "Train team on security best practices"
+        ],
+        "requirements": [
+          "4+ years experience in computer security",
+          "Expertise in reverse engineering and malware analysis",
+          "Knowledge of Windows systems (drivers, kernel)",
+          "Mastery of C/C++, Python, Assembly",
+          "Experience with anti-cheat systems (EAC, BE)",
+          "Security certifications appreciated (OSCP, CEH)"
+        ],
+        "benefits": [
+          "Attractive compensation + performance bonus",
+          "Access to best security tools",
+          "Unlimited research and hardware budget",
+          "Participation in CTFs and conferences",
+          "Work on unique security challenges"
+        ]
+      },
+      "senior-frontend-developer": {
+        "title": "Senior Frontend Developer",
+        "shortDescription": "Create exceptional user interfaces with React, Next.js, and latest web technologies.",
+        "description": "We're looking for a senior frontend developer to create exceptional user experiences. You'll work on our dashboard, website, and gaming interfaces.",
+        "responsibilities": [
+          "Develop performant React/Next.js interfaces",
+          "Create smooth animations with Framer Motion",
+          "Optimize web performance (Core Web Vitals)",
+          "Implement pixel-perfect Figma designs",
+          "Contribute to design system and component library"
+        ],
+        "requirements": [
+          "4+ years experience in frontend development",
+          "Expertise in React, Next.js 14+, TypeScript",
+          "Mastery of Tailwind CSS, CSS/JS animations",
+          "Experience with Framer Motion or similar",
+          "UX/UI sensitivity and attention to detail",
+          "Portfolio of impressive web projects"
+        ],
+        "benefits": [
+          "Competitive salary based on experience",
+          "Remote-first, work-life balance",
+          "Design tools budget (Figma, Adobe CC)",
+          "4K screen + ergonomic setup",
+          "Varied and stimulating projects"
+        ]
+      },
+      "product-designer": {
+        "title": "Product Designer",
+        "shortDescription": "Design innovative user experiences for our cloud gaming platform.",
+        "description": "We're looking for a talented product designer to shape our platform's future. You'll work on UX/UI, design system, and user research.",
+        "responsibilities": [
+          "Design UX/UI interfaces for web and applications",
+          "Create and maintain design system",
+          "Conduct user research and usability testing",
+          "Rapidly prototype concepts with Figma",
+          "Collaborate closely with engineering team"
+        ],
+        "requirements": [
+          "3+ years experience in product design",
+          "Portfolio demonstrating your design process",
+          "Mastery of Figma, design systems, atomic design",
+          "Experience in user research and testing",
+          "Knowledge of technical constraints (HTML/CSS)",
+          "Gaming sensibility and modern interfaces"
+        ],
+        "benefits": [
+          "Attractive package + equity",
+          "100% remote, flexible hours",
+          "Design tools and training budget",
+          "Participation in design conferences",
+          "Direct impact on product"
+        ]
+      },
+      "customer-success-manager": {
+        "title": "Customer Success Manager",
+        "shortDescription": "Support our premium clients and ensure their satisfaction at every step.",
+        "description": "Join our support team to deliver exceptional customer experience to our premium users. You'll be the main point of contact for our clients.",
+        "responsibilities": [
+          "Manage a portfolio of premium clients",
+          "Ensure onboarding and training of new clients",
+          "Identify upsell and cross-sell opportunities",
+          "Collect feedback and improve product",
+          "Maintain high customer satisfaction rate"
+        ],
+        "requirements": [
+          "2+ years experience in customer success",
+          "Excellent communication skills",
+          "Knowledge of gaming and cloud technologies",
+          "Ability to manage multiple clients simultaneously",
+          "Fluency in French and English",
+          "Solution-oriented and empathetic"
+        ],
+        "benefits": [
+          "Base salary + attractive commissions",
+          "Remote with flexible hours",
+          "Continuous product training",
+          "Modern CRM tools",
+          "Supportive and cohesive support team"
+        ]
+      },
+      "devops-engineer": {
+        "title": "DevOps Engineer",
+        "shortDescription": "Automate and optimize our CI/CD pipelines and cloud infrastructure.",
+        "description": "We're looking for a DevOps engineer to automate our processes and optimize our infrastructure. You'll work on Kubernetes, CI/CD, and monitoring.",
+        "responsibilities": [
+          "Manage and optimize Kubernetes clusters",
+          "Develop and maintain CI/CD pipelines",
+          "Implement monitoring and observability",
+          "Automate deployments and infrastructure management",
+          "Participate in on-call and resolve incidents"
+        ],
+        "requirements": [
+          "3+ years experience in DevOps/SRE",
+          "Mastery of Kubernetes, Docker, Helm",
+          "Experience with GitLab CI, GitHub Actions or Jenkins",
+          "Knowledge of Terraform, Ansible",
+          "Scripting in Python, Bash, Go",
+          "Experience with Prometheus, Grafana, ELK"
+        ],
+        "benefits": [
+          "Competitive compensation + bonus",
+          "100% remote, flexible hours",
+          "Certifications and training budget",
+          "Generously compensated on-call",
+          "Modern technical stack"
+        ]
+      },
+      "backend-developer-go": {
+        "title": "Backend Developer Go",
+        "shortDescription": "Develop performant and scalable backend services with Go and cloud technologies.",
+        "description": "Join our backend team to build highly performant services. You'll work with Go, gRPC, Kafka, and distributed databases.",
+        "responsibilities": [
+          "Develop performant Go microservices",
+          "Design RESTful and gRPC APIs",
+          "Optimize queries and performance",
+          "Implement messaging systems (Kafka, RabbitMQ)",
+          "Participate in backend services architecture"
+        ],
+        "requirements": [
+          "3+ years experience in backend development",
+          "Mastery of Go (Golang)",
+          "Experience with gRPC, REST APIs",
+          "Knowledge of PostgreSQL, Redis, Kafka",
+          "Understanding of microservices architectures",
+          "Performance and optimization mindset"
+        ],
+        "benefits": [
+          "Attractive salary based on experience",
+          "Remote-first, flexible timezone",
+          "Modern technical stack (Go, K8s, cloud)",
+          "Training and conferences budget",
+          "Challenging technical projects"
+        ]
+      }
+    },
+    "apply": {
+      "button": "Apply",
+      "remote": "Remote",
+      "fullTime": "Full-time",
+      "experience": "Experience",
+      "posted": "Posted on",
+      "responsibilities": "Responsibilities",
+      "requirements": "Requirements",
+      "benefits": "Benefits",
+      "applyNow": "Apply now"
+    },
+    "culture": {
+      "title": "Our culture",
+      "subtitle": "What makes us unique",
+      "values": [
+        {
+          "icon": "🌍",
+          "title": "Remote First",
+          "description": "Work from anywhere, anytime. Total freedom."
+        },
+        {
+          "icon": "🚀",
+          "title": "Continuous Innovation",
+          "description": "Cutting-edge technologies and challenging projects daily."
+        },
+        {
+          "icon": "💎",
+          "title": "Excellence",
+          "description": "High standards and attention to detail in everything we do."
+        },
+        {
+          "icon": "🤝",
+          "title": "Transparency",
+          "description": "Open and honest communication at all levels."
+        }
+      ]
+    },
+    "perks": {
+      "title": "Benefits & Perks",
+      "items": [
+        {
+          "icon": "💰",
+          "title": "Competitive Compensation",
+          "description": "Above-market salary + equity + bonuses"
+        },
+        {
+          "icon": "🏡",
+          "title": "100% Remote",
+          "description": "Work from anywhere in the world"
+        },
+        {
+          "icon": "⏰",
+          "title": "Flexible Hours",
+          "description": "Manage your time as you wish"
+        },
+        {
+          "icon": "📚",
+          "title": "Continuous Training",
+          "description": "Unlimited budget for training and conferences"
+        },
+        {
+          "icon": "💻",
+          "title": "Premium Hardware",
+          "description": "Top-tier work equipment provided"
+        },
+        {
+          "icon": "🌴",
+          "title": "Generous Vacation",
+          "description": "4+ weeks paid vacation per year"
+        },
+        {
+          "icon": "🏥",
+          "title": "Health & Wellness",
+          "description": "Premium health insurance + sports/wellness budget"
+        },
+        {
+          "icon": "🎮",
+          "title": "Gaming Perks",
+          "description": "Free access to all our products + games"
+        }
+      ]
+    },
+    "process": {
+      "title": "Our recruitment process",
+      "subtitle": "Simple, transparent, and fast",
+      "steps": [
+        {
+          "number": "1",
+          "title": "Application",
+          "description": "Send your CV and portfolio via our form"
+        },
+        {
+          "number": "2",
+          "title": "Initial Call",
+          "description": "30-minute call with a team member"
+        },
+        {
+          "number": "3",
+          "title": "Technical Test",
+          "description": "Position-adapted technical challenge (2-4h)"
+        },
+        {
+          "number": "4",
+          "title": "Final Interview",
+          "description": "Meet the team and culture discussion"
+        },
+        {
+          "number": "5",
+          "title": "Offer",
+          "description": "Job offer and onboarding"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Can't find the perfect position?",
+      "description": "Send us a spontaneous application, we're always looking for exceptional talents.",
+      "button": "Spontaneous application"
+    }
   }
 }

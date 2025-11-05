@@ -1145,5 +1145,371 @@
     "feature2": "Kohustuseta",
     "feature3": "24/7 tugi",
     "disclaimer": "Üle 100 000 mängija usaldab meid juba"
+  },
+  "careers": {
+    "badge": "Liitu meeskonnaga",
+    "title": "Ehitame mängude tulevikku koos",
+    "subtitle": "Liitu kirglike meeskonnaga, kes surub pilvemängude piire. Tööta innovaatiliste projektide kallal koos tipptehnoloogiatega.",
+    "stats": {
+      "openings": "Avatud ametikohad",
+      "countries": "Riigid",
+      "remote": "100% kaugtöö",
+      "growth": "Aastane kasv"
+    },
+    "filters": {
+      "all": "Kõik ametikohad",
+      "department": "Osakond",
+      "type": "Tüüp",
+      "location": "Asukoht"
+    },
+    "departments": {
+      "engineering": "Inseneeria",
+      "design": "Disain",
+      "devops": "DevOps & taristu",
+      "security": "Turvalisus",
+      "support": "Tugi & edu"
+    },
+    "types": {
+      "full-time": "Täistööaeg",
+      "part-time": "Osaline tööaeg",
+      "contract": "Leping",
+      "internship": "Praktika"
+    },
+    "jobs": {
+      "senior-fullstack-developer": {
+        "title": "Vanem full stack arendaja",
+        "shortDescription": "Ehita innovaatilisi pilvemängu lahendusi Reactiga, Node.js-iga ja tipptehnoloogiatega.",
+        "description": "Otsime kirgilikku vanemat full stack arendajat liituma meie insenerimeeskonnaga. Töötad meie pilvemängu platvormil, arendades innovaatilisi funktsioone ja optimeerides jõudlust.",
+        "responsibilities": [
+          "Projekteeri ja arenda full stack funktsioone (React, Next.js, Node.js)",
+          "Optimeeri platvormi jõudlust ja skaleeritavust",
+          "Tee koostööd tootemeeskonnaga tehniliste teede kaartide määramiseks",
+          "Juhenda nooremaid arendajaid",
+          "Osale koodi ülevaatustes ja paranda koodi kvaliteeti"
+        ],
+        "requirements": [
+          "5+ aastat kogemust full stack arenduses",
+          "Oskused React, Next.js, TypeScript",
+          "Kogemus Node.js, PostgreSQL, Redis-iga",
+          "Teadmised pilve arhitektuuridest (AWS, GCP, Azure)",
+          "Kirg jõudluse ja optimeerimise vastu",
+          "Suurepärased suhtlemisoskused"
+        ],
+        "benefits": [
+          "Konkurentsivõimeline palk + aktsiaid",
+          "100% kaugtöö, paindlikud tunnid",
+          "Piiramatu koolituseelarve",
+          "Tipptasemel riistvara pakutud",
+          "4 nädalat tasulist puhkust"
+        ]
+      },
+      "cloud-architect": {
+        "title": "Pilve arhitekt",
+        "shortDescription": "Projekteeri ja juuruta meie kõrge kättesaadavusega ja skaleeritav pilvemängu taristu.",
+        "description": "Otsime kogenud pilve arhitekti projekteerima ja haldama meie pilvemängu taristut. Oled vastutav arhitektuuri, skaleeritavuse ja platvormi usaldusväärsuse eest.",
+        "responsibilities": [
+          "Projekteeri mitmeregioonilise kõrge kättesaadavusega pilve arhitektuur",
+          "Optimeeri pilve kulusid ja jõudlust",
+          "Rakenda infrastruktuuri kui koodi (Terraform, CloudFormation)",
+          "Määratle turvalisuse ja vastavuse standardid",
+          "Järelvalve kriitiliste migratsioonide ja juurutuste üle"
+        ],
+        "requirements": [
+          "7+ aastat kogemust pilve arhitektuuris",
+          "Ekspertiis AWS, GCP või Azure's (sertifikaat eelistatud)",
+          "Oskused Kubernetes, Docker, CI/CD",
+          "Kogemus Terraformi, Ansible'iga",
+          "Sügavad teadmised võrgustikust ja pilve turvalisusest",
+          "Võime hallata keerulisi projekte"
+        ],
+        "benefits": [
+          "Erakordne hüvitispakett",
+          "100% kaugtöö, paindlik ajavöönd",
+          "Konverentsid ja sertifikaadid makstud",
+          "Isiklik pilveeelarve projektideks",
+          "Otsene mõju toote arhitektuurile"
+        ]
+      },
+      "security-engineer": {
+        "title": "Turvalisuse insener",
+        "shortDescription": "Kaitse meie taristut ja kasutajaid tipptehnoloogia turvalahendust.",
+        "description": "Liitu meie turvameeskonnaga arendama ja haldama meie kaitsesüsteeme. Töötad anti-cheat tehnoloogiate, tuuma-taseme turvalisuse ja andmekaitse kallal.",
+        "responsibilities": [
+          "Arenda tuuma-taseme turvalahendusi",
+          "Vii läbi turvaauditeid ja penteste",
+          "Rakenda täiustatud anti-cheat süsteeme",
+          "Jälgi ja reageeri turvaincidentidele",
+          "Kooli meeskonda turvalisuse parimate tavade osas"
+        ],
+        "requirements": [
+          "4+ aastat kogemust arvuti turvalisuses",
+          "Ekspertiis pöördinsenerias ja pahavaranalüüsis",
+          "Teadmised Windowsi süsteemidest (draiverid, tuum)",
+          "Oskused C/C++, Python, Assembly",
+          "Kogemus anti-cheat süsteemidega (EAC, BE)",
+          "Turvalisuse sertifikaadid hinnatud (OSCP, CEH)"
+        ],
+        "benefits": [
+          "Atraktiivne hüvitis + jõudluseboonus",
+          "Juurdepääs parimatele turvatööriistadele",
+          "Piiramatu uurimis- ja riistvaraeelarvega",
+          "Osalemine CTF-ides ja konverentsidel",
+          "Töö ainulaadsete turvaväljakutsete kallal"
+        ]
+      },
+      "senior-frontend-developer": {
+        "title": "Vanem frontend arendaja",
+        "shortDescription": "Loo erakordseid kasutajaliideseid Reactiga, Next.js-iga ja uusimate veebitehnoloogiatega.",
+        "description": "Otsime vanemat frontend arendajat looma erakordseid kasutajakogemusi. Töötad meie armatuurlaual, veebilehel ja mänguliidestel.",
+        "responsibilities": [
+          "Arenda jõudlikke React/Next.js liideseid",
+          "Loo sujuvaid animatsioone Framer Motioniga",
+          "Optimeeri veebijõudlust (Core Web Vitals)",
+          "Rakenda piksel-täpseid Figma disainid",
+          "Aita disainisüsteemi ja komponentide raamatukoguga"
+        ],
+        "requirements": [
+          "4+ aastat kogemust frontend arenduses",
+          "Ekspertiis React, Next.js 14+, TypeScript",
+          "Oskused Tailwind CSS, CSS/JS animatsioonid",
+          "Kogemus Framer Motioni või sarnasega",
+          "UX/UI tundlikkus ja detailidele tähelepanu",
+          "Portfoolio muljetavaldavatest veebiprojektidest"
+        ],
+        "benefits": [
+          "Konkurentsivõimeline palk kogemuse põhjal",
+          "Kaugtöö-esimene, töö-elu tasakaal",
+          "Disainitööriistade eelarve (Figma, Adobe CC)",
+          "4K ekraan + ergonoomilise seadistus",
+          "Mitmekesised ja stimuleerivad projektid"
+        ]
+      },
+      "product-designer": {
+        "title": "Toote disainer",
+        "shortDescription": "Projekteeri innovaatilisi kasutajakogemusi meie pilvemängu platvormile.",
+        "description": "Otsime andekast toote disainerit kujundama meie platvormi tulevikku. Töötad UX/UI, disainisüsteemi ja kasutajauuringu kallal.",
+        "responsibilities": [
+          "Projekteeri UX/UI liideseid veebile ja rakendustele",
+          "Loo ja hoia disainisüsteemi",
+          "Vii läbi kasutajauuringuid ja kasutatavuse testimisi",
+          "Kiiresti prototüübi kontseptsioone Figmaga",
+          "Tee tihedat koostööd insenerimeeskonnaga"
+        ],
+        "requirements": [
+          "3+ aastat kogemust toote disainis",
+          "Portfoolio, mis näitab teie disainiprotsessi",
+          "Oskused Figma, disainisüsteemid, aatomilise disain",
+          "Kogemus kasutajauuringus ja testimises",
+          "Teadmised tehnilistest piirangutest (HTML/CSS)",
+          "Mängutundlikkus ja kaasaegsed liidesed"
+        ],
+        "benefits": [
+          "Atraktiivne pakett + aktsiaid",
+          "100% kaugtöö, paindlikud tunnid",
+          "Disainitööriistade ja koolituste eelarve",
+          "Osalemine disainikonverentsidel",
+          "Otsene mõju tootele"
+        ]
+      },
+      "customer-success-manager": {
+        "title": "Kliendi edu juht",
+        "shortDescription": "Toeta meie preemiumkliente ja tagada nende rahulolu igas etapis.",
+        "description": "Liitu meie tugimeeskonnaga pakkuma erakordset kliendikogemust meie preemiumkasutajatele. Oled klientide peamine kontaktisik.",
+        "responsibilities": [
+          "Halda preemiumklientide portfelli",
+          "Tagada uute klientide sisseelamine ja koolitus",
+          "Tuvasta lisatoodete ja ristmüügi võimalused",
+          "Kogu tagasisidet ja paranda toodet",
+          "Säilita kõrget klientide rahulolu määra"
+        ],
+        "requirements": [
+          "2+ aastat kogemust kliendi edus",
+          "Suurepärased suhtlemisoskused",
+          "Teadmised mängudest ja pilvetehnoloogiatest",
+          "Võime hallata mitmeid kliente samaaegselt",
+          "Prantsuse ja inglise keele valdamine",
+          "Lahenduskeskne ja empaatiline"
+        ],
+        "benefits": [
+          "Põhipalk + atraktiivsed komisjonitasud",
+          "Kaugtöö paindlike tundidega",
+          "Pidev tootekoolitus",
+          "Kaasaegsed CRM tööriistad",
+          "Toetav ja ühtne tugimeeskond"
+        ]
+      },
+      "devops-engineer": {
+        "title": "DevOps insener",
+        "shortDescription": "Automatiseeri ja optimeeri meie CI/CD torujuhtmeid ja pilvetaristut.",
+        "description": "Otsime DevOps insenerit automatiseerima meie protsesse ja optimeerima meie taristut. Töötad Kubernetese, CI/CD ja monitooringu kallal.",
+        "responsibilities": [
+          "Halda ja optimeeri Kubernetese klastried",
+          "Arenda ja hoia CI/CD torujuhtmeid",
+          "Rakenda monitooringu ja jälgitavust",
+          "Automatiseeri juurutusi ja taristu haldust",
+          "Osale valves ja lahenda intsidente"
+        ],
+        "requirements": [
+          "3+ aastat kogemust DevOps/SRE's",
+          "Oskused Kubernetes, Docker, Helm",
+          "Kogemus GitLab CI, GitHub Actions või Jenkinsiga",
+          "Teadmised Terraformist, Ansible'ist",
+          "Skriptid Pythonis, Bashis, Go's",
+          "Kogemus Prometheus, Grafana, ELK-ga"
+        ],
+        "benefits": [
+          "Konkurentsivõimeline hüvitis + boonus",
+          "100% kaugtöö, paindlikud tunnid",
+          "Sertifikaatide ja koolituste eelarve",
+          "Heldelt tasustatud valve",
+          "Kaasaegne tehniline virn"
+        ]
+      },
+      "backend-developer-go": {
+        "title": "Backend arendaja Go",
+        "shortDescription": "Arenda jõudlikke ja skaleeritavaid backend teenuseid Go ja pilvetehnoloogiatega.",
+        "description": "Liitu meie backend meeskonnaga ehitama kõrge jõudlusega teenuseid. Töötad Go, gRPC, Kafka ja hajutatud andmebaaside kallal.",
+        "responsibilities": [
+          "Arenda jõudlikke Go mikroteenuseid",
+          "Projekteeri RESTful ja gRPC API'd",
+          "Optimeeri päringuid ja jõudlust",
+          "Rakenda sõnumsüsteeme (Kafka, RabbitMQ)",
+          "Osale backend teenuste arhitektuuris"
+        ],
+        "requirements": [
+          "3+ aastat kogemust backend arenduses",
+          "Oskused Go (Golang)",
+          "Kogemus gRPC, REST API'dega",
+          "Teadmised PostgreSQL, Redis, Kafka",
+          "Arusaam mikroteenuste arhitektuuridest",
+          "Jõudluse ja optimeerimise mõtteviis"
+        ],
+        "benefits": [
+          "Atraktiivne palk kogemuse põhjal",
+          "Kaugtöö-esimene, paindlik ajavöönd",
+          "Kaasaegne tehniline virn (Go, K8s, pilv)",
+          "Koolituste ja konverentside eelarve",
+          "Väljakutsuvad tehnilised projektid"
+        ]
+      }
+    },
+    "apply": {
+      "button": "Kandideeri",
+      "remote": "Kaugtöö",
+      "fullTime": "Täistööaeg",
+      "experience": "Kogemus",
+      "posted": "Avaldatud",
+      "responsibilities": "Kohustused",
+      "requirements": "Nõuded",
+      "benefits": "Hüved",
+      "applyNow": "Kandideeri kohe"
+    },
+    "culture": {
+      "title": "Meie kultuur",
+      "subtitle": "Mis teeb meid ainulaadseks",
+      "values": [
+        {
+          "icon": "🌍",
+          "title": "Kaugtöö eelistatuim",
+          "description": "Tööta kus tahes, millal tahes. Täielik vabadus."
+        },
+        {
+          "icon": "🚀",
+          "title": "Pidev innovatsioon",
+          "description": "Tipptehnoloogiad ja väljakutsuvad projektid iga päev."
+        },
+        {
+          "icon": "💎",
+          "title": "Tipptase",
+          "description": "Kõrged standardid ja detailidele tähelepanu kõiges, mida teeme."
+        },
+        {
+          "icon": "🤝",
+          "title": "Läbipaistvus",
+          "description": "Avatud ja aus suhtlus kõigil tasanditel."
+        }
+      ]
+    },
+    "perks": {
+      "title": "Hüved ja boonused",
+      "items": [
+        {
+          "icon": "💰",
+          "title": "Konkurentsivõimeline hüvitis",
+          "description": "Turumaksest kõrgem palk + aktsiaid + boonused"
+        },
+        {
+          "icon": "🏡",
+          "title": "100% kaugtöö",
+          "description": "Tööta kus tahes maailmas"
+        },
+        {
+          "icon": "⏰",
+          "title": "Paindlikud tunnid",
+          "description": "Halda oma aega nagu soovid"
+        },
+        {
+          "icon": "📚",
+          "title": "Pidev koolitus",
+          "description": "Piiramatu eelarve koolitusteks ja konverentsideks"
+        },
+        {
+          "icon": "💻",
+          "title": "Tippriistvara",
+          "description": "Tipptasemel töövarustus pakutud"
+        },
+        {
+          "icon": "🌴",
+          "title": "Helde puhkus",
+          "description": "4+ nädalat tasulist puhkust aastas"
+        },
+        {
+          "icon": "🏥",
+          "title": "Tervis ja heaolu",
+          "description": "Premiumi tervisekindlustus + spordi/heaolu eelarve"
+        },
+        {
+          "icon": "🎮",
+          "title": "Mänguhüved",
+          "description": "Tasuta juurdepääs kõigile meie toodetele + mängud"
+        }
+      ]
+    },
+    "process": {
+      "title": "Meie värbamisprotsess",
+      "subtitle": "Lihtne, läbipaistev ja kiire",
+      "steps": [
+        {
+          "number": "1",
+          "title": "Kandidatuur",
+          "description": "Saada oma CV ja portfoolio meie vormi kaudu"
+        },
+        {
+          "number": "2",
+          "title": "Esialgne kõne",
+          "description": "30-minutiline kõne meeskonnaliikmega"
+        },
+        {
+          "number": "3",
+          "title": "Tehniline test",
+          "description": "Ametikoha-kohandatud tehniline väljakutse (2-4h)"
+        },
+        {
+          "number": "4",
+          "title": "Lõppintervjuu",
+          "description": "Kohtu meeskonnaga ja kultuuriarutelu"
+        },
+        {
+          "number": "5",
+          "title": "Pakkumine",
+          "description": "Töö pakkumine ja sisseelamine"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ei leia täiuslikku positsiooni?",
+      "description": "Saada meile spontaanne kandidatuur, otsime alati erakordseid talente.",
+      "button": "Spontaanne kandidatuur"
+    }
   }
 }
