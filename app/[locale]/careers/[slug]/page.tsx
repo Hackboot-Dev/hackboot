@@ -69,130 +69,302 @@ export default function JobDetailPage() {
 
           <div className="max-w-5xl mx-auto px-4 py-12">
             <m.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-              <Link
-                href={`/${locale}/careers`}
-                className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors mb-8"
-              >
-                <ArrowLeft className="w-4 h-4" />
-                Back to careers
-              </Link>
+              <m.div whileHover={{ x: -5 }} transition={{ duration: 0.2 }} className="inline-block mb-8">
+                <Link
+                  href={`/${locale}/careers`}
+                  className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors group"
+                >
+                  <m.div whileHover={{ x: -3 }} transition={{ duration: 0.2 }}>
+                    <ArrowLeft className="w-4 h-4" />
+                  </m.div>
+                  <span className="group-hover:underline">Back to careers</span>
+                </Link>
+              </m.div>
 
-              <div className="glass-effect p-8 md:p-12 rounded-3xl border border-white/10 mb-8">
+              <m.div
+                initial={{ opacity: 0, y: 20, scale: 0.98 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="glass-effect p-8 md:p-12 rounded-3xl border border-white/10 mb-8 hover:border-purple-500/30 hover:shadow-xl hover:shadow-purple-500/10 transition-all group"
+              >
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-8">
                   <div className="flex items-center gap-4 mb-4 md:mb-0">
-                    <div
-                      className={`inline-flex p-4 rounded-xl bg-gradient-to-r ${department?.color || 'from-gray-500 to-gray-600'}`}
+                    <m.div
+                      initial={{ scale: 0, rotate: -180 }}
+                      animate={{ scale: 1, rotate: 0 }}
+                      transition={{ duration: 0.6, delay: 0.2, type: 'spring' }}
+                      whileHover={{
+                        rotate: [0, -10, 10, -10, 0],
+                        scale: 1.1,
+                        transition: { duration: 0.5 },
+                      }}
+                      className={`inline-flex p-4 rounded-xl bg-gradient-to-r ${department?.color || 'from-gray-500 to-gray-600'} shadow-lg`}
                     >
                       <DeptIcon className="w-8 h-8" />
-                    </div>
+                    </m.div>
                     <div>
-                      <h1 className="text-3xl md:text-5xl font-display font-bold mb-2">{jobDetails.title}</h1>
-                      <div className="flex flex-wrap gap-4 text-gray-400">
-                        <div className="flex items-center gap-2">
+                      <m.h1
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: 0.3 }}
+                        className="text-3xl md:text-5xl font-display font-bold mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-violet-400 group-hover:bg-clip-text transition-all"
+                      >
+                        {jobDetails.title}
+                      </m.h1>
+                      <m.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.5, delay: 0.4 }}
+                        className="flex flex-wrap gap-4 text-gray-400 group-hover:text-gray-300 transition-colors"
+                      >
+                        <m.div
+                          whileHover={{ scale: 1.05, x: 2 }}
+                          className="flex items-center gap-2 cursor-default"
+                        >
                           <MapPin className="w-4 h-4" />
                           {job.location}
-                        </div>
-                        <div className="flex items-center gap-2">
+                        </m.div>
+                        <m.div
+                          whileHover={{ scale: 1.05, x: 2 }}
+                          className="flex items-center gap-2 cursor-default"
+                        >
                           <Clock className="w-4 h-4" />
                           {job.experience}
-                        </div>
-                        <div className="flex items-center gap-2">
+                        </m.div>
+                        <m.div
+                          whileHover={{ scale: 1.05, x: 2 }}
+                          className="flex items-center gap-2 cursor-default"
+                        >
                           <Briefcase className="w-4 h-4" />
                           {t.careers.types[job.type as keyof typeof t.careers.types]}
-                        </div>
-                      </div>
+                        </m.div>
+                      </m.div>
                     </div>
                   </div>
-                  <Link
-                    href={`/${locale}/contact`}
-                    className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-500 to-violet-600 rounded-xl font-semibold hover:scale-105 transition-transform whitespace-nowrap"
+                  <m.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: 0.5 }}
                   >
-                    <Send className="w-5 h-5" />
-                    {t.careers.apply.applyNow}
-                  </Link>
+                    <Link href={`/${locale}/contact`}>
+                      <m.div
+                        whileHover={{ scale: 1.05, y: -2 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-500 to-violet-600 rounded-xl font-semibold shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 transition-shadow whitespace-nowrap"
+                      >
+                        <m.div whileHover={{ rotate: 15, x: 2 }} transition={{ duration: 0.2 }}>
+                          <Send className="w-5 h-5" />
+                        </m.div>
+                        {t.careers.apply.applyNow}
+                      </m.div>
+                    </Link>
+                  </m.div>
                 </div>
 
-                <p className="text-xl text-gray-300 leading-relaxed">{jobDetails.description}</p>
-              </div>
+                <m.p
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.6 }}
+                  className="text-xl text-gray-300 leading-relaxed group-hover:text-gray-200 transition-colors"
+                >
+                  {jobDetails.description}
+                </m.p>
+              </m.div>
 
               <div className="grid md:grid-cols-2 gap-8 mb-8">
-                <div className="glass-effect p-8 rounded-2xl border border-white/10">
-                  <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                    <CheckCircle2 className="w-6 h-6 text-purple-400" />
+                <m.div
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  whileHover={{
+                    scale: 1.02,
+                    y: -5,
+                    transition: { duration: 0.2 },
+                  }}
+                  className="glass-effect p-8 rounded-2xl border border-white/10 hover:border-purple-500/50 hover:shadow-lg hover:shadow-purple-500/20 transition-all group"
+                >
+                  <m.h2
+                    initial={{ opacity: 0, y: -10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.1 }}
+                    className="text-2xl font-bold mb-6 flex items-center gap-2 group-hover:text-purple-400 transition-colors"
+                  >
+                    <m.div whileHover={{ rotate: 360, scale: 1.2 }} transition={{ duration: 0.5 }}>
+                      <CheckCircle2 className="w-6 h-6 text-purple-400" />
+                    </m.div>
                     {t.careers.apply.responsibilities}
-                  </h2>
+                  </m.h2>
                   <ul className="space-y-3">
                     {jobDetails.responsibilities.map((resp: string, index: number) => (
                       <m.li
                         key={index}
                         initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.3, delay: index * 0.1 }}
-                        className="flex items-start gap-3"
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.3, delay: index * 0.05 }}
+                        whileHover={{ x: 5, transition: { duration: 0.2 } }}
+                        className="flex items-start gap-3 cursor-default"
                       >
-                        <div className="flex-shrink-0 w-2 h-2 rounded-full bg-purple-500 mt-2" />
-                        <span className="text-gray-300">{resp}</span>
+                        <m.div
+                          whileHover={{ scale: 1.5 }}
+                          className="flex-shrink-0 w-2 h-2 rounded-full bg-purple-500 mt-2"
+                        />
+                        <span className="text-gray-300 group-hover:text-gray-200 transition-colors">{resp}</span>
                       </m.li>
                     ))}
                   </ul>
-                </div>
+                </m.div>
 
-                <div className="glass-effect p-8 rounded-2xl border border-white/10">
-                  <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                    <CheckCircle2 className="w-6 h-6 text-cyan-400" />
+                <m.div
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6 }}
+                  whileHover={{
+                    scale: 1.02,
+                    y: -5,
+                    transition: { duration: 0.2 },
+                  }}
+                  className="glass-effect p-8 rounded-2xl border border-white/10 hover:border-cyan-500/50 hover:shadow-lg hover:shadow-cyan-500/20 transition-all group"
+                >
+                  <m.h2
+                    initial={{ opacity: 0, y: -10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: 0.1 }}
+                    className="text-2xl font-bold mb-6 flex items-center gap-2 group-hover:text-cyan-400 transition-colors"
+                  >
+                    <m.div whileHover={{ rotate: 360, scale: 1.2 }} transition={{ duration: 0.5 }}>
+                      <CheckCircle2 className="w-6 h-6 text-cyan-400" />
+                    </m.div>
                     {t.careers.apply.requirements}
-                  </h2>
+                  </m.h2>
                   <ul className="space-y-3">
                     {jobDetails.requirements.map((req: string, index: number) => (
                       <m.li
                         key={index}
                         initial={{ opacity: 0, x: 20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.3, delay: index * 0.1 }}
-                        className="flex items-start gap-3"
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.3, delay: index * 0.05 }}
+                        whileHover={{ x: -5, transition: { duration: 0.2 } }}
+                        className="flex items-start gap-3 cursor-default"
                       >
-                        <div className="flex-shrink-0 w-2 h-2 rounded-full bg-cyan-500 mt-2" />
-                        <span className="text-gray-300">{req}</span>
+                        <m.div
+                          whileHover={{ scale: 1.5 }}
+                          className="flex-shrink-0 w-2 h-2 rounded-full bg-cyan-500 mt-2"
+                        />
+                        <span className="text-gray-300 group-hover:text-gray-200 transition-colors">{req}</span>
                       </m.li>
                     ))}
                   </ul>
-                </div>
+                </m.div>
               </div>
 
-              <div className="glass-effect p-8 rounded-2xl border border-white/10 mb-12">
-                <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
-                  <CheckCircle2 className="w-6 h-6 text-emerald-400" />
+              <m.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                whileHover={{
+                  scale: 1.01,
+                  transition: { duration: 0.2 },
+                }}
+                className="glass-effect p-8 rounded-2xl border border-white/10 mb-12 hover:border-emerald-500/50 hover:shadow-lg hover:shadow-emerald-500/20 transition-all group"
+              >
+                <m.h2
+                  initial={{ opacity: 0, y: -10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.1 }}
+                  className="text-2xl font-bold mb-6 flex items-center gap-2 group-hover:text-emerald-400 transition-colors"
+                >
+                  <m.div whileHover={{ rotate: 360, scale: 1.2 }} transition={{ duration: 0.5 }}>
+                    <CheckCircle2 className="w-6 h-6 text-emerald-400" />
+                  </m.div>
                   {t.careers.apply.benefits}
-                </h2>
+                </m.h2>
                 <div className="grid md:grid-cols-2 gap-4">
                   {jobDetails.benefits.map((benefit: string, index: number) => (
                     <m.div
                       key={index}
                       initial={{ opacity: 0, scale: 0.9 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.3, delay: index * 0.1 }}
-                      className="flex items-center gap-3 p-4 bg-white/5 rounded-xl border border-white/5"
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: index * 0.05 }}
+                      whileHover={{
+                        scale: 1.05,
+                        x: 5,
+                        transition: { duration: 0.2 },
+                      }}
+                      className="flex items-center gap-3 p-4 bg-white/5 rounded-xl border border-white/5 hover:bg-white/10 hover:border-emerald-500/30 transition-all cursor-default"
                     >
-                      <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0" />
-                      <span className="text-gray-300">{benefit}</span>
+                      <m.div whileHover={{ scale: 1.3, rotate: 360 }} transition={{ duration: 0.5 }}>
+                        <CheckCircle2 className="w-5 h-5 text-emerald-400 flex-shrink-0" />
+                      </m.div>
+                      <span className="text-gray-300 group-hover:text-gray-200 transition-colors">{benefit}</span>
                     </m.div>
                   ))}
                 </div>
-              </div>
+              </m.div>
 
-              <div className="glass-effect p-12 rounded-3xl border border-white/10 text-center">
-                <h2 className="text-3xl font-bold mb-4">Ready to join our team?</h2>
-                <p className="text-xl text-gray-400 mb-8">
-                  Send us your application and let&apos;s build something amazing together.
-                </p>
-                <Link
-                  href={`/${locale}/contact`}
-                  className="inline-flex items-center gap-2 px-10 py-5 bg-gradient-to-r from-purple-500 to-violet-600 rounded-xl font-semibold text-lg hover:scale-105 transition-transform"
+              <m.div
+                initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                whileHover={{
+                  scale: 1.02,
+                  transition: { duration: 0.3 },
+                }}
+                className="glass-effect p-12 rounded-3xl border border-white/10 text-center hover:border-purple-500/50 hover:shadow-2xl hover:shadow-purple-500/30 transition-all group"
+              >
+                <m.h2
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="text-3xl font-bold mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-violet-400 group-hover:bg-clip-text transition-all"
                 >
-                  <Send className="w-6 h-6" />
-                  {t.careers.apply.applyNow}
-                </Link>
-              </div>
+                  Ready to join our team?
+                </m.h2>
+                <m.p
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  className="text-xl text-gray-400 mb-8 group-hover:text-gray-300 transition-colors"
+                >
+                  Send us your application and let&apos;s build something amazing together.
+                </m.p>
+                <m.div
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                >
+                  <Link href={`/${locale}/contact`}>
+                    <m.div
+                      whileHover={{ scale: 1.05, y: -3 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="inline-flex items-center gap-2 px-10 py-5 bg-gradient-to-r from-purple-500 to-violet-600 rounded-xl font-semibold text-lg shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 transition-shadow"
+                    >
+                      <m.div
+                        whileHover={{
+                          rotate: [0, 15, -15, 15, 0],
+                          x: 2,
+                          transition: { duration: 0.5 },
+                        }}
+                      >
+                        <Send className="w-6 h-6" />
+                      </m.div>
+                      {t.careers.apply.applyNow}
+                    </m.div>
+                  </Link>
+                </m.div>
+              </m.div>
             </m.div>
           </div>
         </main>
