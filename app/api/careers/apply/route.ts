@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 const TELEGRAM_BOT_TOKEN = '8496898839:AAEd01EKYQwxPIqCtNtaJ1VqOsXGSTgTzi4';
-const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID || '849689883';
+const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID || '7588597731';
 
 interface ApplicationData {
   firstName: string;
