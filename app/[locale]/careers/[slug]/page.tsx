@@ -113,7 +113,7 @@ export default function JobDetailPage() {
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.5, delay: 0.3 }}
-                        className="text-3xl md:text-5xl font-display font-bold mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-violet-400 group-hover:bg-clip-text transition-all"
+                        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-violet-400 group-hover:bg-clip-text transition-all"
                       >
                         {jobDetails.title}
                       </m.h1>
@@ -195,7 +195,7 @@ export default function JobDetailPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: 0.1 }}
-                    className="text-2xl font-bold mb-6 flex items-center gap-2 group-hover:text-purple-400 transition-colors"
+                    className="text-xl sm:text-2xl font-bold mb-6 flex items-center gap-2 group-hover:text-purple-400 transition-colors"
                   >
                     <m.div whileHover={{ rotate: 360, scale: 1.2 }} transition={{ duration: 0.5 }}>
                       <CheckCircle2 className="w-6 h-6 text-purple-400" />
@@ -240,7 +240,7 @@ export default function JobDetailPage() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.4, delay: 0.1 }}
-                    className="text-2xl font-bold mb-6 flex items-center gap-2 group-hover:text-cyan-400 transition-colors"
+                    className="text-xl sm:text-2xl font-bold mb-6 flex items-center gap-2 group-hover:text-cyan-400 transition-colors"
                   >
                     <m.div whileHover={{ rotate: 360, scale: 1.2 }} transition={{ duration: 0.5 }}>
                       <CheckCircle2 className="w-6 h-6 text-cyan-400" />
@@ -285,7 +285,7 @@ export default function JobDetailPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.1 }}
-                  className="text-2xl font-bold mb-6 flex items-center gap-2 group-hover:text-emerald-400 transition-colors"
+                  className="text-xl sm:text-2xl font-bold mb-6 flex items-center gap-2 group-hover:text-emerald-400 transition-colors"
                 >
                   <m.div whileHover={{ rotate: 360, scale: 1.2 }} transition={{ duration: 0.5 }}>
                     <CheckCircle2 className="w-6 h-6 text-emerald-400" />
@@ -332,7 +332,7 @@ export default function JobDetailPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  className="text-3xl font-bold mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-violet-400 group-hover:bg-clip-text transition-all"
+                  className="text-2xl sm:text-3xl font-bold mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-violet-400 group-hover:bg-clip-text transition-all px-4"
                 >
                   Ready to join our team?
                 </m.h2>
@@ -341,7 +341,7 @@ export default function JobDetailPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.3 }}
-                  className="text-xl text-gray-400 mb-8 group-hover:text-gray-300 transition-colors"
+                  className="text-lg sm:text-xl text-gray-400 mb-8 group-hover:text-gray-300 transition-colors px-4"
                 >
                   Send us your application and let&apos;s build something amazing together.
                 </m.p>

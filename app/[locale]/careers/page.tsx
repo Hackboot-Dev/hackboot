@@ -120,7 +120,7 @@ export default function CareersPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.3 }}
-                  className="text-5xl md:text-7xl font-display font-bold mb-6 bg-gradient-to-r from-white via-purple-200 to-violet-300 bg-clip-text text-transparent hover:scale-105 transition-transform duration-300"
+                  className="text-4xl sm:text-5xl md:text-7xl font-display font-bold mb-6 bg-gradient-to-r from-white via-purple-200 to-violet-300 bg-clip-text text-transparent hover:scale-105 transition-transform duration-300 px-4"
                 >
                   {t.careers.title}
                 </m.h1>
@@ -128,7 +128,7 @@ export default function CareersPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
-                  className="text-xl text-gray-400 max-w-3xl mx-auto"
+                  className="text-lg sm:text-xl text-gray-400 max-w-3xl mx-auto px-4"
                 >
                   {t.careers.subtitle}
                 </m.p>
@@ -335,8 +335,8 @@ export default function CareersPage() {
                 transition={{ duration: 0.6 }}
                 className="text-center mb-16"
               >
-                <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">{t.careers.culture.title}</h2>
-                <p className="text-xl text-gray-400">{t.careers.culture.subtitle}</p>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-4 px-4">{t.careers.culture.title}</h2>
+                <p className="text-lg sm:text-xl text-gray-400 px-4">{t.careers.culture.subtitle}</p>
               </m.div>
 
               <m.div
@@ -383,7 +383,7 @@ export default function CareersPage() {
                 transition={{ duration: 0.6 }}
                 className="text-center mb-16"
               >
-                <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">{t.careers.perks.title}</h2>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-4 px-4">{t.careers.perks.title}</h2>
               </m.div>
 
               <m.div
@@ -424,7 +424,7 @@ export default function CareersPage() {
           </section>
 
           <section className="py-24 px-4 bg-gradient-to-b from-transparent to-purple-900/10">
-            <div className="max-w-5xl mx-auto">
+            <div className="max-w-4xl mx-auto">
               <m.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -432,8 +432,8 @@ export default function CareersPage() {
                 transition={{ duration: 0.6 }}
                 className="text-center mb-16"
               >
-                <h2 className="text-4xl md:text-5xl font-display font-bold mb-4">{t.careers.process.title}</h2>
-                <p className="text-xl text-gray-400">{t.careers.process.subtitle}</p>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold mb-4 px-4">{t.careers.process.title}</h2>
+                <p className="text-lg sm:text-xl text-gray-400 px-4">{t.careers.process.subtitle}</p>
               </m.div>
 
               <div className="relative">
@@ -441,49 +441,88 @@ export default function CareersPage() {
                   initial={{ scaleY: 0 }}
                   whileInView={{ scaleY: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 1, delay: 0.2 }}
-                  className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-purple-500 via-violet-500 to-transparent hidden md:block origin-top"
+                  transition={{ duration: 1.5, delay: 0.2 }}
+                  className="absolute left-6 md:left-10 top-0 bottom-0 w-1 bg-gradient-to-b from-purple-500 via-violet-500 to-purple-900/50 rounded-full origin-top"
                 />
 
-                {t.careers.process.steps.map((step: any, index: number) => (
-                  <m.div
-                    key={index}
-                    initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.15 }}
-                    className={`flex items-center gap-8 mb-12 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}
-                  >
+                <div className="space-y-8 md:space-y-12">
+                  {t.careers.process.steps.map((step: any, index: number) => (
                     <m.div
-                      whileHover={{
-                        scale: 1.03,
-                        y: -5,
-                        transition: { duration: 0.2 },
-                      }}
-                      className="flex-1 glass-effect p-6 rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all hover:shadow-lg hover:shadow-purple-500/20 group"
+                      key={index}
+                      initial={{ opacity: 0, x: -30 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true, margin: '-50px' }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      className="relative flex items-start gap-6 md:gap-8 group"
                     >
-                      <h3 className="text-xl font-bold mb-2 group-hover:text-purple-400 transition-colors">
-                        {step.title}
-                      </h3>
-                      <p className="text-gray-400 group-hover:text-gray-300 transition-colors">{step.description}</p>
+                      <m.div
+                        initial={{ scale: 0, rotate: -180 }}
+                        whileInView={{ scale: 1, rotate: 0 }}
+                        viewport={{ once: true }}
+                        transition={{
+                          duration: 0.6,
+                          delay: index * 0.1 + 0.2,
+                          type: 'spring',
+                          bounce: 0.5,
+                        }}
+                        whileHover={{
+                          scale: 1.15,
+                          rotate: [0, -10, 10, 0],
+                          transition: { duration: 0.4 },
+                        }}
+                        className="relative flex-shrink-0 z-10"
+                      >
+                        <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-purple-500 via-violet-600 to-purple-700 flex items-center justify-center text-xl md:text-2xl font-bold shadow-xl shadow-purple-500/50 ring-4 ring-black cursor-default">
+                          {step.number}
+                        </div>
+                        <m.div
+                          initial={{ scale: 0 }}
+                          whileInView={{ scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.4, delay: index * 0.1 + 0.4 }}
+                          className="absolute inset-0 rounded-full bg-purple-500/20 blur-xl"
+                        />
+                      </m.div>
+
+                      <m.div
+                        whileHover={{
+                          scale: 1.02,
+                          x: 5,
+                          transition: { duration: 0.2 },
+                        }}
+                        className="flex-1 glass-effect p-6 md:p-8 rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all hover:shadow-xl hover:shadow-purple-500/20"
+                      >
+                        <div className="flex items-center gap-3 mb-3">
+                          <m.div
+                            initial={{ width: 0 }}
+                            whileInView={{ width: '3rem' }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5, delay: index * 0.1 + 0.3 }}
+                            className="h-1 bg-gradient-to-r from-purple-500 to-violet-600 rounded-full"
+                          />
+                          <m.h3
+                            initial={{ opacity: 0, x: -10 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.4, delay: index * 0.1 + 0.4 }}
+                            className="text-xl md:text-2xl font-bold group-hover:text-purple-400 transition-colors"
+                          >
+                            {step.title}
+                          </m.h3>
+                        </div>
+                        <m.p
+                          initial={{ opacity: 0, y: 10 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ duration: 0.4, delay: index * 0.1 + 0.5 }}
+                          className="text-gray-400 group-hover:text-gray-300 transition-colors leading-relaxed"
+                        >
+                          {step.description}
+                        </m.p>
+                      </m.div>
                     </m.div>
-                    <m.div
-                      initial={{ scale: 0 }}
-                      whileInView={{ scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: index * 0.15 + 0.3 }}
-                      whileHover={{
-                        scale: 1.2,
-                        rotate: 360,
-                        transition: { duration: 0.5 },
-                      }}
-                      className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-r from-purple-500 to-violet-600 flex items-center justify-center text-xl font-bold shadow-lg shadow-purple-500/50 cursor-default"
-                    >
-                      {step.number}
-                    </m.div>
-                    <div className="flex-1 hidden md:block" />
-                  </m.div>
-                ))}
+                  ))}
+                </div>
               </div>
             </div>
           </section>
@@ -520,7 +559,7 @@ export default function CareersPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.3 }}
-                  className="text-4xl font-display font-bold mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-violet-400 group-hover:bg-clip-text transition-all"
+                  className="text-2xl sm:text-3xl md:text-4xl font-display font-bold mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-violet-400 group-hover:bg-clip-text transition-all px-4"
                 >
                   {t.careers.cta.title}
                 </m.h2>
@@ -529,7 +568,7 @@ export default function CareersPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.4 }}
-                  className="text-xl text-gray-400 mb-8 group-hover:text-gray-300 transition-colors"
+                  className="text-lg sm:text-xl text-gray-400 mb-8 group-hover:text-gray-300 transition-colors px-4"
                 >
                   {t.careers.cta.description}
                 </m.p>
