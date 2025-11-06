@@ -1576,7 +1576,7 @@
     "apply": {
       "title": "Postuler maintenant",
       "subtitle": "Rejoignez l'aventure Hackboot",
-      "description": "Remplissez le formulaire ci-dessous et nous reviendrons vers vous dans les 48 heures. Soyez vous-même, on déteste le bullshit.",
+      "description": "Remplissez le formulaire ci-dessous et nous reviendrons vers vous dans les 48 heures. Soyez vous-même, restez authentique.",
       "form": {
         "personalInfo": {
           "title": "Informations personnelles",
@@ -1657,7 +1657,7 @@
         {
           "icon": "Home",
           "title": "Remote par Design",
-          "description": "Nous sommes remote depuis le jour un. Pas de retour au bureau, pas de bullshit hybride. Travaillez depuis votre canapé, une plage, ou une montagne. On s'en fout tant que vous délivrez.",
+          "description": "Nous sommes remote depuis le jour un. Pas de retour au bureau, pas de mode hybride forcé. Travaillez depuis votre canapé, une plage, ou une montagne. On s'en fout tant que vous délivrez.",
           "details": "Nous n'avons jamais eu de bureau et nous n'en aurons jamais. Notre équipe est répartie sur 15+ pays et c'est comme ça qu'on l'aime. Tous nos process sont conçus pour le remote first."
         },
         {
@@ -1669,7 +1669,7 @@
         {
           "icon": "Gem",
           "title": "Excellence & Autonomie",
-          "description": "Nous embauchons les meilleurs et leur faisons confiance. Pas de micromanagement, pas de bullshit. Vous êtes responsable de vos résultats.",
+          "description": "Nous embauchons les meilleurs et leur faisons confiance. Pas de micromanagement, pas de complications. Vous êtes responsable de vos résultats.",
           "details": "On attend de vous que vous soyez autonome, proactif et responsable. En retour, vous avez une liberté totale sur comment vous travaillez. Résultats > Présence."
         }
       ]
@@ -1737,7 +1737,7 @@
           "title": "Candidature",
           "description": "Envoyez votre CV et portfolio via notre formulaire de contact",
           "duration": "5 minutes",
-          "details": "On ne veut pas de lettre de motivation bullshit. Juste votre CV et vos meilleurs projets. Montrez-nous ce que vous avez construit, pas ce que vous savez écrire.",
+          "details": "On ne veut pas de lettre de motivation formelle. Juste votre CV et vos meilleurs projets. Montrez-nous ce que vous avez construit, pas ce que vous savez écrire.",
           "tips": "Un bon GitHub/portfolio vaut mieux que 1000 mots. Soyez direct et montrez vos compétences."
         },
         {
@@ -1745,7 +1745,7 @@
           "title": "Premier Échange",
           "description": "Call de 30min avec un membre de l'équipe pour se connaître",
           "duration": "30 minutes",
-          "details": "Discussion informelle pour comprendre qui vous êtes, ce que vous cherchez, et si on match. Pas d'interview bullshit, juste une vraie conversation.",
+          "details": "Discussion informelle pour comprendre qui vous êtes, ce que vous cherchez, et si on match. Pas d'interview formatée, juste une vraie conversation.",
           "tips": "Soyez vous-même. On cherche des humains, pas des robots corporate. Posez-nous des questions difficiles."
         },
         {
@@ -1753,7 +1753,7 @@
           "title": "Test Technique",
           "description": "Challenge technique réaliste basé sur notre stack (2-4h max)",
           "duration": "2-4 heures",
-          "details": "Un vrai problème qu'on rencontre au quotidien, pas un exercice de leetcode bullshit. Vous avez 1 semaine pour le faire quand vous voulez. On évalue votre approche, pas juste le code.",
+          "details": "Un vrai problème qu'on rencontre au quotidien, pas un exercice théorique. Vous avez 1 semaine pour le faire quand vous voulez. On évalue votre approche, pas juste le code.",
           "tips": "Qualité > Rapidité. Écrivez du code comme si vous alliez le maintenir. Commentez vos choix techniques."
         },
         {
@@ -1769,7 +1769,7 @@
           "title": "Offre & Onboarding",
           "description": "On vous fait une offre claire et transparente, puis on vous aide à démarrer",
           "duration": "48 heures max",
-          "details": "Salaire, equity, avantages : tout est sur la table. Pas de négociation bullshit, on vous fait notre meilleure offre d'entrée. Si c'est oui, vous commencez quand vous voulez.",
+          "details": "Salaire, equity, avantages : tout est sur la table. Pas d'aller-retours interminables, on vous fait notre meilleure offre d'entrée. Si c'est oui, vous commencez quand vous voulez.",
           "tips": "Prenez le temps de réfléchir. On veut que vous soyez sûr à 100%. Une fois à bord, on vous accompagne avec un buddy dédié pour votre premier mois."
         }
       ]
