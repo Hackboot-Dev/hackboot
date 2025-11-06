@@ -596,105 +596,105 @@
       }
     ],
     "pillarsHeading": {
-      "title": "Core pillars",
-      "subtitle": "End-to-end coverage from infrastructure rollout to daily operations."
+      "title": "What we offer",
+      "subtitle": "From technical support to daily assistance."
     },
     "pillars": [
       {
         "id": "security",
-        "title": "Proactive security",
-        "description": "Multi-layer protection, continuous audits and anti-cheat supervision to stay undetected.",
+        "title": "Advanced security",
+        "description": "Multi-layer protection and continuous anti-cheat monitoring to stay undetected.",
         "bullets": [
           "24/7 anti-cheat monitoring",
-          "In-house kernel shield",
-          "Always-on E2E encryption"
+          "Proprietary kernel protection",
+          "End-to-end encryption"
         ]
       },
       {
         "id": "performance",
-        "title": "Calibrated performance",
-        "description": "Bare-metal clusters, frame-level GPU tuning and CI/CD pipelines built for competition.",
+        "title": "High performance",
+        "description": "Dedicated servers, advanced GPU optimization and automated deployments.",
         "bullets": [
-          "Dedicated bare-metal clusters",
-          "Frame-by-frame GPU tuning",
-          "Live latency monitoring"
+          "High-performance dedicated servers",
+          "Maximum GPU optimization",
+          "Real-time latency tracking"
         ]
       },
       {
         "id": "partnership",
-        "title": "Dedicated partnership",
-        "description": "Senior account manager, custom playbooks and instant support on our private channels.",
+        "title": "Dedicated support",
+        "description": "Personal account manager, custom guides and direct support on our private channels.",
         "bullets": [
-          "Assigned senior account manager",
-          "Custom operational playbooks",
-          "Instant escalation on Discord"
+          "Dedicated account manager",
+          "Custom guides",
+          "Priority support on Discord"
         ]
       },
       {
         "id": "infrastructure",
-        "title": "Cloud orchestration",
-        "description": "Instant provisioning, automatic region failover and continuous backups.",
+        "title": "Cloud infrastructure",
+        "description": "Fast deployment, automatic failover and continuous backups.",
         "bullets": [
           "Secured 10 Gbps network",
-          "Automated disaster recovery",
-          "PulseForge API integration"
+          "Automatic backup",
+          "Full API integration"
         ]
       }
     ],
     "solutions": {
-      "title": "Modules aligned with your goals",
-      "subtitle": "Combine our building blocks for a seamless journey from launch to daily assistance.",
+      "title": "Our services",
+      "subtitle": "Choose the services that fit your needs.",
       "items": [
         {
           "id": "cloud",
-          "title": "Cloud Ops & Scaling",
-          "description": "Automated provisioning, multi-region footprint and CI/CD pipelines built for competitive play.",
+          "title": "Cloud & Scaling",
+          "description": "Automatic deployment, multiple regions and infrastructure built for competitive gaming.",
           "linkLabel": "View plans"
         },
         {
           "id": "competitive",
-          "title": "Anti-Cheat Labs",
-          "description": "Ongoing reverse engineering, day-zero patches and audit protocols to remain undetected.",
-          "linkLabel": "Explore the catalog"
+          "title": "Anti-Cheat Security",
+          "description": "Continuous analysis, fast updates and security checks to stay undetected.",
+          "linkLabel": "View games"
         },
         {
           "id": "custom",
-          "title": "Coaching & Integrations",
-          "description": "1:1 sessions, live assistance and bespoke integrations with your existing tools.",
-          "linkLabel": "Book a call"
+          "title": "Support & Integrations",
+          "description": "Personal support, direct assistance and integrations with your tools.",
+          "linkLabel": "Contact us"
         }
       ]
     },
     "process": {
-      "title": "A proven framework",
-      "subtitle": "We guide you from discovery to steady-state operations with zero downtime.",
+      "title": "Our method",
+      "subtitle": "We guide you from start to finish.",
       "steps": [
         {
           "id": "discover",
-          "title": "Kick-off & audit",
-          "description": "Map requirements, performance goals and security constraints."
+          "title": "Initial analysis",
+          "description": "We identify your needs, goals and constraints."
         },
         {
           "id": "prototype",
-          "title": "Guided prototype",
-          "description": "Spin up a test environment with presets tailored to your roster."
+          "title": "Testing phase",
+          "description": "Set up a test environment adapted to your team."
         },
         {
           "id": "deploy",
-          "title": "Orchestrated rollout",
-          "description": "Progressive activation, shared supervision and reference documentation."
+          "title": "Production launch",
+          "description": "Progressive activation with monitoring and full documentation."
         },
         {
           "id": "optimize",
-          "title": "Continuous optimisation",
-          "description": "Monthly reviews, benchmarks and proactive adjustments from field feedback."
+          "title": "Continuous improvement",
+          "description": "Regular monitoring and adjustments based on your feedback."
         }
       ]
     },
     "contact": {
-      "title": "Schedule a session",
-      "description": "Our teams reply within 24h to scope your needs and build the right deployment plan.",
-      "cta": "Book a call",
+      "title": "Let's discuss your project",
+      "description": "Our teams reply within 24h.",
+      "cta": "Contact us",
       "metrics": [
         {
           "id": "sla",
@@ -712,7 +712,7 @@
           "label": "Client satisfaction"
         }
       ],
-      "note": "A priority Discord & WhatsApp channel is activated as soon as the contract is signed."
+      "note": "Priority Discord & WhatsApp channel available."
     }
   },
   "premium": {

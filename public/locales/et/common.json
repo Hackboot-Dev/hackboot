@@ -596,105 +596,105 @@
       }
     ],
     "pillarsHeading": {
-      "title": "Meie tugisambad",
-      "subtitle": "Katame kogu teekonna esmasest juurutusest igapäevase toeni."
+      "title": "Mida me pakume",
+      "subtitle": "Tehnilisest toest kuni igapäevase abini."
     },
     "pillars": [
       {
         "id": "security",
-        "title": "Proaktiivne turvalisus",
-        "description": "Mitmekihiline kaitse, pidevad auditid ja anti-cheat järelevalve, et püsida nähtamatu.",
+        "title": "Kõrgtaseme turvalisus",
+        "description": "Mitmekihiline kaitse ja pidev anti-cheat järelevalve, et jääda nähtamatuks.",
         "bullets": [
-          "24/7 anti-cheat seire",
-          "Oma kernel-kilp",
-          "Pidev otsast lõpuni krüpteerimine"
+          "24/7 anti-cheat järelevalve",
+          "Oma kernel kaitse",
+          "Otsast lõpuni krüpteerimine"
         ]
       },
       {
         "id": "performance",
-        "title": "Häälestatud jõudlus",
-        "description": "Bare-metal klastrid, kaadri täpsusega GPU tuunimine ja võistluskesksed CI/CD torud.",
+        "title": "Kõrge jõudlus",
+        "description": "Pühendatud serverid, kõrgtaseme GPU optimeerimine ja automaatsed juurutused.",
         "bullets": [
-          "Pühendatud bare-metal klastrid",
-          "GPU häälestus kaader-kaadrilt",
-          "Reaalajas latentsuse monitooring"
+          "Kõrgjõudlusega serverid",
+          "Maksimaalne GPU optimeerimine",
+          "Reaalajas latentsuse jälgimine"
         ]
       },
       {
         "id": "partnership",
-        "title": "Pühendunud partnerlus",
-        "description": "Senior account manager, kohandatud playbookid ja kohene tugi meie privaatkanalites.",
+        "title": "Pühendatud tugi",
+        "description": "Isiklik kontohaldur, kohandatud juhised ja otsene tugi meie privaatkanalites.",
         "bullets": [
-          "Pühendatud account manager",
-          "Kohandatud playbookid",
-          "Kohene eskalatsioon Discordis"
+          "Pühendatud kontohaldur",
+          "Kohandatud juhised",
+          "Prioriteetne tugi Discordis"
         ]
       },
       {
         "id": "infrastructure",
-        "title": "Pilve orkestratsioon",
-        "description": "Kohene provisioneerimine, automaatne regiooni ümberlülitus ja pidevad varukoopiad.",
+        "title": "Pilve infrastruktuur",
+        "description": "Kiire juurutus, automaatne ümberlülitus ja pidevad varukoopiad.",
         "bullets": [
           "Turvatud 10 Gbps võrk",
-          "Automaatne katastroofidest taastumine",
-          "PulseForge API integratsioon"
+          "Automaatne varukoopia",
+          "Täielik API integratsioon"
         ]
       }
     ],
     "solutions": {
-      "title": "Moodulid sinu eesmärkide jaoks",
-      "subtitle": "Kombineeri meie plokid, et liikumine juurutusest igapäevase toeni oleks katkematu.",
+      "title": "Meie teenused",
+      "subtitle": "Vali teenused, mis sobivad sinu vajadustega.",
       "items": [
         {
           "id": "cloud",
-          "title": "Cloud Ops & Scaling",
-          "description": "Automaatne provisioneerimine, mitme regiooni haare ja CI/CD torud, mis on ehitatud võistlusmängude jaoks.",
+          "title": "Cloud & skaleeritavus",
+          "description": "Automaatne juurutus, mitu piirkonda ja võistlusmängudeks ehitatud infrastruktuur.",
           "linkLabel": "Vaata pakette"
         },
         {
           "id": "competitive",
-          "title": "Anti-Cheat Labs",
-          "description": "Pidev reverse engineering, nullpäeva paigad ja auditi protokollid, et jääda märkamatuks.",
-          "linkLabel": "Uuri kataloogi"
+          "title": "Anti-Cheat turvalisus",
+          "description": "Pidev analüüs, kiired uuendused ja turvakontrollid nähtamatuks jäämiseks.",
+          "linkLabel": "Vaata mänge"
         },
         {
           "id": "custom",
-          "title": "Coaching & Integrations",
-          "description": "1:1 sessioonid, live-tugi ja sinu tööriistadega sobivad erilahendused.",
-          "linkLabel": "Broneeri kõne"
+          "title": "Tugi & Integratsioonid",
+          "description": "Isiklik tugi, otsene abi ja integratsioonid sinu tööriistadega.",
+          "linkLabel": "Võta meiega ühendust"
         }
       ]
     },
     "process": {
-      "title": "Tõestatud raamistik",
-      "subtitle": "Saadame sind avastamisest kuni stabiilse igapäevase tööni ilma katkestusteta.",
+      "title": "Meie meetod",
+      "subtitle": "Juhime sind algusest lõpuni.",
       "steps": [
         {
           "id": "discover",
-          "title": "Kick-off ja audit",
-          "description": "Kaardistame vajadused, jõudluseesmärgid ja turvanõuded."
+          "title": "Esmane analüüs",
+          "description": "Tuvastame sinu vajadused, eesmärgid ja piirangud."
         },
         {
           "id": "prototype",
-          "title": "Juhendatud prototüüp",
-          "description": "Seadistame testkeskkonna sinu tiimi jaoks sobivate eelseadistustega."
+          "title": "Testimise faas",
+          "description": "Seadistame sinu tiimile sobiva testkeskkonna."
         },
         {
           "id": "deploy",
-          "title": "Orkestreeritud juurutus",
-          "description": "Järk-järguline aktiveerimine, ühine järelevalve ja referentsdokumentatsioon."
+          "title": "Tootmiskeskkonda juurutamine",
+          "description": "Järk-järguline aktiveerimine koos jälgimise ja täieliku dokumentatsiooniga."
         },
         {
           "id": "optimize",
-          "title": "Pidev optimeerimine",
-          "description": "Igakuised ülevaated, benchmarkid ja proaktiivsed muudatused pärisandmete põhjal."
+          "title": "Pidev täiustamine",
+          "description": "Regulaarne jälgimine ja kohandused sinu tagasiside põhjal."
         }
       ]
     },
     "contact": {
-      "title": "Broneeri sessioon",
-      "description": "Meie tiim vastab 24 tunni jooksul, et kaardistada vajadused ja koostada juurutusplaan.",
-      "cta": "Plaani kõne",
+      "title": "Arutame sinu projekti",
+      "description": "Meie tiim vastab 24 tunni jooksul.",
+      "cta": "Võta ühendust",
       "metrics": [
         {
           "id": "sla",
@@ -712,7 +712,7 @@
           "label": "Kliendirahulolu"
         }
       ],
-      "note": "Prioriteetne Discordi ja WhatsAppi kanal aktiveeritakse kohe pärast lepingu sõlmimist."
+      "note": "Prioriteetne Discordi ja WhatsAppi kanal saadaval."
     }
   },
   "premium": {
