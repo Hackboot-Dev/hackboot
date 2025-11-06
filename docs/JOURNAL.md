@@ -4466,3 +4466,102 @@ grep -r "bullshit" /home/user/hackboot/public/locales/
 
 ✅ **Problème résolu**: Plus aucune occurrence du mot "bullshit"
 
+
+### Feature: Suppression liens footer + pages accès restreint
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+**Commit**: c9f505e
+**Status**: ✅ Complété
+
+#### Objectif:
+1. Supprimer les liens "Partenaires" et "Presse" du footer
+2. Créer des pages pour Documentation, API, Support et Status nécessitant une connexion
+
+#### Actions réalisées:
+
+**1. Suppression liens footer**
+
+Modifications traductions (FR/EN/ET) :
+- ❌ Supprimé "press" (Presse/Press/Ajakirjandus)
+- ❌ Supprimé "partners" (Partenaires/Partners/Partnerid)
+
+Modifications Footer component (`/components/Footer.tsx`) :
+- Suppression de "press" et "partners" de la section company
+- Mise à jour des liens resources pour pointer vers les nouvelles pages :
+  - `documentation`: `/${locale}/documentation` (au lieu de `/contact`)
+  - `api`: `/${locale}/api` (au lieu de `/contact`)
+  - `support`: `/${locale}/support` (au lieu de `/contact`)
+  - `status`: `/${locale}/status` (au lieu de `/contact`)
+
+**2. Création de 4 nouvelles pages avec accès restreint**
+
+Toutes les pages suivent le même pattern :
+- Message centré expliquant qu'il faut être connecté
+- Icône thématique (Lock + icône spécifique)
+- Bouton "Se connecter" vers `/login`
+- Lien "Créer un compte" vers `/premium/signup`
+- Design cohérent avec le reste du site
+- Traductions complètes FR/EN/ET inline
+
+**a) Page Documentation** (`/app/[locale]/documentation/page.tsx`)
+- Icône : BookOpen
+- Badge : Documentation
+- Message : "Pour accéder à notre documentation complète, vous devez être connecté"
+
+**b) Page API** (`/app/[locale]/api/page.tsx`)
+- Icône : Code
+- Badge : API
+- Message : "Pour accéder à notre API et obtenir vos clés d'accès, vous devez être connecté"
+
+**c) Page Support** (`/app/[locale]/support/page.tsx`)
+- Icône : Headphones
+- Badge : Support
+- Message : "Pour accéder à notre support technique et soumettre des tickets, vous devez être connecté"
+
+**d) Page Status** (`/app/[locale]/status/page.tsx`)
+- Icône : Activity
+- Badge : Statut
+- Message : "Pour consulter le statut de nos services en temps réel, vous devez être connecté"
+
+#### Structure des pages:
+```typescript
+- Header avec SiteHeader
+- Background gradient décoratif
+- Section centrée avec :
+  - Badge avec icône thématique
+  - Titre de la page
+  - Sous-titre "Accès réservé aux utilisateurs connectés"
+  - Card glass-effect avec :
+    - Icône Lock centrale
+    - Description du besoin de connexion
+    - Bouton de connexion principal
+    - Lien inscription secondaire
+- Traductions inline (FR/EN/ET)
+```
+
+#### Résultats:
+- ✅ Footer nettoyé (2 liens supprimés)
+- ✅ 4 nouvelles pages créées
+- ✅ Toutes les pages redirigent vers login
+- ✅ Design cohérent et professionnel
+- ✅ Traductions complètes (FR/EN/ET)
+- ✅ Tests lint passés
+- ✅ Commit et push réussis
+
+#### Fichiers modifiés:
+- `/public/locales/fr/common.json` : Suppression press/partners
+- `/public/locales/en/common.json` : Suppression press/partners
+- `/public/locales/et/common.json` : Suppression press/partners
+- `/components/Footer.tsx` : Mise à jour liens
+
+#### Fichiers créés:
+- `/app/[locale]/documentation/page.tsx` : Page documentation
+- `/app/[locale]/api/page.tsx` : Page API
+- `/app/[locale]/support/page.tsx` : Page support
+- `/app/[locale]/status/page.tsx` : Page status
+
+#### Feedback utilisateur:
+"dans le footer enlève la page partenaire, presse aussi, et faisons la page documentation, donc c'est une page qui dit que pour accéder à la documentation il faut être connecté, donc affichage simple qui invite à se connecter, et chose qu'on réplique sur api, support, et statut"
+
+✅ **Problème résolu**: Footer nettoyé + 4 pages accès restreint créées
+
