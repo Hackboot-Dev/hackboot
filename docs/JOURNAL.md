@@ -4097,3 +4097,71 @@ if (hasDecimal) {
 ✅ Animations conformes aux attentes (apparition, scroll timeline, hover)
 ✅ Page plus légère sans décors GPU
 ⚠️ Build Netlify reste tributaire de `framer-motion` pour d’autres pages
+
+### Fix: Hauteurs égales pour les cartes de postes
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+**Commit**: 183704c
+**Status**: ✅ Complété
+
+#### Objectif:
+Corriger le problème d'affichage où les cartes de postes avaient des hauteurs différentes dans la grille, créant un aspect visuellement déséquilibré.
+
+#### Actions réalisées:
+
+**1. Analyse du problème**
+   - Constat : Les cartes avaient des hauteurs variables selon la longueur du contenu (description courte)
+   - Impact : Grille désordonnée, aspect non professionnel
+   - Localisation : `/app/[locale]/careers/page.tsx`
+
+**2. Solution technique implémentée**
+   - Ajout de `className="h-full"` sur le composant Link parent
+   - Ajout de `h-full flex flex-col` sur la div de la carte
+   - Ajout de `flex-grow` sur le paragraphe de description pour occupation d'espace flexible
+   - Ajout de `mt-auto` sur le footer pour le pousser en bas
+
+**3. Code modifié**
+```typescript
+// AVANT
+<Link key={job.id} href={`/${locale}/careers/${job.id}`}>
+  <m.div className="group glass-effect p-8 rounded-2xl ...">
+    <h3>{jobDetails.title}</h3>
+    <p className="text-gray-400 mb-6 line-clamp-2">
+      {jobDetails.shortDescription}
+    </p>
+    <div className="flex flex-wrap gap-4">
+      {/* location and experience */}
+    </div>
+  </m.div>
+</Link>
+
+// APRÈS
+<Link key={job.id} href={`/${locale}/careers/${job.id}`} className="h-full">
+  <m.div className="h-full flex flex-col group glass-effect p-8 rounded-2xl ...">
+    <h3>{jobDetails.title}</h3>
+    <p className="text-gray-400 mb-6 line-clamp-2 flex-grow">
+      {jobDetails.shortDescription}
+    </p>
+    <div className="flex flex-wrap gap-4 mt-auto">
+      {/* location and experience */}
+    </div>
+  </m.div>
+</Link>
+```
+
+#### Résultats:
+- ✅ Toutes les cartes ont maintenant la même hauteur
+- ✅ Le footer de chaque carte est aligné au bas
+- ✅ L'espacement vertical s'adapte automatiquement au contenu
+- ✅ Aspect visuel professionnel et équilibré
+- ✅ Commit et push réussis
+
+#### Fichiers modifiés:
+- `/app/[locale]/careers/page.tsx` : Ajout du layout flexbox pour égaliser les hauteurs
+
+#### Technique utilisée:
+- **Flexbox CSS** : Utilisation de flex-col pour layout vertical
+- **flex-grow** : Pour l'expansion flexible du contenu
+- **mt-auto** : Pour pousser le footer en bas
+- **h-full** : Pour forcer la hauteur complète disponible
+
