@@ -2,8 +2,14 @@
 
 import { useParams } from 'next/navigation'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import SiteHeader from '@/components/SiteHeader'
 import { BookOpen, Lock, ArrowRight } from 'lucide-react'
+
+const Footer = dynamic(() => import('@/components/Footer'), {
+  loading: () => <div className="h-24 bg-black" />,
+  ssr: false,
+})
 
 export default function DocumentationPage() {
   const params = useParams()
@@ -105,6 +111,7 @@ export default function DocumentationPage() {
           </div>
         </div>
       </main>
+      <Footer />
     </div>
   )
 }
