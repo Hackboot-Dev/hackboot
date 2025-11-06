@@ -28,6 +28,7 @@ import {
   Umbrella,
   Heart,
   Gamepad2,
+  TrendingUp,
 } from 'lucide-react'
 import SiteHeader from '@/components/SiteHeader'
 import { useI18n } from '@/lib/i18n-simple'

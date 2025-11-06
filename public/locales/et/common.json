@@ -579,9 +579,21 @@
     "subtitle": "Rätseplahendused mänguritele ja tiimidele, kes nõuavad täiuslikkust.",
     "cta": "Räägi eksperdiga",
     "metrics": [
-      { "id": "uptime", "value": "99,9 %", "label": "Tagatud töökindlus" },
-      { "id": "clients", "value": "120+", "label": "Aktiivset pro klienti" },
-      { "id": "regions", "value": "8", "label": "Kaetud piirkonda" }
+      {
+        "id": "uptime",
+        "value": "99,9 %",
+        "label": "Tagatud töökindlus"
+      },
+      {
+        "id": "clients",
+        "value": "120+",
+        "label": "Aktiivset pro klienti"
+      },
+      {
+        "id": "regions",
+        "value": "8",
+        "label": "Kaetud piirkonda"
+      }
     ],
     "pillarsHeading": {
       "title": "Meie tugisambad",
@@ -674,9 +686,21 @@
       "description": "Meie tiim vastab 24 tunni jooksul, et kaardistada vajadused ja koostada juurutusplaan.",
       "cta": "Plaani kõne",
       "metrics": [
-        { "id": "sla", "value": "<5 min", "label": "Keskmine reageerimisaeg" },
-        { "id": "coverage", "value": "24/7", "label": "Tugi üle maailma" },
-        { "id": "satisfaction", "value": "98 %", "label": "Kliendirahulolu" }
+        {
+          "id": "sla",
+          "value": "<5 min",
+          "label": "Keskmine reageerimisaeg"
+        },
+        {
+          "id": "coverage",
+          "value": "24/7",
+          "label": "Tugi üle maailma"
+        },
+        {
+          "id": "satisfaction",
+          "value": "98 %",
+          "label": "Kliendirahulolu"
+        }
       ],
       "note": "Prioriteetne Discordi ja WhatsAppi kanal aktiveeritakse kohe pärast lepingu sõlmimist."
     }
@@ -1163,11 +1187,10 @@
       "location": "Asukoht"
     },
     "departments": {
-      "engineering": "Inseneeria",
-      "design": "Disain",
-      "devops": "DevOps & taristu",
-      "security": "Turvalisus",
-      "support": "Tugi & edu"
+      "technical": "Tehnilne meeskond",
+      "content": "Sisu ja partnerlused",
+      "marketing": "Turundus ja müük",
+      "support": "Klienditugi"
     },
     "types": {
       "full-time": "Täistööaeg",
@@ -1176,233 +1199,389 @@
       "internship": "Praktika"
     },
     "jobs": {
-      "senior-fullstack-developer": {
-        "title": "Vanem full stack arendaja",
-        "shortDescription": "Ehita innovaatilisi pilvemängu lahendusi Reactiga, Node.js-iga ja tipptehnoloogiatega.",
-        "description": "Otsime kirgilikku vanemat full stack arendajat liituma meie insenerimeeskonnaga. Töötad meie pilvemängu platvormil, arendades innovaatilisi funktsioone ja optimeerides jõudlust.",
+      "cloud-engineer": {
+        "title": "Pilvinsener",
+        "shortDescription": "Projekteeri ja halda meie pilveinfrastruktuuri jõudluse ja skaleeritavuse tagamiseks.",
+        "description": "Liitu meie tehnilise meeskonnaga, et ehitada ja hooldada tugev ja skaleeritav pilveinfrastruktuur.",
         "responsibilities": [
-          "Projekteeri ja arenda full stack funktsioone (React, Next.js, Node.js)",
-          "Optimeeri platvormi jõudlust ja skaleeritavust",
-          "Tee koostööd tootemeeskonnaga tehniliste teede kaartide määramiseks",
-          "Juhenda nooremaid arendajaid",
-          "Osale koodi ülevaatustes ja paranda koodi kvaliteeti"
+          "Pilvearhitektuuride projekteerimine ja juurutamine (AWS, GCP, Azure)",
+          "Juurutuste ja infrastruktuuri halduse automatiseerimine",
+          "Pilvekulude ja jõudluse optimeerimine",
+          "Teenuste kõrge kättesaadavuse ja vastupidavuse tagamine",
+          "Koostöö dev meeskondadega pidevaks integreerimiseks"
         ],
         "requirements": [
-          "5+ aastat kogemust full stack arenduses",
-          "Oskused React, Next.js, TypeScript",
-          "Kogemus Node.js, PostgreSQL, Redis-iga",
-          "Teadmised pilve arhitektuuridest (AWS, GCP, Azure)",
-          "Kirg jõudluse ja optimeerimise vastu",
-          "Suurepärased suhtlemisoskused"
+          "3+ aastat kogemust pilvearhitektuuris",
+          "Vähemalt ühe suure pilveplatvormi valdamine",
+          "Kogemus Kubernetes, Dockeriga",
+          "Terraform, CloudFormation või Pulumi tundmine",
+          "DevOps põhimõtete mõistmine"
         ],
         "benefits": [
-          "Konkurentsivõimeline palk + aktsiaid",
-          "100% kaugtöö, paindlikud tunnid",
-          "Piiramatu koolituseelarve",
-          "Tipptasemel riistvara pakutud",
-          "4 nädalat tasulist puhkust"
+          "100% kaugtöö, töötage kust iganes",
+          "Premium varustus kaasas",
+          "Koolituste ja pilvesertifikaatide eelarve",
+          "Innovatilised tehnilised projektid",
+          "Kirglik rahvusvaheline meeskond"
         ]
       },
-      "cloud-architect": {
-        "title": "Pilve arhitekt",
-        "shortDescription": "Projekteeri ja juuruta meie kõrge kättesaadavusega ja skaleeritav pilvemängu taristu.",
-        "description": "Otsime kogenud pilve arhitekti projekteerima ja haldama meie pilvemängu taristut. Oled vastutav arhitektuuri, skaleeritavuse ja platvormi usaldusväärsuse eest.",
+      "frontend-backend-developer": {
+        "title": "Front-end / Back-end arendaja",
+        "shortDescription": "Arendage kaasaegseid veebirakendusi React, Next.js ja Node.js-iga.",
+        "description": "Otsime mitmekülgset arendajat, kes töötaks meie kogu platvormi stägil.",
         "responsibilities": [
-          "Projekteeri mitmeregioonilise kõrge kättesaadavusega pilve arhitektuur",
-          "Optimeeri pilve kulusid ja jõudlust",
-          "Rakenda infrastruktuuri kui koodi (Terraform, CloudFormation)",
-          "Määratle turvalisuse ja vastavuse standardid",
-          "Järelvalve kriitiliste migratsioonide ja juurutuste üle"
+          "Kaasaegsete kasutajaliideste arendamine (React, Next.js)",
+          "Jõudlike RESTful API-de loomine (Node.js, Express)",
+          "Täisvirna funktsioonide rakendamine otsast lõpuni",
+          "Frontend ja backend jõudluse optimeerimine",
+          "Osalemine tehniliste arhitektuuri otsustes"
         ],
         "requirements": [
-          "7+ aastat kogemust pilve arhitektuuris",
-          "Ekspertiis AWS, GCP või Azure's (sertifikaat eelistatud)",
-          "Oskused Kubernetes, Docker, CI/CD",
-          "Kogemus Terraformi, Ansible'iga",
-          "Sügavad teadmised võrgustikust ja pilve turvalisusest",
-          "Võime hallata keerulisi projekte"
+          "2+ aastat veebiarenduse kogemust",
+          "React ja Next.js valdamine",
+          "Kogemus Node.js ja andmebaasidega",
+          "TypeScript teadmised",
+          "Kirglik puhtaks koodiks ja parimateks tavadeks"
         ],
         "benefits": [
-          "Erakordne hüvitispakett",
-          "100% kaugtöö, paindlik ajavöönd",
-          "Konverentsid ja sertifikaadid makstud",
-          "Isiklik pilveeelarve projektideks",
-          "Otsene mõju toote arhitektuurile"
+          "Kaasaegne ja innovatiline tehnoloogia",
+          "Täielik ajakava paindlikkus",
+          "Remote-first esimesest päevast",
+          "Mängukultuur ja jagatud kirg",
+          "Toetav ja koostööaldis meeskond"
         ]
       },
-      "security-engineer": {
-        "title": "Turvalisuse insener",
-        "shortDescription": "Kaitse meie taristut ja kasutajaid tipptehnoloogia turvalahendust.",
-        "description": "Liitu meie turvameeskonnaga arendama ja haldama meie kaitsesüsteeme. Töötad anti-cheat tehnoloogiate, tuuma-taseme turvalisuse ja andmekaitse kallal.",
+      "network-specialist": {
+        "title": "Võrguekspert",
+        "shortDescription": "Tagage meie globaalse võrguinfrastruktuuri jõudlus ja turvalisus.",
+        "description": "Liituge meie meeskonnaga, et hallata ja optimeerida meie üle maailma võrguinfrastruktuuri.",
         "responsibilities": [
-          "Arenda tuuma-taseme turvalahendusi",
-          "Vii läbi turvaauditeid ja penteste",
-          "Rakenda täiustatud anti-cheat süsteeme",
-          "Jälgi ja reageeri turvaincidentidele",
-          "Kooli meeskonda turvalisuse parimate tavade osas"
+          "Võrguarhitektuuri projekteerimine ja hooldamine",
+          "Võrgu jõudluse ja latentsuse optimeerimine",
+          "CDN ja koormuse jaotamise lahenduste rakendamine",
+          "Võrguturbe haldamine (tulemüürid, VPN, DDoS kaitse)",
+          "Kriitiliste võrguintsidentide lahendamine"
         ],
         "requirements": [
-          "4+ aastat kogemust arvuti turvalisuses",
-          "Ekspertiis pöördinsenerias ja pahavaranalüüsis",
-          "Teadmised Windowsi süsteemidest (draiverid, tuum)",
-          "Oskused C/C++, Python, Assembly",
-          "Kogemus anti-cheat süsteemidega (EAC, BE)",
-          "Turvalisuse sertifikaadid hinnatud (OSCP, CEH)"
+          "3+ aastat võrguhalduse kogemust",
+          "TCP/IP, DNS, BGP protokollide valdamine",
+          "Kogemus CDN ja load balancer'itega",
+          "Võrgu jälgimise tööriistade tundmine",
+          "Võrgusertifikaadid on teretulnud (CCNA, CCNP)"
         ],
         "benefits": [
-          "Atraktiivne hüvitis + jõudluseboonus",
-          "Juurdepääs parimatele turvatööriistadele",
-          "Piiramatu uurimis- ja riistvaraeelarvega",
-          "Osalemine CTF-ides ja konverentsidel",
-          "Töö ainulaadsete turvaväljakutsete kallal"
+          "Globaalne infrastruktuur haldamiseks",
+          "Tipptasemel võrgutehnoloogiad",
+          "Remote varustusega",
+          "Pidev koolitus ja sertifikaadid",
+          "Kirglik tech meeskond"
         ]
       },
-      "senior-frontend-developer": {
-        "title": "Vanem frontend arendaja",
-        "shortDescription": "Loo erakordseid kasutajaliideseid Reactiga, Next.js-iga ja uusimate veebitehnoloogiatega.",
-        "description": "Otsime vanemat frontend arendajat looma erakordseid kasutajakogemusi. Töötad meie armatuurlaual, veebilehel ja mänguliidestel.",
+      "security-expert": {
+        "title": "Turvaekspert",
+        "shortDescription": "Kaitse meie infrastruktuuri ja kasutajaid küberrünnakute eest.",
+        "description": "Otsime turvaeksperti, kes tugevdaks meie platvormi ja kasutajate kaitset.",
         "responsibilities": [
-          "Arenda jõudlikke React/Next.js liideseid",
-          "Loo sujuvaid animatsioone Framer Motioniga",
-          "Optimeeri veebijõudlust (Core Web Vitals)",
-          "Rakenda piksel-täpseid Figma disainid",
-          "Aita disainisüsteemi ja komponentide raamatukoguga"
+          "Infrastruktuuri ja rakenduste turbe audit",
+          "Turvameetmete rakendamine (WAF, IDS/IPS, SIEM)",
+          "Turvaintsidentide haldamine ja vastused",
+          "Meeskondade koolitus turbe parimatest tavadest",
+          "Regulaarsete pentestide ja hindamiste läbiviimine"
         ],
         "requirements": [
-          "4+ aastat kogemust frontend arenduses",
-          "Ekspertiis React, Next.js 14+, TypeScript",
-          "Oskused Tailwind CSS, CSS/JS animatsioonid",
-          "Kogemus Framer Motioni või sarnasega",
-          "UX/UI tundlikkus ja detailidele tähelepanu",
-          "Portfoolio muljetavaldavatest veebiprojektidest"
+          "4+ aastat kogemust küberturvalisuses",
+          "Turvavahendite valdamine (SIEM, WAF, IDS/IPS)",
+          "Kogemus pentestingus ja haavatavuse hindamises",
+          "OWASP Top 10, SANS Top 25 tundmine",
+          "Turbusertifikaadid on teretulnud (CEH, OSCP, CISSP)"
         ],
         "benefits": [
-          "Konkurentsivõimeline palk kogemuse põhjal",
-          "Kaugtöö-esimene, töö-elu tasakaal",
-          "Disainitööriistade eelarve (Figma, Adobe CC)",
-          "4K ekraan + ergonoomilise seadistus",
-          "Mitmekesised ja stimuleerivad projektid"
+          "Sertifikaatide ja turbekoolituste eelarve",
+          "Tipptasemel turvatehnoloogiad",
+          "Väljakutsuvad ja mitmekesised projektid",
+          "Remote täieliku paindlikkusega",
+          "Tugev turvakultuur"
         ]
       },
-      "product-designer": {
-        "title": "Toote disainer",
-        "shortDescription": "Projekteeri innovaatilisi kasutajakogemusi meie pilvemängu platvormile.",
-        "description": "Otsime andekast toote disainerit kujundama meie platvormi tulevikku. Töötad UX/UI, disainisüsteemi ja kasutajauuringu kallal.",
+      "game-acquisition-manager": {
+        "title": "Mängude hankimise juht",
+        "shortDescription": "Tuvastage ja hankige parimad mängud meie pilvemänguplatvormile.",
+        "description": "Liituge meie sisumereskonnaga, et rikastada meie kataloogi kõige põnevamate mängudega turul.",
         "responsibilities": [
-          "Projekteeri UX/UI liideseid veebile ja rakendustele",
-          "Loo ja hoia disainisüsteemi",
-          "Vii läbi kasutajauuringuid ja kasutatavuse testimisi",
-          "Kiiresti prototüübi kontseptsioone Figmaga",
-          "Tee tihedat koostööd insenerimeeskonnaga"
+          "Mänguhankimise võimaluste tuvastamine ja hindamine",
+          "Lepingute läbirääkimine arendajate ja kirjastajatega",
+          "Suhete haldamine mängupartneritega",
+          "Videomängude turu trendide analüüsimine",
+          "Sisu hankimise strateegia määratlemine"
         ],
         "requirements": [
-          "3+ aastat kogemust toote disainis",
-          "Portfoolio, mis näitab teie disainiprotsessi",
-          "Oskused Figma, disainisüsteemid, aatomilise disain",
-          "Kogemus kasutajauuringus ja testimises",
-          "Teadmised tehnilistest piirangutest (HTML/CSS)",
-          "Mängutundlikkus ja kaasaegsed liidesed"
+          "3+ aastat kogemust videomängu tööstuses",
+          "Kindel võrgustik mängutööstuses",
+          "Suurepärased läbirääkimisoskused",
+          "Põhjalik videomänguturu tundmine",
+          "Kirg mängude ja uute trendide vastu"
         ],
         "benefits": [
-          "Atraktiivne pakett + aktsiaid",
-          "100% kaugtöö, paindlikud tunnid",
-          "Disainitööriistade ja koolituste eelarve",
-          "Osalemine disainikonverentsidel",
-          "Otsene mõju tootele"
+          "Töötage peamiste stuudiotega",
+          "Otsene mõju meie kataloogile",
+          "Osalemine mängusündmustel (GDC, Gamescom)",
+          "Remote aeg-ajalt reisimisega",
+          "Mängude kirg meeskond"
         ]
       },
-      "customer-success-manager": {
-        "title": "Kliendi edu juht",
-        "shortDescription": "Toeta meie preemiumkliente ja tagada nende rahulolu igas etapis.",
-        "description": "Liitu meie tugimeeskonnaga pakkuma erakordset kliendikogemust meie preemiumkasutajatele. Oled klientide peamine kontaktisik.",
+      "partnership-manager": {
+        "title": "Partnerluste juht",
+        "shortDescription": "Arendage strateegilisi partnerlusi, et kiirendada meie kasvu.",
+        "description": "Otsime partnerluste juhti, kes arendaks meie ökosüsteemi ja strateegilisi koostööd.",
         "responsibilities": [
-          "Halda preemiumklientide portfelli",
-          "Tagada uute klientide sisseelamine ja koolitus",
-          "Tuvasta lisatoodete ja ristmüügi võimalused",
-          "Kogu tagasisidet ja paranda toodet",
-          "Säilita kõrget klientide rahulolu määra"
+          "Strateegiliste partnerluste tuvastamine ja arendamine",
+          "Partnerluse lepingute läbirääkimine ja struktureerimine",
+          "Olemasolevate partneritega suhete haldamine",
+          "Partnerluste tulemuste mõõtmine",
+          "Koostöö toote- ja turundusmeeskondadega"
         ],
         "requirements": [
-          "2+ aastat kogemust kliendi edus",
+          "2+ aastat partnerluste arendamise kogemust",
+          "Suurepärased suhted ja läbirääkimisoskused",
+          "Võime tuvastada strateegilisi võimalusi",
+          "Kogemus tehnoloogias või mängudes on teretulnud",
+          "Vaba inglise keel nõutud"
+        ],
+        "benefits": [
+          "Otsene mõju ettevõtte kasvule",
+          "Rahvusvaheline partnerite võrgustik",
+          "Remote geograafilise paindlikkusega",
+          "Ettevõtluskultuur",
+          "Dünaamiline ja ambitsioonikkas meeskond"
+        ]
+      },
+      "content-curator": {
+        "title": "Sisu kuraator",
+        "shortDescription": "Looge ja haldage kaasahaaravat sisu meie mängurite kogukonnale.",
+        "description": "Liituge meie sisumereskonnaga, et luua kaasahaaravaid kogemusi ja kvaliteetset sisu meie kasutajatele.",
+        "responsibilities": [
+          "Platvormi sisu loomine ja haldamine",
+          "Mängude organiseerimine kategooriateks ja kollektsioonideks",
+          "Mängude kirjelduste ja juhendite kirjutamine",
+          "Mängusisu trendide tuvastamine",
+          "Koostöö turundus- ja kogukonnameeskondadega"
+        ],
+        "requirements": [
+          "2+ aastat sisu kuratsiooni või mängukirjutamise kogemust",
+          "Suurepärane mänguuniversumi tundmine",
+          "Tugevad kirjutamisoskused",
+          "Loovus ja esteetiline taju",
+          "Kirg videomängude vastu nõutud"
+        ],
+        "benefits": [
+          "Mängige ja avastage mänge eelvaates",
+          "Mõju kasutajakogemusele",
+          "100% kaugtöö",
+          "Loov ja kirglik meeskond",
+          "Tugev mängukultuur"
+        ]
+      },
+      "digital-marketing-specialist": {
+        "title": "Digitaalse turunduse spetsialist",
+        "shortDescription": "Arendage meie turunuskampaaniaid uute kasutajate hankimiseks ja kaasamiseks.",
+        "description": "Otsime digitaalse turunduse spetsialisti, et suurendada meie kasvu ja teadlikkust.",
+        "responsibilities": [
+          "Mitmekanalisete turunduskampaaniate loomine ja haldamine",
+          "SEO/SEM jõudluse optimeerimine",
+          "Tasuliste reklaamide kampaaniate haldamine (Google, Meta, TikTok)",
+          "KPI-de analüüsimine ja ROI optimeerimine",
+          "Koostöö sisu- ja tootemeeskondadega"
+        ],
+        "requirements": [
+          "2+ aastat digitaalse turunduse kogemust",
+          "Google Ads, Meta Ads valdamine",
+          "SEO/SEM teadmised",
+          "Analüütilised oskused (Google Analytics, Mixpanel)",
+          "Kogemus tehnoloogias või mängudes on teretulnud"
+        ],
+        "benefits": [
+          "Oluline turunduseelarve",
+          "Autonoomia ja vastutus",
+          "Remote-first",
+          "Kaasaegsed vahendid ja tehnoloogiad",
+          "Mõõdetav mõju kasvule"
+        ]
+      },
+      "public-relations-manager": {
+        "title": "Avalike suhete juht",
+        "shortDescription": "Arendage meie kaubamärgi kuvandit ja haldage meie suhteid meedia ja mõjutajatega.",
+        "description": "Liituge meie meeskonnaga, et hallata meie mainet ja arendada meie meediapresentsust mänguindutuses.",
+        "responsibilities": [
+          "PR strateegia väljatöötamine ja täitmine",
+          "Suhete haldamine mängumeediaga",
+          "Sündmuste ja pressikonverentside korraldamine",
+          "Koostöö mõjutajate ja sisu loojatega",
+          "Kommunikatsioonikriiside haldamine vajaduse korral"
+        ],
+        "requirements": [
+          "3+ aastat avalike suhete kogemust",
+          "Võrgustik mängumeedias",
+          "Suurepärased kommunikatsioonioskused",
+          "Sündmuste kogemus",
+          "Vaba inglise keel nõutud"
+        ],
+        "benefits": [
+          "Osalemine peamistel mängusündmustel",
+          "Meedia ja mõjutajate võrgustik",
+          "Nähtavus ja tööstuse mõju",
+          "Remote reisimisega",
+          "Koostööaldis kultuur"
+        ]
+      },
+      "market-analyst": {
+        "title": "Turuanalüütik",
+        "shortDescription": "Analüüsige turutrendid, et suunata meie äri- ja tootestrat strateegiaid.",
+        "description": "Otsime turuanalüütikut, kes aitaks meil mõista mänguturg ja suunata meie strateegilisi otsuseid.",
+        "responsibilities": [
+          "Pilvemängude turu trendide analüüs",
+          "Turuuuringute ja konkurentsivõrdluste läbiviimine",
+          "Kasvu võimaluste tuvastamine",
+          "Analüüsiraportite ja soovituste koostamine",
+          "Koostöö toote- ja ärilumeeskondadega"
+        ],
+        "requirements": [
+          "2+ aastat turuanalüüsi kogemust",
+          "Suurepärased analüütilised oskused",
+          "Exceli, BI tööriistade valdamine (Tableau, Power BI)",
+          "Mänguturu tundmine on teretulnud",
+          "Süntees ja selge kommunikatsioon"
+        ],
+        "benefits": [
+          "Otsene mõju ettevõtte strateegiale",
+          "Juurdepääs mänguturu andmetele",
+          "100% kaugtöö",
+          "Tipptasemel analüüsivahendid",
+          "Andmepõhine meeskond"
+        ]
+      },
+      "technical-support-agent": {
+        "title": "Tehnilise toe agent",
+        "shortDescription": "Aidake meie kasutajatel tehnilisi probleeme lahendada ja platvormi täielikult nautida.",
+        "description": "Liituge meie tugimeeskonnaga, et pakkuda erakordset kliendikogemust meie mängijatle.",
+        "responsibilities": [
+          "Kasutajate tehniliste küsimuste vastamine",
+          "Tehniliste probleemide lahendamine (ühendus, jõudlus, vead)",
+          "Teadmusbaasi loomine ja hooldamine",
+          "Keerukate probleemide suunamine tech meeskondadele",
+          "Kasutajate tagasiside kogumine"
+        ],
+        "requirements": [
+          "1+ aasta tehnilise toe kogemus",
+          "Head tehnilised teadmised (võrk, PC, brauserid)",
+          "Suurepärased kommunikatsioonioskused",
+          "Kannatlikkus ja empaatia",
+          "Kirg videomängude vastu on teretulnud"
+        ],
+        "benefits": [
+          "Täielik koolitus pakutud",
+          "Remote paindlike tundidega",
+          "Toetav tugimeeskond",
+          "Kasvuvõimalused",
+          "Mängu- ja lõbuskultuur"
+        ]
+      },
+      "community-moderator": {
+        "title": "Kogukonna moderaator",
+        "shortDescription": "Animeerige ja modereerige meie mängijate kogukonda, et luua positiivne ja kaasahaarav keskkond.",
+        "description": "Otsime kirglikku moderaatorit, kes haldaks meie kogukonda ja loaks kõigile külalislahke ruumi.",
+        "responsibilities": [
+          "Arutelude modereerimine Discordis, foorumites, sotsiaalmeedia",
+          "Kogukonna animeerimine sündmuste ja väljakutsetega",
+          "Kogukonna küsimustele vastamine",
+          "Kogukonna reeglite jõustamine",
+          "Tagasiside edastamine tootemeeskondadele"
+        ],
+        "requirements": [
+          "1+ aasta modereerimise või kogukonna juhtimise kogemus",
           "Suurepärased suhtlemisoskused",
-          "Teadmised mängudest ja pilvetehnoloogiatest",
-          "Võime hallata mitmeid kliente samaaegselt",
-          "Prantsuse ja inglise keele valdamine",
-          "Lahenduskeskne ja empaatiline"
+          "Õhtune ja nädalavahetuse kättesaadavus (paindlikud vahetused)",
+          "Discord ja sotsiaalmeedia tundmine",
+          "Kirg videomängude vastu nõutud"
         ],
         "benefits": [
-          "Põhipalk + atraktiivsed komisjonitasud",
-          "Kaugtöö paindlike tundidega",
-          "Pidev tootekoolitus",
-          "Kaasaegsed CRM tööriistad",
-          "Toetav ja ühtne tugimeeskond"
-        ]
-      },
-      "devops-engineer": {
-        "title": "DevOps insener",
-        "shortDescription": "Automatiseeri ja optimeeri meie CI/CD torujuhtmeid ja pilvetaristut.",
-        "description": "Otsime DevOps insenerit automatiseerima meie protsesse ja optimeerima meie taristut. Töötad Kubernetese, CI/CD ja monitooringu kallal.",
-        "responsibilities": [
-          "Halda ja optimeeri Kubernetese klastried",
-          "Arenda ja hoia CI/CD torujuhtmeid",
-          "Rakenda monitooringu ja jälgitavust",
-          "Automatiseeri juurutusi ja taristu haldust",
-          "Osale valves ja lahenda intsidente"
-        ],
-        "requirements": [
-          "3+ aastat kogemust DevOps/SRE's",
-          "Oskused Kubernetes, Docker, Helm",
-          "Kogemus GitLab CI, GitHub Actions või Jenkinsiga",
-          "Teadmised Terraformist, Ansible'ist",
-          "Skriptid Pythonis, Bashis, Go's",
-          "Kogemus Prometheus, Grafana, ELK-ga"
-        ],
-        "benefits": [
-          "Konkurentsivõimeline hüvitis + boonus",
-          "100% kaugtöö, paindlikud tunnid",
-          "Sertifikaatide ja koolituste eelarve",
-          "Heldelt tasustatud valve",
-          "Kaasaegne tehniline virn"
-        ]
-      },
-      "backend-developer-go": {
-        "title": "Backend arendaja Go",
-        "shortDescription": "Arenda jõudlikke ja skaleeritavaid backend teenuseid Go ja pilvetehnoloogiatega.",
-        "description": "Liitu meie backend meeskonnaga ehitama kõrge jõudlusega teenuseid. Töötad Go, gRPC, Kafka ja hajutatud andmebaaside kallal.",
-        "responsibilities": [
-          "Arenda jõudlikke Go mikroteenuseid",
-          "Projekteeri RESTful ja gRPC API'd",
-          "Optimeeri päringuid ja jõudlust",
-          "Rakenda sõnumsüsteeme (Kafka, RabbitMQ)",
-          "Osale backend teenuste arhitektuuris"
-        ],
-        "requirements": [
-          "3+ aastat kogemust backend arenduses",
-          "Oskused Go (Golang)",
-          "Kogemus gRPC, REST API'dega",
-          "Teadmised PostgreSQL, Redis, Kafka",
-          "Arusaam mikroteenuste arhitektuuridest",
-          "Jõudluse ja optimeerimise mõtteviis"
-        ],
-        "benefits": [
-          "Atraktiivne palk kogemuse põhjal",
-          "Kaugtöö-esimene, paindlik ajavöönd",
-          "Kaasaegne tehniline virn (Go, K8s, pilv)",
-          "Koolituste ja konverentside eelarve",
-          "Väljakutsuvad tehnilised projektid"
+          "Mängukogukonna südames",
+          "100% kaugtöö",
+          "Paindlikud tunnid",
+          "Lõbus ja kirglik meeskond",
+          "Juurdepääs mängudele ja sündmusele"
         ]
       }
     },
     "apply": {
-      "button": "Kandideeri",
-      "remote": "Kaugtöö",
-      "fullTime": "Täistööaeg",
-      "experience": "Kogemus",
-      "posted": "Avaldatud",
-      "responsibilities": "Kohustused",
-      "requirements": "Nõuded",
-      "benefits": "Hüved",
-      "applyNow": "Kandideeri kohe"
+      "title": "Kandideeri nüüd",
+      "subtitle": "Liitu Hackboot seiklusega",
+      "description": "Täida allolev vorm ja võtame sinuga 48 tunni jooksul ühendust. Ole ise, me vihkame jura.",
+      "form": {
+        "personalInfo": {
+          "title": "Isikuandmed",
+          "firstName": "Eesnimi",
+          "firstNamePlaceholder": "Jaan",
+          "lastName": "Perekonnanimi",
+          "lastNamePlaceholder": "Tamm",
+          "email": "E-post",
+          "emailPlaceholder": "jaan.tamm@example.com",
+          "phone": "Telefon",
+          "phonePlaceholder": "+372 5123 4567",
+          "location": "Asukoht",
+          "locationPlaceholder": "Tallinn, Eesti"
+        },
+        "jobInfo": {
+          "title": "Töö info",
+          "position": "Soovitud ametikoht",
+          "positionPlaceholder": "Nt: Vanem Full Stack arendaja",
+          "department": "Osakond",
+          "departmentPlaceholder": "Inseneriteadus, Disain, DevOps...",
+          "startDate": "Saadavuse kuupäev",
+          "startDatePlaceholder": "Kohe / 1 kuu pärast / 3 kuu pärast"
+        },
+        "application": {
+          "title": "Sinu kandidatuur",
+          "cv": "CV (ainult PDF)",
+          "cvHelp": "Max suurus: 5 MB - Aktsepteeritud formaat: PDF",
+          "motivation": "Motivatsioonikiri",
+          "motivationPlaceholder": "Miks Hackboot? Mis sind selle ametikoha juures põnevdab? Ole autentne, pole vaja klišeesid.",
+          "salary": "Palgaootused (aasta bruto)",
+          "salaryPlaceholder": "Nt: €60 000 - €80 000",
+          "portfolio": "Portfoolio / GitHub / LinkedIn",
+          "portfolioPlaceholder": "https://github.com/sinu-kasutajanimi"
+        },
+        "additional": {
+          "title": "Mõned lisaküsimused",
+          "remote": "Töö eelistus",
+          "remoteOptions": {
+            "full": "100% Kaugtöö",
+            "hybrid": "Hübriid",
+            "office": "Kontor"
+          },
+          "availability": "Intervjuu saadavus",
+          "availabilityPlaceholder": "Nt: Esmaspäev-Reede pärast kella 14",
+          "message": "Sõnum / Küsimused",
+          "messagePlaceholder": "Kas sul on küsimusi? Midagi öelda? Me kuulame."
+        },
+        "consent": {
+          "gdpr": "Nõustun, et minu andmeid töödeldakse kandideerimise raames (GDPR nõuetele vastav)",
+          "newsletter": "Soovin saada Hackboot uudiseid (valikuline)"
+        },
+        "submit": "Saada kandidatuur",
+        "submitting": "Saatmine...",
+        "success": {
+          "title": "Kandidatuur saadetud!",
+          "message": "Täname kandideerimise eest. Meie meeskond vaatab selle läbi ja võtab sinuga 48 tunni jooksul ühendust.",
+          "cta": "Tagasi tööpakkumiste juurde"
+        },
+        "errors": {
+          "required": "See väli on kohustuslik",
+          "email": "Vale e-post",
+          "fileSize": "Fail on liiga suur (max 5 MB)",
+          "fileType": "Vale faili formaat (ainult PDF)",
+          "general": "Tekkis viga. Palun proovi uuesti."
+        }
+      }
     },
     "culture": {
       "title": "Meie kultuur",
@@ -1510,77 +1689,6 @@
       "title": "Ei leia täiuslikku positsiooni?",
       "description": "Saada meile spontaanne kandidatuur, otsime alati erakordseid talente.",
       "button": "Spontaanne kandidatuur"
-    },
-    "apply": {
-      "title": "Kandideeri nüüd",
-      "subtitle": "Liitu Hackboot seiklusega",
-      "description": "Täida allolev vorm ja võtame sinuga 48 tunni jooksul ühendust. Ole ise, me vihkame jura.",
-      "form": {
-        "personalInfo": {
-          "title": "Isikuandmed",
-          "firstName": "Eesnimi",
-          "firstNamePlaceholder": "Jaan",
-          "lastName": "Perekonnanimi",
-          "lastNamePlaceholder": "Tamm",
-          "email": "E-post",
-          "emailPlaceholder": "jaan.tamm@example.com",
-          "phone": "Telefon",
-          "phonePlaceholder": "+372 5123 4567",
-          "location": "Asukoht",
-          "locationPlaceholder": "Tallinn, Eesti"
-        },
-        "jobInfo": {
-          "title": "Töö info",
-          "position": "Soovitud ametikoht",
-          "positionPlaceholder": "Nt: Vanem Full Stack arendaja",
-          "department": "Osakond",
-          "departmentPlaceholder": "Inseneriteadus, Disain, DevOps...",
-          "startDate": "Saadavuse kuupäev",
-          "startDatePlaceholder": "Kohe / 1 kuu pärast / 3 kuu pärast"
-        },
-        "application": {
-          "title": "Sinu kandidatuur",
-          "cv": "CV (ainult PDF)",
-          "cvHelp": "Max suurus: 5 MB - Aktsepteeritud formaat: PDF",
-          "motivation": "Motivatsioonikiri",
-          "motivationPlaceholder": "Miks Hackboot? Mis sind selle ametikoha juures põnevdab? Ole autentne, pole vaja klišeesid.",
-          "salary": "Palgaootused (aasta bruto)",
-          "salaryPlaceholder": "Nt: €60 000 - €80 000",
-          "portfolio": "Portfoolio / GitHub / LinkedIn",
-          "portfolioPlaceholder": "https://github.com/sinu-kasutajanimi"
-        },
-        "additional": {
-          "title": "Mõned lisaküsimused",
-          "remote": "Töö eelistus",
-          "remoteOptions": {
-            "full": "100% Kaugtöö",
-            "hybrid": "Hübriid",
-            "office": "Kontor"
-          },
-          "availability": "Intervjuu saadavus",
-          "availabilityPlaceholder": "Nt: Esmaspäev-Reede pärast kella 14",
-          "message": "Sõnum / Küsimused",
-          "messagePlaceholder": "Kas sul on küsimusi? Midagi öelda? Me kuulame."
-        },
-        "consent": {
-          "gdpr": "Nõustun, et minu andmeid töödeldakse kandideerimise raames (GDPR nõuetele vastav)",
-          "newsletter": "Soovin saada Hackboot uudiseid (valikuline)"
-        },
-        "submit": "Saada kandidatuur",
-        "submitting": "Saatmine...",
-        "success": {
-          "title": "Kandidatuur saadetud!",
-          "message": "Täname kandideerimise eest. Meie meeskond vaatab selle läbi ja võtab sinuga 48 tunni jooksul ühendust.",
-          "cta": "Tagasi tööpakkumiste juurde"
-        },
-        "errors": {
-          "required": "See väli on kohustuslik",
-          "email": "Vale e-post",
-          "fileSize": "Fail on liiga suur (max 5 MB)",
-          "fileType": "Vale faili formaat (ainult PDF)",
-          "general": "Tekkis viga. Palun proovi uuesti."
-        }
-      }
     }
   }
 }

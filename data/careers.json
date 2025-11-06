@@ -1,103 +1,134 @@
 {
   "departments": [
     {
-      "id": "engineering",
+      "id": "technical",
       "icon": "Code",
       "color": "from-purple-500 to-violet-600"
     },
     {
-      "id": "design",
+      "id": "content",
       "icon": "Palette",
       "color": "from-pink-500 to-rose-600"
     },
     {
-      "id": "devops",
-      "icon": "Server",
+      "id": "marketing",
+      "icon": "TrendingUp",
       "color": "from-cyan-500 to-blue-600"
-    },
-    {
-      "id": "security",
-      "icon": "Shield",
-      "color": "from-emerald-500 to-teal-600"
     },
     {
       "id": "support",
       "icon": "Headphones",
-      "color": "from-amber-500 to-yellow-600"
+      "color": "from-emerald-500 to-teal-600"
     }
   ],
   "jobs": [
     {
-      "id": "senior-fullstack-developer",
-      "department": "engineering",
-      "type": "full-time",
-      "remote": true,
-      "location": "Remote (EU)",
-      "experience": "5+ years",
-      "posted": "2025-11-01"
-    },
-    {
-      "id": "cloud-architect",
-      "department": "devops",
-      "type": "full-time",
-      "remote": true,
-      "location": "Remote (Worldwide)",
-      "experience": "7+ years",
-      "posted": "2025-11-01"
-    },
-    {
-      "id": "security-engineer",
-      "department": "security",
-      "type": "full-time",
-      "remote": true,
-      "location": "Remote (EU)",
-      "experience": "4+ years",
-      "posted": "2025-10-28"
-    },
-    {
-      "id": "senior-frontend-developer",
-      "department": "engineering",
-      "type": "full-time",
-      "remote": true,
-      "location": "Remote (EU)",
-      "experience": "4+ years",
-      "posted": "2025-10-25"
-    },
-    {
-      "id": "product-designer",
-      "department": "design",
+      "id": "cloud-engineer",
+      "department": "technical",
       "type": "full-time",
       "remote": true,
       "location": "Remote (Worldwide)",
       "experience": "3+ years",
-      "posted": "2025-10-20"
+      "posted": "2025-11-06"
     },
     {
-      "id": "customer-success-manager",
+      "id": "frontend-backend-developer",
+      "department": "technical",
+      "type": "full-time",
+      "remote": true,
+      "location": "Remote (Worldwide)",
+      "experience": "2+ years",
+      "posted": "2025-11-06"
+    },
+    {
+      "id": "network-specialist",
+      "department": "technical",
+      "type": "full-time",
+      "remote": true,
+      "location": "Remote (Worldwide)",
+      "experience": "3+ years",
+      "posted": "2025-11-06"
+    },
+    {
+      "id": "security-expert",
+      "department": "technical",
+      "type": "full-time",
+      "remote": true,
+      "location": "Remote (Worldwide)",
+      "experience": "4+ years",
+      "posted": "2025-11-06"
+    },
+    {
+      "id": "game-acquisition-manager",
+      "department": "content",
+      "type": "full-time",
+      "remote": true,
+      "location": "Remote (Worldwide)",
+      "experience": "3+ years",
+      "posted": "2025-11-06"
+    },
+    {
+      "id": "partnership-manager",
+      "department": "content",
+      "type": "full-time",
+      "remote": true,
+      "location": "Remote (Worldwide)",
+      "experience": "2+ years",
+      "posted": "2025-11-06"
+    },
+    {
+      "id": "content-curator",
+      "department": "content",
+      "type": "full-time",
+      "remote": true,
+      "location": "Remote (Worldwide)",
+      "experience": "2+ years",
+      "posted": "2025-11-06"
+    },
+    {
+      "id": "digital-marketing-specialist",
+      "department": "marketing",
+      "type": "full-time",
+      "remote": true,
+      "location": "Remote (Worldwide)",
+      "experience": "2+ years",
+      "posted": "2025-11-06"
+    },
+    {
+      "id": "public-relations-manager",
+      "department": "marketing",
+      "type": "full-time",
+      "remote": true,
+      "location": "Remote (Worldwide)",
+      "experience": "3+ years",
+      "posted": "2025-11-06"
+    },
+    {
+      "id": "market-analyst",
+      "department": "marketing",
+      "type": "full-time",
+      "remote": true,
+      "location": "Remote (Worldwide)",
+      "experience": "2+ years",
+      "posted": "2025-11-06"
+    },
+    {
+      "id": "technical-support-agent",
       "department": "support",
       "type": "full-time",
       "remote": true,
-      "location": "Remote (EU)",
-      "experience": "2+ years",
-      "posted": "2025-10-15"
+      "location": "Remote (Worldwide)",
+      "experience": "1+ year",
+      "posted": "2025-11-06"
     },
     {
-      "id": "devops-engineer",
-      "department": "devops",
+      "id": "community-moderator",
+      "department": "support",
       "type": "full-time",
       "remote": true,
-      "location": "Remote (EU)",
-      "experience": "3+ years",
-      "posted": "2025-10-10"
-    },
-    {
-      "id": "backend-developer-go",
-      "department": "engineering",
-      "type": "full-time",
-      "remote": true,
-      "location": "Remote (EU)",
-      "experience": "3+ years",
-      "posted": "2025-10-05"
+      "location": "Remote (Worldwide)",
+      "experience": "1+ year",
+      "posted": "2025-11-06"
     }
   ]
 }

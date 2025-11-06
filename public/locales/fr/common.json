@@ -289,7 +289,7 @@
       "heading": "Les valeurs qui nous définissent",
       "description": "Nos valeurs fondamentales guident chaque décision et action au sein de Hackboot.",
       "title": "Nos valeurs",
-      "transparency": "Transparence", 
+      "transparency": "Transparence",
       "growth": "Esprit de croissance",
       "quality": "Obsédés par la qualité",
       "responsibility": "Responsables par conception",
@@ -580,9 +580,21 @@
     "subtitle": "Des services sur-mesure pour les joueurs et équipes qui exigent la perfection.",
     "cta": "Parler à un expert",
     "metrics": [
-      { "id": "uptime", "value": "99,9 %", "label": "Disponibilité garantie" },
-      { "id": "clients", "value": "120+", "label": "Clients pro actifs" },
-      { "id": "regions", "value": "8", "label": "Régions couvertes" }
+      {
+        "id": "uptime",
+        "value": "99,9 %",
+        "label": "Disponibilité garantie"
+      },
+      {
+        "id": "clients",
+        "value": "120+",
+        "label": "Clients pro actifs"
+      },
+      {
+        "id": "regions",
+        "value": "8",
+        "label": "Régions couvertes"
+      }
     ],
     "pillarsHeading": {
       "title": "Nos piliers",
@@ -675,9 +687,21 @@
       "description": "Nos équipes vous répondent sous 24h pour évaluer vos besoins et préparer un plan de déploiement.",
       "cta": "Planifier un call",
       "metrics": [
-        { "id": "sla", "value": "<5 min", "label": "Temps de réponse moyen" },
-        { "id": "coverage", "value": "24/7", "label": "Support global" },
-        { "id": "satisfaction", "value": "98 %", "label": "Satisfaction client" }
+        {
+          "id": "sla",
+          "value": "<5 min",
+          "label": "Temps de réponse moyen"
+        },
+        {
+          "id": "coverage",
+          "value": "24/7",
+          "label": "Support global"
+        },
+        {
+          "id": "satisfaction",
+          "value": "98 %",
+          "label": "Satisfaction client"
+        }
       ],
       "note": "Un canal prioritaire Discord & WhatsApp est activé dès la signature."
     }
@@ -1214,11 +1238,10 @@
       "location": "Localisation"
     },
     "departments": {
-      "engineering": "Engineering",
-      "design": "Design",
-      "devops": "DevOps & Infrastructure",
-      "security": "Sécurité",
-      "support": "Support & Success"
+      "technical": "Équipe Technique",
+      "content": "Contenu et Partenariats",
+      "marketing": "Marketing et Ventes",
+      "support": "Support Client"
     },
     "types": {
       "full-time": "Temps plein",
@@ -1227,233 +1250,389 @@
       "internship": "Stage"
     },
     "jobs": {
-      "senior-fullstack-developer": {
-        "title": "Développeur·se Full Stack Senior",
-        "shortDescription": "Développez des solutions cloud gaming innovantes avec React, Node.js et technologies cloud de pointe.",
-        "description": "Nous recherchons un·e développeur·se full stack senior passionné·e pour rejoindre notre équipe engineering. Vous travaillerez sur notre plateforme cloud gaming, en développant des fonctionnalités innovantes et en optimisant les performances.",
+      "cloud-engineer": {
+        "title": "Ingénieur Cloud",
+        "shortDescription": "Concevez et gérez notre infrastructure cloud pour assurer performance et scalabilité.",
+        "description": "Rejoignez notre équipe technique pour construire et maintenir une infrastructure cloud robuste et évolutive.",
         "responsibilities": [
-          "Concevoir et développer des fonctionnalités full stack (React, Next.js, Node.js)",
-          "Optimiser les performances et la scalabilité de la plateforme",
-          "Collaborer avec l'équipe produit pour définir les roadmaps techniques",
-          "Mentorer les développeurs juniors",
-          "Participer aux revues de code et améliorer la qualité du code"
-        ],
-        "requirements": [
-          "5+ ans d'expérience en développement full stack",
-          "Maîtrise de React, Next.js, TypeScript",
-          "Expérience avec Node.js, PostgreSQL, Redis",
-          "Connaissance des architectures cloud (AWS, GCP, Azure)",
-          "Passion pour la performance et l'optimisation",
-          "Excellentes compétences en communication"
-        ],
-        "benefits": [
-          "Salaire compétitif + equity",
-          "100% remote, horaires flexibles",
-          "Budget formation illimité",
-          "Hardware de pointe fourni",
-          "4 semaines de congés payés"
-        ]
-      },
-      "cloud-architect": {
-        "title": "Architecte Cloud",
-        "shortDescription": "Concevez et déployez notre infrastructure cloud gaming hautement disponible et scalable.",
-        "description": "Nous cherchons un·e architecte cloud expérimenté·e pour concevoir et maintenir notre infrastructure cloud gaming. Vous serez responsable de l'architecture, de la scalabilité et de la fiabilité de notre plateforme.",
-        "responsibilities": [
-          "Concevoir l'architecture cloud multi-région haute disponibilité",
-          "Optimiser les coûts et les performances cloud",
-          "Implémenter l'infrastructure as code (Terraform, CloudFormation)",
-          "Définir les standards de sécurité et conformité",
-          "Superviser les migrations et les déploiements critiques"
-        ],
-        "requirements": [
-          "7+ ans d'expérience en architecture cloud",
-          "Expertise AWS, GCP ou Azure (certification souhaitée)",
-          "Maîtrise Kubernetes, Docker, CI/CD",
-          "Expérience avec Terraform, Ansible",
-          "Connaissance approfondie des réseaux et sécurité cloud",
-          "Capacité à gérer des projets complexes"
-        ],
-        "benefits": [
-          "Package de rémunération exceptionnel",
-          "100% remote, timezone flexible",
-          "Conférences et certifications payées",
-          "Budget cloud personnel pour projets",
-          "Impact direct sur l'architecture produit"
-        ]
-      },
-      "security-engineer": {
-        "title": "Ingénieur·e Sécurité",
-        "shortDescription": "Protégez notre infrastructure et nos utilisateurs avec des solutions de sécurité de pointe.",
-        "description": "Rejoignez notre équipe sécurité pour développer et maintenir nos systèmes de protection. Vous travaillerez sur des technologies anti-cheat, sécurité kernel-level et protection des données.",
-        "responsibilities": [
-          "Développer des solutions de sécurité kernel-level",
-          "Effectuer des audits de sécurité et pentests",
-          "Implémenter des systèmes anti-cheat avancés",
-          "Monitorer et répondre aux incidents de sécurité",
-          "Former l'équipe aux bonnes pratiques de sécurité"
-        ],
-        "requirements": [
-          "4+ ans d'expérience en sécurité informatique",
-          "Expertise en reverse engineering et analyse de malware",
-          "Connaissance des systèmes Windows (drivers, kernel)",
-          "Maîtrise de C/C++, Python, Assembly",
-          "Expérience avec les systèmes anti-cheat (EAC, BE)",
-          "Certifications sécurité appréciées (OSCP, CEH)"
-        ],
-        "benefits": [
-          "Rémunération attractive + bonus performance",
-          "Accès aux meilleurs outils de sécurité",
-          "Budget recherche et hardware illimité",
-          "Participation aux CTF et conférences",
-          "Travail sur des problèmes de sécurité uniques"
-        ]
-      },
-      "senior-frontend-developer": {
-        "title": "Développeur·se Frontend Senior",
-        "shortDescription": "Créez des interfaces utilisateur exceptionnelles avec React, Next.js et les dernières technologies web.",
-        "description": "Nous recherchons un·e développeur·se frontend senior pour créer des expériences utilisateur exceptionnelles. Vous travaillerez sur notre dashboard, notre site web et nos interfaces gaming.",
-        "responsibilities": [
-          "Développer des interfaces React/Next.js performantes",
-          "Créer des animations fluides avec Framer Motion",
-          "Optimiser les performances web (Core Web Vitals)",
-          "Implémenter des designs Figma pixel-perfect",
-          "Contribuer au design system et à la bibliothèque de composants"
-        ],
-        "requirements": [
-          "4+ ans d'expérience en développement frontend",
-          "Expertise React, Next.js 14+, TypeScript",
-          "Maîtrise Tailwind CSS, animations CSS/JS",
-          "Expérience avec Framer Motion ou similaire",
-          "Sensibilité UX/UI et attention au détail",
-          "Portfolio de projets web impressionnants"
-        ],
-        "benefits": [
-          "Salaire compétitif selon expérience",
-          "Remote-first, équilibre vie pro/perso",
-          "Budget design tools (Figma, Adobe CC)",
-          "Écran 4K + setup ergonomique",
-          "Projets variés et stimulants"
-        ]
-      },
-      "product-designer": {
-        "title": "Designer Produit",
-        "shortDescription": "Concevez des expériences utilisateur innovantes pour notre plateforme cloud gaming.",
-        "description": "Nous cherchons un·e product designer talentueux·se pour façonner l'avenir de notre plateforme. Vous travaillerez sur l'UX/UI, le design system et la recherche utilisateur.",
-        "responsibilities": [
-          "Concevoir des interfaces UX/UI pour web et applications",
-          "Créer et maintenir le design system",
-          "Mener des recherches utilisateurs et tests d'usabilité",
-          "Prototyper rapidement des concepts avec Figma",
-          "Collaborer étroitement avec l'équipe engineering"
-        ],
-        "requirements": [
-          "3+ ans d'expérience en product design",
-          "Portfolio démontrant votre process de design",
-          "Maîtrise Figma, design systems, atomic design",
-          "Expérience en user research et testing",
-          "Connaissance des contraintes techniques (HTML/CSS)",
-          "Sensibilité gaming et interfaces modernes"
-        ],
-        "benefits": [
-          "Package attractif + equity",
-          "100% remote, horaires flexibles",
-          "Budget outils et formations design",
-          "Participation aux conférences design",
-          "Impact direct sur le produit"
-        ]
-      },
-      "customer-success-manager": {
-        "title": "Customer Success Manager",
-        "shortDescription": "Accompagnez nos clients premium et assurez leur satisfaction à chaque étape.",
-        "description": "Rejoignez notre équipe support pour offrir une expérience client exceptionnelle à nos utilisateurs premium. Vous serez le point de contact privilégié de nos clients.",
-        "responsibilities": [
-          "Gérer un portefeuille de clients premium",
-          "Assurer l'onboarding et la formation des nouveaux clients",
-          "Identifier les opportunités d'upsell et de cross-sell",
-          "Collecter les feedbacks et améliorer le produit",
-          "Maintenir un taux de satisfaction client élevé"
-        ],
-        "requirements": [
-          "2+ ans d'expérience en customer success",
-          "Excellentes compétences en communication",
-          "Connaissance du gaming et des technologies cloud",
-          "Capacité à gérer plusieurs clients simultanément",
-          "Maîtrise du français et de l'anglais",
-          "Orientation solutions et empathie"
-        ],
-        "benefits": [
-          "Salaire fixe + commissions attractives",
-          "Remote avec flexibilité horaire",
-          "Formation continue sur les produits",
-          "Outils de CRM modernes",
-          "Équipe support soudée et bienveillante"
-        ]
-      },
-      "devops-engineer": {
-        "title": "Ingénieur·e DevOps",
-        "shortDescription": "Automatisez et optimisez nos pipelines CI/CD et notre infrastructure cloud.",
-        "description": "Nous recherchons un·e ingénieur·e DevOps pour automatiser nos processus et optimiser notre infrastructure. Vous travaillerez sur Kubernetes, CI/CD et monitoring.",
-        "responsibilities": [
-          "Gérer et optimiser les clusters Kubernetes",
-          "Développer et maintenir les pipelines CI/CD",
-          "Implémenter le monitoring et l'observabilité",
+          "Concevoir et déployer des architectures cloud (AWS, GCP, Azure)",
           "Automatiser les déploiements et la gestion d'infrastructure",
-          "Participer à l'astreinte et résoudre les incidents"
+          "Optimiser les coûts et les performances cloud",
+          "Assurer la haute disponibilité et la résilience des services",
+          "Collaborer avec les équipes dev pour l'intégration continue"
         ],
         "requirements": [
-          "3+ ans d'expérience en DevOps/SRE",
-          "Maîtrise Kubernetes, Docker, Helm",
-          "Expérience avec GitLab CI, GitHub Actions ou Jenkins",
-          "Connaissance de Terraform, Ansible",
-          "Scripting Python, Bash, Go",
-          "Expérience avec Prometheus, Grafana, ELK"
+          "3+ ans d'expérience en architecture cloud",
+          "Maîtrise d'au moins une plateforme cloud majeure",
+          "Expérience avec Kubernetes, Docker",
+          "Connaissance Terraform, CloudFormation ou Pulumi",
+          "Compréhension des principes DevOps"
         ],
         "benefits": [
-          "Rémunération compétitive + bonus",
-          "100% remote, horaires flexibles",
-          "Budget certifications et formations",
-          "Astreinte rémunérée généreusement",
-          "Stack technique moderne"
+          "Remote 100%, travaillez d'où vous voulez",
+          "Équipement premium fourni",
+          "Budget formations et certifications cloud",
+          "Projets techniques innovants",
+          "Équipe passionnée et internationale"
         ]
       },
-      "backend-developer-go": {
-        "title": "Développeur·se Backend Go",
-        "shortDescription": "Développez des services backend performants et scalables avec Go et technologies cloud.",
-        "description": "Rejoignez notre équipe backend pour construire des services hautement performants. Vous travaillerez avec Go, gRPC, Kafka et des bases de données distribuées.",
+      "frontend-backend-developer": {
+        "title": "Développeur Front-end / Back-end",
+        "shortDescription": "Développez des applications web modernes avec React, Next.js et Node.js.",
+        "description": "Nous cherchons un·e développeur·se polyvalent·e pour travailler sur toute la stack de notre plateforme.",
         "responsibilities": [
-          "Développer des microservices Go performants",
-          "Concevoir des APIs RESTful et gRPC",
-          "Optimiser les requêtes et les performances",
-          "Implémenter des systèmes de messagerie (Kafka, RabbitMQ)",
-          "Participer à l'architecture des services backend"
+          "Développer des interfaces utilisateur modernes (React, Next.js)",
+          "Créer des APIs RESTful performantes (Node.js, Express)",
+          "Implémenter des fonctionnalités full-stack bout en bout",
+          "Optimiser les performances frontend et backend",
+          "Participer aux décisions d'architecture technique"
         ],
         "requirements": [
-          "3+ ans d'expérience en développement backend",
-          "Maîtrise de Go (Golang)",
-          "Expérience avec gRPC, REST APIs",
-          "Connaissance PostgreSQL, Redis, Kafka",
-          "Compréhension des architectures microservices",
-          "Sensibilité performance et optimisation"
+          "2+ ans d'expérience en développement web",
+          "Maîtrise de React et Next.js",
+          "Expérience avec Node.js et bases de données",
+          "Connaissances TypeScript",
+          "Passion pour le code propre et les bonnes pratiques"
         ],
         "benefits": [
-          "Salaire attractif selon expérience",
-          "Remote-first, timezone flexible",
-          "Stack technique moderne (Go, K8s, cloud)",
-          "Budget formations et conférences",
-          "Projets techniques challengeants"
+          "Stack technique moderne et innovante",
+          "Flexibilité totale d'horaires",
+          "Remote-first depuis le jour un",
+          "Culture gaming et passion commune",
+          "Équipe bienveillante et collaborative"
+        ]
+      },
+      "network-specialist": {
+        "title": "Spécialiste Réseau",
+        "shortDescription": "Assurez la performance et la sécurité de notre infrastructure réseau mondiale.",
+        "description": "Rejoignez notre équipe pour gérer et optimiser notre infrastructure réseau à l'échelle mondiale.",
+        "responsibilities": [
+          "Concevoir et maintenir l'architecture réseau",
+          "Optimiser les performances réseau et la latence",
+          "Implémenter des solutions CDN et load balancing",
+          "Gérer la sécurité réseau (firewalls, VPN, DDoS protection)",
+          "Résoudre les incidents réseau critiques"
+        ],
+        "requirements": [
+          "3+ ans d'expérience en administration réseau",
+          "Maîtrise des protocoles TCP/IP, DNS, BGP",
+          "Expérience avec CDN et load balancers",
+          "Connaissance des outils de monitoring réseau",
+          "Certifications réseau appréciées (CCNA, CCNP)"
+        ],
+        "benefits": [
+          "Infrastructure mondiale à gérer",
+          "Technologies réseau de pointe",
+          "Remote avec équipement fourni",
+          "Formation continue et certifications",
+          "Équipe tech passionnée"
+        ]
+      },
+      "security-expert": {
+        "title": "Expert en Sécurité",
+        "shortDescription": "Protégez notre infrastructure et nos utilisateurs contre les menaces cybernétiques.",
+        "description": "Nous cherchons un·e expert·e en sécurité pour renforcer la protection de notre plateforme et nos utilisateurs.",
+        "responsibilities": [
+          "Auditer la sécurité de notre infrastructure et applications",
+          "Implémenter des mesures de sécurité (WAF, IDS/IPS, SIEM)",
+          "Gérer les incidents de sécurité et les réponses",
+          "Former les équipes aux bonnes pratiques de sécurité",
+          "Effectuer des pentests et assessments réguliers"
+        ],
+        "requirements": [
+          "4+ ans d'expérience en cybersécurité",
+          "Maîtrise des outils de sécurité (SIEM, WAF, IDS/IPS)",
+          "Expérience en pentesting et vulnerability assessment",
+          "Connaissance OWASP Top 10, SANS Top 25",
+          "Certifications sécurité appréciées (CEH, OSCP, CISSP)"
+        ],
+        "benefits": [
+          "Budget certifications et formations sécurité",
+          "Technologies de sécurité de pointe",
+          "Projets challengeants et variés",
+          "Remote avec flexibilité totale",
+          "Culture de la sécurité forte"
+        ]
+      },
+      "game-acquisition-manager": {
+        "title": "Responsable Acquisitions de Jeux",
+        "shortDescription": "Identifiez et acquérez les meilleurs jeux pour notre plateforme cloud gaming.",
+        "description": "Rejoignez notre équipe contenu pour enrichir notre catalogue avec les jeux les plus excitants du marché.",
+        "responsibilities": [
+          "Identifier et évaluer les opportunités d'acquisition de jeux",
+          "Négocier les contrats avec les développeurs et éditeurs",
+          "Gérer les relations avec les partenaires gaming",
+          "Analyser les tendances du marché du jeu vidéo",
+          "Définir la stratégie d'acquisition de contenu"
+        ],
+        "requirements": [
+          "3+ ans d'expérience dans l'industrie du jeu vidéo",
+          "Réseau établi dans l'industrie gaming",
+          "Excellentes compétences en négociation",
+          "Connaissance approfondie du marché du jeu vidéo",
+          "Passion pour les jeux et les nouvelles tendances"
+        ],
+        "benefits": [
+          "Travaillez avec les plus grands studios",
+          "Influence directe sur notre catalogue",
+          "Participation aux événements gaming (GDC, Gamescom)",
+          "Remote avec déplacements occasionnels",
+          "Équipe passionnée de gaming"
+        ]
+      },
+      "partnership-manager": {
+        "title": "Gestionnaire de Partenariats",
+        "shortDescription": "Développez des partenariats stratégiques pour accélérer notre croissance.",
+        "description": "Nous cherchons un·e gestionnaire de partenariats pour développer notre écosystème et nos collaborations stratégiques.",
+        "responsibilities": [
+          "Identifier et développer des partenariats stratégiques",
+          "Négocier et structurer les accords de partenariat",
+          "Gérer les relations avec les partenaires existants",
+          "Mesurer la performance des partenariats",
+          "Collaborer avec les équipes produit et marketing"
+        ],
+        "requirements": [
+          "2+ ans d'expérience en développement de partenariats",
+          "Excellentes compétences relationnelles et de négociation",
+          "Capacité à identifier des opportunités stratégiques",
+          "Expérience dans la tech ou le gaming appréciée",
+          "Anglais courant indispensable"
+        ],
+        "benefits": [
+          "Impact direct sur la croissance de l'entreprise",
+          "Réseau international de partenaires",
+          "Remote avec flexibilité géographique",
+          "Culture entrepreneuriale",
+          "Équipe dynamique et ambitieuse"
+        ]
+      },
+      "content-curator": {
+        "title": "Curateur de Contenu",
+        "shortDescription": "Créez et gérez du contenu engageant pour notre communauté de gamers.",
+        "description": "Rejoignez notre équipe contenu pour créer des expériences engageantes et du contenu de qualité pour nos utilisateurs.",
+        "responsibilities": [
+          "Créer et gérer le contenu de la plateforme",
+          "Organiser les jeux en catégories et collections",
+          "Rédiger des descriptions et guides de jeux",
+          "Identifier les tendances de contenu gaming",
+          "Collaborer avec les équipes marketing et communauté"
+        ],
+        "requirements": [
+          "2+ ans d'expérience en curation de contenu ou rédaction gaming",
+          "Excellente connaissance de l'univers gaming",
+          "Compétences rédactionnelles solides",
+          "Créativité et sens de l'esthétique",
+          "Passion pour les jeux vidéo indispensable"
+        ],
+        "benefits": [
+          "Jouez et découvrez les jeux en avant-première",
+          "Influence sur l'expérience utilisateur",
+          "Remote 100%",
+          "Équipe créative et passionnée",
+          "Culture gaming forte"
+        ]
+      },
+      "digital-marketing-specialist": {
+        "title": "Spécialiste Marketing Digital",
+        "shortDescription": "Développez nos campagnes marketing pour acquérir et engager de nouveaux utilisateurs.",
+        "description": "Nous cherchons un·e spécialiste marketing digital pour booster notre croissance et notre notoriété.",
+        "responsibilities": [
+          "Créer et gérer des campagnes marketing multicanales",
+          "Optimiser les performances SEO/SEM",
+          "Gérer les campagnes paid ads (Google, Meta, TikTok)",
+          "Analyser les KPIs et optimiser le ROI",
+          "Collaborer avec les équipes contenu et produit"
+        ],
+        "requirements": [
+          "2+ ans d'expérience en marketing digital",
+          "Maîtrise de Google Ads, Meta Ads",
+          "Connaissance SEO/SEM",
+          "Compétences analytiques (Google Analytics, Mixpanel)",
+          "Expérience dans la tech ou le gaming appréciée"
+        ],
+        "benefits": [
+          "Budget marketing conséquent",
+          "Autonomie et responsabilités",
+          "Remote-first",
+          "Outils et technologies modernes",
+          "Impact mesurable sur la croissance"
+        ]
+      },
+      "public-relations-manager": {
+        "title": "Responsable Relations Publiques",
+        "shortDescription": "Développez notre image de marque et gérez nos relations avec les médias et influenceurs.",
+        "description": "Rejoignez notre équipe pour gérer notre réputation et développer notre présence médiatique dans l'industrie du gaming.",
+        "responsibilities": [
+          "Développer et exécuter la stratégie RP",
+          "Gérer les relations avec les médias gaming",
+          "Organiser des événements et conférences de presse",
+          "Collaborer avec les influenceurs et créateurs de contenu",
+          "Gérer les crises de communication si nécessaire"
+        ],
+        "requirements": [
+          "3+ ans d'expérience en relations publiques",
+          "Réseau dans les médias gaming",
+          "Excellentes compétences en communication",
+          "Expérience événementielle",
+          "Anglais courant indispensable"
+        ],
+        "benefits": [
+          "Participation aux grands événements gaming",
+          "Réseau médias et influenceurs",
+          "Visibilité et impact sur l'industrie",
+          "Remote avec déplacements",
+          "Culture collaborative"
+        ]
+      },
+      "market-analyst": {
+        "title": "Analyste de Marché",
+        "shortDescription": "Analysez les tendances du marché pour guider notre stratégie business et produit.",
+        "description": "Nous cherchons un·e analyste de marché pour nous aider à comprendre le marché du gaming et orienter nos décisions stratégiques.",
+        "responsibilities": [
+          "Analyser les tendances du marché du cloud gaming",
+          "Réaliser des études de marché et benchmarks concurrentiels",
+          "Identifier les opportunités de croissance",
+          "Produire des rapports d'analyse et recommandations",
+          "Collaborer avec les équipes produit et business"
+        ],
+        "requirements": [
+          "2+ ans d'expérience en analyse de marché",
+          "Excellentes compétences analytiques",
+          "Maîtrise d'Excel, outils de BI (Tableau, Power BI)",
+          "Connaissance du marché gaming appréciée",
+          "Esprit de synthèse et communication claire"
+        ],
+        "benefits": [
+          "Impact direct sur la stratégie de l'entreprise",
+          "Accès aux données du marché gaming",
+          "Remote 100%",
+          "Outils d'analyse de pointe",
+          "Équipe data-driven"
+        ]
+      },
+      "technical-support-agent": {
+        "title": "Agent de Support Technique",
+        "shortDescription": "Aidez nos utilisateurs à résoudre leurs problèmes techniques et profiter pleinement de notre plateforme.",
+        "description": "Rejoignez notre équipe support pour offrir une expérience client exceptionnelle à nos gamers.",
+        "responsibilities": [
+          "Répondre aux questions techniques des utilisateurs",
+          "Résoudre les problèmes techniques (connexion, performance, bugs)",
+          "Créer et maintenir la base de connaissances",
+          "Escalader les problèmes complexes aux équipes tech",
+          "Collecter les feedbacks utilisateurs"
+        ],
+        "requirements": [
+          "1+ an d'expérience en support technique",
+          "Bonnes connaissances techniques (réseau, PC, navigateurs)",
+          "Excellentes compétences en communication",
+          "Patience et empathie",
+          "Passion pour les jeux vidéo appréciée"
+        ],
+        "benefits": [
+          "Formation complète fournie",
+          "Remote avec horaires flexibles",
+          "Équipe support bienveillante",
+          "Opportunités d'évolution",
+          "Culture gaming et fun"
+        ]
+      },
+      "community-moderator": {
+        "title": "Modérateur de Communauté",
+        "shortDescription": "Animez et modérez notre communauté de gamers pour créer un environnement positif et engageant.",
+        "description": "Nous cherchons un·e modérateur·rice passionné·e pour gérer notre communauté et créer un espace accueillant pour tous.",
+        "responsibilities": [
+          "Modérer les discussions sur Discord, forums, réseaux sociaux",
+          "Animer la communauté avec des événements et challenges",
+          "Répondre aux questions de la communauté",
+          "Faire respecter les règles de la communauté",
+          "Remonter les feedbacks aux équipes produit"
+        ],
+        "requirements": [
+          "1+ an d'expérience en modération ou community management",
+          "Excellentes compétences relationnelles",
+          "Disponibilité soir et week-end (shifts flexibles)",
+          "Connaissance Discord et réseaux sociaux",
+          "Passion pour les jeux vidéo indispensable"
+        ],
+        "benefits": [
+          "Au cœur de la communauté gaming",
+          "Remote 100%",
+          "Horaires flexibles",
+          "Équipe fun et passionnée",
+          "Accès aux jeux et événements"
         ]
       }
     },
     "apply": {
-      "button": "Postuler",
-      "remote": "Remote",
-      "fullTime": "Temps plein",
-      "experience": "Expérience",
-      "posted": "Publié le",
-      "responsibilities": "Responsabilités",
-      "requirements": "Prérequis",
-      "benefits": "Avantages",
-      "applyNow": "Postuler maintenant"
+      "title": "Postuler maintenant",
+      "subtitle": "Rejoignez l'aventure Hackboot",
+      "description": "Remplissez le formulaire ci-dessous et nous reviendrons vers vous dans les 48 heures. Soyez vous-même, on déteste le bullshit.",
+      "form": {
+        "personalInfo": {
+          "title": "Informations personnelles",
+          "firstName": "Prénom",
+          "firstNamePlaceholder": "John",
+          "lastName": "Nom",
+          "lastNamePlaceholder": "Doe",
+          "email": "Email",
+          "emailPlaceholder": "john.doe@example.com",
+          "phone": "Téléphone",
+          "phonePlaceholder": "+33 6 12 34 56 78",
+          "location": "Localisation",
+          "locationPlaceholder": "Paris, France"
+        },
+        "jobInfo": {
+          "title": "Informations sur le poste",
+          "position": "Poste visé",
+          "positionPlaceholder": "Ex: Développeur Full Stack Senior",
+          "department": "Département",
+          "departmentPlaceholder": "Engineering, Design, DevOps...",
+          "startDate": "Date de disponibilité",
+          "startDatePlaceholder": "Immédiatement / Dans 1 mois / Dans 3 mois"
+        },
+        "application": {
+          "title": "Votre candidature",
+          "cv": "CV (PDF uniquement)",
+          "cvHelp": "Taille max: 5 MB - Format accepté: PDF",
+          "motivation": "Lettre de motivation",
+          "motivationPlaceholder": "Pourquoi Hackboot ? Qu'est-ce qui vous excite dans ce poste ? Soyez authentique, pas besoin de formules toutes faites.",
+          "salary": "Prétentions salariales (annuel brut)",
+          "salaryPlaceholder": "Ex: 60 000 - 80 000 €",
+          "portfolio": "Portfolio / GitHub / LinkedIn",
+          "portfolioPlaceholder": "https://github.com/votre-username"
+        },
+        "additional": {
+          "title": "Quelques questions supplémentaires",
+          "remote": "Préférence de travail",
+          "remoteOptions": {
+            "full": "100% Remote",
+            "hybrid": "Hybride",
+            "office": "Bureau"
+          },
+          "availability": "Disponibilité pour un entretien",
+          "availabilityPlaceholder": "Ex: Lundi-Vendredi après 14h",
+          "message": "Message / Questions",
+          "messagePlaceholder": "Des questions ? Des choses à nous dire ? On vous écoute."
+        },
+        "consent": {
+          "gdpr": "J'accepte que mes données soient traitées dans le cadre de ma candidature (conforme RGPD)",
+          "newsletter": "Je souhaite recevoir des actualités de Hackboot (optionnel)"
+        },
+        "submit": "Envoyer ma candidature",
+        "submitting": "Envoi en cours...",
+        "success": {
+          "title": "Candidature envoyée !",
+          "message": "Merci pour votre candidature. Notre équipe va l'examiner et reviendra vers vous dans les 48 heures.",
+          "cta": "Retour aux offres"
+        },
+        "errors": {
+          "required": "Ce champ est requis",
+          "email": "Email invalide",
+          "fileSize": "Fichier trop volumineux (max 5 MB)",
+          "fileType": "Format de fichier invalide (PDF uniquement)",
+          "general": "Une erreur est survenue. Veuillez réessayer."
+        }
+      }
     },
     "culture": {
       "title": "Notre Culture",
@@ -1589,77 +1768,6 @@
       "title": "Vous ne trouvez pas le poste idéal ?",
       "description": "Envoyez-nous une candidature spontanée, nous sommes toujours à la recherche de talents exceptionnels.",
       "button": "Candidature spontanée"
-    },
-    "apply": {
-      "title": "Postuler maintenant",
-      "subtitle": "Rejoignez l'aventure Hackboot",
-      "description": "Remplissez le formulaire ci-dessous et nous reviendrons vers vous dans les 48 heures. Soyez vous-même, on déteste le bullshit.",
-      "form": {
-        "personalInfo": {
-          "title": "Informations personnelles",
-          "firstName": "Prénom",
-          "firstNamePlaceholder": "John",
-          "lastName": "Nom",
-          "lastNamePlaceholder": "Doe",
-          "email": "Email",
-          "emailPlaceholder": "john.doe@example.com",
-          "phone": "Téléphone",
-          "phonePlaceholder": "+33 6 12 34 56 78",
-          "location": "Localisation",
-          "locationPlaceholder": "Paris, France"
-        },
-        "jobInfo": {
-          "title": "Informations sur le poste",
-          "position": "Poste visé",
-          "positionPlaceholder": "Ex: Développeur Full Stack Senior",
-          "department": "Département",
-          "departmentPlaceholder": "Engineering, Design, DevOps...",
-          "startDate": "Date de disponibilité",
-          "startDatePlaceholder": "Immédiatement / Dans 1 mois / Dans 3 mois"
-        },
-        "application": {
-          "title": "Votre candidature",
-          "cv": "CV (PDF uniquement)",
-          "cvHelp": "Taille max: 5 MB - Format accepté: PDF",
-          "motivation": "Lettre de motivation",
-          "motivationPlaceholder": "Pourquoi Hackboot ? Qu'est-ce qui vous excite dans ce poste ? Soyez authentique, pas besoin de formules toutes faites.",
-          "salary": "Prétentions salariales (annuel brut)",
-          "salaryPlaceholder": "Ex: 60 000 - 80 000 €",
-          "portfolio": "Portfolio / GitHub / LinkedIn",
-          "portfolioPlaceholder": "https://github.com/votre-username"
-        },
-        "additional": {
-          "title": "Quelques questions supplémentaires",
-          "remote": "Préférence de travail",
-          "remoteOptions": {
-            "full": "100% Remote",
-            "hybrid": "Hybride",
-            "office": "Bureau"
-          },
-          "availability": "Disponibilité pour un entretien",
-          "availabilityPlaceholder": "Ex: Lundi-Vendredi après 14h",
-          "message": "Message / Questions",
-          "messagePlaceholder": "Des questions ? Des choses à nous dire ? On vous écoute."
-        },
-        "consent": {
-          "gdpr": "J'accepte que mes données soient traitées dans le cadre de ma candidature (conforme RGPD)",
-          "newsletter": "Je souhaite recevoir des actualités de Hackboot (optionnel)"
-        },
-        "submit": "Envoyer ma candidature",
-        "submitting": "Envoi en cours...",
-        "success": {
-          "title": "Candidature envoyée !",
-          "message": "Merci pour votre candidature. Notre équipe va l'examiner et reviendra vers vous dans les 48 heures.",
-          "cta": "Retour aux offres"
-        },
-        "errors": {
-          "required": "Ce champ est requis",
-          "email": "Email invalide",
-          "fileSize": "Fichier trop volumineux (max 5 MB)",
-          "fileType": "Format de fichier invalide (PDF uniquement)",
-          "general": "Une erreur est survenue. Veuillez réessayer."
-        }
-      }
     }
   }
 }
