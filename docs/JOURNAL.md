@@ -90,6 +90,12 @@ CANDIDATURE SPONTANÉE :
 - ✅ Ajout du curseur pointer pour meilleure affordance
 - ✅ UX améliorée : plus intuitif, pas besoin de viser le petit lien
 
+#### Mise à jour (Commit 7adb1c4):
+- ✅ Suppression de la section KPI stats (8 postes, 15+ pays, 100% remote, 300% croissance)
+- ✅ Nettoyage des imports inutilisés (Users, TrendingUp)
+- ✅ Simplification de la mise en page
+- ✅ Meilleur focus sur les offres d'emploi réelles
+
 ---
 
 ## 2025-11-05
