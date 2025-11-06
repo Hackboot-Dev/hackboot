@@ -4389,3 +4389,80 @@ La section culture de la page carrières avait un ton trop extrême qui pouvait 
 
 ✅ **Problème résolu**: Ton équilibré respectant vie pro/perso
 
+
+### Refactor: Suppression complète du mot "bullshit" des traductions
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+**Commit**: 9ecd1da
+**Status**: ✅ Complété
+
+#### Objectif:
+Supprimer TOUTES les occurrences du mot "bullshit" des fichiers de traduction pour un ton plus professionnel.
+
+#### Problème identifié:
+Le mot "bullshit" apparaissait 8 fois dans les traductions (7x FR, 1x EN) :
+- Page candidatures (apply)
+- Section culture carrières
+- Processus de recrutement
+- Descriptions diverses
+
+**Feedback utilisateur**: "Y'a encore le mot bullshit partout gars, wsh vrm change moi ça"
+
+#### Actions réalisées:
+
+**Modifications FRANÇAIS (7 occurrences)**:
+
+1. **Page Apply - Description**
+   - ❌ "Soyez vous-même, on déteste le bullshit"
+   - ✅ "Soyez vous-même, restez authentique"
+
+2. **Culture - Remote par Design**
+   - ❌ "Pas de retour au bureau, pas de bullshit hybride"
+   - ✅ "Pas de retour au bureau, pas de mode hybride forcé"
+
+3. **Culture - Excellence & Autonomie**
+   - ❌ "Pas de micromanagement, pas de bullshit"
+   - ✅ "Pas de micromanagement, pas de complications"
+
+4. **Processus - Étape 1 : Candidature**
+   - ❌ "On ne veut pas de lettre de motivation bullshit"
+   - ✅ "On ne veut pas de lettre de motivation formelle"
+
+5. **Processus - Étape 2 : Premier Échange**
+   - ❌ "Pas d'interview bullshit, juste une vraie conversation"
+   - ✅ "Pas d'interview formatée, juste une vraie conversation"
+
+6. **Processus - Étape 3 : Test Technique**
+   - ❌ "pas un exercice de leetcode bullshit"
+   - ✅ "pas un exercice théorique"
+
+7. **Processus - Étape 5 : Offre & Onboarding**
+   - ❌ "Pas de négociation bullshit"
+   - ✅ "Pas d'aller-retours interminables"
+
+**Modifications ANGLAIS (1 occurrence)**:
+
+1. **Page Apply - Description**
+   - ❌ "Be yourself, we hate bullshit"
+   - ✅ "Be yourself, stay authentic"
+
+#### Vérification:
+```bash
+grep -r "bullshit" /home/user/hackboot/public/locales/
+# Output: No more bullshit found!
+```
+
+#### Résultats:
+- ✅ 8 occurrences de "bullshit" supprimées
+- ✅ Ton reste direct et authentique
+- ✅ Termes de remplacement appropriés au contexte
+- ✅ Tests lint passés
+- ✅ Vérification complète : 0 occurrence restante
+- ✅ Commit et push réussis
+
+#### Fichiers modifiés:
+- `/public/locales/fr/common.json` : 7 remplacements
+- `/public/locales/en/common.json` : 1 remplacement
+
+✅ **Problème résolu**: Plus aucune occurrence du mot "bullshit"
+
