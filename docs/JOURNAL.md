@@ -4624,3 +4624,107 @@ const Footer = dynamic(() => import('@/components/Footer'), {
 
 ✅ **Problème résolu**: Footer maintenant présent sur toutes les pages
 
+
+### Feature: Page Conditions Générales (Terms)
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+**Commit**: 677faf2
+**Status**: ✅ Complété
+
+#### Objectif:
+Créer une page dédiée pour les Conditions Générales d'Utilisation et de Vente avec contenu complet en markdown.
+
+#### Actions réalisées:
+
+**1. Création du contenu legal (`/public/legal/terms.md`)**
+
+Fichier markdown complet de ~470 lignes contenant :
+- **16 sections principales** couvrant tous les aspects légaux
+- Informations société : VMCloud Group OÜ / Hackboot
+- Adresse : Harju maakond, Tallinn, Estonie
+- Numéro d'enregistrement : 16800149
+
+**Sections du document** :
+1. Objet
+2. Définitions (Services, Plateforme, Compte, Abonnement, Contenu)
+3. Accès aux Services (conditions, création compte, suspension)
+4. Services proposés (cloud gaming, infrastructure, API, support)
+5. Tarifs et paiement (horaire, mensuel, annuel, à vie)
+6. Droit de rétractation (14 jours)
+7. Obligations de l'Utilisateur (usage licite, sécurité)
+8. Obligations et responsabilités de Hackboot (SLA, limitations)
+9. Données personnelles (RGPD, droits, sécurité)
+10. Propriété intellectuelle
+11. Confidentialité
+12. Résiliation (par utilisateur ou Hackboot)
+13. Modifications des CGU
+14. Droit applicable et juridiction (droit estonien)
+15. Dispositions générales
+16. Contact
+
+**2. Page d'affichage (`/app/[locale]/legal/terms/page.tsx`)**
+
+Composant React avec :
+- **Chargement dynamique** du fichier terms.md via fetch
+- **Parser markdown custom** convertissant md en HTML stylisé :
+  - H1, H2, H3 avec styles appropriés
+  - Listes à puces
+  - Liens (target _blank)
+  - Paragraphes formatés
+  - Séparateurs horizontaux
+  - Texte en gras
+- **Design cohérent** avec le reste du site :
+  - Glass effect pour le container
+  - Gradient backgrounds
+  - Header avec badge "Légal"
+  - Footer inclus
+- **Loading state** avec spinner pendant chargement
+
+**3. Mise à jour Footer**
+
+Modification `/components/Footer.tsx` :
+- Lien "Conditions" (terms) pointe maintenant vers `/legal/terms`
+- Avant : `/about#legal`
+- Après : `/legal/terms`
+
+#### Parser Markdown implémenté:
+
+```typescript
+const formatMarkdown = (text: string) => {
+  return text
+    .replace(/^# (.+)$/gm, '<h1>$1</h1>')          // H1
+    .replace(/^## (.+)$/gm, '<h2>$1</h2>')         // H2
+    .replace(/^### (.+)$/gm, '<h3>$1</h3>')        // H3
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')  // Bold
+    .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2">$1</a>')  // Links
+    .replace(/^- (.+)$/gm, '<li>$1</li>')          // Lists
+    .replace(/^---$/gm, '<hr />')                   // HR
+    // + gestion paragraphes
+}
+```
+
+#### Résultats:
+- ✅ Contenu légal complet et structuré en markdown
+- ✅ Page dédiée avec affichage élégant
+- ✅ Parser markdown fonctionnel
+- ✅ Design cohérent (glass effect, gradients)
+- ✅ Footer mis à jour avec nouveau lien
+- ✅ Loading state et gestion d'erreurs
+- ✅ Tests lint passés
+- ✅ Commit et push réussis
+
+#### Fichiers créés:
+- `/public/legal/terms.md` : Contenu des CGU complet (470 lignes)
+- `/app/[locale]/legal/terms/page.tsx` : Page d'affichage
+
+#### Fichiers modifiés:
+- `/components/Footer.tsx` : Lien terms mis à jour
+
+#### Points techniques:
+- Markdown chargé dynamiquement via fetch client-side
+- Parser simple mais efficace pour formatage de base
+- Styles Tailwind appliqués au contenu markdown
+- Responsive et accessible
+
+✅ **Problème résolu**: Page Terms créée avec contenu complet
+
