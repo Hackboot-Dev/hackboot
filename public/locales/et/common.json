@@ -629,6 +629,16 @@
           "Kohandatud playbookid",
           "Kohene eskalatsioon Discordis"
         ]
+      },
+      {
+        "id": "infrastructure",
+        "title": "Pilve orkestratsioon",
+        "description": "Kohene provisioneerimine, automaatne regiooni ümberlülitus ja pidevad varukoopiad.",
+        "bullets": [
+          "Turvatud 10 Gbps võrk",
+          "Automaatne katastroofidest taastumine",
+          "PulseForge API integratsioon"
+        ]
       }
     ],
     "solutions": {

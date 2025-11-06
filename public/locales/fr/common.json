@@ -630,6 +630,16 @@
           "Playbooks personnalisés",
           "Escalade instantanée sur Discord"
         ]
+      },
+      {
+        "id": "infrastructure",
+        "title": "Cloud orchestration",
+        "description": "Provisionnement instantané, bascule automatique de région et sauvegardes en continu.",
+        "bullets": [
+          "Réseau 10 Gbps sécurisé",
+          "Disaster recovery automatisé",
+          "Intégration API PulseForge"
+        ]
       }
     ],
     "solutions": {

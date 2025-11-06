@@ -629,6 +629,16 @@
           "Custom operational playbooks",
           "Instant escalation on Discord"
         ]
+      },
+      {
+        "id": "infrastructure",
+        "title": "Cloud orchestration",
+        "description": "Instant provisioning, automatic region failover and continuous backups.",
+        "bullets": [
+          "Secured 10 Gbps network",
+          "Automated disaster recovery",
+          "PulseForge API integration"
+        ]
       }
     ],
     "solutions": {
