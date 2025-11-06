@@ -1,5 +1,112 @@
 # Journal des Actions - Hackboot
 
+## 2025-11-06
+
+### Feature: Refonte complète des postes et départements carrières
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+**Commit**: 8d64371
+**Status**: ✅ Complété
+
+#### Objectif:
+Mettre à jour complètement la liste des postes disponibles selon les nouveaux besoins de l'entreprise, avec 4 nouveaux départements et 12 nouveaux postes. Aucune fourchette salariale affichée pour collecter les attentes des candidats.
+
+#### Actions réalisées:
+
+**1. Nouveaux départements (`/data/careers.json` + traductions)**
+   - **Équipe Technique** (technical) - Icon: Code, Color: Purple-Violet
+   - **Contenu et Partenariats** (content) - Icon: Palette, Color: Pink-Rose
+   - **Marketing et Ventes** (marketing) - Icon: TrendingUp, Color: Cyan-Blue
+   - **Support Client** (support) - Icon: Headphones, Color: Emerald-Teal
+
+**2. Nouveaux postes (12 au total)**
+
+   **Équipe Technique (4 postes):**
+   - Ingénieur Cloud (Cloud Engineer)
+   - Développeur Front-end / Back-end (Frontend/Backend Developer)
+   - Spécialiste Réseau (Network Specialist)
+   - Expert en Sécurité (Security Expert)
+
+   **Contenu et Partenariats (3 postes):**
+   - Responsable Acquisitions de Jeux (Game Acquisition Manager)
+   - Gestionnaire de Partenariats (Partnership Manager)
+   - Curateur de Contenu (Content Curator)
+
+   **Marketing et Ventes (3 postes):**
+   - Spécialiste Marketing Digital (Digital Marketing Specialist)
+   - Responsable Relations Publiques (Public Relations Manager)
+   - Analyste de Marché (Market Analyst)
+
+   **Support Client (2 postes):**
+   - Agent de Support Technique (Technical Support Agent)
+   - Modérateur de Communauté (Community Moderator)
+
+**3. Caractéristiques des nouveaux postes**
+   - ✅ **100% Remote** pour tous les postes
+   - ✅ **Worldwide** location (Remote global)
+   - ✅ **Aucune fourchette salariale** mentionnée (pour collecter les attentes)
+   - ✅ Expérience requise : de 1 à 4+ ans selon le poste
+   - ✅ Type: Full-time pour tous
+   - ✅ Date de publication : 2025-11-06
+
+**4. Traductions complètes FR/EN/ET**
+   - **FR** : 12 fiches de poste complètes avec responsibilities, requirements, benefits
+   - **EN** : 12 fiches de poste traduites en anglais
+   - **ET** : 12 fiches de poste traduites en estonien
+   - Chaque fiche comprend :
+     - title (titre du poste)
+     - shortDescription (description courte)
+     - description (description longue)
+     - responsibilities (5 responsabilités)
+     - requirements (4-5 prérequis)
+     - benefits (4-5 avantages)
+
+**5. Mise à jour technique**
+   - Ajout de l'icône `TrendingUp` dans `/app/[locale]/careers/page.tsx`
+   - Mapping correct des icônes pour les nouveaux départements
+   - Suppression des anciens postes (8 postes obsolètes)
+
+#### Résultats:
+- ✅ 12 nouveaux postes créés et documentés
+- ✅ 4 nouveaux départements alignés avec la stratégie RH
+- ✅ Traductions complètes en 3 langues (FR/EN/ET)
+- ✅ Aucune mention de salaire pour collecter les attentes candidats
+- ✅ 100% Remote worldwide pour attirer les talents internationaux
+- ✅ Tests lint passés sans erreurs
+- ✅ Commit et push réussis
+
+#### Fichiers modifiés:
+- `/data/careers.json` : Départements et jobs complètement refaits
+- `/public/locales/fr/common.json` : 12 fiches complètes FR
+- `/public/locales/en/common.json` : 12 fiches complètes EN
+- `/public/locales/et/common.json` : 12 fiches complètes ET
+- `/app/[locale]/careers/page.tsx` : Ajout icône TrendingUp
+
+#### Départements supprimés:
+- ❌ Engineering
+- ❌ Design
+- ❌ DevOps & Infrastructure
+- ❌ Security (standalone)
+
+#### Postes supprimés (8 anciens):
+- ❌ Senior Full Stack Developer
+- ❌ Cloud Architect
+- ❌ Security Engineer
+- ❌ Senior Frontend Developer
+- ❌ Product Designer
+- ❌ Customer Success Manager
+- ❌ DevOps Engineer
+- ❌ Backend Developer Go
+
+#### Impact:
+- **Stratégie RH clarifiée** : Départements alignés avec les besoins business
+- **Diversité des postes** : Technical, Content, Marketing, Support
+- **Attractivité internationale** : Remote worldwide pour tous
+- **Flexibilité salariale** : Pas de fourchette pour s'adapter aux profils
+- **Scalabilité** : Structure modulaire facile à maintenir
+
+---
+
 ## 2025-11-05
 
 ### Feature: Refactorisation du système de candidature avec composant réutilisable
