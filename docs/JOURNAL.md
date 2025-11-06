@@ -105,6 +105,11 @@ Mettre à jour complètement la liste des postes disponibles selon les nouveaux 
 - **Flexibilité salariale** : Pas de fourchette pour s'adapter aux profils
 - **Scalabilité** : Structure modulaire facile à maintenir
 
+#### Fix Build (Commit 38cacfa):
+- ✅ Ajout de `TrendingUp` dans le `iconMap` de la page careers
+- ✅ Résolution de l'erreur Netlify build : "Element type is invalid: expected a string but got: undefined"
+- ✅ Le département Marketing s'affiche maintenant correctement avec l'icône TrendingUp
+
 ---
 
 ## 2025-11-05
