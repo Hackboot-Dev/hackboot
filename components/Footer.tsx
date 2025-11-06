@@ -35,7 +35,7 @@ export default memo(function Footer() {
     },
     legal: {
       privacy: `/${locale}/about#legal`,
-      terms: `/${locale}/about#legal`,
+      terms: `/${locale}/legal/terms`,
       cookies: `/${locale}/about#legal`,
       compliance: `/${locale}/about#legal`,
     },
