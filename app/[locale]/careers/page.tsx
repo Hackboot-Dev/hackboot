@@ -14,8 +14,6 @@ import {
   Headphones,
   MapPin,
   Clock,
-  TrendingUp,
-  Users,
   Globe,
   Rocket,
   Briefcase,
@@ -160,74 +158,6 @@ export default function CareersPage() {
                 >
                   {t.careers.subtitle}
                 </m.p>
-              </m.div>
-
-              <m.div
-                variants={containerVariants}
-                initial="hidden"
-                animate="visible"
-                className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-24"
-              >
-                {[
-                  {
-                    icon: Briefcase,
-                    value: careersData.jobs.length,
-                    label: t.careers.stats.openings,
-                    gradient: 'from-purple-500 to-violet-600',
-                  },
-                  {
-                    icon: Globe,
-                    value: '15+',
-                    label: t.careers.stats.countries,
-                    gradient: 'from-cyan-500 to-blue-600',
-                  },
-                  {
-                    icon: Users,
-                    value: '100%',
-                    label: t.careers.stats.remote,
-                    gradient: 'from-pink-500 to-rose-600',
-                  },
-                  {
-                    icon: TrendingUp,
-                    value: '300%',
-                    label: t.careers.stats.growth,
-                    gradient: 'from-emerald-500 to-teal-600',
-                  },
-                ].map((stat, index) => {
-                  const Icon = stat.icon
-                  return (
-                    <m.div
-                      key={index}
-                      variants={itemVariants}
-                      whileHover={{
-                        y: -8,
-                        rotateX: 5,
-                        rotateY: 5,
-                        transition: { duration: 0.3, ease: 'easeOut' },
-                      }}
-                      style={{
-                        transformStyle: 'preserve-3d',
-                        perspective: '1000px',
-                      }}
-                      className="glass-effect p-6 rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all hover:shadow-xl hover:shadow-purple-500/30 cursor-pointer group"
-                    >
-                      <div className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${stat.gradient} mb-4`}>
-                        <Icon className="w-6 h-6" />
-                      </div>
-                      <m.div
-                        className="text-3xl font-bold mb-1"
-                        initial={{ opacity: 0, scale: 0.5 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-                      >
-                        {stat.value}
-                      </m.div>
-                      <div className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
-                        {stat.label}
-                      </div>
-                    </m.div>
-                  )
-                })}
               </m.div>
             </div>
           </section>
