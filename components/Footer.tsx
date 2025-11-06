@@ -34,10 +34,10 @@ export default memo(function Footer() {
       status: `/${locale}/status`,
     },
     legal: {
-      privacy: `/${locale}/about#legal`,
+      privacy: `/${locale}/legal/privacy`,
       terms: `/${locale}/legal/terms`,
-      cookies: `/${locale}/about#legal`,
-      compliance: `/${locale}/about#legal`,
+      cookies: `/${locale}/legal/cookies`,
+      compliance: `/${locale}/legal/compliance`,
     },
   }
 
