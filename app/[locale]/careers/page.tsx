@@ -222,7 +222,7 @@ export default function CareersPage() {
                     const jobDetails = t.careers.jobs[job.id as keyof typeof t.careers.jobs]
 
                     return (
-                      <Link key={job.id} href={`/${locale}/careers/${job.id}`}>
+                      <Link key={job.id} href={`/${locale}/careers/${job.id}`} className="h-full">
                         <m.div
                           initial={{ opacity: 0, y: 20, scale: 0.95 }}
                           animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -232,7 +232,7 @@ export default function CareersPage() {
                             y: -5,
                             transition: { duration: 0.2 },
                           }}
-                          className="group glass-effect p-8 rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all hover:shadow-xl hover:shadow-purple-500/20 cursor-pointer"
+                          className="h-full flex flex-col group glass-effect p-8 rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all hover:shadow-xl hover:shadow-purple-500/20 cursor-pointer"
                         >
                           <div className="flex items-start justify-between mb-4">
                             <m.div
@@ -255,11 +255,11 @@ export default function CareersPage() {
                           <h3 className="text-2xl font-bold mb-2 group-hover:text-purple-400 transition-colors">
                             {jobDetails.title}
                           </h3>
-                          <p className="text-gray-400 mb-6 line-clamp-2 group-hover:text-gray-300 transition-colors">
+                          <p className="text-gray-400 mb-6 line-clamp-2 group-hover:text-gray-300 transition-colors flex-grow">
                             {jobDetails.shortDescription}
                           </p>
 
-                          <div className="flex flex-wrap gap-4 text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
+                          <div className="flex flex-wrap gap-4 text-sm text-gray-400 group-hover:text-gray-300 transition-colors mt-auto">
                             <div className="flex items-center gap-2">
                               <MapPin className="w-4 h-4" />
                               {job.location}
