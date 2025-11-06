@@ -26,14 +26,12 @@ export default memo(function Footer() {
     company: {
       about: `/${locale}/about`,
       careers: `/${locale}/careers`,
-      press: `/${locale}/contact`,
-      partners: `/${locale}/contact`,
     },
     resources: {
-      documentation: `/${locale}/contact`,
-      api: `/${locale}/contact`,
-      support: `/${locale}/contact`,
-      status: `/${locale}/contact`,
+      documentation: `/${locale}/documentation`,
+      api: `/${locale}/api`,
+      support: `/${locale}/support`,
+      status: `/${locale}/status`,
     },
     legal: {
       privacy: `/${locale}/about#legal`,
@@ -45,7 +43,7 @@ export default memo(function Footer() {
 
   const sections = [
     { key: 'product', links: ['features', 'pricing', 'security', 'performance'] },
-    { key: 'company', links: ['about', 'careers', 'press', 'partners'] },
+    { key: 'company', links: ['about', 'careers'] },
     { key: 'resources', links: ['documentation', 'api', 'support', 'status'] },
     { key: 'legal', links: ['privacy', 'terms', 'cookies', 'compliance'] },
   ]
