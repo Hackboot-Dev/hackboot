@@ -18,7 +18,6 @@ import {
   Users,
   Globe,
   Rocket,
-  ChevronRight,
   Briefcase,
   Sparkles,
   ChevronDown,
@@ -291,64 +290,55 @@ export default function CareersPage() {
                     const jobDetails = t.careers.jobs[job.id as keyof typeof t.careers.jobs]
 
                     return (
-                      <m.div
-                        key={job.id}
-                        initial={{ opacity: 0, y: 20, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        transition={{ duration: 0.4, delay: index * 0.05 }}
-                        whileHover={{
-                          scale: 1.02,
-                          y: -5,
-                          transition: { duration: 0.2 },
-                        }}
-                        className="group glass-effect p-8 rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all hover:shadow-xl hover:shadow-purple-500/20"
-                      >
-                        <div className="flex items-start justify-between mb-4">
-                          <m.div
-                            whileHover={{ rotate: [0, -5, 5, -5, 0], scale: 1.1 }}
-                            transition={{ duration: 0.5 }}
-                            className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${department?.color || 'from-gray-500 to-gray-600'}`}
-                          >
-                            <DeptIcon className="w-6 h-6" />
-                          </m.div>
-                          <m.span
-                            initial={{ opacity: 0, x: 20 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: 0.2 + index * 0.05 }}
-                            className="px-3 py-1 bg-purple-500/10 border border-purple-500/20 rounded-full text-sm text-purple-400 hover:bg-purple-500/20 transition-all"
-                          >
-                            {t.careers.types[job.type as keyof typeof t.careers.types]}
-                          </m.span>
-                        </div>
-
-                        <h3 className="text-2xl font-bold mb-2 group-hover:text-purple-400 transition-colors">
-                          {jobDetails.title}
-                        </h3>
-                        <p className="text-gray-400 mb-6 line-clamp-2 group-hover:text-gray-300 transition-colors">
-                          {jobDetails.shortDescription}
-                        </p>
-
-                        <div className="flex flex-wrap gap-4 mb-6 text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
-                          <div className="flex items-center gap-2">
-                            <MapPin className="w-4 h-4" />
-                            {job.location}
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <Clock className="w-4 h-4" />
-                            {job.experience}
-                          </div>
-                        </div>
-
-                        <Link
-                          href={`/${locale}/careers/${job.id}`}
-                          className="inline-flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-all group/link"
+                      <Link key={job.id} href={`/${locale}/careers/${job.id}`}>
+                        <m.div
+                          initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          transition={{ duration: 0.4, delay: index * 0.05 }}
+                          whileHover={{
+                            scale: 1.02,
+                            y: -5,
+                            transition: { duration: 0.2 },
+                          }}
+                          className="group glass-effect p-8 rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all hover:shadow-xl hover:shadow-purple-500/20 cursor-pointer"
                         >
-                          <span className="group-hover/link:underline">{t.careers.apply.button}</span>
-                          <m.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                            <ChevronRight className="w-4 h-4" />
-                          </m.div>
-                        </Link>
-                      </m.div>
+                          <div className="flex items-start justify-between mb-4">
+                            <m.div
+                              whileHover={{ rotate: [0, -5, 5, -5, 0], scale: 1.1 }}
+                              transition={{ duration: 0.5 }}
+                              className={`inline-flex p-3 rounded-xl bg-gradient-to-r ${department?.color || 'from-gray-500 to-gray-600'}`}
+                            >
+                              <DeptIcon className="w-6 h-6" />
+                            </m.div>
+                            <m.span
+                              initial={{ opacity: 0, x: 20 }}
+                              animate={{ opacity: 1, x: 0 }}
+                              transition={{ delay: 0.2 + index * 0.05 }}
+                              className="px-3 py-1 bg-purple-500/10 border border-purple-500/20 rounded-full text-sm text-purple-400 hover:bg-purple-500/20 transition-all"
+                            >
+                              {t.careers.types[job.type as keyof typeof t.careers.types]}
+                            </m.span>
+                          </div>
+
+                          <h3 className="text-2xl font-bold mb-2 group-hover:text-purple-400 transition-colors">
+                            {jobDetails.title}
+                          </h3>
+                          <p className="text-gray-400 mb-6 line-clamp-2 group-hover:text-gray-300 transition-colors">
+                            {jobDetails.shortDescription}
+                          </p>
+
+                          <div className="flex flex-wrap gap-4 text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
+                            <div className="flex items-center gap-2">
+                              <MapPin className="w-4 h-4" />
+                              {job.location}
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <Clock className="w-4 h-4" />
+                              {job.experience}
+                            </div>
+                          </div>
+                        </m.div>
+                      </Link>
                     )
                   })}
                 </m.div>
@@ -658,9 +648,6 @@ export default function CareersPage() {
                       className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-500 to-violet-600 rounded-xl font-semibold shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 transition-shadow"
                     >
                       {t.careers.cta.button}
-                      <m.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                        <ChevronRight className="w-5 h-5" />
-                      </m.div>
                     </m.div>
                   </Link>
                 </m.div>
