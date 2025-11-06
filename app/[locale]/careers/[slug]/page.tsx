@@ -21,6 +21,7 @@ import {
 import SiteHeader from '@/components/SiteHeader'
 import { useI18n } from '@/lib/i18n-simple'
 import careersData from '@/data/careers.json'
+import ApplicationForm from '@/components/careers/ApplicationForm'
 
 const Footer = dynamic(() => import('@/components/Footer'), {
   loading: () => <div className="h-24 bg-black" />,
@@ -147,16 +148,18 @@ export default function JobDetailPage() {
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.5, delay: 0.5 }}
                   >
-                    <Link href={`/${locale}/contact`}>
-                      <m.div
-                        whileHover={{ scale: 1.05, y: -2 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-500 to-violet-600 rounded-xl font-semibold shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 transition-shadow whitespace-nowrap"
-                      >
-                        <Send className="w-5 h-5" />
-                        {t.careers.apply.applyNow}
-                      </m.div>
-                    </Link>
+                    <m.button
+                      onClick={() => {
+                        const formSection = document.getElementById('application-form');
+                        formSection?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }}
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-gradient-to-r from-purple-500 to-violet-600 rounded-xl font-semibold shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 transition-shadow whitespace-nowrap cursor-pointer"
+                    >
+                      <Send className="w-5 h-5" />
+                      {t.careers.apply.applyNow}
+                    </m.button>
                   </m.div>
                 </div>
 
@@ -307,51 +310,35 @@ export default function JobDetailPage() {
               </m.div>
 
               <m.div
-                initial={{ opacity: 0, y: 30, scale: 0.95 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                id="application-form"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
-                whileHover={{
-                  scale: 1.02,
-                  transition: { duration: 0.3 },
-                }}
-                className="glass-effect p-12 rounded-3xl border border-white/10 text-center hover:border-purple-500/50 hover:shadow-2xl hover:shadow-purple-500/30 transition-all group"
+                className="mt-16 pt-16 border-t border-white/10"
               >
-                <m.h2
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  className="text-2xl sm:text-3xl font-bold mb-4 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-purple-400 group-hover:to-violet-400 group-hover:bg-clip-text transition-all px-4"
-                >
-                  Ready to join our team?
-                </m.h2>
-                <m.p
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                  className="text-lg sm:text-xl text-gray-400 mb-8 group-hover:text-gray-300 transition-colors px-4"
-                >
-                  Send us your application and let&apos;s build something amazing together.
-                </m.p>
                 <m.div
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
+                  transition={{ duration: 0.5, delay: 0.1 }}
+                  className="text-center mb-12"
                 >
-                  <Link href={`/${locale}/contact`}>
-                    <m.div
-                      whileHover={{ scale: 1.05, y: -3 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="inline-flex items-center gap-2 px-10 py-5 bg-gradient-to-r from-purple-500 to-violet-600 rounded-xl font-semibold text-lg shadow-lg shadow-purple-500/50 hover:shadow-xl hover:shadow-purple-500/60 transition-shadow"
-                    >
-                      <Send className="w-6 h-6" />
-                      {t.careers.apply.applyNow}
-                    </m.div>
-                  </Link>
+                  <h2 className="text-4xl sm:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-violet-600 bg-clip-text text-transparent">
+                    {t.careers.apply.title || 'Postuler maintenant'}
+                  </h2>
+                  <p className="text-xl text-purple-400 mb-2">{t.careers.apply.subtitle || 'Rejoignez notre équipe'}</p>
+                  <p className="text-gray-400 max-w-2xl mx-auto">
+                    {t.careers.apply.description || 'Remplissez le formulaire ci-dessous et nous reviendrons vers vous dans les 48 heures.'}
+                  </p>
                 </m.div>
+
+                <ApplicationForm
+                  locale={locale}
+                  jobTitle={jobDetails.title}
+                  jobDepartment={department?.name || ''}
+                  isSpontaneous={false}
+                />
               </m.div>
             </m.div>
           </div>

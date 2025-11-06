@@ -2,6 +2,91 @@
 
 ## 2025-11-05
 
+### Feature: Refactorisation du système de candidature avec composant réutilisable
+**Heure**: Session continuation
+**Développeur**: Assistant Claude
+**Status**: ✅ Complété
+
+#### Objectif:
+Rendre le formulaire de candidature réutilisable et l'intégrer directement dans les pages de détail des postes. La page `/apply` devient dédiée uniquement aux candidatures spontanées.
+
+#### Actions réalisées:
+
+**1. Création du composant ApplicationForm réutilisable (`/components/careers/ApplicationForm.tsx`)**
+   - Composant autonome avec toutes les fonctionnalités du formulaire
+   - Props configurables :
+     - `locale` : Langue de l'interface
+     - `jobTitle` (optionnel) : Pré-remplit le champ position
+     - `jobDepartment` (optionnel) : Pré-remplit le département
+     - `isSpontaneous` (boolean) : Mode candidature spontanée (champs éditables) ou poste spécifique (champs verrouillés)
+   - Gestion complète de l'état (loading, success, error)
+   - Validation côté client
+   - Upload CV avec conversion base64
+   - Animations Framer Motion intégrées
+
+**2. Intégration dans la page de détail des postes (`/app/[locale]/careers/[slug]/page.tsx`)**
+   - Formulaire affiché directement en bas de la page de détail
+   - Bouton "Apply Now" en haut qui scroll vers le formulaire (smooth scroll)
+   - Champs position et département pré-remplis avec les infos du poste
+   - Section avec header stylisé (title, subtitle, description)
+   - Attribut `id="application-form"` pour le scroll
+   - Passage des props : `jobTitle`, `jobDepartment`, `isSpontaneous={false}`
+
+**3. Refactorisation de la page /apply (`/app/[locale]/careers/apply/page.tsx`)**
+   - Simplification : utilise maintenant le composant ApplicationForm
+   - Mode candidature spontanée activé (`isSpontaneous={true}`)
+   - Champs position et département éditables
+   - Header personnalisé pour candidatures spontanées
+   - Moins de 65 lignes de code (vs 850+ avant)
+
+**4. Modification du bouton CTA sur la page liste (`/app/[locale]/careers/page.tsx`)**
+   - Bouton "Candidature spontanée" redirige maintenant vers `/careers/apply` (au lieu de `/contact`)
+   - Les cartes de postes redirigent déjà vers `/careers/[slug]` (pas de modification nécessaire)
+
+#### Architecture du flux:
+
+```
+CANDIDATURE POUR UN POSTE SPÉCIFIQUE :
+1. Page liste (/careers) → Clic sur un poste
+2. Page détail (/careers/[slug]) → Formulaire intégré en bas
+3. Bouton "Apply Now" en haut → Scroll vers le formulaire
+4. Formulaire pré-rempli avec jobTitle + jobDepartment
+5. Soumission → API Telegram
+
+CANDIDATURE SPONTANÉE :
+1. Page liste (/careers) → Bouton "Candidature spontanée"
+2. Page /careers/apply → Formulaire vierge
+3. Champs position + département éditables
+4. Soumission → API Telegram
+```
+
+#### Résultats:
+- ✅ Composant ApplicationForm réutilisable et maintenable
+- ✅ Formulaire intégré dans chaque page de poste
+- ✅ Scroll smooth vers le formulaire depuis le bouton en haut
+- ✅ Champs pré-remplis automatiquement selon le poste
+- ✅ Page /apply dédiée aux candidatures spontanées
+- ✅ Réduction du code dupliqué (DRY principle)
+- ✅ Meilleure UX : pas besoin de changer de page pour postuler
+- ✅ Tests lint passés sans erreurs
+- ✅ Architecture cohérente et scalable
+
+#### Fichiers modifiés/créés:
+- `/components/careers/ApplicationForm.tsx` : **NOUVEAU** (composant réutilisable)
+- `/app/[locale]/careers/[slug]/page.tsx` : Intégration du formulaire + scroll button
+- `/app/[locale]/careers/apply/page.tsx` : Simplifié (utilise le composant)
+- `/app/[locale]/careers/page.tsx` : Bouton CTA redirige vers /apply
+
+#### Impact technique:
+- **Code réutilisable** : Un seul composant pour tous les formulaires
+- **Maintenance facilitée** : Modifications centralisées dans ApplicationForm
+- **Meilleure UX** : Formulaire sur la même page que le poste
+- **Cohérence** : Même design et comportement partout
+
+---
+
+## 2025-11-05
+
 ### Feature: Création de la page de candidature avec intégration Telegram
 **Heure**: Session continuation
 **Développeur**: Assistant Claude

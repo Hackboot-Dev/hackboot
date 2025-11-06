@@ -651,7 +651,7 @@ export default function CareersPage() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: 0.5 }}
                 >
-                  <Link href={`/${locale}/contact`}>
+                  <Link href={`/${locale}/careers/apply`}>
                     <m.div
                       whileHover={{ scale: 1.05, y: -2 }}
                       whileTap={{ scale: 0.95 }}
