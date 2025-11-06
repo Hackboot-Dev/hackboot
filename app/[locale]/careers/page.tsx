@@ -47,6 +47,7 @@ const ThreeBackground = dynamic(() => import('@/components/ThreeBackground'), {
 const iconMap: Record<string, any> = {
   Code,
   Palette,
+  TrendingUp,
   Server,
   Shield,
   Headphones,
