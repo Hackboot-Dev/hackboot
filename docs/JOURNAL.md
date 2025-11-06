@@ -83,6 +83,13 @@ CANDIDATURE SPONTANÉE :
 - **Meilleure UX** : Formulaire sur la même page que le poste
 - **Cohérence** : Même design et comportement partout
 
+#### Mise à jour (Commit 9920972):
+- ✅ Suppression des flèches ChevronRight sur les cartes de postes
+- ✅ Toute la carte est maintenant cliquable (wrapper Link)
+- ✅ Suppression de la flèche sur le bouton CTA "Candidature spontanée"
+- ✅ Ajout du curseur pointer pour meilleure affordance
+- ✅ UX améliorée : plus intuitif, pas besoin de viser le petit lien
+
 ---
 
 ## 2025-11-05
