@@ -4260,3 +4260,132 @@ Corriger le problème où les collapse (accordéons) des piliers de services ne 
 
 ✅ **Problème résolu**: Les 4 piliers fonctionnent maintenant parfaitement en FR/EN/ET
 
+
+### Refactor: Simplification du langage page Services (suppression termes corporate)
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+**Commit**: 355ab98
+**Status**: ✅ Complété
+
+#### Objectif:
+Supprimer tous les termes "bullshit" marketing/corporate de la page services pour un ton plus direct et accessible.
+
+#### Problème identifié:
+La page services utilisait trop de jargon corporate/marketing qui fait "startup qui veut être cool" :
+- Termes génériques : "proactive", "calibrated", "orchestration"
+- Buzzwords : "playbooks", "kick-off", "rollout", "Labs", "Ops"
+- Phrases alambiquées : "Modules aligned with your goals"
+
+#### Actions réalisées:
+
+**1. Simplification des piliers**
+- "Sécurité proactive" → "Sécurité avancée"
+- "Performance calibrée" → "Haute performance" 
+- "Partenariat dédié" → "Support dédié"
+- "Cloud orchestration" → "Infrastructure cloud"
+- "Nos piliers" → "Ce qu'on propose"
+
+**2. Simplification descriptions**
+- "Account manager senior" → "Responsable de compte"
+- "Playbooks personnalisés" → "Guides personnalisés"
+- "Escalade instantanée" → "Support prioritaire"
+- "Provisionnement" → "Déploiement"
+- "Disaster recovery" → "Sauvegarde automatique"
+
+**3. Simplification modules/solutions**
+- "Cloud Ops & Scaling" → "Cloud & évolutivité"
+- "Labs Anti-Cheat" → "Sécurité Anti-Cheat"
+- "Coaching & Integrations" → "Support & Intégrations"
+- "Des modules alignés sur vos objectifs" → "Nos services"
+
+**4. Simplification processus**
+- "Un cadre éprouvé" → "Notre méthode"
+- "Kick-off & audit" → "Analyse initiale"
+- "Prototype guidé" → "Phase de test"
+- "Déploiement orchestré" → "Mise en production"
+
+**5. Simplification contact**
+- "Planifier un call" → "Nous contacter"
+- "Un canal prioritaire Discord & WhatsApp est activé dès la signature" → "Canal prioritaire Discord & WhatsApp disponible"
+
+#### Résultats:
+- ✅ Ton beaucoup plus direct et authentique
+- ✅ Suppression de tout le jargon marketing
+- ✅ Changements appliqués dans les 3 langues (FR/EN/ET)
+- ✅ 133 lignes modifiées au total
+- ✅ Tests lint passés
+- ✅ Commit et push réussis
+
+#### Fichiers modifiés:
+- `/public/locales/fr/common.json` : Simplification FR
+- `/public/locales/en/common.json` : Simplification EN
+- `/public/locales/et/common.json` : Simplification ET
+
+#### Feedback utilisateur:
+"Juste arrête avec le terme bullshit partout dans la page à chaque trucs, ça fait trop corporate qui veut être cool"
+
+✅ **Problème résolu**: Langage simplifié et authentique
+
+
+### Fix: Modération du ton "secte" page carrières
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+**Commit**: dde444f
+**Status**: ✅ Complété
+
+#### Objectif:
+Modifier le texte "La Passion d'Abord" qui sonnait trop "grande famille toxique/secte" pour un ton plus équilibré respectant la vie perso.
+
+#### Problème identifié:
+La section culture de la page carrières avait un ton trop extrême qui pouvait faire peur aux candidats :
+- "Si vous n'êtes pas passionné par ce que nous faisons, ce n'est pas l'endroit pour vous"
+- "On cherche des gens qui se réveillent excités par ce qu'ils vont construire"
+- "Pas des mercenaires, mais des missionnaires"
+- "Si tu veux juste un job 9-5, ce n'est pas fait pour toi"
+
+**Impact**: Donne l'impression d'une entreprise qui attend que les employés sacrifient leur vie perso pour "la mission".
+
+#### Actions réalisées:
+
+**Avant** (section "La Passion d'Abord"):
+```json
+{
+  "title": "La Passion d'Abord",
+  "description": "Nous ne sommes pas là juste pour un salaire. Nous construisons quelque chose en quoi nous croyons. Si vous n'êtes pas passionné par ce que nous faisons, ce n'est pas l'endroit pour vous.",
+  "details": "On cherche des gens qui se réveillent excités par ce qu'ils vont construire. Pas des mercenaires, mais des missionnaires. Si tu veux juste un job 9-5, ce n'est pas fait pour toi."
+}
+```
+
+**Après** (section "Motivation & Équilibre"):
+```json
+{
+  "title": "Motivation & Équilibre",
+  "description": "On cherche des gens motivés par ce qu'ils construisent, pas juste un salaire. Mais on respecte aussi votre vie perso - pas besoin d'être H24 sur le projet.",
+  "details": "On veut des gens engagés dans leur travail, mais on n'attend pas que vous sacrifiiez votre vie. Vous avez une vie en dehors du boulot ? Parfait. Pas d'obligation d'être dans \"la grande famille\" ou de socialiser en dehors des heures de travail."
+}
+```
+
+**Changements clés**:
+1. Titre : "La Passion d'Abord" → "Motivation & Équilibre"
+2. Message clair : on veut des gens motivés MAIS on respecte la vie perso
+3. Pas d'obligation d'être dans "la grande famille"
+4. Pas d'obligation de socialiser hors du travail
+5. Avoir une vie en dehors du boulot = OK et encouragé
+
+#### Résultats:
+- ✅ Ton beaucoup plus sain et équilibré
+- ✅ Respect de la vie personnelle clairement exprimé
+- ✅ Pas de pression pour "vivre pour l'entreprise"
+- ✅ Message authentique sans être toxique
+- ✅ Modification uniquement FR (EN/ET n'ont pas cette section)
+- ✅ Tests lint passés
+- ✅ Commit et push réussis
+
+#### Fichiers modifiés:
+- `/public/locales/fr/common.json` : Section culture/values carrières
+
+#### Feedback utilisateur:
+"Ok pour le 'La Passion d'Abord' ça fait trop grande famille, rajoute un truc genre, aucune obligation de vrai intégration dans l'équipe pour les gens qui veulent quand même avoir leurs vies perso genre ils sont pas obligé d'êrte passioné d'arrache pied à donf, ça peut faire peur"
+
+✅ **Problème résolu**: Ton équilibré respectant vie pro/perso
+
