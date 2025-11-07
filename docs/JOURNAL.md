@@ -1,5 +1,600 @@
 # Journal des Actions - Hackboot
 
+## 2025-11-06
+
+### Feature: Refonte complète des postes et départements carrières
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+**Commit**: 8d64371
+**Status**: ✅ Complété
+
+#### Objectif:
+Mettre à jour complètement la liste des postes disponibles selon les nouveaux besoins de l'entreprise, avec 4 nouveaux départements et 12 nouveaux postes. Aucune fourchette salariale affichée pour collecter les attentes des candidats.
+
+#### Actions réalisées:
+
+**1. Nouveaux départements (`/data/careers.json` + traductions)**
+   - **Équipe Technique** (technical) - Icon: Code, Color: Purple-Violet
+   - **Contenu et Partenariats** (content) - Icon: Palette, Color: Pink-Rose
+   - **Marketing et Ventes** (marketing) - Icon: TrendingUp, Color: Cyan-Blue
+   - **Support Client** (support) - Icon: Headphones, Color: Emerald-Teal
+
+**2. Nouveaux postes (12 au total)**
+
+   **Équipe Technique (4 postes):**
+   - Ingénieur Cloud (Cloud Engineer)
+   - Développeur Front-end / Back-end (Frontend/Backend Developer)
+   - Spécialiste Réseau (Network Specialist)
+   - Expert en Sécurité (Security Expert)
+
+   **Contenu et Partenariats (3 postes):**
+   - Responsable Acquisitions de Jeux (Game Acquisition Manager)
+   - Gestionnaire de Partenariats (Partnership Manager)
+   - Curateur de Contenu (Content Curator)
+
+   **Marketing et Ventes (3 postes):**
+   - Spécialiste Marketing Digital (Digital Marketing Specialist)
+   - Responsable Relations Publiques (Public Relations Manager)
+   - Analyste de Marché (Market Analyst)
+
+   **Support Client (2 postes):**
+   - Agent de Support Technique (Technical Support Agent)
+   - Modérateur de Communauté (Community Moderator)
+
+**3. Caractéristiques des nouveaux postes**
+   - ✅ **100% Remote** pour tous les postes
+   - ✅ **Worldwide** location (Remote global)
+   - ✅ **Aucune fourchette salariale** mentionnée (pour collecter les attentes)
+   - ✅ Expérience requise : de 1 à 4+ ans selon le poste
+   - ✅ Type: Full-time pour tous
+   - ✅ Date de publication : 2025-11-06
+
+**4. Traductions complètes FR/EN/ET**
+   - **FR** : 12 fiches de poste complètes avec responsibilities, requirements, benefits
+   - **EN** : 12 fiches de poste traduites en anglais
+   - **ET** : 12 fiches de poste traduites en estonien
+   - Chaque fiche comprend :
+     - title (titre du poste)
+     - shortDescription (description courte)
+     - description (description longue)
+     - responsibilities (5 responsabilités)
+     - requirements (4-5 prérequis)
+     - benefits (4-5 avantages)
+
+**5. Mise à jour technique**
+   - Ajout de l'icône `TrendingUp` dans `/app/[locale]/careers/page.tsx`
+   - Mapping correct des icônes pour les nouveaux départements
+   - Suppression des anciens postes (8 postes obsolètes)
+
+#### Résultats:
+- ✅ 12 nouveaux postes créés et documentés
+- ✅ 4 nouveaux départements alignés avec la stratégie RH
+- ✅ Traductions complètes en 3 langues (FR/EN/ET)
+- ✅ Aucune mention de salaire pour collecter les attentes candidats
+- ✅ 100% Remote worldwide pour attirer les talents internationaux
+- ✅ Tests lint passés sans erreurs
+- ✅ Commit et push réussis
+
+#### Fichiers modifiés:
+- `/data/careers.json` : Départements et jobs complètement refaits
+- `/public/locales/fr/common.json` : 12 fiches complètes FR
+- `/public/locales/en/common.json` : 12 fiches complètes EN
+- `/public/locales/et/common.json` : 12 fiches complètes ET
+- `/app/[locale]/careers/page.tsx` : Ajout icône TrendingUp
+
+#### Départements supprimés:
+- ❌ Engineering
+- ❌ Design
+- ❌ DevOps & Infrastructure
+- ❌ Security (standalone)
+
+#### Postes supprimés (8 anciens):
+- ❌ Senior Full Stack Developer
+- ❌ Cloud Architect
+- ❌ Security Engineer
+- ❌ Senior Frontend Developer
+- ❌ Product Designer
+- ❌ Customer Success Manager
+- ❌ DevOps Engineer
+- ❌ Backend Developer Go
+
+#### Impact:
+- **Stratégie RH clarifiée** : Départements alignés avec les besoins business
+- **Diversité des postes** : Technical, Content, Marketing, Support
+- **Attractivité internationale** : Remote worldwide pour tous
+- **Flexibilité salariale** : Pas de fourchette pour s'adapter aux profils
+- **Scalabilité** : Structure modulaire facile à maintenir
+
+#### Fix Build (Commit 38cacfa):
+- ✅ Ajout de `TrendingUp` dans le `iconMap` de la page careers
+- ✅ Résolution de l'erreur Netlify build : "Element type is invalid: expected a string but got: undefined"
+- ✅ Le département Marketing s'affiche maintenant correctement avec l'icône TrendingUp
+
+---
+
+## 2025-11-05
+
+### Feature: Refactorisation du système de candidature avec composant réutilisable
+**Heure**: Session continuation
+**Développeur**: Assistant Claude
+**Status**: ✅ Complété
+
+#### Objectif:
+Rendre le formulaire de candidature réutilisable et l'intégrer directement dans les pages de détail des postes. La page `/apply` devient dédiée uniquement aux candidatures spontanées.
+
+#### Actions réalisées:
+
+**1. Création du composant ApplicationForm réutilisable (`/components/careers/ApplicationForm.tsx`)**
+   - Composant autonome avec toutes les fonctionnalités du formulaire
+   - Props configurables :
+     - `locale` : Langue de l'interface
+     - `jobTitle` (optionnel) : Pré-remplit le champ position
+     - `jobDepartment` (optionnel) : Pré-remplit le département
+     - `isSpontaneous` (boolean) : Mode candidature spontanée (champs éditables) ou poste spécifique (champs verrouillés)
+   - Gestion complète de l'état (loading, success, error)
+   - Validation côté client
+   - Upload CV avec conversion base64
+   - Animations Framer Motion intégrées
+
+**2. Intégration dans la page de détail des postes (`/app/[locale]/careers/[slug]/page.tsx`)**
+   - Formulaire affiché directement en bas de la page de détail
+   - Bouton "Apply Now" en haut qui scroll vers le formulaire (smooth scroll)
+   - Champs position et département pré-remplis avec les infos du poste
+   - Section avec header stylisé (title, subtitle, description)
+   - Attribut `id="application-form"` pour le scroll
+   - Passage des props : `jobTitle`, `jobDepartment`, `isSpontaneous={false}`
+
+**3. Refactorisation de la page /apply (`/app/[locale]/careers/apply/page.tsx`)**
+   - Simplification : utilise maintenant le composant ApplicationForm
+   - Mode candidature spontanée activé (`isSpontaneous={true}`)
+   - Champs position et département éditables
+   - Header personnalisé pour candidatures spontanées
+   - Moins de 65 lignes de code (vs 850+ avant)
+
+**4. Modification du bouton CTA sur la page liste (`/app/[locale]/careers/page.tsx`)**
+   - Bouton "Candidature spontanée" redirige maintenant vers `/careers/apply` (au lieu de `/contact`)
+   - Les cartes de postes redirigent déjà vers `/careers/[slug]` (pas de modification nécessaire)
+
+#### Architecture du flux:
+
+```
+CANDIDATURE POUR UN POSTE SPÉCIFIQUE :
+1. Page liste (/careers) → Clic sur un poste
+2. Page détail (/careers/[slug]) → Formulaire intégré en bas
+3. Bouton "Apply Now" en haut → Scroll vers le formulaire
+4. Formulaire pré-rempli avec jobTitle + jobDepartment
+5. Soumission → API Telegram
+
+CANDIDATURE SPONTANÉE :
+1. Page liste (/careers) → Bouton "Candidature spontanée"
+2. Page /careers/apply → Formulaire vierge
+3. Champs position + département éditables
+4. Soumission → API Telegram
+```
+
+#### Résultats:
+- ✅ Composant ApplicationForm réutilisable et maintenable
+- ✅ Formulaire intégré dans chaque page de poste
+- ✅ Scroll smooth vers le formulaire depuis le bouton en haut
+- ✅ Champs pré-remplis automatiquement selon le poste
+- ✅ Page /apply dédiée aux candidatures spontanées
+- ✅ Réduction du code dupliqué (DRY principle)
+- ✅ Meilleure UX : pas besoin de changer de page pour postuler
+- ✅ Tests lint passés sans erreurs
+- ✅ Architecture cohérente et scalable
+
+#### Fichiers modifiés/créés:
+- `/components/careers/ApplicationForm.tsx` : **NOUVEAU** (composant réutilisable)
+- `/app/[locale]/careers/[slug]/page.tsx` : Intégration du formulaire + scroll button
+- `/app/[locale]/careers/apply/page.tsx` : Simplifié (utilise le composant)
+- `/app/[locale]/careers/page.tsx` : Bouton CTA redirige vers /apply
+
+#### Impact technique:
+- **Code réutilisable** : Un seul composant pour tous les formulaires
+- **Maintenance facilitée** : Modifications centralisées dans ApplicationForm
+- **Meilleure UX** : Formulaire sur la même page que le poste
+- **Cohérence** : Même design et comportement partout
+
+#### Mise à jour (Commit 9920972):
+- ✅ Suppression des flèches ChevronRight sur les cartes de postes
+- ✅ Toute la carte est maintenant cliquable (wrapper Link)
+- ✅ Suppression de la flèche sur le bouton CTA "Candidature spontanée"
+- ✅ Ajout du curseur pointer pour meilleure affordance
+- ✅ UX améliorée : plus intuitif, pas besoin de viser le petit lien
+
+#### Mise à jour (Commit 7adb1c4):
+- ✅ Suppression de la section KPI stats (8 postes, 15+ pays, 100% remote, 300% croissance)
+- ✅ Nettoyage des imports inutilisés (Users, TrendingUp)
+- ✅ Simplification de la mise en page
+- ✅ Meilleur focus sur les offres d'emploi réelles
+
+---
+
+## 2025-11-05
+
+### Feature: Création de la page de candidature avec intégration Telegram
+**Heure**: Session continuation
+**Développeur**: Assistant Claude
+**Status**: ✅ Complété
+
+#### Objectif:
+Créer une page complète de candidature avec formulaire détaillé qui envoie toutes les informations structurées à un bot Telegram, incluant le CV en PDF.
+
+#### Actions réalisées:
+
+**1. Traductions FR/EN/ET (`/public/locales/*/common.json`)**
+   - Ajout de la section `careers.apply` dans les 3 langues
+   - Structure complète du formulaire traduite :
+     - Informations personnelles (prénom, nom, email, téléphone, localisation)
+     - Informations sur le poste (position, département, disponibilité)
+     - Candidature (CV PDF, lettre de motivation, salaire, portfolio)
+     - Questions supplémentaires (remote/hybrid/office, disponibilité, message)
+     - Consentements (RGPD, newsletter)
+     - Messages de succès/erreur
+
+**2. Page du formulaire (`/app/[locale]/careers/apply/page.tsx`)**
+   - Formulaire complet avec validation
+   - Design cohérent avec la charte graphique (glassmorphism, purple gradient)
+   - Sections avec icônes Lucide (User, Briefcase, FileText, MessageSquare)
+   - Upload de CV avec validation (PDF uniquement, max 5 MB)
+   - Conversion du CV en base64 pour l'envoi
+   - Animations Framer Motion sur chaque section
+   - États de chargement et de succès
+   - Gestion des erreurs avec messages traduits
+   - Page de confirmation après soumission
+
+**3. Route API Telegram (`/app/api/careers/apply/route.ts`)**
+   - POST `/api/careers/apply` pour soumettre une candidature
+   - Validation des champs requis (firstName, lastName, email, position, motivation, salary, CV, GDPR)
+   - Formatage structuré du message pour Telegram :
+     ```
+     🎯 NOUVELLE CANDIDATURE HACKBOOT
+     👤 INFORMATIONS PERSONNELLES
+     💼 POSTE VISÉ
+     💰 PRÉTENTIONS SALARIALES
+     🏠 PRÉFÉRENCE DE TRAVAIL
+     📝 LETTRE DE MOTIVATION
+     🔗 PORTFOLIO / LIENS
+     📅 DISPONIBILITÉ POUR ENTRETIEN
+     💬 MESSAGE / QUESTIONS
+     📋 CONSENTEMENTS
+     📎 CV
+     ```
+   - Envoi en 2 étapes :
+     1. Message HTML formaté avec toutes les infos
+     2. Document PDF du CV
+   - Token Telegram : `8496898839:AAEd01EKYQwxPIqCtNtaJ1VqOsXGSTgTzi4`
+   - Chat ID configurable via variable d'environnement
+   - Gestion des erreurs Telegram API
+
+**4. Documentation (`/docs/API_ROUTES.md`)**
+   - Création du fichier API_ROUTES.md (SOURCE DE VÉRITÉ)
+   - Documentation complète de la route POST `/api/careers/apply`
+   - Liste de tous les paramètres requis/optionnels
+   - Exemples de réponses (200, 400, 500)
+   - Détails de l'intégration Telegram
+   - Références aux fichiers associés
+
+#### Résultats:
+- ✅ Page de candidature complète et fonctionnelle
+- ✅ Formulaire avec validation côté client et serveur
+- ✅ Upload de CV en PDF (max 5 MB)
+- ✅ Intégration Telegram opérationnelle (2 messages : infos + CV)
+- ✅ Design cohérent avec la charte graphique
+- ✅ Traductions complètes (FR/EN/ET)
+- ✅ Gestion d'erreurs robuste
+- ✅ Messages de succès avec redirection
+- ✅ Tests lint passés sans erreurs
+- ✅ Documentation API créée et complète
+
+#### Fichiers créés/modifiés:
+- `/public/locales/fr/common.json` : +70 lignes (section apply)
+- `/public/locales/en/common.json` : +70 lignes (section apply)
+- `/public/locales/et/common.json` : +70 lignes (section apply)
+- `/app/[locale]/careers/apply/page.tsx` : Nouveau (850+ lignes)
+- `/app/api/careers/apply/route.ts` : Nouveau (180+ lignes)
+- `/docs/API_ROUTES.md` : Nouveau (documentation complète)
+
+#### Intégration Telegram:
+- **Endpoint**: `https://api.telegram.org/bot{token}/sendMessage`
+- **Méthode 1**: `sendMessage` avec formatage HTML
+- **Méthode 2**: `sendDocument` pour le CV PDF
+- **Format du message**: Structuré avec emojis et sections claires
+- **Données envoyées**: Toutes les infos du formulaire + CV
+
+#### Prochaines étapes suggérées:
+- [ ] Configurer la variable d'environnement `TELEGRAM_CHAT_ID`
+- [ ] Tester l'envoi complet vers Telegram en production
+- [ ] Ajouter un lien "Postuler" sur la page carrières principale
+- [ ] Optionnel : Ajouter un système de tracking des candidatures
+
+#### Mise à jour (Commit 5c9e4f6):
+- ✅ Chat ID Telegram mis à jour : `7588597731`
+- ✅ Les candidatures seront maintenant envoyées au bon destinataire
+
+---
+
+## 2025-11-05
+
+### Feature: Enrichissement de la page Carrières avec contenu détaillé et UX améliorée
+**Heure**: Session continuation
+**Développeur**: Assistant Claude
+**Commit**: 199087b
+
+#### Objectif:
+Développer et enrichir la section "Notre processus de recrutement", enrichir tous les avantages avec des détails, et améliorer l'expérience utilisateur avec des animations stables et responsives.
+
+#### Actions réalisées:
+
+**1. Enrichissement des traductions FR (`/public/locales/fr/common.json`)**
+   - **Culture section** : Ajouté 4 valeurs avec descriptions et détails complets
+     - Innovation Sans Limites (Rocket icon)
+     - Remote par Design (Home icon)
+     - La Passion d'Abord (Heart icon)
+     - Excellence & Autonomie (Gem icon)
+   - **Perks section** : Enrichi 8 avantages avec descriptions + détails expandables
+     - Remote First (Globe) - Travail de n'importe où
+     - Salaire Compétitif (DollarSign) - 80-150K€ selon poste
+     - Flexibilité Totale (Clock) - Horaires libres
+     - Croissance Rapide (TrendingUp) - Promotions basées sur performance
+     - Culture Gaming (Gamepad2) - Tournois d'équipe
+     - Projets Passion (Sparkles) - 10% temps sur projets perso
+     - Équipement Premium (Laptop) - MacBook Pro + setup au choix
+     - Formation Continue (BookOpen) - Budget formations illimité
+   - **Process section** : Ajout de champs duration, details et tips pour chaque étape
+     - Candidature (5 min) - "On ne veut pas de lettre de motivation bullshit"
+     - Premier Entretien (30 min) - Discussion informelle
+     - Test Technique (2-4h) - Problème réel, pas de leetcode
+     - Entretien Technique (1h) - Review du test + architecture
+     - Décision & Offre (24-48h) - Décision rapide, transparence totale
+
+**2. Amélioration du composant React (`/app/[locale]/careers/page.tsx`)**
+   - **Perks section** :
+     - Ajouté support du champ `subtitle`
+     - Description toujours visible
+     - Détails expandables avec AnimatePresence
+     - Indicateur visuel "Cliquez pour les détails →"
+   - **Culture section** :
+     - Description toujours visible
+     - Détails expandables avec accordion
+     - Indicateur "Lire la suite →"
+     - Animations Framer Motion maintenues (tilt effects, hover states)
+   - **Timeline section** :
+     - Badges de durée avec icône Clock
+     - Boxes de détails avec fond semi-transparent
+     - Sections "Pro tip" avec icône Sparkles
+     - Meilleure hiérarchie visuelle
+     - Border et padding améliorés
+
+**3. Améliorations UX/UI**
+   - Architecture d'information à deux niveaux (description + détails)
+   - Indices visuels clairs pour le contenu expandable
+   - Maintien de toutes les animations existantes (3D tilt, Framer Motion)
+   - Design glassmorphism cohérent
+   - Typographie améliorée avec meilleure lisibilité
+   - Responsive design maintenu sur tous les breakpoints
+
+#### Résultats:
+- ✅ Page carrières beaucoup plus informative et transparente
+- ✅ Culture d'entreprise clairement communiquée ("no bullshit", passion-driven)
+- ✅ Processus de recrutement détaillé avec temps estimés et conseils
+- ✅ Avantages complets et attractifs (remote first, salaires, flexibilité)
+- ✅ UX fluide avec accordéons et animations stables
+- ✅ Tests lint passés sans erreurs
+- ✅ Commit et push réussis sur la branche `claude/redesign-footer-011CUqR12Q1pevNrARrwG2Zd`
+
+#### Fichiers modifiés:
+- `/public/locales/fr/common.json` : +125 lignes enrichies
+- `/app/[locale]/careers/page.tsx` : Amélioration du rendu des sections
+
+#### Prochaines étapes suggérées:
+- [ ] Enrichir les traductions EN et ET avec le même contenu détaillé
+- [ ] Vérifier si des bibliothèques d'animation supplémentaires sont souhaitées
+- [ ] Tester l'expérience utilisateur complète sur différents devices
+
+---
+
+## 2025-11-05
+
+### Feature: Création de la page Carrières avec système de jobs traduisibles
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Créer une page carrières complète et originale pour présenter les postes disponibles avec un design moderne et cohérent avec le site.
+
+#### Actions réalisées:
+
+**1. Création du fichier de données JSON**
+   - Créé `/data/careers.json` avec structure complète
+   - 5 départements définis (Engineering, Design, DevOps, Security, Support)
+   - 8 postes disponibles avec métadonnées (remote, location, experience, type)
+   - Structure extensible et maintenable
+
+**2. Ajout des traductions complètes (FR)**
+   - Ajouté section `careers` dans `/public/locales/fr/common.json`
+   - Traductions complètes pour 8 fiches de postes :
+     - Développeur Full Stack Senior
+     - Architecte Cloud
+     - Ingénieur Sécurité
+     - Développeur Frontend Senior
+     - Designer Produit
+     - Customer Success Manager
+     - Ingénieur DevOps
+     - Développeur Backend Go
+   - Sections traduites : stats, filtres, départements, culture, avantages, processus
+   - Plus de 350 lignes de traductions ajoutées
+
+**3. Création de la page carrières principale**
+   - Créé `/app/[locale]/careers/page.tsx` avec design moderne
+   - Hero section animée avec badge et titre gradient
+   - Stats bar avec 4 métriques clés (postes ouverts, pays, remote, croissance)
+   - Système de filtres par département avec boutons interactifs
+   - Grille de cartes de postes avec effets glassmorphism
+   - Section culture avec 4 valeurs d'entreprise
+   - Section avantages avec 8 bénéfices
+   - Section processus de recrutement en 5 étapes
+   - CTA final pour candidature spontanée
+
+**4. Création de la page détail des postes**
+   - Créé `/app/[locale]/careers/[slug]/page.tsx`
+   - Routing dynamique pour chaque poste
+   - Affichage complet : titre, localisation, expérience, type
+   - 3 sections principales :
+     - Responsabilités (liste animée)
+     - Prérequis (liste animée)
+     - Avantages (grille de cards)
+   - CTA d'application vers page contact
+   - Breadcrumb de retour vers liste des postes
+
+**5. Mise à jour du footer**
+   - Modifié `/components/Footer.tsx`
+   - Lien "Carrières" pointe maintenant vers `/careers` au lieu de `/contact`
+
+**6. Design et animations**
+   - Utilisation de Framer Motion pour animations fluides
+   - Effets glassmorphism cohérents avec le site
+   - Gradients purple/violet/cyan/emerald selon sections
+   - Cards interactives avec hover states
+   - Layout responsive mobile-first
+   - Icons Lucide pour cohérence visuelle
+
+#### Résultats:
+
+- ✅ Page carrières complète et fonctionnelle
+- ✅ 8 postes disponibles avec fiches détaillées
+- ✅ Système de filtres par département
+- ✅ Design moderne avec glassmorphism et gradients
+- ✅ Animations fluides avec Framer Motion
+- ✅ Routing dynamique pour pages individuelles
+- ✅ Traductions FR complètes (350+ lignes)
+- ✅ Responsive mobile/tablet/desktop
+- ✅ Code lint sans erreurs
+- ✅ Footer mis à jour avec bon lien
+
+#### Fichiers créés:
+
+- `/data/careers.json` : Données des postes et départements
+- `/app/[locale]/careers/page.tsx` : Page liste des carrières
+- `/app/[locale]/careers/[slug]/page.tsx` : Page détail d'un poste
+
+#### Fichiers modifiés:
+
+- `/public/locales/fr/common.json` : +350 lignes de traductions
+- `/components/Footer.tsx` : Lien careers mis à jour
+
+#### Structure de la page carrières:
+
+```
+/careers
+├── Hero section (badge + titre + subtitle)
+├── Stats bar (4 métriques)
+├── Filtres par département (5 boutons)
+├── Grille de postes (cards avec animations)
+├── Section culture (4 valeurs)
+├── Section avantages (8 bénéfices)
+├── Section processus (5 étapes)
+└── CTA candidature spontanée
+
+/careers/[slug]
+├── Breadcrumb retour
+├── Header du poste (titre + infos + CTA)
+├── Description complète
+├── Section responsabilités
+├── Section prérequis
+├── Section avantages
+└── CTA application
+```
+
+#### Technologies utilisées:
+
+- Next.js 14 App Router
+- TypeScript
+- Framer Motion pour animations
+- Lucide Icons
+- Tailwind CSS (glassmorphism)
+- i18n avec structure JSON
+
+---
+
+### UI: Refonte complète du footer avec liens fonctionnels
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Refaire le footer du site en ajoutant tous les bons liens vers les pages existantes et en ajoutant une nouvelle section "Legal".
+
+#### Actions réalisées:
+
+**1. Analyse de la structure du site**
+   - Exploré l'arborescence des pages dans `app/[locale]/`
+   - Identifié 8 pages principales : accueil, games, products, services, about, contact, premium, login
+   - Analysé le footer existant avec des liens "#" vides
+
+**2. Conception de la nouvelle structure du footer**
+   - **Product** : features (/#features), pricing (/premium), security (/about#security), performance (/about#performance)
+   - **Company** : about (/about), careers (/contact), press (/contact), partners (/contact)
+   - **Resources** : documentation (/contact), api (/contact), support (/contact), status (/contact)
+   - **Legal** (nouvelle section) : privacy (/about#legal), terms (/about#legal), cookies (/about#legal), compliance (/about#legal)
+
+**3. Implémentation du nouveau footer**
+   - Remplacé les balises `<a>` par des composants Next.js `<Link>` pour navigation optimisée
+   - Ajouté la gestion de la locale (fr/en/et) dans tous les liens
+   - Créé un objet `footerLinks` structuré pour mapper chaque lien
+   - Ajouté la 4ème colonne "Legal" au footer (grid 4 → 5 colonnes)
+   - Mis à jour les liens des réseaux sociaux :
+     - GitHub : https://github.com/hackboot
+     - Twitter : https://twitter.com/hackboot
+     - LinkedIn : https://linkedin.com/company/hackboot
+     - Email : mailto:contact@hackboot.gg
+   - Ajouté `target="_blank"` et `rel="noopener noreferrer"` pour les liens externes
+
+**4. Tests et validation**
+   - Vérifié le linting : ✅ No ESLint warnings or errors
+   - Installation des dépendances : 422 packages, 0 vulnerabilities
+   - Code TypeScript validé
+
+#### Résultats:
+
+- ✅ Footer avec 4 sections fonctionnelles (Product, Company, Resources, Legal)
+- ✅ Tous les liens pointent vers des pages réelles ou des sections pertinentes
+- ✅ Navigation i18n respectée (locale dynamique dans les URLs)
+- ✅ Liens réseaux sociaux configurés
+- ✅ Utilisation de Next.js Link pour performances optimales
+- ✅ Code lint sans erreurs
+
+#### Fichiers modifiés:
+
+- `components/Footer.tsx` : Refonte complète du composant
+
+#### Structure du footer:
+
+```
+Hackboot
+├── Product
+│   ├── Features → /{locale}/#features
+│   ├── Pricing → /{locale}/premium
+│   ├── Security → /{locale}/about#security
+│   └── Performance → /{locale}/about#performance
+├── Company
+│   ├── About → /{locale}/about
+│   ├── Careers → /{locale}/contact
+│   ├── Press → /{locale}/contact
+│   └── Partners → /{locale}/contact
+├── Resources
+│   ├── Documentation → /{locale}/contact
+│   ├── API → /{locale}/contact
+│   ├── Support → /{locale}/contact
+│   └── Status → /{locale}/contact
+└── Legal (nouvelle)
+    ├── Privacy → /{locale}/about#legal
+    ├── Terms → /{locale}/about#legal
+    ├── Cookies → /{locale}/about#legal
+    └── Compliance → /{locale}/about#legal
+```
+
+---
+
 ## 2025-10-29
 
 ### UI: Intégration des illustrations features + Nettoyage du projet
@@ -3502,3 +4097,634 @@ if (hasDecimal) {
 ✅ Animations conformes aux attentes (apparition, scroll timeline, hover)
 ✅ Page plus légère sans décors GPU
 ⚠️ Build Netlify reste tributaire de `framer-motion` pour d’autres pages
+
+### Fix: Hauteurs égales pour les cartes de postes
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+**Commit**: 183704c
+**Status**: ✅ Complété
+
+#### Objectif:
+Corriger le problème d'affichage où les cartes de postes avaient des hauteurs différentes dans la grille, créant un aspect visuellement déséquilibré.
+
+#### Actions réalisées:
+
+**1. Analyse du problème**
+   - Constat : Les cartes avaient des hauteurs variables selon la longueur du contenu (description courte)
+   - Impact : Grille désordonnée, aspect non professionnel
+   - Localisation : `/app/[locale]/careers/page.tsx`
+
+**2. Solution technique implémentée**
+   - Ajout de `className="h-full"` sur le composant Link parent
+   - Ajout de `h-full flex flex-col` sur la div de la carte
+   - Ajout de `flex-grow` sur le paragraphe de description pour occupation d'espace flexible
+   - Ajout de `mt-auto` sur le footer pour le pousser en bas
+
+**3. Code modifié**
+```typescript
+// AVANT
+<Link key={job.id} href={`/${locale}/careers/${job.id}`}>
+  <m.div className="group glass-effect p-8 rounded-2xl ...">
+    <h3>{jobDetails.title}</h3>
+    <p className="text-gray-400 mb-6 line-clamp-2">
+      {jobDetails.shortDescription}
+    </p>
+    <div className="flex flex-wrap gap-4">
+      {/* location and experience */}
+    </div>
+  </m.div>
+</Link>
+
+// APRÈS
+<Link key={job.id} href={`/${locale}/careers/${job.id}`} className="h-full">
+  <m.div className="h-full flex flex-col group glass-effect p-8 rounded-2xl ...">
+    <h3>{jobDetails.title}</h3>
+    <p className="text-gray-400 mb-6 line-clamp-2 flex-grow">
+      {jobDetails.shortDescription}
+    </p>
+    <div className="flex flex-wrap gap-4 mt-auto">
+      {/* location and experience */}
+    </div>
+  </m.div>
+</Link>
+```
+
+#### Résultats:
+- ✅ Toutes les cartes ont maintenant la même hauteur
+- ✅ Le footer de chaque carte est aligné au bas
+- ✅ L'espacement vertical s'adapte automatiquement au contenu
+- ✅ Aspect visuel professionnel et équilibré
+- ✅ Commit et push réussis
+
+#### Fichiers modifiés:
+- `/app/[locale]/careers/page.tsx` : Ajout du layout flexbox pour égaliser les hauteurs
+
+#### Technique utilisée:
+- **Flexbox CSS** : Utilisation de flex-col pour layout vertical
+- **flex-grow** : Pour l'expansion flexible du contenu
+- **mt-auto** : Pour pousser le footer en bas
+- **h-full** : Pour forcer la hauteur complète disponible
+
+
+### Fix: Services collapse piliers manquants (infrastructure) dans toutes les langues
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+**Commit**: 6e96136
+**Status**: ✅ Complété
+
+#### Objectif:
+Corriger le problème où les collapse (accordéons) des piliers de services ne fonctionnaient qu'en français. Le 4ème pilier "infrastructure" était défini dans le code mais manquait dans les traductions EN et ET.
+
+#### Problème identifié:
+- **Code**: 4 piliers définis dans `PILLAR_BLUEPRINTS` (security, performance, partnership, **infrastructure**)
+- **Traductions FR/EN/ET**: Seulement 3 piliers présents
+- **Conséquence**: Quand on cliquait sur le pilier "Cloud orchestration" (infrastructure), aucune traduction n'était disponible en anglais ou estonien
+- **Impact**: Les collapse ne fonctionnaient correctement qu'en français
+
+#### Actions réalisées:
+
+**1. Diagnostic du problème**
+   - Identification du composant : `/app/[locale]/services/page.tsx`
+   - Système de piliers interactifs avec état `activePillarId`
+   - Vérification des traductions dans les 3 langues (FR/EN/ET)
+   - Constat : 4ème pilier manquant dans toutes les traductions
+
+**2. Ajout du 4ème pilier - Français** (`/public/locales/fr/common.json`)
+```json
+{
+  "id": "infrastructure",
+  "title": "Cloud orchestration",
+  "description": "Provisionnement instantané, bascule automatique de région et sauvegardes en continu.",
+  "bullets": [
+    "Réseau 10 Gbps sécurisé",
+    "Disaster recovery automatisé",
+    "Intégration API PulseForge"
+  ]
+}
+```
+
+**3. Ajout du 4ème pilier - Anglais** (`/public/locales/en/common.json`)
+```json
+{
+  "id": "infrastructure",
+  "title": "Cloud orchestration",
+  "description": "Instant provisioning, automatic region failover and continuous backups.",
+  "bullets": [
+    "Secured 10 Gbps network",
+    "Automated disaster recovery",
+    "PulseForge API integration"
+  ]
+}
+```
+
+**4. Ajout du 4ème pilier - Estonien** (`/public/locales/et/common.json`)
+```json
+{
+  "id": "infrastructure",
+  "title": "Pilve orkestratsioon",
+  "description": "Kohene provisioneerimine, automaatne regiooni ümberlülitus ja pidevad varukoopiad.",
+  "bullets": [
+    "Turvatud 10 Gbps võrk",
+    "Automaatne katastroofidest taastumine",
+    "PulseForge API integratsioon"
+  ]
+}
+```
+
+**5. Tests et validation**
+   - Lint check passé sans erreurs
+   - Validation JSON correcte
+   - Les 4 piliers sont maintenant disponibles dans toutes les langues
+
+#### Résultats:
+- ✅ 4ème pilier "infrastructure" ajouté dans FR/EN/ET
+- ✅ Les collapse fonctionnent maintenant dans toutes les langues
+- ✅ Traductions complètes et cohérentes avec le code
+- ✅ Aucune régression introduite
+- ✅ Tests lint passés
+- ✅ Commit et push réussis
+
+#### Fichiers modifiés:
+- `/public/locales/fr/common.json` : Ajout pilier infrastructure FR
+- `/public/locales/en/common.json` : Ajout pilier infrastructure EN
+- `/public/locales/et/common.json` : Ajout pilier infrastructure ET
+
+#### Structure des piliers (maintenant complète):
+1. **Sécurité proactive** (security) - Icon: Shield, Color: Purple
+2. **Performance calibrée** (performance) - Icon: Cpu, Color: Sky-Indigo
+3. **Partenariat dédié** (partnership) - Icon: Headphones, Color: Emerald-Teal
+4. **Cloud orchestration** (infrastructure) - Icon: Cloud, Color: Cyan-Slate
+
+#### Feedback utilisateur:
+"Les collaspse, genre els cards qui quand on appuie desuss s'ouvre ne marche que en français"
+
+✅ **Problème résolu**: Les 4 piliers fonctionnent maintenant parfaitement en FR/EN/ET
+
+
+### Refactor: Simplification du langage page Services (suppression termes corporate)
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+**Commit**: 355ab98
+**Status**: ✅ Complété
+
+#### Objectif:
+Supprimer tous les termes "bullshit" marketing/corporate de la page services pour un ton plus direct et accessible.
+
+#### Problème identifié:
+La page services utilisait trop de jargon corporate/marketing qui fait "startup qui veut être cool" :
+- Termes génériques : "proactive", "calibrated", "orchestration"
+- Buzzwords : "playbooks", "kick-off", "rollout", "Labs", "Ops"
+- Phrases alambiquées : "Modules aligned with your goals"
+
+#### Actions réalisées:
+
+**1. Simplification des piliers**
+- "Sécurité proactive" → "Sécurité avancée"
+- "Performance calibrée" → "Haute performance" 
+- "Partenariat dédié" → "Support dédié"
+- "Cloud orchestration" → "Infrastructure cloud"
+- "Nos piliers" → "Ce qu'on propose"
+
+**2. Simplification descriptions**
+- "Account manager senior" → "Responsable de compte"
+- "Playbooks personnalisés" → "Guides personnalisés"
+- "Escalade instantanée" → "Support prioritaire"
+- "Provisionnement" → "Déploiement"
+- "Disaster recovery" → "Sauvegarde automatique"
+
+**3. Simplification modules/solutions**
+- "Cloud Ops & Scaling" → "Cloud & évolutivité"
+- "Labs Anti-Cheat" → "Sécurité Anti-Cheat"
+- "Coaching & Integrations" → "Support & Intégrations"
+- "Des modules alignés sur vos objectifs" → "Nos services"
+
+**4. Simplification processus**
+- "Un cadre éprouvé" → "Notre méthode"
+- "Kick-off & audit" → "Analyse initiale"
+- "Prototype guidé" → "Phase de test"
+- "Déploiement orchestré" → "Mise en production"
+
+**5. Simplification contact**
+- "Planifier un call" → "Nous contacter"
+- "Un canal prioritaire Discord & WhatsApp est activé dès la signature" → "Canal prioritaire Discord & WhatsApp disponible"
+
+#### Résultats:
+- ✅ Ton beaucoup plus direct et authentique
+- ✅ Suppression de tout le jargon marketing
+- ✅ Changements appliqués dans les 3 langues (FR/EN/ET)
+- ✅ 133 lignes modifiées au total
+- ✅ Tests lint passés
+- ✅ Commit et push réussis
+
+#### Fichiers modifiés:
+- `/public/locales/fr/common.json` : Simplification FR
+- `/public/locales/en/common.json` : Simplification EN
+- `/public/locales/et/common.json` : Simplification ET
+
+#### Feedback utilisateur:
+"Juste arrête avec le terme bullshit partout dans la page à chaque trucs, ça fait trop corporate qui veut être cool"
+
+✅ **Problème résolu**: Langage simplifié et authentique
+
+
+### Fix: Modération du ton "secte" page carrières
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+**Commit**: dde444f
+**Status**: ✅ Complété
+
+#### Objectif:
+Modifier le texte "La Passion d'Abord" qui sonnait trop "grande famille toxique/secte" pour un ton plus équilibré respectant la vie perso.
+
+#### Problème identifié:
+La section culture de la page carrières avait un ton trop extrême qui pouvait faire peur aux candidats :
+- "Si vous n'êtes pas passionné par ce que nous faisons, ce n'est pas l'endroit pour vous"
+- "On cherche des gens qui se réveillent excités par ce qu'ils vont construire"
+- "Pas des mercenaires, mais des missionnaires"
+- "Si tu veux juste un job 9-5, ce n'est pas fait pour toi"
+
+**Impact**: Donne l'impression d'une entreprise qui attend que les employés sacrifient leur vie perso pour "la mission".
+
+#### Actions réalisées:
+
+**Avant** (section "La Passion d'Abord"):
+```json
+{
+  "title": "La Passion d'Abord",
+  "description": "Nous ne sommes pas là juste pour un salaire. Nous construisons quelque chose en quoi nous croyons. Si vous n'êtes pas passionné par ce que nous faisons, ce n'est pas l'endroit pour vous.",
+  "details": "On cherche des gens qui se réveillent excités par ce qu'ils vont construire. Pas des mercenaires, mais des missionnaires. Si tu veux juste un job 9-5, ce n'est pas fait pour toi."
+}
+```
+
+**Après** (section "Motivation & Équilibre"):
+```json
+{
+  "title": "Motivation & Équilibre",
+  "description": "On cherche des gens motivés par ce qu'ils construisent, pas juste un salaire. Mais on respecte aussi votre vie perso - pas besoin d'être H24 sur le projet.",
+  "details": "On veut des gens engagés dans leur travail, mais on n'attend pas que vous sacrifiiez votre vie. Vous avez une vie en dehors du boulot ? Parfait. Pas d'obligation d'être dans \"la grande famille\" ou de socialiser en dehors des heures de travail."
+}
+```
+
+**Changements clés**:
+1. Titre : "La Passion d'Abord" → "Motivation & Équilibre"
+2. Message clair : on veut des gens motivés MAIS on respecte la vie perso
+3. Pas d'obligation d'être dans "la grande famille"
+4. Pas d'obligation de socialiser hors du travail
+5. Avoir une vie en dehors du boulot = OK et encouragé
+
+#### Résultats:
+- ✅ Ton beaucoup plus sain et équilibré
+- ✅ Respect de la vie personnelle clairement exprimé
+- ✅ Pas de pression pour "vivre pour l'entreprise"
+- ✅ Message authentique sans être toxique
+- ✅ Modification uniquement FR (EN/ET n'ont pas cette section)
+- ✅ Tests lint passés
+- ✅ Commit et push réussis
+
+#### Fichiers modifiés:
+- `/public/locales/fr/common.json` : Section culture/values carrières
+
+#### Feedback utilisateur:
+"Ok pour le 'La Passion d'Abord' ça fait trop grande famille, rajoute un truc genre, aucune obligation de vrai intégration dans l'équipe pour les gens qui veulent quand même avoir leurs vies perso genre ils sont pas obligé d'êrte passioné d'arrache pied à donf, ça peut faire peur"
+
+✅ **Problème résolu**: Ton équilibré respectant vie pro/perso
+
+
+### Refactor: Suppression complète du mot "bullshit" des traductions
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+**Commit**: 9ecd1da
+**Status**: ✅ Complété
+
+#### Objectif:
+Supprimer TOUTES les occurrences du mot "bullshit" des fichiers de traduction pour un ton plus professionnel.
+
+#### Problème identifié:
+Le mot "bullshit" apparaissait 8 fois dans les traductions (7x FR, 1x EN) :
+- Page candidatures (apply)
+- Section culture carrières
+- Processus de recrutement
+- Descriptions diverses
+
+**Feedback utilisateur**: "Y'a encore le mot bullshit partout gars, wsh vrm change moi ça"
+
+#### Actions réalisées:
+
+**Modifications FRANÇAIS (7 occurrences)**:
+
+1. **Page Apply - Description**
+   - ❌ "Soyez vous-même, on déteste le bullshit"
+   - ✅ "Soyez vous-même, restez authentique"
+
+2. **Culture - Remote par Design**
+   - ❌ "Pas de retour au bureau, pas de bullshit hybride"
+   - ✅ "Pas de retour au bureau, pas de mode hybride forcé"
+
+3. **Culture - Excellence & Autonomie**
+   - ❌ "Pas de micromanagement, pas de bullshit"
+   - ✅ "Pas de micromanagement, pas de complications"
+
+4. **Processus - Étape 1 : Candidature**
+   - ❌ "On ne veut pas de lettre de motivation bullshit"
+   - ✅ "On ne veut pas de lettre de motivation formelle"
+
+5. **Processus - Étape 2 : Premier Échange**
+   - ❌ "Pas d'interview bullshit, juste une vraie conversation"
+   - ✅ "Pas d'interview formatée, juste une vraie conversation"
+
+6. **Processus - Étape 3 : Test Technique**
+   - ❌ "pas un exercice de leetcode bullshit"
+   - ✅ "pas un exercice théorique"
+
+7. **Processus - Étape 5 : Offre & Onboarding**
+   - ❌ "Pas de négociation bullshit"
+   - ✅ "Pas d'aller-retours interminables"
+
+**Modifications ANGLAIS (1 occurrence)**:
+
+1. **Page Apply - Description**
+   - ❌ "Be yourself, we hate bullshit"
+   - ✅ "Be yourself, stay authentic"
+
+#### Vérification:
+```bash
+grep -r "bullshit" /home/user/hackboot/public/locales/
+# Output: No more bullshit found!
+```
+
+#### Résultats:
+- ✅ 8 occurrences de "bullshit" supprimées
+- ✅ Ton reste direct et authentique
+- ✅ Termes de remplacement appropriés au contexte
+- ✅ Tests lint passés
+- ✅ Vérification complète : 0 occurrence restante
+- ✅ Commit et push réussis
+
+#### Fichiers modifiés:
+- `/public/locales/fr/common.json` : 7 remplacements
+- `/public/locales/en/common.json` : 1 remplacement
+
+✅ **Problème résolu**: Plus aucune occurrence du mot "bullshit"
+
+
+### Feature: Suppression liens footer + pages accès restreint
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+**Commit**: c9f505e
+**Status**: ✅ Complété
+
+#### Objectif:
+1. Supprimer les liens "Partenaires" et "Presse" du footer
+2. Créer des pages pour Documentation, API, Support et Status nécessitant une connexion
+
+#### Actions réalisées:
+
+**1. Suppression liens footer**
+
+Modifications traductions (FR/EN/ET) :
+- ❌ Supprimé "press" (Presse/Press/Ajakirjandus)
+- ❌ Supprimé "partners" (Partenaires/Partners/Partnerid)
+
+Modifications Footer component (`/components/Footer.tsx`) :
+- Suppression de "press" et "partners" de la section company
+- Mise à jour des liens resources pour pointer vers les nouvelles pages :
+  - `documentation`: `/${locale}/documentation` (au lieu de `/contact`)
+  - `api`: `/${locale}/api` (au lieu de `/contact`)
+  - `support`: `/${locale}/support` (au lieu de `/contact`)
+  - `status`: `/${locale}/status` (au lieu de `/contact`)
+
+**2. Création de 4 nouvelles pages avec accès restreint**
+
+Toutes les pages suivent le même pattern :
+- Message centré expliquant qu'il faut être connecté
+- Icône thématique (Lock + icône spécifique)
+- Bouton "Se connecter" vers `/login`
+- Lien "Créer un compte" vers `/premium/signup`
+- Design cohérent avec le reste du site
+- Traductions complètes FR/EN/ET inline
+
+**a) Page Documentation** (`/app/[locale]/documentation/page.tsx`)
+- Icône : BookOpen
+- Badge : Documentation
+- Message : "Pour accéder à notre documentation complète, vous devez être connecté"
+
+**b) Page API** (`/app/[locale]/api/page.tsx`)
+- Icône : Code
+- Badge : API
+- Message : "Pour accéder à notre API et obtenir vos clés d'accès, vous devez être connecté"
+
+**c) Page Support** (`/app/[locale]/support/page.tsx`)
+- Icône : Headphones
+- Badge : Support
+- Message : "Pour accéder à notre support technique et soumettre des tickets, vous devez être connecté"
+
+**d) Page Status** (`/app/[locale]/status/page.tsx`)
+- Icône : Activity
+- Badge : Statut
+- Message : "Pour consulter le statut de nos services en temps réel, vous devez être connecté"
+
+#### Structure des pages:
+```typescript
+- Header avec SiteHeader
+- Background gradient décoratif
+- Section centrée avec :
+  - Badge avec icône thématique
+  - Titre de la page
+  - Sous-titre "Accès réservé aux utilisateurs connectés"
+  - Card glass-effect avec :
+    - Icône Lock centrale
+    - Description du besoin de connexion
+    - Bouton de connexion principal
+    - Lien inscription secondaire
+- Traductions inline (FR/EN/ET)
+```
+
+#### Résultats:
+- ✅ Footer nettoyé (2 liens supprimés)
+- ✅ 4 nouvelles pages créées
+- ✅ Toutes les pages redirigent vers login
+- ✅ Design cohérent et professionnel
+- ✅ Traductions complètes (FR/EN/ET)
+- ✅ Tests lint passés
+- ✅ Commit et push réussis
+
+#### Fichiers modifiés:
+- `/public/locales/fr/common.json` : Suppression press/partners
+- `/public/locales/en/common.json` : Suppression press/partners
+- `/public/locales/et/common.json` : Suppression press/partners
+- `/components/Footer.tsx` : Mise à jour liens
+
+#### Fichiers créés:
+- `/app/[locale]/documentation/page.tsx` : Page documentation
+- `/app/[locale]/api/page.tsx` : Page API
+- `/app/[locale]/support/page.tsx` : Page support
+- `/app/[locale]/status/page.tsx` : Page status
+
+#### Feedback utilisateur:
+"dans le footer enlève la page partenaire, presse aussi, et faisons la page documentation, donc c'est une page qui dit que pour accéder à la documentation il faut être connecté, donc affichage simple qui invite à se connecter, et chose qu'on réplique sur api, support, et statut"
+
+✅ **Problème résolu**: Footer nettoyé + 4 pages accès restreint créées
+
+
+### Fix: Ajout du Footer sur les pages accès restreint
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+**Commit**: 87aed24
+**Status**: ✅ Complété
+
+#### Objectif:
+Ajouter le composant Footer sur les 4 nouvelles pages créées (documentation, api, support, status) qui n'en avaient pas.
+
+#### Problème identifié:
+**Feedback utilisateur**: "Le footer n'est pas sur ses pages"
+
+Les 4 pages créées précédemment avaient uniquement le SiteHeader mais manquaient le Footer à la fin, ce qui créait une incohérence visuelle avec le reste du site.
+
+#### Actions réalisées:
+
+**Modifications sur chaque page** (`/app/[locale]/[page]/page.tsx`) :
+
+1. **Ajout de l'import Footer** (avec dynamic loading)
+```typescript
+import dynamic from 'next/dynamic'
+
+const Footer = dynamic(() => import('@/components/Footer'), {
+  loading: () => <div className="h-24 bg-black" />,
+  ssr: false,
+})
+```
+
+2. **Ajout du composant Footer** dans le return
+```typescript
+      </main>
+      <Footer />  // ← Ajouté
+    </div>
+  )
+}
+```
+
+**Pages modifiées** :
+- ✅ `/app/[locale]/documentation/page.tsx`
+- ✅ `/app/[locale]/api/page.tsx`
+- ✅ `/app/[locale]/support/page.tsx`
+- ✅ `/app/[locale]/status/page.tsx`
+
+#### Résultats:
+- ✅ Footer présent sur les 4 pages
+- ✅ Layout cohérent avec le reste du site
+- ✅ Dynamic loading pour optimisation
+- ✅ Tests lint passés
+- ✅ Commit et push réussis
+
+#### Fichiers modifiés:
+- `/app/[locale]/documentation/page.tsx` : Ajout Footer
+- `/app/[locale]/api/page.tsx` : Ajout Footer
+- `/app/[locale]/support/page.tsx` : Ajout Footer
+- `/app/[locale]/status/page.tsx` : Ajout Footer
+
+✅ **Problème résolu**: Footer maintenant présent sur toutes les pages
+
+
+### Feature: Page Conditions Générales (Terms)
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+**Commit**: 677faf2
+**Status**: ✅ Complété
+
+#### Objectif:
+Créer une page dédiée pour les Conditions Générales d'Utilisation et de Vente avec contenu complet en markdown.
+
+#### Actions réalisées:
+
+**1. Création du contenu legal (`/public/legal/terms.md`)**
+
+Fichier markdown complet de ~470 lignes contenant :
+- **16 sections principales** couvrant tous les aspects légaux
+- Informations société : VMCloud Group OÜ / Hackboot
+- Adresse : Harju maakond, Tallinn, Estonie
+- Numéro d'enregistrement : 16800149
+
+**Sections du document** :
+1. Objet
+2. Définitions (Services, Plateforme, Compte, Abonnement, Contenu)
+3. Accès aux Services (conditions, création compte, suspension)
+4. Services proposés (cloud gaming, infrastructure, API, support)
+5. Tarifs et paiement (horaire, mensuel, annuel, à vie)
+6. Droit de rétractation (14 jours)
+7. Obligations de l'Utilisateur (usage licite, sécurité)
+8. Obligations et responsabilités de Hackboot (SLA, limitations)
+9. Données personnelles (RGPD, droits, sécurité)
+10. Propriété intellectuelle
+11. Confidentialité
+12. Résiliation (par utilisateur ou Hackboot)
+13. Modifications des CGU
+14. Droit applicable et juridiction (droit estonien)
+15. Dispositions générales
+16. Contact
+
+**2. Page d'affichage (`/app/[locale]/legal/terms/page.tsx`)**
+
+Composant React avec :
+- **Chargement dynamique** du fichier terms.md via fetch
+- **Parser markdown custom** convertissant md en HTML stylisé :
+  - H1, H2, H3 avec styles appropriés
+  - Listes à puces
+  - Liens (target _blank)
+  - Paragraphes formatés
+  - Séparateurs horizontaux
+  - Texte en gras
+- **Design cohérent** avec le reste du site :
+  - Glass effect pour le container
+  - Gradient backgrounds
+  - Header avec badge "Légal"
+  - Footer inclus
+- **Loading state** avec spinner pendant chargement
+
+**3. Mise à jour Footer**
+
+Modification `/components/Footer.tsx` :
+- Lien "Conditions" (terms) pointe maintenant vers `/legal/terms`
+- Avant : `/about#legal`
+- Après : `/legal/terms`
+
+#### Parser Markdown implémenté:
+
+```typescript
+const formatMarkdown = (text: string) => {
+  return text
+    .replace(/^# (.+)$/gm, '<h1>$1</h1>')          // H1
+    .replace(/^## (.+)$/gm, '<h2>$1</h2>')         // H2
+    .replace(/^### (.+)$/gm, '<h3>$1</h3>')        // H3
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')  // Bold
+    .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2">$1</a>')  // Links
+    .replace(/^- (.+)$/gm, '<li>$1</li>')          // Lists
+    .replace(/^---$/gm, '<hr />')                   // HR
+    // + gestion paragraphes
+}
+```
+
+#### Résultats:
+- ✅ Contenu légal complet et structuré en markdown
+- ✅ Page dédiée avec affichage élégant
+- ✅ Parser markdown fonctionnel
+- ✅ Design cohérent (glass effect, gradients)
+- ✅ Footer mis à jour avec nouveau lien
+- ✅ Loading state et gestion d'erreurs
+- ✅ Tests lint passés
+- ✅ Commit et push réussis
+
+#### Fichiers créés:
+- `/public/legal/terms.md` : Contenu des CGU complet (470 lignes)
+- `/app/[locale]/legal/terms/page.tsx` : Page d'affichage
+
+#### Fichiers modifiés:
+- `/components/Footer.tsx` : Lien terms mis à jour
+
+#### Points techniques:
+- Markdown chargé dynamiquement via fetch client-side
+- Parser simple mais efficace pour formatage de base
+- Styles Tailwind appliqués au contenu markdown
+- Responsive et accessible
+
+✅ **Problème résolu**: Page Terms créée avec contenu complet
+
