@@ -31,44 +31,96 @@ export default function CookiesPage() {
   }, [])
 
   const formatMarkdown = (text: string) => {
-    return text
+    // First process tables
+    const lines = text.split('\n')
+    const processedLines: string[] = []
+    let inTable = false
+    let tableRows: string[] = []
+    let isFirstRow = true
+
+    for (let i = 0; i < lines.length; i++) {
+      const line = lines[i]
+
+      // Check if this is a table row
+      if (line.trim().startsWith('|') && line.trim().endsWith('|')) {
+        // Check if it's a separator line
+        if (line.includes('---')) {
+          continue // Skip separator lines
+        }
+
+        if (!inTable) {
+          inTable = true
+          isFirstRow = true
+          tableRows = []
+        }
+
+        // Parse cells
+        const cells = line
+          .split('|')
+          .filter((cell) => cell.trim())
+          .map((cell) => cell.trim())
+
+        if (isFirstRow) {
+          // Header row
+          const row = '<tr>' + cells.map((cell) =>
+            `<th class="border border-white/10 px-4 py-2 text-left font-semibold text-purple-400">${cell}</th>`
+          ).join('') + '</tr>'
+          tableRows.push(row)
+          isFirstRow = false
+        } else {
+          // Data row
+          const row = '<tr>' + cells.map((cell) =>
+            `<td class="border border-white/10 px-4 py-2 text-gray-300">${cell}</td>`
+          ).join('') + '</tr>'
+          tableRows.push(row)
+        }
+      } else {
+        // Not a table row
+        if (inTable) {
+          // Close the table
+          processedLines.push('<table class="w-full mb-6 border-collapse overflow-x-auto">')
+          processedLines.push('<tbody>')
+          processedLines.push(...tableRows)
+          processedLines.push('</tbody>')
+          processedLines.push('</table>')
+          inTable = false
+          tableRows = []
+        }
+        processedLines.push(line)
+      }
+    }
+
+    // Close table if still open
+    if (inTable) {
+      processedLines.push('<table class="w-full mb-6 border-collapse overflow-x-auto">')
+      processedLines.push('<tbody>')
+      processedLines.push(...tableRows)
+      processedLines.push('</tbody>')
+      processedLines.push('</table>')
+    }
+
+    return processedLines.join('\n')
       .replace(/^# (.+)$/gm, '<h1 class="text-4xl font-bold mb-6 mt-8 gradient-text">$1</h1>')
       .replace(/^## (.+)$/gm, '<h2 class="text-3xl font-bold mb-4 mt-8 text-white">$1</h2>')
       .replace(/^### (.+)$/gm, '<h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-100">$1</h3>')
       .replace(/\*\*(.+?)\*\*/g, '<strong class="font-semibold text-white">$1</strong>')
       .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" class="text-purple-400 hover:text-purple-300 underline" target="_blank" rel="noopener noreferrer">$1</a>')
       .replace(/^- (.+)$/gm, '<li class="ml-6 mb-2">$1</li>')
-      .replace(/^\| (.+) \|$/gm, (match) => {
-        if (match.includes('---')) {
-          return ''
-        }
-        const cells = match.split('|').filter((cell) => cell.trim())
-        const isHeader = text.split('\n')[text.split('\n').indexOf(match.trim()) + 1]?.includes('---')
-        if (isHeader) {
-          return '<tr>' + cells.map((cell) => `<th class="border border-white/10 px-4 py-2 text-left font-semibold text-purple-400">${cell.trim()}</th>`).join('') + '</tr>'
-        }
-        return '<tr>' + cells.map((cell) => `<td class="border border-white/10 px-4 py-2 text-gray-300">${cell.trim()}</td>`).join('') + '</tr>'
-      })
       .replace(/^---$/gm, '<hr class="border-t border-white/10 my-8" />')
       .split('\n')
       .map((line) => {
-        if (line.startsWith('<tr>')) {
-          return line
-        }
         if (
           line.trim() &&
           !line.startsWith('#') &&
           !line.startsWith('-') &&
           !line.startsWith('<') &&
-          !line.startsWith('---') &&
-          !line.startsWith('|')
+          !line.startsWith('---')
         ) {
           return `<p class="mb-4 text-gray-300 leading-relaxed">${line}</p>`
         }
         return line
       })
       .join('\n')
-      .replace(/(<tr>[\s\S]*?<\/tr>)/g, '<table class="w-full mb-6 border-collapse">$1</table>')
   }
 
   return (
