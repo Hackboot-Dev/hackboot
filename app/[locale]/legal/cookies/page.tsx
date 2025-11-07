@@ -33,8 +33,8 @@ export default function CookiesPage() {
   const formatMarkdown = (text: string) => {
     return text
       .replace(/^# (.+)$/gm, '<h1 class="text-4xl font-bold mb-6 mt-8 gradient-text">$1</h1>')
-      .replace(/^## (.+)$/gm, '<h2 class="text-3xl font-bold mb-4 mt-8 text-white">$2</h2>')
-      .replace(/^### (.+)$/gm, '<h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-100">$3</h3>')
+      .replace(/^## (.+)$/gm, '<h2 class="text-3xl font-bold mb-4 mt-8 text-white">$1</h2>')
+      .replace(/^### (.+)$/gm, '<h3 class="text-2xl font-semibold mb-3 mt-6 text-gray-100">$1</h3>')
       .replace(/\*\*(.+?)\*\*/g, '<strong class="font-semibold text-white">$1</strong>')
       .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" class="text-purple-400 hover:text-purple-300 underline" target="_blank" rel="noopener noreferrer">$1</a>')
       .replace(/^- (.+)$/gm, '<li class="ml-6 mb-2">$1</li>')
