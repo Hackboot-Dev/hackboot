@@ -358,22 +358,8 @@ export default function AboutPage() {
                       background: 'linear-gradient(135deg, #9333ea 0%, #7c3aed 100%)',
                       color: '#fff',
                       boxShadow: '0 0 0 4px #000, 0 0 20px rgba(147, 51, 234, 0.5)',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      padding: 0,
-                      margin: 0,
                     }}
-                    icon={
-                      <IconComponent
-                        size={22}
-                        strokeWidth={2.5}
-                        style={{
-                          display: 'block',
-                          margin: 'auto',
-                        }}
-                      />
-                    }
+                    icon={<IconComponent size={24} strokeWidth={2} />}
                   >
                     <div className="relative">
                       <div className="flex items-center justify-between mb-4 flex-wrap gap-2">

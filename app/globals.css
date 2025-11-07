@@ -627,11 +627,27 @@ body {
 /* Icon hover effect */
 .vertical-timeline-element-icon {
   transition: all 0.3s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.vertical-timeline-element-icon svg {
+  display: block !important;
+  margin: 0 auto !important;
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
 }
 
 .vertical-timeline-element-icon:hover {
   transform: scale(1.15) rotate(360deg) !important;
   box-shadow: 0 0 0 6px #000, 0 0 30px rgba(147, 51, 234, 0.8) !important;
+}
+
+.vertical-timeline-element-icon:hover svg {
+  transform: translate(-50%, -50%) rotate(-360deg) !important;
 }
 
 /* Arrow customization */
