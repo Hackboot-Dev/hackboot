@@ -362,7 +362,11 @@ export default function AboutPage() {
                       alignItems: 'center',
                       justifyContent: 'center',
                     }}
-                    icon={<IconComponent size={28} />}
+                    icon={
+                      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%' }}>
+                        <IconComponent size={24} />
+                      </div>
+                    }
                   >
                     <div className="relative">
                       <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
