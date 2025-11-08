@@ -21,6 +21,7 @@ Bienvenue dans la documentation du projet Hackboot. Ce fichier sert d'index prin
 ### 🔒 Sécurité
 
 - **[SECURITY.md](./SECURITY.md)** - Documentation sécurité complète (à créer)
+- **[SECURITY_ADS.md](./SECURITY_ADS.md)** - Documentation sécurité du système d'authentification ADS
 
 ### 📂 Données
 

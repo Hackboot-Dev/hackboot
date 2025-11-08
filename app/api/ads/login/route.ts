@@ -2,6 +2,12 @@ import { NextRequest, NextResponse } from 'next/server'
 import fs from 'fs/promises'
 import path from 'path'
 
+// SECURITY NOTE: This is a server-side only route
+// - The 'fs' module only works on the server (Node.js)
+// - The users.json file is NEVER sent to the client
+// - Only authentication success/failure is returned
+// - All credential verification happens server-side
+
 export async function POST(request: NextRequest) {
   try {
     const { userId, password } = await request.json()
