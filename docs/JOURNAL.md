@@ -1,5 +1,64 @@
 # Journal des Actions - Hackboot
 
+## 2025-11-08
+
+### Feature: Création du système d'authentification ADS
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Créer un système de connexion pour le panneau d'administration ADS avec des credentials simples (admin/admin).
+
+#### Modifications apportées:
+1. **Création du fichier de credentials** (`/data/users.json`)
+   - Ajout d'un utilisateur avec ID: `admin` et mot de passe: `admin`
+   - Format JSON simple pour faciliter la gestion
+
+2. **Création de la page de connexion** (`/app/ads/page.tsx`)
+   - Formulaire de login avec champs userId et password
+   - Design moderne avec gradient purple/pink cohérent avec la charte
+   - Gestion des erreurs et état de chargement
+   - Redirection vers dashboard après authentification réussie
+
+3. **Création de la route API d'authentification** (`/app/api/ads/login/route.ts`)
+   - Endpoint POST `/api/ads/login`
+   - Lecture du fichier users.json
+   - Vérification des credentials
+   - Réponses JSON structurées
+
+4. **Création du dashboard ADS** (`/app/ads/dashboard/page.tsx`)
+   - Page protégée accessible après login
+   - Affichage de statistiques fictives (vues, clics, conversions)
+   - Liste des campagnes actives
+   - Bouton de déconnexion
+
+5. **Documentation**
+   - Création de `/docs/API_ROUTES.md` avec documentation de toutes les routes API
+   - Documentation de la route POST /api/ads/login
+   - Mise à jour du présent journal
+
+#### Résultats:
+- ✅ Page de login accessible sur `/ads`
+- ✅ Authentification fonctionnelle avec admin/admin
+- ✅ Dashboard ADS accessible après connexion
+- ✅ Route API documentée dans API_ROUTES.md
+- ✅ Interface cohérente avec la charte graphique
+
+#### Fichiers créés:
+- `/data/users.json`
+- `/app/ads/page.tsx`
+- `/app/ads/dashboard/page.tsx`
+- `/app/api/ads/login/route.ts`
+- `/docs/API_ROUTES.md`
+
+#### Notes de sécurité:
+⚠️ **ATTENTION**: Le système actuel utilise des credentials en clair dans un fichier JSON. Ceci est adapté uniquement pour un environnement de développement ou de démonstration. Pour la production, il faudrait :
+- Utiliser une vraie base de données (SQLite comme indiqué dans CLAUDE.md)
+- Hacher les mots de passe (bcrypt, argon2)
+- Implémenter des sessions sécurisées avec JWT
+- Ajouter une protection CSRF
+- Limiter les tentatives de connexion (rate limiting)
+
 ## 2025-10-23
 
 ### Feature: Enrichissement PulseForge Overwatch avec modules lobby et notes ToS
