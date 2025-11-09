@@ -22,6 +22,11 @@
 - [x] Page Services
 - [x] Page About (design complet avec sections timeline, équipe, valeurs, légal)
 - [x] Page Contact (formulaire interactif, cartes de contact, animations)
+- [x] Page ADS Login (authentification admin avec dashboard)
+
+### ✅ API Routes
+- [x] POST /api/ads/login - Authentification pour le panneau ADS
+- [x] GET /api/products/[slug]/images - Récupération des images produits
 
 ### ✅ Composants
 - [x] Hero avec animations (version light optimisée)
