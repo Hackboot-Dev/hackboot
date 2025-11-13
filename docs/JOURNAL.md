@@ -4728,3 +4728,39 @@ const formatMarkdown = (text: string) => {
 
 ✅ **Problème résolu**: Page Terms créée avec contenu complet
 
+
+## 2025-11-13
+
+### Feature: Ajout de Google Tag Manager (GTM)
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+**Status**: ✅ Complété
+
+#### Objectif:
+Ajouter le script Google Tag Manager (GTM) sur toutes les pages du site pour le suivi analytique.
+
+#### Actions réalisées:
+
+**1. Modification du layout racine (`app/layout.tsx`)**
+   - ✅ Ajout de l'import du composant `Script` de Next.js
+   - ✅ Ajout du script GTM avec ID: G-6404SH7E8J
+   - ✅ Utilisation de la stratégie `afterInteractive` pour optimiser les performances
+   - ✅ Script ajouté dans le `<head>` du layout racine pour être présent sur toutes les pages
+
+**2. Configuration technique**
+   - Script GTM externe: `https://www.googletagmanager.com/gtag/js?id=G-6404SH7E8J`
+   - Script inline: Initialisation de `window.dataLayer` et configuration gtag
+   - ID Analytics: G-6404SH7E8J
+
+#### Fichiers modifiés:
+- `app/layout.tsx` (ajout de GTM)
+
+#### Documentation:
+- JOURNAL.md mis à jour
+
+#### Tests à effectuer:
+- Vérifier que le script GTM charge correctement sur toutes les pages
+- Vérifier dans Google Analytics que les événements sont tracés
+
+---
+
