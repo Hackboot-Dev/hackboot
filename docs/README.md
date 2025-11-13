@@ -10,7 +10,7 @@ Bienvenue dans la documentation du projet Hackboot. Ce fichier sert d'index prin
 
 - **[PROJECT_STATUS.md](./PROJECT_STATUS.md)** - État actuel du projet, fonctionnalités implémentées, en cours
 - **[JOURNAL.md](./JOURNAL.md)** - Journal détaillé de toutes les actions de développement
-- **[API_ROUTES.md](./API_ROUTES.md)** - Documentation de toutes les routes API (à créer)
+- **[API_ROUTES.md](./API_ROUTES.md)** - Documentation de toutes les routes API
 - **[DATABASE.md](./DATABASE.md)** - Schéma de base de données (à créer si nécessaire)
 - **[ARCHITECTURE.md](./ARCHITECTURE.md)** - Architecture technique du système (à créer)
 
@@ -21,6 +21,7 @@ Bienvenue dans la documentation du projet Hackboot. Ce fichier sert d'index prin
 ### 🔒 Sécurité
 
 - **[SECURITY.md](./SECURITY.md)** - Documentation sécurité complète (à créer)
+- **[SECURITY_ADS.md](./SECURITY_ADS.md)** - Documentation sécurité du système d'authentification ADS
 
 ### 📂 Données
 
