@@ -1,25 +1,29 @@
 'use client'
 
 import React, { memo } from 'react'
+import Link from 'next/link'
 import { Shield, Zap, Cloud, RotateCw, Headphones, Users } from 'lucide-react'
 import { useI18n } from '@/lib/i18n-simple'
+import { useParams } from 'next/navigation'
 
 const cardData = [
-  { key: 'security', icon: Shield, color: 'from-blue-500 to-cyan-500' },
-  { key: 'speed', icon: Zap, color: 'from-yellow-500 to-orange-500' },
-  { key: 'cloud', icon: Cloud, color: 'from-purple-500 to-pink-500' },
-  { key: 'updates', icon: RotateCw, color: 'from-green-500 to-emerald-500' },
-  { key: 'support', icon: Headphones, color: 'from-pink-500 to-rose-500' },
-  { key: 'users', icon: Users, color: 'from-indigo-500 to-blue-500' },
+  { key: 'security', icon: Shield, color: 'from-blue-500 to-cyan-500', link: '/services' },
+  { key: 'speed', icon: Zap, color: 'from-yellow-500 to-orange-500', link: '/games' },
+  { key: 'cloud', icon: Cloud, color: 'from-purple-500 to-pink-500', link: '/premium' },
+  { key: 'updates', icon: RotateCw, color: 'from-green-500 to-emerald-500', link: '/services' },
+  { key: 'support', icon: Headphones, color: 'from-pink-500 to-rose-500', link: '/contact' },
+  { key: 'users', icon: Users, color: 'from-indigo-500 to-blue-500', link: '/about' },
 ]
 
 const Card = memo(function Card({ card }: { card: typeof cardData[number] }) {
   const { t } = useI18n()
+  const params = useParams()
+  const locale = params.locale as string
   const Icon = card.icon
 
   return (
-    <div className="relative group">
-      <div className="relative h-full p-8 rounded-2xl glass-effect overflow-hidden">
+    <Link href={`/${locale}${card.link}`} className="relative group block">
+      <div className="relative h-full p-8 rounded-2xl glass-effect overflow-hidden cursor-pointer">
         <div className={`absolute inset-0 bg-gradient-to-br ${card.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
 
         <div className="relative z-10 space-y-4">
@@ -38,7 +42,7 @@ const Card = memo(function Card({ card }: { card: typeof cardData[number] }) {
           →
         </div>
       </div>
-    </div>
+    </Link>
   )
 })
 

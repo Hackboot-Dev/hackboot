@@ -8,6 +8,7 @@
     "about": "À propos",
     "contact": "Contact",
     "clientArea": "Espace Client",
+    "login": "Connexion",
     "getStarted": "Commencer"
   },
   "hero": {
@@ -150,8 +151,6 @@
       "performance": "Performance",
       "about": "À propos",
       "careers": "Carrières",
-      "press": "Presse",
-      "partners": "Partenaires",
       "documentation": "Documentation",
       "api": "API",
       "support": "Support",
@@ -288,7 +287,7 @@
       "heading": "Les valeurs qui nous définissent",
       "description": "Nos valeurs fondamentales guident chaque décision et action au sein de Hackboot.",
       "title": "Nos valeurs",
-      "transparency": "Transparence", 
+      "transparency": "Transparence",
       "growth": "Esprit de croissance",
       "quality": "Obsédés par la qualité",
       "responsibility": "Responsables par conception",
@@ -579,106 +578,140 @@
     "subtitle": "Des services sur-mesure pour les joueurs et équipes qui exigent la perfection.",
     "cta": "Parler à un expert",
     "metrics": [
-      { "id": "uptime", "value": "99,9 %", "label": "Disponibilité garantie" },
-      { "id": "clients", "value": "120+", "label": "Clients pro actifs" },
-      { "id": "regions", "value": "8", "label": "Régions couvertes" }
+      {
+        "id": "uptime",
+        "value": "99,9 %",
+        "label": "Disponibilité garantie"
+      },
+      {
+        "id": "clients",
+        "value": "120+",
+        "label": "Clients pro actifs"
+      },
+      {
+        "id": "regions",
+        "value": "8",
+        "label": "Régions couvertes"
+      }
     ],
     "pillarsHeading": {
-      "title": "Nos piliers",
-      "subtitle": "Une couverture complète du déploiement technique à l’accompagnement quotidien."
+      "title": "Ce qu'on propose",
+      "subtitle": "Du support technique jusqu'à l'accompagnement quotidien."
     },
     "pillars": [
       {
         "id": "security",
-        "title": "Sécurité proactive",
-        "description": "Protection multi-couches, audits continus et supervision anti-cheat pour rester indétectable.",
+        "title": "Sécurité avancée",
+        "description": "Protection multi-couches et surveillance anti-cheat continue pour rester indétectable.",
         "bullets": [
           "Surveillance anti-cheat 24/7",
-          "Kernel shield propriétaire",
-          "Chiffrement E2E permanent"
+          "Protection kernel propriétaire",
+          "Chiffrement de bout en bout"
         ]
       },
       {
         "id": "performance",
-        "title": "Performance calibrée",
-        "description": "Clusters bare-metal, tuning GPU frame-by-frame et pipelines CI/CD pensés pour le compétitif.",
+        "title": "Haute performance",
+        "description": "Serveurs dédiés, optimisation GPU poussée et déploiements automatiques.",
         "bullets": [
-          "Clusters bare-metal dédiés",
-          "Optimisation GPU à la frame",
-          "Monitoring de latence en direct"
+          "Serveurs dédiés haute performance",
+          "Optimisation GPU maximale",
+          "Suivi de latence en temps réel"
         ]
       },
       {
         "id": "partnership",
-        "title": "Partenariat dédié",
-        "description": "Account manager senior, playbooks sur-mesure et support instantané sur nos canaux privés.",
+        "title": "Support dédié",
+        "description": "Responsable de compte personnel, guides sur-mesure et support direct sur nos canaux privés.",
         "bullets": [
-          "Account manager dédié",
-          "Playbooks personnalisés",
-          "Escalade instantanée sur Discord"
+          "Responsable de compte dédié",
+          "Guides personnalisés",
+          "Support prioritaire sur Discord"
+        ]
+      },
+      {
+        "id": "infrastructure",
+        "title": "Infrastructure cloud",
+        "description": "Déploiement rapide, basculement automatique et sauvegardes continues.",
+        "bullets": [
+          "Réseau 10 Gbps sécurisé",
+          "Sauvegarde automatique",
+          "Intégration API complète"
         ]
       }
     ],
     "solutions": {
-      "title": "Des modules alignés sur vos objectifs",
-      "subtitle": "Combinez nos briques pour un parcours fluide du déploiement initial à l’assistance quotidienne.",
+      "title": "Nos services",
+      "subtitle": "Choisissez les services adaptés à vos besoins.",
       "items": [
         {
           "id": "cloud",
-          "title": "Cloud Ops & Scaling",
-          "description": "Provisionnement automatisé, régions multiples et pipelines CI/CD pensés pour le jeu compétitif.",
+          "title": "Cloud & évolutivité",
+          "description": "Déploiement automatique, plusieurs régions disponibles et infrastructure adaptée au jeu compétitif.",
           "linkLabel": "Voir les offres"
         },
         {
           "id": "competitive",
-          "title": "Labs Anti-Cheat",
-          "description": "Reverse engineering continu, correctifs jour 0 et protocoles d’audit pour rester indétectable.",
-          "linkLabel": "Explorer le catalogue"
+          "title": "Sécurité Anti-Cheat",
+          "description": "Analyse continue, mises à jour rapides et vérifications de sécurité pour rester indétectable.",
+          "linkLabel": "Voir les jeux"
         },
         {
           "id": "custom",
-          "title": "Coaching & Integrations",
-          "description": "Sessions 1:1, assistance en direct et intégrations personnalisées à vos outils existants.",
-          "linkLabel": "Planifier un call"
+          "title": "Support & Intégrations",
+          "description": "Support personnalisé, assistance directe et intégrations avec vos outils.",
+          "linkLabel": "Nous contacter"
         }
       ]
     },
     "process": {
-      "title": "Un cadre éprouvé",
-      "subtitle": "Notre équipe vous accompagne de la découverte au maintien opérationnel sans rupture.",
+      "title": "Notre méthode",
+      "subtitle": "On vous accompagne de A à Z.",
       "steps": [
         {
           "id": "discover",
-          "title": "Kick-off & audit",
-          "description": "Cartographie des besoins, objectifs de performance et contraintes de sécurité."
+          "title": "Analyse initiale",
+          "description": "On identifie vos besoins, vos objectifs et vos contraintes."
         },
         {
           "id": "prototype",
-          "title": "Prototype guidé",
-          "description": "Mise en place d’un environnement test avec préconfigurations adaptées à votre roster."
+          "title": "Phase de test",
+          "description": "Mise en place d'un environnement de test adapté à votre équipe."
         },
         {
           "id": "deploy",
-          "title": "Déploiement orchestré",
-          "description": "Activation progressive, supervision conjointe et documentation de référence."
+          "title": "Mise en production",
+          "description": "Activation progressive avec suivi et documentation complète."
         },
         {
           "id": "optimize",
-          "title": "Optimisation continue",
-          "description": "Revues mensuelles, benchmarks et ajustements proactifs basés sur les retours terrain."
+          "title": "Amélioration continue",
+          "description": "Suivi régulier et ajustements selon vos retours."
         }
       ]
     },
     "contact": {
-      "title": "Prendre rendez-vous",
-      "description": "Nos équipes vous répondent sous 24h pour évaluer vos besoins et préparer un plan de déploiement.",
-      "cta": "Planifier un call",
+      "title": "Discutons de votre projet",
+      "description": "Nos équipes vous répondent sous 24h.",
+      "cta": "Nous contacter",
       "metrics": [
-        { "id": "sla", "value": "<5 min", "label": "Temps de réponse moyen" },
-        { "id": "coverage", "value": "24/7", "label": "Support global" },
-        { "id": "satisfaction", "value": "98 %", "label": "Satisfaction client" }
+        {
+          "id": "sla",
+          "value": "<5 min",
+          "label": "Temps de réponse moyen"
+        },
+        {
+          "id": "coverage",
+          "value": "24/7",
+          "label": "Support global"
+        },
+        {
+          "id": "satisfaction",
+          "value": "98 %",
+          "label": "Satisfaction client"
+        }
       ],
-      "note": "Un canal prioritaire Discord & WhatsApp est activé dès la signature."
+      "note": "Canal prioritaire Discord & WhatsApp disponible."
     }
   },
   "premium": {
@@ -686,6 +719,8 @@
     "title": "PREMIUM",
     "highlight": "UNLIMITED",
     "description": "L'expérience gaming ultime. Performances maximales, catalogue complet, offres flexibles.",
+    "plansTitle": "Nos Offres Premium",
+    "popularBadge": "Populaire",
     "benefits": [
       "Accès illimité à tous les jeux",
       "Performances GPU RTX 4090",
@@ -694,6 +729,10 @@
       "Mises à jour gratuites à vie",
       "HWID Spoofer inclus"
     ],
+    "plansHeading": {
+      "title": "NOS OFFRES",
+      "subtitle": "Choisissez la formule qui correspond à vos besoins"
+    },
     "featuresHeading": {
       "title": "AVANTAGES RÉSERVÉS",
       "subtitle": "Découvrez ce qui rend notre offre Premium exceptionnelle"
@@ -992,37 +1031,751 @@
     "plans": {
       "essentiel": {
         "name": "Pack Essentiel",
-        "description": "Performances fiables et accès complet au configurateur pour démarrer immédiatement.",
+        "description": "L'essentiel pour démarrer avec 28h de jeu communautaire en 1080p/60FPS.",
         "billing": "par mois",
         "features": [
-          "Accès à l'infrastructure cloud standard",
-          "Support communautaire",
-          "Mises à jour de sécurité régulières",
-          "Catalogue de jeux populaire inclus"
+          "28h de jeu communautaire par mois",
+          "Résolution 1080p à 60 FPS",
+          "Accès à tous les jeux communautaires",
+          "Pas d'accès à PulseForge",
+          "Dépassement : 0,99 €/h"
         ]
       },
       "avantage": {
         "name": "Pack Avantage",
-        "description": "Puissance supplémentaire et support prioritaire pour une expérience optimisée.",
+        "description": "Plus d'heures et de meilleures performances en heures creuses avec 50h de jeu.",
         "billing": "par mois",
         "features": [
-          "Performances GPU avancées",
-          "Support prioritaire 24/7",
-          "Accès aux configurations premium",
-          "Tableau de bord analytique en temps réel"
+          "50h de jeu communautaire par mois",
+          "Résolution 1080p/60 FPS",
+          "1440p/120 FPS en heures creuses",
+          "Accès à tous les jeux communautaires",
+          "Pas d'accès à PulseForge",
+          "Dépassement : 0,89 €/h"
         ]
       },
       "élite": {
         "name": "Pack Élite",
-        "description": "Infrastructure dédiée et sécurité maximale pour les besoins les plus exigeants.",
+        "description": "L'expérience ultime avec accès à PulseForge et performances maximales en 1440p/120.",
         "billing": "par mois",
         "features": [
-          "Machine virtuelle dédiée RTX 4090",
-          "HWID Spoofer illimité",
-          "Consultant technique personnel",
-          "Mises à jour et patchs instantanés"
+          "65h de jeu communautaire par mois",
+          "8h de jeu PulseForge par mois",
+          "Résolution 1440p à 120 FPS",
+          "Accès exclusif à PulseForge",
+          "Accès à tous les jeux communautaires",
+          "Dépassement : 0,79 €/h communautaire",
+          "Dépassement : 1,79 €/h PulseForge"
         ]
       }
+    }
+  },
+  "login": {
+    "badge": "Connexion sécurisée",
+    "title": "Connexion",
+    "subtitle": "Accédez à votre espace Hackboot",
+    "form": {
+      "email": {
+        "label": "Email",
+        "placeholder": "votre@email.com"
+      },
+      "password": {
+        "label": "Mot de passe",
+        "placeholder": "••••••••"
+      },
+      "forgotPassword": "Mot de passe oublié ?",
+      "submit": "Se connecter",
+      "submitting": "Connexion..."
+    },
+    "errors": {
+      "generic": "Hmm, ces identifiants ne correspondent pas. Vérifie ton email et ton mot de passe !",
+      "invalidCredentials": "Hmm, ces identifiants ne correspondent pas. Vérifie ton email et ton mot de passe !"
+    },
+    "noAccount": {
+      "text": "Pas encore de compte ?",
+      "link": "Créer un compte"
+    }
+  },
+  "forgotPassword": {
+    "badge": "Récupération de compte",
+    "title": "Mot de passe oublié ?",
+    "subtitle": "Pas de souci, on va t'aider à récupérer ton compte",
+    "form": {
+      "email": {
+        "label": "Email",
+        "placeholder": "votre@email.com"
+      },
+      "submit": "Envoyer le lien",
+      "submitting": "Envoi en cours..."
+    },
+    "errors": {
+      "generic": "Une erreur est survenue. Réessaye dans quelques instants.",
+      "invalidEmail": "Hmm, cet email ne semble pas valide. Vérifie-le !"
+    },
+    "successMessage": "Si un compte existe avec cette adresse email, un lien de réinitialisation a été envoyé.",
+    "successNote": "Vérifie ta boîte mail (et tes spams) dans quelques minutes.",
+    "backToLogin": "Retour à la connexion"
+  },
+  "gamesCarousel": {
+    "title": "Jeux Disponibles",
+    "subtitle": "Clique ou déplace pour explorer notre catalogue de jeux",
+    "viewAll": "Voir tous les jeux"
+  },
+  "premiumPlansSection": {
+    "title": "Choisis Ton Plan Premium",
+    "subtitle": "Des formules flexibles adaptées à tous les joueurs",
+    "cta": "Découvrir les offres"
+  },
+  "statsBar": {
+    "users": {
+      "value": "100K+",
+      "label": "Utilisateurs actifs"
+    },
+    "uptime": {
+      "value": "99.9%",
+      "label": "Uptime garanti"
+    },
+    "latency": {
+      "value": "<5ms",
+      "label": "Latence moyenne"
+    },
+    "games": {
+      "value": "10+",
+      "label": "Jeux supportés"
+    }
+  },
+  "unifiedFeatures": {
+    "badge": "Pourquoi Hackboot",
+    "title": "Excellence sur tous les fronts",
+    "subtitle": "Gaming, sécurité et infrastructure cloud de classe mondiale"
+  },
+  "socialProof": {
+    "badge": "Ils nous font confiance",
+    "title": "Rejoignez des milliers de joueurs satisfaits",
+    "subtitle": "Découvrez ce que nos utilisateurs pensent de Hackboot",
+    "avgRating": "Note moyenne",
+    "totalReviews": "Avis positifs",
+    "satisfaction": "Satisfaction",
+    "testimonials": [
+      {
+        "name": "Alex M.",
+        "role": "Pro Player",
+        "text": "Hackboot a complètement transformé mon expérience gaming. Performances exceptionnelles et latence minimale.",
+        "rating": 5
+      },
+      {
+        "name": "Sarah K.",
+        "role": "Streamer",
+        "text": "La meilleure solution cloud gaming que j'ai testée. Support réactif et infrastructure ultra-stable.",
+        "rating": 5
+      },
+      {
+        "name": "Tom R.",
+        "role": "Esports Team",
+        "text": "Notre équipe utilise Hackboot depuis 6 mois. Zéro problème, performances au rendez-vous. Recommandé à 100%.",
+        "rating": 5
+      }
+    ]
+  },
+  "faq": {
+    "badge": "Questions fréquentes",
+    "title": "Vous avez des questions ?",
+    "subtitle": "Trouvez rapidement les réponses aux questions les plus courantes",
+    "moreQuestions": "Vous avez d'autres questions ?",
+    "contactButton": "Contactez notre support",
+    "questions": [
+      {
+        "question": "Quels sont les jeux disponibles sur Hackboot ?",
+        "answer": "Hackboot supporte plus de 10 jeux populaires incluant des FPS compétitifs, des jeux de tir tactiques et des battle royales. Vous pouvez consulter la liste complète des jeux supportés sur notre page Games. Chaque jeu dispose de fonctionnalités optimisées et régulièrement mises à jour."
+      },
+      {
+        "question": "Quelles sont les différentes formules d'abonnement Premium ?",
+        "answer": "Nous proposons trois formules Premium : Basic (accès standard aux features essentielles), Pro (fonctionnalités avancées + support prioritaire) et Elite (accès complet + développement custom). Les prix et détails sont disponibles sur notre page Premium. Tous les abonnements sont sans engagement."
+      },
+      {
+        "question": "Comment puis-je contacter le support technique ?",
+        "answer": "Notre support est accessible 24/7 via la page Contact du site. Les abonnés Premium bénéficient d'un temps de réponse prioritaire et d'une assistance dédiée. Vous pouvez également utiliser le chatbot intégré au site pour obtenir des réponses instantanées aux questions courantes."
+      },
+      {
+        "question": "Quelles sont les fonctionnalités principales de Hackboot ?",
+        "answer": "Hackboot offre des systèmes de sécurité avancés, une infrastructure cloud ultra-rapide (<5ms de latence), des mises à jour automatiques en temps réel, un support client disponible 24/7, et une interface optimisée pour les performances. Consultez notre page Services pour plus de détails sur chaque fonctionnalité."
+      },
+      {
+        "question": "Est-ce que Hackboot garantit la sécurité de mes données ?",
+        "answer": "Oui, la sécurité est notre priorité absolue. Nous utilisons un chiffrement de niveau militaire, une protection DDoS avancée, des systèmes anti-détection sophistiqués et une authentification multi-facteurs. Toutes vos données sont protégées et anonymisées. Plus d'infos sur notre page About."
+      },
+      {
+        "question": "Comment se déroule l'inscription sur Hackboot ?",
+        "answer": "L'inscription est simple et rapide : créez votre compte via la page Login, choisissez votre formule Premium sur la page dédiée, et accédez instantanément à votre espace membre. Le processus est entièrement guidé et sécurisé. Aucune information bancaire n'est stockée sur nos serveurs."
+      },
+      {
+        "question": "Quelle est la latence moyenne du service ?",
+        "answer": "Hackboot garantit une latence moyenne inférieure à 5ms grâce à notre infrastructure cloud distribuée mondialement. Nous disposons de serveurs dans plusieurs régions pour assurer des performances optimales quel que soit votre emplacement géographique."
+      },
+      {
+        "question": "Les mises à jour sont-elles automatiques ?",
+        "answer": "Oui, toutes les mises à jour sont automatiques et déployées en temps réel sans interruption de service. Notre système de mise à jour intelligente garantit une compatibilité permanente avec les dernières versions des jeux et des systèmes de sécurité, avec un uptime garanti de 99.9%."
+      }
+    ]
+  },
+  "finalCTA": {
+    "badge": "Prêt à commencer ?",
+    "title": "Rejoignez l'élite du gaming",
+    "subtitle": "Commencez votre aventure avec Hackboot dès aujourd'hui. Performances maximales, sécurité totale, support 24/7.",
+    "primaryButton": "Commencer maintenant",
+    "secondaryButton": "Parler à un expert",
+    "feature1": "Installation en 5 minutes",
+    "feature2": "Sans engagement",
+    "feature3": "Support 24/7",
+    "disclaimer": "Plus de 100 000 joueurs nous font déjà confiance"
+  },
+  "careers": {
+    "badge": "Rejoignez l'équipe",
+    "title": "Construisons l'avenir du gaming ensemble",
+    "subtitle": "Rejoignez une équipe passionnée qui repousse les limites du cloud gaming. Travaillez sur des projets innovants avec les meilleures technologies.",
+    "stats": {
+      "openings": "Postes ouverts",
+      "countries": "Pays",
+      "remote": "100% Remote",
+      "growth": "Croissance annuelle"
+    },
+    "filters": {
+      "all": "Tous les postes",
+      "department": "Département",
+      "type": "Type",
+      "location": "Localisation"
+    },
+    "departments": {
+      "technical": "Équipe Technique",
+      "content": "Contenu et Partenariats",
+      "marketing": "Marketing et Ventes",
+      "support": "Support Client"
+    },
+    "types": {
+      "full-time": "Temps plein",
+      "part-time": "Temps partiel",
+      "contract": "Contrat",
+      "internship": "Stage"
+    },
+    "jobs": {
+      "cloud-engineer": {
+        "title": "Ingénieur Cloud",
+        "shortDescription": "Concevez et gérez notre infrastructure cloud pour assurer performance et scalabilité.",
+        "description": "Rejoignez notre équipe technique pour construire et maintenir une infrastructure cloud robuste et évolutive.",
+        "responsibilities": [
+          "Concevoir et déployer des architectures cloud (AWS, GCP, Azure)",
+          "Automatiser les déploiements et la gestion d'infrastructure",
+          "Optimiser les coûts et les performances cloud",
+          "Assurer la haute disponibilité et la résilience des services",
+          "Collaborer avec les équipes dev pour l'intégration continue"
+        ],
+        "requirements": [
+          "3+ ans d'expérience en architecture cloud",
+          "Maîtrise d'au moins une plateforme cloud majeure",
+          "Expérience avec Kubernetes, Docker",
+          "Connaissance Terraform, CloudFormation ou Pulumi",
+          "Compréhension des principes DevOps"
+        ],
+        "benefits": [
+          "Remote 100%, travaillez d'où vous voulez",
+          "Équipement premium fourni",
+          "Budget formations et certifications cloud",
+          "Projets techniques innovants",
+          "Équipe passionnée et internationale"
+        ]
+      },
+      "frontend-backend-developer": {
+        "title": "Développeur Front-end / Back-end",
+        "shortDescription": "Développez des applications web modernes avec React, Next.js et Node.js.",
+        "description": "Nous cherchons un·e développeur·se polyvalent·e pour travailler sur toute la stack de notre plateforme.",
+        "responsibilities": [
+          "Développer des interfaces utilisateur modernes (React, Next.js)",
+          "Créer des APIs RESTful performantes (Node.js, Express)",
+          "Implémenter des fonctionnalités full-stack bout en bout",
+          "Optimiser les performances frontend et backend",
+          "Participer aux décisions d'architecture technique"
+        ],
+        "requirements": [
+          "2+ ans d'expérience en développement web",
+          "Maîtrise de React et Next.js",
+          "Expérience avec Node.js et bases de données",
+          "Connaissances TypeScript",
+          "Passion pour le code propre et les bonnes pratiques"
+        ],
+        "benefits": [
+          "Stack technique moderne et innovante",
+          "Flexibilité totale d'horaires",
+          "Remote-first depuis le jour un",
+          "Culture gaming et passion commune",
+          "Équipe bienveillante et collaborative"
+        ]
+      },
+      "network-specialist": {
+        "title": "Spécialiste Réseau",
+        "shortDescription": "Assurez la performance et la sécurité de notre infrastructure réseau mondiale.",
+        "description": "Rejoignez notre équipe pour gérer et optimiser notre infrastructure réseau à l'échelle mondiale.",
+        "responsibilities": [
+          "Concevoir et maintenir l'architecture réseau",
+          "Optimiser les performances réseau et la latence",
+          "Implémenter des solutions CDN et load balancing",
+          "Gérer la sécurité réseau (firewalls, VPN, DDoS protection)",
+          "Résoudre les incidents réseau critiques"
+        ],
+        "requirements": [
+          "3+ ans d'expérience en administration réseau",
+          "Maîtrise des protocoles TCP/IP, DNS, BGP",
+          "Expérience avec CDN et load balancers",
+          "Connaissance des outils de monitoring réseau",
+          "Certifications réseau appréciées (CCNA, CCNP)"
+        ],
+        "benefits": [
+          "Infrastructure mondiale à gérer",
+          "Technologies réseau de pointe",
+          "Remote avec équipement fourni",
+          "Formation continue et certifications",
+          "Équipe tech passionnée"
+        ]
+      },
+      "security-expert": {
+        "title": "Expert en Sécurité",
+        "shortDescription": "Protégez notre infrastructure et nos utilisateurs contre les menaces cybernétiques.",
+        "description": "Nous cherchons un·e expert·e en sécurité pour renforcer la protection de notre plateforme et nos utilisateurs.",
+        "responsibilities": [
+          "Auditer la sécurité de notre infrastructure et applications",
+          "Implémenter des mesures de sécurité (WAF, IDS/IPS, SIEM)",
+          "Gérer les incidents de sécurité et les réponses",
+          "Former les équipes aux bonnes pratiques de sécurité",
+          "Effectuer des pentests et assessments réguliers"
+        ],
+        "requirements": [
+          "4+ ans d'expérience en cybersécurité",
+          "Maîtrise des outils de sécurité (SIEM, WAF, IDS/IPS)",
+          "Expérience en pentesting et vulnerability assessment",
+          "Connaissance OWASP Top 10, SANS Top 25",
+          "Certifications sécurité appréciées (CEH, OSCP, CISSP)"
+        ],
+        "benefits": [
+          "Budget certifications et formations sécurité",
+          "Technologies de sécurité de pointe",
+          "Projets challengeants et variés",
+          "Remote avec flexibilité totale",
+          "Culture de la sécurité forte"
+        ]
+      },
+      "game-acquisition-manager": {
+        "title": "Responsable Acquisitions de Jeux",
+        "shortDescription": "Identifiez et acquérez les meilleurs jeux pour notre plateforme cloud gaming.",
+        "description": "Rejoignez notre équipe contenu pour enrichir notre catalogue avec les jeux les plus excitants du marché.",
+        "responsibilities": [
+          "Identifier et évaluer les opportunités d'acquisition de jeux",
+          "Négocier les contrats avec les développeurs et éditeurs",
+          "Gérer les relations avec les partenaires gaming",
+          "Analyser les tendances du marché du jeu vidéo",
+          "Définir la stratégie d'acquisition de contenu"
+        ],
+        "requirements": [
+          "3+ ans d'expérience dans l'industrie du jeu vidéo",
+          "Réseau établi dans l'industrie gaming",
+          "Excellentes compétences en négociation",
+          "Connaissance approfondie du marché du jeu vidéo",
+          "Passion pour les jeux et les nouvelles tendances"
+        ],
+        "benefits": [
+          "Travaillez avec les plus grands studios",
+          "Influence directe sur notre catalogue",
+          "Participation aux événements gaming (GDC, Gamescom)",
+          "Remote avec déplacements occasionnels",
+          "Équipe passionnée de gaming"
+        ]
+      },
+      "partnership-manager": {
+        "title": "Gestionnaire de Partenariats",
+        "shortDescription": "Développez des partenariats stratégiques pour accélérer notre croissance.",
+        "description": "Nous cherchons un·e gestionnaire de partenariats pour développer notre écosystème et nos collaborations stratégiques.",
+        "responsibilities": [
+          "Identifier et développer des partenariats stratégiques",
+          "Négocier et structurer les accords de partenariat",
+          "Gérer les relations avec les partenaires existants",
+          "Mesurer la performance des partenariats",
+          "Collaborer avec les équipes produit et marketing"
+        ],
+        "requirements": [
+          "2+ ans d'expérience en développement de partenariats",
+          "Excellentes compétences relationnelles et de négociation",
+          "Capacité à identifier des opportunités stratégiques",
+          "Expérience dans la tech ou le gaming appréciée",
+          "Anglais courant indispensable"
+        ],
+        "benefits": [
+          "Impact direct sur la croissance de l'entreprise",
+          "Réseau international de partenaires",
+          "Remote avec flexibilité géographique",
+          "Culture entrepreneuriale",
+          "Équipe dynamique et ambitieuse"
+        ]
+      },
+      "content-curator": {
+        "title": "Curateur de Contenu",
+        "shortDescription": "Créez et gérez du contenu engageant pour notre communauté de gamers.",
+        "description": "Rejoignez notre équipe contenu pour créer des expériences engageantes et du contenu de qualité pour nos utilisateurs.",
+        "responsibilities": [
+          "Créer et gérer le contenu de la plateforme",
+          "Organiser les jeux en catégories et collections",
+          "Rédiger des descriptions et guides de jeux",
+          "Identifier les tendances de contenu gaming",
+          "Collaborer avec les équipes marketing et communauté"
+        ],
+        "requirements": [
+          "2+ ans d'expérience en curation de contenu ou rédaction gaming",
+          "Excellente connaissance de l'univers gaming",
+          "Compétences rédactionnelles solides",
+          "Créativité et sens de l'esthétique",
+          "Passion pour les jeux vidéo indispensable"
+        ],
+        "benefits": [
+          "Jouez et découvrez les jeux en avant-première",
+          "Influence sur l'expérience utilisateur",
+          "Remote 100%",
+          "Équipe créative et passionnée",
+          "Culture gaming forte"
+        ]
+      },
+      "digital-marketing-specialist": {
+        "title": "Spécialiste Marketing Digital",
+        "shortDescription": "Développez nos campagnes marketing pour acquérir et engager de nouveaux utilisateurs.",
+        "description": "Nous cherchons un·e spécialiste marketing digital pour booster notre croissance et notre notoriété.",
+        "responsibilities": [
+          "Créer et gérer des campagnes marketing multicanales",
+          "Optimiser les performances SEO/SEM",
+          "Gérer les campagnes paid ads (Google, Meta, TikTok)",
+          "Analyser les KPIs et optimiser le ROI",
+          "Collaborer avec les équipes contenu et produit"
+        ],
+        "requirements": [
+          "2+ ans d'expérience en marketing digital",
+          "Maîtrise de Google Ads, Meta Ads",
+          "Connaissance SEO/SEM",
+          "Compétences analytiques (Google Analytics, Mixpanel)",
+          "Expérience dans la tech ou le gaming appréciée"
+        ],
+        "benefits": [
+          "Budget marketing conséquent",
+          "Autonomie et responsabilités",
+          "Remote-first",
+          "Outils et technologies modernes",
+          "Impact mesurable sur la croissance"
+        ]
+      },
+      "public-relations-manager": {
+        "title": "Responsable Relations Publiques",
+        "shortDescription": "Développez notre image de marque et gérez nos relations avec les médias et influenceurs.",
+        "description": "Rejoignez notre équipe pour gérer notre réputation et développer notre présence médiatique dans l'industrie du gaming.",
+        "responsibilities": [
+          "Développer et exécuter la stratégie RP",
+          "Gérer les relations avec les médias gaming",
+          "Organiser des événements et conférences de presse",
+          "Collaborer avec les influenceurs et créateurs de contenu",
+          "Gérer les crises de communication si nécessaire"
+        ],
+        "requirements": [
+          "3+ ans d'expérience en relations publiques",
+          "Réseau dans les médias gaming",
+          "Excellentes compétences en communication",
+          "Expérience événementielle",
+          "Anglais courant indispensable"
+        ],
+        "benefits": [
+          "Participation aux grands événements gaming",
+          "Réseau médias et influenceurs",
+          "Visibilité et impact sur l'industrie",
+          "Remote avec déplacements",
+          "Culture collaborative"
+        ]
+      },
+      "market-analyst": {
+        "title": "Analyste de Marché",
+        "shortDescription": "Analysez les tendances du marché pour guider notre stratégie business et produit.",
+        "description": "Nous cherchons un·e analyste de marché pour nous aider à comprendre le marché du gaming et orienter nos décisions stratégiques.",
+        "responsibilities": [
+          "Analyser les tendances du marché du cloud gaming",
+          "Réaliser des études de marché et benchmarks concurrentiels",
+          "Identifier les opportunités de croissance",
+          "Produire des rapports d'analyse et recommandations",
+          "Collaborer avec les équipes produit et business"
+        ],
+        "requirements": [
+          "2+ ans d'expérience en analyse de marché",
+          "Excellentes compétences analytiques",
+          "Maîtrise d'Excel, outils de BI (Tableau, Power BI)",
+          "Connaissance du marché gaming appréciée",
+          "Esprit de synthèse et communication claire"
+        ],
+        "benefits": [
+          "Impact direct sur la stratégie de l'entreprise",
+          "Accès aux données du marché gaming",
+          "Remote 100%",
+          "Outils d'analyse de pointe",
+          "Équipe data-driven"
+        ]
+      },
+      "technical-support-agent": {
+        "title": "Agent de Support Technique",
+        "shortDescription": "Aidez nos utilisateurs à résoudre leurs problèmes techniques et profiter pleinement de notre plateforme.",
+        "description": "Rejoignez notre équipe support pour offrir une expérience client exceptionnelle à nos gamers.",
+        "responsibilities": [
+          "Répondre aux questions techniques des utilisateurs",
+          "Résoudre les problèmes techniques (connexion, performance, bugs)",
+          "Créer et maintenir la base de connaissances",
+          "Escalader les problèmes complexes aux équipes tech",
+          "Collecter les feedbacks utilisateurs"
+        ],
+        "requirements": [
+          "1+ an d'expérience en support technique",
+          "Bonnes connaissances techniques (réseau, PC, navigateurs)",
+          "Excellentes compétences en communication",
+          "Patience et empathie",
+          "Passion pour les jeux vidéo appréciée"
+        ],
+        "benefits": [
+          "Formation complète fournie",
+          "Remote avec horaires flexibles",
+          "Équipe support bienveillante",
+          "Opportunités d'évolution",
+          "Culture gaming et fun"
+        ]
+      },
+      "community-moderator": {
+        "title": "Modérateur de Communauté",
+        "shortDescription": "Animez et modérez notre communauté de gamers pour créer un environnement positif et engageant.",
+        "description": "Nous cherchons un·e modérateur·rice passionné·e pour gérer notre communauté et créer un espace accueillant pour tous.",
+        "responsibilities": [
+          "Modérer les discussions sur Discord, forums, réseaux sociaux",
+          "Animer la communauté avec des événements et challenges",
+          "Répondre aux questions de la communauté",
+          "Faire respecter les règles de la communauté",
+          "Remonter les feedbacks aux équipes produit"
+        ],
+        "requirements": [
+          "1+ an d'expérience en modération ou community management",
+          "Excellentes compétences relationnelles",
+          "Disponibilité soir et week-end (shifts flexibles)",
+          "Connaissance Discord et réseaux sociaux",
+          "Passion pour les jeux vidéo indispensable"
+        ],
+        "benefits": [
+          "Au cœur de la communauté gaming",
+          "Remote 100%",
+          "Horaires flexibles",
+          "Équipe fun et passionnée",
+          "Accès aux jeux et événements"
+        ]
+      }
+    },
+    "apply": {
+      "title": "Postuler maintenant",
+      "subtitle": "Rejoignez l'aventure Hackboot",
+      "description": "Remplissez le formulaire ci-dessous et nous reviendrons vers vous dans les 48 heures. Soyez vous-même, restez authentique.",
+      "form": {
+        "personalInfo": {
+          "title": "Informations personnelles",
+          "firstName": "Prénom",
+          "firstNamePlaceholder": "John",
+          "lastName": "Nom",
+          "lastNamePlaceholder": "Doe",
+          "email": "Email",
+          "emailPlaceholder": "john.doe@example.com",
+          "phone": "Téléphone",
+          "phonePlaceholder": "+33 6 12 34 56 78",
+          "location": "Localisation",
+          "locationPlaceholder": "Paris, France"
+        },
+        "jobInfo": {
+          "title": "Informations sur le poste",
+          "position": "Poste visé",
+          "positionPlaceholder": "Ex: Développeur Full Stack Senior",
+          "department": "Département",
+          "departmentPlaceholder": "Engineering, Design, DevOps...",
+          "startDate": "Date de disponibilité",
+          "startDatePlaceholder": "Immédiatement / Dans 1 mois / Dans 3 mois"
+        },
+        "application": {
+          "title": "Votre candidature",
+          "cv": "CV (PDF uniquement)",
+          "cvHelp": "Taille max: 5 MB - Format accepté: PDF",
+          "motivation": "Lettre de motivation",
+          "motivationPlaceholder": "Pourquoi Hackboot ? Qu'est-ce qui vous excite dans ce poste ? Soyez authentique, pas besoin de formules toutes faites.",
+          "salary": "Prétentions salariales (annuel brut)",
+          "salaryPlaceholder": "Ex: 60 000 - 80 000 €",
+          "portfolio": "Portfolio / GitHub / LinkedIn",
+          "portfolioPlaceholder": "https://github.com/votre-username"
+        },
+        "additional": {
+          "title": "Quelques questions supplémentaires",
+          "remote": "Préférence de travail",
+          "remoteOptions": {
+            "full": "100% Remote",
+            "hybrid": "Hybride",
+            "office": "Bureau"
+          },
+          "availability": "Disponibilité pour un entretien",
+          "availabilityPlaceholder": "Ex: Lundi-Vendredi après 14h",
+          "message": "Message / Questions",
+          "messagePlaceholder": "Des questions ? Des choses à nous dire ? On vous écoute."
+        },
+        "consent": {
+          "gdpr": "J'accepte que mes données soient traitées dans le cadre de ma candidature (conforme RGPD)",
+          "newsletter": "Je souhaite recevoir des actualités de Hackboot (optionnel)"
+        },
+        "submit": "Envoyer ma candidature",
+        "submitting": "Envoi en cours...",
+        "success": {
+          "title": "Candidature envoyée !",
+          "message": "Merci pour votre candidature. Notre équipe va l'examiner et reviendra vers vous dans les 48 heures.",
+          "cta": "Retour aux offres"
+        },
+        "errors": {
+          "required": "Ce champ est requis",
+          "email": "Email invalide",
+          "fileSize": "Fichier trop volumineux (max 5 MB)",
+          "fileType": "Format de fichier invalide (PDF uniquement)",
+          "general": "Une erreur est survenue. Veuillez réessayer."
+        }
+      }
+    },
+    "culture": {
+      "title": "Notre Culture",
+      "subtitle": "Ce qui nous rend vraiment différents",
+      "values": [
+        {
+          "icon": "Rocket",
+          "title": "Innovation Sans Limites",
+          "description": "Nous encourageons les idées folles. Les meilleures innovations viennent de penser différemment. Si vous avez une idée, nous vous donnons les ressources pour la tester.",
+          "details": "Chez nous, il n'y a pas de 'c'est impossible'. Chaque membre de l'équipe peut proposer et implémenter de nouvelles idées. Nous avons un budget dédié à l'expérimentation et nous célébrons les échecs comme des apprentissages."
+        },
+        {
+          "icon": "Home",
+          "title": "Remote par Design",
+          "description": "Nous sommes remote depuis le jour un. Pas de retour au bureau, pas de mode hybride forcé. Travaillez depuis votre canapé, une plage, ou une montagne. On s'en fout tant que vous délivrez.",
+          "details": "Nous n'avons jamais eu de bureau et nous n'en aurons jamais. Notre équipe est répartie sur 15+ pays et c'est comme ça qu'on l'aime. Tous nos process sont conçus pour le remote first."
+        },
+        {
+          "icon": "Heart",
+          "title": "Motivation & Équilibre",
+          "description": "On cherche des gens motivés par ce qu'ils construisent, pas juste un salaire. Mais on respecte aussi votre vie perso - pas besoin d'être H24 sur le projet.",
+          "details": "On veut des gens engagés dans leur travail, mais on n'attend pas que vous sacrifiiez votre vie. Vous avez une vie en dehors du boulot ? Parfait. Pas d'obligation d'être dans \"la grande famille\" ou de socialiser en dehors des heures de travail."
+        },
+        {
+          "icon": "Gem",
+          "title": "Excellence & Autonomie",
+          "description": "Nous embauchons les meilleurs et leur faisons confiance. Pas de micromanagement, pas de complications. Vous êtes responsable de vos résultats.",
+          "details": "On attend de vous que vous soyez autonome, proactif et responsable. En retour, vous avez une liberté totale sur comment vous travaillez. Résultats > Présence."
+        }
+      ]
+    },
+    "perks": {
+      "title": "Pourquoi nous rejoindre",
+      "subtitle": "Ce qu'on offre vraiment",
+      "items": [
+        {
+          "icon": "Globe",
+          "title": "Remote First",
+          "description": "Travaillez de n'importe où dans le monde",
+          "details": "Aucune restriction géographique. Tant que vous avez une bonne connexion internet et que vous êtes dans un fuseau horaire raisonnable, on s'en fout d'où vous êtes."
+        },
+        {
+          "icon": "DollarSign",
+          "title": "Salaire Compétitif",
+          "description": "Salaires top marché + equity",
+          "details": "On paie au-dessus du marché parce qu'on veut les meilleurs. Plus equity pour que vous soyez vraiment propriétaire de votre succès."
+        },
+        {
+          "icon": "Clock",
+          "title": "Flexibilité Totale",
+          "description": "Choisissez vos horaires, vos outils",
+          "details": "Lève-tôt ou couche-tard, on s'en fout. Mac ou PC, on s'en fout. On vous fait confiance pour organiser votre travail comme vous le voulez."
+        },
+        {
+          "icon": "TrendingUp",
+          "title": "Croissance Rapide",
+          "description": "Évoluez rapidement avec de vraies responsabilités",
+          "details": "Pas de hiérarchie rigide. Si vous délivrez, vous évoluez. Certains sont passés de junior à lead en 18 mois. Tout dépend de vous."
+        },
+        {
+          "icon": "Gamepad2",
+          "title": "Culture Gaming",
+          "description": "Sessions gaming en équipe, matériel dernier cri",
+          "details": "Gaming nights hebdomadaires, accès gratuit à tous nos jeux, et on vous file le setup gaming si vous le voulez."
+        },
+        {
+          "icon": "Sparkles",
+          "title": "Projets Passion",
+          "description": "20% du temps pour vos projets personnels",
+          "details": "À la Google, mais en mieux. 1 jour par semaine pour bosser sur ce qui vous passionne. Certains side-projects sont devenus des features de nos produits."
+        },
+        {
+          "icon": "Laptop",
+          "title": "Hardware Premium",
+          "description": "Le meilleur équipement pour travailler",
+          "details": "MacBook Pro M3 Max, écrans 4K, chaise ergonomique, budget périphériques illimité. Vous choisissez votre setup."
+        },
+        {
+          "icon": "BookOpen",
+          "title": "Formation Illimitée",
+          "description": "Budget learning sans limite",
+          "details": "Formations, conférences, livres, cours en ligne. Si ça vous aide à progresser, on paye. Pas de limite, pas de justification à rallonge."
+        }
+      ]
+    },
+    "process": {
+      "title": "Notre processus de recrutement",
+      "subtitle": "Simple, transparent et rapide (2-3 semaines max)",
+      "steps": [
+        {
+          "number": "1",
+          "title": "Candidature",
+          "description": "Envoyez votre CV et portfolio via notre formulaire de contact",
+          "duration": "5 minutes",
+          "details": "On ne veut pas de lettre de motivation formelle. Juste votre CV et vos meilleurs projets. Montrez-nous ce que vous avez construit, pas ce que vous savez écrire.",
+          "tips": "Un bon GitHub/portfolio vaut mieux que 1000 mots. Soyez direct et montrez vos compétences."
+        },
+        {
+          "number": "2",
+          "title": "Premier Échange",
+          "description": "Call de 30min avec un membre de l'équipe pour se connaître",
+          "duration": "30 minutes",
+          "details": "Discussion informelle pour comprendre qui vous êtes, ce que vous cherchez, et si on match. Pas d'interview formatée, juste une vraie conversation.",
+          "tips": "Soyez vous-même. On cherche des humains, pas des robots corporate. Posez-nous des questions difficiles."
+        },
+        {
+          "number": "3",
+          "title": "Test Technique",
+          "description": "Challenge technique réaliste basé sur notre stack (2-4h max)",
+          "duration": "2-4 heures",
+          "details": "Un vrai problème qu'on rencontre au quotidien, pas un exercice théorique. Vous avez 1 semaine pour le faire quand vous voulez. On évalue votre approche, pas juste le code.",
+          "tips": "Qualité > Rapidité. Écrivez du code comme si vous alliez le maintenir. Commentez vos choix techniques."
+        },
+        {
+          "number": "4",
+          "title": "Rencontre Équipe",
+          "description": "Session de 1h avec plusieurs membres de l'équipe",
+          "duration": "60 minutes",
+          "details": "Review de votre test technique + discussion avec 2-3 membres de l'équipe. On vérifie le fit technique ET culturel. C'est autant pour vous évaluer que pour vous permettre de nous évaluer.",
+          "tips": "Challengez-nous. Demandez-nous ce qui nous frustre, nos plus gros fails. Une team qui n'a rien à cacher n'a pas peur de ces questions."
+        },
+        {
+          "number": "5",
+          "title": "Offre & Onboarding",
+          "description": "On vous fait une offre claire et transparente, puis on vous aide à démarrer",
+          "duration": "48 heures max",
+          "details": "Salaire, equity, avantages : tout est sur la table. Pas d'aller-retours interminables, on vous fait notre meilleure offre d'entrée. Si c'est oui, vous commencez quand vous voulez.",
+          "tips": "Prenez le temps de réfléchir. On veut que vous soyez sûr à 100%. Une fois à bord, on vous accompagne avec un buddy dédié pour votre premier mois."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Vous ne trouvez pas le poste idéal ?",
+      "description": "Envoyez-nous une candidature spontanée, nous sommes toujours à la recherche de talents exceptionnels.",
+      "button": "Candidature spontanée"
     }
   }
 }

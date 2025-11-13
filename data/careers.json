@@ -1,0 +1,134 @@
+{
+  "departments": [
+    {
+      "id": "technical",
+      "icon": "Code",
+      "color": "from-purple-500 to-violet-600"
+    },
+    {
+      "id": "content",
+      "icon": "Palette",
+      "color": "from-pink-500 to-rose-600"
+    },
+    {
+      "id": "marketing",
+      "icon": "TrendingUp",
+      "color": "from-cyan-500 to-blue-600"
+    },
+    {
+      "id": "support",
+      "icon": "Headphones",
+      "color": "from-emerald-500 to-teal-600"
+    }
+  ],
+  "jobs": [
+    {
+      "id": "cloud-engineer",
+      "department": "technical",
+      "type": "full-time",
+      "remote": true,
+      "location": "Remote (Worldwide)",
+      "experience": "3+ years",
+      "posted": "2025-11-06"
+    },
+    {
+      "id": "frontend-backend-developer",
+      "department": "technical",
+      "type": "full-time",
+      "remote": true,
+      "location": "Remote (Worldwide)",
+      "experience": "2+ years",
+      "posted": "2025-11-06"
+    },
+    {
+      "id": "network-specialist",
+      "department": "technical",
+      "type": "full-time",
+      "remote": true,
+      "location": "Remote (Worldwide)",
+      "experience": "3+ years",
+      "posted": "2025-11-06"
+    },
+    {
+      "id": "security-expert",
+      "department": "technical",
+      "type": "full-time",
+      "remote": true,
+      "location": "Remote (Worldwide)",
+      "experience": "4+ years",
+      "posted": "2025-11-06"
+    },
+    {
+      "id": "game-acquisition-manager",
+      "department": "content",
+      "type": "full-time",
+      "remote": true,
+      "location": "Remote (Worldwide)",
+      "experience": "3+ years",
+      "posted": "2025-11-06"
+    },
+    {
+      "id": "partnership-manager",
+      "department": "content",
+      "type": "full-time",
+      "remote": true,
+      "location": "Remote (Worldwide)",
+      "experience": "2+ years",
+      "posted": "2025-11-06"
+    },
+    {
+      "id": "content-curator",
+      "department": "content",
+      "type": "full-time",
+      "remote": true,
+      "location": "Remote (Worldwide)",
+      "experience": "2+ years",
+      "posted": "2025-11-06"
+    },
+    {
+      "id": "digital-marketing-specialist",
+      "department": "marketing",
+      "type": "full-time",
+      "remote": true,
+      "location": "Remote (Worldwide)",
+      "experience": "2+ years",
+      "posted": "2025-11-06"
+    },
+    {
+      "id": "public-relations-manager",
+      "department": "marketing",
+      "type": "full-time",
+      "remote": true,
+      "location": "Remote (Worldwide)",
+      "experience": "3+ years",
+      "posted": "2025-11-06"
+    },
+    {
+      "id": "market-analyst",
+      "department": "marketing",
+      "type": "full-time",
+      "remote": true,
+      "location": "Remote (Worldwide)",
+      "experience": "2+ years",
+      "posted": "2025-11-06"
+    },
+    {
+      "id": "technical-support-agent",
+      "department": "support",
+      "type": "full-time",
+      "remote": true,
+      "location": "Remote (Worldwide)",
+      "experience": "1+ year",
+      "posted": "2025-11-06"
+    },
+    {
+      "id": "community-moderator",
+      "department": "support",
+      "type": "full-time",
+      "remote": true,
+      "location": "Remote (Worldwide)",
+      "experience": "1+ year",
+      "posted": "2025-11-06"
+    }
+  ]
+}

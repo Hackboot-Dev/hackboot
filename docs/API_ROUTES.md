@@ -1,97 +1,80 @@
-# Routes API - HACKBOOT
+# 🚀 API Routes - Hackboot
 
-## Table des matières
-- [Routes API](#routes-api)
-  - [Authentification ADS](#authentification-ads)
-  - [Produits](#produits)
+**SOURCE DE VÉRITÉ** pour toutes les routes API du projet.
 
 ---
 
-## Authentification ADS
+## Table des matières
+- [Routes Carrières](#routes-carrières)
 
-### POST /api/ads/login
+---
 
-**Description**: Authentification pour le panneau d'administration ADS
+## Routes Carrières
 
-**Permissions**: Aucune (public endpoint)
+### POST /api/careers/apply
+**Description**: Soumet une candidature et envoie les informations structurées à Telegram
 
-**Body Parameters**:
-```json
-{
-  "userId": "string",
-  "password": "string"
-}
-```
+**Permission**: Publique (aucune authentification requise)
 
-**Réponse succès (200)**:
+**Params**:
+- `firstName` (string, required) - Prénom du candidat
+- `lastName` (string, required) - Nom du candidat
+- `email` (string, required) - Email du candidat
+- `phone` (string, optional) - Téléphone du candidat
+- `location` (string, optional) - Localisation du candidat
+- `position` (string, required) - Poste visé
+- `department` (string, optional) - Département
+- `startDate` (string, optional) - Date de disponibilité
+- `motivation` (string, required) - Lettre de motivation
+- `salary` (string, required) - Prétentions salariales
+- `portfolio` (string, optional) - Portfolio / GitHub / LinkedIn
+- `remote` (string, required) - Préférence de travail (full/hybrid/office)
+- `availability` (string, optional) - Disponibilité pour un entretien
+- `message` (string, optional) - Message / Questions
+- `gdpr` (boolean, required) - Consentement RGPD
+- `newsletter` (boolean, optional) - Souscription newsletter
+- `cv` (string, required) - CV en base64 (PDF)
+- `cvFileName` (string, required) - Nom du fichier CV
+
+**Response Success (200)**:
 ```json
 {
   "success": true,
-  "message": "Authentification réussie",
-  "user": {
-    "id": "admin"
-  }
+  "message": "Application submitted successfully"
 }
 ```
 
-**Réponse erreur (401)**:
+**Response Error (400)**:
 ```json
 {
-  "message": "Identifiants invalides"
+  "error": "Missing required fields"
 }
 ```
 
-**Fichier source**: `/app/api/ads/login/route.ts`
-**Fichier credentials**: `/data/users.json`
+**Response Error (500)**:
+```json
+{
+  "error": "Failed to submit application"
+}
+```
+
+**Intégration Telegram**:
+- Token: `8496898839:AAEd01EKYQwxPIqCtNtaJ1VqOsXGSTgTzi4`
+- Chat ID: Défini dans `TELEGRAM_CHAT_ID` (env variable)
+- Envoie 2 messages :
+  1. Message formaté avec toutes les infos du candidat (HTML)
+  2. Document PDF du CV
+
+**Fichiers associés**:
+- Route API: `/app/api/careers/apply/route.ts`
+- Page formulaire: `/app/[locale]/careers/apply/page.tsx`
+- Traductions: `/public/locales/*/common.json` → `careers.apply`
 
 ---
 
-## Produits
+## Notes importantes
 
-### GET /api/products/[slug]/images
-
-**Description**: Récupère la liste des images pour un produit gaming
-
-**Permissions**: Aucune (public endpoint)
-
-**URL Parameters**:
-- `slug`: Identifiant du produit (ex: `gaming-overwatch-phantom`)
-
-**Réponse succès (200)**:
-```json
-{
-  "images": [
-    "/images/products/overwatch/phantom/main.png",
-    "/images/products/overwatch/phantom/screenshot1.png"
-  ]
-}
-```
-
-**Fichier source**: `/app/api/products/[slug]/images/route.ts`
-
----
-
-## Conventions
-
-### Format des routes
-- Toutes les routes API sont préfixées par `/api/`
-- Utilisation de la structure Next.js App Router
-- Routes dynamiques avec `[param]`
-
-### Codes de statut HTTP
-- `200`: Succès
-- `400`: Requête invalide
-- `401`: Non authentifié
-- `403`: Non autorisé
-- `404`: Non trouvé
-- `500`: Erreur serveur
-
-### Format des réponses
-Toutes les réponses sont au format JSON avec une structure cohérente :
-```json
-{
-  "success": true|false,
-  "message": "Message descriptif",
-  "data": {}
-}
-```
+- ✅ Toutes les routes sont documentées ici
+- ⚠️ Toute nouvelle route DOIT être ajoutée immédiatement
+- 🔒 Les permissions sont indiquées pour chaque route
+- 📝 Les paramètres requis sont marqués "required"

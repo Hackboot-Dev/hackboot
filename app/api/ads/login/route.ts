@@ -1,61 +1,78 @@
 import { NextRequest, NextResponse } from 'next/server'
-import fs from 'fs/promises'
-import path from 'path'
+import { readFileSync } from 'fs'
+import { join } from 'path'
+import bcrypt from 'bcryptjs'
+import jwt from 'jsonwebtoken'
 
-// SECURITY NOTE: This is a server-side only route
-// - The 'fs' module only works on the server (Node.js)
-// - The users.json file is NEVER sent to the client
-// - Only authentication success/failure is returned
-// - All credential verification happens server-side
+interface AdsUser {
+  id: string
+  username: string
+  passwordHash: string
+  role: string
+  permissions: string[]
+  createdAt: string
+}
+
+const JWT_SECRET = process.env.ADS_JWT_SECRET || 'hackboot-ads-secret-key-change-in-production'
 
 export async function POST(request: NextRequest) {
   try {
-    const { userId, password } = await request.json()
+    const { username, password } = await request.json()
 
-    if (!userId || !password) {
+    if (!username || !password) {
       return NextResponse.json(
-        { message: 'Identifiant et mot de passe requis' },
+        { error: 'Username and password are required' },
         { status: 400 }
       )
     }
 
-    const usersFilePath = path.join(process.cwd(), 'data', 'users.json')
+    const usersPath = join(process.cwd(), 'data', 'ads-users.json')
+    const usersData = readFileSync(usersPath, 'utf-8')
+    const users: AdsUser[] = JSON.parse(usersData)
 
-    try {
-      const usersData = await fs.readFile(usersFilePath, 'utf-8')
-      const users = JSON.parse(usersData)
+    const user = users.find((u) => u.username === username)
 
-      const user = users.find(
-        (u: { id: string; password: string }) =>
-          u.id === userId && u.password === password
-      )
-
-      if (user) {
-        return NextResponse.json(
-          {
-            success: true,
-            message: 'Authentification réussie',
-            user: { id: user.id }
-          },
-          { status: 200 }
-        )
-      } else {
-        return NextResponse.json(
-          { message: 'Identifiants invalides' },
-          { status: 401 }
-        )
-      }
-    } catch (fileError) {
-      console.error('Error reading users file:', fileError)
+    if (!user) {
       return NextResponse.json(
-        { message: 'Erreur lors de la lecture des utilisateurs' },
-        { status: 500 }
+        { error: 'Invalid credentials' },
+        { status: 401 }
       )
     }
+
+    const isValidPassword = await bcrypt.compare(password, user.passwordHash)
+
+    if (!isValidPassword) {
+      return NextResponse.json(
+        { error: 'Invalid credentials' },
+        { status: 401 }
+      )
+    }
+
+    const token = jwt.sign(
+      {
+        id: user.id,
+        username: user.username,
+        role: user.role,
+        permissions: user.permissions,
+      },
+      JWT_SECRET,
+      { expiresIn: '24h' }
+    )
+
+    return NextResponse.json({
+      success: true,
+      token,
+      user: {
+        id: user.id,
+        username: user.username,
+        role: user.role,
+        permissions: user.permissions,
+      },
+    })
   } catch (error) {
-    console.error('Login error:', error)
+    console.error('ADS login error:', error)
     return NextResponse.json(
-      { message: 'Erreur serveur' },
+      { error: 'Internal server error' },
       { status: 500 }
     )
   }

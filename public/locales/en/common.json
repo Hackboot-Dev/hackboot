@@ -150,8 +150,6 @@
       "performance": "Performance",
       "about": "About",
       "careers": "Careers",
-      "press": "Press",
-      "partners": "Partners",
       "documentation": "Documentation",
       "api": "API",
       "support": "Support",
@@ -272,12 +270,12 @@
           "desc": "99.9% uptime"
         },
         {
-          "icon": "🚀",
+          "icon": "Rocket",
           "title": "Innovation",
           "desc": "Cutting-edge tech"
         },
         {
-          "icon": "💎",
+          "icon": "Gem",
           "title": "Quality",
           "desc": "Premium service"
         }
@@ -306,7 +304,7 @@
           "description": "Innovation is at the core of our DNA"
         },
         {
-          "icon": "🤝",
+          "icon": "Handshake",
           "title": "Transparency",
           "description": "Open and honest communication with our clients"
         }
@@ -321,7 +319,7 @@
       },
       "principles": [
         {
-          "icon": "🌍",
+          "icon": "Globe",
           "title": "Remote First",
           "description": "Work from anywhere in the world",
           "details": [
@@ -331,7 +329,7 @@
           ]
         },
         {
-          "icon": "🚀",
+          "icon": "Rocket",
           "title": "Total autonomy",
           "description": "Make your decisions, we trust you",
           "details": [
@@ -361,7 +359,7 @@
           ]
         },
         {
-          "icon": "💎",
+          "icon": "Gem",
           "title": "Premium quality",
           "description": "We only do excellence",
           "details": [
@@ -579,106 +577,140 @@
     "subtitle": "Tailored services for players and teams that demand perfection.",
     "cta": "Talk to an expert",
     "metrics": [
-      { "id": "uptime", "value": "99.9%", "label": "Guaranteed uptime" },
-      { "id": "clients", "value": "120+", "label": "Active pro clients" },
-      { "id": "regions", "value": "8", "label": "Regions covered" }
+      {
+        "id": "uptime",
+        "value": "99.9%",
+        "label": "Guaranteed uptime"
+      },
+      {
+        "id": "clients",
+        "value": "120+",
+        "label": "Active pro clients"
+      },
+      {
+        "id": "regions",
+        "value": "8",
+        "label": "Regions covered"
+      }
     ],
     "pillarsHeading": {
-      "title": "Core pillars",
-      "subtitle": "End-to-end coverage from infrastructure rollout to daily operations."
+      "title": "What we offer",
+      "subtitle": "From technical support to daily assistance."
     },
     "pillars": [
       {
         "id": "security",
-        "title": "Proactive security",
-        "description": "Multi-layer protection, continuous audits and anti-cheat supervision to stay undetected.",
+        "title": "Advanced security",
+        "description": "Multi-layer protection and continuous anti-cheat monitoring to stay undetected.",
         "bullets": [
           "24/7 anti-cheat monitoring",
-          "In-house kernel shield",
-          "Always-on E2E encryption"
+          "Proprietary kernel protection",
+          "End-to-end encryption"
         ]
       },
       {
         "id": "performance",
-        "title": "Calibrated performance",
-        "description": "Bare-metal clusters, frame-level GPU tuning and CI/CD pipelines built for competition.",
+        "title": "High performance",
+        "description": "Dedicated servers, advanced GPU optimization and automated deployments.",
         "bullets": [
-          "Dedicated bare-metal clusters",
-          "Frame-by-frame GPU tuning",
-          "Live latency monitoring"
+          "High-performance dedicated servers",
+          "Maximum GPU optimization",
+          "Real-time latency tracking"
         ]
       },
       {
         "id": "partnership",
-        "title": "Dedicated partnership",
-        "description": "Senior account manager, custom playbooks and instant support on our private channels.",
+        "title": "Dedicated support",
+        "description": "Personal account manager, custom guides and direct support on our private channels.",
         "bullets": [
-          "Assigned senior account manager",
-          "Custom operational playbooks",
-          "Instant escalation on Discord"
+          "Dedicated account manager",
+          "Custom guides",
+          "Priority support on Discord"
+        ]
+      },
+      {
+        "id": "infrastructure",
+        "title": "Cloud infrastructure",
+        "description": "Fast deployment, automatic failover and continuous backups.",
+        "bullets": [
+          "Secured 10 Gbps network",
+          "Automatic backup",
+          "Full API integration"
         ]
       }
     ],
     "solutions": {
-      "title": "Modules aligned with your goals",
-      "subtitle": "Combine our building blocks for a seamless journey from launch to daily assistance.",
+      "title": "Our services",
+      "subtitle": "Choose the services that fit your needs.",
       "items": [
         {
           "id": "cloud",
-          "title": "Cloud Ops & Scaling",
-          "description": "Automated provisioning, multi-region footprint and CI/CD pipelines built for competitive play.",
+          "title": "Cloud & Scaling",
+          "description": "Automatic deployment, multiple regions and infrastructure built for competitive gaming.",
           "linkLabel": "View plans"
         },
         {
           "id": "competitive",
-          "title": "Anti-Cheat Labs",
-          "description": "Ongoing reverse engineering, day-zero patches and audit protocols to remain undetected.",
-          "linkLabel": "Explore the catalog"
+          "title": "Anti-Cheat Security",
+          "description": "Continuous analysis, fast updates and security checks to stay undetected.",
+          "linkLabel": "View games"
         },
         {
           "id": "custom",
-          "title": "Coaching & Integrations",
-          "description": "1:1 sessions, live assistance and bespoke integrations with your existing tools.",
-          "linkLabel": "Book a call"
+          "title": "Support & Integrations",
+          "description": "Personal support, direct assistance and integrations with your tools.",
+          "linkLabel": "Contact us"
         }
       ]
     },
     "process": {
-      "title": "A proven framework",
-      "subtitle": "We guide you from discovery to steady-state operations with zero downtime.",
+      "title": "Our method",
+      "subtitle": "We guide you from start to finish.",
       "steps": [
         {
           "id": "discover",
-          "title": "Kick-off & audit",
-          "description": "Map requirements, performance goals and security constraints."
+          "title": "Initial analysis",
+          "description": "We identify your needs, goals and constraints."
         },
         {
           "id": "prototype",
-          "title": "Guided prototype",
-          "description": "Spin up a test environment with presets tailored to your roster."
+          "title": "Testing phase",
+          "description": "Set up a test environment adapted to your team."
         },
         {
           "id": "deploy",
-          "title": "Orchestrated rollout",
-          "description": "Progressive activation, shared supervision and reference documentation."
+          "title": "Production launch",
+          "description": "Progressive activation with monitoring and full documentation."
         },
         {
           "id": "optimize",
-          "title": "Continuous optimisation",
-          "description": "Monthly reviews, benchmarks and proactive adjustments from field feedback."
+          "title": "Continuous improvement",
+          "description": "Regular monitoring and adjustments based on your feedback."
         }
       ]
     },
     "contact": {
-      "title": "Schedule a session",
-      "description": "Our teams reply within 24h to scope your needs and build the right deployment plan.",
-      "cta": "Book a call",
+      "title": "Let's discuss your project",
+      "description": "Our teams reply within 24h.",
+      "cta": "Contact us",
       "metrics": [
-        { "id": "sla", "value": "<5 min", "label": "Average response time" },
-        { "id": "coverage", "value": "24/7", "label": "Global support" },
-        { "id": "satisfaction", "value": "98%", "label": "Client satisfaction" }
+        {
+          "id": "sla",
+          "value": "<5 min",
+          "label": "Average response time"
+        },
+        {
+          "id": "coverage",
+          "value": "24/7",
+          "label": "Global support"
+        },
+        {
+          "id": "satisfaction",
+          "value": "98%",
+          "label": "Client satisfaction"
+        }
       ],
-      "note": "A priority Discord & WhatsApp channel is activated as soon as the contract is signed."
+      "note": "Priority Discord & WhatsApp channel available."
     }
   },
   "premium": {
@@ -686,6 +718,8 @@
     "title": "PREMIUM",
     "highlight": "UNLIMITED",
     "description": "The ultimate gaming experience. Maximum performance, full catalog, flexible plans.",
+    "plansTitle": "Our Premium Plans",
+    "popularBadge": "Popular",
     "benefits": [
       "Unlimited access to every game",
       "RTX 4090 GPU performance",
@@ -992,37 +1026,677 @@
     "plans": {
       "essentiel": {
         "name": "Essential Pack",
-        "description": "Reliable performance and full configurator access to get started immediately.",
+        "description": "The essentials to get started with 28h of community gaming at 1080p/60FPS.",
         "billing": "per month",
         "features": [
-          "Access to the standard cloud infrastructure",
-          "Community support",
-          "Regular security updates",
-          "Popular game catalog included"
+          "28h of community gaming per month",
+          "1080p resolution at 60 FPS",
+          "Access to all community games",
+          "No access to PulseForge",
+          "Overage: €0.99/h"
         ]
       },
       "avantage": {
         "name": "Advantage Pack",
-        "description": "Extra power and priority support for an optimized experience.",
+        "description": "More hours and better performance during off-peak with 50h of gaming.",
         "billing": "per month",
         "features": [
-          "Enhanced GPU performance",
-          "Priority support 24/7",
-          "Access to premium configurations",
-          "Real-time analytics dashboard"
+          "50h of community gaming per month",
+          "1080p/60 FPS resolution",
+          "1440p/120 FPS during off-peak hours",
+          "Access to all community games",
+          "No access to PulseForge",
+          "Overage: €0.89/h"
         ]
       },
       "élite": {
         "name": "Elite Pack",
-        "description": "Dedicated infrastructure and maximum security for the most demanding needs.",
+        "description": "The ultimate experience with PulseForge access and maximum 1440p/120 performance.",
         "billing": "per month",
         "features": [
-          "Dedicated RTX 4090 virtual machine",
-          "Unlimited HWID spoofer",
-          "Personal technical consultant",
-          "Instant updates and patches"
+          "65h of community gaming per month",
+          "8h of PulseForge gaming per month",
+          "1440p resolution at 120 FPS",
+          "Exclusive access to PulseForge",
+          "Access to all community games",
+          "Overage: €0.79/h community",
+          "Overage: €1.79/h PulseForge"
         ]
       }
+    }
+  },
+  "gamesCarousel": {
+    "title": "Available Games",
+    "subtitle": "Click or drag to explore our game catalog",
+    "viewAll": "View all games"
+  },
+  "premiumPlansSection": {
+    "title": "Choose Your Premium Plan",
+    "subtitle": "Flexible plans for every type of gamer",
+    "cta": "Discover plans"
+  },
+  "statsBar": {
+    "users": {
+      "value": "100K+",
+      "label": "Active users"
+    },
+    "uptime": {
+      "value": "99.9%",
+      "label": "Guaranteed uptime"
+    },
+    "latency": {
+      "value": "<5ms",
+      "label": "Average latency"
+    },
+    "games": {
+      "value": "10+",
+      "label": "Supported games"
+    }
+  },
+  "unifiedFeatures": {
+    "badge": "Why Hackboot",
+    "title": "Excellence on all fronts",
+    "subtitle": "World-class gaming, security, and cloud infrastructure"
+  },
+  "socialProof": {
+    "badge": "They trust us",
+    "title": "Join thousands of satisfied gamers",
+    "subtitle": "Discover what our users think about Hackboot",
+    "avgRating": "Average rating",
+    "totalReviews": "Positive reviews",
+    "satisfaction": "Satisfaction",
+    "testimonials": [
+      {
+        "name": "Alex M.",
+        "role": "Pro Player",
+        "text": "Hackboot completely transformed my gaming experience. Exceptional performance and minimal latency.",
+        "rating": 5
+      },
+      {
+        "name": "Sarah K.",
+        "role": "Streamer",
+        "text": "The best cloud gaming solution I've tested. Responsive support and ultra-stable infrastructure.",
+        "rating": 5
+      },
+      {
+        "name": "Tom R.",
+        "role": "Esports Team",
+        "text": "Our team has been using Hackboot for 6 months. Zero issues, performance delivered. 100% recommended.",
+        "rating": 5
+      }
+    ]
+  },
+  "faq": {
+    "badge": "Frequently asked questions",
+    "title": "Got questions?",
+    "subtitle": "Find quick answers to the most common questions",
+    "moreQuestions": "Have more questions?",
+    "contactButton": "Contact our support",
+    "questions": [
+      {
+        "question": "Is Hackboot legal?",
+        "answer": "Yes, Hackboot operates under Estonian jurisdiction where the development and use of game modifications are entirely legal. We strictly comply with all applicable laws and are a registered and licensed company in Estonia (VMCloud Group OÜ)."
+      },
+      {
+        "question": "What games are supported?",
+        "answer": "We support over 10 popular games including Valorant, Apex Legends, Overwatch 2, Fortnite, Call of Duty Warzone, CS2, Rainbow Six Siege, PUBG, and Rust. New titles are added regularly."
+      },
+      {
+        "question": "How does security work?",
+        "answer": "We use multi-layer kernel-level protection with integrated HWID spoofer. Our technology is undetectable with 0% detection on all platforms. E2E encryption and 24/7 monitoring to guarantee your security."
+      },
+      {
+        "question": "Can I cancel my subscription at any time?",
+        "answer": "Yes, you can cancel your subscription at any time without hidden fees or commitments. Your access remains active until the end of the paid period."
+      },
+      {
+        "question": "What hardware is required?",
+        "answer": "No specific hardware required! Hackboot runs entirely in the cloud. You just need a stable internet connection (minimum 10 Mbps) and a modern browser."
+      },
+      {
+        "question": "How does customer support work?",
+        "answer": "Our support is available 24/7 via Discord, email, and WhatsApp. Average response time under 5 minutes. For premium customers, a dedicated account manager is available."
+      },
+      {
+        "question": "Is there a trial period?",
+        "answer": "We offer different plans suited to all needs. You can start with our Essential Pack from €27.90/month to test our services before upgrading to a higher plan."
+      },
+      {
+        "question": "What performance can I expect?",
+        "answer": "Our servers equipped with RTX 4090 and i9-13900K offer exceptional performance: 240+ FPS at 1080p, <5ms latency, and 99.9% guaranteed uptime. Performance varies according to your chosen plan."
+      }
+    ]
+  },
+  "finalCTA": {
+    "badge": "Ready to start?",
+    "title": "Join the gaming elite",
+    "subtitle": "Start your Hackboot adventure today. Maximum performance, total security, 24/7 support.",
+    "primaryButton": "Get started now",
+    "secondaryButton": "Talk to an expert",
+    "feature1": "Setup in 5 minutes",
+    "feature2": "No commitment",
+    "feature3": "24/7 Support",
+    "disclaimer": "Over 100,000 gamers already trust us"
+  },
+  "careers": {
+    "badge": "Join the team",
+    "title": "Let's build the future of gaming together",
+    "subtitle": "Join a passionate team pushing the boundaries of cloud gaming. Work on innovative projects with cutting-edge technologies.",
+    "stats": {
+      "openings": "Open positions",
+      "countries": "Countries",
+      "remote": "100% Remote",
+      "growth": "Annual growth"
+    },
+    "filters": {
+      "all": "All positions",
+      "department": "Department",
+      "type": "Type",
+      "location": "Location"
+    },
+    "departments": {
+      "technical": "Technical Team",
+      "content": "Content and Partnerships",
+      "marketing": "Marketing and Sales",
+      "support": "Customer Support"
+    },
+    "types": {
+      "full-time": "Full-time",
+      "part-time": "Part-time",
+      "contract": "Contract",
+      "internship": "Internship"
+    },
+    "jobs": {
+      "cloud-engineer": {
+        "title": "Cloud Engineer",
+        "shortDescription": "Design and manage our cloud infrastructure to ensure performance and scalability.",
+        "description": "Join our technical team to build and maintain a robust and scalable cloud infrastructure.",
+        "responsibilities": [
+          "Design and deploy cloud architectures (AWS, GCP, Azure)",
+          "Automate deployments and infrastructure management",
+          "Optimize cloud costs and performance",
+          "Ensure high availability and service resilience",
+          "Collaborate with dev teams for continuous integration"
+        ],
+        "requirements": [
+          "3+ years of experience in cloud architecture",
+          "Mastery of at least one major cloud platform",
+          "Experience with Kubernetes, Docker",
+          "Knowledge of Terraform, CloudFormation or Pulumi",
+          "Understanding of DevOps principles"
+        ],
+        "benefits": [
+          "100% remote, work from anywhere",
+          "Premium equipment provided",
+          "Training and cloud certification budget",
+          "Innovative technical projects",
+          "Passionate international team"
+        ]
+      },
+      "frontend-backend-developer": {
+        "title": "Front-end / Back-end Developer",
+        "shortDescription": "Develop modern web applications with React, Next.js and Node.js.",
+        "description": "We are looking for a versatile developer to work on our entire platform stack.",
+        "responsibilities": [
+          "Develop modern user interfaces (React, Next.js)",
+          "Create performant RESTful APIs (Node.js, Express)",
+          "Implement full-stack features end-to-end",
+          "Optimize frontend and backend performance",
+          "Participate in technical architecture decisions"
+        ],
+        "requirements": [
+          "2+ years of web development experience",
+          "Mastery of React and Next.js",
+          "Experience with Node.js and databases",
+          "TypeScript knowledge",
+          "Passion for clean code and best practices"
+        ],
+        "benefits": [
+          "Modern and innovative tech stack",
+          "Total schedule flexibility",
+          "Remote-first from day one",
+          "Gaming culture and shared passion",
+          "Supportive and collaborative team"
+        ]
+      },
+      "network-specialist": {
+        "title": "Network Specialist",
+        "shortDescription": "Ensure the performance and security of our global network infrastructure.",
+        "description": "Join our team to manage and optimize our worldwide network infrastructure.",
+        "responsibilities": [
+          "Design and maintain network architecture",
+          "Optimize network performance and latency",
+          "Implement CDN and load balancing solutions",
+          "Manage network security (firewalls, VPN, DDoS protection)",
+          "Resolve critical network incidents"
+        ],
+        "requirements": [
+          "3+ years of network administration experience",
+          "Mastery of TCP/IP, DNS, BGP protocols",
+          "Experience with CDN and load balancers",
+          "Knowledge of network monitoring tools",
+          "Network certifications appreciated (CCNA, CCNP)"
+        ],
+        "benefits": [
+          "Global infrastructure to manage",
+          "Cutting-edge network technologies",
+          "Remote with provided equipment",
+          "Continuous training and certifications",
+          "Passionate tech team"
+        ]
+      },
+      "security-expert": {
+        "title": "Security Expert",
+        "shortDescription": "Protect our infrastructure and users against cyber threats.",
+        "description": "We are looking for a security expert to strengthen our platform and user protection.",
+        "responsibilities": [
+          "Audit infrastructure and application security",
+          "Implement security measures (WAF, IDS/IPS, SIEM)",
+          "Manage security incidents and responses",
+          "Train teams on security best practices",
+          "Perform regular pentests and assessments"
+        ],
+        "requirements": [
+          "4+ years of cybersecurity experience",
+          "Mastery of security tools (SIEM, WAF, IDS/IPS)",
+          "Experience in pentesting and vulnerability assessment",
+          "Knowledge of OWASP Top 10, SANS Top 25",
+          "Security certifications appreciated (CEH, OSCP, CISSP)"
+        ],
+        "benefits": [
+          "Certification and security training budget",
+          "Cutting-edge security technologies",
+          "Challenging and varied projects",
+          "Remote with total flexibility",
+          "Strong security culture"
+        ]
+      },
+      "game-acquisition-manager": {
+        "title": "Game Acquisition Manager",
+        "shortDescription": "Identify and acquire the best games for our cloud gaming platform.",
+        "description": "Join our content team to enrich our catalog with the most exciting games on the market.",
+        "responsibilities": [
+          "Identify and evaluate game acquisition opportunities",
+          "Negotiate contracts with developers and publishers",
+          "Manage relationships with gaming partners",
+          "Analyze video game market trends",
+          "Define content acquisition strategy"
+        ],
+        "requirements": [
+          "3+ years of experience in the video game industry",
+          "Established network in the gaming industry",
+          "Excellent negotiation skills",
+          "Deep knowledge of the video game market",
+          "Passion for games and new trends"
+        ],
+        "benefits": [
+          "Work with major studios",
+          "Direct influence on our catalog",
+          "Participation in gaming events (GDC, Gamescom)",
+          "Remote with occasional travel",
+          "Gaming-passionate team"
+        ]
+      },
+      "partnership-manager": {
+        "title": "Partnership Manager",
+        "shortDescription": "Develop strategic partnerships to accelerate our growth.",
+        "description": "We are looking for a partnership manager to develop our ecosystem and strategic collaborations.",
+        "responsibilities": [
+          "Identify and develop strategic partnerships",
+          "Negotiate and structure partnership agreements",
+          "Manage relationships with existing partners",
+          "Measure partnership performance",
+          "Collaborate with product and marketing teams"
+        ],
+        "requirements": [
+          "2+ years of partnership development experience",
+          "Excellent relationship and negotiation skills",
+          "Ability to identify strategic opportunities",
+          "Experience in tech or gaming appreciated",
+          "Fluent English required"
+        ],
+        "benefits": [
+          "Direct impact on company growth",
+          "International partner network",
+          "Remote with geographic flexibility",
+          "Entrepreneurial culture",
+          "Dynamic and ambitious team"
+        ]
+      },
+      "content-curator": {
+        "title": "Content Curator",
+        "shortDescription": "Create and manage engaging content for our gamer community.",
+        "description": "Join our content team to create engaging experiences and quality content for our users.",
+        "responsibilities": [
+          "Create and manage platform content",
+          "Organize games into categories and collections",
+          "Write game descriptions and guides",
+          "Identify gaming content trends",
+          "Collaborate with marketing and community teams"
+        ],
+        "requirements": [
+          "2+ years of content curation or gaming writing experience",
+          "Excellent knowledge of the gaming universe",
+          "Strong writing skills",
+          "Creativity and aesthetic sense",
+          "Passion for video games required"
+        ],
+        "benefits": [
+          "Play and discover games in preview",
+          "Influence on user experience",
+          "100% remote",
+          "Creative and passionate team",
+          "Strong gaming culture"
+        ]
+      },
+      "digital-marketing-specialist": {
+        "title": "Digital Marketing Specialist",
+        "shortDescription": "Develop our marketing campaigns to acquire and engage new users.",
+        "description": "We are looking for a digital marketing specialist to boost our growth and awareness.",
+        "responsibilities": [
+          "Create and manage multi-channel marketing campaigns",
+          "Optimize SEO/SEM performance",
+          "Manage paid ads campaigns (Google, Meta, TikTok)",
+          "Analyze KPIs and optimize ROI",
+          "Collaborate with content and product teams"
+        ],
+        "requirements": [
+          "2+ years of digital marketing experience",
+          "Mastery of Google Ads, Meta Ads",
+          "SEO/SEM knowledge",
+          "Analytical skills (Google Analytics, Mixpanel)",
+          "Experience in tech or gaming appreciated"
+        ],
+        "benefits": [
+          "Substantial marketing budget",
+          "Autonomy and responsibilities",
+          "Remote-first",
+          "Modern tools and technologies",
+          "Measurable impact on growth"
+        ]
+      },
+      "public-relations-manager": {
+        "title": "Public Relations Manager",
+        "shortDescription": "Develop our brand image and manage our relationships with media and influencers.",
+        "description": "Join our team to manage our reputation and develop our media presence in the gaming industry.",
+        "responsibilities": [
+          "Develop and execute PR strategy",
+          "Manage relationships with gaming media",
+          "Organize events and press conferences",
+          "Collaborate with influencers and content creators",
+          "Manage communication crises if necessary"
+        ],
+        "requirements": [
+          "3+ years of public relations experience",
+          "Network in gaming media",
+          "Excellent communication skills",
+          "Event experience",
+          "Fluent English required"
+        ],
+        "benefits": [
+          "Participation in major gaming events",
+          "Media and influencer network",
+          "Visibility and industry impact",
+          "Remote with travel",
+          "Collaborative culture"
+        ]
+      },
+      "market-analyst": {
+        "title": "Market Analyst",
+        "shortDescription": "Analyze market trends to guide our business and product strategy.",
+        "description": "We are looking for a market analyst to help us understand the gaming market and guide our strategic decisions.",
+        "responsibilities": [
+          "Analyze cloud gaming market trends",
+          "Conduct market research and competitive benchmarks",
+          "Identify growth opportunities",
+          "Produce analysis reports and recommendations",
+          "Collaborate with product and business teams"
+        ],
+        "requirements": [
+          "2+ years of market analysis experience",
+          "Excellent analytical skills",
+          "Mastery of Excel, BI tools (Tableau, Power BI)",
+          "Knowledge of gaming market appreciated",
+          "Synthesis and clear communication skills"
+        ],
+        "benefits": [
+          "Direct impact on company strategy",
+          "Access to gaming market data",
+          "100% remote",
+          "Cutting-edge analysis tools",
+          "Data-driven team"
+        ]
+      },
+      "technical-support-agent": {
+        "title": "Technical Support Agent",
+        "shortDescription": "Help our users resolve technical issues and fully enjoy our platform.",
+        "description": "Join our support team to provide exceptional customer experience to our gamers.",
+        "responsibilities": [
+          "Answer users' technical questions",
+          "Resolve technical issues (connection, performance, bugs)",
+          "Create and maintain knowledge base",
+          "Escalate complex issues to tech teams",
+          "Collect user feedback"
+        ],
+        "requirements": [
+          "1+ year of technical support experience",
+          "Good technical knowledge (network, PC, browsers)",
+          "Excellent communication skills",
+          "Patience and empathy",
+          "Passion for video games appreciated"
+        ],
+        "benefits": [
+          "Complete training provided",
+          "Remote with flexible hours",
+          "Supportive support team",
+          "Growth opportunities",
+          "Gaming and fun culture"
+        ]
+      },
+      "community-moderator": {
+        "title": "Community Moderator",
+        "shortDescription": "Animate and moderate our gamer community to create a positive and engaging environment.",
+        "description": "We are looking for a passionate moderator to manage our community and create a welcoming space for everyone.",
+        "responsibilities": [
+          "Moderate discussions on Discord, forums, social media",
+          "Animate the community with events and challenges",
+          "Answer community questions",
+          "Enforce community rules",
+          "Relay feedback to product teams"
+        ],
+        "requirements": [
+          "1+ year of moderation or community management experience",
+          "Excellent relationship skills",
+          "Evening and weekend availability (flexible shifts)",
+          "Knowledge of Discord and social media",
+          "Passion for video games required"
+        ],
+        "benefits": [
+          "At the heart of the gaming community",
+          "100% remote",
+          "Flexible hours",
+          "Fun and passionate team",
+          "Access to games and events"
+        ]
+      }
+    },
+    "apply": {
+      "title": "Apply Now",
+      "subtitle": "Join the Hackboot adventure",
+      "description": "Fill out the form below and we'll get back to you within 48 hours. Be yourself, stay authentic.",
+      "form": {
+        "personalInfo": {
+          "title": "Personal Information",
+          "firstName": "First Name",
+          "firstNamePlaceholder": "John",
+          "lastName": "Last Name",
+          "lastNamePlaceholder": "Doe",
+          "email": "Email",
+          "emailPlaceholder": "john.doe@example.com",
+          "phone": "Phone",
+          "phonePlaceholder": "+1 234 567 8900",
+          "location": "Location",
+          "locationPlaceholder": "Paris, France"
+        },
+        "jobInfo": {
+          "title": "Job Information",
+          "position": "Desired Position",
+          "positionPlaceholder": "Ex: Senior Full Stack Developer",
+          "department": "Department",
+          "departmentPlaceholder": "Engineering, Design, DevOps...",
+          "startDate": "Availability Date",
+          "startDatePlaceholder": "Immediately / In 1 month / In 3 months"
+        },
+        "application": {
+          "title": "Your Application",
+          "cv": "CV (PDF only)",
+          "cvHelp": "Max size: 5 MB - Accepted format: PDF",
+          "motivation": "Cover Letter",
+          "motivationPlaceholder": "Why Hackboot? What excites you about this position? Be authentic, no need for clichés.",
+          "salary": "Salary Expectations (annual gross)",
+          "salaryPlaceholder": "Ex: $80,000 - $100,000",
+          "portfolio": "Portfolio / GitHub / LinkedIn",
+          "portfolioPlaceholder": "https://github.com/your-username"
+        },
+        "additional": {
+          "title": "A Few Additional Questions",
+          "remote": "Work Preference",
+          "remoteOptions": {
+            "full": "100% Remote",
+            "hybrid": "Hybrid",
+            "office": "Office"
+          },
+          "availability": "Interview Availability",
+          "availabilityPlaceholder": "Ex: Monday-Friday after 2pm",
+          "message": "Message / Questions",
+          "messagePlaceholder": "Any questions? Anything to tell us? We're listening."
+        },
+        "consent": {
+          "gdpr": "I agree that my data will be processed as part of my application (GDPR compliant)",
+          "newsletter": "I want to receive Hackboot news (optional)"
+        },
+        "submit": "Send my application",
+        "submitting": "Sending...",
+        "success": {
+          "title": "Application sent!",
+          "message": "Thank you for your application. Our team will review it and get back to you within 48 hours.",
+          "cta": "Back to jobs"
+        },
+        "errors": {
+          "required": "This field is required",
+          "email": "Invalid email",
+          "fileSize": "File too large (max 5 MB)",
+          "fileType": "Invalid file format (PDF only)",
+          "general": "An error occurred. Please try again."
+        }
+      }
+    },
+    "culture": {
+      "title": "Our culture",
+      "subtitle": "What makes us unique",
+      "values": [
+        {
+          "icon": "Globe",
+          "title": "Remote First",
+          "description": "Work from anywhere, anytime. Total freedom."
+        },
+        {
+          "icon": "Rocket",
+          "title": "Continuous Innovation",
+          "description": "Cutting-edge technologies and challenging projects daily."
+        },
+        {
+          "icon": "Gem",
+          "title": "Excellence",
+          "description": "High standards and attention to detail in everything we do."
+        },
+        {
+          "icon": "Handshake",
+          "title": "Transparency",
+          "description": "Open and honest communication at all levels."
+        }
+      ]
+    },
+    "perks": {
+      "title": "Benefits & Perks",
+      "items": [
+        {
+          "icon": "DollarSign",
+          "title": "Competitive Compensation",
+          "description": "Above-market salary + equity + bonuses"
+        },
+        {
+          "icon": "Home",
+          "title": "100% Remote",
+          "description": "Work from anywhere in the world"
+        },
+        {
+          "icon": "Clock",
+          "title": "Flexible Hours",
+          "description": "Manage your time as you wish"
+        },
+        {
+          "icon": "BookOpen",
+          "title": "Continuous Training",
+          "description": "Unlimited budget for training and conferences"
+        },
+        {
+          "icon": "Laptop",
+          "title": "Premium Hardware",
+          "description": "Top-tier work equipment provided"
+        },
+        {
+          "icon": "Umbrella",
+          "title": "Generous Vacation",
+          "description": "4+ weeks paid vacation per year"
+        },
+        {
+          "icon": "Heart",
+          "title": "Health & Wellness",
+          "description": "Premium health insurance + sports/wellness budget"
+        },
+        {
+          "icon": "Gamepad2",
+          "title": "Gaming Perks",
+          "description": "Free access to all our products + games"
+        }
+      ]
+    },
+    "process": {
+      "title": "Our recruitment process",
+      "subtitle": "Simple, transparent, and fast",
+      "steps": [
+        {
+          "number": "1",
+          "title": "Application",
+          "description": "Send your CV and portfolio via our form"
+        },
+        {
+          "number": "2",
+          "title": "Initial Call",
+          "description": "30-minute call with a team member"
+        },
+        {
+          "number": "3",
+          "title": "Technical Test",
+          "description": "Position-adapted technical challenge (2-4h)"
+        },
+        {
+          "number": "4",
+          "title": "Final Interview",
+          "description": "Meet the team and culture discussion"
+        },
+        {
+          "number": "5",
+          "title": "Offer",
+          "description": "Job offer and onboarding"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Can't find the perfect position?",
+      "description": "Send us a spontaneous application, we're always looking for exceptional talents.",
+      "button": "Spontaneous application"
     }
   }
 }

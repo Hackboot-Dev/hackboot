@@ -2,10 +2,12 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { Eye, EyeOff, Lock, User } from 'lucide-react'
 
 export default function AdsLoginPage() {
-  const [userId, setUserId] = useState('')
+  const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const router = useRouter()
@@ -21,86 +23,105 @@ export default function AdsLoginPage() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ userId, password }),
+        body: JSON.stringify({ username, password }),
       })
 
       const data = await response.json()
 
       if (response.ok) {
-        // Store session or token
-        localStorage.setItem('ads_session', 'authenticated')
-        // Redirect to ads dashboard
+        localStorage.setItem('ads-token', data.token)
         router.push('/ads/dashboard')
       } else {
-        setError(data.message || 'Identifiants invalides')
+        setError(data.error || 'Authentication failed')
       }
     } catch (err) {
-      setError('Erreur de connexion')
+      setError('Network error. Please try again.')
     } finally {
       setLoading(false)
     }
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-purple-900 to-black">
-      <div className="w-full max-w-md">
-        <div className="bg-gray-800/50 backdrop-blur-xl rounded-2xl shadow-2xl p-8 border border-purple-500/20">
+    <div className="min-h-screen flex items-center justify-center bg-black px-4">
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute top-16 -left-24 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-12 -right-28 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-float-delayed" />
+      </div>
+
+      <div className="relative z-10 w-full max-w-md">
+        <div className="glass-effect rounded-2xl p-8 border border-white/10">
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-white mb-2">
-              HACKBOOT ADS
-            </h1>
-            <p className="text-gray-400">Panneau d'administration</p>
+            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-r from-purple-500/20 to-blue-500/20 mb-4">
+              <Lock className="w-8 h-8 text-purple-400" />
+            </div>
+            <h1 className="text-3xl font-display font-bold mb-2">ADS Access</h1>
+            <p className="text-gray-400 text-sm">Internal tools - Authorized access only</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="userId" className="block text-sm font-medium text-gray-300 mb-2">
-                Identifiant
+              <label htmlFor="username" className="block text-sm font-medium text-gray-300 mb-2">
+                Username
               </label>
-              <input
-                id="userId"
-                type="text"
-                value={userId}
-                onChange={(e) => setUserId(e.target.value)}
-                className="w-full px-4 py-3 bg-gray-900/50 border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all"
-                placeholder="admin"
-                required
-              />
+              <div className="relative">
+                <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
+                <input
+                  type="text"
+                  id="username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  className="w-full pl-10 pr-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-gray-500 focus:outline-none focus:border-purple-500/50 transition-colors"
+                  placeholder="Enter username"
+                  required
+                  autoComplete="username"
+                />
+              </div>
             </div>
 
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-300 mb-2">
-                Mot de passe
+                Password
               </label>
-              <input
-                id="password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-3 bg-gray-900/50 border border-gray-600 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-purple-500 focus:ring-2 focus:ring-purple-500/20 transition-all"
-                placeholder="••••••••"
-                required
-              />
+              <div className="relative">
+                <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
+                <input
+                  type={showPassword ? 'text' : 'password'}
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full pl-10 pr-12 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder:text-gray-500 focus:outline-none focus:border-purple-500/50 transition-colors"
+                  placeholder="Enter password"
+                  required
+                  autoComplete="current-password"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-300 transition-colors"
+                >
+                  {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                </button>
+              </div>
             </div>
 
             {error && (
-              <div className="bg-red-500/10 border border-red-500/50 rounded-lg p-3">
-                <p className="text-red-400 text-sm text-center">{error}</p>
+              <div className="p-3 bg-red-500/10 border border-red-500/20 rounded-lg">
+                <p className="text-red-400 text-sm">{error}</p>
               </div>
             )}
 
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold py-3 px-6 rounded-lg hover:from-purple-700 hover:to-pink-700 focus:outline-none focus:ring-2 focus:ring-purple-500/50 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full py-3 bg-gradient-to-r from-purple-500 to-blue-600 text-white font-semibold rounded-xl hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {loading ? 'Connexion...' : 'Se connecter'}
+              {loading ? 'Authenticating...' : 'Sign In'}
             </button>
           </form>
 
           <div className="mt-6 text-center">
-            <p className="text-gray-500 text-xs">
-              Accès réservé aux administrateurs
+            <p className="text-xs text-gray-500">
+              This is a restricted area. Unauthorized access is prohibited.
             </p>
           </div>
         </div>

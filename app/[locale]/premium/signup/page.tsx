@@ -1,7 +1,7 @@
 'use client'
 
-import { useMemo, useState, useCallback } from 'react'
-import { useParams } from 'next/navigation'
+import { useMemo, useState, useCallback, useEffect } from 'react'
+import { useParams, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import SiteHeader from '@/components/SiteHeader'
 import { getSubscriptionPlans, type SubscriptionPlan } from '@/lib/subscriptions'
@@ -19,6 +19,7 @@ type PlanCopy = {
 
 export default function PremiumSignupPage() {
   const params = useParams()
+  const searchParams = useSearchParams()
   const locale = (params?.locale as string) || 'fr'
   const { t } = useI18n()
   const premiumSignup = t.premiumSignup ?? {}
@@ -33,9 +34,24 @@ export default function PremiumSignupPage() {
       }).format(plan.price),
     [numberFormatLocale]
   )
-  const [selectedPlanId, setSelectedPlanId] = useState<string>(plans.find((plan) => plan.popular)?.id || plans[0].id)
+
+  const planFromUrl = searchParams.get('plan')
+  const initialPlanId = useMemo(() => {
+    if (planFromUrl && plans.find(p => p.id === planFromUrl)) {
+      return planFromUrl
+    }
+    return plans.find((plan) => plan.popular)?.id || plans[0].id
+  }, [planFromUrl])
+
+  const [selectedPlanId, setSelectedPlanId] = useState<string>(initialPlanId)
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+
+  useEffect(() => {
+    if (planFromUrl && plans.find(p => p.id === planFromUrl)) {
+      setSelectedPlanId(planFromUrl)
+    }
+  }, [planFromUrl])
 
   const selectedPlan = useMemo(
     () => plans.find((plan) => plan.id === selectedPlanId) ?? plans[0],
@@ -351,10 +367,10 @@ export default function PremiumSignupPage() {
             </div>
           </div>
 
-          <div className="mt-16 text-center text-sm text-gray-500 animate-fade-in">
+          <div className="mt-16 text-center text-sm text-gray-400 animate-fade-in">
             <p>
               {contactText}{' '}
-              <Link href={`/${locale}/login`} className="text-purple-300 hover:text-purple-200 underline underline-offset-4">
+              <Link href={`/${locale}/login`} className="text-purple-400 hover:text-purple-300 font-medium underline underline-offset-4">
                 {contactLinkLabel}
               </Link>
             </p>

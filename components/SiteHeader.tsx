@@ -146,10 +146,17 @@ const SiteHeader = () => {
 
             <LanguageSelectorSimplest />
 
+            <Link
+              href={buildHref('/login')}
+              className="ml-2 rounded-full border border-white/20 px-6 py-2.5 text-sm font-medium text-white transition-all duration-300 hover:bg-white/10 hover:border-white/30"
+            >
+              {t?.nav?.login ?? 'Connexion'}
+            </Link>
+
             <button
               type="button"
               onClick={handleStart}
-              className="ml-2 rounded-full bg-gradient-to-r from-purple-500 to-indigo-600 px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-purple-500/30 transition-transform duration-300 hover:-translate-y-0.5"
+              className="rounded-full bg-gradient-to-r from-purple-500 to-indigo-600 px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-purple-500/30 transition-transform duration-300 hover:-translate-y-0.5"
             >
               {ctaLabel}
             </button>
@@ -228,13 +235,21 @@ const SiteHeader = () => {
               ))}
             </nav>
 
+            <Link
+              href={buildHref('/login')}
+              onClick={closeMobileMenu}
+              className="mt-10 w-full block rounded-full border border-white/20 px-5 py-3 text-base font-medium text-white text-center transition-all duration-300 hover:bg-white/10"
+            >
+              {t?.nav?.login ?? 'Connexion'}
+            </Link>
+
             <button
               type="button"
               onClick={() => {
                 closeMobileMenu()
                 handleStart()
               }}
-              className="mt-10 w-full rounded-full bg-gradient-to-r from-purple-500 to-indigo-600 px-5 py-3 text-base font-semibold text-white shadow-lg shadow-purple-500/30"
+              className="mt-4 w-full rounded-full bg-gradient-to-r from-purple-500 to-indigo-600 px-5 py-3 text-base font-semibold text-white shadow-lg shadow-purple-500/30"
             >
               {ctaLabel}
             </button>

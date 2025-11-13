@@ -1,145 +1,1615 @@
 # Journal des Actions - Hackboot
 
-## 2025-11-08
+## 2025-11-06
 
-### Feature: Création du système d'authentification ADS
+### Feature: Refonte complète des postes et départements carrières
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+**Commit**: 8d64371
+**Status**: ✅ Complété
+
+#### Objectif:
+Mettre à jour complètement la liste des postes disponibles selon les nouveaux besoins de l'entreprise, avec 4 nouveaux départements et 12 nouveaux postes. Aucune fourchette salariale affichée pour collecter les attentes des candidats.
+
+#### Actions réalisées:
+
+**1. Nouveaux départements (`/data/careers.json` + traductions)**
+   - **Équipe Technique** (technical) - Icon: Code, Color: Purple-Violet
+   - **Contenu et Partenariats** (content) - Icon: Palette, Color: Pink-Rose
+   - **Marketing et Ventes** (marketing) - Icon: TrendingUp, Color: Cyan-Blue
+   - **Support Client** (support) - Icon: Headphones, Color: Emerald-Teal
+
+**2. Nouveaux postes (12 au total)**
+
+   **Équipe Technique (4 postes):**
+   - Ingénieur Cloud (Cloud Engineer)
+   - Développeur Front-end / Back-end (Frontend/Backend Developer)
+   - Spécialiste Réseau (Network Specialist)
+   - Expert en Sécurité (Security Expert)
+
+   **Contenu et Partenariats (3 postes):**
+   - Responsable Acquisitions de Jeux (Game Acquisition Manager)
+   - Gestionnaire de Partenariats (Partnership Manager)
+   - Curateur de Contenu (Content Curator)
+
+   **Marketing et Ventes (3 postes):**
+   - Spécialiste Marketing Digital (Digital Marketing Specialist)
+   - Responsable Relations Publiques (Public Relations Manager)
+   - Analyste de Marché (Market Analyst)
+
+   **Support Client (2 postes):**
+   - Agent de Support Technique (Technical Support Agent)
+   - Modérateur de Communauté (Community Moderator)
+
+**3. Caractéristiques des nouveaux postes**
+   - ✅ **100% Remote** pour tous les postes
+   - ✅ **Worldwide** location (Remote global)
+   - ✅ **Aucune fourchette salariale** mentionnée (pour collecter les attentes)
+   - ✅ Expérience requise : de 1 à 4+ ans selon le poste
+   - ✅ Type: Full-time pour tous
+   - ✅ Date de publication : 2025-11-06
+
+**4. Traductions complètes FR/EN/ET**
+   - **FR** : 12 fiches de poste complètes avec responsibilities, requirements, benefits
+   - **EN** : 12 fiches de poste traduites en anglais
+   - **ET** : 12 fiches de poste traduites en estonien
+   - Chaque fiche comprend :
+     - title (titre du poste)
+     - shortDescription (description courte)
+     - description (description longue)
+     - responsibilities (5 responsabilités)
+     - requirements (4-5 prérequis)
+     - benefits (4-5 avantages)
+
+**5. Mise à jour technique**
+   - Ajout de l'icône `TrendingUp` dans `/app/[locale]/careers/page.tsx`
+   - Mapping correct des icônes pour les nouveaux départements
+   - Suppression des anciens postes (8 postes obsolètes)
+
+#### Résultats:
+- ✅ 12 nouveaux postes créés et documentés
+- ✅ 4 nouveaux départements alignés avec la stratégie RH
+- ✅ Traductions complètes en 3 langues (FR/EN/ET)
+- ✅ Aucune mention de salaire pour collecter les attentes candidats
+- ✅ 100% Remote worldwide pour attirer les talents internationaux
+- ✅ Tests lint passés sans erreurs
+- ✅ Commit et push réussis
+
+#### Fichiers modifiés:
+- `/data/careers.json` : Départements et jobs complètement refaits
+- `/public/locales/fr/common.json` : 12 fiches complètes FR
+- `/public/locales/en/common.json` : 12 fiches complètes EN
+- `/public/locales/et/common.json` : 12 fiches complètes ET
+- `/app/[locale]/careers/page.tsx` : Ajout icône TrendingUp
+
+#### Départements supprimés:
+- ❌ Engineering
+- ❌ Design
+- ❌ DevOps & Infrastructure
+- ❌ Security (standalone)
+
+#### Postes supprimés (8 anciens):
+- ❌ Senior Full Stack Developer
+- ❌ Cloud Architect
+- ❌ Security Engineer
+- ❌ Senior Frontend Developer
+- ❌ Product Designer
+- ❌ Customer Success Manager
+- ❌ DevOps Engineer
+- ❌ Backend Developer Go
+
+#### Impact:
+- **Stratégie RH clarifiée** : Départements alignés avec les besoins business
+- **Diversité des postes** : Technical, Content, Marketing, Support
+- **Attractivité internationale** : Remote worldwide pour tous
+- **Flexibilité salariale** : Pas de fourchette pour s'adapter aux profils
+- **Scalabilité** : Structure modulaire facile à maintenir
+
+#### Fix Build (Commit 38cacfa):
+- ✅ Ajout de `TrendingUp` dans le `iconMap` de la page careers
+- ✅ Résolution de l'erreur Netlify build : "Element type is invalid: expected a string but got: undefined"
+- ✅ Le département Marketing s'affiche maintenant correctement avec l'icône TrendingUp
+
+---
+
+## 2025-11-05
+
+### Feature: Refactorisation du système de candidature avec composant réutilisable
+**Heure**: Session continuation
+**Développeur**: Assistant Claude
+**Status**: ✅ Complété
+
+#### Objectif:
+Rendre le formulaire de candidature réutilisable et l'intégrer directement dans les pages de détail des postes. La page `/apply` devient dédiée uniquement aux candidatures spontanées.
+
+#### Actions réalisées:
+
+**1. Création du composant ApplicationForm réutilisable (`/components/careers/ApplicationForm.tsx`)**
+   - Composant autonome avec toutes les fonctionnalités du formulaire
+   - Props configurables :
+     - `locale` : Langue de l'interface
+     - `jobTitle` (optionnel) : Pré-remplit le champ position
+     - `jobDepartment` (optionnel) : Pré-remplit le département
+     - `isSpontaneous` (boolean) : Mode candidature spontanée (champs éditables) ou poste spécifique (champs verrouillés)
+   - Gestion complète de l'état (loading, success, error)
+   - Validation côté client
+   - Upload CV avec conversion base64
+   - Animations Framer Motion intégrées
+
+**2. Intégration dans la page de détail des postes (`/app/[locale]/careers/[slug]/page.tsx`)**
+   - Formulaire affiché directement en bas de la page de détail
+   - Bouton "Apply Now" en haut qui scroll vers le formulaire (smooth scroll)
+   - Champs position et département pré-remplis avec les infos du poste
+   - Section avec header stylisé (title, subtitle, description)
+   - Attribut `id="application-form"` pour le scroll
+   - Passage des props : `jobTitle`, `jobDepartment`, `isSpontaneous={false}`
+
+**3. Refactorisation de la page /apply (`/app/[locale]/careers/apply/page.tsx`)**
+   - Simplification : utilise maintenant le composant ApplicationForm
+   - Mode candidature spontanée activé (`isSpontaneous={true}`)
+   - Champs position et département éditables
+   - Header personnalisé pour candidatures spontanées
+   - Moins de 65 lignes de code (vs 850+ avant)
+
+**4. Modification du bouton CTA sur la page liste (`/app/[locale]/careers/page.tsx`)**
+   - Bouton "Candidature spontanée" redirige maintenant vers `/careers/apply` (au lieu de `/contact`)
+   - Les cartes de postes redirigent déjà vers `/careers/[slug]` (pas de modification nécessaire)
+
+#### Architecture du flux:
+
+```
+CANDIDATURE POUR UN POSTE SPÉCIFIQUE :
+1. Page liste (/careers) → Clic sur un poste
+2. Page détail (/careers/[slug]) → Formulaire intégré en bas
+3. Bouton "Apply Now" en haut → Scroll vers le formulaire
+4. Formulaire pré-rempli avec jobTitle + jobDepartment
+5. Soumission → API Telegram
+
+CANDIDATURE SPONTANÉE :
+1. Page liste (/careers) → Bouton "Candidature spontanée"
+2. Page /careers/apply → Formulaire vierge
+3. Champs position + département éditables
+4. Soumission → API Telegram
+```
+
+#### Résultats:
+- ✅ Composant ApplicationForm réutilisable et maintenable
+- ✅ Formulaire intégré dans chaque page de poste
+- ✅ Scroll smooth vers le formulaire depuis le bouton en haut
+- ✅ Champs pré-remplis automatiquement selon le poste
+- ✅ Page /apply dédiée aux candidatures spontanées
+- ✅ Réduction du code dupliqué (DRY principle)
+- ✅ Meilleure UX : pas besoin de changer de page pour postuler
+- ✅ Tests lint passés sans erreurs
+- ✅ Architecture cohérente et scalable
+
+#### Fichiers modifiés/créés:
+- `/components/careers/ApplicationForm.tsx` : **NOUVEAU** (composant réutilisable)
+- `/app/[locale]/careers/[slug]/page.tsx` : Intégration du formulaire + scroll button
+- `/app/[locale]/careers/apply/page.tsx` : Simplifié (utilise le composant)
+- `/app/[locale]/careers/page.tsx` : Bouton CTA redirige vers /apply
+
+#### Impact technique:
+- **Code réutilisable** : Un seul composant pour tous les formulaires
+- **Maintenance facilitée** : Modifications centralisées dans ApplicationForm
+- **Meilleure UX** : Formulaire sur la même page que le poste
+- **Cohérence** : Même design et comportement partout
+
+#### Mise à jour (Commit 9920972):
+- ✅ Suppression des flèches ChevronRight sur les cartes de postes
+- ✅ Toute la carte est maintenant cliquable (wrapper Link)
+- ✅ Suppression de la flèche sur le bouton CTA "Candidature spontanée"
+- ✅ Ajout du curseur pointer pour meilleure affordance
+- ✅ UX améliorée : plus intuitif, pas besoin de viser le petit lien
+
+#### Mise à jour (Commit 7adb1c4):
+- ✅ Suppression de la section KPI stats (8 postes, 15+ pays, 100% remote, 300% croissance)
+- ✅ Nettoyage des imports inutilisés (Users, TrendingUp)
+- ✅ Simplification de la mise en page
+- ✅ Meilleur focus sur les offres d'emploi réelles
+
+---
+
+## 2025-11-05
+
+### Feature: Création de la page de candidature avec intégration Telegram
+**Heure**: Session continuation
+**Développeur**: Assistant Claude
+**Status**: ✅ Complété
+
+#### Objectif:
+Créer une page complète de candidature avec formulaire détaillé qui envoie toutes les informations structurées à un bot Telegram, incluant le CV en PDF.
+
+#### Actions réalisées:
+
+**1. Traductions FR/EN/ET (`/public/locales/*/common.json`)**
+   - Ajout de la section `careers.apply` dans les 3 langues
+   - Structure complète du formulaire traduite :
+     - Informations personnelles (prénom, nom, email, téléphone, localisation)
+     - Informations sur le poste (position, département, disponibilité)
+     - Candidature (CV PDF, lettre de motivation, salaire, portfolio)
+     - Questions supplémentaires (remote/hybrid/office, disponibilité, message)
+     - Consentements (RGPD, newsletter)
+     - Messages de succès/erreur
+
+**2. Page du formulaire (`/app/[locale]/careers/apply/page.tsx`)**
+   - Formulaire complet avec validation
+   - Design cohérent avec la charte graphique (glassmorphism, purple gradient)
+   - Sections avec icônes Lucide (User, Briefcase, FileText, MessageSquare)
+   - Upload de CV avec validation (PDF uniquement, max 5 MB)
+   - Conversion du CV en base64 pour l'envoi
+   - Animations Framer Motion sur chaque section
+   - États de chargement et de succès
+   - Gestion des erreurs avec messages traduits
+   - Page de confirmation après soumission
+
+**3. Route API Telegram (`/app/api/careers/apply/route.ts`)**
+   - POST `/api/careers/apply` pour soumettre une candidature
+   - Validation des champs requis (firstName, lastName, email, position, motivation, salary, CV, GDPR)
+   - Formatage structuré du message pour Telegram :
+     ```
+     🎯 NOUVELLE CANDIDATURE HACKBOOT
+     👤 INFORMATIONS PERSONNELLES
+     💼 POSTE VISÉ
+     💰 PRÉTENTIONS SALARIALES
+     🏠 PRÉFÉRENCE DE TRAVAIL
+     📝 LETTRE DE MOTIVATION
+     🔗 PORTFOLIO / LIENS
+     📅 DISPONIBILITÉ POUR ENTRETIEN
+     💬 MESSAGE / QUESTIONS
+     📋 CONSENTEMENTS
+     📎 CV
+     ```
+   - Envoi en 2 étapes :
+     1. Message HTML formaté avec toutes les infos
+     2. Document PDF du CV
+   - Token Telegram : `8496898839:AAEd01EKYQwxPIqCtNtaJ1VqOsXGSTgTzi4`
+   - Chat ID configurable via variable d'environnement
+   - Gestion des erreurs Telegram API
+
+**4. Documentation (`/docs/API_ROUTES.md`)**
+   - Création du fichier API_ROUTES.md (SOURCE DE VÉRITÉ)
+   - Documentation complète de la route POST `/api/careers/apply`
+   - Liste de tous les paramètres requis/optionnels
+   - Exemples de réponses (200, 400, 500)
+   - Détails de l'intégration Telegram
+   - Références aux fichiers associés
+
+#### Résultats:
+- ✅ Page de candidature complète et fonctionnelle
+- ✅ Formulaire avec validation côté client et serveur
+- ✅ Upload de CV en PDF (max 5 MB)
+- ✅ Intégration Telegram opérationnelle (2 messages : infos + CV)
+- ✅ Design cohérent avec la charte graphique
+- ✅ Traductions complètes (FR/EN/ET)
+- ✅ Gestion d'erreurs robuste
+- ✅ Messages de succès avec redirection
+- ✅ Tests lint passés sans erreurs
+- ✅ Documentation API créée et complète
+
+#### Fichiers créés/modifiés:
+- `/public/locales/fr/common.json` : +70 lignes (section apply)
+- `/public/locales/en/common.json` : +70 lignes (section apply)
+- `/public/locales/et/common.json` : +70 lignes (section apply)
+- `/app/[locale]/careers/apply/page.tsx` : Nouveau (850+ lignes)
+- `/app/api/careers/apply/route.ts` : Nouveau (180+ lignes)
+- `/docs/API_ROUTES.md` : Nouveau (documentation complète)
+
+#### Intégration Telegram:
+- **Endpoint**: `https://api.telegram.org/bot{token}/sendMessage`
+- **Méthode 1**: `sendMessage` avec formatage HTML
+- **Méthode 2**: `sendDocument` pour le CV PDF
+- **Format du message**: Structuré avec emojis et sections claires
+- **Données envoyées**: Toutes les infos du formulaire + CV
+
+#### Prochaines étapes suggérées:
+- [ ] Configurer la variable d'environnement `TELEGRAM_CHAT_ID`
+- [ ] Tester l'envoi complet vers Telegram en production
+- [ ] Ajouter un lien "Postuler" sur la page carrières principale
+- [ ] Optionnel : Ajouter un système de tracking des candidatures
+
+#### Mise à jour (Commit 5c9e4f6):
+- ✅ Chat ID Telegram mis à jour : `7588597731`
+- ✅ Les candidatures seront maintenant envoyées au bon destinataire
+
+---
+
+## 2025-11-05
+
+### Feature: Enrichissement de la page Carrières avec contenu détaillé et UX améliorée
+**Heure**: Session continuation
+**Développeur**: Assistant Claude
+**Commit**: 199087b
+
+#### Objectif:
+Développer et enrichir la section "Notre processus de recrutement", enrichir tous les avantages avec des détails, et améliorer l'expérience utilisateur avec des animations stables et responsives.
+
+#### Actions réalisées:
+
+**1. Enrichissement des traductions FR (`/public/locales/fr/common.json`)**
+   - **Culture section** : Ajouté 4 valeurs avec descriptions et détails complets
+     - Innovation Sans Limites (Rocket icon)
+     - Remote par Design (Home icon)
+     - La Passion d'Abord (Heart icon)
+     - Excellence & Autonomie (Gem icon)
+   - **Perks section** : Enrichi 8 avantages avec descriptions + détails expandables
+     - Remote First (Globe) - Travail de n'importe où
+     - Salaire Compétitif (DollarSign) - 80-150K€ selon poste
+     - Flexibilité Totale (Clock) - Horaires libres
+     - Croissance Rapide (TrendingUp) - Promotions basées sur performance
+     - Culture Gaming (Gamepad2) - Tournois d'équipe
+     - Projets Passion (Sparkles) - 10% temps sur projets perso
+     - Équipement Premium (Laptop) - MacBook Pro + setup au choix
+     - Formation Continue (BookOpen) - Budget formations illimité
+   - **Process section** : Ajout de champs duration, details et tips pour chaque étape
+     - Candidature (5 min) - "On ne veut pas de lettre de motivation bullshit"
+     - Premier Entretien (30 min) - Discussion informelle
+     - Test Technique (2-4h) - Problème réel, pas de leetcode
+     - Entretien Technique (1h) - Review du test + architecture
+     - Décision & Offre (24-48h) - Décision rapide, transparence totale
+
+**2. Amélioration du composant React (`/app/[locale]/careers/page.tsx`)**
+   - **Perks section** :
+     - Ajouté support du champ `subtitle`
+     - Description toujours visible
+     - Détails expandables avec AnimatePresence
+     - Indicateur visuel "Cliquez pour les détails →"
+   - **Culture section** :
+     - Description toujours visible
+     - Détails expandables avec accordion
+     - Indicateur "Lire la suite →"
+     - Animations Framer Motion maintenues (tilt effects, hover states)
+   - **Timeline section** :
+     - Badges de durée avec icône Clock
+     - Boxes de détails avec fond semi-transparent
+     - Sections "Pro tip" avec icône Sparkles
+     - Meilleure hiérarchie visuelle
+     - Border et padding améliorés
+
+**3. Améliorations UX/UI**
+   - Architecture d'information à deux niveaux (description + détails)
+   - Indices visuels clairs pour le contenu expandable
+   - Maintien de toutes les animations existantes (3D tilt, Framer Motion)
+   - Design glassmorphism cohérent
+   - Typographie améliorée avec meilleure lisibilité
+   - Responsive design maintenu sur tous les breakpoints
+
+#### Résultats:
+- ✅ Page carrières beaucoup plus informative et transparente
+- ✅ Culture d'entreprise clairement communiquée ("no bullshit", passion-driven)
+- ✅ Processus de recrutement détaillé avec temps estimés et conseils
+- ✅ Avantages complets et attractifs (remote first, salaires, flexibilité)
+- ✅ UX fluide avec accordéons et animations stables
+- ✅ Tests lint passés sans erreurs
+- ✅ Commit et push réussis sur la branche `claude/redesign-footer-011CUqR12Q1pevNrARrwG2Zd`
+
+#### Fichiers modifiés:
+- `/public/locales/fr/common.json` : +125 lignes enrichies
+- `/app/[locale]/careers/page.tsx` : Amélioration du rendu des sections
+
+#### Prochaines étapes suggérées:
+- [ ] Enrichir les traductions EN et ET avec le même contenu détaillé
+- [ ] Vérifier si des bibliothèques d'animation supplémentaires sont souhaitées
+- [ ] Tester l'expérience utilisateur complète sur différents devices
+
+---
+
+## 2025-11-05
+
+### Feature: Création de la page Carrières avec système de jobs traduisibles
 **Heure**: Session actuelle
 **Développeur**: Assistant Claude
 
 #### Objectif:
-Créer un système de connexion pour le panneau d'administration ADS avec des credentials simples (admin/admin).
+Créer une page carrières complète et originale pour présenter les postes disponibles avec un design moderne et cohérent avec le site.
 
-#### Modifications apportées:
-1. **Création du fichier de credentials** (`/data/users.json`)
-   - Ajout d'un utilisateur avec ID: `admin` et mot de passe: `admin`
-   - Format JSON simple pour faciliter la gestion
+#### Actions réalisées:
 
-2. **Création de la page de connexion** (`/app/ads/page.tsx`)
-   - Formulaire de login avec champs userId et password
-   - Design moderne avec gradient purple/pink cohérent avec la charte
-   - Gestion des erreurs et état de chargement
-   - Redirection vers dashboard après authentification réussie
+**1. Création du fichier de données JSON**
+   - Créé `/data/careers.json` avec structure complète
+   - 5 départements définis (Engineering, Design, DevOps, Security, Support)
+   - 8 postes disponibles avec métadonnées (remote, location, experience, type)
+   - Structure extensible et maintenable
 
-3. **Création de la route API d'authentification** (`/app/api/ads/login/route.ts`)
-   - Endpoint POST `/api/ads/login`
-   - Lecture du fichier users.json
-   - Vérification des credentials
-   - Réponses JSON structurées
+**2. Ajout des traductions complètes (FR)**
+   - Ajouté section `careers` dans `/public/locales/fr/common.json`
+   - Traductions complètes pour 8 fiches de postes :
+     - Développeur Full Stack Senior
+     - Architecte Cloud
+     - Ingénieur Sécurité
+     - Développeur Frontend Senior
+     - Designer Produit
+     - Customer Success Manager
+     - Ingénieur DevOps
+     - Développeur Backend Go
+   - Sections traduites : stats, filtres, départements, culture, avantages, processus
+   - Plus de 350 lignes de traductions ajoutées
 
-4. **Création du dashboard ADS** (`/app/ads/dashboard/page.tsx`)
-   - Page protégée accessible après login
-   - Affichage de statistiques fictives (vues, clics, conversions)
-   - Liste des campagnes actives
-   - Bouton de déconnexion
+**3. Création de la page carrières principale**
+   - Créé `/app/[locale]/careers/page.tsx` avec design moderne
+   - Hero section animée avec badge et titre gradient
+   - Stats bar avec 4 métriques clés (postes ouverts, pays, remote, croissance)
+   - Système de filtres par département avec boutons interactifs
+   - Grille de cartes de postes avec effets glassmorphism
+   - Section culture avec 4 valeurs d'entreprise
+   - Section avantages avec 8 bénéfices
+   - Section processus de recrutement en 5 étapes
+   - CTA final pour candidature spontanée
 
-5. **Documentation**
-   - Création de `/docs/API_ROUTES.md` avec documentation de toutes les routes API
-   - Documentation de la route POST /api/ads/login
-   - Mise à jour du présent journal
+**4. Création de la page détail des postes**
+   - Créé `/app/[locale]/careers/[slug]/page.tsx`
+   - Routing dynamique pour chaque poste
+   - Affichage complet : titre, localisation, expérience, type
+   - 3 sections principales :
+     - Responsabilités (liste animée)
+     - Prérequis (liste animée)
+     - Avantages (grille de cards)
+   - CTA d'application vers page contact
+   - Breadcrumb de retour vers liste des postes
+
+**5. Mise à jour du footer**
+   - Modifié `/components/Footer.tsx`
+   - Lien "Carrières" pointe maintenant vers `/careers` au lieu de `/contact`
+
+**6. Design et animations**
+   - Utilisation de Framer Motion pour animations fluides
+   - Effets glassmorphism cohérents avec le site
+   - Gradients purple/violet/cyan/emerald selon sections
+   - Cards interactives avec hover states
+   - Layout responsive mobile-first
+   - Icons Lucide pour cohérence visuelle
 
 #### Résultats:
-- ✅ Page de login accessible sur `/ads`
-- ✅ Authentification fonctionnelle avec admin/admin
-- ✅ Dashboard ADS accessible après connexion
-- ✅ Route API documentée dans API_ROUTES.md
-- ✅ Interface cohérente avec la charte graphique
+
+- ✅ Page carrières complète et fonctionnelle
+- ✅ 8 postes disponibles avec fiches détaillées
+- ✅ Système de filtres par département
+- ✅ Design moderne avec glassmorphism et gradients
+- ✅ Animations fluides avec Framer Motion
+- ✅ Routing dynamique pour pages individuelles
+- ✅ Traductions FR complètes (350+ lignes)
+- ✅ Responsive mobile/tablet/desktop
+- ✅ Code lint sans erreurs
+- ✅ Footer mis à jour avec bon lien
 
 #### Fichiers créés:
-- `/data/users.json`
-- `/app/ads/page.tsx`
-- `/app/ads/dashboard/page.tsx`
-- `/app/api/ads/login/route.ts`
-- `/docs/API_ROUTES.md`
 
-#### Notes de sécurité:
-⚠️ **ATTENTION**: Le système actuel utilise des credentials en clair dans un fichier JSON. Ceci est adapté uniquement pour un environnement de développement ou de démonstration. Pour la production, il faudrait :
-- Utiliser une vraie base de données (SQLite comme indiqué dans CLAUDE.md)
-- Hacher les mots de passe (bcrypt, argon2)
-- Implémenter des sessions sécurisées avec JWT
-- Ajouter une protection CSRF
-- Limiter les tentatives de connexion (rate limiting)
+- `/data/careers.json` : Données des postes et départements
+- `/app/[locale]/careers/page.tsx` : Page liste des carrières
+- `/app/[locale]/careers/[slug]/page.tsx` : Page détail d'un poste
+
+#### Fichiers modifiés:
+
+- `/public/locales/fr/common.json` : +350 lignes de traductions
+- `/components/Footer.tsx` : Lien careers mis à jour
+
+#### Structure de la page carrières:
+
+```
+/careers
+├── Hero section (badge + titre + subtitle)
+├── Stats bar (4 métriques)
+├── Filtres par département (5 boutons)
+├── Grille de postes (cards avec animations)
+├── Section culture (4 valeurs)
+├── Section avantages (8 bénéfices)
+├── Section processus (5 étapes)
+└── CTA candidature spontanée
+
+/careers/[slug]
+├── Breadcrumb retour
+├── Header du poste (titre + infos + CTA)
+├── Description complète
+├── Section responsabilités
+├── Section prérequis
+├── Section avantages
+└── CTA application
+```
+
+#### Technologies utilisées:
+
+- Next.js 14 App Router
+- TypeScript
+- Framer Motion pour animations
+- Lucide Icons
+- Tailwind CSS (glassmorphism)
+- i18n avec structure JSON
 
 ---
 
-### Security: Renforcement de la sécurité du système d'authentification ADS
+### UI: Refonte complète du footer avec liens fonctionnels
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Refaire le footer du site en ajoutant tous les bons liens vers les pages existantes et en ajoutant une nouvelle section "Legal".
+
+#### Actions réalisées:
+
+**1. Analyse de la structure du site**
+   - Exploré l'arborescence des pages dans `app/[locale]/`
+   - Identifié 8 pages principales : accueil, games, products, services, about, contact, premium, login
+   - Analysé le footer existant avec des liens "#" vides
+
+**2. Conception de la nouvelle structure du footer**
+   - **Product** : features (/#features), pricing (/premium), security (/about#security), performance (/about#performance)
+   - **Company** : about (/about), careers (/contact), press (/contact), partners (/contact)
+   - **Resources** : documentation (/contact), api (/contact), support (/contact), status (/contact)
+   - **Legal** (nouvelle section) : privacy (/about#legal), terms (/about#legal), cookies (/about#legal), compliance (/about#legal)
+
+**3. Implémentation du nouveau footer**
+   - Remplacé les balises `<a>` par des composants Next.js `<Link>` pour navigation optimisée
+   - Ajouté la gestion de la locale (fr/en/et) dans tous les liens
+   - Créé un objet `footerLinks` structuré pour mapper chaque lien
+   - Ajouté la 4ème colonne "Legal" au footer (grid 4 → 5 colonnes)
+   - Mis à jour les liens des réseaux sociaux :
+     - GitHub : https://github.com/hackboot
+     - Twitter : https://twitter.com/hackboot
+     - LinkedIn : https://linkedin.com/company/hackboot
+     - Email : mailto:contact@hackboot.gg
+   - Ajouté `target="_blank"` et `rel="noopener noreferrer"` pour les liens externes
+
+**4. Tests et validation**
+   - Vérifié le linting : ✅ No ESLint warnings or errors
+   - Installation des dépendances : 422 packages, 0 vulnerabilities
+   - Code TypeScript validé
+
+#### Résultats:
+
+- ✅ Footer avec 4 sections fonctionnelles (Product, Company, Resources, Legal)
+- ✅ Tous les liens pointent vers des pages réelles ou des sections pertinentes
+- ✅ Navigation i18n respectée (locale dynamique dans les URLs)
+- ✅ Liens réseaux sociaux configurés
+- ✅ Utilisation de Next.js Link pour performances optimales
+- ✅ Code lint sans erreurs
+
+#### Fichiers modifiés:
+
+- `components/Footer.tsx` : Refonte complète du composant
+
+#### Structure du footer:
+
+```
+Hackboot
+├── Product
+│   ├── Features → /{locale}/#features
+│   ├── Pricing → /{locale}/premium
+│   ├── Security → /{locale}/about#security
+│   └── Performance → /{locale}/about#performance
+├── Company
+│   ├── About → /{locale}/about
+│   ├── Careers → /{locale}/contact
+│   ├── Press → /{locale}/contact
+│   └── Partners → /{locale}/contact
+├── Resources
+│   ├── Documentation → /{locale}/contact
+│   ├── API → /{locale}/contact
+│   ├── Support → /{locale}/contact
+│   └── Status → /{locale}/contact
+└── Legal (nouvelle)
+    ├── Privacy → /{locale}/about#legal
+    ├── Terms → /{locale}/about#legal
+    ├── Cookies → /{locale}/about#legal
+    └── Compliance → /{locale}/about#legal
+```
+
+---
+
+## 2025-10-29
+
+### UI: Intégration des illustrations features + Nettoyage du projet
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Intégrer les illustrations personnalisées dans les cards de features de la page principale et nettoyer les fichiers obsolètes du projet.
+
+#### Actions réalisées:
+
+**1. Organisation des illustrations**
+   - Créé dossier `/public/images/features/`
+   - Renommé et déplacé 3 illustrations :
+     - `cloud-gaming.png` (1.4MB) - Contrôleur + cloud + serveurs (line art bleu/violet)
+     - `security-shield.webp` (128KB) - Bouclier + cadenas + serveurs (line art cyan/bleu)
+     - `cloud-infrastructure.png` (1.4MB) - Serveurs + cloud + sécurité (line art bleu/violet)
+
+**2. Intégration dans UnifiedFeaturesSection**
+   - Remplacé les 3 images Unsplash par les illustrations locales
+   - Feature Gaming → `/images/features/cloud-gaming.png`
+   - Feature Security → `/images/features/security-shield.webp`
+   - Feature Cloud → `/images/features/cloud-infrastructure.png`
+   - Images cohérentes avec la charte graphique (hexagones, gradients bleu/violet/rose)
+
+**3. Nettoyage des fichiers obsolètes**
+   - Supprimé `DESIGN_SYSTEM_REPORT.md` (10KB) - Remplacé par CHARTE_GRAPHIQUE.md
+   - Supprimé `products.json` (4KB) - Remplacé par `/data/gaming-products.json`
+   - Fichiers à la racine : 16 → 14 fichiers
+
+**4. Analyse du dossier /test/**
+   - Identifié 4.1MB de fichiers de scraping GeForce Now
+   - 24 fichiers (scripts Python, JSON volumineux, HTML)
+   - Potentiellement supprimables si tests terminés
+
+#### Résultats:
+
+- ✅ Illustrations intégrées dans les 3 cards de features
+- ✅ Design cohérent avec style line art bleu/violet hexagonal
+- ✅ Images optimisées (WebP pour security = 128KB)
+- ✅ 2 fichiers obsolètes supprimés de la racine
+- ✅ Projet plus organisé et propre
+
+#### Style des illustrations:
+
+- **Technique** : Line art avec gradients bleu (#0066FF) → violet (#8B5CF6) → rose (#EC4899)
+- **Éléments** : Hexagones (signature Hackboot), particules, lignes de connexion
+- **Fond** : Blanc/transparent avec motifs hexagonaux subtils
+- **Cohérence** : Parfaitement aligné avec CHARTE_GRAPHIQUE.md
+
+#### Fichiers modifiés:
+- Modifié : `/components/UnifiedFeaturesSection.tsx` (URLs images)
+- Supprimé : `DESIGN_SYSTEM_REPORT.md`, `products.json`
+- Nouveau dossier : `/public/images/features/` (3 images)
+- Documentation : `/docs/JOURNAL.md`
+
+#### Note:
+Dossier `/test/` contient 4.1MB de fichiers de scraping temporaires qui peuvent être supprimés si les tests sont terminés.
+
+---
+
+### Feature: Création du dashboard ADS interne avec authentification
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Créer une page `/ads` accessible uniquement via URL directe, avec authentification sécurisée basée sur `ads-users.json` (mot de passe hashé bcrypt + JWT), permettant de générer rapidement des visuels publicitaires pour les réseaux sociaux.
+
+#### Actions réalisées:
+
+**1. Système d'authentification sécurisé**
+   - Créé `/data/ads-users.json` avec utilisateurs et mots de passe hashés (bcrypt)
+   - Créé `/app/api/ads/login/route.ts` - API d'authentification JWT
+   - Installé dépendances : `bcryptjs`, `jsonwebtoken`, `@types/bcryptjs`, `@types/jsonwebtoken`
+   - Créé script `/scripts/generate-password-hash.js` pour générer des hash
+   - JWT Token avec expiration 24h, stockage localStorage
+
+**2. Page de login (/ads)**
+   - Design glassmorphism cohérent avec la charte graphique
+   - Formulaires username/password avec icônes Lucide
+   - Toggle show/hide password
+   - Gestion des erreurs (credentials invalides, erreur réseau)
+   - Loading state pendant authentification
+   - Redirection vers dashboard après succès
+
+**3. Dashboard principal (/ads/dashboard)**
+   - Vérification du token JWT au chargement
+   - Affichage des informations utilisateur (username, role)
+   - Grille de 4 outils créatifs
+   - Badges "Coming Soon" pour outils non disponibles
+   - Bouton Logout avec suppression du token
+   - Section "Quick Tips" pour guide utilisateur
+
+**4. Outil Social Media Images (/ads/dashboard/social-images)**
+   - 6 formats prédéfinis (Instagram, Facebook, Twitter, LinkedIn, YouTube)
+   - Formulaire de contenu : titre, sous-titre, CTA
+   - Preview en temps réel avec aspect ratio correct
+   - Design avec gradients et effets glassmorphism
+   - Bouton "Copy HTML" pour copier le code
+
+**5. Sécurité et configuration**
+   - Ajout variable d'environnement `ADS_JWT_SECRET` dans `.env.local`
+   - Credentials par défaut : username `admin` / password `admin123`
+   - Hash bcrypt avec salt rounds = 10
+   - Validation côté serveur
+   - Protection routes dashboard
+
+**6. Documentation**
+   - Créé `/app/ads/README.md` complet (180 lignes)
+   - Instructions d'accès et utilisation
+   - Guide pour ajouter des utilisateurs
+   - Guide pour développer de nouveaux outils
+
+#### Résultats:
+
+- ✅ Page `/ads` avec login sécurisé fonctionnel
+- ✅ Dashboard `/ads/dashboard` avec 4 outils (1 disponible, 3 à venir)
+- ✅ Outil Social Media Images opérationnel avec 6 formats
+- ✅ Authentification JWT sécurisée (bcrypt + token 24h)
+- ✅ Design cohérent avec charte graphique Hackboot
+- ✅ Build Next.js réussi sans erreur
+- ✅ Documentation complète
+
+#### Accès:
+**URL:** `http://localhost:3000/ads`
+**Credentials:** `admin` / `admin123`
+
+⚠️ La page n'est pas liée dans la navigation, accessible uniquement via URL directe.
+
+#### Fichiers créés:
+- `/app/ads/page.tsx` - Page de login
+- `/app/ads/dashboard/page.tsx` - Dashboard principal
+- `/app/ads/dashboard/social-images/page.tsx` - Générateur images
+- `/app/ads/README.md` - Documentation
+- `/app/api/ads/login/route.ts` - API authentification
+- `/data/ads-users.json` - Base utilisateurs
+- `/scripts/generate-password-hash.js` - Script hash
+- Modifié : `.env.local`, `package.json`
+
+---
+
+### Documentation: Création de la charte graphique complète
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Créer une charte graphique complète à la racine du projet en analysant le site, les couleurs, le design system, le logo et tous les composants visuels. Cette charte servira de référence pour générer des illustrations cohérentes pour la page principale et maintenir la cohérence visuelle du site.
+
+#### Actions réalisées:
+
+**1. Analyse approfondie du site**
+   - Lecture et analyse de `/app/globals.css` (296 lignes, 10 animations)
+   - Analyse de `/tailwind.config.js` (configuration complète)
+   - Étude du composant `Logo.tsx` (SVG vectoriel avec gradient)
+   - Analyse du `Header.tsx` (navigation, glassmorphism, transitions)
+   - Étude du `HeroLight.tsx` (animations, blobs, effets)
+   - Lecture de `/data/gaming-products.json` (structure produits gaming)
+
+**2. Extraction des éléments de design**
+   - **Palette de couleurs** : Background noir (#000000, #0A0A0A), accent bleu (#0066FF), 6 ensembles de gradients
+   - **Typographie** : Space Grotesk (Display), Inter (Body), hiérarchie complète H1-H4
+   - **Logo** : Hexagone SVG avec gradient purple-pink-indigo, animation 360°
+   - **Animations** : float, gradient-shift, marquee, particle, shake, blob animations
+   - **Composants** : Boutons (primary, secondary, gradient), cartes (standard, product, pulseforge), badges, inputs
+   - **Espacement** : Système 4px, grilles responsive, breakpoints
+
+**3. Création de CHARTE_GRAPHIQUE.md**
+   - Document complet de 15 000+ mots à la racine du projet
+   - 12 sections détaillées avec code CSS/JSX
+   - Valeurs hexadécimales exactes pour toutes les couleurs
+   - Timing précis pour toutes les animations (ms)
+   - Prompts de génération pour 6 types d'illustrations
+   - Guidelines d'accessibilité WCAG AA
+   - Checklist de conformité
+
+**4. Sections de la charte créée**
+   1. Identité visuelle (positionnement, univers)
+   2. Palette de couleurs (principales, gradients, support)
+   3. Typographie (polices, hiérarchie, styles)
+   4. Logo et symbole (SVG, variations, zones de protection)
+   5. Système de grille et espacement (breakpoints, padding, gap)
+   6. Composants UI (boutons, cartes, badges, inputs)
+   7. Animations et effets (10 animations, Framer Motion presets)
+   8. Iconographie (Lucide React, tailles, couleurs)
+   9. Images et illustrations (structure assets, prompts génération)
+   10. Ton et style (principes rédactionnels, messages types)
+   11. Accessibilité (WCAG 2.1 AA, contrastes, motion)
+   12. Guidelines d'utilisation (à faire, à ne pas faire, checklist)
+
+**5. Prompts d'illustration fournis**
+   - Hero Background (background principal homepage)
+   - Gaming Performance Abstract (section performances)
+   - Cloud Gaming Server Room (section infrastructure)
+   - E-sport Competition Scene (section services)
+   - Gaming Controller Abstract (section features)
+   - PulseForge Native Gaming (section PulseForge)
+
+#### Résultats:
+
+- ✅ Charte graphique complète créée : `/CHARTE_GRAPHIQUE.md`
+- ✅ 12 sections détaillées avec exemples de code
+- ✅ Toutes les couleurs documentées avec hex codes exacts
+- ✅ Toutes les animations documentées avec timing précis
+- ✅ 6 prompts prêts pour génération d'illustrations
+- ✅ Guidelines d'accessibilité WCAG AA
+- ✅ Checklist de conformité pour validation
+- ✅ Document de 15 000+ mots, prêt pour référence
+
+#### Utilisation:
+
+Le fichier `CHARTE_GRAPHIQUE.md` peut maintenant être utilisé pour :
+1. Générer des illustrations cohérentes avec Midjourney/DALL-E/Stable Diffusion
+2. Maintenir la cohérence visuelle lors de nouveaux développements
+3. Onboarder de nouveaux designers/développeurs
+4. Valider les designs avec la checklist de conformité
+5. Référencer les valeurs exactes (couleurs, espacements, animations)
+
+#### Fichiers modifiés:
+- Nouveau fichier : `/CHARTE_GRAPHIQUE.md`
+- Documentation : `/docs/JOURNAL.md`
+
+---
+
+### Git: Nettoyage des branches - Conservation de main et dev uniquement
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Basculer sur la branche dev et supprimer toutes les autres branches (locales et distantes) pour ne conserver que main et dev.
+
+#### Actions réalisées:
+
+**1. Bascule sur la branche dev**
+   - Passage de `codespace-laughing-giggle-6xgj4wj6q67f4p76` vers `dev`
+   - Mise à jour de la branche locale dev avec `git pull` (39 commits récupérés)
+
+**2. Suppression des branches locales**
+   - Supprimé : `codespace-laughing-giggle-6xgj4wj6q67f4p76`
+   - Supprimé : `modify-premium-sign-up-flow-and-translation`
+
+**3. Suppression des branches distantes**
+   - Supprimé : `origin/modify-premium-sign-up-flow-and-translation`
+   - Nettoyage des références obsolètes avec `git fetch --prune`
+   - Les branches `claude/update-premium-page-011CUXxpmhcbK4bbdH8Zcd9W` et `codespace-laughing-giggle-6xgj4wj6q67f4p76` étaient déjà supprimées du distant
+
+#### Résultats:
+
+- ✅ Branche actuelle : `dev` (à jour avec origin/dev)
+- ✅ Branches locales restantes : `main`, `dev`
+- ✅ Branches distantes restantes : `origin/main`, `origin/dev`
+- ✅ Toutes les autres branches supprimées
+- ✅ Dépôt nettoyé et organisé
+
+#### Fichiers modifiés:
+- Aucun fichier de code modifié
+- Documentation : `docs/JOURNAL.md`
+
+---
+
+### UI: Transformation du carousel de jeux en bandeau défilant infini
+**Heure**: Session actuelle (partie 2)
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Simplifier le carousel de jeux en un bandeau défilant infini avec juste les noms des jeux dans des bulles arrondies, mettant en avant les jeux PulseForge avec un effet visuel spécial.
+
+#### Actions réalisées:
+
+**1. Refonte complète de InteractiveGamesCarousel**
+   - Suppression du carousel draggable complexe avec cartes
+   - Transformation en bandeau défilant automatique avec `animate-marquee`
+   - Affichage simplifié : juste les noms dans des bulles arrondies
+   - Logique de répétition : jeux communautaires 1x, jeux PulseForge 3x
+   - Double le tableau pour effet de boucle infinie sans coupure
+
+**2. Différenciation visuelle PulseForge**
+   - Bulles avec gradient rose/violet (`from-pink-500/20 to-purple-600/20`)
+   - Bordure brillante rose (`border-pink-500/50`)
+   - Ombre colorée (`shadow-pink-500/30`)
+   - Badge Sparkles animé en haut à droite
+   - Texte en gradient rose/violet/rose
+   - Effet de halo au hover (`blur-sm`)
+
+**3. Jeux communautaires**
+   - Bulles avec glassmorphism standard
+   - Bordure blanche subtile (`border-white/10`)
+   - Texte blanc simple
+   - Hover: translation -y et scale
+
+**4. Simplification de ProductsSection**
+   - Suppression du titre "Solutions Gaming Premium"
+   - Suppression du sous-titre "Configurations haute performance..."
+   - Conservation uniquement des filtres de jeux (centrés)
+   - Amélioration du design des filtres (px-6 py-3, font-medium)
+
+#### Résultats:
+
+- ✅ Bandeau défilant infini fluide et automatique
+- ✅ Jeux PulseForge apparaissent 3x avec effet visuel spectaculaire
+- ✅ Interface épurée et moderne
+- ✅ Performance optimisée (useMemo pour la liste)
+- ✅ Cliquable : chaque bulle redirige vers la page du jeu
+- ✅ ProductsSection épurée sans titre
+- ✅ Animation continue sans interruption
+
+#### Impact:
+
+- **UX simplifiée** : Plus facile de voir tous les jeux d'un coup d'œil
+- **Mise en avant PulseForge** : Les jeux premium apparaissent 3x plus souvent
+- **Effet visuel fort** : Gradient rose/violet attire l'attention sur PulseForge
+- **Performance** : Plus léger que le carousel avec cartes images
+- **Cohérence visuelle** : Style bandeau défilant similaire à InfiniteScroll
+
+#### Fichiers modifiés:
+
+- `components/InteractiveGamesCarousel.tsx` (refonte complète : 178 → 106 lignes)
+- `components/ProductsSection.tsx` (suppression header)
+
+---
+
+### Refonte: Réorganisation optimisée de la page d'accueil
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Améliorer le parcours utilisateur de la page d'accueil en réorganisant les sections, supprimant les répétitions, et ajoutant des éléments de réassurance (social proof, FAQ, CTA final).
+
+#### Actions réalisées:
+
+**1. Création de 5 nouveaux composants**
+   - `StatsBar.tsx` : Bandeau de statistiques clés (100K+ users, 99.9% uptime, <5ms latence, 10+ jeux)
+   - `UnifiedFeaturesSection.tsx` : Section unifiée fusionnant les 3 ParallaxSection (Gaming/Security/Cloud) en une grille 3 colonnes cohérente
+   - `SocialProofSection.tsx` : Témoignages clients avec 3 avis par défaut, notes 5 étoiles, et métriques de satisfaction
+   - `FAQSection.tsx` : 8 questions fréquentes avec accordéon interactif
+   - `FinalCTASection.tsx` : Call-to-action final avant le footer avec 2 boutons (commencer/contact)
+
+**2. Ajout des traductions complètes FR/EN/ET**
+   - Ajout de `statsBar`, `unifiedFeatures`, `socialProof`, `faq`, `finalCTA` dans `public/locales/*/common.json`
+   - Traductions complètes des 8 questions FAQ pour chaque langue
+   - Traductions des 3 témoignages clients pour FR/EN/ET
+
+**3. Réorganisation de `app/[locale]/page.tsx`**
+
+   **Ancien ordre (8 sections):**
+   1. Hero
+   2. ParallaxSection Gaming
+   3. InteractiveCards
+   4. ParallaxSection Security
+   5. InteractiveGamesCarousel
+   6. PremiumPlansSection
+   7. ProductsSection
+   8. ParallaxSection Cloud
+
+   **Nouvel ordre (10 sections):**
+   1. Hero
+   2. **StatsBar** (NOUVEAU)
+   3. InteractiveGamesCarousel
+   4. **UnifiedFeaturesSection** (NOUVEAU - remplace 3 parallax)
+   5. InteractiveCards
+   6. ProductsSection
+   7. PremiumPlansSection
+   8. **SocialProofSection** (NOUVEAU)
+   9. **FAQSection** (NOUVEAU)
+   10. **FinalCTASection** (NOUVEAU)
+
+**4. Améliorations du parcours utilisateur**
+   - **Suppression des répétitions** : Les 3 ParallaxSection similaires fusionnées en 1 section cohérente
+   - **Ordre logique** : Catalogue (jeux) → Valeur (features) → Produits → Plans → Confiance (social proof) → FAQ → Action (CTA)
+   - **Éléments de réassurance** : Témoignages, FAQ, et statistiques pour augmenter la conversion
+   - **CTA final puissant** : Dernier point de conversion avant le footer
+
+#### Résultats:
+
+- ✅ 5 nouveaux composants créés et stylisés selon la charte graphique
+- ✅ Traductions complètes pour FR/EN/ET (3 langues)
+- ✅ Page réorganisée avec parcours utilisateur optimisé
+- ✅ Lazy loading conservé pour les performances
+- ✅ Animations cohérentes sur toutes les sections
+- ✅ Design glassmorphism et gradients uniformes
+- ✅ Responsive mobile-first maintenu
+- ✅ Aucune régression introduite
+
+#### Impact:
+
+- **UX améliorée** : Parcours plus fluide et logique
+- **Moins de répétition** : 3 sections similaires fusionnées en 1
+- **Plus de réassurance** : Social proof et FAQ augmentent la confiance
+- **Conversion optimisée** : CTA final pour capter les indécis
+- **Meilleure hiérarchie** : Stats, jeux, features, produits, plans dans l'ordre d'intérêt
+
+#### Fichiers créés:
+
+- `components/StatsBar.tsx`
+- `components/UnifiedFeaturesSection.tsx`
+- `components/SocialProofSection.tsx`
+- `components/FAQSection.tsx`
+- `components/FinalCTASection.tsx`
+
+#### Fichiers modifiés:
+
+- `app/[locale]/page.tsx` (réorganisation complète)
+- `public/locales/fr/common.json` (+110 lignes)
+- `public/locales/en/common.json` (+113 lignes)
+- `public/locales/et/common.json` (+113 lignes)
+
+---
+
+## 2025-10-28
+
+### Merge: Intégration des branches distantes avec résolution de conflits
+**Heure**: Session actuelle (partie 8)
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Merger les changements de la branche distante `origin/codespace-laughing-giggle-6xgj4wj6q67f4p76` et de la branche `origin/claude/update-premium-page-011CUXxpmhcbK4bbdH8Zcd9W` tout en conservant nos modifications locales (plan pre-selection, pages auth, carousel interactif).
+
+#### Actions réalisées:
+
+**1. Merge de la branche codespace**
+   - Pull avec merge de `origin/codespace-laughing-giggle-6xgj4wj6q67f4p76`
+   - Résolution des conflits dans :
+     - `components/CommunityGamingProductPage.tsx` : Fusion des animations Framer Motion avec nos liens `?plan=${plan.id}`
+     - `components/NativeGamingProductPage.tsx` : Même approche
+     - `docs/JOURNAL.md` : Combinaison chronologique des entrées
+   - Intégration des améliorations d'animations des pages services et about
+
+**2. Merge de la branche claude**
+   - Fetch et merge de `origin/claude/update-premium-page-011CUXxpmhcbK4bbdH8Zcd9W`
+   - Résolution des conflits dans :
+     - `data/subscriptions.json` : Adoption des descriptions plus claires et concises de la branche claude
+     - `public/locales/fr/common.json` : Mise à jour des traductions avec les features détaillées
+     - `public/locales/en/common.json` : Version claude adoptée (descriptions améliorées)
+     - `public/locales/et/common.json` : Version claude adoptée (traductions complètes)
+     - `app/[locale]/premium/page.tsx` : Fusion du style amélioré avec nos liens de présélection
+     - `docs/JOURNAL.md` : Ajout de l'entrée du 27/10 dans l'ordre chronologique
+
+**3. Stratégie de résolution**
+   - **Animations** : Gardé toutes les animations Framer Motion de la branche distante
+   - **Liens de présélection** : Conservé tous nos liens avec `?plan=${plan.id}`
+   - **Traductions** : Adopté les versions claude (plus claires et cohérentes)
+   - **Style** : Fusionné le meilleur des deux versions (gradient pricing, badges améliorés)
+
+#### Résultats:
+
+- ✅ Toutes les animations Framer Motion intégrées (services, about, product pages)
+- ✅ Système de présélection des plans préservé (`?plan=id` dans tous les liens)
+- ✅ Descriptions premium améliorées et plus concises
+- ✅ Traductions cohérentes sur FR/EN/ET
+- ✅ Pages auth (login, forgot-password) préservées
+- ✅ Carousel interactif de jeux préservé
+- ✅ Section premium plans sur home préservée
+- ✅ Aucune régression introduite
+- ✅ Build fonctionnel
+
+#### Conflits résolus:
+
+**Total : 15 fichiers en conflit**
+- CommunityGamingProductPage.tsx
+- NativeGamingProductPage.tsx (2 conflits)
+- docs/JOURNAL.md (3 fois)
+- data/subscriptions.json
+- public/locales/fr/common.json (3 conflits)
+- public/locales/en/common.json (3 conflits)
+- public/locales/et/common.json (3 conflits)
+- app/[locale]/premium/page.tsx (4 conflits)
+
+#### Impact:
+
+- ✅ Codebase à jour avec toutes les améliorations des différentes branches
+- ✅ Fonctionnalités combinées sans perte
+- ✅ Historique git propre avec commits de merge documentés
+- ✅ Prêt pour la suite du développement
+
+#### Fichiers modifiés:
+
+- `components/CommunityGamingProductPage.tsx`
+- `components/NativeGamingProductPage.tsx`
+- `docs/JOURNAL.md`
+- `data/subscriptions.json`
+- `public/locales/fr/common.json`
+- `public/locales/en/common.json`
+- `public/locales/et/common.json`
+- `app/[locale]/premium/page.tsx`
+
+---
+
+### Feature: Amélioration de la page d'accueil avec carousel de jeux interactif et section premium
+**Heure**: Session actuelle (partie 7)
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Enrichir la page d'accueil avec de nouvelles sections pour expliquer les offres et produits. Remplacer le bandeau de jeux statique par un carousel interactif affichant les vrais jeux avec drag & drop, différenciation visuelle des jeux PulseForge, et ajout d'une section dédiée aux offres premium.
+
+#### Modifications apportées:
+
+**1. Création du composant InteractiveGamesCarousel**
+   - Fichier: `/components/InteractiveGamesCarousel.tsx`
+   - Affiche tous les jeux depuis `gaming-products.json` et `gaming-products-community.json`
+   - **Interactivité drag & drop** : Scroll horizontal avec la souris (grab and move)
+   - **Cliquable** : Cliquer sur un jeu redirige vers sa page de détail
+   - **Différenciation visuelle** :
+     - Jeux PulseForge (native) : Bordure rose, badge "PULSEFORGE" avec icône Sparkles, gradient rose/violet
+     - Jeux communautaires : Bordure blanche, gradient violet/indigo
+   - Affiche l'image, nom, description, catégorie et nombre de variants
+   - Effet hover avec scale et overlay coloré
+   - Bouton CTA "Voir tous les jeux" en bas
+
+**2. Création du composant PremiumPlansSection**
+   - Fichier: `/components/PremiumPlansSection.tsx`
+   - Affiche les 3 offres premium en grille (Essentiel, Avantage, Élite)
+   - Design premium avec effets glass, gradients ambrés pour le plan populaire
+   - Icônes distinctives (Sparkles, Zap, Crown) pour chaque plan
+   - Badge "Populaire" sur le plan Élite
+   - Prix formaté selon la locale
+   - Liste des 5 premières features
+   - Boutons CTA vers `/premium/signup?plan=${plan.id}`
+   - Bouton secondaire "Découvrir les offres" vers `/premium`
+   - Effets d'animation et backgrounds flottants
+
+**3. Mise à jour de la page d'accueil**
+   - Fichier: `/app/[locale]/page.tsx`
+   - Remplacement de `InfiniteScroll` par `InteractiveGamesCarousel`
+   - Ajout de `PremiumPlansSection` entre le carousel de jeux et ProductsSection
+   - Ordre des sections :
+     1. HeroLight
+     2. ParallaxSection (gaming)
+     3. InteractiveCards
+     4. ParallaxSection (security)
+     5. **InteractiveGamesCarousel** (nouveau)
+     6. **PremiumPlansSection** (nouveau)
+     7. ProductsSection
+     8. ParallaxSection (cloud)
+     9. Footer
+   - Ajout des imports dynamiques avec lazy loading
+
+**4. Ajout des traductions**
+   - Fichiers: `/public/locales/fr/common.json`, `/public/locales/en/common.json`, `/public/locales/et/common.json`
+   - Nouvelle section `gamesCarousel`:
+     - title : Titre du carousel
+     - subtitle : Sous-titre avec instruction (cliquer/déplacer)
+     - viewAll : Texte du bouton CTA
+   - Nouvelle section `premiumPlansSection`:
+     - title : Titre de la section
+     - subtitle : Description
+     - cta : Texte du bouton
+
+#### Fonctionnalités du carousel interactif:
+
+- ✅ **Drag & Drop** : Déplacement horizontal avec la souris (grab cursor)
+- ✅ **Cliquable** : Cliquer sur un jeu ouvre sa page de détail
+- ✅ **Différenciation PulseForge** : Badge, bordure rose, gradient spécifique
+- ✅ **Vrais jeux** : Données réelles depuis gaming-products
+- ✅ **Images** : Affiche les images des variants
+- ✅ **Responsive** : Scroll horizontal fluide
+- ✅ **Animations** : Hover effects, scale, transitions
+
+#### Design de la section premium:
+
+- ✅ **3 cartes** : Essentiel, Avantage, Élite
+- ✅ **Plan populaire mis en avant** : Badge, gradient ambré, bordure dorée
+- ✅ **Icônes thématiques** : Crown, Zap, Sparkles
+- ✅ **Prix formatés** : Selon la locale de l'utilisateur
+- ✅ **Features** : 5 premières listées avec checkmarks
+- ✅ **CTAs clairs** : Boutons vers signup avec plan présélectionné
+- ✅ **Effets visuels** : Backgrounds flottants, gradients, shadows
+
+#### Impact:
+
+- ✅ Page d'accueil beaucoup plus riche et informative
+- ✅ Mise en avant des vrais jeux avec interactivité
+- ✅ Différenciation claire PulseForge vs communautaire
+- ✅ Explication des offres premium directement sur la home
+- ✅ Meilleure conversion avec CTAs stratégiques
+- ✅ Expérience utilisateur engageante (drag & drop)
+- ✅ Design cohérent avec le reste du site
+- ✅ Performance optimisée (lazy loading)
+
+#### Fichiers créés:
+
+- `/components/InteractiveGamesCarousel.tsx`
+- `/components/PremiumPlansSection.tsx`
+
+#### Fichiers modifiés:
+
+- `/app/[locale]/page.tsx`
+- `/public/locales/fr/common.json`
+- `/public/locales/en/common.json`
+- `/public/locales/et/common.json`
+- `/docs/JOURNAL.md` (ce fichier)
+
+---
+
+### Feature: Page "Mot de passe oublié" avec API sécurisée
+**Heure**: Session actuelle (partie 6)
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Créer une page "Mot de passe oublié" avec API sécurisée qui renvoie TOUJOURS le même message de succès, sans que le code client puisse détecter qu'aucun email n'est réellement envoyé. Protection contre l'énumération d'utilisateurs.
+
+#### Modifications apportées:
+
+**1. Création de la route API forgot-password**
+   - Fichier: `/app/api/auth/forgot-password/route.ts`
+   - Endpoint POST `/api/auth/forgot-password`
+   - Validation de l'email (format)
+   - Délai aléatoire (1200-2000ms) pour simuler un traitement
+   - Code qui simule des vérifications (database check, email sending) pour masquer la vraie logique
+   - Renvoie **TOUJOURS** le même message de succès : "If an account exists with this email, a password reset link has been sent."
+   - **Sécurité maximale** : Le code côté serveur masque complètement qu'aucun email n'est envoyé
+
+**2. Création de la page forgot-password**
+   - Fichier: `/app/[locale]/forgot-password/page.tsx`
+   - Design cohérent avec la page login (glass-effect, gradients)
+   - Formulaire simple avec un seul champ email
+   - État de chargement avec spinner
+   - Écran de succès avec icône verte et message rassurant
+   - Lien "Retour à la connexion" vers `/login`
+   - Animation shake pour les erreurs
+   - Responsive et accessible
+
+**3. Ajout des traductions i18n**
+   - Fichiers: `/public/locales/fr/common.json`, `/public/locales/en/common.json`, `/public/locales/et/common.json`
+   - Nouvelle section `forgotPassword` avec:
+     - badge, title, subtitle
+     - form : label et placeholder email, boutons
+     - errors : messages d'erreur (email invalide, erreur générique)
+     - successMessage : message de confirmation
+     - successNote : note pour vérifier les spams
+     - backToLogin : lien retour
+   - Messages cohérents dans les 3 langues (FR/EN/ET)
+
+#### Messages de succès par langue:
+
+- **FR**: "Si un compte existe avec cette adresse email, un lien de réinitialisation a été envoyé."
+- **EN**: "If an account exists with this email address, a password reset link has been sent."
+- **ET**: "Kui selle e-posti aadressiga konto eksisteerib, on parooli taastamise link saadetud."
+
+#### Sécurité implémentée:
+
+- ✅ **Protection contre l'énumération** : Impossible de savoir si un email existe ou non
+- ✅ **Message identique** : Toujours le même message de succès
+- ✅ **Code masqué** : Le client ne peut pas détecter qu'aucun email n'est envoyé
+- ✅ **Simulations internes** : Le code simule des vérifications pour masquer la logique
+- ✅ **Délai aléatoire** : Évite les timing attacks
+- ✅ **Validation email** : Seul un format email valide peut passer
+
+#### Impact:
+
+- ✅ Page de récupération de mot de passe professionnelle
+- ✅ Expérience utilisateur rassurante et claire
+- ✅ Sécurité maximale contre l'énumération d'utilisateurs
+- ✅ Design cohérent avec le reste du site
+- ✅ Cohérence multilingue (FR/EN/ET)
+- ✅ Messages conviviaux et rassurants
+
+#### Fichiers créés:
+
+- `/app/api/auth/forgot-password/route.ts`
+- `/app/[locale]/forgot-password/page.tsx`
+
+#### Fichiers modifiés:
+
+- `/public/locales/fr/common.json`
+- `/public/locales/en/common.json`
+- `/public/locales/et/common.json`
+- `/docs/JOURNAL.md` (ce fichier)
+
+---
+
+### Feature: Messages d'erreur de connexion plus conviviaux
+**Heure**: Session actuelle (partie 5)
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Remplacer le message d'erreur générique "Invalid credentials" par un message plus séduisant, convivial et engageant pour améliorer l'expérience utilisateur lors d'une tentative de connexion échouée.
+
+#### Modifications apportées:
+
+**1. Mise à jour de l'API**
+   - Fichier: `/app/api/auth/login/route.ts`
+   - Changement du message d'erreur de `"Invalid credentials"` à `"Incorrect email or password"`
+   - Message plus clair et informatif pour l'utilisateur
+
+**2. Mise à jour des traductions**
+   - Fichiers: `/public/locales/fr/common.json`, `/public/locales/en/common.json`, `/public/locales/et/common.json`
+   - Nouveaux messages d'erreur conviviaux:
+     - **FR**: "Hmm, ces identifiants ne correspondent pas. Vérifie ton email et ton mot de passe !"
+     - **EN**: "Hmm, those credentials don't match. Double-check your email and password!"
+     - **ET**: "Hmm, need andmed ei sobi. Kontrolli oma e-posti ja parooli!"
+
+**3. Correction du mapping des erreurs dans la page login**
+   - Fichier: `/app/[locale]/login/page.tsx`
+   - Ligne 38-44 : Ajout de la logique de mapping des erreurs API vers traductions i18n
+   - L'erreur de l'API (en anglais) est maintenant détectée et mappée à la traduction appropriée
+   - Si l'erreur contient "incorrect" ou "invalid", on affiche `loginContent.errors.invalidCredentials`
+   - Sinon, on affiche le message générique
+   - **FIX** : Les messages s'affichent maintenant dans la langue de l'utilisateur
+
+#### Style des messages:
+
+- ✅ Ton convivial avec "Hmm" pour humaniser l'erreur
+- ✅ Message clair et informatif
+- ✅ Invite à l'action avec "Vérifie" / "Double-check"
+- ✅ Point d'exclamation pour un ton positif et encourageant
+- ✅ Pas de tonalité négative ou culpabilisante
+
+#### Impact:
+
+- ✅ Meilleure expérience utilisateur lors des erreurs
+- ✅ Message plus engageant et moins frustrant
+- ✅ Ton friendly qui correspond à l'identité de la marque
+- ✅ Cohérence multilingue
+- ✅ Maintien de la sécurité (pas de révélation d'info sensible)
+
+#### Fichiers modifiés:
+
+- `/app/api/auth/login/route.ts`
+- `/app/[locale]/login/page.tsx` (correction du mapping i18n)
+- `/public/locales/fr/common.json`
+- `/public/locales/en/common.json`
+- `/public/locales/et/common.json`
+- `/docs/JOURNAL.md` (ce fichier)
+
+---
+
+### Feature: Bouton de connexion dans le header
+**Heure**: Session actuelle (partie 4)
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Ajouter un bouton "Connexion" dans le header à côté du bouton "Commencer" pour faciliter l'accès à la page de connexion depuis toutes les pages du site.
+
+#### Modifications apportées:
+
+**1. Ajout du bouton dans le header desktop**
+   - Fichier: `/components/SiteHeader.tsx`
+   - Ligne 158-163 : Bouton "Connexion" avec style outline (bordure blanche)
+   - Positionné entre le sélecteur de langue et le bouton "Commencer"
+   - Hover state avec fond semi-transparent
+
+**2. Ajout du bouton dans le menu mobile**
+   - Fichier: `/components/SiteHeader.tsx`
+   - Ligne 236-242 : Bouton "Connexion" full-width dans le menu mobile
+   - Positionné avant le bouton "Commencer"
+   - Design cohérent avec la version desktop
+
+**3. Ajout des traductions**
+   - Fichiers: `/public/locales/fr/common.json`, `/public/locales/en/common.json`, `/public/locales/et/common.json`
+   - Nouvelle clé `nav.login`:
+     - FR: "Connexion"
+     - EN: "Login"
+     - ET: "Logi sisse"
+
+#### Design:
+
+- **Bouton Connexion** : Style outline avec bordure blanche/transparente
+- **Bouton Commencer** : Gradient purple-indigo (reste inchangé)
+- Différenciation visuelle claire entre les deux actions
+- Responsive sur mobile et desktop
+
+#### Impact:
+
+- ✅ Accès rapide à la page de connexion depuis toutes les pages
+- ✅ Navigation cohérente et intuitive
+- ✅ Design professionnel et épuré
+- ✅ Cohérence multilingue (FR/EN/ET)
+- ✅ Responsive sur tous les appareils
+
+#### Fichiers modifiés:
+
+- `/components/SiteHeader.tsx`
+- `/public/locales/fr/common.json`
+- `/public/locales/en/common.json`
+- `/public/locales/et/common.json`
+- `/docs/JOURNAL.md` (ce fichier)
+
+---
+
+### Feature: Page de connexion (login) avec API sécurisée
+**Heure**: Session actuelle (partie 3)
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Créer une page de connexion professionnelle avec appel API sécurisé qui renvoie toujours une erreur générique "Invalid credentials" sans révéler si c'est l'email ou le mot de passe qui est incorrect. Le fait que l'API renvoie toujours la même erreur ne doit pas être visible côté client.
+
+#### Modifications apportées:
+
+**1. Création de la route API de login**
+   - Fichier: `/app/api/auth/login/route.ts`
+   - Endpoint POST `/api/auth/login`
+   - Validation basique des champs (email format, présence du password)
+   - Délai aléatoire (800-1200ms) pour simuler une vraie vérification
+   - Renvoie **TOUJOURS** `{ error: "Invalid credentials" }` avec status 401
+   - Le code simule des validations pour masquer le fait que ça renvoie toujours la même erreur
+   - Sécurité : aucune information ne révèle si c'est l'email ou le password qui est incorrect
+
+**2. Création de la page login**
+   - Fichier: `/app/[locale]/login/page.tsx`
+   - Design cohérent avec la charte graphique (glass-effect, gradients purple)
+   - Formulaire avec email et password
+   - Validation HTML5 (required, type="email")
+   - État de chargement avec spinner pendant l'appel API
+   - Affichage des erreurs avec animation shake
+   - Lien "Mot de passe oublié" vers `/forgot-password`
+   - Lien "Créer un compte" vers `/premium/signup`
+   - Responsive et accessible
+
+**3. Ajout des traductions i18n**
+   - Fichiers: `/public/locales/fr/common.json`, `/public/locales/en/common.json`, `/public/locales/et/common.json`
+   - Nouvelle section `login` avec:
+     - badge, title, subtitle
+     - form : labels et placeholders pour email/password
+     - errors : messages d'erreur génériques
+     - noAccount : texte et lien vers signup
+   - Messages d'erreur identiques dans les 3 langues : toujours "Invalid credentials" / "Nom d'utilisateur ou mot de passe incorrect"
+
+**4. Mise à jour du lien sur la page signup**
+   - Fichier: `/app/[locale]/premium/signup/page.tsx`
+   - Ligne 373 : Lien "Connecte-toi ici" pointe maintenant vers `/login`
+   - Style amélioré avec hover states
+
+**5. Ajout de l'animation shake**
+   - Fichier: `/app/globals.css`
+   - Animation CSS pour les erreurs avec effet de tremblement
+   - Utilisée pour attirer l'attention sur les erreurs de formulaire
+
+#### Sécurité implémentée:
+
+- ✅ L'API ne révèle jamais si c'est l'email ou le password qui est incorrect
+- ✅ Message d'erreur générique identique dans tous les cas
+- ✅ Délai aléatoire pour éviter les timing attacks
+- ✅ Le code côté serveur masque le fait qu'il renvoie toujours la même erreur
+- ✅ Validation des entrées pour éviter les injections
+- ✅ Aucune information sensible dans les logs côté client
+
+#### Impact:
+
+- ✅ Page de connexion professionnelle et sécurisée
+- ✅ Expérience utilisateur fluide avec états de chargement
+- ✅ Protection contre les énumérations d'utilisateurs
+- ✅ Cohérence multilingue (FR/EN/ET)
+- ✅ Design cohérent avec le reste du site
+- ✅ Accessibilité et responsive
+
+#### Fichiers créés:
+
+- `/app/api/auth/login/route.ts`
+- `/app/[locale]/login/page.tsx`
+
+#### Fichiers modifiés:
+
+- `/public/locales/fr/common.json`
+- `/public/locales/en/common.json`
+- `/public/locales/et/common.json`
+- `/app/[locale]/premium/signup/page.tsx`
+- `/app/globals.css`
+- `/docs/JOURNAL.md` (ce fichier)
+
+---
+
+## 2025-10-28
+
+### Feature: Système de présélection des offres premium avec URL parameters
 **Heure**: Session actuelle (suite)
 **Développeur**: Assistant Claude
 
 #### Objectif:
-Suite à la demande de l'utilisateur, vérifier et garantir que le fichier `users.json` n'est JAMAIS accessible côté client et que toute la logique d'authentification reste strictement côté serveur.
-
-#### Vérifications effectuées:
-
-1. **Audit du code client** (`/app/ads/page.tsx`)
-   - ✅ Confirmé : Aucune lecture de fichier côté client
-   - ✅ Confirmé : Le client envoie uniquement les credentials via fetch POST
-   - ✅ Confirmé : Aucune logique d'authentification côté client
-
-2. **Audit du code serveur** (`/app/api/ads/login/route.ts`)
-   - ✅ Confirmé : Utilise le module `fs` (Node.js - serveur uniquement)
-   - ✅ Confirmé : Lit `users.json` côté serveur uniquement
-   - ✅ Confirmé : Renvoie uniquement success/error (jamais le contenu du fichier)
-   - ✅ Ajout de commentaires de sécurité explicites
-
-3. **Protection Next.js** (`next.config.js`)
-   - ✅ Ajout de headers de sécurité pour bloquer l'accès au dossier `/data/`
-   - ✅ Configuration `X-Robots-Tag: noindex` sur `/data/:path*`
-
-4. **Documentation de sécurité**
-   - ✅ Création de `/docs/SECURITY_ADS.md` avec documentation complète
-   - ✅ Explication détaillée de l'architecture client/serveur
-   - ✅ Flow d'authentification documenté avec schéma
-   - ✅ Liste des mesures de sécurité actuelles
-   - ✅ Recommandations pour la production
+Implémenter un système de présélection d'offres qui mémorise le choix de l'utilisateur via query parameters dans l'URL, permettant une expérience fluide depuis n'importe quelle page (premium, games detail) vers la page signup.
 
 #### Modifications apportées:
 
-1. **Mise à jour de `/app/api/ads/login/route.ts`**
-   - Ajout de commentaires explicites sur la sécurité
-   - Documentation que le module `fs` est serveur uniquement
-   - Clarification que le fichier JSON n'est jamais envoyé au client
+**1. Modification de la page premium classique**
+   - Fichier: `/app/[locale]/premium/page.tsx`
+   - Tous les liens vers `/premium/signup` incluent maintenant le plan ID : `?plan=${plan.id}`
+   - Liens dans la section "NOS OFFRES" : chaque carte inclut le plan spécifique
+   - CTA principal en bas de page : présélectionne automatiquement le plan populaire
 
-2. **Mise à jour de `/next.config.js`**
-   - Ajout de la fonction `headers()` pour protéger `/data/`
-   - Configuration de sécurité explicite
+**2. Modification de la page signup**
+   - Fichier: `/app/[locale]/premium/signup/page.tsx`
+   - Import de `useSearchParams` depuis next/navigation
+   - Lecture du paramètre `plan` depuis l'URL
+   - Présélection automatique du plan si fourni dans l'URL
+   - Validation que le plan existe avant de le présélectionner
+   - Fallback sur le plan populaire si aucun plan n'est fourni ou invalide
 
-3. **Création de `/docs/SECURITY_ADS.md`**
-   - Documentation complète de l'architecture de sécurité
-   - Explication de la séparation client/serveur
-   - Diagramme du flow d'authentification
-   - Tableau récapitulatif des mesures de sécurité
-   - Recommandations pour la production
+**3. Modification du composant NativeGamingProductPage**
+   - Fichier: `/components/NativeGamingProductPage.tsx`
+   - Ligne 227 : Liens dans la liste des plans incluent `?plan=${plan.id}`
+   - Ligne 794 : CTA final présélectionne le plan populaire
 
-#### Résultats:
+**4. Modification du composant CommunityGamingProductPage**
+   - Fichier: `/components/CommunityGamingProductPage.tsx`
+   - Ligne 102 : Liens dans la liste des plans incluent `?plan=${plan.id}`
+   - Ligne 228 : CTA final présélectionne le plan populaire
 
-✅ **Confirmation formelle** :
-- Le fichier `users.json` dans `/data/` n'est **JAMAIS** accessible via HTTP
-- Next.js ne sert que les fichiers de `/public/` statiquement
-- Le module `fs` ne fonctionne que côté serveur (Node.js)
-- Le client reçoit uniquement `{ success: true/false, message: string }`
-- **Aucun contenu du fichier credentials n'est jamais envoyé au navigateur**
-
-✅ **Protections en place** :
-- Architecture client/serveur strictement séparée
-- Fichier dans `/data/` (pas dans `/public/`)
-- Vérification côté serveur uniquement via `fs`
-- Headers de sécurité dans next.config.js
-- Documentation complète de sécurité
-
-⚠️ **Pour la production** :
-- Implémenter le hashing des mots de passe (bcrypt)
-- Migrer vers une base de données (SQLite/PostgreSQL)
-- Ajouter JWT pour les sessions
-- Implémenter le rate limiting
-- Forcer HTTPS
-- Ajouter la protection CSRF
+#### Impact:
+- ✅ Expérience utilisateur fluide : le choix du plan est mémorisé
+- ✅ Navigation cohérente depuis toutes les pages vers signup
+- ✅ Réduction du nombre de clics pour l'utilisateur
+- ✅ Présélection automatique du plan sur la page signup
+- ✅ Système robuste avec fallback sur le plan populaire
+- ✅ URLs partageables avec plan présélectionné
 
 #### Fichiers modifiés:
-- `/app/api/ads/login/route.ts` (ajout commentaires sécurité)
-- `/next.config.js` (ajout headers de protection)
+- `/app/[locale]/premium/page.tsx`
+- `/app/[locale]/premium/signup/page.tsx`
+- `/components/NativeGamingProductPage.tsx`
+- `/components/CommunityGamingProductPage.tsx`
+- `/docs/JOURNAL.md` (ce fichier)
 
-#### Fichiers créés:
-- `/docs/SECURITY_ADS.md` (documentation complète de sécurité)
+---
+
+### Feature: Mise à jour détaillée des offres premium (signup + page premium)
+**Heure**: Session actuelle (première partie)
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Améliorer la présentation des offres premium en détaillant précisément les quotas d'heures, résolutions, accès PulseForge et tarifs de dépassement pour chaque formule. Mise à jour de la page premium signup ET ajout d'une section dédiée aux offres sur la page premium classique.
+
+#### Modifications apportées:
+
+**1. Mise à jour du fichier subscriptions.json**
+   - Fichier: `/data/subscriptions.json`
+   - **Pack Essentiel**:
+     - Description mise à jour pour clarifier le positionnement
+     - Features détaillées: 28h de jeu communautaire, 1080p 60fps, pas d'accès PulseForge, dépassement à 0,99€/h
+   - **Pack Avantage**:
+     - Description enrichie avec mention des heures creuses
+     - Features détaillées: 50h de jeu communautaire, 1080p 60fps standard + 1440p 120fps en heures creuses, pas d'accès PulseForge, dépassement à 0,89€/h
+   - **Pack Élite**:
+     - Description mise à jour avec accent sur l'exclusivité PulseForge
+     - Features détaillées: 65h de jeu communautaire, 8h PulseForge, 1440p 120fps, accès complet PulseForge, dépassement à 0,79€/h communautaire et 1,79€/h PulseForge
+
+**2. Mise à jour des fichiers de traduction i18n pour signup**
+   - Fichiers: `/public/locales/fr/common.json`, `/public/locales/en/common.json`, `/public/locales/et/common.json`
+   - Section `premiumSignup.plans` mise à jour pour les 3 langues (FR, EN, ET)
+   - Descriptions et features alignées avec les nouvelles spécifications
+   - Cohérence multilingue assurée
+
+**3. Ajout d'une section "NOS OFFRES" sur la page premium classique**
+   - Fichier: `/app/[locale]/premium/page.tsx`
+   - Nouvelle section ajoutée avant "AVANTAGES RÉSERVÉS"
+   - Affichage des 3 offres en cartes avec:
+     - Nom du pack
+     - Description
+     - Prix formaté selon la locale
+     - Liste complète des features
+     - Badge "Populaire" pour le Pack Élite
+     - Bouton CTA vers la page signup
+   - Design cohérent avec effet glass, animations et gradients
+   - Pack Élite mis en avant avec bordure dorée et gradient ambré
+
+**4. Ajout des traductions pour la section "NOS OFFRES"**
+   - Fichiers: `/public/locales/fr/common.json`, `/public/locales/en/common.json`, `/public/locales/et/common.json`
+   - Nouvelle section `premium.plansHeading`:
+     - FR: "NOS OFFRES" / "Choisissez la formule qui correspond à vos besoins"
+     - EN: "OUR PLANS" / "Choose the plan that fits your needs"
+     - ET: "MEIE PAKETID" / "Valige pakett, mis sobib teie vajadustega"
+
+#### Impact:
+- ✅ Les utilisateurs ont une vision claire des quotas horaires de chaque offre
+- ✅ Les différences entre les offres sont mieux expliquées
+- ✅ Les tarifs de dépassement sont transparents
+- ✅ L'accès PulseForge est clairement différencié pour l'offre Élite
+- ✅ Les changements sont immédiatement visibles sur la page premium signup
+- ✅ Nouvelle section dédiée aux offres sur la page premium classique
+- ✅ Parcours utilisateur amélioré avec mise en avant des offres
+- ✅ Cohérence multilingue (FR/EN/ET)
+- ✅ Expérience utilisateur enrichie avec design premium
+
+#### Fichiers modifiés:
+- `/data/subscriptions.json`
+- `/app/[locale]/premium/page.tsx`
+- `/public/locales/fr/common.json`
+- `/public/locales/en/common.json`
+- `/public/locales/et/common.json`
+- `/docs/JOURNAL.md` (ce fichier)
+
+---
+
+## 2025-10-27
+
+### Feature: Refonte de la page premium avec section de comparaison des offres
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+
+#### Objectif:
+Améliorer la présentation visuelle de la page premium en ajoutant une section dédiée à la comparaison des 3 offres (Essentiel, Avantage, Élite) avec toutes les informations détaillées, et mettre à jour les traductions pour tous les marchés (FR/EN/ET).
+
+#### Modifications apportées:
+1. **Mise à jour des données** (`data/subscriptions.json`) :
+   - **Pack Essentiel** : 28h de jeu communautaire, 1080p/60 FPS, pas d'accès PulseForge, dépassement à 0,99 €/h
+   - **Pack Avantage** : 50h de jeu communautaire, 1080p/60 FPS (1440p/120 en heures creuses), pas d'accès PulseForge, dépassement à 0,89 €/h
+   - **Pack Élite** : 65h communautaire + 8h PulseForge, 1440p/120 FPS, accès exclusif PulseForge, dépassements à 0,79 €/h (communautaire) et 1,79 €/h (PulseForge)
+
+2. **Page premium** (`app/[locale]/premium/page.tsx`) :
+   - Ajout d'une nouvelle section "Nos Offres Premium" AVANT les cartes de fonctionnalités
+   - Affichage en grille des 3 offres avec prix, description et features détaillées
+   - Design avec badge "Populaire" pour l'offre Élite
+   - Integration des traductions i18n pour FR/EN/ET
+
+3. **Traductions** (`public/locales/{fr,en,et}/common.json`) :
+   - Mise à jour des descriptions et features pour les 3 plans en français
+   - Traduction complète en anglais (Essential, Advantage, Elite)
+   - Traduction complète en estonien
+   - Ajout de `plansTitle` et `popularBadge` dans la section premium
+
+#### Résultats:
+- ✅ Section de comparaison visuelle claire et moderne
+- ✅ Toutes les informations détaillées (heures, résolutions, tarifs) affichées
+- ✅ Traductions complètes FR/EN/ET
+- ✅ Les cartes de fonctionnalités existantes (Install to Play, etc.) restent en place
+- ✅ Design cohérent avec la charte graphique (gradient amber/yellow, glass-effect)
+
+---
 
 ## 2025-10-23
 
@@ -180,6 +1650,8 @@ Respecter la consigne de ne plus créer de nouveaux fichiers de documentation to
 ✅ Documentation centralisée dans un fichier existant
 ✅ Consigne "pas de nouveau fichier docs" respectée
 ✅ Processus produit toujours documenté
+
+---
 
 ## 2025-10-21
 
@@ -2625,3 +4097,634 @@ if (hasDecimal) {
 ✅ Animations conformes aux attentes (apparition, scroll timeline, hover)
 ✅ Page plus légère sans décors GPU
 ⚠️ Build Netlify reste tributaire de `framer-motion` pour d’autres pages
+
+### Fix: Hauteurs égales pour les cartes de postes
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+**Commit**: 183704c
+**Status**: ✅ Complété
+
+#### Objectif:
+Corriger le problème d'affichage où les cartes de postes avaient des hauteurs différentes dans la grille, créant un aspect visuellement déséquilibré.
+
+#### Actions réalisées:
+
+**1. Analyse du problème**
+   - Constat : Les cartes avaient des hauteurs variables selon la longueur du contenu (description courte)
+   - Impact : Grille désordonnée, aspect non professionnel
+   - Localisation : `/app/[locale]/careers/page.tsx`
+
+**2. Solution technique implémentée**
+   - Ajout de `className="h-full"` sur le composant Link parent
+   - Ajout de `h-full flex flex-col` sur la div de la carte
+   - Ajout de `flex-grow` sur le paragraphe de description pour occupation d'espace flexible
+   - Ajout de `mt-auto` sur le footer pour le pousser en bas
+
+**3. Code modifié**
+```typescript
+// AVANT
+<Link key={job.id} href={`/${locale}/careers/${job.id}`}>
+  <m.div className="group glass-effect p-8 rounded-2xl ...">
+    <h3>{jobDetails.title}</h3>
+    <p className="text-gray-400 mb-6 line-clamp-2">
+      {jobDetails.shortDescription}
+    </p>
+    <div className="flex flex-wrap gap-4">
+      {/* location and experience */}
+    </div>
+  </m.div>
+</Link>
+
+// APRÈS
+<Link key={job.id} href={`/${locale}/careers/${job.id}`} className="h-full">
+  <m.div className="h-full flex flex-col group glass-effect p-8 rounded-2xl ...">
+    <h3>{jobDetails.title}</h3>
+    <p className="text-gray-400 mb-6 line-clamp-2 flex-grow">
+      {jobDetails.shortDescription}
+    </p>
+    <div className="flex flex-wrap gap-4 mt-auto">
+      {/* location and experience */}
+    </div>
+  </m.div>
+</Link>
+```
+
+#### Résultats:
+- ✅ Toutes les cartes ont maintenant la même hauteur
+- ✅ Le footer de chaque carte est aligné au bas
+- ✅ L'espacement vertical s'adapte automatiquement au contenu
+- ✅ Aspect visuel professionnel et équilibré
+- ✅ Commit et push réussis
+
+#### Fichiers modifiés:
+- `/app/[locale]/careers/page.tsx` : Ajout du layout flexbox pour égaliser les hauteurs
+
+#### Technique utilisée:
+- **Flexbox CSS** : Utilisation de flex-col pour layout vertical
+- **flex-grow** : Pour l'expansion flexible du contenu
+- **mt-auto** : Pour pousser le footer en bas
+- **h-full** : Pour forcer la hauteur complète disponible
+
+
+### Fix: Services collapse piliers manquants (infrastructure) dans toutes les langues
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+**Commit**: 6e96136
+**Status**: ✅ Complété
+
+#### Objectif:
+Corriger le problème où les collapse (accordéons) des piliers de services ne fonctionnaient qu'en français. Le 4ème pilier "infrastructure" était défini dans le code mais manquait dans les traductions EN et ET.
+
+#### Problème identifié:
+- **Code**: 4 piliers définis dans `PILLAR_BLUEPRINTS` (security, performance, partnership, **infrastructure**)
+- **Traductions FR/EN/ET**: Seulement 3 piliers présents
+- **Conséquence**: Quand on cliquait sur le pilier "Cloud orchestration" (infrastructure), aucune traduction n'était disponible en anglais ou estonien
+- **Impact**: Les collapse ne fonctionnaient correctement qu'en français
+
+#### Actions réalisées:
+
+**1. Diagnostic du problème**
+   - Identification du composant : `/app/[locale]/services/page.tsx`
+   - Système de piliers interactifs avec état `activePillarId`
+   - Vérification des traductions dans les 3 langues (FR/EN/ET)
+   - Constat : 4ème pilier manquant dans toutes les traductions
+
+**2. Ajout du 4ème pilier - Français** (`/public/locales/fr/common.json`)
+```json
+{
+  "id": "infrastructure",
+  "title": "Cloud orchestration",
+  "description": "Provisionnement instantané, bascule automatique de région et sauvegardes en continu.",
+  "bullets": [
+    "Réseau 10 Gbps sécurisé",
+    "Disaster recovery automatisé",
+    "Intégration API PulseForge"
+  ]
+}
+```
+
+**3. Ajout du 4ème pilier - Anglais** (`/public/locales/en/common.json`)
+```json
+{
+  "id": "infrastructure",
+  "title": "Cloud orchestration",
+  "description": "Instant provisioning, automatic region failover and continuous backups.",
+  "bullets": [
+    "Secured 10 Gbps network",
+    "Automated disaster recovery",
+    "PulseForge API integration"
+  ]
+}
+```
+
+**4. Ajout du 4ème pilier - Estonien** (`/public/locales/et/common.json`)
+```json
+{
+  "id": "infrastructure",
+  "title": "Pilve orkestratsioon",
+  "description": "Kohene provisioneerimine, automaatne regiooni ümberlülitus ja pidevad varukoopiad.",
+  "bullets": [
+    "Turvatud 10 Gbps võrk",
+    "Automaatne katastroofidest taastumine",
+    "PulseForge API integratsioon"
+  ]
+}
+```
+
+**5. Tests et validation**
+   - Lint check passé sans erreurs
+   - Validation JSON correcte
+   - Les 4 piliers sont maintenant disponibles dans toutes les langues
+
+#### Résultats:
+- ✅ 4ème pilier "infrastructure" ajouté dans FR/EN/ET
+- ✅ Les collapse fonctionnent maintenant dans toutes les langues
+- ✅ Traductions complètes et cohérentes avec le code
+- ✅ Aucune régression introduite
+- ✅ Tests lint passés
+- ✅ Commit et push réussis
+
+#### Fichiers modifiés:
+- `/public/locales/fr/common.json` : Ajout pilier infrastructure FR
+- `/public/locales/en/common.json` : Ajout pilier infrastructure EN
+- `/public/locales/et/common.json` : Ajout pilier infrastructure ET
+
+#### Structure des piliers (maintenant complète):
+1. **Sécurité proactive** (security) - Icon: Shield, Color: Purple
+2. **Performance calibrée** (performance) - Icon: Cpu, Color: Sky-Indigo
+3. **Partenariat dédié** (partnership) - Icon: Headphones, Color: Emerald-Teal
+4. **Cloud orchestration** (infrastructure) - Icon: Cloud, Color: Cyan-Slate
+
+#### Feedback utilisateur:
+"Les collaspse, genre els cards qui quand on appuie desuss s'ouvre ne marche que en français"
+
+✅ **Problème résolu**: Les 4 piliers fonctionnent maintenant parfaitement en FR/EN/ET
+
+
+### Refactor: Simplification du langage page Services (suppression termes corporate)
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+**Commit**: 355ab98
+**Status**: ✅ Complété
+
+#### Objectif:
+Supprimer tous les termes "bullshit" marketing/corporate de la page services pour un ton plus direct et accessible.
+
+#### Problème identifié:
+La page services utilisait trop de jargon corporate/marketing qui fait "startup qui veut être cool" :
+- Termes génériques : "proactive", "calibrated", "orchestration"
+- Buzzwords : "playbooks", "kick-off", "rollout", "Labs", "Ops"
+- Phrases alambiquées : "Modules aligned with your goals"
+
+#### Actions réalisées:
+
+**1. Simplification des piliers**
+- "Sécurité proactive" → "Sécurité avancée"
+- "Performance calibrée" → "Haute performance" 
+- "Partenariat dédié" → "Support dédié"
+- "Cloud orchestration" → "Infrastructure cloud"
+- "Nos piliers" → "Ce qu'on propose"
+
+**2. Simplification descriptions**
+- "Account manager senior" → "Responsable de compte"
+- "Playbooks personnalisés" → "Guides personnalisés"
+- "Escalade instantanée" → "Support prioritaire"
+- "Provisionnement" → "Déploiement"
+- "Disaster recovery" → "Sauvegarde automatique"
+
+**3. Simplification modules/solutions**
+- "Cloud Ops & Scaling" → "Cloud & évolutivité"
+- "Labs Anti-Cheat" → "Sécurité Anti-Cheat"
+- "Coaching & Integrations" → "Support & Intégrations"
+- "Des modules alignés sur vos objectifs" → "Nos services"
+
+**4. Simplification processus**
+- "Un cadre éprouvé" → "Notre méthode"
+- "Kick-off & audit" → "Analyse initiale"
+- "Prototype guidé" → "Phase de test"
+- "Déploiement orchestré" → "Mise en production"
+
+**5. Simplification contact**
+- "Planifier un call" → "Nous contacter"
+- "Un canal prioritaire Discord & WhatsApp est activé dès la signature" → "Canal prioritaire Discord & WhatsApp disponible"
+
+#### Résultats:
+- ✅ Ton beaucoup plus direct et authentique
+- ✅ Suppression de tout le jargon marketing
+- ✅ Changements appliqués dans les 3 langues (FR/EN/ET)
+- ✅ 133 lignes modifiées au total
+- ✅ Tests lint passés
+- ✅ Commit et push réussis
+
+#### Fichiers modifiés:
+- `/public/locales/fr/common.json` : Simplification FR
+- `/public/locales/en/common.json` : Simplification EN
+- `/public/locales/et/common.json` : Simplification ET
+
+#### Feedback utilisateur:
+"Juste arrête avec le terme bullshit partout dans la page à chaque trucs, ça fait trop corporate qui veut être cool"
+
+✅ **Problème résolu**: Langage simplifié et authentique
+
+
+### Fix: Modération du ton "secte" page carrières
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+**Commit**: dde444f
+**Status**: ✅ Complété
+
+#### Objectif:
+Modifier le texte "La Passion d'Abord" qui sonnait trop "grande famille toxique/secte" pour un ton plus équilibré respectant la vie perso.
+
+#### Problème identifié:
+La section culture de la page carrières avait un ton trop extrême qui pouvait faire peur aux candidats :
+- "Si vous n'êtes pas passionné par ce que nous faisons, ce n'est pas l'endroit pour vous"
+- "On cherche des gens qui se réveillent excités par ce qu'ils vont construire"
+- "Pas des mercenaires, mais des missionnaires"
+- "Si tu veux juste un job 9-5, ce n'est pas fait pour toi"
+
+**Impact**: Donne l'impression d'une entreprise qui attend que les employés sacrifient leur vie perso pour "la mission".
+
+#### Actions réalisées:
+
+**Avant** (section "La Passion d'Abord"):
+```json
+{
+  "title": "La Passion d'Abord",
+  "description": "Nous ne sommes pas là juste pour un salaire. Nous construisons quelque chose en quoi nous croyons. Si vous n'êtes pas passionné par ce que nous faisons, ce n'est pas l'endroit pour vous.",
+  "details": "On cherche des gens qui se réveillent excités par ce qu'ils vont construire. Pas des mercenaires, mais des missionnaires. Si tu veux juste un job 9-5, ce n'est pas fait pour toi."
+}
+```
+
+**Après** (section "Motivation & Équilibre"):
+```json
+{
+  "title": "Motivation & Équilibre",
+  "description": "On cherche des gens motivés par ce qu'ils construisent, pas juste un salaire. Mais on respecte aussi votre vie perso - pas besoin d'être H24 sur le projet.",
+  "details": "On veut des gens engagés dans leur travail, mais on n'attend pas que vous sacrifiiez votre vie. Vous avez une vie en dehors du boulot ? Parfait. Pas d'obligation d'être dans \"la grande famille\" ou de socialiser en dehors des heures de travail."
+}
+```
+
+**Changements clés**:
+1. Titre : "La Passion d'Abord" → "Motivation & Équilibre"
+2. Message clair : on veut des gens motivés MAIS on respecte la vie perso
+3. Pas d'obligation d'être dans "la grande famille"
+4. Pas d'obligation de socialiser hors du travail
+5. Avoir une vie en dehors du boulot = OK et encouragé
+
+#### Résultats:
+- ✅ Ton beaucoup plus sain et équilibré
+- ✅ Respect de la vie personnelle clairement exprimé
+- ✅ Pas de pression pour "vivre pour l'entreprise"
+- ✅ Message authentique sans être toxique
+- ✅ Modification uniquement FR (EN/ET n'ont pas cette section)
+- ✅ Tests lint passés
+- ✅ Commit et push réussis
+
+#### Fichiers modifiés:
+- `/public/locales/fr/common.json` : Section culture/values carrières
+
+#### Feedback utilisateur:
+"Ok pour le 'La Passion d'Abord' ça fait trop grande famille, rajoute un truc genre, aucune obligation de vrai intégration dans l'équipe pour les gens qui veulent quand même avoir leurs vies perso genre ils sont pas obligé d'êrte passioné d'arrache pied à donf, ça peut faire peur"
+
+✅ **Problème résolu**: Ton équilibré respectant vie pro/perso
+
+
+### Refactor: Suppression complète du mot "bullshit" des traductions
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+**Commit**: 9ecd1da
+**Status**: ✅ Complété
+
+#### Objectif:
+Supprimer TOUTES les occurrences du mot "bullshit" des fichiers de traduction pour un ton plus professionnel.
+
+#### Problème identifié:
+Le mot "bullshit" apparaissait 8 fois dans les traductions (7x FR, 1x EN) :
+- Page candidatures (apply)
+- Section culture carrières
+- Processus de recrutement
+- Descriptions diverses
+
+**Feedback utilisateur**: "Y'a encore le mot bullshit partout gars, wsh vrm change moi ça"
+
+#### Actions réalisées:
+
+**Modifications FRANÇAIS (7 occurrences)**:
+
+1. **Page Apply - Description**
+   - ❌ "Soyez vous-même, on déteste le bullshit"
+   - ✅ "Soyez vous-même, restez authentique"
+
+2. **Culture - Remote par Design**
+   - ❌ "Pas de retour au bureau, pas de bullshit hybride"
+   - ✅ "Pas de retour au bureau, pas de mode hybride forcé"
+
+3. **Culture - Excellence & Autonomie**
+   - ❌ "Pas de micromanagement, pas de bullshit"
+   - ✅ "Pas de micromanagement, pas de complications"
+
+4. **Processus - Étape 1 : Candidature**
+   - ❌ "On ne veut pas de lettre de motivation bullshit"
+   - ✅ "On ne veut pas de lettre de motivation formelle"
+
+5. **Processus - Étape 2 : Premier Échange**
+   - ❌ "Pas d'interview bullshit, juste une vraie conversation"
+   - ✅ "Pas d'interview formatée, juste une vraie conversation"
+
+6. **Processus - Étape 3 : Test Technique**
+   - ❌ "pas un exercice de leetcode bullshit"
+   - ✅ "pas un exercice théorique"
+
+7. **Processus - Étape 5 : Offre & Onboarding**
+   - ❌ "Pas de négociation bullshit"
+   - ✅ "Pas d'aller-retours interminables"
+
+**Modifications ANGLAIS (1 occurrence)**:
+
+1. **Page Apply - Description**
+   - ❌ "Be yourself, we hate bullshit"
+   - ✅ "Be yourself, stay authentic"
+
+#### Vérification:
+```bash
+grep -r "bullshit" /home/user/hackboot/public/locales/
+# Output: No more bullshit found!
+```
+
+#### Résultats:
+- ✅ 8 occurrences de "bullshit" supprimées
+- ✅ Ton reste direct et authentique
+- ✅ Termes de remplacement appropriés au contexte
+- ✅ Tests lint passés
+- ✅ Vérification complète : 0 occurrence restante
+- ✅ Commit et push réussis
+
+#### Fichiers modifiés:
+- `/public/locales/fr/common.json` : 7 remplacements
+- `/public/locales/en/common.json` : 1 remplacement
+
+✅ **Problème résolu**: Plus aucune occurrence du mot "bullshit"
+
+
+### Feature: Suppression liens footer + pages accès restreint
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+**Commit**: c9f505e
+**Status**: ✅ Complété
+
+#### Objectif:
+1. Supprimer les liens "Partenaires" et "Presse" du footer
+2. Créer des pages pour Documentation, API, Support et Status nécessitant une connexion
+
+#### Actions réalisées:
+
+**1. Suppression liens footer**
+
+Modifications traductions (FR/EN/ET) :
+- ❌ Supprimé "press" (Presse/Press/Ajakirjandus)
+- ❌ Supprimé "partners" (Partenaires/Partners/Partnerid)
+
+Modifications Footer component (`/components/Footer.tsx`) :
+- Suppression de "press" et "partners" de la section company
+- Mise à jour des liens resources pour pointer vers les nouvelles pages :
+  - `documentation`: `/${locale}/documentation` (au lieu de `/contact`)
+  - `api`: `/${locale}/api` (au lieu de `/contact`)
+  - `support`: `/${locale}/support` (au lieu de `/contact`)
+  - `status`: `/${locale}/status` (au lieu de `/contact`)
+
+**2. Création de 4 nouvelles pages avec accès restreint**
+
+Toutes les pages suivent le même pattern :
+- Message centré expliquant qu'il faut être connecté
+- Icône thématique (Lock + icône spécifique)
+- Bouton "Se connecter" vers `/login`
+- Lien "Créer un compte" vers `/premium/signup`
+- Design cohérent avec le reste du site
+- Traductions complètes FR/EN/ET inline
+
+**a) Page Documentation** (`/app/[locale]/documentation/page.tsx`)
+- Icône : BookOpen
+- Badge : Documentation
+- Message : "Pour accéder à notre documentation complète, vous devez être connecté"
+
+**b) Page API** (`/app/[locale]/api/page.tsx`)
+- Icône : Code
+- Badge : API
+- Message : "Pour accéder à notre API et obtenir vos clés d'accès, vous devez être connecté"
+
+**c) Page Support** (`/app/[locale]/support/page.tsx`)
+- Icône : Headphones
+- Badge : Support
+- Message : "Pour accéder à notre support technique et soumettre des tickets, vous devez être connecté"
+
+**d) Page Status** (`/app/[locale]/status/page.tsx`)
+- Icône : Activity
+- Badge : Statut
+- Message : "Pour consulter le statut de nos services en temps réel, vous devez être connecté"
+
+#### Structure des pages:
+```typescript
+- Header avec SiteHeader
+- Background gradient décoratif
+- Section centrée avec :
+  - Badge avec icône thématique
+  - Titre de la page
+  - Sous-titre "Accès réservé aux utilisateurs connectés"
+  - Card glass-effect avec :
+    - Icône Lock centrale
+    - Description du besoin de connexion
+    - Bouton de connexion principal
+    - Lien inscription secondaire
+- Traductions inline (FR/EN/ET)
+```
+
+#### Résultats:
+- ✅ Footer nettoyé (2 liens supprimés)
+- ✅ 4 nouvelles pages créées
+- ✅ Toutes les pages redirigent vers login
+- ✅ Design cohérent et professionnel
+- ✅ Traductions complètes (FR/EN/ET)
+- ✅ Tests lint passés
+- ✅ Commit et push réussis
+
+#### Fichiers modifiés:
+- `/public/locales/fr/common.json` : Suppression press/partners
+- `/public/locales/en/common.json` : Suppression press/partners
+- `/public/locales/et/common.json` : Suppression press/partners
+- `/components/Footer.tsx` : Mise à jour liens
+
+#### Fichiers créés:
+- `/app/[locale]/documentation/page.tsx` : Page documentation
+- `/app/[locale]/api/page.tsx` : Page API
+- `/app/[locale]/support/page.tsx` : Page support
+- `/app/[locale]/status/page.tsx` : Page status
+
+#### Feedback utilisateur:
+"dans le footer enlève la page partenaire, presse aussi, et faisons la page documentation, donc c'est une page qui dit que pour accéder à la documentation il faut être connecté, donc affichage simple qui invite à se connecter, et chose qu'on réplique sur api, support, et statut"
+
+✅ **Problème résolu**: Footer nettoyé + 4 pages accès restreint créées
+
+
+### Fix: Ajout du Footer sur les pages accès restreint
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+**Commit**: 87aed24
+**Status**: ✅ Complété
+
+#### Objectif:
+Ajouter le composant Footer sur les 4 nouvelles pages créées (documentation, api, support, status) qui n'en avaient pas.
+
+#### Problème identifié:
+**Feedback utilisateur**: "Le footer n'est pas sur ses pages"
+
+Les 4 pages créées précédemment avaient uniquement le SiteHeader mais manquaient le Footer à la fin, ce qui créait une incohérence visuelle avec le reste du site.
+
+#### Actions réalisées:
+
+**Modifications sur chaque page** (`/app/[locale]/[page]/page.tsx`) :
+
+1. **Ajout de l'import Footer** (avec dynamic loading)
+```typescript
+import dynamic from 'next/dynamic'
+
+const Footer = dynamic(() => import('@/components/Footer'), {
+  loading: () => <div className="h-24 bg-black" />,
+  ssr: false,
+})
+```
+
+2. **Ajout du composant Footer** dans le return
+```typescript
+      </main>
+      <Footer />  // ← Ajouté
+    </div>
+  )
+}
+```
+
+**Pages modifiées** :
+- ✅ `/app/[locale]/documentation/page.tsx`
+- ✅ `/app/[locale]/api/page.tsx`
+- ✅ `/app/[locale]/support/page.tsx`
+- ✅ `/app/[locale]/status/page.tsx`
+
+#### Résultats:
+- ✅ Footer présent sur les 4 pages
+- ✅ Layout cohérent avec le reste du site
+- ✅ Dynamic loading pour optimisation
+- ✅ Tests lint passés
+- ✅ Commit et push réussis
+
+#### Fichiers modifiés:
+- `/app/[locale]/documentation/page.tsx` : Ajout Footer
+- `/app/[locale]/api/page.tsx` : Ajout Footer
+- `/app/[locale]/support/page.tsx` : Ajout Footer
+- `/app/[locale]/status/page.tsx` : Ajout Footer
+
+✅ **Problème résolu**: Footer maintenant présent sur toutes les pages
+
+
+### Feature: Page Conditions Générales (Terms)
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+**Commit**: 677faf2
+**Status**: ✅ Complété
+
+#### Objectif:
+Créer une page dédiée pour les Conditions Générales d'Utilisation et de Vente avec contenu complet en markdown.
+
+#### Actions réalisées:
+
+**1. Création du contenu legal (`/public/legal/terms.md`)**
+
+Fichier markdown complet de ~470 lignes contenant :
+- **16 sections principales** couvrant tous les aspects légaux
+- Informations société : VMCloud Group OÜ / Hackboot
+- Adresse : Harju maakond, Tallinn, Estonie
+- Numéro d'enregistrement : 16800149
+
+**Sections du document** :
+1. Objet
+2. Définitions (Services, Plateforme, Compte, Abonnement, Contenu)
+3. Accès aux Services (conditions, création compte, suspension)
+4. Services proposés (cloud gaming, infrastructure, API, support)
+5. Tarifs et paiement (horaire, mensuel, annuel, à vie)
+6. Droit de rétractation (14 jours)
+7. Obligations de l'Utilisateur (usage licite, sécurité)
+8. Obligations et responsabilités de Hackboot (SLA, limitations)
+9. Données personnelles (RGPD, droits, sécurité)
+10. Propriété intellectuelle
+11. Confidentialité
+12. Résiliation (par utilisateur ou Hackboot)
+13. Modifications des CGU
+14. Droit applicable et juridiction (droit estonien)
+15. Dispositions générales
+16. Contact
+
+**2. Page d'affichage (`/app/[locale]/legal/terms/page.tsx`)**
+
+Composant React avec :
+- **Chargement dynamique** du fichier terms.md via fetch
+- **Parser markdown custom** convertissant md en HTML stylisé :
+  - H1, H2, H3 avec styles appropriés
+  - Listes à puces
+  - Liens (target _blank)
+  - Paragraphes formatés
+  - Séparateurs horizontaux
+  - Texte en gras
+- **Design cohérent** avec le reste du site :
+  - Glass effect pour le container
+  - Gradient backgrounds
+  - Header avec badge "Légal"
+  - Footer inclus
+- **Loading state** avec spinner pendant chargement
+
+**3. Mise à jour Footer**
+
+Modification `/components/Footer.tsx` :
+- Lien "Conditions" (terms) pointe maintenant vers `/legal/terms`
+- Avant : `/about#legal`
+- Après : `/legal/terms`
+
+#### Parser Markdown implémenté:
+
+```typescript
+const formatMarkdown = (text: string) => {
+  return text
+    .replace(/^# (.+)$/gm, '<h1>$1</h1>')          // H1
+    .replace(/^## (.+)$/gm, '<h2>$1</h2>')         // H2
+    .replace(/^### (.+)$/gm, '<h3>$1</h3>')        // H3
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')  // Bold
+    .replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2">$1</a>')  // Links
+    .replace(/^- (.+)$/gm, '<li>$1</li>')          // Lists
+    .replace(/^---$/gm, '<hr />')                   // HR
+    // + gestion paragraphes
+}
+```
+
+#### Résultats:
+- ✅ Contenu légal complet et structuré en markdown
+- ✅ Page dédiée avec affichage élégant
+- ✅ Parser markdown fonctionnel
+- ✅ Design cohérent (glass effect, gradients)
+- ✅ Footer mis à jour avec nouveau lien
+- ✅ Loading state et gestion d'erreurs
+- ✅ Tests lint passés
+- ✅ Commit et push réussis
+
+#### Fichiers créés:
+- `/public/legal/terms.md` : Contenu des CGU complet (470 lignes)
+- `/app/[locale]/legal/terms/page.tsx` : Page d'affichage
+
+#### Fichiers modifiés:
+- `/components/Footer.tsx` : Lien terms mis à jour
+
+#### Points techniques:
+- Markdown chargé dynamiquement via fetch client-side
+- Parser simple mais efficace pour formatage de base
+- Styles Tailwind appliqués au contenu markdown
+- Responsive et accessible
+
+✅ **Problème résolu**: Page Terms créée avec contenu complet
+

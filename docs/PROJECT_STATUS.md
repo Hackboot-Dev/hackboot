@@ -3,8 +3,8 @@
 ## 📊 Vue d'ensemble
 
 **Statut global:** 🟡 En développement actif
-**Dernière mise à jour:** 27 Octobre 2025
-**Version:** 0.3.0
+**Dernière mise à jour:** 5 Novembre 2025
+**Version:** 0.5.0
 
 ## 🎯 Fonctionnalités implémentées
 
@@ -22,25 +22,28 @@
 - [x] Page Services
 - [x] Page About (design complet avec sections timeline, équipe, valeurs, légal)
 - [x] Page Contact (formulaire interactif, cartes de contact, animations)
-- [x] Page ADS Login (authentification admin avec dashboard)
-
-### ✅ API Routes
-- [x] POST /api/ads/login - Authentification pour le panneau ADS
-- [x] GET /api/products/[slug]/images - Récupération des images produits
+- [x] Page Carrières (liste des postes, filtres par département, culture, avantages, processus)
+- [x] Pages détail des postes (routing dynamique, responsabilités, prérequis, avantages)
 
 ### ✅ Composants
 - [x] Hero avec animations (version light optimisée)
 - [x] Header avec navigation et menu mobile
 - [x] Logo SVG animé avec interaction hover
-- [x] Sections parallax i18n
 - [x] Cartes interactives avec effets 3D
 - [x] Défilement infini des logos
-- [x] Footer responsive
+- [x] Footer responsive avec 4 sections (Product, Company, Resources, Legal) et liens fonctionnels
 - [x] Sélecteur de langue (multiple versions)
 - [x] Loader de page avec animation
 - [x] Formulaire de contact avec validation et feedback
 - [x] Timeline animée (page About)
 - [x] Cartes équipe avec animations (page About)
+- [x] StatsBar - Bandeau statistiques clés
+- [x] UnifiedFeaturesSection - Section features unifiée (Gaming/Security/Cloud)
+- [x] SocialProofSection - Témoignages clients et social proof
+- [x] FAQSection - Questions fréquentes avec accordéon
+- [x] FinalCTASection - Call-to-action final
+- [x] InteractiveGamesCarousel - Carousel de jeux draggable
+- [x] PremiumPlansSection - Section plans premium sur home
 
 ## 🚧 En cours de développement
 

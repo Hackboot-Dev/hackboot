@@ -3,6 +3,8 @@
 import { useI18n } from '@/lib/i18n-simple'
 import { useMemo } from 'react'
 import dynamic from 'next/dynamic'
+import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component'
+import 'react-vertical-timeline-component/style.min.css'
 import {
   Gamepad2,
   Code,
@@ -29,7 +31,6 @@ import SiteHeader from '@/components/SiteHeader'
 import HeroParallax from '@/components/about/HeroParallax'
 import StatsShowcase from '@/components/about/StatsShowcase'
 import MissionVision from '@/components/about/MissionVision'
-import VerticalTimeline from '@/components/about/VerticalTimeline'
 import AchievementGrid from '@/components/about/AchievementGrid'
 import ValueCardParallax from '@/components/about/ValueCardParallax'
 
@@ -334,7 +335,59 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <VerticalTimeline events={timelineEvents} />
+            <VerticalTimeline lineColor="rgba(147, 51, 234, 0.3)" animate={true}>
+              {timelineEvents.map((event, index) => {
+                const IconComponent = event.icon
+                return (
+                  <VerticalTimelineElement
+                    key={index}
+                    className="vertical-timeline-element--work"
+                    contentStyle={{
+                      background: 'rgba(17, 24, 39, 0.6)',
+                      backdropFilter: 'blur(12px)',
+                      border: '1px solid rgba(255, 255, 255, 0.1)',
+                      borderRadius: '1rem',
+                      boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+                      color: '#fff',
+                      padding: '2rem',
+                    }}
+                    contentArrowStyle={{
+                      borderRight: '7px solid rgba(17, 24, 39, 0.6)',
+                    }}
+                    iconStyle={{
+                      background: 'linear-gradient(135deg, #9333ea 0%, #7c3aed 100%)',
+                      color: '#fff',
+                      boxShadow: '0 0 0 4px #000, 0 0 20px rgba(147, 51, 234, 0.5)',
+                    }}
+                    icon={<IconComponent size={24} strokeWidth={2} />}
+                  >
+                    <div className="relative">
+                      <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
+                        <div className="flex items-center gap-3">
+                          <div className="h-1 w-12 bg-gradient-to-r from-purple-500 to-violet-600 rounded-full" />
+                          <h3 className="text-xl sm:text-2xl font-bold text-white">{event.title}</h3>
+                        </div>
+                        <span className="text-lg font-bold text-purple-400">{event.year}</span>
+                      </div>
+                      <p className="text-gray-300 leading-relaxed text-base mb-4">{event.description}</p>
+                      {event.achievements && event.achievements.length > 0 && (
+                        <div className="mt-4 p-4 bg-white/5 rounded-lg border border-white/10">
+                          <h4 className="text-sm font-semibold text-purple-400 mb-3">Points clés :</h4>
+                          <ul className="space-y-2">
+                            {event.achievements.map((achievement, i) => (
+                              <li key={i} className="text-sm text-gray-400 flex items-start gap-2">
+                                <span className="text-purple-400 mt-1">•</span>
+                                <span>{achievement}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </div>
+                  </VerticalTimelineElement>
+                )
+              })}
+            </VerticalTimeline>
           </div>
         </section>
 

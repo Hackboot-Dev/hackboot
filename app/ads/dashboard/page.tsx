@@ -2,113 +2,187 @@
 
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
+import { LogOut, Image, Video, FileText, Sparkles } from 'lucide-react'
 
-export default function AdsDashboardPage() {
+interface User {
+  id: string
+  username: string
+  role: string
+  permissions: string[]
+}
+
+export default function AdsDashboard() {
+  const [user, setUser] = useState<User | null>(null)
+  const [loading, setLoading] = useState(true)
   const router = useRouter()
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
 
   useEffect(() => {
-    const session = localStorage.getItem('ads_session')
-    if (session !== 'authenticated') {
+    const token = localStorage.getItem('ads-token')
+
+    if (!token) {
       router.push('/ads')
-    } else {
-      setIsAuthenticated(true)
+      return
+    }
+
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1]))
+      setUser(payload)
+    } catch (error) {
+      console.error('Invalid token:', error)
+      router.push('/ads')
+    } finally {
+      setLoading(false)
     }
   }, [router])
 
   const handleLogout = () => {
-    localStorage.removeItem('ads_session')
+    localStorage.removeItem('ads-token')
     router.push('/ads')
   }
 
-  if (!isAuthenticated) {
+  if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-purple-900 to-black">
-        <div className="text-white">Vérification...</div>
+      <div className="min-h-screen bg-black flex items-center justify-center">
+        <div className="text-white">Loading...</div>
       </div>
     )
   }
 
+  if (!user) {
+    return null
+  }
+
+  const tools = [
+    {
+      id: 'social-images',
+      name: 'Social Media Images',
+      description: 'Generate images for social networks (Facebook, Instagram, Twitter)',
+      icon: Image,
+      gradient: 'from-blue-500 to-cyan-500',
+      href: '/ads/dashboard/social-images',
+      available: true,
+    },
+    {
+      id: 'video-ads',
+      name: 'Video Ads',
+      description: 'Create video ads for YouTube, TikTok, and other platforms',
+      icon: Video,
+      gradient: 'from-purple-500 to-pink-500',
+      href: '/ads/dashboard/video-ads',
+      available: false,
+    },
+    {
+      id: 'landing-pages',
+      name: 'Landing Pages',
+      description: 'Generate landing page mockups and prototypes',
+      icon: FileText,
+      gradient: 'from-orange-500 to-red-500',
+      href: '/ads/dashboard/landing-pages',
+      available: false,
+    },
+    {
+      id: 'ai-generator',
+      name: 'AI Content Generator',
+      description: 'Generate ad copy and creative content with AI',
+      icon: Sparkles,
+      gradient: 'from-green-500 to-emerald-500',
+      href: '/ads/dashboard/ai-generator',
+      available: false,
+    },
+  ]
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-black">
-      <div className="container mx-auto px-4 py-8">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-4xl font-bold text-white">
-            Panneau ADS - HACKBOOT
-          </h1>
-          <button
-            onClick={handleLogout}
-            className="bg-red-500/20 hover:bg-red-500/30 text-red-400 px-6 py-2 rounded-lg border border-red-500/50 transition-all"
-          >
-            Déconnexion
-          </button>
-        </div>
+    <div className="min-h-screen bg-black">
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute top-16 -left-24 w-72 h-72 bg-blue-500/5 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-12 -right-28 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl animate-float-delayed" />
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-          <div className="bg-gray-800/50 backdrop-blur-xl rounded-xl p-6 border border-purple-500/20">
-            <h3 className="text-lg font-semibold text-gray-300 mb-2">Vues totales</h3>
-            <p className="text-3xl font-bold text-white">12,847</p>
-            <p className="text-sm text-green-400 mt-2">+12% ce mois</p>
-          </div>
-
-          <div className="bg-gray-800/50 backdrop-blur-xl rounded-xl p-6 border border-purple-500/20">
-            <h3 className="text-lg font-semibold text-gray-300 mb-2">Clics</h3>
-            <p className="text-3xl font-bold text-white">3,421</p>
-            <p className="text-sm text-green-400 mt-2">+8% ce mois</p>
-          </div>
-
-          <div className="bg-gray-800/50 backdrop-blur-xl rounded-xl p-6 border border-purple-500/20">
-            <h3 className="text-lg font-semibold text-gray-300 mb-2">Conversions</h3>
-            <p className="text-3xl font-bold text-white">847</p>
-            <p className="text-sm text-green-400 mt-2">+15% ce mois</p>
-          </div>
-        </div>
-
-        <div className="bg-gray-800/50 backdrop-blur-xl rounded-xl p-6 border border-purple-500/20">
-          <h2 className="text-2xl font-bold text-white mb-4">
-            Campagnes actives
-          </h2>
-          <div className="space-y-4">
-            <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-700">
-              <div className="flex justify-between items-center">
-                <div>
-                  <h3 className="text-lg font-semibold text-white">Campagne Overwatch</h3>
-                  <p className="text-sm text-gray-400">Banner principal</p>
-                </div>
-                <div className="text-right">
-                  <p className="text-lg font-bold text-purple-400">1,234 vues</p>
-                  <p className="text-sm text-gray-400">CTR: 2.8%</p>
-                </div>
+      <div className="relative z-10">
+        <header className="border-b border-white/10 bg-black/50 backdrop-blur-xl">
+          <div className="container mx-auto px-6 py-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <h1 className="text-2xl font-display font-bold gradient-text">ADS Dashboard</h1>
+                <p className="text-sm text-gray-400 mt-1">
+                  Welcome back, <span className="text-purple-400">{user.username}</span>
+                </p>
               </div>
-            </div>
 
-            <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-700">
-              <div className="flex justify-between items-center">
-                <div>
-                  <h3 className="text-lg font-semibold text-white">Campagne Warzone</h3>
-                  <p className="text-sm text-gray-400">Sidebar</p>
-                </div>
-                <div className="text-right">
-                  <p className="text-lg font-bold text-purple-400">987 vues</p>
-                  <p className="text-sm text-gray-400">CTR: 3.2%</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-700">
-              <div className="flex justify-between items-center">
-                <div>
-                  <h3 className="text-lg font-semibold text-white">Campagne Valorant</h3>
-                  <p className="text-sm text-gray-400">Footer</p>
-                </div>
-                <div className="text-right">
-                  <p className="text-lg font-bold text-purple-400">756 vues</p>
-                  <p className="text-sm text-gray-400">CTR: 2.1%</p>
-                </div>
-              </div>
+              <button
+                onClick={handleLogout}
+                className="flex items-center gap-2 px-4 py-2 glass-effect rounded-xl hover:bg-white/10 transition-colors"
+              >
+                <LogOut className="w-4 h-4" />
+                <span className="text-sm">Logout</span>
+              </button>
             </div>
           </div>
-        </div>
+        </header>
+
+        <main className="container mx-auto px-6 py-12">
+          <div className="mb-8">
+            <h2 className="text-3xl font-display font-bold mb-2">Creative Tools</h2>
+            <p className="text-gray-400">Generate advertising content quickly and efficiently</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+            {tools.map((tool) => (
+              <div
+                key={tool.id}
+                className={`relative group ${
+                  tool.available
+                    ? 'cursor-pointer hover:scale-[1.02]'
+                    : 'cursor-not-allowed opacity-60'
+                } transition-all duration-300`}
+                onClick={() => {
+                  if (tool.available) {
+                    router.push(tool.href)
+                  }
+                }}
+              >
+                <div className="glass-effect rounded-2xl p-6 border border-white/10 h-full">
+                  <div
+                    className={`inline-flex items-center justify-center w-14 h-14 rounded-xl bg-gradient-to-r ${tool.gradient} mb-4`}
+                  >
+                    <tool.icon className="w-7 h-7 text-white" />
+                  </div>
+
+                  <h3 className="text-xl font-display font-bold mb-2">{tool.name}</h3>
+                  <p className="text-gray-400 text-sm mb-4">{tool.description}</p>
+
+                  {!tool.available && (
+                    <div className="inline-flex items-center gap-2 px-3 py-1 bg-yellow-500/10 border border-yellow-500/20 rounded-full">
+                      <span className="text-xs text-yellow-400 font-medium">Coming Soon</span>
+                    </div>
+                  )}
+
+                  {tool.available && (
+                    <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span className="text-sm text-purple-400 font-medium">Open →</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 glass-effect rounded-2xl p-6 border border-white/10">
+            <div className="flex items-start gap-4">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center">
+                <Sparkles className="w-5 h-5 text-purple-400" />
+              </div>
+              <div>
+                <h3 className="text-lg font-semibold mb-1">Quick Tips</h3>
+                <ul className="text-sm text-gray-400 space-y-1">
+                  <li>• Use the Social Media Images tool to create ads in various formats</li>
+                  <li>• All generated content is automatically optimized for web</li>
+                  <li>• Export in PNG, WEBP, or JPG formats with custom dimensions</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </main>
       </div>
     </div>
   )

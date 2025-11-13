@@ -150,8 +150,6 @@
       "performance": "Jõudlus",
       "about": "Meist",
       "careers": "Karjäär",
-      "press": "Ajakirjandus",
-      "partners": "Partnerid",
       "documentation": "Dokumentatsioon",
       "api": "API",
       "support": "Tugi",
@@ -272,12 +270,12 @@
           "desc": "99.9% tööaeg"
         },
         {
-          "icon": "🚀",
+          "icon": "Rocket",
           "title": "Innovatsioon",
           "desc": "Tipptasemel tehnoloogia"
         },
         {
-          "icon": "💎",
+          "icon": "Gem",
           "title": "Kvaliteet",
           "desc": "Preemium teenus"
         }
@@ -306,7 +304,7 @@
           "description": "Innovatsioon on meie DNA südamikus"
         },
         {
-          "icon": "🤝",
+          "icon": "Handshake",
           "title": "Läbipaistvus",
           "description": "Avatud ja aus suhtlus meie klientidega"
         }
@@ -321,7 +319,7 @@
       },
       "principles": [
         {
-          "icon": "🌍",
+          "icon": "Globe",
           "title": "Remote First",
           "description": "Tööta kõikjalt maailmas",
           "details": [
@@ -331,7 +329,7 @@
           ]
         },
         {
-          "icon": "🚀",
+          "icon": "Rocket",
           "title": "Täielik autonoomia",
           "description": "Tee oma otsused, me usaldame sind",
           "details": [
@@ -361,7 +359,7 @@
           ]
         },
         {
-          "icon": "💎",
+          "icon": "Gem",
           "title": "Preemium kvaliteet",
           "description": "Teeme ainult tipptaset",
           "details": [
@@ -579,106 +577,140 @@
     "subtitle": "Rätseplahendused mänguritele ja tiimidele, kes nõuavad täiuslikkust.",
     "cta": "Räägi eksperdiga",
     "metrics": [
-      { "id": "uptime", "value": "99,9 %", "label": "Tagatud töökindlus" },
-      { "id": "clients", "value": "120+", "label": "Aktiivset pro klienti" },
-      { "id": "regions", "value": "8", "label": "Kaetud piirkonda" }
+      {
+        "id": "uptime",
+        "value": "99,9 %",
+        "label": "Tagatud töökindlus"
+      },
+      {
+        "id": "clients",
+        "value": "120+",
+        "label": "Aktiivset pro klienti"
+      },
+      {
+        "id": "regions",
+        "value": "8",
+        "label": "Kaetud piirkonda"
+      }
     ],
     "pillarsHeading": {
-      "title": "Meie tugisambad",
-      "subtitle": "Katame kogu teekonna esmasest juurutusest igapäevase toeni."
+      "title": "Mida me pakume",
+      "subtitle": "Tehnilisest toest kuni igapäevase abini."
     },
     "pillars": [
       {
         "id": "security",
-        "title": "Proaktiivne turvalisus",
-        "description": "Mitmekihiline kaitse, pidevad auditid ja anti-cheat järelevalve, et püsida nähtamatu.",
+        "title": "Kõrgtaseme turvalisus",
+        "description": "Mitmekihiline kaitse ja pidev anti-cheat järelevalve, et jääda nähtamatuks.",
         "bullets": [
-          "24/7 anti-cheat seire",
-          "Oma kernel-kilp",
-          "Pidev otsast lõpuni krüpteerimine"
+          "24/7 anti-cheat järelevalve",
+          "Oma kernel kaitse",
+          "Otsast lõpuni krüpteerimine"
         ]
       },
       {
         "id": "performance",
-        "title": "Häälestatud jõudlus",
-        "description": "Bare-metal klastrid, kaadri täpsusega GPU tuunimine ja võistluskesksed CI/CD torud.",
+        "title": "Kõrge jõudlus",
+        "description": "Pühendatud serverid, kõrgtaseme GPU optimeerimine ja automaatsed juurutused.",
         "bullets": [
-          "Pühendatud bare-metal klastrid",
-          "GPU häälestus kaader-kaadrilt",
-          "Reaalajas latentsuse monitooring"
+          "Kõrgjõudlusega serverid",
+          "Maksimaalne GPU optimeerimine",
+          "Reaalajas latentsuse jälgimine"
         ]
       },
       {
         "id": "partnership",
-        "title": "Pühendunud partnerlus",
-        "description": "Senior account manager, kohandatud playbookid ja kohene tugi meie privaatkanalites.",
+        "title": "Pühendatud tugi",
+        "description": "Isiklik kontohaldur, kohandatud juhised ja otsene tugi meie privaatkanalites.",
         "bullets": [
-          "Pühendatud account manager",
-          "Kohandatud playbookid",
-          "Kohene eskalatsioon Discordis"
+          "Pühendatud kontohaldur",
+          "Kohandatud juhised",
+          "Prioriteetne tugi Discordis"
+        ]
+      },
+      {
+        "id": "infrastructure",
+        "title": "Pilve infrastruktuur",
+        "description": "Kiire juurutus, automaatne ümberlülitus ja pidevad varukoopiad.",
+        "bullets": [
+          "Turvatud 10 Gbps võrk",
+          "Automaatne varukoopia",
+          "Täielik API integratsioon"
         ]
       }
     ],
     "solutions": {
-      "title": "Moodulid sinu eesmärkide jaoks",
-      "subtitle": "Kombineeri meie plokid, et liikumine juurutusest igapäevase toeni oleks katkematu.",
+      "title": "Meie teenused",
+      "subtitle": "Vali teenused, mis sobivad sinu vajadustega.",
       "items": [
         {
           "id": "cloud",
-          "title": "Cloud Ops & Scaling",
-          "description": "Automaatne provisioneerimine, mitme regiooni haare ja CI/CD torud, mis on ehitatud võistlusmängude jaoks.",
+          "title": "Cloud & skaleeritavus",
+          "description": "Automaatne juurutus, mitu piirkonda ja võistlusmängudeks ehitatud infrastruktuur.",
           "linkLabel": "Vaata pakette"
         },
         {
           "id": "competitive",
-          "title": "Anti-Cheat Labs",
-          "description": "Pidev reverse engineering, nullpäeva paigad ja auditi protokollid, et jääda märkamatuks.",
-          "linkLabel": "Uuri kataloogi"
+          "title": "Anti-Cheat turvalisus",
+          "description": "Pidev analüüs, kiired uuendused ja turvakontrollid nähtamatuks jäämiseks.",
+          "linkLabel": "Vaata mänge"
         },
         {
           "id": "custom",
-          "title": "Coaching & Integrations",
-          "description": "1:1 sessioonid, live-tugi ja sinu tööriistadega sobivad erilahendused.",
-          "linkLabel": "Broneeri kõne"
+          "title": "Tugi & Integratsioonid",
+          "description": "Isiklik tugi, otsene abi ja integratsioonid sinu tööriistadega.",
+          "linkLabel": "Võta meiega ühendust"
         }
       ]
     },
     "process": {
-      "title": "Tõestatud raamistik",
-      "subtitle": "Saadame sind avastamisest kuni stabiilse igapäevase tööni ilma katkestusteta.",
+      "title": "Meie meetod",
+      "subtitle": "Juhime sind algusest lõpuni.",
       "steps": [
         {
           "id": "discover",
-          "title": "Kick-off ja audit",
-          "description": "Kaardistame vajadused, jõudluseesmärgid ja turvanõuded."
+          "title": "Esmane analüüs",
+          "description": "Tuvastame sinu vajadused, eesmärgid ja piirangud."
         },
         {
           "id": "prototype",
-          "title": "Juhendatud prototüüp",
-          "description": "Seadistame testkeskkonna sinu tiimi jaoks sobivate eelseadistustega."
+          "title": "Testimise faas",
+          "description": "Seadistame sinu tiimile sobiva testkeskkonna."
         },
         {
           "id": "deploy",
-          "title": "Orkestreeritud juurutus",
-          "description": "Järk-järguline aktiveerimine, ühine järelevalve ja referentsdokumentatsioon."
+          "title": "Tootmiskeskkonda juurutamine",
+          "description": "Järk-järguline aktiveerimine koos jälgimise ja täieliku dokumentatsiooniga."
         },
         {
           "id": "optimize",
-          "title": "Pidev optimeerimine",
-          "description": "Igakuised ülevaated, benchmarkid ja proaktiivsed muudatused pärisandmete põhjal."
+          "title": "Pidev täiustamine",
+          "description": "Regulaarne jälgimine ja kohandused sinu tagasiside põhjal."
         }
       ]
     },
     "contact": {
-      "title": "Broneeri sessioon",
-      "description": "Meie tiim vastab 24 tunni jooksul, et kaardistada vajadused ja koostada juurutusplaan.",
-      "cta": "Plaani kõne",
+      "title": "Arutame sinu projekti",
+      "description": "Meie tiim vastab 24 tunni jooksul.",
+      "cta": "Võta ühendust",
       "metrics": [
-        { "id": "sla", "value": "<5 min", "label": "Keskmine reageerimisaeg" },
-        { "id": "coverage", "value": "24/7", "label": "Tugi üle maailma" },
-        { "id": "satisfaction", "value": "98 %", "label": "Kliendirahulolu" }
+        {
+          "id": "sla",
+          "value": "<5 min",
+          "label": "Keskmine reageerimisaeg"
+        },
+        {
+          "id": "coverage",
+          "value": "24/7",
+          "label": "Tugi üle maailma"
+        },
+        {
+          "id": "satisfaction",
+          "value": "98 %",
+          "label": "Kliendirahulolu"
+        }
       ],
-      "note": "Prioriteetne Discordi ja WhatsAppi kanal aktiveeritakse kohe pärast lepingu sõlmimist."
+      "note": "Prioriteetne Discordi ja WhatsAppi kanal saadaval."
     }
   },
   "premium": {
@@ -686,6 +718,8 @@
     "title": "PREMIUM",
     "highlight": "PIIRAMATU",
     "description": "Ülim mängukogemus. Maksimaalne jõudlus, täielik kataloog ja paindlikud paketid.",
+    "plansTitle": "Meie premium paketid",
+    "popularBadge": "Populaarne",
     "benefits": [
       "Piiramatu ligipääs kõigile mängudele",
       "RTX 4090 GPU võimsus",
@@ -992,37 +1026,677 @@
     "plans": {
       "essentiel": {
         "name": "Essential pakett",
-        "description": "Usaldusväärne jõudlus ja täielik konfiguratori ligipääs koheseks alustamiseks.",
+        "description": "Põhitõed alustamiseks: 28h kogukonna mänge 1080p/60FPS eraldusvõimega.",
         "billing": "kuus",
         "features": [
-          "Juurdepääs standardsele pilveinfrastruktuurile",
-          "Kogukonna tugi",
-          "Regulaarsed turvauuendused",
-          "Populaarsete mängude kataloog kaasas"
+          "28h kogukonna mänge kuus",
+          "1080p eraldusvõime 60 FPS-ga",
+          "Juurdepääs kõikidele kogukonna mängudele",
+          "Pole juurdepääsu PulseForge'le",
+          "Ületamine: 0,99 €/h"
         ]
       },
       "avantage": {
         "name": "Advantage pakett",
-        "description": "Rohkem võimsust ja prioriteetne tugi sujuvaks kogemuseks.",
+        "description": "Rohkem tunde ja parem jõudlus madala nõudluse ajal 50h mängimisega.",
         "billing": "kuus",
         "features": [
-          "Täiendatud GPU jõudlus",
-          "Prioriteetne tugi 24/7",
-          "Ligipääs premium konfiguratsioonidele",
-          "Reaalajas analüütika töölaud"
+          "50h kogukonna mänge kuus",
+          "1080p/60 FPS eraldusvõime",
+          "1440p/120 FPS madala nõudluse tundidel",
+          "Juurdepääs kõikidele kogukonna mängudele",
+          "Pole juurdepääsu PulseForge'le",
+          "Ületamine: 0,89 €/h"
         ]
       },
       "élite": {
         "name": "Elite pakett",
-        "description": "Pühendatud infrastruktuur ja maksimaalne turvalisus kõige nõudlikumatele vajadustele.",
+        "description": "Tippkogemus PulseForge juurdepääsuga ja maksimaalne 1440p/120 jõudlus.",
         "billing": "kuus",
         "features": [
-          "Pühendatud RTX 4090 virtuaalmasin",
-          "Piiramatu HWID Spoofer",
-          "Isiklik tehniline konsultant",
-          "Hetkelised uuendused ja paigad"
+          "65h kogukonna mänge kuus",
+          "8h PulseForge mänge kuus",
+          "1440p eraldusvõime 120 FPS-ga",
+          "Eksklusivne juurdepääs PulseForge'le",
+          "Juurdepääs kõikidele kogukonna mängudele",
+          "Ületamine: 0,79 €/h kogukond",
+          "Ületamine: 1,79 €/h PulseForge"
         ]
       }
+    }
+  },
+  "gamesCarousel": {
+    "title": "Saadaolevad mängud",
+    "subtitle": "Klõpsake või lohistage meie mängukataloogi uurimiseks",
+    "viewAll": "Vaata kõiki mänge"
+  },
+  "premiumPlansSection": {
+    "title": "Vali oma Premium plaan",
+    "subtitle": "Paindlikud plaanid igat tüüpi mängijatele",
+    "cta": "Avasta plaanid"
+  },
+  "statsBar": {
+    "users": {
+      "value": "100K+",
+      "label": "Aktiivsed kasutajad"
+    },
+    "uptime": {
+      "value": "99.9%",
+      "label": "Garanteeritud töötamine"
+    },
+    "latency": {
+      "value": "<5ms",
+      "label": "Keskmine latentsus"
+    },
+    "games": {
+      "value": "10+",
+      "label": "Toetatud mängud"
+    }
+  },
+  "unifiedFeatures": {
+    "badge": "Miks Hackboot",
+    "title": "Tipptase kõigis valdkondades",
+    "subtitle": "Maailmatasemel mängimine, turvalisus ja pilvetaristu"
+  },
+  "socialProof": {
+    "badge": "Nad usaldavad meid",
+    "title": "Liitu tuhandete rahulolev mängijatega",
+    "subtitle": "Avasta, mida meie kasutajad Hackbooti kohta arvavad",
+    "avgRating": "Keskmine hinnang",
+    "totalReviews": "Positiivsed arvustused",
+    "satisfaction": "Rahulolu",
+    "testimonials": [
+      {
+        "name": "Alex M.",
+        "role": "Proffimängija",
+        "text": "Hackboot muutis minu mängukogemuse täielikult. Erakordne jõudlus ja minimaalne latentsus.",
+        "rating": 5
+      },
+      {
+        "name": "Sarah K.",
+        "role": "Striimer",
+        "text": "Parim pilvemängu lahendus, mida olen testinud. Reageeriv tugi ja ülim stabiilne taristu.",
+        "rating": 5
+      },
+      {
+        "name": "Tom R.",
+        "role": "Espordi meeskond",
+        "text": "Meie meeskond on kasutanud Hackbooti 6 kuud. Null probleeme, jõudlus täidetud. 100% soovitatud.",
+        "rating": 5
+      }
+    ]
+  },
+  "faq": {
+    "badge": "Korduma kippuvad küsimused",
+    "title": "On küsimusi?",
+    "subtitle": "Leia kiiresti vastused kõige levinumatele küsimustele",
+    "moreQuestions": "On veel küsimusi?",
+    "contactButton": "Võta ühendust meie toega",
+    "questions": [
+      {
+        "question": "Kas Hackboot on seaduslik?",
+        "answer": "Jah, Hackboot tegutseb Eesti jurisdiktsiooni all, kus mängumodifikatsioonide arendamine ja kasutamine on täielikult seaduslik. Me järgime rangelt kõiki kohaldatavaid seadusi ja oleme Eestis registreeritud ja litsentseeritud ettevõte (VMCloud Group OÜ)."
+      },
+      {
+        "question": "Milliseid mänge toetatakse?",
+        "answer": "Me toetame üle 10 populaarse mängu, sealhulgas Valorant, Apex Legends, Overwatch 2, Fortnite, Call of Duty Warzone, CS2, Rainbow Six Siege, PUBG ja Rust. Uusi pealkirju lisatakse regulaarselt."
+      },
+      {
+        "question": "Kuidas turvalisus töötab?",
+        "answer": "Me kasutame mitmekihilist tuuma-tasemel kaitset integreeritud HWID spooferiga. Meie tehnoloogia on tuvastatamatu 0% tuvastamisega kõigil platvormidel. E2E krüpteerimine ja 24/7 monitooring teie turvalisuse tagamiseks."
+      },
+      {
+        "question": "Kas saan tellimuse igal ajal tühistada?",
+        "answer": "Jah, saate tellimuse igal ajal tühistada ilma varjatud tasudeta või kohustusteta. Teie juurdepääs jääb aktiivseks kuni makstud perioodi lõpuni."
+      },
+      {
+        "question": "Millist riistvara on vaja?",
+        "answer": "Konkreetset riistvara pole vaja! Hackboot töötab täielikult pilves. Teil on vaja ainult stabiilset internetiühendust (vähemalt 10 Mbps) ja kaasaegset brauserit."
+      },
+      {
+        "question": "Kuidas klienditoe töötab?",
+        "answer": "Meie tugi on saadaval 24/7 Discordi, e-posti ja WhatsAppi kaudu. Keskmine reageerimisaeg alla 5 minuti. Preemiumklientidele on saadaval pühendunud kontohaldurid."
+      },
+      {
+        "question": "Kas on prooviaeg?",
+        "answer": "Pakume erinevaid plaane, mis sobivad kõigile vajadustele. Saate alustada meie Essential Packiga alates 27,90 €/kuus, et testida meie teenuseid enne kõrgemale plaanile üleminekut."
+      },
+      {
+        "question": "Millist jõudlust võin oodata?",
+        "answer": "Meie RTX 4090 ja i9-13900K-ga varustatud serverid pakuvad erakordset jõudlust: 240+ FPS 1080p juures, <5ms latentsus ja 99,9% garanteeritud töötamine. Jõudlus sõltub teie valitud plaanist."
+      }
+    ]
+  },
+  "finalCTA": {
+    "badge": "Valmis alustama?",
+    "title": "Liitu mängueliidiga",
+    "subtitle": "Alusta oma Hackbooti seiklust täna. Maksimaalne jõudlus, täielik turvalisus, 24/7 tugi.",
+    "primaryButton": "Alusta kohe",
+    "secondaryButton": "Räägi eksperdiga",
+    "feature1": "Seadistamine 5 minutiga",
+    "feature2": "Kohustuseta",
+    "feature3": "24/7 tugi",
+    "disclaimer": "Üle 100 000 mängija usaldab meid juba"
+  },
+  "careers": {
+    "badge": "Liitu meeskonnaga",
+    "title": "Ehitame mängude tulevikku koos",
+    "subtitle": "Liitu kirglike meeskonnaga, kes surub pilvemängude piire. Tööta innovaatiliste projektide kallal koos tipptehnoloogiatega.",
+    "stats": {
+      "openings": "Avatud ametikohad",
+      "countries": "Riigid",
+      "remote": "100% kaugtöö",
+      "growth": "Aastane kasv"
+    },
+    "filters": {
+      "all": "Kõik ametikohad",
+      "department": "Osakond",
+      "type": "Tüüp",
+      "location": "Asukoht"
+    },
+    "departments": {
+      "technical": "Tehnilne meeskond",
+      "content": "Sisu ja partnerlused",
+      "marketing": "Turundus ja müük",
+      "support": "Klienditugi"
+    },
+    "types": {
+      "full-time": "Täistööaeg",
+      "part-time": "Osaline tööaeg",
+      "contract": "Leping",
+      "internship": "Praktika"
+    },
+    "jobs": {
+      "cloud-engineer": {
+        "title": "Pilvinsener",
+        "shortDescription": "Projekteeri ja halda meie pilveinfrastruktuuri jõudluse ja skaleeritavuse tagamiseks.",
+        "description": "Liitu meie tehnilise meeskonnaga, et ehitada ja hooldada tugev ja skaleeritav pilveinfrastruktuur.",
+        "responsibilities": [
+          "Pilvearhitektuuride projekteerimine ja juurutamine (AWS, GCP, Azure)",
+          "Juurutuste ja infrastruktuuri halduse automatiseerimine",
+          "Pilvekulude ja jõudluse optimeerimine",
+          "Teenuste kõrge kättesaadavuse ja vastupidavuse tagamine",
+          "Koostöö dev meeskondadega pidevaks integreerimiseks"
+        ],
+        "requirements": [
+          "3+ aastat kogemust pilvearhitektuuris",
+          "Vähemalt ühe suure pilveplatvormi valdamine",
+          "Kogemus Kubernetes, Dockeriga",
+          "Terraform, CloudFormation või Pulumi tundmine",
+          "DevOps põhimõtete mõistmine"
+        ],
+        "benefits": [
+          "100% kaugtöö, töötage kust iganes",
+          "Premium varustus kaasas",
+          "Koolituste ja pilvesertifikaatide eelarve",
+          "Innovatilised tehnilised projektid",
+          "Kirglik rahvusvaheline meeskond"
+        ]
+      },
+      "frontend-backend-developer": {
+        "title": "Front-end / Back-end arendaja",
+        "shortDescription": "Arendage kaasaegseid veebirakendusi React, Next.js ja Node.js-iga.",
+        "description": "Otsime mitmekülgset arendajat, kes töötaks meie kogu platvormi stägil.",
+        "responsibilities": [
+          "Kaasaegsete kasutajaliideste arendamine (React, Next.js)",
+          "Jõudlike RESTful API-de loomine (Node.js, Express)",
+          "Täisvirna funktsioonide rakendamine otsast lõpuni",
+          "Frontend ja backend jõudluse optimeerimine",
+          "Osalemine tehniliste arhitektuuri otsustes"
+        ],
+        "requirements": [
+          "2+ aastat veebiarenduse kogemust",
+          "React ja Next.js valdamine",
+          "Kogemus Node.js ja andmebaasidega",
+          "TypeScript teadmised",
+          "Kirglik puhtaks koodiks ja parimateks tavadeks"
+        ],
+        "benefits": [
+          "Kaasaegne ja innovatiline tehnoloogia",
+          "Täielik ajakava paindlikkus",
+          "Remote-first esimesest päevast",
+          "Mängukultuur ja jagatud kirg",
+          "Toetav ja koostööaldis meeskond"
+        ]
+      },
+      "network-specialist": {
+        "title": "Võrguekspert",
+        "shortDescription": "Tagage meie globaalse võrguinfrastruktuuri jõudlus ja turvalisus.",
+        "description": "Liituge meie meeskonnaga, et hallata ja optimeerida meie üle maailma võrguinfrastruktuuri.",
+        "responsibilities": [
+          "Võrguarhitektuuri projekteerimine ja hooldamine",
+          "Võrgu jõudluse ja latentsuse optimeerimine",
+          "CDN ja koormuse jaotamise lahenduste rakendamine",
+          "Võrguturbe haldamine (tulemüürid, VPN, DDoS kaitse)",
+          "Kriitiliste võrguintsidentide lahendamine"
+        ],
+        "requirements": [
+          "3+ aastat võrguhalduse kogemust",
+          "TCP/IP, DNS, BGP protokollide valdamine",
+          "Kogemus CDN ja load balancer'itega",
+          "Võrgu jälgimise tööriistade tundmine",
+          "Võrgusertifikaadid on teretulnud (CCNA, CCNP)"
+        ],
+        "benefits": [
+          "Globaalne infrastruktuur haldamiseks",
+          "Tipptasemel võrgutehnoloogiad",
+          "Remote varustusega",
+          "Pidev koolitus ja sertifikaadid",
+          "Kirglik tech meeskond"
+        ]
+      },
+      "security-expert": {
+        "title": "Turvaekspert",
+        "shortDescription": "Kaitse meie infrastruktuuri ja kasutajaid küberrünnakute eest.",
+        "description": "Otsime turvaeksperti, kes tugevdaks meie platvormi ja kasutajate kaitset.",
+        "responsibilities": [
+          "Infrastruktuuri ja rakenduste turbe audit",
+          "Turvameetmete rakendamine (WAF, IDS/IPS, SIEM)",
+          "Turvaintsidentide haldamine ja vastused",
+          "Meeskondade koolitus turbe parimatest tavadest",
+          "Regulaarsete pentestide ja hindamiste läbiviimine"
+        ],
+        "requirements": [
+          "4+ aastat kogemust küberturvalisuses",
+          "Turvavahendite valdamine (SIEM, WAF, IDS/IPS)",
+          "Kogemus pentestingus ja haavatavuse hindamises",
+          "OWASP Top 10, SANS Top 25 tundmine",
+          "Turbusertifikaadid on teretulnud (CEH, OSCP, CISSP)"
+        ],
+        "benefits": [
+          "Sertifikaatide ja turbekoolituste eelarve",
+          "Tipptasemel turvatehnoloogiad",
+          "Väljakutsuvad ja mitmekesised projektid",
+          "Remote täieliku paindlikkusega",
+          "Tugev turvakultuur"
+        ]
+      },
+      "game-acquisition-manager": {
+        "title": "Mängude hankimise juht",
+        "shortDescription": "Tuvastage ja hankige parimad mängud meie pilvemänguplatvormile.",
+        "description": "Liituge meie sisumereskonnaga, et rikastada meie kataloogi kõige põnevamate mängudega turul.",
+        "responsibilities": [
+          "Mänguhankimise võimaluste tuvastamine ja hindamine",
+          "Lepingute läbirääkimine arendajate ja kirjastajatega",
+          "Suhete haldamine mängupartneritega",
+          "Videomängude turu trendide analüüsimine",
+          "Sisu hankimise strateegia määratlemine"
+        ],
+        "requirements": [
+          "3+ aastat kogemust videomängu tööstuses",
+          "Kindel võrgustik mängutööstuses",
+          "Suurepärased läbirääkimisoskused",
+          "Põhjalik videomänguturu tundmine",
+          "Kirg mängude ja uute trendide vastu"
+        ],
+        "benefits": [
+          "Töötage peamiste stuudiotega",
+          "Otsene mõju meie kataloogile",
+          "Osalemine mängusündmustel (GDC, Gamescom)",
+          "Remote aeg-ajalt reisimisega",
+          "Mängude kirg meeskond"
+        ]
+      },
+      "partnership-manager": {
+        "title": "Partnerluste juht",
+        "shortDescription": "Arendage strateegilisi partnerlusi, et kiirendada meie kasvu.",
+        "description": "Otsime partnerluste juhti, kes arendaks meie ökosüsteemi ja strateegilisi koostööd.",
+        "responsibilities": [
+          "Strateegiliste partnerluste tuvastamine ja arendamine",
+          "Partnerluse lepingute läbirääkimine ja struktureerimine",
+          "Olemasolevate partneritega suhete haldamine",
+          "Partnerluste tulemuste mõõtmine",
+          "Koostöö toote- ja turundusmeeskondadega"
+        ],
+        "requirements": [
+          "2+ aastat partnerluste arendamise kogemust",
+          "Suurepärased suhted ja läbirääkimisoskused",
+          "Võime tuvastada strateegilisi võimalusi",
+          "Kogemus tehnoloogias või mängudes on teretulnud",
+          "Vaba inglise keel nõutud"
+        ],
+        "benefits": [
+          "Otsene mõju ettevõtte kasvule",
+          "Rahvusvaheline partnerite võrgustik",
+          "Remote geograafilise paindlikkusega",
+          "Ettevõtluskultuur",
+          "Dünaamiline ja ambitsioonikkas meeskond"
+        ]
+      },
+      "content-curator": {
+        "title": "Sisu kuraator",
+        "shortDescription": "Looge ja haldage kaasahaaravat sisu meie mängurite kogukonnale.",
+        "description": "Liituge meie sisumereskonnaga, et luua kaasahaaravaid kogemusi ja kvaliteetset sisu meie kasutajatele.",
+        "responsibilities": [
+          "Platvormi sisu loomine ja haldamine",
+          "Mängude organiseerimine kategooriateks ja kollektsioonideks",
+          "Mängude kirjelduste ja juhendite kirjutamine",
+          "Mängusisu trendide tuvastamine",
+          "Koostöö turundus- ja kogukonnameeskondadega"
+        ],
+        "requirements": [
+          "2+ aastat sisu kuratsiooni või mängukirjutamise kogemust",
+          "Suurepärane mänguuniversumi tundmine",
+          "Tugevad kirjutamisoskused",
+          "Loovus ja esteetiline taju",
+          "Kirg videomängude vastu nõutud"
+        ],
+        "benefits": [
+          "Mängige ja avastage mänge eelvaates",
+          "Mõju kasutajakogemusele",
+          "100% kaugtöö",
+          "Loov ja kirglik meeskond",
+          "Tugev mängukultuur"
+        ]
+      },
+      "digital-marketing-specialist": {
+        "title": "Digitaalse turunduse spetsialist",
+        "shortDescription": "Arendage meie turunuskampaaniaid uute kasutajate hankimiseks ja kaasamiseks.",
+        "description": "Otsime digitaalse turunduse spetsialisti, et suurendada meie kasvu ja teadlikkust.",
+        "responsibilities": [
+          "Mitmekanalisete turunduskampaaniate loomine ja haldamine",
+          "SEO/SEM jõudluse optimeerimine",
+          "Tasuliste reklaamide kampaaniate haldamine (Google, Meta, TikTok)",
+          "KPI-de analüüsimine ja ROI optimeerimine",
+          "Koostöö sisu- ja tootemeeskondadega"
+        ],
+        "requirements": [
+          "2+ aastat digitaalse turunduse kogemust",
+          "Google Ads, Meta Ads valdamine",
+          "SEO/SEM teadmised",
+          "Analüütilised oskused (Google Analytics, Mixpanel)",
+          "Kogemus tehnoloogias või mängudes on teretulnud"
+        ],
+        "benefits": [
+          "Oluline turunduseelarve",
+          "Autonoomia ja vastutus",
+          "Remote-first",
+          "Kaasaegsed vahendid ja tehnoloogiad",
+          "Mõõdetav mõju kasvule"
+        ]
+      },
+      "public-relations-manager": {
+        "title": "Avalike suhete juht",
+        "shortDescription": "Arendage meie kaubamärgi kuvandit ja haldage meie suhteid meedia ja mõjutajatega.",
+        "description": "Liituge meie meeskonnaga, et hallata meie mainet ja arendada meie meediapresentsust mänguindutuses.",
+        "responsibilities": [
+          "PR strateegia väljatöötamine ja täitmine",
+          "Suhete haldamine mängumeediaga",
+          "Sündmuste ja pressikonverentside korraldamine",
+          "Koostöö mõjutajate ja sisu loojatega",
+          "Kommunikatsioonikriiside haldamine vajaduse korral"
+        ],
+        "requirements": [
+          "3+ aastat avalike suhete kogemust",
+          "Võrgustik mängumeedias",
+          "Suurepärased kommunikatsioonioskused",
+          "Sündmuste kogemus",
+          "Vaba inglise keel nõutud"
+        ],
+        "benefits": [
+          "Osalemine peamistel mängusündmustel",
+          "Meedia ja mõjutajate võrgustik",
+          "Nähtavus ja tööstuse mõju",
+          "Remote reisimisega",
+          "Koostööaldis kultuur"
+        ]
+      },
+      "market-analyst": {
+        "title": "Turuanalüütik",
+        "shortDescription": "Analüüsige turutrendid, et suunata meie äri- ja tootestrat strateegiaid.",
+        "description": "Otsime turuanalüütikut, kes aitaks meil mõista mänguturg ja suunata meie strateegilisi otsuseid.",
+        "responsibilities": [
+          "Pilvemängude turu trendide analüüs",
+          "Turuuuringute ja konkurentsivõrdluste läbiviimine",
+          "Kasvu võimaluste tuvastamine",
+          "Analüüsiraportite ja soovituste koostamine",
+          "Koostöö toote- ja ärilumeeskondadega"
+        ],
+        "requirements": [
+          "2+ aastat turuanalüüsi kogemust",
+          "Suurepärased analüütilised oskused",
+          "Exceli, BI tööriistade valdamine (Tableau, Power BI)",
+          "Mänguturu tundmine on teretulnud",
+          "Süntees ja selge kommunikatsioon"
+        ],
+        "benefits": [
+          "Otsene mõju ettevõtte strateegiale",
+          "Juurdepääs mänguturu andmetele",
+          "100% kaugtöö",
+          "Tipptasemel analüüsivahendid",
+          "Andmepõhine meeskond"
+        ]
+      },
+      "technical-support-agent": {
+        "title": "Tehnilise toe agent",
+        "shortDescription": "Aidake meie kasutajatel tehnilisi probleeme lahendada ja platvormi täielikult nautida.",
+        "description": "Liituge meie tugimeeskonnaga, et pakkuda erakordset kliendikogemust meie mängijatle.",
+        "responsibilities": [
+          "Kasutajate tehniliste küsimuste vastamine",
+          "Tehniliste probleemide lahendamine (ühendus, jõudlus, vead)",
+          "Teadmusbaasi loomine ja hooldamine",
+          "Keerukate probleemide suunamine tech meeskondadele",
+          "Kasutajate tagasiside kogumine"
+        ],
+        "requirements": [
+          "1+ aasta tehnilise toe kogemus",
+          "Head tehnilised teadmised (võrk, PC, brauserid)",
+          "Suurepärased kommunikatsioonioskused",
+          "Kannatlikkus ja empaatia",
+          "Kirg videomängude vastu on teretulnud"
+        ],
+        "benefits": [
+          "Täielik koolitus pakutud",
+          "Remote paindlike tundidega",
+          "Toetav tugimeeskond",
+          "Kasvuvõimalused",
+          "Mängu- ja lõbuskultuur"
+        ]
+      },
+      "community-moderator": {
+        "title": "Kogukonna moderaator",
+        "shortDescription": "Animeerige ja modereerige meie mängijate kogukonda, et luua positiivne ja kaasahaarav keskkond.",
+        "description": "Otsime kirglikku moderaatorit, kes haldaks meie kogukonda ja loaks kõigile külalislahke ruumi.",
+        "responsibilities": [
+          "Arutelude modereerimine Discordis, foorumites, sotsiaalmeedia",
+          "Kogukonna animeerimine sündmuste ja väljakutsetega",
+          "Kogukonna küsimustele vastamine",
+          "Kogukonna reeglite jõustamine",
+          "Tagasiside edastamine tootemeeskondadele"
+        ],
+        "requirements": [
+          "1+ aasta modereerimise või kogukonna juhtimise kogemus",
+          "Suurepärased suhtlemisoskused",
+          "Õhtune ja nädalavahetuse kättesaadavus (paindlikud vahetused)",
+          "Discord ja sotsiaalmeedia tundmine",
+          "Kirg videomängude vastu nõutud"
+        ],
+        "benefits": [
+          "Mängukogukonna südames",
+          "100% kaugtöö",
+          "Paindlikud tunnid",
+          "Lõbus ja kirglik meeskond",
+          "Juurdepääs mängudele ja sündmusele"
+        ]
+      }
+    },
+    "apply": {
+      "title": "Kandideeri nüüd",
+      "subtitle": "Liitu Hackboot seiklusega",
+      "description": "Täida allolev vorm ja võtame sinuga 48 tunni jooksul ühendust. Ole ise, me vihkame jura.",
+      "form": {
+        "personalInfo": {
+          "title": "Isikuandmed",
+          "firstName": "Eesnimi",
+          "firstNamePlaceholder": "Jaan",
+          "lastName": "Perekonnanimi",
+          "lastNamePlaceholder": "Tamm",
+          "email": "E-post",
+          "emailPlaceholder": "jaan.tamm@example.com",
+          "phone": "Telefon",
+          "phonePlaceholder": "+372 5123 4567",
+          "location": "Asukoht",
+          "locationPlaceholder": "Tallinn, Eesti"
+        },
+        "jobInfo": {
+          "title": "Töö info",
+          "position": "Soovitud ametikoht",
+          "positionPlaceholder": "Nt: Vanem Full Stack arendaja",
+          "department": "Osakond",
+          "departmentPlaceholder": "Inseneriteadus, Disain, DevOps...",
+          "startDate": "Saadavuse kuupäev",
+          "startDatePlaceholder": "Kohe / 1 kuu pärast / 3 kuu pärast"
+        },
+        "application": {
+          "title": "Sinu kandidatuur",
+          "cv": "CV (ainult PDF)",
+          "cvHelp": "Max suurus: 5 MB - Aktsepteeritud formaat: PDF",
+          "motivation": "Motivatsioonikiri",
+          "motivationPlaceholder": "Miks Hackboot? Mis sind selle ametikoha juures põnevdab? Ole autentne, pole vaja klišeesid.",
+          "salary": "Palgaootused (aasta bruto)",
+          "salaryPlaceholder": "Nt: €60 000 - €80 000",
+          "portfolio": "Portfoolio / GitHub / LinkedIn",
+          "portfolioPlaceholder": "https://github.com/sinu-kasutajanimi"
+        },
+        "additional": {
+          "title": "Mõned lisaküsimused",
+          "remote": "Töö eelistus",
+          "remoteOptions": {
+            "full": "100% Kaugtöö",
+            "hybrid": "Hübriid",
+            "office": "Kontor"
+          },
+          "availability": "Intervjuu saadavus",
+          "availabilityPlaceholder": "Nt: Esmaspäev-Reede pärast kella 14",
+          "message": "Sõnum / Küsimused",
+          "messagePlaceholder": "Kas sul on küsimusi? Midagi öelda? Me kuulame."
+        },
+        "consent": {
+          "gdpr": "Nõustun, et minu andmeid töödeldakse kandideerimise raames (GDPR nõuetele vastav)",
+          "newsletter": "Soovin saada Hackboot uudiseid (valikuline)"
+        },
+        "submit": "Saada kandidatuur",
+        "submitting": "Saatmine...",
+        "success": {
+          "title": "Kandidatuur saadetud!",
+          "message": "Täname kandideerimise eest. Meie meeskond vaatab selle läbi ja võtab sinuga 48 tunni jooksul ühendust.",
+          "cta": "Tagasi tööpakkumiste juurde"
+        },
+        "errors": {
+          "required": "See väli on kohustuslik",
+          "email": "Vale e-post",
+          "fileSize": "Fail on liiga suur (max 5 MB)",
+          "fileType": "Vale faili formaat (ainult PDF)",
+          "general": "Tekkis viga. Palun proovi uuesti."
+        }
+      }
+    },
+    "culture": {
+      "title": "Meie kultuur",
+      "subtitle": "Mis teeb meid ainulaadseks",
+      "values": [
+        {
+          "icon": "Globe",
+          "title": "Kaugtöö eelistatuim",
+          "description": "Tööta kus tahes, millal tahes. Täielik vabadus."
+        },
+        {
+          "icon": "Rocket",
+          "title": "Pidev innovatsioon",
+          "description": "Tipptehnoloogiad ja väljakutsuvad projektid iga päev."
+        },
+        {
+          "icon": "Gem",
+          "title": "Tipptase",
+          "description": "Kõrged standardid ja detailidele tähelepanu kõiges, mida teeme."
+        },
+        {
+          "icon": "Handshake",
+          "title": "Läbipaistvus",
+          "description": "Avatud ja aus suhtlus kõigil tasanditel."
+        }
+      ]
+    },
+    "perks": {
+      "title": "Hüved ja boonused",
+      "items": [
+        {
+          "icon": "DollarSign",
+          "title": "Konkurentsivõimeline hüvitis",
+          "description": "Turumaksest kõrgem palk + aktsiaid + boonused"
+        },
+        {
+          "icon": "Home",
+          "title": "100% kaugtöö",
+          "description": "Tööta kus tahes maailmas"
+        },
+        {
+          "icon": "Clock",
+          "title": "Paindlikud tunnid",
+          "description": "Halda oma aega nagu soovid"
+        },
+        {
+          "icon": "BookOpen",
+          "title": "Pidev koolitus",
+          "description": "Piiramatu eelarve koolitusteks ja konverentsideks"
+        },
+        {
+          "icon": "Laptop",
+          "title": "Tippriistvara",
+          "description": "Tipptasemel töövarustus pakutud"
+        },
+        {
+          "icon": "Umbrella",
+          "title": "Helde puhkus",
+          "description": "4+ nädalat tasulist puhkust aastas"
+        },
+        {
+          "icon": "Heart",
+          "title": "Tervis ja heaolu",
+          "description": "Premiumi tervisekindlustus + spordi/heaolu eelarve"
+        },
+        {
+          "icon": "Gamepad2",
+          "title": "Mänguhüved",
+          "description": "Tasuta juurdepääs kõigile meie toodetele + mängud"
+        }
+      ]
+    },
+    "process": {
+      "title": "Meie värbamisprotsess",
+      "subtitle": "Lihtne, läbipaistev ja kiire",
+      "steps": [
+        {
+          "number": "1",
+          "title": "Kandidatuur",
+          "description": "Saada oma CV ja portfoolio meie vormi kaudu"
+        },
+        {
+          "number": "2",
+          "title": "Esialgne kõne",
+          "description": "30-minutiline kõne meeskonnaliikmega"
+        },
+        {
+          "number": "3",
+          "title": "Tehniline test",
+          "description": "Ametikoha-kohandatud tehniline väljakutse (2-4h)"
+        },
+        {
+          "number": "4",
+          "title": "Lõppintervjuu",
+          "description": "Kohtu meeskonnaga ja kultuuriarutelu"
+        },
+        {
+          "number": "5",
+          "title": "Pakkumine",
+          "description": "Töö pakkumine ja sisseelamine"
+        }
+      ]
+    },
+    "cta": {
+      "title": "Ei leia täiuslikku positsiooni?",
+      "description": "Saada meile spontaanne kandidatuur, otsime alati erakordseid talente.",
+      "button": "Spontaanne kandidatuur"
     }
   }
 }
