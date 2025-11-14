@@ -1,5 +1,39 @@
 # Journal des Actions - Hackboot
 
+## 2025-11-13
+
+### Fix: Correction des credentials admin pour la page ads
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+**Status**: ✅ Complété
+
+#### Problème identifié:
+Le mot de passe admin stocké dans `/data/ads-users.json` utilisait un ancien hash bcrypt qui ne correspondait pas au mot de passe "admin". L'utilisateur ne pouvait pas se connecter à la page ads avec les credentials admin/admin.
+
+#### Actions réalisées:
+
+**1. Analyse du système d'authentification**
+   - Route API: `/app/api/ads/login/route.ts` utilise bcrypt pour vérifier les mots de passe
+   - Fichier utilisateurs: `/data/ads-users.json` contient les utilisateurs avec `passwordHash`
+   - Identifié que le hash existant ne correspondait pas au mot de passe "admin"
+
+**2. Génération nouveau hash bcrypt**
+   - Installé les dépendances npm (bcryptjs)
+   - Généré nouveau hash bcrypt pour le mot de passe "admin"
+   - Hash: `$2b$10$rETCu6Nrww9HfsiIw48hTOKPrCyiH9rIQbDzvNMzrtCbnSfsKHuqq`
+
+**3. Mise à jour du fichier ads-users.json**
+   - Remplacé l'ancien passwordHash par le nouveau
+   - Credentials fonctionnels: username="admin", password="admin"
+
+#### Résultat:
+✅ L'utilisateur peut maintenant se connecter à la page ads avec admin/admin
+
+#### Fichiers modifiés:
+- `/data/ads-users.json` - Mise à jour du passwordHash
+
+---
+
 ## 2025-11-06
 
 ### Feature: Refonte complète des postes et départements carrières

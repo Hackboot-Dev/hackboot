@@ -2,7 +2,7 @@
   {
     "id": "admin-001",
     "username": "admin",
-    "passwordHash": "$2b$10$bL/x1cKjhSfEVGxwKv3oW.ky.tJOkoOeYntkPTD8vBBIhcl1T55Hq",
+    "passwordHash": "$2b$10$rETCu6Nrww9HfsiIw48hTOKPrCyiH9rIQbDzvNMzrtCbnSfsKHuqq",
     "role": "admin",
     "permissions": ["create", "edit", "delete", "publish"],
     "createdAt": "2025-10-29T00:00:00.000Z"
