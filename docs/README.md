@@ -23,6 +23,10 @@ Bienvenue dans la documentation du projet Hackboot. Ce fichier sert d'index prin
 - **[SECURITY.md](./SECURITY.md)** - Documentation sécurité complète (à créer)
 - **[SECURITY_ADS.md](./SECURITY_ADS.md)** - Documentation sécurité du système d'authentification ADS
 
+### 🔍 SEO et Optimisation
+
+- **[SEO_ANALYSIS.md](./SEO_ANALYSIS.md)** - Analyse SEO globale et plan d'optimisation
+
 ### 📂 Données
 
 - **[DATA_ARCHITECTURE.md](./DATA_ARCHITECTURE.md)** - Architecture et séparation des données (à créer)
