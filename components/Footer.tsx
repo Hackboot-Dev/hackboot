@@ -2,15 +2,7 @@
 
 import React, { memo } from 'react'
 import Link from 'next/link'
-import { Github, Twitter, Linkedin, Mail } from 'lucide-react'
 import { useI18n } from '@/lib/i18n-simple'
-
-const socials = [
-  { icon: Github, href: 'https://github.com/hackboot', label: 'GitHub' },
-  { icon: Twitter, href: 'https://twitter.com/hackboot', label: 'Twitter' },
-  { icon: Linkedin, href: 'https://linkedin.com/company/hackboot', label: 'LinkedIn' },
-  { icon: Mail, href: 'mailto:contact@hackboot.gg', label: 'Email' },
-]
 
 export default memo(function Footer() {
   const { t, locale } = useI18n()
@@ -76,24 +68,9 @@ export default memo(function Footer() {
           ))}
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10">
-          <div className="text-gray-400 mb-4 md:mb-0">
+        <div className="pt-8 border-t border-white/10">
+          <div className="text-gray-400 text-center">
             {t.footer.copyright.replace('{{year}}', currentYear.toString())}
-          </div>
-
-          <div className="flex gap-4">
-            {socials.map(({ icon: Icon, href, label }) => (
-              <a
-                key={label}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 glass-effect rounded-full hover:bg-white/10 transition-all"
-                aria-label={label}
-              >
-                <Icon className="w-5 h-5" />
-              </a>
-            ))}
           </div>
         </div>
       </div>
