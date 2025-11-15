@@ -30,6 +30,11 @@ export const metadata: Metadata = {
   creator: 'Hackboot - VMCloud Group OÜ',
   publisher: 'VMCloud Group OÜ',
   manifest: '/manifest.json',
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 5,
+  },
   robots: {
     index: true,
     follow: true,
@@ -84,7 +89,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html className={`${inter.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <head>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-6404SH7E8J"

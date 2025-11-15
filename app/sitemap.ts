@@ -73,12 +73,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Add dynamic career pages
   try {
-    const careers = careersData as Array<{ id: string; slug: string }>
-    careers.forEach((career) => {
-      entries.push(
-        ...generateLocalizedUrls(`careers/${career.slug}`, 0.6, 'monthly')
-      )
-    })
+    const careers = careersData as { jobs: Array<{ id: string }> }
+    if (careers.jobs && Array.isArray(careers.jobs)) {
+      careers.jobs.forEach((career) => {
+        entries.push(
+          ...generateLocalizedUrls(`careers/${career.id}`, 0.6, 'monthly')
+        )
+      })
+    }
   } catch (error) {
     console.error('Error loading careers for sitemap:', error)
   }

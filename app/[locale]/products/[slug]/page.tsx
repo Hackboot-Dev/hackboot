@@ -24,47 +24,75 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = await params
+  const { slug, locale } = await params
   const product = getGamingProductBySlug(slug)
 
   if (!product) {
     return {
-      title: 'Produit non trouvé - HACKBOOT',
-      description: 'Le produit demandé n\'a pas été trouvé.'
+      title: 'Product Not Found - Hackboot',
+      description: 'The requested product was not found.'
     }
   }
 
+  // Generate SEO-optimized keywords (avoid "cheat" for Google)
+  const seoKeywords = [
+    product.name,
+    product.game,
+    `${product.game} cloud gaming`,
+    'cloud gaming VM',
+    'gaming performance',
+    'high FPS gaming',
+    product.variants[0]?.gpu || 'RTX 4090',
+    'gaming optimization',
+    'competitive gaming',
+    ...product.variants.slice(0, 2).map(v => v.tier),
+  ].filter(Boolean)
+
+  // Optimize title for SEO (60 chars max)
+  const seoTitle = `${product.name} Cloud Gaming | ${product.game} | Hackboot`
+
+  // Optimize description (150-160 chars for best SERP display)
+  const seoDescription = `${product.description.slice(0, 140)}... ${product.variants[0]?.gpu} VM, optimized for competitive ${product.game} gaming.`
+
+  // Dynamic locale mapping
+  const localeMap: Record<string, string> = {
+    'fr': 'fr_FR',
+    'en': 'en_US',
+    'et': 'et_EE'
+  }
+
   return {
-    title: `${product.name} - HACKBOOT Gaming`,
-    description: product.description,
-    keywords: [product.name, product.game, 'gaming', 'cheat', ...product.variants.map(v => v.name)],
+    title: seoTitle,
+    description: seoDescription,
+    keywords: seoKeywords.join(', '),
     openGraph: {
-      title: `${product.name} - HACKBOOT Gaming`,
-      description: product.description,
+      title: seoTitle,
+      description: seoDescription,
       images: [
         {
-          url: product.variants[0].image,
+          url: product.variants[0]?.image || '/og-image.png',
           width: 1200,
           height: 630,
-          alt: product.name
+          alt: `${product.name} - ${product.game} Cloud Gaming`
         }
       ],
       type: 'website',
-      siteName: 'HACKBOOT',
-      locale: 'fr_FR',
+      siteName: 'Hackboot',
+      locale: localeMap[locale] || 'en_US',
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${product.name} - HACKBOOT Gaming`,
-      description: product.description,
-      images: [product.variants[0].image],
+      title: seoTitle,
+      description: seoDescription,
+      images: [product.variants[0]?.image || '/og-image.png'],
+      creator: '@hackboot',
     },
     alternates: {
-      canonical: `https://hackboot.com/fr/products/${slug}`,
+      canonical: `https://hackboot.com/${locale}/products/${slug}`,
       languages: {
-        'fr': `/fr/products/${slug}`,
-        'en': `/en/products/${slug}`,
-        'et': `/et/products/${slug}`
+        'fr': `https://hackboot.com/fr/products/${slug}`,
+        'en': `https://hackboot.com/en/products/${slug}`,
+        'et': `https://hackboot.com/et/products/${slug}`
       }
     },
     robots: {
