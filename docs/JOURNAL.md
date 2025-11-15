@@ -2,6 +2,33 @@
 
 ## 2025-11-15
 
+### Feature: Suppression des icônes de réseaux sociaux du footer
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+**Commit**: a43bf25
+**Status**: ✅ Complété
+
+#### Objectif:
+Retirer les icônes de réseaux sociaux (GitHub, Twitter, LinkedIn, Email) qui s'affichaient en bas à droite du footer sur toutes les pages.
+
+#### Actions réalisées:
+
+**1. Nettoyage du composant Footer**
+   - ❌ Supprimé les imports `Github, Twitter, Linkedin, Mail` de lucide-react
+   - ❌ Supprimé le tableau `socials` (4 liens sociaux)
+   - ❌ Supprimé la section d'affichage des icônes (lignes 84-97)
+   - ✅ Simplifié le footer avec copyright centré uniquement
+
+**2. Fichiers modifiés**
+   - `/components/Footer.tsx` : 25 lignes supprimées, 2 ajoutées
+
+**3. Résultat**
+   - ✅ Footer minimaliste et épuré
+   - ✅ Copyright centré au bas de page
+   - ✅ Plus d'icônes de réseaux sociaux
+
+---
+
 ### Feature: Suppression du bandeau de test en production
 **Heure**: Session actuelle
 **Développeur**: Assistant Claude
