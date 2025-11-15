@@ -57,7 +57,7 @@ export default function HeroLight() {
           {t?.hero?.subtitle || ''}
         </p>
 
-        <div className="flex justify-center">
+        <div className="flex items-center justify-center w-full">
           <Link
             href={`/${locale}/premium`}
             className="px-8 py-4 bg-accent text-white rounded-full transition-transform duration-300 hover:-translate-y-1 hover:bg-accent/90"
@@ -67,7 +67,7 @@ export default function HeroLight() {
         </div>
       </div>
 
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/60 animate-bounce">
+      <div className="absolute bottom-10 left-0 right-0 flex justify-center text-white/60 animate-bounce">
         <ChevronDown className="w-8 h-8" />
       </div>
 
