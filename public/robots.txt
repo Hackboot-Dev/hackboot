@@ -1,0 +1,20 @@
+# robots.txt - Hackboot
+# Updated: 2025-11-15
+
+User-agent: *
+Allow: /
+
+# Block internal tools and admin pages
+Disallow: /ads/
+Disallow: /ads/dashboard/
+
+# Block data directory (contains business data, not for indexing)
+Disallow: /data/
+
+# Allow all locales
+Allow: /fr/
+Allow: /en/
+Allow: /et/
+
+# Sitemap location
+Sitemap: https://hackboot.com/sitemap.xml
