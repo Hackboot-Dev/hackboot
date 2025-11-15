@@ -2,7 +2,6 @@ import type { Metadata } from 'next'
 import { Inter, Space_Grotesk } from 'next/font/google'
 import Script from 'next/script'
 import AnimatedBackground from '@/components/AnimatedBackground'
-import TestDataBanner from '@/components/TestDataBanner'
 import './globals.css'
 
 const inter = Inter({
@@ -76,7 +75,6 @@ export default function RootLayout({
         </Script>
       </head>
       <body className={inter.className}>
-        <TestDataBanner />
         <AnimatedBackground />
         <div className="relative z-10">
           {children}
