@@ -2,6 +2,32 @@
 
 ## 2025-11-15
 
+### Feature: Suppression du bouton "Watch Demo" du hero
+**Heure**: Session actuelle
+**Développeur**: Assistant Claude
+**Commit**: 4a622bb
+**Status**: ✅ Complété
+
+#### Objectif:
+Retirer le bouton secondaire "Watch Demo" de la section hero et ne garder que le bouton principal "Démarrer" (Get Started).
+
+#### Actions réalisées:
+
+**1. Simplification du hero**
+   - ❌ Supprimé le bouton "Watch Demo" (glass-effect)
+   - ✅ Conservé uniquement le bouton CTA principal "Get Started"
+   - ✅ Simplifié le conteneur flex (retiré flex-row et gap-4)
+
+**2. Fichiers modifiés**
+   - `/components/HeroLight.tsx` : 4 lignes supprimées, 1 ajoutée
+
+**3. Résultat**
+   - ✅ Hero simplifié avec un seul CTA centré
+   - ✅ Design épuré et focus sur l'action principale
+   - ✅ Meilleure conversion attendue
+
+---
+
 ### Feature: Suppression des icônes de réseaux sociaux du footer
 **Heure**: Session actuelle
 **Développeur**: Assistant Claude
